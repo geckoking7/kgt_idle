@@ -1,0 +1,1218 @@
+body{
+	font-family: Calibri;
+	background: rgb(200,200,200);
+	margin: 0;
+}
+h1{
+	font-weight: bold;
+}
+h2{
+	
+}
+h3{
+	
+}
+.start{
+	font-family: arial;
+	margin: 20px;
+}
+.bloc{
+	display: block;
+}
+.hide{
+	display: none;
+}
+.startB{
+	background: grey;
+	color: blue;
+	font-size: 30px;
+	padding: 5px 10px;
+	font-weight: bold;
+	border-color: grey;
+	margin: 20px;
+}
+.startB:hover{
+	background: rgb(175,175,175);
+}
+.show{
+	display: show;
+}
+.tooltipt{
+	background: rgb(170,225,255);
+	margin: 0px;
+	border-style: double double none double;
+	border-width: 10px;
+	text-align: center;
+}
+.tooltipm{
+	background: rgb(170,225,255);
+	margin: 0px;
+	border-style: none double none double;
+	border-width: 10px;
+	text-align: center;
+}
+.tooltipb{
+	background: rgb(170,225,255);
+	margin: 0px;
+	border-style: none double double double;
+	border-width: 10px;
+	text-align: center;
+}
+.continue{
+	background: grey;
+	color: black;
+	font-size: 30px;
+	padding: 5px 10px;
+	font-weight: bold;
+	border-color: black;
+	text-align: center;
+	width: 100%;
+	border-style: double;
+}
+.continue:hover{
+	background: rgb(175,175,175);
+}
+.open{
+	background: grey;
+	border-color: grey;
+	border-left: none;
+	border-top: none;
+	margin: 5px 0px 5px 5px;
+	width: 137px;
+	height: 30px;
+}
+.open:hover{
+	background: rgb(150,150,150);
+}
+.locked{
+	background: rgb(170,170,170);
+	border-color: rgb(170,170,170);
+	border-left: none;
+	border-top: none;
+	margin: 5px 0px 5px 5px;
+	width: 137px;
+	height: 30px;
+}
+.openS{
+	background: url('setbut.png');
+	border-color: grey;
+	border-left: none;
+	border-top: none;
+	margin: 0px 0px 0px 0px;
+	position: absolute;
+	left: 1169px;
+	top: 5px;
+	width: 30px;
+	height: 30px;
+}
+.openS:hover{
+	background: url('setbuthover.png');
+}
+.full{
+	background: #ff8888;
+	border-color: #dd6666;
+}
+.full:hover{
+	background: #ffaaaa;
+}
+img{
+	position: absolute;	
+	left: 5px;
+	top: 52px;
+	height: 600px;
+}
+#logo{
+	position: relative;
+	margin-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 250px;
+	width: 250px;
+}
+.blocc{
+	display: block;
+}
+.elibr{
+	background-image: url('enemylibrary.png');
+	position: absolute;
+	top: 58px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+	z-index: 1;
+}
+.elibr:hover{
+	background-image: url('enemylibraryhover.png');
+}
+.ttack{
+	background: url('attack.png');
+	position: absolute;
+	top: 80px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+	transform: scaleX(-1);
+}
+.ttack:hover{
+	background: url('attackHover.png');
+}
+.attack{
+	background: url('attack.png');
+	position: absolute;
+	top: 80px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.attack:hover{
+	background: url('attackHover.png');
+}
+.attackCool{
+	background: url('attackCool.png');
+	position: absolute;
+	top: 80px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.pattack{
+	background: url('Pattack.png');
+	position: absolute;
+	top: 80px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.pattack:hover{
+	background: url('PattackHover.png');
+}
+.pattackCool{
+	background: url('PattackCool.png');
+	position: absolute;
+	top: 80px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.fattack{
+	background: url('Fattack.png');
+	position: absolute;
+	top: 80px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.fattack:hover{
+	background: url('FattackHover.png');
+}
+.fattackCool{
+	background: url('FattackCool.png');
+	position: absolute;
+	top: 80px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.block{
+	background: url('block.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.block:hover{
+	background: url('blockhover.png');
+}
+.blockcool{
+	background: url('blockcool.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.blockon{
+	background: url('blockon.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.shield{
+	background: url('shield.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.shield:hover{
+	background: url('shieldhover.png');
+}
+.shieldcool{
+	background: url('shieldcool.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.shieldon{
+	background: url('shieldon.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.dodge{
+	background: url('dodge.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.dodge:hover{
+	background: url('dodgehover.png');
+}
+.dodgecool{
+	background: url('dodgecool.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.player{
+	position: absolute;
+	margin: 0;
+	height: 225px;
+	width: 210;
+	top: 244px;
+	left: 225px;
+	margin: 0;
+}
+.enemy{
+	position: absolute;
+	margin: 0;
+	height: 225px;
+	top: 275px;
+	left: 625px;
+}
+.benemy{
+	position: absolute;
+	margin: 0;
+	height: 329px;
+	top: 275px;
+	left: 625px;
+}
+.cenemy{
+	position: absolute;
+	margin: 0;
+	height: 396px;
+	top: 104px;
+	left: 625px;
+}
+.denemy{
+	position: absolute;
+	margin: 0;
+	height: 157px;
+	top: 236px;
+	left: 549px;
+}
+.btnr{
+	position: absolute;
+	background-color: red;
+	padding: 8px;
+	border-radius: 50%;
+}
+.btny{
+	position: absolute;
+	background-color: yellow;
+	padding: 8px;
+	border-radius: 50%;
+}
+.btng{
+	position: absolute;
+	background-color: green;
+	padding: 8px;
+	border-radius: 50%;
+}
+.btnb{
+	position: absolute;
+	background-color: blue;
+	padding: 8px;
+	border-radius: 50%;
+}
+.btnr:hover{
+	background-color: rgb(255,175,175)
+}
+.btny:hover{
+	background-color: rgb(255,255,175)
+}
+.btng:hover{
+	background-color: rgb(175,255,175)
+}
+.btnb:hover{
+	background-color: rgb(175,175,255)
+}
+.tutZo{
+	top: 122px;
+	left: 170px;
+}
+.field{
+	top: 155px;
+	left: 197px;
+}
+.sky{
+	top: 127px;
+	left: 243px;
+}
+.school{
+	top: 182px;
+	left: 168px;
+}
+.ameair{
+	top: 113px;
+	left: 294px;
+}
+.area51{
+	top: 139px;
+	left: 339px;
+}
+.caves{
+	top: 211px;
+	left: 196px;
+}
+.mines{
+	top: 187px;
+	left: 233px;
+}
+.coderslab{
+	top: 169px;
+	left: 291px;
+}
+.taroy{
+	top: 173px;
+	left: 372px;
+}
+
+.tconb{
+	top: 256px;
+	left: 163px;
+}
+#maxHealth{
+	position: absolute;
+	width: 250px;
+	height: 30px;
+	background-color: white;
+	top: 500px;
+	left: 200px;
+	z-index: 1;
+}
+#health{
+	position: absolute;
+	width: 0;
+	height: 30px;
+	background-color: red;
+	z-index: 2;
+}
+#eMaxHealth{
+	position: absolute;
+	width: 250px;
+	height: 30px;
+	background-color: white;
+	top: 500px;
+	left: 600px;
+	z-index: 1;
+}
+#eHealth{
+	position: absolute;
+	width: 0;
+	height: 30px;
+	background-color: red;
+	z-index: 2;
+}
+.lore{
+	position: absolute;
+	opacity: 0.9;
+	left: 160px;
+	top: 90px;
+	z-index: 1;
+	background: #eee;
+	padding: 10px;
+	width: 690px
+}
+.ch1but{
+	z-index: 2;
+	position: absolute;
+	left: 800px;
+	width: 50px;
+	top: 235px;
+	background: #ccc;
+	border: none;
+}
+.ch9but{
+	z-index: 2;
+	position: absolute;
+	left: 800px;
+	width: 50px;
+	top: 235px;
+	background: grey;
+	border: none;
+}
+.ch1but:hover{
+	background: #ddd;
+}
+.papercut{
+	background: url('papercut.png') no-repeat;
+}
+.vent{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	border: none;
+}
+.empty{
+	background-image: url('ventEmpty.png');
+}
+.weapon{
+	background-image: url('weapon.png')
+}
+.head{
+	background-image: url('head.png')
+}
+.body{
+	background-image: url('body.png')
+}
+.legs{
+	background-image: url('legs.png')
+}
+.shoe{
+	background-image: url('shoe.png')
+}
+.access{
+	background-image: url('access.png')
+}
+.starterCap{
+	background-image: url('starterCap.png')
+}
+.stick{
+	background-image: url('stickweapon.png')
+}
+.healthstone{
+	background-image: url('healthstone.png');
+}
+.damagestone{
+	background-image: url('damagestone.png')
+}
+.defencestone{
+	background-image: url('defencestone.png')
+}
+.regenerationstone{
+	background-image: url('regenerationstone.png')
+}
+.healthstone2{
+	background-image: url('healthstone2.png');
+}
+.damagestone2{
+	background-image: url('damagestone2.png')
+}
+.defencestone2{
+	background-image: url('defencestone2.png')
+}
+.regenerationstone2{
+	background-image: url('regenerationstone2.png')
+}
+.healthstone2a{
+	background-image: url('healthstone2.gif');
+}
+.damagestone2a{
+	background-image: url('damagestone2.gif')
+}
+.defencestone2a{
+	background-image: url('defencestone2.gif')
+}
+.regenerationstone2a{
+	background-image: url('regenerationstone2.gif')
+}
+.sneaker{
+	background-image: url('sneaker.png')
+}
+.fang{
+	background-image: url('fang.png')
+}
+.rabbithide{
+	background-image: url('rabbithide.png')
+}
+.sachet{
+	background-image: url('sachet.png');
+}
+.air{
+	background-image: url('air.png');
+}
+.lwing{
+	background-image: url('leftwing.png');
+}
+.rwing{
+	background-image: url('rightwing.png');
+}
+.paper{
+	background-image: url('paperItem.png');
+}
+.stilts{
+	background-image: url('stilts.png');
+}
+.scissor{
+	background-image: url('scissor.png');
+}
+.rwing{
+	background-image: url('rightwing.png');
+}
+.waterbottle{
+	background-image: url('waterbottle.png');
+}
+.vodkabottle{
+	background-image: url('vodkabottle.png');
+}
+.pencil{
+	background-image: url('pencil.png');
+}
+.deagle{
+	background-image: url('deagle.png');
+}
+.jetpack{
+	background-image: url('jetpack.png');
+}
+.glasses{
+	background-image: url('pilotglasses.png');
+}
+.lasergun{
+	background-image: url('lasergun.png');
+}
+.thebox{
+	background-image: url('box.png');
+}
+.thestone{
+	background-image: url('stonei.png');
+}
+.thestrat{
+	background-image: url('strat.png');
+}
+.uranium{
+	background-image: url('uranium.png');
+}
+.windows9{
+	background-image: url('windows9.png');
+}
+.lava{
+	background-image: url('lavabucket.png');
+}
+.torch{
+	background-image: url('torchi.png');
+}
+.jeans{
+	background-image: url('jeans.png');
+}
+.boot{
+	background-image: url('boot.png');
+}
+.parrystone{
+	background-image: url('parrystone.png');
+}
+.astone{
+	background-image: url('stonei2.png');
+}
+.pickaxe{
+	background-image: url('pickaxei.png');
+}
+.wheels{
+	background-image: url('wheels.png');
+}
+.minercap{
+	background-image: url('minercap.png');
+}
+.gears{
+	background-image: url('gears.png');
+}
+.gold{
+	background-image: url('gold.png');
+}
+.hoe{
+	background-image: url('hoei.png');
+}
+.ram{
+	background-image: url('ram.png');
+}
+.useall{
+	background-image: url('useall.png');
+}
+.useall:hover{
+	background-image: url('useallhover.png');
+}
+#trainB{
+	background-image: url('trainingB.png');
+	position: absolute;
+	top: 98px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+	z-index: 1;
+}
+#trainB:hover{
+	background-image: url('trainingBhover.png');
+}
+#xpB{
+	background-image: url('xpB.png');
+	position: absolute;
+	top: 138px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+	z-index: 1;
+}
+#xpB:hover{
+	background-image: url('xpBhover.png');
+}
+.xpdcr{
+	background-image: url('xprdc.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpdcr:hover{
+	background-image: url('xprdchover.png');
+}
+.xpdcg{
+	background-image: url('xpgdc.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpdcg:hover{
+	background-image: url('xpgdchover.png');
+}
+.xptsr{
+	background-image: url('xprts.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xptsr:hover{
+	background-image: url('xprtshover.png');
+}
+.xptsg{
+	background-image: url('xpgts.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xptsg:hover{
+	background-image: url('xpgtshover.png');
+}
+.xpisr{
+	background-image: url('xpris.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpisr:hover{
+	background-image: url('xprishover.png');
+}
+.xpisg{
+	background-image: url('xpgis.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpisg:hover{
+	background-image: url('xpgishover.png');
+}
+.xpism{
+	background-image: url('xpmis.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+#attMP{
+    position: absolute;
+    left: 457px;
+    top: 138px;
+    width: 423px;
+    height: 37px;
+    background-color: rgb(195,195,195);
+	z-index: 1;
+}
+#attP{
+    position: absolute;
+    left: 457px;
+    top: 138px;
+    width: 0px;
+    height: 37px;
+    background-color: rgb(255,201,14);
+	z-index: 2;
+}
+#bloMP{
+    position: absolute;
+    left: 457px;
+    top: 194px;
+    width: 423px;
+    height: 37px;
+    background-color: rgb(195,195,195);
+	z-index: 1;
+}
+#bloP{
+    position: absolute;
+    left: 457px;
+    top: 194px;
+    width: 0px;
+    height: 37px;
+    background-color: rgb(255,201,14);
+	z-index: 2;
+}
+h5{
+	position: absolute;
+	display: absolute;
+}
+.mhp{
+	position: absolute;
+	left: 262px; 
+	top: 525px;
+	z-index: 2;
+}
+.att{
+	position: absolute; 
+	left: 262px; 
+	top: 542px;
+	z-index: 2;
+}
+.def{
+	position: absolute; 
+	left: 354px; 
+	top: 525px;
+	z-index: 2;
+}
+.reg{
+	position: absolute; 
+	left: 354px; 
+	top: 542px;
+	z-index: 2;
+}
+.mhpi{
+	position: absolute;
+	top: 343px;
+	left: 300px;
+	font-size: 25px;
+}
+.atti{
+	position: absolute;
+	top: 376px;
+	left: 300px;
+	font-size: 25px;
+}
+.defi{
+	position: absolute;
+	top: 409px;
+	left: 325px;
+	font-size: 25px;
+}
+.regi{
+	position: absolute;
+	top: 440;
+	left: 300px;
+	font-size: 25px;
+}
+.tutzobook{
+	background-image: url('tutorialbook.png');
+	left: 160px;
+	top: 120px;
+}
+.tutzobook:hover{
+	background-image: url('tutorialbookhover.png')
+}
+.fieldbook{
+	background-image: url('fieldbook.png');
+	left: 215px;
+	top: 120px;
+}
+.fieldbook:hover{
+	background-image: url('fieldbookhover.png')
+}
+.skybook{
+	background-image: url('skybook.png');
+	left: 270px;
+	top: 120px;
+}
+.skybook:hover{
+	background-image: url('skybookhover.png')
+}
+.schoolbook{
+	background-image: url('schoolbook.png');
+	left: 325px;
+	top: 120px;
+}
+.schoolbook:hover{
+	background-image: url('schoolbookhover.png')
+}
+#ameairbook{
+	background-image: url('ameairbook.png');
+	left: 380px;
+	top: 120px;
+}
+#ameairbook:hover{
+	background-image: url('ameairbookhover.png')
+}
+.ch5a{
+	top: 530px;
+}
+.ch6{
+	top: 490px;
+}
+.ch11a{
+	top: 470px;
+}
+.pageb{
+	position: absolute;
+	width: 75px;
+	background-color: grey;
+}
+.pageb:hover{
+	background-color: rgb(175,175,175);
+}
+.upgrade{
+	background-image: url('droneupgradebut.png');
+	top: 58px;
+	left: 45px;
+	width: 30px;
+	height: 30px;
+}
+.build{
+	background-image: url('dronebuildbut.png');
+	top: 58px;
+	left: 45px;
+	width: 30px;
+	height: 30px;
+}
+.upgrade:hover{
+	background-image: url('droneupgradebuthover.png');
+}
+.build:hover{
+	background-image: url('dronebuildbuthover.png');
+}
+.zl{
+	background-image: url('zonelib.png');
+	top: 138px;
+	left: 45px;
+	width: 30px;
+	height: 30px;	
+}
+.zl:hover{
+	background-image: url('zonelibhover.png');
+	top: 138px;
+	left: 45px;
+	width: 30px;
+	height: 30px;	
+}
+#stiBP{
+    position: absolute;
+    left: 587px;
+    top: 164px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#stiUP{
+    position: absolute;
+    left: 367px;
+    top: 164px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#stiMBP{
+    position: absolute;
+    left: 587px;
+    top: 164px;
+    width: 218px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+#stiMUP{
+    position: absolute;
+    left: 367px;
+    top: 164px;
+    width: 510px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+#kilBP{
+    position: absolute;
+    left: 587px;
+    top: 197px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#kilUP{
+    position: absolute;
+    left: 367px;
+    top: 197px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#kilMBP{
+    position: absolute;
+    left: 587px;
+    top: 197px;
+    width: 218px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+#kilMUP{
+    position: absolute;
+    left: 367px;
+    top: 197px;
+    width: 510px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+#fedBP{
+    position: absolute;
+    left: 587px;
+    top: 230px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#fedUP{
+    position: absolute;
+    left: 367px;
+    top: 230px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#fedMBP{
+    position: absolute;
+    left: 587px;
+    top: 230px;
+    width: 218px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+#fedMUP{
+    position: absolute;
+    left: 367px;
+    top: 230px;
+    width: 510px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+#sniBP{
+    position: absolute;
+    left: 587px;
+    top: 263px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#sniUP{
+    position: absolute;
+    left: 367px;
+    top: 263px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#sniMBP{
+    position: absolute;
+    left: 587px;
+    top: 263px;
+    width: 218px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+#sniMUP{
+    position: absolute;
+    left: 367px;
+    top: 263px;
+    width: 510px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+select{
+	width: 55px;
+	font-size: 12px;
+	position: absolute;
+}
+.usbinvent{
+	position: absolute;
+	background-image: url('usbinvent.png');
+	left: 45px;
+	top: 98px;
+	width: 30px;
+	height: 30px;
+}
+.usbinvent:hover{
+	background-image: url('usbinventhover.png');
+}
+.usb{
+	position: absolute;
+	height: 408px;
+	width: 124px;
+	border: none;
+}
+.umpty{
+	background-color: rgb(195,195,195); 
+}
+.trusb{
+	background-image: url('trainusb.png');
+}
+.d2usb{
+	background-image: url('drone2usb.png');
+}
+.ususb{
+	background-image: url('dupg1.png');
+}
+.ToEusb{
+	background-image: url('theoryusb.png');
+}
+.d3usb{
+	background-image: url('drone3usb.png');
+}
+.bsusb{
+	background-image: url('dbui1.png');
+}
+.rockusb{
+	background-image: url('rockyusb.png');
+}
+.WFUusb{
+	background-image: url('WFUusb.png');
+}
+.ToE2usb{
+	background-image: url('theoryusb2.png');
+}
+.d4usb{
+	background-image: url('drone4usb.png');
+}
+.d4Uusb{
+	background-image: url('drone4usbu.png');
+}
+#WFUlvlB{
+	background: url(WFUlvlB.png); 
+	width: 34; 
+	height: 34; 
+	position: absolute; 
+	top: 178; 
+	left: 328; 
+	margin: 0;
+	border: none;
+}
+#WFUlvlB:hover{
+	background: url(WFUlvlBhover.png); 
+}
+.on{
+	background: #dddddd;
+	border-width: 1px;
+}
+.on:hover{
+	background: #ffffff;
+}
+.off{
+	background: #888888;
+	border-width: 1px;
+}
+.off:hover{
+	background: #aaaaaa;
+}
+.achF{
+	position: absolute;
+	height: 30;
+	width: 30;
+	filter: brightness(0.7)
+}
+.achCT{
+	position: absolute;
+	height: 30;
+	width: 30;
+	filter: brightness(0.9)
+}
+.achCT:hover{
+	filter: brightness(1)
+}
+
+.achRT{
+	position: absolute;
+	height: 30;
+	width: 30;
+	filter: brightness(0.9)
+}
+.achRT:hover{
+	filter: brightness(1)
+}
+.achET{
+	position: absolute;
+	height: 30;
+	width: 30;
+	filter: brightness(0.9)
+}
+.achET:hover{
+	filter: brightness(1)
+}
+#statB{
+	position: absolute;
+	background-image: url('statsB.png');
+	top: 80px;
+	left: 45px;
+	width: 30px;
+	height: 30px;
+	border: none;
+}
+#statB:hover{
+	background-image: url('statsBhover.png');
+}
+#achiB{
+	position: absolute;
+	background-image: url('achB.png');
+	top: 120px;
+	left: 45px;
+	width: 30px;
+	height: 30px;
+	border: none;
+}
+#achiB:hover{
+	background-image: url('achBhover.png');
+}
+.cbthings{
+	background: #bbddff;
+}
+.cbthings:hover{
+	background: white;
+}
