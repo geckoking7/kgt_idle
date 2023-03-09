@@ -132,6 +132,21 @@
 			
 		} else {
 			localStorage.WFUlvl = 1
+			if (localStorage.DLVL){
+				
+			} else {
+				localStorage.DLVL = 0
+			}
+			if (localStorage.CDLVL){
+				
+			} else {
+				localStorage.CDLVL = 0
+			}
+			if (localStorage.HLVL){
+				
+			} else {
+				localStorage.HLVL = 0
+			}
 		}
 		if (localStorage.WFUcool){
 			
@@ -146,7 +161,7 @@
 			document.getElementById("miniplayer").style.background = 'url(miniStart.gif)'
 			document.getElementById('htp').classList.add('hide')
 			setTimeout(game,2000)
-			localStorage.WFUcool = 0 //Math.floor(300 * (100 - parseInt(localStorage.CDLVL)) / 100)
+			localStorage.WFUcool = Math.floor(300 * (100 - parseInt(localStorage.CDLVL)) / 100)
 			hp.textContent = parseInt(localStorage.HLVL) + 3
 			Mhp.textContent = parseInt(localStorage.HLVL) + 3
 		} else if (parseInt(localStorage.WFUcool) > 0){

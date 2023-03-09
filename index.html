@@ -57,6 +57,7 @@
 		<button title='What does it say?' class="locked hide" id="g">No touchy</button>
 		<button class="locked hide" id="h">don't</button>
 		<button class="openS hide" title='Settings and stuff' id="setB"></button>
+		<img src='red.png' id="red" style='width: 100%; height: 100%; opacity: 0; z-index: 69; pointer-events: none; position: absolute; left: 0; top: 0;'>
 		<!-- lore -->
 		<h4 class="lore hide" id="ch1">You wake up, in the middle of a something.<br>Confused of where you are, however, you have this feeling, of major dislike, of slightly less major hate.<br>Something, no, someone, has destroyed this place. Somebody needs to pay.<br>In front of you, you see a bunch of weird objects. What is this, green line, or the, flat piece of white.<br>Ok, what strange objects, but there is also this person next to them.<br><br>“Ah, Finally, you’re awake”</h4>
 		<img src="ch1back.png" alt="lore" class=" hide" id="ch1b">
@@ -222,6 +223,14 @@
 			<img src="FE.png" alt="Something u touchy alot" class="hide denemy" id="FE">
 			<button id='FEimg' class='dodge' style='left: 515; top: 110;' onclick='dodg(); FEdodg()'></button> <!-- left 515-875  top 110-460 --->
 			<img src="googol.png" alt="Something u touchy alot" class="hide denemy" id="googol">
+			<div id="CMG" class="hide">
+				<img src="CMG.png" alt="Something u touchy alot" class="denemy">
+				<h5 id='cmgA' style='width: 171; height: 15; top: 291; left: 628; color: black; background: white; text-align: center; margin: 0; padding: 0;'>What is 6 x 9?</h5>
+				<h5 id='cmgQ' style='width: 63; height: 34; top: 319; left: 608; color: #00FFFF; background: #FF0000; text-align: center; margin: 0; padding: 0; font-size: 20px;'>69</h5>
+				<h5 id='cmgW' style='width: 63; height: 34; top: 319; left: 682; color: #FF00FF; background: #00FF00; text-align: center; margin: 0; padding: 0; font-size: 20px;'>54</h5>
+				<h5 id='cmgE'style='width: 63; height: 34; top: 319; left: 756; color: #FFFF00; background: #0000FF; text-align: center; margin: 0; padding: 0; font-size: 20px;'>96</h5>
+			</div>
+			<img src="glasbygaming2.png" alt="Something u touchy alot" class="hide denemy" id="gasby">
 		</div>
 		<div id='players' style='position: absolute;'>
 			<img src="player.gif" alt="an idiot" class="player hide" id="player">
@@ -644,6 +653,7 @@ Restrictions: killed all enemies at caves at least once
 				<button title="Area 51" class="btnr area51" id="arepb"></button>
 				<button title="Caves" class="btnr caves" id="cavpb"></button>
 				<button title="Mines" class="btnr mines" id="minpb"></button>
+				<button title="Coders Lab" class="btnr coderslab" id="codpb"></button>
 			</div>
 			<div id='tutpa'>
 				<img src="tutorialpage.png" alt="stuff">
@@ -689,6 +699,12 @@ Restrictions: killed all enemies at caves at least once
 			</div>
 			<div id='minpa'>
 				<img src="minespage.png" alt="stuff">
+				<h5 title="Build" class="build" onmousedown=droneopen()></h5>
+				<h5 title="USB inventory" class="USBinvent" onmousedown=usbinventory()></h5>
+				<h5 title="Zone library" class="zl" onmousedown=zL()></h5>
+			</div>
+			<div id='codpa'>
+				<img src="codlabpage.png" alt="stuff">
 				<h5 title="Build" class="build" onmousedown=droneopen()></h5>
 				<h5 title="USB inventory" class="USBinvent" onmousedown=usbinventory()></h5>
 				<h5 title="Zone library" class="zl" onmousedown=zL()></h5>
@@ -906,6 +922,7 @@ Restrictions: killed all enemies at caves at least once
 		var MSnum = 0;
 		var MS5Tr = 0;
 		var MS6Tr = 0;
+		var Qn = 0;
 		function newSave(thing, value){
 			if (localStorage.getItem(thing)){
 				return true
@@ -1935,6 +1952,8 @@ Restrictions: killed all enemies at caves at least once
 				MS5Tr = 0
 				attDelay.textContent = 0
 				document.getElementById('edef%').textContent = 0
+				document.getElementById('red').style.opacity = 0
+				document.getElementById('player').setAttribute('src', 'player.gif')
 				if (ach10C.textContent === '0'){
 					achi10(0)
 					ach10C.textContent = 1
@@ -4228,7 +4247,7 @@ Restrictions: killed all enemies at caves at least once
 		function idrop(item,title,chance){
 			dropR = Math.floor(Math.random() * 10000) + 1
 			dropC = chance * parseFloat(DC.textContent)
-			if (item === 'sachet' && sachd.tedxtContent !== '0'){
+			if (item === 'sachet' && sachd.textContent !== '0'){
 				dropC = 0
 			}
 			if (dropR <= dropC){
@@ -11966,6 +11985,7 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('FE').classList.add('hide')
 					document.getElementById('FEimg').classList.add('hide')
 					document.getElementById('googol').classList.add('hide')
+					document.getElementById('CMG').classList.add('hide')
 					document.getElementById('z9back').setAttribute('src', 'coderslab3.png')
 					if (Math.floor(Math.random() * 10) === 0){
 						document.getElementById('z9back').setAttribute('src', 'coderslab2.png')
@@ -12088,7 +12108,7 @@ Restrictions: killed all enemies at caves at least once
 						emhp.textContent = 20
 						ehp.textContent = 20
 						eatt.textContent = 200
-						edef.textContent = 200
+						edef.textContent = 0
 						ereg.textContent = 0
 						eNHTr.textContent = 1
 						wikiTr = 0
@@ -12266,7 +12286,7 @@ Restrictions: killed all enemies at caves at least once
 						emhp.textContent = 20
 						ehp.textContent = 20
 						eatt.textContent = 200
-						edef.textContent = 200
+						edef.textContent = 0
 						ereg.textContent = 0
 						eNHTr.textContent = 1
 						document.getElementById("eHealth").style.width = 250
@@ -12321,7 +12341,7 @@ Restrictions: killed all enemies at caves at least once
 						emhp.textContent = 20
 						ehp.textContent = 20
 						eatt.textContent = 200
-						edef.textContent = 200
+						edef.textContent = 0
 						ereg.textContent = 0
 						document.getElementById("eHealth").style.width = 250
 						battle(0, 20)
@@ -12369,6 +12389,7 @@ Restrictions: killed all enemies at caves at least once
 								for (let i = 1; i < 20; i++) {
 									document.getElementById('codlab').removeChild(document.getElementById('FEimg' + i))
 								}
+								document.getElementById("eHealth").style.width = '0px'
 							} else {
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -12379,12 +12400,12 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500)
 							}
 						}
-					} else if (true){
+					} else if (false){
 						emhp.textContent = 20
 						ehp.textContent = 20
 						eatt.textContent = 200
 						edef.textContent = '0%'
-						ereg.textContent = 0
+						ereg.textContent = 0.1
 						document.getElementById('edef%').textContent = 1
 						eNHTr.textContent = 1
 						document.getElementById("eHealth").style.width = 250
@@ -12402,6 +12423,8 @@ Restrictions: killed all enemies at caves at least once
 									if (parseInt(dodgeOn.textContent) === 1){
 										edef.textContent = (parseInt(edef.textContent.slice(0,-1)) - 50) + '%'
 									}
+									document.getElementById('red').style.opacity = parseFloat(document.getElementById('red').style.opacity) + 0.01
+									document.getElementById('red').style.filter = 'brightness('+ (1 - (parseInt(edef.textContent.slice(0,-1)) / 100)) + ')'
 								}
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
@@ -12415,6 +12438,111 @@ Restrictions: killed all enemies at caves at least once
 								document.getElementById('player').classList.add('hide')
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500)
+							}
+						}
+					} else if (false){
+						emhp.textContent = 20
+						ehp.textContent = 20
+						eatt.textContent = 200
+						edef.textContent = 0
+						ereg.textContent = 0.2
+						eNHTr.textContent = 1
+						document.getElementById("eHealth").style.width = 250
+						battle(0, 20)
+						document.getElementById('CMG').classList.remove('hide')
+						function battle(ae, sp){
+							if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+								regen()
+								ae = ae + 1
+								if (ae === sp){
+									eattack()
+									ae = 0
+								}
+								setTimeout(battle, 50, ae, sp)
+							} else if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								document.getElementById('CMG').classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+								localStorage.xp = parseInt(localStorage.xp) + 120
+								eNHTr.textContent = 0
+								document.getElementById("eHealth").style.width = '0px'
+							} else if (parseFloat(hp.textContent) <= 0){
+								playerdead()
+								document.getElementById('player').classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+								eNHTr.textContent = 0
+							}
+						}
+					} else if (true){
+						emhp.textContent = 25
+						ehp.textContent = 25
+						eatt.textContent = 250
+						edef.textContent = 0
+						ereg.textContent = 0
+						eNHTr.textContent = 1
+						document.getElementById("eHealth").style.width = 250
+						battle(0, 16, 0)
+						document.getElementById('gasby').classList.remove('hide')
+						document.getElementById('player').setAttribute('src', 'playerLeg.gif')
+						function battle(ae, sp, yes){
+							if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+								regen()
+								ae = ae + 1
+								if (ae === sp){
+									if (document.getElementById('player').getAttribute('src') === 'playerLeg.gif'){
+										eatt.textContent = 125
+									} else if (document.getElementById('player').getAttribute('src') === 'playerLeg.gif'){
+										eatt.textContent = 250
+									} else if (document.getElementById('player').getAttribute('src') === 'playerLeg.gif'){
+										eatt.textContent = 375
+									}
+									if (yes === 1){
+										yes = 2
+										eatt.textContent = 0
+										ehp.textContent = 5 + parseInt(ehp.textContent)
+									} else if (yes === 2){
+										yes = 0
+										eatt.textContent = 750
+										document.getElementById('gasby').setAttribute('src', 'glasbygaming2.png')
+									}
+									eattack()
+									ae = 0
+									xixin = Math.floor(Math.random() * 16) + 1
+									if (xixin === 16 && document.getElementById('player').getAttribute('src') === 'playerLeg.gif'){
+										document.getElementById('player').setAttribute('src', 'playerHea.gif')
+									} else if (xixin < 5 && document.getElementById('player').getAttribute('src') === 'playerMid.gif'){
+										document.getElementById('player').setAttribute('src', 'playerHea.gif')
+									} else if (xixin < 5 && document.getElementById('player').getAttribute('src') === 'playerLeg.gif'){
+										document.getElementById('player').setAttribute('src', 'playerMid.gif')
+									}
+									if (dodgeOn.textContent === '1' && yes === 0){
+										document.getElementById('player').setAttribute('src', 'playerLeg.gif')
+										document.getElementById('player').setAttribute('src', 'playerDodgeG.gif')
+										setTimeout('dodgeAnOff', 175)
+									}
+									eatt.textContent = 250
+								} else if (ae < 17 - parseInt(localStorage.dodT) / 50 && ae > parseInt(localStorage.dodT) / 50 && dodgeOn.textContent === '1' && yes === 0){
+									document.getElementById('gasby').setAttribute('src', 'glasbygaming3.png')
+									document.getElementById('player').setAttribute('src', 'playerHea.gif')
+									yes = 1
+								}
+								setTimeout(battle, 50, ae, sp, yes)
+							} else if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								document.getElementById('gasby').classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+								localStorage.xp = parseInt(localStorage.xp) + 120
+								eNHTr.textContent = 0
+								document.getElementById("eHealth").style.width = '0px'
+							} else if (parseFloat(hp.textContent) <= 0){
+								playerdead()
+								document.getElementById('player').classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+								eNHTr.textContent = 0
 							}
 						}
 					}
@@ -12458,6 +12586,7 @@ Restrictions: killed all enemies at caves at least once
 						pdamaged(0)
 						if (parseInt(shieldOn.textContent) === 0){
 							hp.textContent =  parseFloat(hp.textContent) - dam
+							console.log('Player took ' + dam)
 						} else {
 							hp.textContent =  parseFloat(hp.textContent) - (dam * Math.round(((Math.round(((parseFloat(shiM.textContent) - (( 1 - (parseFloat(shiM.textContent))) * (1 - (1 / (parseFloat(bloL.textContent) ** 0.1))))) * 100))) / 100) * 100) / 100 )
 						}
@@ -12510,14 +12639,92 @@ Restrictions: killed all enemies at caves at least once
 				img.style.top = Math.floor(Math.random() * 350) + 110
 			}
 		}
+		function cmg(a){
+			if (Qn === 0 && a === document.getElementById('cmgW')){
+				ehp.textContent = parseInt(ehp.textContent) - 1
+			} else if (eval(a.textContent) === Qn){
+				ehp.textContent = parseInt(ehp.textContent) - 1
+			} else {
+				ehp.textContent = parseInt(ehp.textContent) + 3
+			}
+			yes = Math.floor(Math.random() * 3) + 1
+			Qn = 41 - Math.round((Math.floor(Math.random() * 100) + 1) ** 0.8)
+			cmgA.textContent = 'What is ' + complify(Qn)
+			if (yes === 1){
+				cmgQ.textContent = complify(Qn)
+				cmgW.textContent = complify(41 - Math.round((Math.floor(Math.random() * 100) + 1) ** 0.8))
+				cmgE.textContent = complify(41 - Math.round((Math.floor(Math.random() * 100) + 1) ** 0.8))
+			} else if (yes === 2){
+				cmgQ.textContent = complify(41 - Math.round((Math.floor(Math.random() * 100) + 1) ** 0.8))
+				cmgW.textContent = complify(Qn)
+				cmgE.textContent = complify(41 - Math.round((Math.floor(Math.random() * 100) + 1) ** 0.8))
+			} else if (yes === 3){
+				cmgQ.textContent = complify(41 - Math.round((Math.floor(Math.random() * 100) + 1) ** 0.8))
+				cmgW.textContent = complify(41 - Math.round((Math.floor(Math.random() * 100) + 1) ** 0.8))
+				cmgE.textContent = complify(Qn)
+			} else {
+				console.log(yes)
+			}
+		}
+		function complify(num){
+			x = Math.floor(Math.random() * 10) + 1
+			if (num === 1 && x < 6){
+				return Math.floor(Math.random() * 99 + 1) + '** 0'
+			} else if (num === 1 && x < 8){
+				return '1/1*1'
+			} else if ((num === 4 || num === 9 || num === 16 || num === 25 || num === 36) && x < 2){
+				return (num ** 0.5) + ' ** 2'
+			} else if (num % 2 === 0 && x < 3){
+				return num / 2 + ' * 2'
+			} else if (num % 3 === 0 && x < 3){
+				return num / 3 + ' * 3'
+			} else if (num % 4 === 0 && x < 3){
+				return num / 4 + ' * 4'
+			} else if (num % 5 === 0 && x < 3){
+				return num / 5 + ' * 5'
+			} else if (num % 6 === 0 && x < 3){
+				return num / 6 + ' * 6'
+			} else if (num % 7 === 0 && x < 3){
+				return num / 7 + ' * 7'
+			} else if (num % 8 === 0 && x < 3){
+				return num / 8 + ' * 8'
+			} else if (num % 9 === 0 && x < 3){
+				return num / 9 + ' * 9'
+			} else if (x < 2){
+				return num / 2 + ' * 2'
+			} else if (x < 3){
+				return num + ' + 0'
+			} else if (x < 4){
+				return num + ' / 1'
+			} else if (x < 5){
+				return '1 * ' + num
+			} else if (x < 6){
+				return (num - 2) + ' + 2'
+			} else if (x < 7){
+				return (num - 3) + ' + 3'
+			} else if (x < 8){
+				return (num - 4) + ' + 4'
+			} else if (x < 9){
+				return (num - 5) + ' + 5'
+			} else if (x < 10){
+				return (num - 7) + ' + 7'
+			} else {
+				return num
+			}
+		}
+		function dodgeAnOff(){
+			document.getElementById('player').setAttribute('src', 'playerLeg.gif')
+		}
 		let keysPressed = {};
 		window.addEventListener('keydown', function (e) {
 			if (keysPressed['q'] || keysPressed['Q']){
 			
 			} else {
 				if (e.key === 'q' || e.key === 'Q'){
-					if (document.getElementById('codlab').classList.contains('hide') || document.getElementById('FE').classList.contains('hide')){
+					if (document.getElementById('codlab').classList.contains('hide') || (document.getElementById('FE').classList.contains('hide') && document.getElementById('CMG').classList.contains('hide'))){
 						attac()
+					} else if (document.getElementById('FE').classList.contains('hide')){
+						cmg(document.getElementById('cmgQ'))
 					}
 					keysPressed[e.key] = true;
 				}
@@ -12666,6 +12873,8 @@ Restrictions: killed all enemies at caves at least once
 							ehp.textContent = parseFloat(ehp.textContent) - 0.5
 						} else if (document.getElementById('edef%').textContent === '1' && parseInt(edef.textContent.slice(0,-1)) < 100){
 							ehp.textContent = parseFloat(ehp.textContent) - (100 - (parseInt(edef.textContent.slice(0,-1)))) / 100
+						} else if (document.getElementById('edef%').textContent === '1'){
+						
 						} else {
 							ehp.textContent = parseFloat(ehp.textContent) - 1
 						}
@@ -13034,7 +13243,7 @@ Restrictions: killed all enemies at caves at least once
 			
 			} else {
 				if (e.key === 'w' || e.key === 'W'){
-					if (document.getElementById('codlab').classList.contains('hide') || document.getElementById('FE').classList.contains('hide')){
+					if (document.getElementById('codlab').classList.contains('hide') || (document.getElementById('FE').classList.contains('hide') && document.getElementById('CMG').classList.contains('hide'))){
 						if (parseInt(bloN.textContent) === 1){
 							bloc()
 						} else if (parseInt(bloN.textContent) === 2){
@@ -13042,6 +13251,8 @@ Restrictions: killed all enemies at caves at least once
 						} else if (parseInt(bloN.textContent) === 3){
 							dodg()
 						}
+					} else if (document.getElementById('FE').classList.contains('hide')){
+						cmg(document.getElementById('cmgW'))
 					}
 					keysPressed[e.key] = true;
 				}
@@ -13148,6 +13359,20 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 		}
+		window.addEventListener('keydown', function (e) {
+			if (keysPressed['e'] || keysPressed['E']){
+			
+			} else {
+				if (e.key === 'e' || e.key === 'E'){
+					if (document.getElementById('codlab').classList.contains('hide') || (document.getElementById('FE').classList.contains('hide') && document.getElementById('CMG').classList.contains('hide'))){
+						
+					} else if (document.getElementById('FE').classList.contains('hide')){
+						cmg(document.getElementById('cmgE'))
+					}
+					keysPressed[e.key] = true;
+				}
+			}
+		}, false);
 		function ch7st(){
 			sachd.textContent = 2
 			var a = document.getElementById('elibr')
@@ -14881,6 +15106,8 @@ Restrictions: killed all enemies at caves at least once
 			a.classList.add('hide')
 			var a = document.getElementById('minpa')
 			a.classList.add('hide')
+			var a = document.getElementById('codpa')
+			a.classList.add('hide')
 			if (sky.classList.contains('btng')){
 				var a = document.getElementById('skypb')
 				a.classList.add('btnb')
@@ -14922,6 +15149,13 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.remove('btnr')
 			} else if (mines.classList.contains('btny')){
 				document.getElementById('minpb').classList.add('btny')
+			}
+			if (coderslab.classList.contains('btng')){
+				var a = document.getElementById('codpb')
+				a.classList.add('btnb')
+				a.classList.remove('btnr')
+			} else if (coderslab.classList.contains('btny')){
+				document.getElementById('codpb').classList.add('btny')
 			}
 		}
 		tutpb.onclick = tutps;
@@ -14994,6 +15228,16 @@ Restrictions: killed all enemies at caves at least once
 		function minps(){
 			if (minpb.classList.contains('btnb') || minpb.classList.contains('btny')){
 				var a = document.getElementById('minpa')
+				a.classList.add('show')
+				a.classList.remove('hide')
+				var a = document.getElementById('zoneLib')
+				a.classList.add('hide')
+			}
+		}
+		codpb.onclick = codps;
+		function codps(){
+			if (codpb.classList.contains('btnb') || codpb.classList.contains('btny')){
+				var a = document.getElementById('codpa')
 				a.classList.add('show')
 				a.classList.remove('hide')
 				var a = document.getElementById('zoneLib')
