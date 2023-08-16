@@ -396,8 +396,8 @@ img{
 	left: 291px;
 }
 .taroy{
-	top: 173px;
-	left: 372px;
+	top: 174px;
+	left: 373px;
 }
 
 .tconb{
@@ -931,6 +931,7 @@ h5{
     height: 18px;
     background-color: rgb(0,162,232);
 	z-index: 2;
+	padding: 0 0 0 5px;
 }
 #stiUP{
     position: absolute;
@@ -967,6 +968,7 @@ h5{
     height: 18px;
     background-color: rgb(0,162,232);
 	z-index: 2;
+	padding: 0 0 0 5px;
 }
 #kilUP{
     position: absolute;
@@ -1003,6 +1005,7 @@ h5{
     height: 18px;
     background-color: rgb(0,162,232);
 	z-index: 2;
+	padding: 0 0 0 5px;
 }
 #fedUP{
     position: absolute;
@@ -1039,6 +1042,7 @@ h5{
     height: 18px;
     background-color: rgb(0,162,232);
 	z-index: 2;
+	padding: 0 0 0 5px;
 }
 #sniUP{
     position: absolute;
@@ -1156,7 +1160,7 @@ select{
 	position: absolute;
 	height: 30;
 	width: 30;
-	filter: brightness(0.7)
+	filter: brightness(0.6)
 }
 .achCT{
 	position: absolute;
@@ -1185,6 +1189,78 @@ select{
 }
 .achET:hover{
 	filter: brightness(1)
+}
+.achLT{
+	position: absolute;
+	height: 30;
+	width: 30;
+	filter: brightness(0.9)
+}
+.achLT:hover{
+	filter: brightness(1)
+}
+.achReT{
+	position: absolute;
+	height: 30;
+	width: 30;
+	filter: brightness(0.9)
+}
+.achReT:hover{
+	filter: brightness(1)
+}
+.achCoT{
+	position: absolute;
+	height: 30;
+	width: 30;
+	filter: brightness(0.9)
+}
+.achCoT:hover{
+	filter: brightness(1)
+}
+.perk{
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	z-index: 2;
+}
+.perkCom{
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	filter: brightness(0.5);
+}
+.perkB{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+}
+#achBut{
+	position: absolute;
+	background-image: url('achUpButton.png');
+	width: 159px;
+	height: 42px;
+	border: none;
+	margin: 0;
+	left: 739px;
+	top: 551px;
+	font-weight: bold;
+}
+#achBut:hover{
+	background-image: url('achUpButtonHover.png');
+}
+#achBut2{
+	position: absolute;
+	background-image: url('achUpButton.png');
+	width: 159px;
+	height: 42px;
+	border: none;
+	margin: 0;
+	left: 739px;
+	top: 551px;
+	font-weight: bold;
+}
+#achBut2:hover{
+	background-image: url('achUpButtonHover.png');
 }
 #statB{
 	position: absolute;
@@ -1215,4 +1291,9 @@ select{
 }
 .cbthings:hover{
 	background: white;
+}
+.mega{
+	width: 9600px;
+	height: 6000px;
+	z-index: -1;
 }
