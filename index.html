@@ -4326,6 +4326,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function idrop(item,title,chance,flashT){
 			dropR = Math.floor(Math.random() * 10000) + 1
+			newSave('AdvP2', 0)
 			dropC = chance * parseFloat(DC.textContent) * (1 + (parseInt(localStorage.AdvP2) * 0.05))
 			if (item === 'sachet' && sachd.textContent !== '0'){
 				dropC = 0
