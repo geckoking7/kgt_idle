@@ -355,6 +355,9 @@
 			localStorage.xp = parseInt(localStorage.xp) + Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 5) * 10)
 			xpR.textContent = 'XP :  ' + Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 5) * 10)
 			document.getElementById("miniplayer").style.background = 'url(miniEnd.png)'
+			if (day >= 2){
+			localStorage.ach16 = 1
+		}
 		}
 	}
 	let keysPressed = {};
@@ -1402,6 +1405,9 @@
 		localStorage.xp = parseInt(localStorage.xp) + Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 5) * 10)
 		newSave('GamP1', 0)
 		xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 5) * 10) * (parseInt(localStorage.GamP1) + 1))
+		if (day > 2){
+			localStorage.ach16 = 1
+		}
 	}
 	function video(){
 		

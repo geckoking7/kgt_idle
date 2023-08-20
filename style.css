@@ -744,6 +744,26 @@ img{
 	border: none;
 	color: transparent;
 }
+.xph3r{
+	background-image: url('xprh3.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xph3r:hover{
+	background-image: url('xprh3hover.png');
+}
+.xph3g{
+	background-image: url('xpgh3.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xph3g:hover{
+	background-image: url('xpgh3hover.png');
+}
 #attMP{
     position: absolute;
     left: 457px;
