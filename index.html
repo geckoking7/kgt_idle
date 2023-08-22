@@ -2039,7 +2039,7 @@ Restrictions: killed all enemies at caves at least once
 					achi10(0)
 					ach10C.textContent = 1
 				}
-				if (parseInt(hpMTr.textContent) === 0 && localStorage(localStorage.hpM) > 1){
+				if (parseInt(hpMTr.textContent) === 0 && parseInt(localStorage.hpM) > 1){
 					mhp.textContent = Math.round(parseInt(mhp.textContent) * parseFloat(localStorage.hpM))
 					hpMTr.textContent = 1
 				}
