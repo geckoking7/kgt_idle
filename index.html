@@ -1946,21 +1946,15 @@ Restrictions: killed all enemies at caves at least once
 				hideStart.classList.add('show')
 				hideStart.classList.remove('hide')
 			} else {
-				var hideStart = document.getElementById('adventure')
-				hideStart.classList.add('show')
-				hideStart.classList.remove('hide')
+				show('adventure')
 				var hideStart = document.getElementById('inventory')
 				hideStart.classList.add('show')
 				hideStart.classList.add('open')
 				hideStart.classList.remove('hide')
 				hideStart.classList.remove('locked')
 				inventory.textContent = 'Inventory'
-				var hideStart = document.getElementById('drone')
-				hideStart.classList.add('show')
-				hideStart.classList.remove('hide')
-				var hideStart = document.getElementById('games')
-				hideStart.classList.add('show')
-				hideStart.classList.remove('hide')
+				show('drone')
+				show('games')
 				var hideStart = document.getElementById('e')
 				hideStart.classList.add('show')
 				hideStart.classList.remove('hide')
@@ -1979,14 +1973,11 @@ Restrictions: killed all enemies at caves at least once
 		}
 		ch1but.onclick = ch1end;
 		function ch1end(){
-			var hideStart = document.getElementById('ch1b')
-			hideStart.classList.add('hide')
-			var hideStart = document.getElementById('ch1')
-			hideStart.classList.add('hide')
+			hide('ch1b')
+			hide('ch1')
 			var hideStart = document.getElementById('ch1but')
 			hideStart.classList.add('hide')
-			var hideStart = document.getElementById('welcome3')
-			hideStart.classList.add('hide')
+			hide('welcome3')
 			var hideStart = document.getElementById('ch2b')
 			hideStart.classList.add('show')
 			hideStart.classList.remove('hide')
@@ -2048,7 +2039,7 @@ Restrictions: killed all enemies at caves at least once
 					achi10(0)
 					ach10C.textContent = 1
 				}
-				if (parseInt(hpMTr.textContent) === 0){
+				if (parseInt(hpMTr.textContent) === 0 && localStorage(localStorage.hpM) > 1){
 					mhp.textContent = Math.round(parseInt(mhp.textContent) * parseFloat(localStorage.hpM))
 					hpMTr.textContent = 1
 				}
@@ -2087,10 +2078,8 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('tutb')
 				a.classList.add('hide')
-				var a = document.getElementById('grassc')
-				a.classList.add('hide')
-				var a = document.getElementById('grassp')
-				a.classList.add('hide')
+				hide('grassc')
+				hide('grassp')
 				var a = document.getElementById('cave')
 				a.classList.add('hide')
 				var a = document.getElementById('paperp')
@@ -2456,8 +2445,7 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('ch14b')
 				a.classList.add('hide')
-				var a = document.getElementById('ch14but')
-				a.classList.add('hide')
+				hide('ch14but')
 				var a = document.getElementById('dt1')
 				a.classList.add('hide')
 				var a = document.getElementById('dt1w')
@@ -2640,16 +2628,12 @@ Restrictions: killed all enemies at caves at least once
 					q.classList.remove('btnr')
 				}
 				if (parseInt(localStorage.computerc) > 0 && parseInt(localStorage.wikipediac) > 0 && parseInt(localStorage.MSpc) > 0 && parseInt(localStorage.IEc) > 0 && parseInt(localStorage.FEc) > 0 && parseInt(localStorage.googolc) > 0 && parseInt(localStorage.CMGc) > 0 && parseInt(localStorage.gasbyc) > 0){
-					var q = document.getElementById('coderslab')
-					q.classList.add('btng')
-					q.classList.remove('btny')
+					document.getElementById('coderslab').classList.replace('btny','btng')
 				}
 			} else {
 				ch5t.textContent = 1
 				hp.textContent = 0
-				var a = document.getElementById('ch5')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('ch5')
 				var a = document.getElementById('ch5a')
 				a.classList.add('show')
 				a.classList.remove('hide')
@@ -4195,7 +4179,7 @@ Restrictions: killed all enemies at caves at least once
 			dropR = Math.floor(Math.random() * 10000) + 1
 			newSave('AdvP2', 0)
 			dropC = chance * parseFloat(DC.textContent) * (1 + (parseInt(localStorage.AdvP2) * 0.05))
-			if (item === 'sachet' && sachd.textContent !== '0'){
+			if (item === 'sachet' && sachd.textContent !== '0' || item === 'workFolder' && localStorage.IFTr){
 				dropC = 0
 			} else if (item === 'sachet' && parseInt(birdc.textContent) > 0 && parseInt(boeingc.textContent) > 0 && parseInt(cloudc.textContent) > 0 && parseInt(meteorc.textContent) > 0 && parseInt(buildingsc.textContent) > 0 && parseInt(lightningc.textContent) > 0 && parseInt(helicopterc.textContent) > 0 && parseInt(balloon2c.textContent) > 0){
 				dropC = 10000
@@ -4215,6 +4199,9 @@ Restrictions: killed all enemies at caves at least once
 				}
 				if (item === 'sachet'){
 					sachd.textContent = 1
+				}
+				if (item === 'workFolder'){
+					newSave('IFTr',0)
 				}
 				return true
 			} else {
@@ -5167,6 +5154,10 @@ Restrictions: killed all enemies at caves at least once
 				} else {
 					localStorage.ramCLVL = 1
 				}
+			} else if (iv2.classList.contains('workFolder')){
+				iv2.classList.replace('workFolder','empty')
+				iv2.setAttribute('title','')
+				localStorage.IFTr = 1
 			} else {
 				if (iv2.classList.item(1) !== 'empty'){
 					idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
@@ -5258,12 +5249,9 @@ Restrictions: killed all enemies at caves at least once
 			a.classList.remove('hide')
 			var a = document.getElementById('adv')
 			a.classList.add('hide')
-			var a = document.getElementById('tutZo')
-			a.classList.add('hide')
-			var a = document.getElementById('field')
-			a.classList.add('hide')
-			var a = document.getElementById('sky')
-			a.classList.add('hide')
+			hide('tutZo')
+			hide('field')
+			hide('sky')
 			var a = document.getElementById('school')
 			a.classList.add('hide')
 			var a = document.getElementById('ameair')
@@ -12947,88 +12935,47 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('elibrb').classList.add('hide')
 				document.getElementById('s&s').classList.add('hide')
 				document.getElementById('codlab').classList.add('hide')
-				var a = document.getElementById('fieldLib')
-				a.classList.add('hide')
-				var a = document.getElementById('ch2b')
-				a.classList.add('hide')
-				var a = document.getElementById('skyplayer')
-				a.classList.add('hide')
-				var a = document.getElementById('ame1player')
-				a.classList.add('hide')
-				var a = document.getElementById('ame2player')
-				a.classList.add('hide')
-				var a = document.getElementById('torchplayer')
-				a.classList.add('hide')
-				var a = document.getElementById('minerplayer')
-				a.classList.add('hide')
-				var a = document.getElementById('tutli')
-				a.classList.add('hide')
-				var a = document.getElementById('tutb')
-				a.classList.add('hide')
-				var a = document.getElementById('gamefeature')
-				a.classList.add('hide')
-				var a = document.getElementById('grassc')
-				a.classList.add('hide')
-				var a = document.getElementById('grassp')
-				a.classList.add('hide')
-				var a = document.getElementById('paperp')
-				a.classList.add('hide')
-				var a = document.getElementById('paperc')
-				a.classList.add('hide')
-				var a = document.getElementById('stickp')
-				a.classList.add('hide')
-				var a = document.getElementById('stickc')
-				a.classList.add('hide')
-				var a = document.getElementById('antp')
-				a.classList.add('hide')
-				var a = document.getElementById('antc')
-				a.classList.add('hide')
-				var a = document.getElementById('cave')
-				a.classList.add('hide')
-				var a = document.getElementById('waterp')
-				a.classList.add('hide')
-				var a = document.getElementById('waterc')
-				a.classList.add('hide')
-				var a = document.getElementById('eraserp')
-				a.classList.add('hide')
-				var a = document.getElementById('eraserc')
-				a.classList.add('hide')
-				var a = document.getElementById('mine')
-				a.classList.add('hide')
-				var a = document.getElementById('schoolbook')
-				a.classList.add('hide')
-				var a = document.getElementById('schoolLib')
-				a.classList.add('hide')
-				var a = document.getElementById('balloonp')
-				a.classList.add('hide')
-				var a = document.getElementById('balloonc')
-				a.classList.add('hide')
-				var a = document.getElementById('pebblep')
-				a.classList.add('hide')
-				var a = document.getElementById('pebblec')
-				a.classList.add('hide')
-				var a = document.getElementById('area51b')
-				a.classList.add('hide')
-				var a = document.getElementById('skybook')
-				a.classList.add('hide')
-				var a = document.getElementById('skyLib')
-				a.classList.add('hide')
-				var a = document.getElementById('bird')
-				a.classList.add('hide')
-				var a = document.getElementById('boeing')
-				a.classList.add('hide')
-				var a = document.getElementById('cloud')
-				a.classList.add('hide')
-				var a = document.getElementById('area51')
-				a.classList.add('hide')
-				var a = document.getElementById('caves')
-				a.classList.add('hide')
-				var a = document.getElementById('mines')
-				a.classList.add('hide')
-				var a = document.getElementById('coderslab')
-				a.classList.add('hide')
-				var a = document.getElementById('taroy')
-				a.classList.add('hide')
+				hide('fieldLib')
+				hide('ch2b')
+				hide('skyplayer')
+				hide('ame1player')
+				hide('ame2player')
+				hide('torchplayer')
+				hide('minerplayer')
+				hide('tutli')
+				hide('tutb')
+				hide('gamefeature')
+				hide('grassc')
+				hide('grassp')
+				hide('paperp')
+				hide('paperc')
+				hide('stickp')
+				hide('stickc')
+				hide('antp')
+				hide('antc')
+				hide('cave')
+				hide('waterp')
+				hide('waterc')
+				hide('eraserp')
+				hide('eraserc')
+				hide('mine')
+				hide('schoolbook')
+				hide('schoolLib')
+				hide('balloonp')
+				hide('balloonc')
+				hide('pebblep')
+				hide('pebblec')
+				hide('area51b')
+				hide('skybook')
+				hide('skyLib')
+				hide('bird')
+				hide('boeing')
+				hide('cloud')
+				hide('area51')
+				hide('caves')
+				hide('mines')
+				hide('coderslab')
+				hide('taroy')
 				document.getElementById('advZB').classList.add('hide')
 				var a = document.getElementById('buildings')
 				a.classList.add('hide')
@@ -14678,8 +14625,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		xpB.onclick = xpOn;
 		function xpOn(){
-				var a = document.getElementById('tutli')
-				a.classList.add('hide')
+				hide('tutli')
 				var a = document.getElementById('tutb')
 				a.classList.add('hide')
 				var a = document.getElementById('grassc')
@@ -15647,10 +15593,8 @@ Restrictions: killed all enemies at caves at least once
 			a.classList.remove('hide')
 		}
 		function ch32st(){
-			var a = document.getElementById('ch32')
-			a.classList.remove('hide')
-			var a = document.getElementById('ch31')
-			a.classList.add('hide')
+			show('ch32')
+			hide('ch31')
 		}
 		//setInterval(fn,1000);
 		//document.cookie = localStorage.xp;
