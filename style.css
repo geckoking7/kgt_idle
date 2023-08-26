@@ -476,6 +476,12 @@ img{
 	height: 60px;
 	border: none;
 }
+.itemBVent{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	border: none;
+}
 .empty{
 	background-image: url('ventEmpty.png');
 }
@@ -569,9 +575,6 @@ img{
 .scissor{
 	background-image: url('scissor.png');
 }
-.rwing{
-	background-image: url('rightwing.png');
-}
 .waterbottle{
 	background-image: url('waterbottle.png');
 }
@@ -647,11 +650,17 @@ img{
 .ram{
 	background-image: url('ram.png');
 }
+.workFolder{
+	background-image: url('workFolder.png');
+}
 .useall{
 	background-image: url('useall.png');
 }
 .useall:hover{
 	background-image: url('useallhover.png');
+}
+.notFound{
+	background-image: url('notFound.png');
 }
 #trainB{
 	background-image: url('trainingB.png');
@@ -676,6 +685,18 @@ img{
 }
 #xpB:hover{
 	background-image: url('xpBhover.png');
+}
+#itemlibB{
+	background-image: url('itemlibrary.png');
+	position: absolute;
+	top: 178px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+	z-index: 1;
+}
+#itemLibB:hover{
+	background-image: url('itemlibraryhover.png');
 }
 .xpdcr{
 	background-image: url('xprdc.png');
