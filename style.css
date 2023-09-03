@@ -286,6 +286,17 @@ img{
 	height: 30px;
 	width: 30px;
 }
+.refresh{
+	background: url('refresh.png');
+	position: absolute;
+	top: 120px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.refresh:hover{
+	filter: brightness(1.5);
+}
 .player{
 	position: absolute;
 	margin: 0;
@@ -652,6 +663,15 @@ img{
 }
 .workFolder{
 	background-image: url('workFolder.png');
+}
+.calculator{
+	background-image: url('calculatoritem.png');
+}
+.mantreads{
+	background-image: url('mantreads.png');
+}
+.e{
+	background-image: url('ei.png');
 }
 .useall{
 	background-image: url('useall.png');

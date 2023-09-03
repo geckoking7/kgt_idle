@@ -9,14 +9,14 @@
 		<img id='mainBack' src='tutZoMegaBack.png' class='' style='left: 0; top: 0; margin: 0; width: 100%; height: 100%; z-index: -1;'>
 		<h2 class="start" id="start">Hi</h2>
 		<h3 class="start" id="start1">This is very bad game but don't copyright or I sue you</h3>
-		<h3 class="start" id="start2">Any suggestions/bugs contact me</h3>
+		<h3 class="start" id="start2">Any suggestions/bugs contact https://github.com/geckoking7/kgt_idle/discussions</h3>
 		<a href="changelog.html" id='changelog' style='margin-left: 20px;' class='bloc'>Changelog</a>
 		<button class="startB" id="startB">Play</button>
 		<h1 class="tooltipt hide" id="welcome">Welcome</h1>
 		<h3 class="tooltipm hide" id="welcome1">Note that the LORE tells how to play</h3>
 		<h4 class="tooltipm hide" id="welcome2">But if u can't read, or just is not, go outside, touch grass and go get some female companions</h4>
 		<h4 class="tooltipm hide" id="welcome3">The lore and the game itself is quite, quite real, but some areas are, you know, not yes, but this is the best game I ever made so :D</h4>
-		<h4 class="tooltipb hide" id="welcome4">Most things can be hovered over to see info, but you can only understand it if you can read which maybe is false</h4>
+		<h4 class="tooltipb hide" id="welcome4">Most things can be hovered over to see info, but you can only understand it if you can read which maybe is false. It also autosaves</h4>
 		<button class="continue hide" id="cont">Continue</button>
 		<img src="logo.png" alt="logo" class="hide" id="logo">
 		<button class="ch1but hide" id="ch1but">Ok</button>
@@ -100,7 +100,7 @@
 		<img src="ch15back.png" alt="lore" class="hide" id="ch15b">
 		<h4 class="lore hide" id="ch16">Another Usb? Eh<br>But what does killer robots mean?<br>Chris pauses for a moment<br>“That is, um, very, very illegal”<br>Why<br>“This isn’t a good sign, Gasby, come here”<br>“What”<br>He holds the USB</h4>
 		<img src="ch16back.png" alt="lore" class="hide" id="ch16b">
-		<h4 class="lore hide" id="ch17">Gasby stops<br>“How, is”<br>“They want us dead”<br>:c<br>Wait, am I in that us<br>“And this code is nerfed, severely…”<br>He has a grin<br>“But usable, this drone has upgradable buffed stone chance the enemies it kills”</h4>
+		<h4 class="lore hide" id="ch17">Gasby stops<br>“How, is”<br>“They want us dead”<br>:c<br>Wait, am I in that us<br>“And this code is nerfed, severely…”<br>He has a grin<br>“But usable, this drone has upgradable buffed stone chance from the enemies it kills”</h4>
 		<img src="ch17back.png" alt="lore" class="hide" id="ch17b">
 		<h4 class="lore hide" id="d3u1">You try to give it to chris but gasby stops you<br>“Can I check that USB”<br>What could possibly go wrong<br>He plugs it in, waits a minute and the bear humanoid from before appears<br>“FEDDY”<br>Feddy?</h4>
 		<img src="d3u1.png" alt="lore" class="hide" id="d3u1b">
@@ -180,8 +180,8 @@
 		<div id='ch32' class='hide'>
 			<img src="ch32back.png" alt="lore" class="" >
 			<h4 class="lore ch11a">Will you obey the sign</h4>
-			<button class="ch1but " style="top: 505px; left: 400;" onclick='droneopen()'>Yes</button>
-			<button class="ch1but " style="top: 505px; left: 600;" onclick='codbat()'>No</button>
+			<button class="ch1but " style="top: 505px; left: 400;" onclick='advent(); droneopen()'>Yes</button>
+			<button class="ch1but " style="top: 505px; left: 600;" onclick='advent(); codbat()'>No</button>
 		</div>
 		<div id='ifunlock' class='hide lorething'>
 			<img src="ifunlock1back.png" alt="lore">
@@ -234,7 +234,7 @@
 			<img src="MSpaint7.png" alt="Something u touchy alot" class="hide denemy" id="MSpaint">
 			<img src="ie1.png" alt="Something u touchy alot" class="hide denemy" id="IE">
 			<img src="FE.png" alt="Something u touchy alot" class="hide denemy" id="FE">
-			<button id='FEimg' class='dodge' style='left: 515; top: 110;' onclick='dodg(); FEdodg()'></button> <!-- left 515-875  top 110-460 --->
+			<button id='FEimg' class='refresh' style='left: 515; top: 110;' onclick='FEdodg()'></button> <!-- left 515-875  top 110-460 --->
 			<img src="googol.png" alt="Something u touchy alot" class="hide denemy" id="googol">
 			<div id="CMG" class="hide">
 				<img src="CMG.png" alt="Something u touchy alot" class="denemy">
@@ -245,6 +245,18 @@
 			</div>
 			<img src="glasbygaming2.png" alt="gamer" class="hide denemy" id="gasby">
 		</div>
+		<div id='TARoY' class='hide'>
+			<img src="taroyback.png" alt="Git gud bro" class="zone">
+			<img src="amogus.png" style='' alt="no" class="hide enemy" id="sus">
+			<img src="grass2.png" alt="no" class="hide enemy" id="grass2">
+			<img src="ctrlh.png" alt="no" class="hide enemy" id="ctrlh">
+			<img src="bing.png" alt="no" class="hide enemy" id="bing">
+			<h5 class='enemy' style='width: 180px; background: rgb(0,255,0); top: 225px; left: 635px;' id='greenEnemy'></h5>
+			<img src="gravity.png" alt="no" class="hide enemy" id="gravity">
+			<img src="gravityBack.gif" alt="no" class="hide" id="gravityBack" style='width: 300px; height: 300px; position: absolute; opacity: 0.4; left: 175px; top: 200px;'>
+			<img src="ant3.png" alt="yes" class="hide enemy" id="ant3">
+			<img src="e.png" alt="no" class="hide enemy" id="eEnemy">
+		</div>
 		<div id='players' style='position: absolute;'>
 			<img src="player.gif" alt="an idiot" class="player hide" id="player">
 			<img src="skyplayer.png" alt="an idiot again" class="player hide" id="skyplayer">
@@ -252,6 +264,8 @@
 			<img src="amebplayer.png" alt="an idiot" class="player hide" id="ame2player">
 			<img src="torchplayer.png" alt="an idiot" class="player hide" id="torchplayer">
 			<img src="minerplayer.png" alt="an idiot" class="player hide" id="minerplayer">
+			<img src="playerCry.gif" alt=":c" class="player hide" id="cryingPlayer">
+			<img src="playerFall1.gif" alt=":c" class="player hide" id="fallingPlayer" style="top: 44px; left:225">
 		</div>
 		<img src="fightstats.png" alt="numbre" class="hide" style="position: absolute; left: 225px; top: 540px; height: 50px; width: 200px; z-index: 1;" id="pstat">
 		<img src="fightstats.png" alt="number" class="hide" style="position: absolute; left: 625px; top: 540px; height: 50px; width: 200px; z-index: 1;" id="estat">
@@ -324,7 +338,7 @@ Restrictions: killed all enemies in the school at least once
                     have the theory from the unidentified" class="btnr caves hide" id="caves"></button>
 		<button title="Mines
 Restriction: killed all enemies in the cave at least once" class="btnr hide mines" id="mines"></button>
-		<button title="Coders Lab
+		<button title="Coder's Lab
 Restrictions: killed all enemies at area 51 at least once
                     unlocked the 3rd drone
                     Click it and read the lore" class="btnr hide coderslab" id="coderslab"></button>
@@ -357,8 +371,8 @@ Restrictions: killed all enemies at caves at least once
 			<button class="vent body" style="left: 255px; top: 175px;" id="bo"></button>
 			<button class="vent legs" style="left: 255px; top: 230px;" id="le"></button>
 			<button class="vent shoe" style="left: 255px; top: 285px;" id="sh"></button>
-			<button class="vent access" style="left: 200px; top: 175px;" id="a1"></button>
-			<button class="vent access" style="left: 200px; top: 230px;" id="a2"></button>
+			<button class="vent access" style="left: 200px; top: 175px;" id="a1" onclick="unequipAccess('a1');unequipa1();"></button>
+			<button class="vent access" style="left: 200px; top: 230px;" id="a2" onclick="unequipAccess('a2');unequipa2();"></button>
 			<button class="vent empty" style="left: 440px; top: 120px;" id="i1" onmousedown=rightclick(i1); onclick=equip(document.getElementById('i1'))></button>
 			<button class="vent empty" style="left: 495px; top: 120px;" id="i2" onmousedown=rightclick(i2); onclick=equip(document.getElementById('i2'))></button>
 			<button class="vent empty" style="left: 550px; top: 120px;" id="i3" onmousedown=rightclick(i3); onclick=equip(document.getElementById('i3'))></button>
@@ -613,7 +627,10 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent hoe notFound" style="left: 600px; top: 315px;" id="item48" onclick=itemFilter(48)></button>
 			<button class="itemBVent ram notFound" style="left: 655px; top: 315px;" id="item49"></button>
 			<button class="itemBVent workFolder" style="left: 710px; top: 315px;" id="item50"></button>
-		</div>
+			<button class="itemBVent calculator notFound" style="left: 765px; top: 315px;" id="item51" onclick=itemFilter(51)></button>
+			<button class="itemBVent mantreads notFound" style="left: 820px; top: 315px;" id="item52" onclick=itemFilter(52)></button>
+			<button class="itemBVent e notFound" style="left: 160px; top: 370px;" id="item53" onclick=itemFilter(53)></button>
+		</div> <!-- //itemsHere -->
 		<!-- Drones -->
 		<div class='hide' id='dronebuild'>
 			<img src="dronebuild.png" alt="stuff">
@@ -739,6 +756,7 @@ Restrictions: killed all enemies at caves at least once
 				<button title="Caves" class="btnr caves" id="cavpb"></button>
 				<button title="Mines" class="btnr mines" id="minpb"></button>
 				<button title="Coders Lab" class="btnr coderslab" id="codpb"></button>
+				<button title="The Alternating Reality Of Yes" class="btnr taroy" id="tarpb"></button>
 			</div>
 			<div id='tutpa'>
 				<img src="tutorialpage.png" alt="stuff">
@@ -794,6 +812,12 @@ Restrictions: killed all enemies at caves at least once
 				<h5 title="USB inventory" class="USBinvent" onmousedown=usbinventory()></h5>
 				<h5 title="Zone library" class="zl" onmousedown=zL()></h5>
 			</div>
+			<div id='tarpa'>
+				<img src="taroypage.png" alt="stuff">
+				<h5 title="Build" class="build" onmousedown=droneopen()></h5>
+				<h5 title="USB inventory" class="USBinvent" onmousedown=usbinventory()></h5>
+				<h5 title="Zone library" class="zl" onmousedown=zL()></h5>
+			</div>
 		</div>
 		<!-- GAMING FEATURE :O -->
 		<div id='gamefeature' class='hide'>
@@ -830,6 +854,9 @@ Restrictions: killed all enemies at caves at least once
 				<h1 style='position: absolute; top: 165; left: 145; font-size: 16;' id='SCT'>SC - </h1>
 				<h1 style='position: absolute; top: 195; left: 145; font-size: 16;' id='UCT'>UC - </h1>
 				<h1 style='position: absolute; top: 225; left: 145; font-size: 16;' id='ekillsT'>Total enemies killed - </h1>
+				<h1 style='position: absolute; top: 255; left: 145; font-size: 16;' id='DBST'>Drone build speed multiplier - </h1>
+				<h1 style='position: absolute; top: 285; left: 145; font-size: 16;' id='DUST'>Drone upgrade speed multiplier - </h1>
+				<h1 style='position: absolute; top: 315; left: 145; font-size: 16;' id='hpMT'>Health multiplier - </h1>
 			</div>
 			<div id='Sachi'>
 				<img src="achBack.png" alt="stuff" id='achBack'>
@@ -847,7 +874,7 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='ach6' class='achF' style='background: url("Ach6.png"); position: absolute; left: 315; top: 120;' title='Explosion - ???'></h5>
 					<h5 id='ach7' class='achF' style='background: url("Ach7.png"); position: absolute; left: 345; top: 120;' title='Looty bags - get a combined total of 12 from DC and SC'></h5>
 					<h5 id='ach8' class='achF' style='background: url("Ach8.png"); position: absolute; left: 375; top: 120;' title='You think I am stupid - ???'></h5>
-					<h5 id='ach9' class='achF' style='background: url("Ach9.png"); position: absolute; left: 405; top: 120;' title='url(ch26back.png) - ???'></h5>
+					<h5 id='ach9' class='achF' style='background: url("Ach9.png"); position: absolute; left: 405; top: 120;' title='url("ch26back.png") - ???'></h5>
 					<h5 id='ach10' class='achF' style='background: url("Ach10.png"); position: absolute; left: 435; top: 120;' title='True gamer - play KGT idle only for 2 hours straight'></h5>
 					<h5 id='ach11' class='achF' style='background: url("Ach11.png"); position: absolute; left: 465; top: 120;' title='xX_gamerLord69_Xx - Kill the gasby without equiping dodge'></h5>
 					<h5 id='ach12' class='achF' style='background: url("Ach12.png"); position: absolute; left: 495; top: 120;' title='LET ME IN - ???'></h5>
@@ -989,6 +1016,14 @@ Restrictions: killed all enemies at caves at least once
 			<h2 class="hide ekill" id="googolc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
 			<h2 class="hide ekill" id="CMGc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
 			<h2 class="hide ekill" id="gasbyc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="susc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="grass2c" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="ctrlhc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="bingc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="greenc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="gravityc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="ant3c" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="ec" style='position: absolute; top: 337px; left: 240px;'>0</h2>
 		</div>
 		<h6 class='hide' id='attackcoolspeed'>1</h6>
 		<h6 class='hide' id='blockcoolspeed'>1</h6>
@@ -1060,6 +1095,7 @@ Restrictions: killed all enemies at caves at least once
 	<script>
 		var attn;
 		const iNC = 48;
+		const accessN = 2;
 		var deathSound = new Audio('edeathsound.mp4');
 		var advmusic = new Audio('advmusic.mp3');
 		localStorage.WFUmlvl = 2;
@@ -1071,7 +1107,7 @@ Restrictions: killed all enemies at caves at least once
 		var MS6Tr = 0;
 		var Qn = 0;
 		const totalAch = 25;
-		const totalItems = 50;
+		const totalItems = 53;
 		var currentAch = 0;
 		function newSave(thing, value){ //thing must be string
 			if (localStorage.getItem(thing)){
@@ -1459,8 +1495,8 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById('blockB').setAttribute('title', 'Block [W] - x' + Math.round(parseFloat(bloM.textContent) * (1.3 + (-20 / (parseInt(bloL.textContent) + 20))) * 100) / 100 + ' defence for 3s')
 					}
 					if (parseInt(bloL.textContent) <= 20){
-						document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5))))) / 100) * 100))) / 100 + ' for 5s')
-						document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5))))) / 100) * 100))) / 100 + ' for 5s')
+						document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5))))) * 100) / 100 + ' for 5s')
+						document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5))))) * 100) / 100 + ' for 5s')
 					} else {
 						document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20)))))) / 100 + ' for 5s')
 						document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20)))))) / 100 + ' for 5s')
@@ -2019,12 +2055,9 @@ Restrictions: killed all enemies at caves at least once
 			var hideStart = document.getElementById('logo')
 			hideStart.classList.add('hide')
 			hideStart.classList.remove('blocc')
-			var hideStart = document.getElementById('cont')
-			hideStart.classList.add('hide')
+			hide('cont')
 			if (parseInt(ekills.textContent) === 0){	
-				var hideStart = document.getElementById('ch1b')
-				hideStart.classList.add('show')
-				hideStart.classList.remove('hide')
+				show('ch1b')
 				show('ch1')
 				show('ch1but')
 			} else {
@@ -2056,30 +2089,14 @@ Restrictions: killed all enemies at caves at least once
 			hide('ch1but')
 			hide('welcome3')
 			show('ch2b')
-			var hideStart = document.getElementById('ch2')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('adventure')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('inventory')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('drone')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('games')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('e')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('f')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('g')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
+			show('ch2')
+			show('adventure')
+			show('inventory')
+			show('drone')
+			show('games')
+			show('e')
+			show('f')
+			show('g')
 			show('h')
 			document.getElementById('setB').classList.remove('hide')
 		}
@@ -2088,6 +2105,252 @@ Restrictions: killed all enemies at caves at least once
 			for (const id of lore) {
 				id.classList.add('hide')
 			}
+		}
+		function hideAllMenu(){
+			hide('itemLib')
+			hide('itemLibB')
+			hideLore()
+			const allEkills = document.getElementsByClassName('ekill');
+			for (const id of allEkills) {
+				id.classList.add('hide');
+			}
+			const allEpages = document.getElementsByClassName('epage');
+			for (const id of allEpages) {
+				id.classList.add('hide');
+			}
+			document.getElementById('red').style.opacity = 0
+			document.getElementById('jetpackguy').style = ''
+			hide('diamond')
+			hide('eLib')
+			hide('elibrb')
+			hide('s&s')
+			hide('codlab')
+			hide('ch2b')
+			hide('d4u')
+			hide('d4ub')
+			hide('d4ubut')
+			hide('enemykills')
+			hide('ame1player')
+			hide('ame2player')
+			hide('skyplayer')
+			hide('mine')
+			hide('tutli')
+			hide('tutb')
+			hide('cave')
+			hide('dronebuild')
+			hide('ch21b')
+			hide('ch21')
+			hide('ch21but')
+			hide('ch22b')
+			hide('ch22')
+			hide('ch22but')
+			hide('droneupgrade')
+			hide('usbVent')
+			hide('zonelib')
+			hide('deep2')
+			hide('deep3')
+			hide('trainB')
+			hide('xpB')
+			hide('bird')
+			hide('boeing')
+			hide('cloud')
+			hide('buildings')
+			hide('attack')
+			hide('Pattack')
+			hide('Fattack')
+			hide('block')
+			hide('shield')
+			hide('dodge')
+			hide('meteor')
+			hide('lightning')
+			hide('helicopter')
+			hide('balloon2')
+			hide('fields')
+			hide('gamefeature')
+			hide('guard')
+			hide('deep1')
+			hide('deep2')
+			hide('deep3')
+			hide('ufo2')
+			hide('alien')
+			hide('tree2')
+			hide('4drone')
+			hide('ant2')
+			hide('radioactive')
+			hide('elibr')
+			hide('ch2')
+			hide('invent')
+			hide('slots')
+			hide('tutzobook')
+			hide('area51b')
+			hide('fieldbook')
+			hide('theschool')
+			hide('adv')
+			hide('tutZo')
+			hide('field')
+			hide('sky')
+			hide('school')
+			hide('ameair')
+			hide('area51')
+			hide('caves')
+			hide('mines')
+			hide('coderslab')
+			hide('taroy')
+			hide('advZB')
+			for (let i = 23; i < (lore + 1); i++) {
+				document.getElementById('ch'+ i).classList.add('hide')
+			}
+			hide('attack')
+			hide('Pattack')
+			hide('Fattack')
+			hide('block')
+			hide('shield')
+			hide('dodge')
+			hide('fMeTutZo')
+			hide('health')
+			hide('maxHealth')
+			hide('eHealth')
+			hide('eMaxHealth')
+			hide('player')
+			hide('cryingPlayer')
+			hide('fallingPlayer')
+			hide('grass')
+			hide('paper')
+			hide('stick')
+			hide('ant')
+			hide('water')
+			hide('eraser')
+			hide('balloon')
+			hide('pebble')
+			hide('lotsofgrass')
+			hide('rabbit')
+			hide('antcolony')
+			hide('tree')
+			hide('spider')
+			hide('puddle')
+			hide('apple')
+			hide('fire')
+			hide('gum')
+			hide('calculator')
+			hide('dodgeball')
+			hide('scissors')
+			hide('x')
+			hide('y')
+			hide('ruler')
+			hide('chair')
+			hide('helicopter2')
+			hide('deserteagle')
+			hide('a10')
+			hide('1drone')
+			hide('2drone')
+			hide('3drone')
+			hide('jetpackguy')
+			hide('ufo')
+			hide('airspace')
+			hide('ch3')
+			hide('ch3b')
+			hide('ch3but')
+			hide('ch4')
+			hide('ch4b')
+			hide('ch4but')
+			hide('estat')
+			hide('pstat')
+			hide('mhp')
+			hide('att')
+			hide('def')
+			hide('reg')
+			hide('emhp')
+			hide('eatt')
+			hide('edef')
+			hide('ereg')
+			hide('library')
+			hide('ch5')
+			hide('ch5b')
+			hide('ch5but')
+			hide('ch6but')
+			hide('ch5a')
+			hide('fieldLib')
+			hide('ch6')
+			hide('ch6b')
+			hide('thesky')
+			hide('ch7but')
+			hide('ch7b')
+			hide('ch7')
+			hide('ch8')
+			hide('ch8b')
+			hide('ch8but')
+			hide('ch9')
+			hide('ch9b')
+			hide('ch9but')
+			hide('ch10')
+			hide('ch10b')
+			hide('ch10but')
+			hide('ch11')
+			hide('ch11a')
+			hide('ch11b')
+			hide('ch11but')
+			hide('ch12')
+			hide('ch12b')
+			hide('ch12but')
+			hide('ch13')
+			hide('ch13b')
+			hide('ch13but')
+			hide('ch14')
+			hide('ch14a')
+			hide('ch14b')
+			hide('ch14but')
+			hide('dt1')
+			hide('dt1w')
+			hide('dt1but')
+			hide('dt2')
+			hide('dt2w')
+			hide('dt2but')
+			hide('ch15')
+			hide('ch15but')
+			hide('ch15b')
+			hide('XP')
+			hide('training')
+			hide('ch16')
+			hide('ch16b')
+			hide('ch16but')
+			hide('ch17')
+			hide('ch17b')
+			hide('ch17but')
+			hide('skybook')
+			hide('skyLib')
+			hide('d3u1')
+			hide('d3u1b')
+			hide('d3u1but')
+			hide('d3u2')
+			hide('d3u2b')
+			hide('d3u2ybut')
+			hide('d3u2nbut')
+			hide('d3uy')
+			hide('d3uyb')
+			hide('d3uybut')
+			hide('d3un')
+			hide('d3unb')
+			hide('d3unbut')
+			hide('d3un2')
+			hide('d3un2b')
+			hide('d3un2but')
+			hide('d3u3')
+			hide('d3u3b')
+			hide('d3u3but')
+			hide('schoolbook')
+			hide('schoolLib')
+			hide('ch18')
+			hide('ch18b')
+			hide('ch18but')
+			hide('ch19')
+			hide('ch19b')
+			hide('ch19but')
+			hide('ch20')
+			hide('ch20b')
+			hide('ch20but')
+			hide('torchplayer')
+			hide('minerplayer')
+			hide('TARoY')
 		}
 		window.addEventListener('keydown', function (e) {
 			if (e.key === '1' && (document.getElementById('adventure').classList.contains('hide') === false)){
@@ -2111,521 +2374,47 @@ Restrictions: killed all enemies at caves at least once
 				idE.textContent = 0
 				MS5Tr = 0
 				attDelay.textContent = 0
+				wikiTr = 0
 				document.getElementById('edef%').textContent = 0
 				document.getElementById('red').style.opacity = 0
 				document.getElementById('player').setAttribute('src', 'player.gif')
+				mhp.textContent = localStorage.mhp
+				att.textContent = localStorage.att
+				def.textContent = localStorage.def
+				reg.textContent = localStorage.reg
 				if (ach10C.textContent === '0'){
 					achi10(0)
 					ach10C.textContent = 1
 				}
-				if (parseInt(blockOn.textContent) === 1){
-					blok(1)
-				}
 				advC.textContent = parseInt(advC.textContent) + 1
-				hide('itemLib')
-				hide('itemLibB')
-				hideLore()
-				var a = document.getElementById('ameair')
-				a.classList.add('btnr')
-				a.classList.remove('btny')
-				var a = document.getElementById('diamond')
-				a.classList.add('hide')
-				document.getElementById('eLib').classList.add('hide')
-				document.getElementById('elibrb').classList.add('hide')
-				document.getElementById('s&s').classList.add('hide')
-				document.getElementById('codlab').classList.add('hide')
-				var a = document.getElementById('ch2b')
-				a.classList.add('hide')
-				var a = document.getElementById('d4u')
-				a.classList.add('hide')
-				var a = document.getElementById('d4ub')
-				a.classList.add('hide')
-				var a = document.getElementById('d4ubut')
-				a.classList.add('hide')
-				var a = document.getElementById('enemykills')
-				a.classList.add('hide')
-				var a = document.getElementById('ame1player')
-				a.classList.add('hide')
-				var a = document.getElementById('ame2player')
-				a.classList.add('hide')
-				var a = document.getElementById('skyplayer')
-				a.classList.add('hide')
-				var a = document.getElementById('mine')
-				a.classList.add('hide')
-				var a = document.getElementById('tutli')
-				a.classList.add('hide')
-				var a = document.getElementById('tutb')
-				a.classList.add('hide')
-				hide('grassc')
-				hide('grassp')
-				var a = document.getElementById('cave')
-				a.classList.add('hide')
-				var a = document.getElementById('paperp')
-				a.classList.add('hide')
-				var a = document.getElementById('paperc')
-				a.classList.add('hide')
-				var a = document.getElementById('stickp')
-				a.classList.add('hide')
-				var a = document.getElementById('dronebuild')
-				a.classList.add('hide')
-				var a = document.getElementById('ch21b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch21')
-				a.classList.add('hide')
-				var a = document.getElementById('ch21but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch22b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch22')
-				a.classList.add('hide')
-				var a = document.getElementById('ch22but')
-				a.classList.add('hide')
-				var a = document.getElementById('droneupgrade')
-				a.classList.add('hide')
-				var a = document.getElementById('usbVent')
-				a.classList.add('hide')
-				var a = document.getElementById('zonelib')
-				a.classList.add('hide')
-				var a = document.getElementById('deep2')
-				a.classList.add('hide')
-				var a = document.getElementById('deep3')
-				a.classList.add('hide')
-				var a = document.getElementById('trainB')
-				a.classList.add('hide')
-				var a = document.getElementById('xpB')
-				a.classList.add('hide')
-				var a = document.getElementById('stickc')
-				a.classList.add('hide')
-				var a = document.getElementById('antp')
-				a.classList.add('hide')
-				var a = document.getElementById('antc')
-				a.classList.add('hide')
-				var a = document.getElementById('waterp')
-				a.classList.add('hide')
-				var a = document.getElementById('waterc')
-				a.classList.add('hide')
-				var a = document.getElementById('eraserp')
-				a.classList.add('hide')
-				var a = document.getElementById('eraserc')
-				a.classList.add('hide')
-				var a = document.getElementById('balloonp')
-				a.classList.add('hide')
-				var a = document.getElementById('balloonc')
-				a.classList.add('hide')
-				var a = document.getElementById('pebblep')
-				a.classList.add('hide')
-				var a = document.getElementById('pebblec')
-				a.classList.add('hide')
-				var a = document.getElementById('bird')
-				a.classList.add('hide')
-				var a = document.getElementById('boeing')
-				a.classList.add('hide')
-				var a = document.getElementById('cloud')
-				a.classList.add('hide')
-				var a = document.getElementById('buildings')
-				a.classList.add('hide')
-				var a = document.getElementById('attack')
-				a.classList.add('hide')
-				var a = document.getElementById('Pattack')
-				a.classList.add('hide')
-				var a = document.getElementById('Fattack')
-				a.classList.add('hide')
-				var a = document.getElementById('block')
-				a.classList.add('hide')
-				var a = document.getElementById('shield')
-				a.classList.add('hide')
-				var a = document.getElementById('dodge')
-				a.classList.add('hide')
-				var a = document.getElementById('meteor')
-				a.classList.add('hide')
-				var a = document.getElementById('lightning')
-				a.classList.add('hide')
-				var a = document.getElementById('helicopter')
-				a.classList.add('hide')
-				var a = document.getElementById('balloon2')
-				a.classList.add('hide')
-				var a = document.getElementById('pebblec')
-				a.classList.add('hide')
-				var hideStart = document.getElementById('fields')
-				hideStart.classList.add('hide')
-				var a = document.getElementById('gamefeature')
-				a.classList.add('hide')
-				var a = document.getElementById('guard')
-				a.classList.add('hide')
-				var a = document.getElementById('deep1')
-				a.classList.add('hide')
-				var a = document.getElementById('deep2')
-				a.classList.add('hide')
-				var a = document.getElementById('deep3')
-				a.classList.add('hide')
-				var a = document.getElementById('ufo2')
-				a.classList.add('hide')
-				var a = document.getElementById('alien')
-				a.classList.add('hide')
-				var a = document.getElementById('tree2')
-				a.classList.add('hide')
-				var a = document.getElementById('4drone')
-				a.classList.add('hide')
-				var a = document.getElementById('ant2')
-				a.classList.add('hide')
-				var hideStart = document.getElementById('radioactive')
-				hideStart.classList.add('hide')
-				var a = document.getElementById('elibr')
-				a.classList.add('hide')
-				var a = document.getElementById('ch2')
-				a.classList.add('hide')
-				var a = document.getElementById('invent')
-				a.classList.add('hide')
-				var a = document.getElementById('slots')
-				a.classList.add('hide')
-				var a = document.getElementById('tutzobook')
-				a.classList.add('hide')
-				var a = document.getElementById('area51b')
-				a.classList.add('hide')
-				var a = document.getElementById('fieldbook')
-				a.classList.add('hide')
-				var a = document.getElementById('theschool')
-				a.classList.add('hide')
-				var a = document.getElementById('adv')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('tutZo')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('field')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('sky')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('school')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('ameair')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('area51')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('caves')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('mines')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				hideAllMenu()
+				document.getElementById('ameair').classList.replace('btny','btnr')
+				show('adv')
+				show('tutZo')
+				show('field')
+				show('sky')
+				show('school')
+				show('ameair')
+				show('area51')
+				show('caves')
+				show('mines')
 				show('coderslab')
-				var a = document.getElementById('taroy')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('taroy')
 				document.getElementById('advZB').classList.remove('hide')
-				for (let i = 23; i < (lore + 1); i++) {
-					document.getElementById('ch'+ i).classList.add('hide')
-				}
 				if (parseInt(attN.textContent) === 1){
-					var a = document.getElementById('attack')
-					a.classList.add('show')
-					a.classList.remove('hide')
+					show('attack')
 				} else if (parseInt(attN.textContent) === 2){
-					var a = document.getElementById('Pattack')
-					a.classList.add('show')
-					a.classList.remove('hide')
+					show('Pattack')
 				} else if (parseInt(attN.textContent) === 3){
-					var a = document.getElementById('Fattack')
-					a.classList.add('show')
-					a.classList.remove('hide')
+					show('Fattack')
 				}
 				if (parseInt(bloN.textContent) === 1){
-					var a = document.getElementById('block')
-					a.classList.add('show')
-					a.classList.remove('hide')
+					show('block')
 				} else if (parseInt(bloN.textContent) === 2){
-					var a = document.getElementById('shield')
-					a.classList.add('show')
-					a.classList.remove('hide')
+					show('shield')
 				} else if (parseInt(bloN.textContent) === 3){
-					var a = document.getElementById('dodge')
-					a.classList.add('show')
-					a.classList.remove('hide')
+					show('dodge')
 				}
-				var a = document.getElementById('fMeTutZo')
-				a.classList.add('hide')
-				var a = document.getElementById('health')
-				a.classList.add('hide')
-				var a = document.getElementById('maxHealth')
-				a.classList.add('hide')
-				var a = document.getElementById('eHealth')
-				a.classList.add('hide')
-				var a = document.getElementById('eMaxHealth')
-				a.classList.add('hide')
-				var a = document.getElementById('player')
-				a.classList.add('hide')
-				var a = document.getElementById('grass')
-				a.classList.add('hide')
-				var a = document.getElementById('paper')
-				a.classList.add('hide')
-				var a = document.getElementById('stick')
-				a.classList.add('hide')
-				var a = document.getElementById('ant')
-				a.classList.add('hide')
-				var a = document.getElementById('water')
-				a.classList.add('hide')
-				var a = document.getElementById('eraser')
-				a.classList.add('hide')
-				var a = document.getElementById('balloon')
-				a.classList.add('hide')
-				var a = document.getElementById('pebble')
-				a.classList.add('hide')
-				var a = document.getElementById('lotsofgrass')
-				a.classList.add('hide')
-				var a = document.getElementById('rabbit')
-				a.classList.add('hide')
-				var a = document.getElementById('antcolony')
-				a.classList.add('hide')
-				var a = document.getElementById('tree')
-				a.classList.add('hide')
-				var a = document.getElementById('spider')
-				a.classList.add('hide')
-				var a = document.getElementById('puddle')
-				a.classList.add('hide')
-				var a = document.getElementById('apple')
-				a.classList.add('hide')
-				var a = document.getElementById('fire')
-				a.classList.add('hide')
-				var a = document.getElementById('gum')
-				a.classList.add('hide')
-				var a = document.getElementById('calculator')
-				a.classList.add('hide')
-				var a = document.getElementById('dodgeball')
-				a.classList.add('hide')
-				var a = document.getElementById('scissors')
-				a.classList.add('hide')
-				var a = document.getElementById('x')
-				a.classList.add('hide')
-				var a = document.getElementById('y')
-				a.classList.add('hide')
-				var a = document.getElementById('ruler')
-				a.classList.add('hide')
-				var a = document.getElementById('chair')
-				a.classList.add('hide')
-				var a = document.getElementById('helicopter2')
-				a.classList.add('hide')
-				var a = document.getElementById('deserteagle')
-				a.classList.add('hide')
-				var a = document.getElementById('a10')
-				a.classList.add('hide')
-				var a = document.getElementById('1drone')
-				a.classList.add('hide')
-				var a = document.getElementById('2drone')
-				a.classList.add('hide')
-				var a = document.getElementById('3drone')
-				a.classList.add('hide')
-				var a = document.getElementById('jetpackguy')
-				a.classList.add('hide')
-				var a = document.getElementById('ufo')
-				a.classList.add('hide')
-				var a = document.getElementById('airspace')
-				a.classList.add('hide')
-				var a = document.getElementById('ch3')
-				a.classList.add('hide')
-				var a = document.getElementById('ch3b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch4')
-				a.classList.add('hide')
-				var a = document.getElementById('ch4b')
-				a.classList.add('hide')
-				var a = document.getElementById('estat')
-				a.classList.add('hide')
-				var a = document.getElementById('pstat')
-				a.classList.add('hide')
-				var a = document.getElementById('mhp')
-				a.classList.add('hide')
-				var a = document.getElementById('att')
-				a.classList.add('hide')
-				var a = document.getElementById('def')
-				a.classList.add('hide')
-				var a = document.getElementById('reg')
-				a.classList.add('hide')
-				var a = document.getElementById('emhp')
-				a.classList.add('hide')
-				var a = document.getElementById('eatt')
-				a.classList.add('hide')
-				var a = document.getElementById('edef')
-				a.classList.add('hide')
-				var a = document.getElementById('ereg')
-				a.classList.add('hide')
-				var a = document.getElementById('library')
-				a.classList.add('hide')
-				var a = document.getElementById('ch5')
-				a.classList.add('hide')
-				var a = document.getElementById('ch5b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch5but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch6but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch5a')
-				a.classList.add('hide')
-				var a = document.getElementById('fieldLib')
-				a.classList.add('hide')
-				var a = document.getElementById('ch6')
-				a.classList.add('hide')
-				var a = document.getElementById('ch6b')
-				a.classList.add('hide')
-				var a = document.getElementById('thesky')
-				a.classList.add('hide')
-				var a = document.getElementById('ch7but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch7b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch7')
-				a.classList.add('hide')
-				var a = document.getElementById('ch8')
-				a.classList.add('hide')
-				var a = document.getElementById('ch8b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch8but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch9')
-				a.classList.add('hide')
-				var a = document.getElementById('ch9b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch9but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch10')
-				a.classList.add('hide')
-				var a = document.getElementById('ch10b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch10but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch11')
-				a.classList.add('hide')
-				var a = document.getElementById('ch11a')
-				a.classList.add('hide')
-				var a = document.getElementById('ch11b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch11but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch12')
-				a.classList.add('hide')
-				var a = document.getElementById('ch12b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch12but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch13')
-				a.classList.add('hide')
-				var a = document.getElementById('ch13b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch13but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch14')
-				a.classList.add('hide')
-				var a = document.getElementById('ch14a')
-				a.classList.add('hide')
-				var a = document.getElementById('ch14b')
-				a.classList.add('hide')
-				hide('ch14but')
-				var a = document.getElementById('dt1')
-				a.classList.add('hide')
-				var a = document.getElementById('dt1w')
-				a.classList.add('hide')
-				var a = document.getElementById('dt1but')
-				a.classList.add('hide')
-				var a = document.getElementById('dt2')
-				a.classList.add('hide')
-				var a = document.getElementById('dt2w')
-				a.classList.add('hide')
-				var a = document.getElementById('dt2but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch15')
-				a.classList.add('hide')
-				var a = document.getElementById('ch15but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch15b')
-				a.classList.add('hide')
-				var a = document.getElementById('XP')
-				a.classList.add('hide')
-				var a = document.getElementById('training')
-				a.classList.add('hide')
-				var b = document.getElementById('ch16')
-				b.classList.add('hide')
-				var b = document.getElementById('ch16b')
-				b.classList.add('hide')
-				var a = document.getElementById('ch16but')
-				a.classList.add('hide')
-				var b = document.getElementById('ch17')
-				b.classList.add('hide')
-				var b = document.getElementById('ch17b')
-				b.classList.add('hide')
-				var a = document.getElementById('ch17but')
-				a.classList.add('hide')
-				var a = document.getElementById('skybook')
-				a.classList.add('hide')
-				var a = document.getElementById('skyLib')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u1')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u1b')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u1but')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u2')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u2b')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u2ybut')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u2nbut')
-				a.classList.add('hide')
-				var a = document.getElementById('d3uy')
-				a.classList.add('hide')
-				var a = document.getElementById('d3uyb')
-				a.classList.add('hide')
-				var a = document.getElementById('d3uybut')
-				a.classList.add('hide')
-				var a = document.getElementById('d3un')
-				a.classList.add('hide')
-				var a = document.getElementById('d3unb')
-				a.classList.add('hide')
-				var a = document.getElementById('d3unbut')
-				a.classList.add('hide')
-				var a = document.getElementById('d3un2')
-				a.classList.add('hide')
-				var a = document.getElementById('d3un2b')
-				a.classList.add('hide')
-				var a = document.getElementById('d3un2but')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u3')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u3b')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u3but')
-				a.classList.add('hide')
-				var a = document.getElementById('schoolbook')
-				a.classList.add('hide')
-				var a = document.getElementById('schoolLib')
-				a.classList.add('hide')
-				var a = document.getElementById('ch18')
-				a.classList.add('hide')
-				var a = document.getElementById('ch18b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch18but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch19')
-				a.classList.add('hide')
-				var a = document.getElementById('ch19b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch19but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch20')
-				a.classList.add('hide')
-				var a = document.getElementById('ch20b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch20but')
-				a.classList.add('hide')
-				var a = document.getElementById('torchplayer')
-				a.classList.add('hide')
-				var a = document.getElementById('minerplayer')
-				a.classList.add('hide')
 				if (parseInt(grassc.textContent) > 0 && parseInt(paperc.textContent) > 0 && parseInt(stickc.textContent) > 0 && parseInt(antc.textContent) > 0 && parseInt(waterc.textContent) > 0 && parseInt(eraserc.textContent) > 0 && parseInt(balloonc.textContent) > 0 && parseInt(pebblec.textContent) > 0){
 					var a = document.getElementById('field')
 					a.classList.add('btny')
@@ -2708,33 +2497,26 @@ Restrictions: killed all enemies at caves at least once
 				if (parseInt(localStorage.computerc) > 0 && parseInt(localStorage.wikipediac) > 0 && parseInt(localStorage.MSpc) > 0 && parseInt(localStorage.IEc) > 0 && parseInt(localStorage.FEc) > 0 && parseInt(localStorage.googolc) > 0 && parseInt(localStorage.CMGc) > 0 && parseInt(localStorage.gasbyc) > 0){
 					document.getElementById('coderslab').classList.replace('btny','btng')
 				}
+				if (area51.classList.contains('btng') && localStorage.ToE2Tr === '2'){
+					document.getElementById('taroy').classList.replace('btnr','btny')
+				}
+				if (parseInt(localStorage.susc) > 0 && parseInt(localStorage.grass2c) > 0 && parseInt(localStorage.ctrlhc) > 0 && parseInt(localStorage.bingc) > 0 && parseInt(localStorage.greenc) > 0 && parseInt(localStorage.gravityc) > 0 && parseInt(localStorage.ant3c) > 0 && parseInt(localStorage.ec) > 0){
+					document.getElementById('taroy').classList.replace('btny','btng')
+				}
 			} else {
 				ch5t.textContent = 1
 				hp.textContent = 0
 				show('ch5')
-				var a = document.getElementById('ch5a')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('ch5b')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('ch5but')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('ch2b')
-				a.classList.add('hide')
-				var a = document.getElementById('tutli')
-				a.classList.add('hide')
-				var a = document.getElementById('elibr')
-				a.classList.add('hide')
-				var a = document.getElementById('tutb')
-				a.classList.add('hide')
-				var a = document.getElementById('grassc')
-				a.classList.add('hide')
-				var a = document.getElementById('grassp')
-				a.classList.add('hide')
-				var a = document.getElementById('ch2')
-				a.classList.add('hide')
+				show('ch5a')
+				show('ch5b')
+				show('ch5but')
+				hide('ch2b')
+				hide('tutli')
+				hide('elibr')
+				hide('tutb')
+				hide('grassc')
+				hide('grassp')
+				hide('ch2')
 				var a = document.getElementById('invent')
 				a.classList.add('hide')
 				var a = document.getElementById('slots')
@@ -2796,8 +2578,7 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('ch4')
 				a.classList.add('hide')
-				var a = document.getElementById('ch4b')
-				a.classList.add('hide')
+				hide('ch4b')
 				var a = document.getElementById('estat')
 				a.classList.add('hide')
 				var a = document.getElementById('pstat')
@@ -2852,23 +2633,13 @@ Restrictions: killed all enemies at caves at least once
 		}
 		ch5but.onclick = ch5end;
 		function ch5end(){
-			var a = document.getElementById('ch5')
-			a.classList.add('hide')
-			var a = document.getElementById('ch5a')
-			a.classList.add('hide')
-			var a = document.getElementById('ch5b')
-			a.classList.add('hide')
-			var a = document.getElementById('ch5but')
-			a.classList.add('hide')
-			var hideStart = document.getElementById('ch6')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('ch6b')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')
-			var hideStart = document.getElementById('ch6but')
-			hideStart.classList.add('show')
-			hideStart.classList.remove('hide')			
+			hide('ch5')
+			hide('ch5a')
+			hide('ch5b')
+			hide('ch5but')
+			show('ch6')
+			show('ch6b')
+			show('ch6but')		
 		}
 		window.addEventListener('keydown', function (e) {
 			if (e.key === '2'){
@@ -2895,242 +2666,22 @@ Restrictions: killed all enemies at caves at least once
 						blok(1)
 					}
 					save()
-					document.getElementById('eLib').classList.add('hide')
-					document.getElementById('elibrb').classList.add('hide')
-					document.getElementById('s&s').classList.add('hide')
-					document.getElementById('codlab').classList.add('hide')
-					hide('itemLib')
-					hide('fieldLib')
-					hide('fieldbook')
+					hideAllMenu()
 					hideLore()
-					hide('itemLibB')
-					hide('ch5a')
 					if (localStorage.IFTr === '1'){
 						show('itemLibB')
 					}
-					var a = document.getElementById('ch5')
-					a.classList.add('hide')
-					var a = document.getElementById('d4u')
-					a.classList.add('hide')
-					var a = document.getElementById('d4ub')
-					a.classList.add('hide')
-					var a = document.getElementById('d4ubut')
-					a.classList.add('hide')
-					var a = document.getElementById('ame1player')
-					a.classList.add('hide')
-					var a = document.getElementById('ame2player')
-					a.classList.add('hide')
-					var a = document.getElementById('mine')
-					a.classList.add('hide')
-					var a = document.getElementById('torchplayer')
-					a.classList.add('hide')
-					var a = document.getElementById('minerplayer')
-					a.classList.add('hide')
-					var a = document.getElementById('ch5b')
-					a.classList.add('hide')
-					var a = document.getElementById('tutli')
-					a.classList.add('hide')
-					var a = document.getElementById('ch6')
-					a.classList.add('hide')
-					var a = document.getElementById('area51')
-					a.classList.add('hide')
-					var a = document.getElementById('caves')
-					a.classList.add('hide')
-					var a = document.getElementById('mines')
-					a.classList.add('hide')
-					var a = document.getElementById('coderslab')
-					a.classList.add('hide')
-					var a = document.getElementById('taroy')
-					a.classList.add('hide')
-					document.getElementById('advZB').classList.add('hide')
-					var a = document.getElementById('ch21b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch21')
-					a.classList.add('hide')
-					var a = document.getElementById('ch21but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch22b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch22')
-					a.classList.add('hide')
-					var a = document.getElementById('ch22but')
-					a.classList.add('hide')
-					var a = document.getElementById('gamefeature')
-					a.classList.add('hide')
-					var a = document.getElementById('ch6b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch3')
-					a.classList.add('hide')
-					var a = document.getElementById('cave')
-					a.classList.add('hide')
-					var a = document.getElementById('skybook')
-					a.classList.add('hide')
-					var a = document.getElementById('skyLib')
-					a.classList.add('hide')
-					var a = document.getElementById('schoolbook')
-					a.classList.add('hide')
-					var a = document.getElementById('schoolLib')
-					a.classList.add('hide')
-					var a = document.getElementById('skyplayer')
-					a.classList.add('hide')
-					var hideStart = document.getElementById('fields')
-					hideStart.classList.add('hide')
-					var a = document.getElementById('ch3b')
-					a.classList.add('hide')
-					var a = document.getElementById('helicopter2')
-					a.classList.add('hide')
-					var a = document.getElementById('deep2')
-					a.classList.add('hide')
-					var a = document.getElementById('deep3')
-					a.classList.add('hide')
-					var a = document.getElementById('deserteagle')
-					a.classList.add('hide')
-					var a = document.getElementById('a10')
-					a.classList.add('hide')
-					var a = document.getElementById('1drone')
-					a.classList.add('hide')
-					var a = document.getElementById('2drone')
-					a.classList.add('hide')
-					var a = document.getElementById('3drone')
-					a.classList.add('hide')
-					var a = document.getElementById('jetpackguy')
-					a.classList.add('hide')
-					var a = document.getElementById('ufo')
-					a.classList.add('hide')
 					for (let i = 23; i < (lore + 1); i++) {
 						document.getElementById('ch'+ i).classList.add('hide')
 					}
-					var a = document.getElementById('airspace')
-					a.classList.add('hide')
-					var a = document.getElementById('ch4')
-					a.classList.add('hide')
-					var a = document.getElementById('ch4b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch7but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch7b')
-					a.classList.add('hide')
-					var a = document.getElementById('area51b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch7')
-					a.classList.add('hide')
-					var a = document.getElementById('ch8')
-					a.classList.add('hide')
-					var a = document.getElementById('ch8b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch8but')
-					a.classList.add('hide')
-					var a = document.getElementById('tutb')
-					a.classList.add('hide')
-					var a = document.getElementById('grassp')
-					a.classList.add('hide')
-					var a = document.getElementById('ch5but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch6but')
-					a.classList.add('hide')
-					var a = document.getElementById('invent')
-					a.classList.add('show')
-					a.classList.remove('hide')
-					var a = document.getElementById('slots')
-					a.classList.remove('hide')
+					show('invent')
+					show('slots')
 					for (let n = 1; n < iNC + 1; n++){
 						document.getElementById('i' + n).classList.add('hide')
 					}
 					for (let N = 1; N < (parseInt(localStorage.iN) + 1); N++){
 						document.getElementById('i' + N).classList.remove('hide')
 					}
-					var a = document.getElementById('fMeTutZo')
-					a.classList.add('hide')
-					var a = document.getElementById('dronebuild')
-					a.classList.add('hide')
-					var a = document.getElementById('droneupgrade')
-					a.classList.add('hide')
-					var a = document.getElementById('usbVent')
-					a.classList.add('hide')
-					var a = document.getElementById('zonelib')
-					a.classList.add('hide')
-					var a = document.getElementById('tutzobook')
-					a.classList.add('hide')
-					var a = document.getElementById('health')
-					a.classList.add('hide')
-					var a = document.getElementById('maxHealth')
-					a.classList.add('hide')
-					var a = document.getElementById('eHealth')
-					a.classList.add('hide')
-					var a = document.getElementById('eMaxHealth')
-					a.classList.add('hide')
-					var a = document.getElementById('player')
-					a.classList.add('hide')
-					var a = document.getElementById('grass')
-					a.classList.add('hide')
-					var a = document.getElementById('paper')
-					a.classList.add('hide')
-					var a = document.getElementById('stick')
-					a.classList.add('hide')
-					var a = document.getElementById('ant')
-					a.classList.add('hide')
-					var a = document.getElementById('water')
-					a.classList.add('hide')
-					var a = document.getElementById('eraser')
-					a.classList.add('hide')
-					var a = document.getElementById('balloon')
-					a.classList.add('hide')
-					var a = document.getElementById('pebble')
-					a.classList.add('hide')
-					var a = document.getElementById('adv')
-					a.classList.add('hide')
-					var a = document.getElementById('tutZo')
-					a.classList.add('hide')
-					var a = document.getElementById('field')
-					a.classList.add('hide')
-					var a = document.getElementById('sky')
-					a.classList.add('hide')
-					var a = document.getElementById('school')
-					a.classList.add('hide')
-					var a = document.getElementById('theschool')
-					a.classList.add('hide')
-					var a = document.getElementById('ameair')
-					a.classList.add('hide')
-					var a = document.getElementById('attack')
-					a.classList.add('hide')
-					var a = document.getElementById('Pattack')
-					a.classList.add('hide')
-					var a = document.getElementById('Fattack')
-					a.classList.add('hide')
-					var a = document.getElementById('ch3but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch4but')
-					a.classList.add('hide')
-					var a = document.getElementById('gum')
-					a.classList.add('hide')
-					var a = document.getElementById('calculator')
-					a.classList.add('hide')
-					var a = document.getElementById('dodgeball')
-					a.classList.add('hide')
-					var a = document.getElementById('scissors')
-					a.classList.add('hide')
-					var a = document.getElementById('x')
-					a.classList.add('hide')
-					var a = document.getElementById('y')
-					a.classList.add('hide')
-					var a = document.getElementById('ruler')
-					a.classList.add('hide')
-					var a = document.getElementById('chair')
-					a.classList.add('hide')
-					var a = document.getElementById('estat')
-					a.classList.add('hide')
-					var a = document.getElementById('pstat')
-					a.classList.add('hide')
-					var a = document.getElementById('emhp')
-					a.classList.add('hide')
-					var a = document.getElementById('eatt')
-					a.classList.add('hide')
-					var a = document.getElementById('edef')
-					a.classList.add('hide')
-					var a = document.getElementById('ereg')
-					a.classList.add('hide')
-					var a = document.getElementById('thesky')
-					a.classList.add('hide')
 					var a = document.getElementById('mhp')
 					a.classList.add('show')
 					a.classList.remove('hide')
@@ -3147,240 +2698,11 @@ Restrictions: killed all enemies at caves at least once
 					a.classList.add('show')
 					a.classList.add('regi')
 					a.classList.remove('hide')
-					var a = document.getElementById('library')
-					a.classList.add('hide')
-					var a = document.getElementById('enemykills')
-					a.classList.add('hide')
-					var a = document.getElementById('lotsofgrass')
-					a.classList.add('hide')
-					var a = document.getElementById('rabbit')
-					a.classList.add('hide')
-					var a = document.getElementById('antcolony')
-					a.classList.add('hide')
-					var a = document.getElementById('tree')
-					a.classList.add('hide')
-					var a = document.getElementById('spider')
-					a.classList.add('hide')
-					var a = document.getElementById('puddle')
-					a.classList.add('hide')
-					var a = document.getElementById('apple')
-					a.classList.add('hide')
-					var a = document.getElementById('fire')
-					a.classList.add('hide')
-					var a = document.getElementById('elibr')
-					a.classList.add('show')
-					a.classList.remove('hide')
-					var a = document.getElementById('grassc')
-					a.classList.add('hide')
-					var a = document.getElementById('paperp')
-					a.classList.add('hide')
-					var a = document.getElementById('paperc')
-					a.classList.add('hide')
-					var a = document.getElementById('stickp')
-					a.classList.add('hide')
-					var a = document.getElementById('stickc')
-					a.classList.add('hide')
-					var a = document.getElementById('antp')
-					a.classList.add('hide')
-					var a = document.getElementById('antc')
-					a.classList.add('hide')
-					var a = document.getElementById('waterp')
-					a.classList.add('hide')
-					var a = document.getElementById('waterc')
-					a.classList.add('hide')
-					var a = document.getElementById('eraserp')
-					a.classList.add('hide')
-					var a = document.getElementById('eraserc')
-					a.classList.add('hide')
-					var a = document.getElementById('balloonp')
-					a.classList.add('hide')
-					var a = document.getElementById('balloonc')
-					a.classList.add('hide')
-					var a = document.getElementById('pebblep')
-					a.classList.add('hide')
-					var a = document.getElementById('pebblec')
-					a.classList.add('hide')
-					var a = document.getElementById('bird')
-					a.classList.add('hide')
-					var a = document.getElementById('boeing')
-					a.classList.add('hide')
-					var a = document.getElementById('cloud')
-					a.classList.add('hide')
-					var a = document.getElementById('buildings')
-					a.classList.add('hide')
-					var a = document.getElementById('meteor')
-					a.classList.add('hide')
-					var a = document.getElementById('lightning')
-					a.classList.add('hide')
-					var a = document.getElementById('helicopter')
-					a.classList.add('hide')
-					var a = document.getElementById('balloon2')
-					a.classList.add('hide')
-					var a = document.getElementById('ch9')
-					a.classList.add('hide')
-					var a = document.getElementById('ch9b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch9but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch10')
-					a.classList.add('hide')
-					var a = document.getElementById('ch10b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch10but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch11')
-					a.classList.add('hide')
-					var a = document.getElementById('ch11a')
-					a.classList.add('hide')
-					var a = document.getElementById('ch11b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch11but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch12')
-					a.classList.add('hide')
-					var a = document.getElementById('ch12b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch12but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch13')
-					a.classList.add('hide')
-					var a = document.getElementById('ch13b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch13but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch14')
-					a.classList.add('hide')
-					var a = document.getElementById('ch14a')
-					a.classList.add('hide')
-					var a = document.getElementById('ch14b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch14but')
-					a.classList.add('hide')
-					var a = document.getElementById('dt1')
-					a.classList.add('hide')
-					var a = document.getElementById('dt1w')
-					a.classList.add('hide')
-					var a = document.getElementById('dt1but')
-					a.classList.add('hide')
-					var a = document.getElementById('dt2')
-					a.classList.add('hide')
-					var a = document.getElementById('dt2w')
-					a.classList.add('hide')
-					var a = document.getElementById('dt2but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch15')
-					a.classList.add('hide')
-					var a = document.getElementById('ch15but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch15b')
-					a.classList.add('hide')
-					var a = document.getElementById('XP')
-					a.classList.add('hide')
-					var a = document.getElementById('training')
-					a.classList.add('hide')
-					var b = document.getElementById('ch16')
-					b.classList.add('hide')
-					var b = document.getElementById('ch16b')
-					b.classList.add('hide')
-					var a = document.getElementById('ch16but')
-					a.classList.add('hide')
-					var b = document.getElementById('ch17')
-					b.classList.add('hide')
-					var b = document.getElementById('ch17b')
-					b.classList.add('hide')
-					var a = document.getElementById('ch17but')
-					a.classList.add('hide')
-					var a = document.getElementById('block')
-					a.classList.add('hide')
-					var a = document.getElementById('shield')
-					a.classList.add('hide')
-					var a = document.getElementById('dodge')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u1')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u1b')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u1but')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u2')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u2b')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u2ybut')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u2nbut')
-					a.classList.add('hide')
-					var a = document.getElementById('d3uy')
-					a.classList.add('hide')
-					var a = document.getElementById('d3uyb')
-					a.classList.add('hide')
-					var a = document.getElementById('d3uybut')
-					a.classList.add('hide')
-					var a = document.getElementById('d3un')
-					a.classList.add('hide')
-					var a = document.getElementById('d3unb')
-					a.classList.add('hide')
-					var a = document.getElementById('d3unbut')
-					a.classList.add('hide')
-					var a = document.getElementById('d3un2')
-					a.classList.add('hide')
-					var a = document.getElementById('d3un2b')
-					a.classList.add('hide')
-					var a = document.getElementById('d3un2but')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u3')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u3b')
-					a.classList.add('hide')
-					var a = document.getElementById('d3u3but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch18')
-					a.classList.add('hide')
-					var a = document.getElementById('ch18b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch18but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch19')
-					a.classList.add('hide')
-					var a = document.getElementById('ch19b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch19but')
-					a.classList.add('hide')
-					var a = document.getElementById('ch20')
-					a.classList.add('hide')
-					var a = document.getElementById('ch20b')
-					a.classList.add('hide')
-					var a = document.getElementById('ch20but')
-					a.classList.add('hide')
-					var a = document.getElementById('guard')
-					a.classList.add('hide')
-					var a = document.getElementById('deep1')
-					a.classList.add('hide')
-					var a = document.getElementById('deep2')
-					a.classList.add('hide')
-					var a = document.getElementById('deep3')
-					a.classList.add('hide')
-					var a = document.getElementById('ufo2')
-					a.classList.add('hide')
-					var a = document.getElementById('alien')
-					a.classList.add('hide')
-					var a = document.getElementById('tree2')
-					a.classList.add('hide')
-					var a = document.getElementById('4drone')
-					a.classList.add('hide')
-					var a = document.getElementById('ant2')
-					a.classList.add('hide')
-					var hideStart = document.getElementById('radioactive')
-					hideStart.classList.add('hide')
+					show('elibr')
 					if (parseInt(ch15t.textContent) === 1){
-						var a = document.getElementById('xpB')
-						a.classList.add('show')
-						a.classList.remove('hide')
-						var a = document.getElementById('trainB')
-						a.classList.add('show')
-						a.classList.remove('hide')
-						var a = document.getElementById('useall')
-						a.classList.remove('hide')
+						show('xpB')
+						show('trainB')
+						show('useall')
 					}
 				} else {
 					inventunlock.textContent = 1
@@ -3466,8 +2788,6 @@ Restrictions: killed all enemies at caves at least once
 					a.classList.add('hide')
 					var a = document.getElementById('ereg')
 					a.classList.add('hide')
-					var a = document.getElementById('grassc')
-					a.classList.add('hide')
 				}
 			}
 		}
@@ -3476,12 +2796,9 @@ Restrictions: killed all enemies at caves at least once
 			show('ch4')
 			show('ch4but')
 			show('ch4b')
-			var a = document.getElementById('ch3')
-			a.classList.add('hide')
-			var a = document.getElementById('ch3b')
-			a.classList.add('hide')
-			var a = document.getElementById('ch3but')
-			a.classList.add('hide')
+			hide('ch3')
+			hide('ch3b')
+			hide('ch3but')
 		}
 		elibr.onclick = libr;
 		function libr(){
@@ -3558,6 +2875,14 @@ Restrictions: killed all enemies at caves at least once
 			googolc.textContent = localStorage.googolc
 			CMGc.textContent = localStorage.CMGc
 			gasbyc.textContent = localStorage.gasbyc
+			susc.textContent = localStorage.susc
+			grass2c.textContent = localStorage.grass2c
+			ctrlhc.textContent = localStorage.ctrlhc
+			bingc.textContent = localStorage.bingc
+			greenc.textContent = localStorage.greenc
+			gravityc.textContent = localStorage.gravityc
+			ant3c.textContent = localStorage.ant3c
+			ec.textContent = localStorage.ec
 		}
 		tutzobook.onclick = tutlibr;
 		function tutlibr(){
@@ -4297,6 +3622,7 @@ Restrictions: killed all enemies at caves at least once
 				if (localStorage.itemF === '2' && flashT !== 1){
 					flash(document.getElementById('inventory'))
 				}
+				save()
 				return true
 			} else {
 				return false
@@ -4490,8 +3816,8 @@ Restrictions: killed all enemies at caves at least once
 				var b = document.getElementById('le')
 				b.classList.remove('stilts')
 				b.classList.add('legs')
-				localStorage.mhp = parseFloat(localStorage.mhp) - 5
-				localStorage.def = parseFloat(localStorage.def) - 2
+				localStorage.mhp = parseFloat(localStorage.mhp) - 6
+				localStorage.def = parseFloat(localStorage.def) - 3
 				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) - 0.15
 				document.getElementById('le').setAttribute('title','')	
 				idrop('stilts','Stilts - It may look impractical but it, it is - +5 M +2 D +15% Move Cooldowns', 10000, 1)
@@ -4535,13 +3861,21 @@ Restrictions: killed all enemies at caves at least once
 				blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.3
 				document.getElementById('sh').setAttribute('title','')
 				idrop('wheels','Wheels - with this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns', 10000, 1)
+			} else if (sh.classList.contains('mantreads')){
+				var b = document.getElementById('sh')
+				b.classList.remove('mantreads')
+				b.classList.add('shoe')
+				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.25
+				localStorage.def = parseFloat(localStorage.def) - 40
+				localStorage.att = parseFloat(localStorage.att) - 150
+				document.getElementById('sh').setAttribute('title','')
+				idrop('mantreads','Mantreads - Since these shoes are weighted down with 50kg of lead, you say a yo mama joke every time you put them on - +150 A + 40 D + 30% Attack Cooldowns', 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
 			def.textContent = localStorage.def
 			reg.textContent = localStorage.reg
 		}
-		a1.onclick = unequipa1;
 		function unequipa1(){
 			if (a1.classList.contains('lwing')){
 				var b = document.getElementById('a1')
@@ -4641,7 +3975,6 @@ Restrictions: killed all enemies at caves at least once
 			def.textContent = localStorage.def
 			reg.textContent = localStorage.reg
 		}
-		a2.onclick = unequipa2;
 		function unequipa2(){
 			if (a2.classList.contains('lwing')){
 				var b = document.getElementById('a2')
@@ -4964,8 +4297,8 @@ Restrictions: killed all enemies at caves at least once
 				var b = document.getElementById('le')
 				b.classList.add('stilts')
 				b.classList.remove('legs')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 5
-				localStorage.def = parseFloat(localStorage.def) + 2
+				localStorage.mhp = parseFloat(localStorage.mhp) + 6
+				localStorage.def = parseFloat(localStorage.def) + 3
 				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) + 0.15
 				iv2.setAttribute('title','')
 				document.getElementById('le').setAttribute('title','Stilts - It may look impractical but it, it is - +5 M +2 D +15% Move Cooldowns')
@@ -5216,7 +4549,7 @@ Restrictions: killed all enemies at caves at least once
 				b.classList.add('minercap')
 				b.classList.remove('head')
 				localStorage.mhp = parseFloat(localStorage.mhp) + 50
-				def.textContent = parseFloat(localStorage.def) + 30
+				localStorage.def = parseFloat(localStorage.def) + 30
 				iv2.setAttribute('title','')
 				document.getElementById('he').setAttribute('title','Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D')
 			} else if (iv2.classList.contains('gears') && a1.classList.contains('access')){
@@ -5295,12 +4628,82 @@ Restrictions: killed all enemies at caves at least once
 				iv2.setAttribute('title','')
 				localStorage.IFTr = 1
 				ifunlock()
+			} else if (iv2.classList.contains('calculator') && emptyAccess()){
+				iv2.classList.replace('calculator', 'empty')
+				iv2.setAttribute('title','')
+				localStorage.mhp = parseFloat(localStorage.mhp) + 3
+				localStorage.def = parseFloat(localStorage.def) + 3
+				equipAccess('calculator','Calculator - 6 + 9 + 6 x 9 - +3 Hp +3 D')
+			} else if (iv2.classList.contains('mantreads') && sh.classList.contains('shoe')){
+				iv2.classList.replace('mantreads', 'empty')
+				iv2.setAttribute('title','')
+				document.getElementById('sh').classList.replace('shoe', 'mantreads')
+				document.getElementById('sh').setAttribute('title','Mantreads - Since these shoes are weighted down with 50kg of lead, you say a yo mama joke every time you put them on - +150 A + 40 D + 25% Attack Cooldowns')
+				localStorage.att = parseFloat(localStorage.att) + 150
+				localStorage.def = parseFloat(localStorage.def) + 40
+				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.25
+			} else if (iv2.classList.contains('e') && emptyAccess()){
+				iv2.classList.replace('e', 'empty')
+				iv2.setAttribute('title','')
+				localStorage.mhp = parseFloat(localStorage.mhp) + 272
+				localStorage.att = parseFloat(localStorage.att) + 68
+				localStorage.def = parseFloat(localStorage.def) + 68
+				localStorage.reg = parseFloat(localStorage.reg) + 17
+				equipAccess('calculator',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +69 A +68 D +17 R")
 			} else {
 				if (iv2.classList.item(1) !== 'empty'){
 					idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
 					iv2.classList.replace(iv2.classList.item(1), 'empty')
 					iv2.setAttribute('title','')
 				}
+			}
+			mhp.textContent = localStorage.mhp
+			att.textContent = localStorage.att
+			def.textContent = localStorage.def
+			reg.textContent = localStorage.reg
+			save()
+			//itemsHere
+		}
+		function emptyAccess(){
+			var yes = 0
+			for (i = 1; i <= accessN; i++){
+				if (document.getElementById('a' + i).classList.contains('access')){
+					yes = 1
+				}
+			} if (yes === 1){
+				return true
+			} else {
+				return false
+			}
+		}
+		function equipAccess(item,title){
+			var slot = 0
+			for (i = 1; i < 3; i++){
+				if (document.getElementById('a' + i).classList.contains('access')){
+					slot = document.getElementById('a' + i)
+					i = 5354
+				}
+			}
+			slot.classList.replace('access',item)
+			slot.setAttribute('title',title)
+			save()
+		}
+		function unequipAccess(slot){
+			var slotId = document.getElementById(slot)
+			if (slotId.classList.contains('calculator')){
+				slotId.classList.replace('calculator','access')
+				localStorage.mhp = parseFloat(localStorage.mhp) - 3
+				localStorage.def = parseFloat(localStorage.def) - 3
+				slotId.setAttribute('title','')
+				idrop('calculator','Calculator - 6 + 9 + 6 x 9 - +3 Hp +3 D', 10000, 1)
+			} else if (slotId.classList.contains('e')){
+				slotId.classList.replace('e','access')
+				localStorage.mhp = parseFloat(localStorage.mhp) - 272
+				localStorage.att = parseFloat(localStorage.att) - 68
+				localStorage.def = parseFloat(localStorage.def) - 68
+				localStorage.reg = parseFloat(localStorage.reg) - 17
+				slotId.setAttribute('title','')
+				idrop('e',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +69 A +68 D +17 R", 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5353,6 +4756,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			}
+			save()
 		}
 		function playerdead(){
 			if (document.getElementById('adv').classList.contains('hide') && document.getElementById('invent').classList.contains('hide') && document.getElementById('dronebuild').classList.contains('hide') && document.getElementById('gamefeature').classList.contains('hide') && document.getElementById('s&s').classList.contains('hide')){
@@ -5362,10 +4766,11 @@ Restrictions: killed all enemies at caves at least once
 			} else {
 				
 			}
+			document.getElementById("health").style.width = '0px'
 		}
 		function setHp(){
 			if (localStorage.IFTr === '1' && localStorage.hpM){
-				mhp.textContent = Math.floor(parseInt(localStorage.mhp) * parseFloat(localStorage.hpM) * parseInt(localStorage.itemHpBonus) / 100)
+				mhp.textContent = Math.floor(parseInt(localStorage.mhp) * parseFloat(localStorage.hpM) * (1000 + parseInt(localStorage.itemHpBonus)) / 1000)
 			} else if (localStorage.hpM){
 				mhp.textContent = Math.floor(parseInt(localStorage.mhp) * parseFloat(localStorage.hpM))
 			} else {
@@ -5392,12 +4797,8 @@ Restrictions: killed all enemies at caves at least once
 			a.classList.add('show')
 			a.classList.remove('hide')
 			a.classList.remove('regi')
-			var a = document.getElementById('emhp')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('eatt')
-			a.classList.add('show')
-			a.classList.remove('hide')
+			show('emhp')
+			show('eatt')
 			show('edef')
 			show('ereg')
 			hide('adv')
@@ -5748,14 +5149,6 @@ Restrictions: killed all enemies at caves at least once
 					} else {
 					antDodge.textContent = 1
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
 					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
 					if (retest < parseFloat(mhp.textContent)){
 						hp.textContent = retest
@@ -7696,7 +7089,8 @@ Restrictions: killed all enemies at caves at least once
 							fail2 = parseInt(fail.slice(0,-1)) - 5
 							fedF.textContent = fail2 + '%'
 						}
-						idrop('paper', 'Paper - A flat piece of white - +2 M +1 R', 500)
+						idrop('paper', 'Paper - A flat piece of white - +2 Hp +1 R', 500)
+						idrop('calculator', 'Calculator - 6 + 9 + 6 x 9 - +3 Hp +3 D', 1000)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1200)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 300)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 300)
@@ -10262,7 +9656,7 @@ Restrictions: killed all enemies at caves at least once
 				emhp.textContent = 200
 				eatt.textContent = '10%'
 				edef.textContent = 200
-				ereg.textContent = 20
+				ereg.textContent = 0
 				document.getElementById("eHealth").style.width = "250px";
 				document.getElementById("health").style.width = "250px";
 				var re = setTimeout(gratt,50)
@@ -10307,34 +9701,34 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20 - 1.5
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
-						ae = ae + 1
-						if(ae === 10){
-						if(parseFloat(hp.textContent) > 0){					
-							ae = 0
-							hp.textContent = parseFloat(hp.textContent) - parseFloat(mhp.textContent) * 0.101
-							pdamaged(0)
-							if (parseFloat(hp.textContent) > 0){
-								document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-							}
-						} 
-					}						
+						var qe = setTimeout(gratt,50)
+						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
+						if (retest < parseFloat(emhp.textContent)){
+							ehp.textContent = retest
+							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
+						} else {
+							ehp.textContent = emhp.textContent
+							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
+						}
+						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20 - 1
+						if (retest < parseFloat(mhp.textContent)){
+							hp.textContent = retest
+							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+						} else {
+							hp.textContent = mhp.textContent
+							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+						}
+							ae = ae + 1
+							if(ae === 10){
+							if(parseFloat(hp.textContent) > 0){					
+								ae = 0
+								hp.textContent = parseFloat(hp.textContent) - parseFloat(mhp.textContent) * 0.101
+								pdamaged(0)
+								if (parseFloat(hp.textContent) > 0){
+									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+								}
+							} 
+						}						
 					}
 				}
 			}
@@ -10406,10 +9800,8 @@ Restrictions: killed all enemies at caves at least once
 				var a = document.getElementById('ereg')
 				a.classList.add('show')
 				a.classList.remove('hide')
-				var a = document.getElementById('adv')
-				a.classList.add('hide')
-				var a = document.getElementById('tutli')
-				a.classList.add('hide')
+				hide('adv')
+				hide('tutli')
 				var a = document.getElementById('tutZo')
 				a.classList.add('hide')
 				var a = document.getElementById('field')
@@ -10457,12 +9849,9 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('miner')
 				a.classList.add('hide')
-				var a = document.getElementById('drill')
-				a.classList.add('hide')
-				var a = document.getElementById('uranium')
-				a.classList.add('hide')
-				var a = document.getElementById('diamond')
-				a.classList.add('hide')
+				hide('drill')
+				hide('uranium')
+				hide('diamond')
 				hide('hoe')
 				advc.textContent = parseInt(advc.textContent) - 1
 				var x = Math.floor(Math.random() * 8) + 1
@@ -10632,8 +10021,7 @@ Restrictions: killed all enemies at caves at least once
 					} else if (hp.textContent <= 0){
 						playerdead()
 						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('player')
-						a.classList.add('hide')
+						hide('player')
 						var a = document.getElementById('torchplayer')
 						a.classList.add('hide')
 						var a = document.getElementById('minerplayer')
@@ -11026,7 +10414,7 @@ Restrictions: killed all enemies at caves at least once
 					sadvmus()
 					setHp()
 					document.getElementById('codlab').classList.remove('hide')
-					document.getElementById('coderslab').setAttribute('title','Coderslab')
+					document.getElementById('coderslab').setAttribute('title',"Coder's lab")
 					document.getElementById('computer').classList.add('hide')
 					document.getElementById('wikipedia').classList.add('hide')
 					document.getElementById('MSpaint').classList.add('hide')
@@ -11099,8 +10487,7 @@ Restrictions: killed all enemies at caves at least once
 					a.classList.remove('hide')
 					var a = document.getElementById('eMaxHealth')
 					a.classList.remove('hide')
-					var a = document.getElementById('player')
-					a.classList.remove('hide')
+					show('player')
 					advc.textContent = parseInt(advc.textContent) - 1
 					document.getElementById("health").style.width = 250
 					advc.textContent = parseInt(advc.textContent) - 1
@@ -11148,6 +10535,10 @@ Restrictions: killed all enemies at caves at least once
 										localStorage.ramLVL = 1
 									}
 								}
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
 								localStorage.xp = parseInt(localStorage.xp) + 120
 							} else {
 								playerdead()
@@ -11207,6 +10598,10 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500)
 								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -11330,6 +10725,10 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500)
 								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -11387,6 +10786,10 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500)
 								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
 							} else {
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -11419,10 +10822,10 @@ Restrictions: killed all enemies at caves at least once
 							img = document.getElementById('codlab').appendChild(hi2)
 							img.setAttribute('id', 'FEimg' + i)
 							if (Math.floor(Math.random() * 3) === 1){
-								img.classList.replace('dodge', 'attack')
+								img.classList.replace('refresh', 'attack')
 								img.setAttribute('onclick', 'i =  ' + i + '; ehp.textContent = parseInt(ehp.textContent) - 1; document.getElementById("FEimg" + i).classList.add("hide");')
 							} else {
-								img.classList.replace('dodge', 'ttack')
+								img.classList.replace('refresh', 'ttack')
 								img.setAttribute('onclick', 'i =  ' + i + '; ehp.textContent = parseInt(ehp.textContent) + 3; document.getElementById("FEimg" + i).classList.add("hide");')
 							}							
 							img.style.left = Math.floor(Math.random() * 360) + 515
@@ -11441,7 +10844,7 @@ Restrictions: killed all enemies at caves at least once
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill()
 								document.getElementById('FE').classList.add('hide')
-								document.getElementById('dodge').classList.add('hide')
+								hide('FEimg')
 								advc.textContent = parseInt(advC.textContent)
 								newSave('FEc',0)
 								localStorage.FEc = parseInt(localStorage.FEc) + 1
@@ -11452,6 +10855,10 @@ Restrictions: killed all enemies at caves at least once
 									document.getElementById('codlab').removeChild(document.getElementById('FEimg' + i))
 								}
 								document.getElementById("eHealth").style.width = '0px'
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
 							} else {
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -11459,6 +10866,7 @@ Restrictions: killed all enemies at caves at least once
 								for (let i = 1; i < 20; i++) {
 									document.getElementById('codlab').removeChild(document.getElementById('FEimg' + i))
 								}
+								hide('FEimg')
 								var qe = setTimeout(enki,500)
 							}
 						}
@@ -11497,6 +10905,10 @@ Restrictions: killed all enemies at caves at least once
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500)
 								localStorage.xp = parseInt(localStorage.xp) + 120
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
 							} else {
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -11533,6 +10945,10 @@ Restrictions: killed all enemies at caves at least once
 								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
 								document.getElementById("eHealth").style.width = '0px'
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -11608,6 +11024,10 @@ Restrictions: killed all enemies at caves at least once
 								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
 								document.getElementById("eHealth").style.width = '0px'
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -11630,10 +11050,462 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 		}
+		var currentGrass = 0;
+		var grassNeg = 0;
+		var grassNeg2 = 0;
+		var gravityAttack = 0;
 		taroy.onclick = taroybat;
-		function taroybat(){
-			if (false){
-				
+		var playerPos = 1;
+		function taroybat(enemyN){
+			if (area51.classList.contains('btng') && localStorage.ToE2Tr === '2'){
+				sadvmus()
+				setHp()
+				currentGrass = 0;
+				grassNeg = 0;
+				grassNeg2 = 0;
+				document.getElementById('TARoY').classList.remove('hide')
+				document.getElementById('taroy').setAttribute('title','The Alternating Reality of Yes')
+				hide('sus')
+				hide('grass2')
+				hide('ctrlh')
+				hide('bing')
+				hide('greenEnemy')
+				hide('gravity')
+				hide('gravityBack')
+				hide('ant3')
+				hide('eEnemy')
+				document.getElementById('mhp').classList.remove('hide','mhpi')
+				document.getElementById('att').classList.remove('hide','atti')
+				document.getElementById('def').classList.remove('hide','defi')
+				document.getElementById('reg').classList.remove('hide','regi')
+				show('emhp')
+				show('eatt')
+				show('edef')
+				show('ereg')
+				hide('adv')
+				hide('tutli')
+				hide('tutZo')
+				hide('field')
+				hide('sky')
+				hide('school')
+				hide('ameair')
+				hide('area51')
+				hide('caves')
+				hide('mines')
+				hide('coderslab')
+				hide('taroy')
+				hide('advZB')
+				show('estat')
+				show('pstat')
+				show('health')
+				show('maxHealth')
+				show('eHealth')
+				show('eMaxHealth')
+				show('player')
+				advc.textContent = parseInt(advc.textContent) - 1
+				document.getElementById("health").style.width = 250
+				x = Math.floor(Math.random() * 8) + 1
+				if (enemyN < 9 && enemyN > 0){
+					x = enemyN
+				}
+				if (x === 1){
+					emhp.textContent = 8000
+					ehp.textContent = emhp.textContent
+					eatt.textContent = 500
+					edef.textContent = 500
+					ereg.textContent = 50
+					document.getElementById("eHealth").style.width = 250
+					battle(0, 20, 0, 0, 0)
+					document.getElementById('sus').style.filter = 'blur(10px) brightness(0)'
+					document.getElementById('sus').classList.remove('hide')
+					var longWait = 0
+					function battle(ae, sp, sab1, sab2, sab2Timer){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							document.getElementById('sus').style.filter = 'blur(' + (5 + (parseInt(ehp.textContent) / 1600)) + 'px) brightness(' + (0.2 - (parseInt(ehp.textContent) / 40000)) + ')'
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							if (parseInt(ehp.textContent) <= 4000 && sab1 === 0){
+								reg.textContent = parseInt(reg.textContent) - 200
+								sab1 = 1
+							}
+							if (sab2 === 1){
+								sab2Timer = sab2Timer + 1
+								document.getElementById('red').style.filter = 'brightness(0)'
+								document.getElementById('red').style.opacity = sab2Timer / 100
+								if (sab2Timer >= 100){
+									hp.textContent = 0
+									longWait = 1
+								}
+							}
+							if (parseInt(ehp.textContent) <= 2000 && sab2 === 0){
+								sab2 = 1
+							}
+							setTimeout(battle, 50, ae, sp, sab1, sab2, sab2Timer)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill()
+							document.getElementById('sus').classList.add('hide')
+							advc.textContent = parseInt(advC.textContent)
+							newSave('susc',0)
+							localStorage.susc = parseInt(localStorage.susc) + 1
+							var qe = setTimeout(enki,500)
+							localStorage.xp = parseInt(localStorage.xp) + 200
+							document.getElementById("eHealth").style.width = '0px'
+							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
+							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
+							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							document.getElementById('player').classList.add('hide')
+							advc.textContent = parseInt(advC.textContent)
+							if (longWait === 1){
+								var qe = setTimeout(enki,2000)
+							} else {
+								var qe = setTimeout(enki,500)
+							}
+						}
+					}
+				} else if (x === 2){
+					emhp.textContent = 4000
+					ehp.textContent = emhp.textContent
+					eatt.textContent = 400
+					edef.textContent = 400
+					ereg.textContent = 50
+					document.getElementById("eHealth").style.width = 250
+					battle(0, 16)
+					show('grass2')
+					if (document.getElementById('we').classList.contains('torch')){
+						hide('player')
+						show('torchplayer')
+					}
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+								currentGrass = currentGrass + 1
+								if (Math.ceil(grassNeg) < currentGrass){
+									let grassClone = document.getElementById('grass').cloneNode(true)
+									let grassEntity = document.getElementById('body').appendChild(grassClone)
+									grassEntity.classList.replace('hide','cloneDelete')
+									grassEntity.setAttribute('id', 'grassClone' + currentGrass)
+									grassEntity.style.left = Math.floor(Math.random() * 400) + 401
+									grassEntity.style.top = Math.floor(Math.random() * 300) + 51
+									emhp.textContent = Math.floor(4000 * (1.1 ** Math.floor(currentGrass - Math.ceil(grassNeg))))
+									eatt.textContent = Math.floor(400 * (1.1 ** Math.floor(currentGrass - Math.ceil(grassNeg))))
+									edef.textContent = Math.floor(400 * (1.1 ** Math.floor(currentGrass - Math.ceil(grassNeg))))
+									ereg.textContent = Math.floor(50 * (1.1 ** Math.floor(currentGrass - Math.ceil(grassNeg))))
+								}
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill()
+							hide('grass2')
+							hide('fire')
+							advc.textContent = parseInt(advC.textContent)
+							newSave('grass2c',0)
+							localStorage.grass2c = parseInt(localStorage.grass2c) + 1
+							var qe = setTimeout(enki,500)
+							localStorage.xp = parseInt(localStorage.xp) + 200
+							document.getElementById("eHealth").style.width = '0px'
+							for (let i = 0; i <= currentGrass; i++){
+								if (document.getElementById('grassClone' + i)){
+									document.getElementById('body').removeChild(document.getElementById('grassClone' + i))
+								}
+							}
+							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
+							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
+							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							hide('torchplayer')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+							for (let i = 0; i <= currentGrass; i++){
+								if (document.getElementById('grassClone' + i)){
+									document.getElementById('body').removeChild(document.getElementById('grassClone' + i))
+								}
+							}
+						}
+					}
+				} else if (x === 3){
+					emhp.textContent = 10000
+					ehp.textContent = emhp.textContent
+					eatt.textContent = 0
+					edef.textContent = 1000
+					ereg.textContent = 0
+					document.getElementById("eHealth").style.width = 250
+					battle()
+					show('ctrlh')
+					function battle(){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							if (parseFloat(hp.textContent) < parseInt(mhp.textContent) / 2){
+								hide('player')
+								show('cryingPlayer')
+							}
+							setTimeout(battle, 50)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill()
+							hide('ctrlh')
+							advc.textContent = parseInt(advC.textContent)
+							newSave('ctrlhc',0)
+							localStorage.ctrlhc = parseInt(localStorage.ctrlhc) + 1
+							var qe = setTimeout(enki,500)
+							localStorage.xp = parseInt(localStorage.xp) + 200
+							document.getElementById("eHealth").style.width = '0px'
+							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
+							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
+							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							hide('cryingPlayer')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+						}
+					}
+				} else if (x === 4){
+					emhp.textContent = 6000
+					ehp.textContent = emhp.textContent
+					eatt.textContent = 1
+					edef.textContent = 500
+					ereg.textContent = 0
+					document.getElementById("eHealth").style.width = 250
+					battle(0, 100)
+					show('bing')
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae >= sp){
+								eattack()
+								eatt.textContent = Math.floor(parseFloat(eatt.textContent) * 113) / 100
+								
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill()
+							hide('bing')
+							newSave('bingc',0)
+							localStorage.bingc = parseInt(localStorage.bingc) + 1
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+							localStorage.xp = parseInt(localStorage.xp) + 200
+							document.getElementById("eHealth").style.width = '0px'
+							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
+							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
+							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+						}
+					}
+				} else if (x === 5){
+					emhp.textContent = 8000
+					ehp.textContent = emhp.textContent
+					eatt.textContent = 510
+					edef.textContent = 510
+					ereg.textContent = 50
+					document.getElementById("eHealth").style.width = 250
+					battle(0, 20)
+					show('greenEnemy')
+					document.getElementById('greenEnemy').style.background = 'rgb(0,255,0)'
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+								var red = Math.floor(Math.random() * 192) + 63
+								var blue = Math.floor(Math.random() * 192) + 63
+								eatt.textContent = red * 4
+								edef.textContent = blue * 4
+								document.getElementById('greenEnemy').style.background = 'rgb(' + red +',255,' + blue + ')'
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill()
+							hide('greenEnemy')
+							newSave('greenc',0)
+							localStorage.greenc = parseInt(localStorage.greenc) + 1
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+							localStorage.xp = parseInt(localStorage.xp) + 200
+							document.getElementById("eHealth").style.width = '0px'
+							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
+							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
+							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+						}
+					}
+				} else if (x === 6){
+					emhp.textContent = 9807
+					ehp.textContent = emhp.textContent
+					eatt.textContent = '4.9t^2'
+					edef.textContent = 981
+					ereg.textContent = 0
+					document.getElementById("eHealth").style.width = 250
+					battle(0, 20)
+					show('gravity')
+					show('gravityBack')
+					hide('player')
+					show('fallingPlayer')
+					show('jetpackguy')
+					document.getElementById('jetpackguy').style = 'height: 110px; width: 90px'
+					document.getElementById('fallingPlayer').style.left = '225px'
+					playerPos = 1
+					gravityAttack = 0
+					var pos = Math.floor(Math.random() * 3)
+					document.getElementById('jetpackguy').style.left = 180 + (pos * 100)
+					document.getElementById('jetpackguy').style.top = 490
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							var value = 0
+							for (i = ae; i <= 19; i++){
+								value = value + gravityAttack + 15
+							}
+							if (value <= 300){
+								show('jetpackguy')
+								document.getElementById('jetpackguy').style.top = 190 + value
+							}
+							if (ae === 19){
+								document.getElementById('jetpackguy').style.top = '190px'
+							}
+							if (ae === sp){
+								gravityAttack = gravityAttack + 1
+								ae = 0
+								if (pos === playerPos){
+									hp.textContent = parseFloat(hp.textContent) - (4.9 * ((gravityAttack) ** 2))
+								}
+								pos = Math.floor(Math.random() * 3)
+								document.getElementById('jetpackguy').style.left = 180 + (pos * 100)
+								hide('jetpackguy')
+								document.getElementById('jetpackguy').style.top = 490
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill()
+							hide('gravity')
+							hide('jetpackguy')
+							newSave('gravityc',0)
+							localStorage.gravityc = parseInt(localStorage.gravityc) + 1
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+							localStorage.xp = parseInt(localStorage.xp) + 200
+							document.getElementById("eHealth").style.width = '0px'
+							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
+							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
+							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+							idrop('mantreads','Mantreads - Since these shoes are weighted down with 50kg of lead, you say a yo mama joke every time you put them on - +150 A + 40 D + 30% Attack Cooldowns', 300)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('fallingPlayer')
+							hide('jetpackguy')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+						}
+					}
+				} else if (x === 7){
+					emhp.textContent = 4000
+					ehp.textContent = emhp.textContent
+					eatt.textContent = 400
+					edef.textContent = -100
+					ereg.textContent = 100
+					document.getElementById("eHealth").style.width = 250
+					battle(0, 4)
+					show('ant3')
+					dodgeballDodge.textContent = 1
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill()
+							hide('ant3')
+							newSave('ant3c',0)
+							localStorage.ant3c = parseInt(localStorage.ant3c) + 1
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+							localStorage.xp = parseInt(localStorage.xp) + 200
+							document.getElementById("eHealth").style.width = '0px'
+							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
+							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
+							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+						}
+					}
+				} else if (true){
+					emhp.textContent = Math.floor(parseInt(localStorage.mhp) * 2.718)
+					ehp.textContent = emhp.textContent
+					eatt.textContent = Math.floor(parseInt(localStorage.att)) //* 2.718)
+					edef.textContent = Math.floor(parseInt(localStorage.def) * 2.718)
+					ereg.textContent = Math.floor(parseInt(localStorage.reg) * 2.718)
+					document.getElementById("eHealth").style.width = 250
+					battle(0, 20)
+					show('eEnemy')
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill()
+							hide('eEnemy')
+							newSave('ec',0)
+							localStorage.ec = parseInt(localStorage.ec) + 1
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+							localStorage.xp = parseInt(localStorage.xp) + 200
+							document.getElementById("eHealth").style.width = '0px'
+							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
+							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
+							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+							idrop('e',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +69 A +68 D +17 R", 100)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500)
+						}
+					}
+				}
 			} else {
 				newSave('ach12p', 0)
 				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
@@ -11692,6 +11564,8 @@ Restrictions: killed all enemies at caves at least once
 					} else {
 						document.getElementById("health").style.width = '0px'
 					}
+				} else {
+					console.log('Player dodged')
 				}
 			}
 		}
@@ -11722,7 +11596,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('FEimg').style.top = Math.floor(Math.random() * 350) + 110
 			for (let i = 1; i < 20; i++) {
 				img = document.getElementById('FEimg' + i)
-				if (Math.floor(Math.random() * 10) === 1){
+				if (Math.floor(Math.random() * 3) === 1){
 					img.classList.replace('ttack', 'attack')
 					img.classList.remove('hide')
 					img.setAttribute('onclick', 'i =  ' + i + '; ehp.textContent = parseInt(ehp.textContent) - 1; document.getElementById("FEimg" + i).classList.add("hide");')
@@ -11778,13 +11652,13 @@ Restrictions: killed all enemies at caves at least once
 				return num / 4 + ' * 4'
 			} else if (num % 5 === 0 && x < 3){
 				return num / 5 + ' * 5'
-			} else if (num % 6 === 0 && x < 3){
+			} else if (num % 6 === 0 && x < 5){
 				return num / 6 + ' * 6'
-			} else if (num % 7 === 0 && x < 3){
+			} else if (num % 7 === 0 && x < 5){
 				return num / 7 + ' * 7'
-			} else if (num % 8 === 0 && x < 3){
+			} else if (num % 8 === 0 && x < 5){
 				return num / 8 + ' * 8'
-			} else if (num % 9 === 0 && x < 3){
+			} else if (num % 9 === 0 && x < 5){
 				return num / 9 + ' * 9'
 			} else if (x < 2){
 				return num / 2 + ' * 2'
@@ -11850,6 +11724,9 @@ Restrictions: killed all enemies at caves at least once
 					} else {
 						attn = 1
 					}
+					if (document.getElementById('ctrlh').classList.contains('hide') === false && document.getElementById('TARoY').classList.contains('hide') === false){
+						reg.textContent = parseInt(reg.textContent) - 20
+					}
 					if (attn === 3){
 						var dks = parseFloat(trdaM.textContent) * parseInt(att.textContent)
 						att.textContent = Math.round(dks)
@@ -11862,7 +11739,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 					if (localStorage.edl){
 						var dl = Math.floor(Math.random() * 20)
-						if (dl <= parseInt(localStorage.edl)){
+						if (dl <= parseInt(localStorage.edl) && parseInt(edef.textContent) > 0){
 							edef = Math.round(parseFloat(edef.textContent) * 0.9)
 						}
 					}
@@ -12337,8 +12214,18 @@ Restrictions: killed all enemies at caves at least once
 								wikiTr = 1
 							}
 						} else if (document.getElementById('wikipedia').getAttribute('src') === 'wikipedia3.png'){
-							ehp.textContent = parseInt(ehp.textContent) + 4
+							ehp.textContent = parseInt(ehp.textContent) + 2
 						}
+					}
+					if (document.getElementById('grass2').classList.contains('hide') === false && document.getElementById('we').classList.contains('torch')){
+						if (grassNeg2 > 8){
+							grassNeg = grassNeg + 0.3
+						} else {
+							grassNeg = (-1 * ((grassNeg2 ** 2) / 20 )) + (1.05 * grassNeg2)
+						}
+						grassNeg2 = grassNeg2 + 1
+						show('fire')
+						console.log('Burning grass2 with ' + grassNeg)
 					}
 				}
 			}
@@ -12514,6 +12401,18 @@ Restrictions: killed all enemies at caves at least once
 						itemBookOn()
 					}
 				}
+				if (parseFloat(hp.textContent) > 0){
+					if (e.key === 'ArrowLeft'){
+						document.getElementById('fallingPlayer').style.left = '125px'
+						playerPos = 0
+					} else if (e.key === 'ArrowDown'){
+						document.getElementById('fallingPlayer').style.left = '225px'
+						playerPos = 1
+					} else if (e.key === 'ArrowRight'){
+						document.getElementById('fallingPlayer').style.left = '325px'
+						playerPos = 2
+					}
+				}
 			}
 		}, false);
 		function ch7st(){
@@ -12550,15 +12449,9 @@ Restrictions: killed all enemies at caves at least once
 			a.classList.add('hide')
 			var a = document.getElementById('ch7b')
 			a.classList.add('hide')
-			var a = document.getElementById('ch8but')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('ch8b')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('ch8')
-			a.classList.add('show')
-			a.classList.remove('hide')
+			show('ch8but')
+			show('ch8b')
+			show('ch8')
 			var a = document.getElementById('school')
 			a.classList.add('btny')
 			a.classList.remove('btnr')
@@ -12583,23 +12476,19 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function ch9st(){
-				sadvmus()
+			sadvmus()
 			ch9t.textContent = 1
-				var a = document.getElementById('ch2b')
-				a.classList.add('hide')
-				var a = document.getElementById('skyplayer')
-				a.classList.add('hide')
-				var a = document.getElementById('tutli')
-				a.classList.add('hide')
-				var a = document.getElementById('tutb')
-				a.classList.add('hide')
-				var a = document.getElementById('grassc')
-				a.classList.add('hide')
-				var a = document.getElementById('grassp')
-				a.classList.add('hide')
-				var a = document.getElementById('paperp')
-				a.classList.add('hide')
-				var a = document.getElementById('paperc')
+			hide('ch2b')
+			hide('skyplayer')
+			hide('tutli')
+			hide('tutb')
+			var a = document.getElementById('grassc')
+			a.classList.add('hide')
+			var a = document.getElementById('grassp')
+			a.classList.add('hide')
+			var a = document.getElementById('paperp')
+			a.classList.add('hide')
+			var a = document.getElementById('paperc')
 				a.classList.add('hide')
 				var a = document.getElementById('stickp')
 				a.classList.add('hide')
@@ -12694,8 +12583,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('advZB').classList.add('hide')
 				var a = document.getElementById('attack')
 				a.classList.add('hide')
-				var a = document.getElementById('fMeTutZo')
-				a.classList.add('hide')
+				hide('fMeTutZo')
 				var a = document.getElementById('health')
 				a.classList.add('hide')
 				var a = document.getElementById('maxHealth')
@@ -12966,423 +12854,9 @@ Restrictions: killed all enemies at caves at least once
 		buill.onclick = droneopen;
 		d4ubut.onclick = droneopen;
 		function droneopen(){
-				sadvmus()
-				if (parseInt(blockOn.textContent) === 1){
-					blok(1)
-				}
-				document.getElementById('drone').setAttribute('title','Build drones to go and get stuff  [3]')
-				document.getElementById('eLib').classList.add('hide')
-				document.getElementById('elibrb').classList.add('hide')
-				document.getElementById('s&s').classList.add('hide')
-				document.getElementById('codlab').classList.add('hide')
-				hideLore()
-				hide('itemLibB')
-				hide('itemLib')
-				hide('fieldLib')
-				hide('ch2b')
-				hide('skyplayer')
-				hide('ame1player')
-				hide('ame2player')
-				hide('torchplayer')
-				hide('minerplayer')
-				hide('tutli')
-				hide('tutb')
-				hide('gamefeature')
-				hide('grassc')
-				hide('grassp')
-				hide('paperp')
-				hide('paperc')
-				hide('stickp')
-				hide('stickc')
-				hide('antp')
-				hide('antc')
-				hide('cave')
-				hide('waterp')
-				hide('waterc')
-				hide('eraserp')
-				hide('eraserc')
-				hide('mine')
-				hide('schoolbook')
-				hide('schoolLib')
-				hide('balloonp')
-				hide('balloonc')
-				hide('pebblep')
-				hide('pebblec')
-				hide('area51b')
-				hide('skybook')
-				hide('skyLib')
-				hide('bird')
-				hide('boeing')
-				hide('cloud')
-				hide('area51')
-				hide('caves')
-				hide('mines')
-				hide('coderslab')
-				hide('taroy')
-				document.getElementById('advZB').classList.add('hide')
-				var a = document.getElementById('buildings')
-				a.classList.add('hide')
-				var a = document.getElementById('meteor')
-				a.classList.add('hide')
-				var a = document.getElementById('fieldbook')
-				a.classList.add('hide')
-				var a = document.getElementById('lightning')
-				a.classList.add('hide')
-				var a = document.getElementById('deep2')
-				a.classList.add('hide')
-				var a = document.getElementById('deep3')
-				a.classList.add('hide')
-				var a = document.getElementById('helicopter')
-				a.classList.add('hide')
-				var a = document.getElementById('balloon2')
-				a.classList.add('hide')
-				var a = document.getElementById('enemykills')
-					a.classList.add('hide')
-				var a = document.getElementById('pebblec')
-				a.classList.add('hide')
-				var hideStart = document.getElementById('fields')
-				hideStart.classList.add('hide')
-				var a = document.getElementById('elibr')
-				a.classList.add('hide')
-				var a = document.getElementById('ch2')
-				a.classList.add('hide')
-				var a = document.getElementById('invent')
-				a.classList.add('hide')
-				var a = document.getElementById('slots')
-				a.classList.add('hide')
-				var a = document.getElementById('tutzobook')
-				a.classList.add('hide')
-				var a = document.getElementById('theschool')
-				a.classList.add('hide')
-				var a = document.getElementById('adv')
-				a.classList.add('hide')
-				var a = document.getElementById('tutZo')
-				a.classList.add('hide')
-				var a = document.getElementById('field')
-				a.classList.add('hide')
-				var a = document.getElementById('sky')
-				a.classList.add('hide')
-				var a = document.getElementById('school')
-				a.classList.add('hide')
-				var a = document.getElementById('ameair')
-				a.classList.add('hide')
-				var a = document.getElementById('attack')
-				a.classList.add('hide')
-				var a = document.getElementById('Pattack')
-				a.classList.add('hide')
-				var a = document.getElementById('Fattack')
-				a.classList.add('hide')
-				var a = document.getElementById('fMeTutZo')
-				a.classList.add('hide')
-				var a = document.getElementById('health')
-				a.classList.add('hide')
-				var a = document.getElementById('maxHealth')
-				a.classList.add('hide')
-				var a = document.getElementById('eHealth')
-				a.classList.add('hide')
-				var a = document.getElementById('eMaxHealth')
-				a.classList.add('hide')
-				var a = document.getElementById('player')
-				a.classList.add('hide')
-				var a = document.getElementById('grass')
-				a.classList.add('hide')
-				var a = document.getElementById('paper')
-				a.classList.add('hide')
-				var a = document.getElementById('stick')
-				a.classList.add('hide')
-				var a = document.getElementById('ant')
-				a.classList.add('hide')
-				var a = document.getElementById('water')
-				a.classList.add('hide')
-				var a = document.getElementById('eraser')
-				a.classList.add('hide')
-				var a = document.getElementById('balloon')
-				a.classList.add('hide')
-				var a = document.getElementById('pebble')
-				a.classList.add('hide')
-				var a = document.getElementById('lotsofgrass')
-				a.classList.add('hide')
-				var a = document.getElementById('rabbit')
-				a.classList.add('hide')
-				var a = document.getElementById('antcolony')
-				a.classList.add('hide')
-				var a = document.getElementById('tree')
-				a.classList.add('hide')
-				var a = document.getElementById('spider')
-				a.classList.add('hide')
-				var a = document.getElementById('puddle')
-				a.classList.add('hide')
-				var a = document.getElementById('apple')
-				a.classList.add('hide')
-				var a = document.getElementById('fire')
-				a.classList.add('hide')
-				var a = document.getElementById('gum')
-				a.classList.add('hide')
-				var a = document.getElementById('calculator')
-				a.classList.add('hide')
-				var a = document.getElementById('dodgeball')
-				a.classList.add('hide')
-				var a = document.getElementById('scissors')
-				a.classList.add('hide')
-				var a = document.getElementById('x')
-				a.classList.add('hide')
-				var a = document.getElementById('y')
-				a.classList.add('hide')
-				var a = document.getElementById('ruler')
-				a.classList.add('hide')
-				var a = document.getElementById('chair')
-				a.classList.add('hide')
-				var a = document.getElementById('ch3')
-				a.classList.add('hide')
-				var a = document.getElementById('ch3b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch4')
-				a.classList.add('hide')
-				var a = document.getElementById('ch4b')
-				a.classList.add('hide')
-				var a = document.getElementById('estat')
-				a.classList.add('hide')
-				var a = document.getElementById('pstat')
-				a.classList.add('hide')
-				var a = document.getElementById('mhp')
-				a.classList.add('hide')
-				var a = document.getElementById('att')
-				a.classList.add('hide')
-				var a = document.getElementById('def')
-				a.classList.add('hide')
-				var a = document.getElementById('reg')
-				a.classList.add('hide')
-				var a = document.getElementById('emhp')
-				a.classList.add('hide')
-				var a = document.getElementById('eatt')
-				a.classList.add('hide')
-				var a = document.getElementById('edef')
-				a.classList.add('hide')
-				var a = document.getElementById('ereg')
-				a.classList.add('hide')
-				var a = document.getElementById('library')
-				a.classList.add('hide')
-				var a = document.getElementById('helicopter2')
-				a.classList.add('hide')
-				var a = document.getElementById('deserteagle')
-				a.classList.add('hide')
-				var a = document.getElementById('a10')
-				a.classList.add('hide')
-				var a = document.getElementById('1drone')
-				a.classList.add('hide')
-				var a = document.getElementById('2drone')
-				a.classList.add('hide')
-				var a = document.getElementById('3drone')
-				a.classList.add('hide')
-				var a = document.getElementById('jetpackguy')
-				a.classList.add('hide')
-				var a = document.getElementById('ufo')
-				a.classList.add('hide')
-				var a = document.getElementById('airspace')
-				a.classList.add('hide')
-				var a = document.getElementById('ch5')
-				a.classList.add('hide')
-				var a = document.getElementById('ch5b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch5but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch6but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch5a')
-				a.classList.add('hide')
-				var a = document.getElementById('ch6')
-				a.classList.add('hide')
-				var a = document.getElementById('ch6b')
-				a.classList.add('hide')
-				var a = document.getElementById('thesky')
-				a.classList.add('hide')
-				var a = document.getElementById('ch7but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch7b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch7')
-				a.classList.add('hide')
-				var a = document.getElementById('ch8')
-				a.classList.add('hide')
-				for (let i = 23; i < (lore + 1); i++) {
-					document.getElementById('ch'+ i).classList.add('hide')
-				}
-				var a = document.getElementById('ch8b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch8but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch9')
-				a.classList.add('hide')
-				var a = document.getElementById('ch9b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch9but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch10')
-				a.classList.add('hide')
-				var a = document.getElementById('ch10b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch10but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch11')
-				a.classList.add('hide')
-				var a = document.getElementById('ch11a')
-				a.classList.add('hide')
-				var a = document.getElementById('ch11b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch11but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch12')
-				a.classList.add('hide')
-				var a = document.getElementById('ch12b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch12but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch13')
-				a.classList.add('hide')
-				var a = document.getElementById('ch13b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch13but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch14')
-				a.classList.add('hide')
-				var a = document.getElementById('ch14a')
-				a.classList.add('hide')
-				var a = document.getElementById('ch14b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch14but')
-				a.classList.add('hide')
-				var a = document.getElementById('guard')
-				a.classList.add('hide')
-				var a = document.getElementById('deep1')
-				a.classList.add('hide')
-				var a = document.getElementById('deep2')
-				a.classList.add('hide')
-				var a = document.getElementById('deep3')
-				a.classList.add('hide')
-				var a = document.getElementById('ufo2')
-				a.classList.add('hide')
-				var a = document.getElementById('alien')
-				a.classList.add('hide')
-				var a = document.getElementById('tree2')
-				a.classList.add('hide')
-				var a = document.getElementById('4drone')
-				a.classList.add('hide')
-				var a = document.getElementById('ant2')
-				a.classList.add('hide')
-				var hideStart = document.getElementById('radioactive')
-				hideStart.classList.add('hide')
-				var a = document.getElementById('dt1')
-				a.classList.add('hide')
-				var a = document.getElementById('dt1w')
-				a.classList.add('hide')
-				var a = document.getElementById('dt1but')
-				a.classList.add('hide')
-				var a = document.getElementById('dt2')
-				a.classList.add('hide')
-				var a = document.getElementById('dt2w')
-				a.classList.add('hide')
-				var a = document.getElementById('dt2but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch15')
-				a.classList.add('hide')
-				var a = document.getElementById('ch15but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch15b')
-				a.classList.add('hide')
-				var a = document.getElementById('droneupgrade')
-				a.classList.add('hide')
-				var a = document.getElementById('usbVent')
-				a.classList.add('hide')
-				var a = document.getElementById('trainB')
-				a.classList.add('hide')
-				var a = document.getElementById('xpB')
-				a.classList.add('hide')
-				var a = document.getElementById('zonelib')
-				a.classList.add('hide')
-				var a = document.getElementById('training')
-				a.classList.add('hide')
-				var a = document.getElementById('XP')
-				a.classList.add('hide')
-				var b = document.getElementById('ch16')
-				b.classList.add('hide')
-				var b = document.getElementById('ch16b')
-				b.classList.add('hide')
-				var a = document.getElementById('ch16but')
-				a.classList.add('hide')
-				var b = document.getElementById('ch17')
-				b.classList.add('hide')
-				var b = document.getElementById('ch17b')
-				b.classList.add('hide')
-				var a = document.getElementById('ch17but')
-				a.classList.add('hide')
-				var a = document.getElementById('block')
-				a.classList.add('hide')
-				var a = document.getElementById('shield')
-				a.classList.add('hide')
-				var a = document.getElementById('dodge')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u1')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u1b')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u1but')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u2')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u2b')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u2ybut')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u2nbut')
-				a.classList.add('hide')
-				var a = document.getElementById('d3uy')
-				a.classList.add('hide')
-				var a = document.getElementById('d3uyb')
-				a.classList.add('hide')
-				var a = document.getElementById('d3uybut')
-				a.classList.add('hide')
-				var a = document.getElementById('d3un')
-				a.classList.add('hide')
-				var a = document.getElementById('d3unb')
-				a.classList.add('hide')
-				var a = document.getElementById('d3unbut')
-				a.classList.add('hide')
-				var a = document.getElementById('d3un2')
-				a.classList.add('hide')
-				var a = document.getElementById('d3un2b')
-				a.classList.add('hide')
-				var a = document.getElementById('d3un2but')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u3')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u3b')
-				a.classList.add('hide')
-				var a = document.getElementById('d3u3but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch18')
-				a.classList.add('hide')
-				var a = document.getElementById('ch18b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch18but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch19')
-				a.classList.add('hide')
-				var a = document.getElementById('ch19b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch19but')
-				a.classList.add('hide')
-				var a = document.getElementById('ch20')
-				a.classList.add('hide')
-				var a = document.getElementById('ch20b')
-				a.classList.add('hide')
-				var a = document.getElementById('ch20but')
-				a.classList.add('hide')
-				var a = document.getElementById('d4u')
-				a.classList.add('hide')
-				var a = document.getElementById('d4ub')
-				a.classList.add('hide')
-				var a = document.getElementById('d4ubut')
-				a.classList.add('hide')
+			sadvmus()
+			document.getElementById('drone').setAttribute('title','Build drones to go and get stuff  [3]')
+			hideAllMenu()
 			drone.textContent = 'Drones'
 			var a = document.getElementById('drone')
 			a.classList.add('open')
@@ -13625,7 +13099,7 @@ Restrictions: killed all enemies at caves at least once
 			var fail = fedF.textContent
 			fail = parseInt(fail.slice(0,-1))
 			var lifetime = parseInt(fedL.textContent) * 1000
-			document.getElementById('fedBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
+			document.getElementById('fedBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('fedBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
 			fedGo(0)
 			function fedGo(a){
 				if (health > 0){
@@ -13697,7 +13171,7 @@ Restrictions: killed all enemies at caves at least once
 		function sniDone(){
 			var speed = (60 / (parseFloat(sniS.textContent))) * 1000
 			var health = parseInt(sniH.textContent)
-			document.getElementById('sniBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
+			document.getElementById('sniBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('sniBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
 			sniGo(0)
 			function sniGo(a){
 				if (health > 0){
@@ -14229,6 +13703,7 @@ Restrictions: killed all enemies at caves at least once
 			a.classList.add('hide')
 			var a = document.getElementById('codpa')
 			a.classList.add('hide')
+			hide('tarpa')
 			if (sky.classList.contains('btng')){
 				var a = document.getElementById('skypb')
 				a.classList.add('btnb')
@@ -14277,6 +13752,13 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.remove('btnr')
 			} else if (coderslab.classList.contains('btny')){
 				document.getElementById('codpb').classList.add('btny')
+			}
+			if (taroy.classList.contains('btng')){
+				var a = document.getElementById('tarpb')
+				a.classList.add('btnb')
+				a.classList.remove('btnr')
+			} else if (taroy.classList.contains('btny')){
+				document.getElementById('tarpb').classList.add('btny')
 			}
 		}
 		tutpb.onclick = tutps;
@@ -14363,6 +13845,13 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.remove('hide')
 				var a = document.getElementById('zoneLib')
 				a.classList.add('hide')
+			}
+		}
+		tarpb.onclick = tarps;
+		function tarps(){
+			if (tarpb.classList.contains('btnb') || tarpb.classList.contains('btny')){
+				show('tarpa')
+				hide('zoneLib')
 			}
 		}
 		function ch15st(){
@@ -14651,8 +14140,8 @@ Restrictions: killed all enemies at caves at least once
 							document.getElementById('blockB').setAttribute('title', 'Block [W] - x' + Math.round((parseFloat(bloM.textContent) * (130 + (-2000 / (parseInt(bloL.textContent) + 20))))) / 100 + ' defence for 3s')
 						}
 						if (parseInt(bloL.textContent) <= 20){
-							document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) + ' for 5s')
-							document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) + ' for 5s')
+							document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5))))) * 100) / 100+ ' for 5s')
+							document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5))))) * 100) / 100+ ' for 5s')
 						} else {
 							document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20)))))) / 100 + ' for 5s')
 							document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20)))))) / 100 + ' for 5s')
@@ -14670,8 +14159,7 @@ Restrictions: killed all enemies at caves at least once
 				hide('tutli')
 				hide('itemLib')
 				hide('tutb')
-				var a = document.getElementById('grassp')
-				a.classList.add('hide')
+				hide('grassp')
 				var a = document.getElementById('paperp')
 				a.classList.add('hide')
 				var a = document.getElementById('stickp')
@@ -15292,6 +14780,15 @@ Restrictions: killed all enemies at caves at least once
 			SCT.textContent = 'Stone Chance - ' + Math.floor(parseFloat(SC.textContent) * 100) / 100
 			UCT.textContent = 'Usb Chance - ' + Math.floor(parseFloat(UC.textContent) * 100) / 100
 			ekillsT.textContent = 'Total enemies killed - ' + ekills.textContent
+			DBST.textContent = 'Drone build speed multiplier - ' + Math.floor(parseFloat(DroneBspeed.textContent) * 100) / 100
+			DUST.textContent = 'Drone upgrade speed multiplier - ' + Math.floor(parseFloat(DroneUspeed.textContent) * 100) / 100
+			if (localStorage.IFTr === '1' && localStorage.hpM){
+				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * (1000 + parseInt(localStorage.itemHpBonus)) / 10) / 100
+			} else if (localStorage.hpM){
+				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * 100) / 100
+			} else {
+				hpMT.textContent = 'Health multiplier - 1'
+			}
 			document.getElementById('setBack').classList.remove('hide')
 		}
 		function achievOn(){
@@ -15353,7 +14850,7 @@ Restrictions: killed all enemies at caves at least once
 				AP = AP + 1
 				currentAch = currentAch + 1
 				document.getElementById('ach9').classList.replace('achF','achCT')
-				document.getElementById('ach9').setAttribute('title', 'url(ch26back.png) - set ch26 as the background')
+				document.getElementById('ach9').setAttribute('title', 'url("ch26back.png") - set ch26 as the background')
 			}
 			if (localStorage.ach10 === '1'){
 				AP = AP + 2
@@ -15478,14 +14975,15 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('ach5').setAttribute('title', '7 - What does it say?')
 			localStorage.ach5 = 1
 		}
-		function achi10(a){
+		var ach10prog = 0;
+		function achi10(){
 			if (document.getElementById('ach10').classList.contains('achRT') || localStorage.ach10 === '1'){
 			
-			} else if (a >= 7200){
+			} else if (ach10prog >= 7200){
 				localStorage.ach10 === '1'
 			} else {
-				a = a + 1
-				setTimeout(achi10, 1000, a)
+				ach10prog = ach10prog + 1
+				setTimeout(achi10, 1000)
 			}
 		}
 		function achBar(){
@@ -15745,7 +15243,7 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('item' + number).style.filter = ''
 				} else {
 					localStorage.setItem('item' + number + 'f', 1)
-					document.getElementById('item' + number).style.filter = 'brightness(' + 0.5 + ')'
+					document.getElementById('item' + number).style.filter = 'brightness(' + 0.6 + ')'
 				}
 			}
 		}
@@ -15754,7 +15252,7 @@ Restrictions: killed all enemies at caves at least once
 			var itemN = 1
 			for (const id of itemSearch) {
 				if (localStorage.getItem('item' + itemN + 'f') === '1'){
-					id.style.filter = 'brightness(' + 0.5 + ')'
+					id.style.filter = 'brightness(' + 0.6 + ')'
 				}
 				itemN = itemN + 1
 			}
@@ -15915,6 +15413,15 @@ Restrictions: killed all enemies at caves at least once
 			if (ifFound('item50')){
 				document.getElementById('item50').setAttribute('title', "Work Folder - I wonder what's in here…\nDrops from file explorer (5%) once\n" + document.getElementById('item50').getAttribute('title'))
 			}
-		}
+			if (ifFound('item51')){
+				document.getElementById('item51').setAttribute('title', "Calculator - 6 + 9 + 6 x 9 - +3 Hp +3 D\nDrops from the calculator (10%)\n" + document.getElementById('item51').getAttribute('title'))
+			}
+			if (ifFound('item52')){
+				document.getElementById('item52').setAttribute('title', "Mantreads - Since these shoes are weighted down with 50kg of lead, you say a yo mama joke every time you put them on - +150 A + 40 D + 30% Attack Cooldowns\nDrops from gravity (3%)\n" + document.getElementById('item52').getAttribute('title'))
+			}
+			if (ifFound('item53')){
+				document.getElementById('item53').setAttribute('title', "e - I'm a math nerd, alright, let me have some fun - +272 Hp +69 A +68 D +17 R\nDrops from e (1%)\n" + document.getElementById('item53').getAttribute('title'))
+			}
+		}//itemsHere
 	</script>
 </html>

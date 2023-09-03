@@ -352,8 +352,8 @@
 			document.getElementById("kgtlink").style.color = 'rgb(0,255,255)'
 			document.getElementById("kgtlink").classList.remove('hide')
 			document.getElementById("xpR").classList.remove('hide')
-			localStorage.xp = parseInt(localStorage.xp) + Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 5) * 10)
-			xpR.textContent = 'XP :  ' + Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 5) * 10)
+			localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
+			xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
 			document.getElementById("miniplayer").style.background = 'url(miniEnd.png)'
 			if (day >= 2){
 			localStorage.ach16 = 1
@@ -1402,9 +1402,9 @@
 		document.getElementById("kgtlink").style.color = 'rgb(255,0,0)'
 		document.getElementById("kgtlink").classList.remove('hide')
 		document.getElementById("xpR").classList.remove('hide')
-		localStorage.xp = parseInt(localStorage.xp) + Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 5) * 10)
+		localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
 		newSave('GamP1', 0)
-		xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 5) * 10) * (parseInt(localStorage.GamP1) + 1))
+		xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
 		if (day > 2){
 			localStorage.ach16 = 1
 		}
