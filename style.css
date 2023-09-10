@@ -286,6 +286,79 @@ img{
 	height: 30px;
 	width: 30px;
 }
+.heal{
+	background: url('heal.png');
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.heal:hover{
+	background: url('healhover.png');
+}
+.healcool{
+	background: url('healcool.png');
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.hyperregen{
+	background: url('hyperregen.png');
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.hyperregen:hover{
+	background: url('hyperregenhover.png');
+}
+.hyperregencool{
+	background: url('hyperregencool.png');
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.hyperregenon{
+	background: url('hyperregenon.png');
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.sandwich{
+	background: url('sandwich.png');
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.sandwich:hover{
+	background: url('sandwichhover.png');
+}
+.sandwichcool{
+	background: url('sandwichcool.png');
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
+.sandwichon{
+	background: url('sandwichon.png');
+	position: absolute;
+	top: 160px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+}
 .refresh{
 	background: url('refresh.png');
 	position: absolute;
@@ -673,6 +746,12 @@ img{
 .e{
 	background-image: url('ei.png');
 }
+.greenstick{
+	background-image: url('greenstick.png');
+}
+.crown{
+	background-image: url('crown.png');
+}
 .useall{
 	background-image: url('useall.png');
 }
@@ -841,6 +920,24 @@ img{
     background-color: rgb(255,201,14);
 	z-index: 2;
 }
+#heaMP{
+    position: absolute;
+    left: 457px;
+    top: 250px;
+    width: 423px;
+    height: 37px;
+    background-color: rgb(195,195,195);
+	z-index: 1;
+}
+#heaP{
+    position: absolute;
+    left: 457px;
+    top: 250px;
+    width: 0px;
+    height: 37px;
+    background-color: rgb(255,201,14);
+	z-index: 2;
+}
 h5{
 	position: absolute;
 	display: absolute;
@@ -893,6 +990,21 @@ h5{
 	left: 300px;
 	font-size: 25px;
 }
+#libBack{
+	border: 5px black solid;
+	position: absolute;
+	font-size: 16px;
+	background: rgb(153,217,234);
+	left: 289px;
+	top: 357px;
+	z-index: 3;
+	width: 80px;
+	height: 30px;
+	font-family: arial;
+}
+#libBack:hover{
+	background: rgb(255,255,255);
+}
 .tutzobook{
 	background-image: url('tutorialbook.png');
 	left: 160px;
@@ -932,6 +1044,14 @@ h5{
 }
 #ameairbook:hover{
 	background-image: url('ameairbookhover.png')
+}
+#areabook{
+	background-image: url('area51book.png');
+	left: 435px;
+	top: 120px;
+}
+#areabook:hover{
+	background-image: url('area51bookhover.png')
 }
 .ch5a{
 	top: 530px;
