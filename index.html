@@ -677,7 +677,18 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent e notFound" style="left: 160px; top: 370px;" id="item53" onclick=itemFilter(53)></button>
 			<button class="itemBVent greenstick notFound" style="left: 215px; top: 370px;" id="item54" onclick=itemFilter(54)></button>
 			<button class="itemBVent crown notFound" style="left: 270px; top: 370px;" id="item55" onclick=itemFilter(55)></button>
-		</div> <!-- //itemsHere -->
+		</div><!-- //itemsHere -->
+		<div id='anom' class='hide'>
+			<button class="itemBack itemT1 itemC" style="left: 240px; top: 320px;" id="anom1"><h5 id='anomi1' class='itemItem stickV2'></h5></button>
+			<h5 class='itemAnim' style="left: 245px; top: 325px;" id='anoma1'></h5>
+			<button class="itemBack itemT2 itemR" style="left: 300px; top: 320px;" id="anom2"><h5 id='anomi2' class='itemItem fangV2'></h5></button>
+			<h5 class='itemAnim itemR2' style="left: 305px; top: 325px;" id='anoma1'></h5>
+			<button class="itemBack itemT3 itemE" style="left: 360px; top: 320px;" id="anom3"><h5 id='anomi3' class='itemItem hideV2'></h5></button>
+			<button class="itemBack itemT4 itemL" style="left: 420px; top: 320px;" id="anom4"><h5 id='anomi4' class='itemItem stickV2'></h5></button>
+			<button class="itemBack itemT5 itemRe" style="left: 480px; top: 320px;" id="anom5"><h5 id='anomi5' class='itemItem stickV2'></h5></button>
+			<button class="itemBack itemT6 itemCo" style="left: 540px; top: 320px;" id="anom6"><h5 id='anomi6' class='itemItem stickV2'></h5></button>
+			<button class="itemBack itemT7 itemC" style="left: 600px; top: 320px;" id="anom7"><h5 id='anomi7' class='itemItem stickV2'></h5></button>
+		</div>
 		<!-- Drones -->
 		<div class='hide' id='dronebuild'>
 			<img src="dronebuild.png" alt="stuff">
@@ -2286,6 +2297,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('jetpackguy').style = ''
 			hide('miss')
 			hide('libBack')
+			hide('anom')
 			hide('moveCools')
 			hide('diamond')
 			hide('eLib')
@@ -3006,6 +3018,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('tutli')
 			hide('libBack')
 			hide('slots')
+			hide('anom')
 			var a = document.getElementById('mhp')
 			a.classList.add('hide')
 			var a = document.getElementById('att')
@@ -4893,7 +4906,7 @@ Restrictions: killed all enemies at caves at least once
 				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) - 0.05
 				iv2.setAttribute('title','')
 				document.getElementById('we').setAttribute('title','Hoe - UR MOM HEHEHEHA - -5% Move Cooldowns')
-			} else if (iv2.classList.contains('lava') && u1.classList.contains('rockusb') && u2.classList.contains('rockusb') && u3.classList.contains('rockusb') && u4.classList.contains('rockusb') && u5.classList.contains('rockusb')){
+			} else if ((iv2.classList.contains('lava')) && (u1.classList.contains('rockusb') || u2.classList.contains('rockusb') || u3.classList.contains('rockusb') || u4.classList.contains('rockusb') || u5.classList.contains('rockusb'))){
 				iv2.classList.remove('lava')
 				iv2.classList.add('empty')
 				iv2.setAttribute('title','')
@@ -14361,8 +14374,8 @@ Restrictions: killed all enemies at caves at least once
 			hide('libBack')
 			hide('tutli')
 			hide('tutb')
-				var a = document.getElementById('grassc')
-				a.classList.add('hide')
+			hide('anom')
+			hide('grassc')
 				var a = document.getElementById('grassp')
 				a.classList.add('hide')
 				var a = document.getElementById('paperp')
@@ -14604,7 +14617,7 @@ Restrictions: killed all enemies at caves at least once
 			if (parseInt(localStorage.h3Tr) === 0 && parseInt(localStorage.xp) >= 20000){
 				localStorage.xp = parseInt(localStorage.xp) - 20000
 				localStorage.h3Tr = 1
-				document.getElementById('sandwich').classList.replace('sandwich','sandwichcool')
+				document.getElementById('sandwichb').classList.replace('sandwich','sandwichcool')
 				checkXp()
 			}
 		}
@@ -14731,8 +14744,8 @@ Restrictions: killed all enemies at caves at least once
 				hide('tutb')
 				hide('grassp')
 				hide('libBack')
-				var a = document.getElementById('paperp')
-				a.classList.add('hide')
+				hide('anom')
+				hide('paperp')
 				var a = document.getElementById('stickp')
 				a.classList.add('hide')
 				var a = document.getElementById('antp')
@@ -15781,6 +15794,7 @@ Restrictions: killed all enemies at caves at least once
 		var itemsFound = 0
 		function itemBookOn(){
 			show('itemLib')
+			hide('anom')
 			hide('invent')
 			hide('XP')
 			hide('training')
@@ -16042,5 +16056,23 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item55').setAttribute('title', "Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D\nDrops from the ant king (5%)\n" + document.getElementById('item55').getAttribute('title'))
 			}
 		}//itemsHere
+		function anomOn(){
+			hide('itemLib')
+			hide('invent')
+			hide('XP')
+			hide('training')
+			hide('slots')
+			hide('eLib')
+			hide('schoolLib')
+			hide('skyLib')
+			hide('fieldLib')
+			hide('tutli')
+			hide('library')
+			hide('tutzobook')
+			hide('fieldbook')
+			hide('skybook')
+			hide('schoolbook')
+			show('anom')
+		}
 	</script>
 </html>

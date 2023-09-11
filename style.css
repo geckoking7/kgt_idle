@@ -1478,3 +1478,77 @@ select{
 	height: 6000px;
 	z-index: -1;
 }
+.itemBack{
+	position: absolute;
+	width: 60px;
+	height: 60px;
+}
+.itemC{
+	border: 5px rgb(127,255,127) solid;
+}
+.itemR{
+	border: 5px rgb(63,127,255) solid;
+}
+.itemE{
+	border: 5px rgb(191,63,255) solid;
+}
+.itemL{
+	border: 5px rgb(255,191,63) solid;
+}
+.itemRe{
+	border: 5px rgb(255,0,0) solid;
+}
+.itemCo{
+	border: 5px rgb(0,0,0) solid;
+}
+.itemEmpty{
+	background: rgb(255,255,255);
+	border: 5px rgb(127,127,127) solid;
+}
+.itemT1{
+	background: url('attackBack.png');
+}
+.itemT2{
+	background: url('defenceBack.png');
+}
+.itemT3{
+	background: url('dropBack.png');
+}
+.itemT4{
+	background: url('stoneBack.png');
+}
+.itemT5{
+	background: url('buildBack.png');
+}
+.itemT6{
+	background: url('upgradeBack.png');
+}
+.itemT7{
+	background: url('experienceBack.png');
+}
+.itemAnim{
+	width: 50px;
+	height: 50px;
+	background: transparent;
+	margin: 0;
+}
+.itemR2{
+	background-image: url('rareAnim.gif');
+	opacity: 0.1;
+}
+.itemItem{
+	width: 50px;
+	height: 50px;
+	margin: 0px;
+	left: 0px;
+	top: 0px;
+}
+.stickV2{
+	background: url('stickV2.png');
+}
+.fangV2{
+	background: url('fangV2.png');
+}
+.hideV2{
+	background: url('rabbithideV2.png');
+}
