@@ -104,6 +104,7 @@
 		</div>
 		<h5 class='hide player' id='pCnode' style='background: url("WFUplayerC.gif"); width: 30px; height: 50px; left: 100px; top: 240px; position: absolute;'></h5>
 		<h5 class='hide player' id='Enode' style='background: url("emu.gif"); width: 80px; height: 80px; top: 240px; left: 60px; position: absolute; display: show;'></h5>
+		<h5 class='hide player' id='eThing' style='background: url("eThing.gif"); width: 100px; height: 50px; position: absolute;'></h5>
 	</body>
 	<script>
 	var ob1 = 0;
@@ -121,8 +122,34 @@
 	var plS = document.getElementById('playerS');
 	var de = document.getElementById('eagle');
 	var wilk = document.getElementById('wilko');
+	function newSave(thing, value){ //thing must be string
+		if (localStorage.getItem(thing)){
+			return true
+		} else {
+			localStorage.setItem(thing, value)
+			return localStorage.getItem(thing)
+		}
+	}
+	function hide(id){
+		document.getElementById(id).classList.add('hide')
+	}
+	function show(id){
+		document.getElementById(id).classList.remove('hide')
+	}
 	function HTPcheck(){
 		document.getElementById('htp').classList.remove('hide')
+	}
+	setInterval(showE, 50)
+	function showE(){
+		if (deagleI.classList.contains('hide') === false && parseInt(pl.style.left) >= 920 && parseInt(pl.style.left) <= 1010 && parseInt(pl.style.top) >= 210 && parseInt(pl.style.top) <= 300){
+			show('eThing')
+		} else if (de.style.background === 'url("WFUdeagledead.png")' && parseInt(pl.style.left) - 80 <= parseInt(de.style.left) && parseInt(pl.style.left) + 30 >= parseInt(de.style.left) && parseInt(pl.style.top) - 80 <= parseInt(de.style.top) && parseInt(pl.style.top) + 50 >= parseInt(de.style.top)){
+			show('eThing')
+		} else if (document.getElementById("imposter") &&(parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("imposter").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("imposter").style.left)){
+			show('eThing')
+		} else {
+			hide('eThing')
+		}
 	}
 	function newSave(thing, value){ //thing must be string
 		if (localStorage.getItem(thing)){
@@ -133,10 +160,8 @@
 		}
 	}
 	function start(){
-		var hideStart = document.getElementById('stSc')
-		hideStart.classList.add('hide')
-		var hideStart = document.getElementById('play')
-		hideStart.classList.add('hide')
+		hide('stSc')
+		hide('play')
 		document.getElementById('htp').classList.add('hide')
 		if (localStorage.WFUlvl){
 			
@@ -219,6 +244,8 @@
 		document.getElementById('gwSc').classList.add('hide')
 		document.getElementById('Fbar').classList.remove('hide')
 		document.getElementById("miniplayer").style.background = 'url(miniOn.png)'
+		document.getElementById("eagle").style.background = 'url("WFUdeagle.gif")'
+		document.getElementById("eagleS").style.background = 'url("WFUdeagle.gif")'
 		if (true){
 			var a = document.getElementById('outm')
 			a.classList.remove('hide')
@@ -391,7 +418,8 @@
 			} if (keysPressed['s'] === true && dT === 0||keysPressed['S'] === true && dT === 0){
 				pmove()
 				dT = 1
-			} if (keysPressed['e'] === true){
+			}
+			if (keysPressed['e'] === true){
 				if (deagleI.classList.contains('hide')){
 					
 				} else {
@@ -409,13 +437,16 @@
 						document.getElementById("guard1p").style.top = 410
 						document.getElementById("guard2p").style.top = 410
 						guardM(0)
+						hide('eThing')
 					}
 				}
 				if (de.style.background === 'url("WFUdeagledead.png")' && parseInt(pl.style.left) - 80 <= parseInt(de.style.left) && parseInt(pl.style.left) + 30 >= parseInt(de.style.left) && parseInt(pl.style.top) - 80 <= parseInt(de.style.top) && parseInt(pl.style.top) + 50 >= parseInt(de.style.top)){
 					win()
+					hide('eThing')
 				}
-				if ( document.getElementById("imposter") &&(parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("imposter").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("imposter").style.left)){
+				if (document.getElementById("imposter") &&(parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("imposter").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("imposter").style.left)){
 					impF = 1
+					hide('eThing')
 				}
 			} if (keysPressed['ArrowLeft'] === true){
 				if (document.getElementById('itemSlot').getAttribute('src') === 'WFUdeagleF.png'){
@@ -672,6 +703,8 @@
 				document.getElementById("dea").style.top = (parseInt(document.getElementById("player").style.top) + 20)
 				document.getElementById("deaS").style.top = (parseInt(document.getElementById("player").style.top) + 22)
 			}
+			document.getElementById("eThing").style.left = (parseInt(document.getElementById("player").style.left) - 33)
+			document.getElementById("eThing").style.top = (parseInt(document.getElementById("player").style.top) - 50)
 			if (fnk === 1){
 				setTimeout(pmove2, 20)
 			} else {
@@ -696,6 +729,7 @@
 			}
 			if ((parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("wilko").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("wilko").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("wilko").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("wilko").style.left)){
 				pdam(parseInt(Mhp.textContent))
+				console.log('Wilko found you')
 			}
 		}
 	}
@@ -737,7 +771,6 @@
 				document.getElementById("eagleS").style.left = (parseFloat(document.getElementById("eagle").style.left)) + 2
 				document.getElementById("eagleS").style.top = (parseFloat(document.getElementById("eagle").style.top)) + 2
 				document.getElementById("eagle").style.zIndex = '3'
-				
 			} else {
 				setTimeout(DE,20,a,b,c,d)
 			}
@@ -1256,9 +1289,9 @@
 	}
 	var ENode = document.getElementById('Enode').cloneNode(true);
  	function mod2(ae){
-		if (parseFloat(pl.style.top) > 1){
+		if (parseFloat(pl.style.top) > 1 && mod === 2){
 			ae = ae + 1
-			if (ae - emuDelay >= (0.95)**(day - 1) * 150){
+			if (ae - emuDelay >= (0.95)**(day - 1) * 100){
 				ae = 0
 				let ENodE = ENode.cloneNode(true)
 				let ENodES = ENode.cloneNode(true)

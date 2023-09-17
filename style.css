@@ -412,24 +412,28 @@ img{
 	background-color: red;
 	padding: 8px;
 	border-radius: 50%;
+	z-index: 4;
 }
 .btny{
 	position: absolute;
 	background-color: yellow;
 	padding: 8px;
 	border-radius: 50%;
+	z-index: 4;
 }
 .btng{
 	position: absolute;
 	background-color: green;
 	padding: 8px;
 	border-radius: 50%;
+	z-index: 4;
 }
 .btnb{
 	position: absolute;
 	background-color: blue;
 	padding: 8px;
 	border-radius: 50%;
+	z-index: 4;
 }
 .btnr:hover{
 	background-color: rgb(255,175,175)
@@ -551,8 +555,35 @@ img{
 .ch1but:hover{
 	background: #ddd;
 }
-.papercut{
-	background: url('papercut.png') no-repeat;
+.helpButton{
+	z-index: 2;
+	position: absolute;
+	width: 100px;
+	height: 25px;
+	background: #ccc;
+	border: 2px solid black;
+	font-size: 16px;
+}
+.helpButton:hover{
+	background: #fff;
+}
+.helpButtonOn{
+	background: #cfc;
+}
+.helpInfo{
+	z-index: 2;
+}
+.helpText{
+	position: absolute;
+	left: 165px;
+	top: 266px;
+	width: 710px;
+	height: 310px;
+	font-size: 16px;
+	margin: 0px;
+	padding: 5px;
+	background: rgb(154,217,234);
+	z-index: 2;
 }
 .vent{
 	position: absolute;
@@ -752,6 +783,9 @@ img{
 .crown{
 	background-image: url('crown.png');
 }
+.fightPicker69{
+	background-image: url('fightPicker69.png');
+}
 .useall{
 	background-image: url('useall.png');
 }
@@ -940,7 +974,6 @@ img{
 }
 h5{
 	position: absolute;
-	display: absolute;
 }
 .mhp{
 	position: absolute;
