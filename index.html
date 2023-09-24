@@ -56,7 +56,7 @@
 		<button class="locked hide" id="inventory">something</button>
 		<button class="locked hide" id="drone">another thing</button>
 		<button class="locked hide" id="games">not unlocked</button>
-		<button class="locked hide" id="e">commit grass touch</button>
+		<button class="locked hide" id="e" style='left: 586px; position: absolute; top: 5px; margin: 0;'>commit grass touch</button>
 		<button class="locked hide" id="f" style='left: 733px; position: absolute; top: 5px; margin: 0;'>git gud</button>
 		<button title='What does it say?' class="locked hide" id="g" style='left: 880px; position: absolute; top: 5px; margin: 0;'>No touchy</button>
 		<button class="locked hide" style='left: 1027px; position: absolute; top: 5px; margin: 0;' id="h">don't</button>
@@ -680,6 +680,7 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent greenstick notFound" style="left: 215px; top: 370px;" id="item54" onclick=itemFilter(54)></button>
 			<button class="itemBVent crown notFound" style="left: 270px; top: 370px;" id="item55" onclick=itemFilter(55)></button>
 			<button class="itemBVent fightPicker69 notFound" style="left: 325px; top: 370px;" id="item56"></button>
+			<button class="itemBVent pants notFound" style="left: 380px; top: 370px;" id="item57" onclick=itemFilter(57)></button>
 		</div><!-- //itemsHere -->
 		<div id='anom' class='hide'>
 			<button class="itemBack itemT1 itemC" style="left: 240px; top: 320px;" id="anom1"><h5 id='anomi1' class='itemItem stickV2'></h5></button>
@@ -944,8 +945,8 @@ Restrictions: killed all enemies at caves at least once
 			<div id='Shelp'>
 				<img id='setBack' src="Shelpback.png" alt="stuff"> <!-- add a left and right button for more info-->
 				<button style='top: 115; left: 162;' class='helpButton helpButtonOn' title='thing_1' onclick=changeHelp(1) id='helpB1'>Adventure</button>
-				<button style='top: 140; left: 162;' class='helpButton' title='thing_2' onclick=changeHelp(2) id='helpB2'>Inventory</button>
-				<button style='top: 165; left: 162;' class='helpButton' title='thing_3' onclick=changeHelp(3) id='helpB3'>Drones</button>
+				<button style='top: 140; left: 162;' class='helpButton hide' title='thing_2' onclick=changeHelp(2) id='helpB2'>Inventory</button>
+				<button style='top: 165; left: 162;' class='helpButton hide' title='thing_3' onclick=changeHelp(3) id='helpB3'>Drones</button>
 				<div id='advH1' class='helpInfo'>
 					<h1 class='helpText'>The adventure is where you kill things<br>
 						This is the most important feature, as most things affect and are unlocked from it<br>
@@ -2286,45 +2287,39 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 		}
-		function rightclick(id, filter) {
-			var rightclick
+		function rightclick(id, filter){
 			if (filter){
 				var slot = document.getElementById(id)
-				itemS()
 				slot.removeAttribute('class')
 				slot.classList.add('vent')
 				slot.classList.add('empty')
 				slot.setAttribute('title','')
+				itemS()
 			} else {
 				var e = window.event
 				if ((e.which && e.which == 3 || e.button && e.button == 2) && (id.classList.contains('sachet') === false) && (id.classList.contains('workFolder') === false) && (id.classList.contains('lava') === false) && (id.classList.contains('fightPicker69') === false) && (id.classList.contains('ram') === false)){
 					if (id.classList.contains('empty')){
 						
 					} else {
+						id.removeAttribute('class')
+						id.classList.add('vent')
+						id.classList.add('empty')
+						id.setAttribute('title','')
 						itemS()
 					}
-					id.removeAttribute('class')
-					id.classList.add('vent')
-					id.classList.add('empty')
-					id.setAttribute('title','')
 				}
 			}
 			//i = document.getElementById(i)
 		}
 		cont.onclick = b;
 		function b(){
-			var hideStart = document.getElementById('welcome')
-			hideStart.classList.add('hide')
-			var hideStart = document.getElementById('welcome1')
-			hideStart.classList.add('hide')
-			var hideStart = document.getElementById('welcome2')
-			hideStart.classList.add('hide')
-			var hideStart = document.getElementById('welcome3')
-			hideStart.classList.add('hide')
+			hide('welcome')
+			hide('welcome1')
+			hide('welcome2')
+			hide('welcome3')
 			document.getElementById('welcome4').classList.add('hide')
-			var hideStart = document.getElementById('logo')
-			hideStart.classList.add('hide')
-			hideStart.classList.remove('blocc')
+			hide('logo')
+			document.getElementById('logo').classList.remove('blocc')
 			hide('cont')
 			if (parseInt(ekills.textContent) === 0){	
 				show('ch1b')
@@ -2880,8 +2875,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('advZB').classList.add('hide')
 				var a = document.getElementById('ch3b')
 				a.classList.add('hide')
-				var a = document.getElementById('ch4')
-				a.classList.add('hide')
+				hide('ch4')
 				hide('ch4b')
 				var a = document.getElementById('estat')
 				a.classList.add('hide')
@@ -2974,6 +2968,22 @@ Restrictions: killed all enemies at caves at least once
 							sdrop('gold','Gold - Can be molten into xp', 10000)
 						}
 						localStorage.goldWFU = 0
+					}
+					if (localStorage.ramWFU > 0){
+						for (var i = 0; i < localStorage.ramWFU; i++){
+							if (idrop('ram','RAM card - Allows computer gaming to be better', 10000)){
+								localStorage.ramWFU = parseInt(localStorage.ramWFU) - 1
+								localStorage.ramLVL = parseInt(localStorage.ramLVL) + 1
+							}
+						}
+					}
+					if (localStorage.FPWFU > 0){
+						for (var i = 0; i < localStorage.FPWFU; i++){
+							if (idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings', 10000)){
+								localStorage.FPWFU = parseInt(localStorage.FPWFU) - 1
+								localStorage.FPlvl = parseInt(localStorage.FPlvl) + 1
+							}
+						}
 					}
 					save()
 					hideAllMenu()
@@ -3995,6 +4005,10 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById('i' + N).classList.add(item)
 						document.getElementById('i' + N).classList.remove('empty')
 						document.getElementById('i' + N).setAttribute('title',title)
+						if (localStorage.itemF === '2' && flashT !== 1){
+							flash(document.getElementById('inventory'))
+						}
+						save()
 						full(N)
 						if (item === 'sachet'){
 							sachd.textContent = 1
@@ -4024,13 +4038,10 @@ Restrictions: killed all enemies at caves at least once
 							}
 						}
 						N = 10248921
+						return true
 					}
 				}
-				if (localStorage.itemF === '2' && flashT !== 1){
-					flash(document.getElementById('inventory'))
-				}
-				save()
-				return true
+				return false			
 			} else {
 				return false
 			}
@@ -4246,6 +4257,12 @@ Restrictions: killed all enemies at caves at least once
 				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) - 0.15
 				document.getElementById('le').setAttribute('title','')	
 				idrop('stilts','Stilts - It may look impractical but it, it is - +5 M +2 D +15% Move Cooldowns', 10000, 1)
+			} else if (le.classList.contains('pants')){
+				document.getElementById('le').classList.replace('pants','legs')
+				localStorage.mhp = parseFloat(localStorage.mhp) - 10
+				localStorage.def = parseFloat(localStorage.def) - 4
+				document.getElementById('le').setAttribute('title','')	
+				idrop('pants','Leather pants - He’s got the drip - +10 Hp +4 D', 10000, 1)
 			} else if (le.classList.contains('jeans')){
 				var b = document.getElementById('le')
 				b.classList.remove('jeans')
@@ -5091,6 +5108,13 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.def = parseFloat(localStorage.def) - 50
 				iv2.setAttribute('title','')
 				document.getElementById('he').setAttribute('title','Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D')
+			} else if (iv2.classList.contains('pants') && le.classList.contains('legs')){
+				iv2.classList.replace('pants','empty')
+				document.getElementById('le').classList.replace('legs','pants')
+				localStorage.mhp = parseFloat(localStorage.mhp) + 10
+				localStorage.def = parseFloat(localStorage.def) + 4
+				iv2.setAttribute('title','')
+				document.getElementById('le').setAttribute('title','Leather pants - He’s got the drip - +10 Hp +4 D')
 			} else if (iv2.classList.contains('fightPicker69')){
 				iv2.classList.replace('fightPicker69','empty')
 				iv2.setAttribute('title','')
@@ -8083,19 +8107,13 @@ Restrictions: killed all enemies at caves at least once
 			if (sky.classList.contains('btng')){
 				if (a1.classList.contains('lwing') && a2.classList.contains('rwing') || a2.classList.contains('lwing') && a1.classList.contains('rwing') || bo.classList.contains('jetpack')){
 				if (a1.classList.contains('lwing') && a2.classList.contains('rwing') || a2.classList.contains('lwing') && a1.classList.contains('rwing')){
-					var a = document.getElementById('ame1player')
-					a.classList.add('show')
-					a.classList.remove('hide')
+					show('ame1player')
 				} else if (bo.classList.contains('jetpack')){
-					var a = document.getElementById('ame2player')
-					a.classList.add('show')
-					a.classList.remove('hide')
+					show('ame2player')
 				}
 				sadvmus()
 				setHp()
-				var hideStart = document.getElementById('airspace')
-				hideStart.classList.add('show')
-				hideStart.classList.remove('hide')
+				show('airspace')
 				document.getElementById('ameair').setAttribute('title','American Airspace')
 				var a = document.getElementById('mhp')
 				a.classList.add('show')
@@ -8340,6 +8358,7 @@ Restrictions: killed all enemies at caves at least once
 						if (parseInt(a10c.textContent) === 200){
 							TraSp.textContent = parseFloat(TraSp.textContent) * 2
 						}
+						idrop('pants', 'Leather pants - He’s got the drip - +10 Hp +4 D', 800)
 						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
@@ -8628,7 +8647,7 @@ Restrictions: killed all enemies at caves at least once
 						if (parseInt(jetpackguyc.textContent) === 200){
 							lowD.textContent = parseInt(lowD.textContent) + 1
 						}
-						idrop('jetpack', 'Jetpack - Fly with man made wings, without wings - +5 Hp -5% Move Cooldowns', 800)
+						idrop('jetpack', 'Jetpack - Fly with man made wings, without wings - +5 Hp -5% Move Cooldowns', 2000)
 						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
@@ -10980,7 +10999,7 @@ Restrictions: killed all enemies at caves at least once
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500)
 								if (localStorage.ramLVL){
-									if (trueDC() / ( 10 * (1.3 ** (parseInt(localStorage.ramLVL) + 1))) >= Math.random() && localStorage.ramLVL < 1024){
+									if (trueDC() / (10 * (1.3 ** (parseInt(localStorage.ramLVL) + 1))) >= Math.random() && localStorage.ramLVL < 1024){
 										if (idrop('ram','RAM card - Allows computer gaming to be better', 10000)){
 											localStorage.ramLVL = parseInt(localStorage.ramLVL) + 1
 										}
@@ -11932,11 +11951,27 @@ Restrictions: killed all enemies at caves at least once
 						}
 					}
 				} else if (true){
-					emhp.textContent = Math.floor(parseInt(localStorage.mhp) * 2.718)
+					if (parseInt(localStorage.mhp) * 2.178 < 27180){
+						emhp.textContent = Math.floor(parseInt(localStorage.mhp) * 2.178)
+					} else {
+						emhp.textContent = 27180
+					}
+					if (parseInt(localStorage.att) < 2718){
+						eatt.textContent = Math.floor(parseInt(localStorage.att))
+					} else {
+						eatt.textContent = 2718
+					}
+					if (parseInt(localStorage.def) * 2.178 < 2718){
+						edef.textContent = Math.floor(parseInt(localStorage.def) * 2.178)
+					} else {
+						edef.textContent = 2718
+					}
+					if (parseInt(localStorage.reg) * 2.178 < 272){
+						ereg.textContent = Math.floor(parseInt(localStorage.reg) * 2.178)
+					} else {
+						ereg.textContent = 272
+					}
 					ehp.textContent = emhp.textContent
-					eatt.textContent = Math.floor(parseInt(localStorage.att)) //* 2.718)
-					edef.textContent = Math.floor(parseInt(localStorage.def) * 2.718)
-					ereg.textContent = 272
 					document.getElementById("eHealth").style.width = 250
 					battle(0, 20)
 					show('eEnemy')
@@ -11987,7 +12022,7 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function enemyFightNum(zone){
-			if (localStorage.FPF === '2' && parseInt(FPZ.value) === zone){
+			if (localStorage.FPF === '2' && parseInt(FPZ.value) === zone && FPE.value > 0){
 				return parseInt(FPE.value)
 			} else {
 				return Math.floor(Math.random() * 8) + 1
@@ -12508,6 +12543,8 @@ Restrictions: killed all enemies at caves at least once
 									ehp.textContent = parseFloat(ehp.textContent) - dam
 								}
 							}
+						} else {
+							miss(0,missN + 1)
 						}
 						if (parseFloat(ehp.textContent) > 0){
 								document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
@@ -16177,7 +16214,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item28').setAttribute('title', "Deagle - Do not bring this to the school zone - +3 A -5% Attack Cooldowns\nDrops from the desert eagle (8%)\n" + document.getElementById('item28').getAttribute('title'))
 			}
 			if (ifFound('item29')){
-				document.getElementById('item29').setAttribute('title', "Jetpack - Fly with manmade wings, without wings - +5 Hp -5% Move Cooldown\nDrops from the jetpackguy (8%)\n" + document.getElementById('item29').getAttribute('title'))
+				document.getElementById('item29').setAttribute('title', "Jetpack - Fly with manmade wings, without wings - +5 Hp -5% Move Cooldown\nDrops from the jetpackguy (20%)\n" + document.getElementById('item29').getAttribute('title'))
 			}
 			if (ifFound('item30')){
 				document.getElementById('item30').setAttribute('title', "Pilot glasses - yea nah - +1 Hp + 1 A +1 D +1 R\nDrops from all enemies at american airspace (4%)\n" + document.getElementById('item30').getAttribute('title'))
@@ -16260,6 +16297,9 @@ Restrictions: killed all enemies at caves at least once
 			if (ifFound('item56')){
 				document.getElementById('item56').setAttribute('title', "FightPicker69 - Unlocks a random enemy for you to bully. More info in settings\nDrops from the guard, skeleton, hoe, Cool math games and e through negative expodential arithmetic\nI advise grinding of the hardest one to access for greater chance and it also has a higher cap\n" + document.getElementById('item56').getAttribute('title'))
 			}
+			if (ifFound('item57')){
+				document.getElementById('item57').setAttribute('title', "Leather pants - He’s got the drip - +10 Hp +4 D\nDrops from the A10 plane thing (8%)\n" + document.getElementById('item57').getAttribute('title'))
+			}
 		}//itemsHere
 		function anomOn(){
 			hide('itemLib')
@@ -16284,7 +16324,12 @@ Restrictions: killed all enemies at caves at least once
 			hide('Sstat')
 			hide('Sachi')
 			show('Shelp')
-			show('Shelp')
+			if (document.getElementById('inventory').classList.contains('open')){
+				show('helpB2')
+			}
+			if (document.getElementById('drone').classList.contains('open')){
+				show('helpB3')
+			}
 		}
 		function changeHelp(n){
 			const helpThings = document.getElementsByClassName('helpInfo');

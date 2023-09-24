@@ -49,6 +49,23 @@
 	.htp:hover{
 		background: url('WFUhtpbh.gif');
 	}
+	.vent{
+		position: absolute;
+		width: 60px;
+		height: 60px;
+		border: none;
+		z-index: 4;
+		top: 320px;
+	}
+	.empty{
+		background-image: url('ventEmpty.png');
+	}
+	.ram{
+		background-image: url('ram.png');
+	}
+	.fightPicker69{
+		background-image: url('fightPicker69.png');
+	}
 	</style>
 	<body style='background-color: rgb(200,200,200);' id='body' onload='HTPcheck()'>
 		<img src="monitor.png" alt="computer" style='position: absolute; height: 600px; width: 1000px; left: 50px; top: 50px; z-index: 5;'>
@@ -105,6 +122,14 @@
 		<h5 class='hide player' id='pCnode' style='background: url("WFUplayerC.gif"); width: 30px; height: 50px; left: 100px; top: 240px; position: absolute;'></h5>
 		<h5 class='hide player' id='Enode' style='background: url("emu.gif"); width: 80px; height: 80px; top: 240px; left: 60px; position: absolute; display: show;'></h5>
 		<h5 class='hide player' id='eThing' style='background: url("eThing.gif"); width: 100px; height: 50px; position: absolute;'></h5>
+		<h5 class='vent empty hide' id='vent1'></h5> <!--left 560px; is center-->
+		<h5 class='vent empty hide' id='vent2'></h5>
+		<h5 class='vent empty hide' id='vent3'></h5>
+		<h5 class='vent empty hide' id='vent4'></h5>
+		<h5 class='vent empty hide' id='vent5'></h5>
+		<h5 class='vent empty hide' id='vent6'></h5>
+		<h5 class='vent empty hide' id='vent7'></h5>
+		<h5 class='vent empty hide' id='vent8'></h5>
 	</body>
 	<script>
 	var ob1 = 0;
@@ -118,6 +143,7 @@
 	var impF = 0;
 	var impH = 0;
 	var emuDelay = 0;
+	var slotsFull = 0;
 	var pl = document.getElementById('player');
 	var plS = document.getElementById('playerS');
 	var de = document.getElementById('eagle');
@@ -162,6 +188,7 @@
 	function start(){
 		hide('stSc')
 		hide('play')
+		newSave('WFUslots', 1)
 		document.getElementById('htp').classList.add('hide')
 		if (localStorage.WFUlvl){
 			
@@ -387,8 +414,27 @@
 			localStorage.goldWFU = parseInt(localStorage.goldWFU) + Math.floor(day + parseInt(localStorage.WFUlvl) / 2)
 			document.getElementById("miniplayer").style.background = 'url(miniEnd.png)'
 			if (day >= 2){
-			localStorage.ach16 = 1
-		}
+				localStorage.ach16 = 1
+			}
+			newSave('ramLVL', 0)
+			newSave('ramWFU', 0)
+			newSave('FPWFU', 0)
+			for (let N = 1; N <= parseInt(localStorage.WFUslots); N++){
+				document.getElementById('vent' + N).style.left = Math.floor(490 - (parseInt(localStorage.WFUslots) * 27.5) + (N * 55))
+				show('vent' + N)
+			}
+			var ramDropChance = 1 / (1.2  ** (parseInt(localStorage.ramLVL) - day - parseInt(localStorage.WFUlvl)))
+			if (Math.random() <= ramDropChance && localStorage.ramLVL < 1024){
+				localStorage.ramWFU = parseInt(localStorage.ramWFU) + 1
+				slotsFull = 1
+				idrop('ram','RAM card - Allows computer gaming to be better')
+			}
+			var FPDropChance = 1 / (1.2  ** (parseInt(localStorage.FPlvl) - day - parseInt(localStorage.WFUlvl)))
+			if (Math.random() <= FPDropChance && localStorage.FPlvl < (8 * (day + 2)) && slotsFull < parseInt(localStorage.WFUslots)){
+				localStorage.FPWFU = parseInt(localStorage.FPWFU) + 1
+				slotsFull = slotsFull + 1
+				idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
+			}
 		}
 	}
 	let keysPressed = {};
@@ -446,6 +492,7 @@
 				}
 				if (document.getElementById("imposter") &&(parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("imposter").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("imposter").style.left)){
 					impF = 1
+					emuDelay = 100
 					hide('eThing')
 				}
 			} if (keysPressed['ArrowLeft'] === true){
@@ -1440,13 +1487,43 @@
 		document.getElementById("kgtlink").classList.remove('hide')
 		document.getElementById("xpR").classList.remove('hide')
 		document.getElementById("goldR").classList.remove('hide')
+		// Make sure all rewards apply to the win() functions aswell (without the -1 for day)
 		localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
 		newSave('GamP1', 0)
 		xpR.textContent = 'XP :  ' + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
 		goldR.textContent = 'Gold earned:  ' + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)
 		localStorage.goldWFU = parseInt(localStorage.goldWFU) + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)
+		newSave('ramWFU', 0)
+		newSave('ramLVL', 0)
+		newSave('FPWFU', 0)
+		for (let N = 1; N <= parseInt(localStorage.WFUslots); N++){
+			document.getElementById('vent' + N).style.left = Math.floor(490 - (parseInt(localStorage.WFUslots) * 27.5) + (N * 55))
+			show('vent' + N)
+		}
+		var ramDropChance = 1 / (1.2  ** (parseInt(localStorage.ramLVL) - day + 1 - parseInt(localStorage.WFUlvl)))
+		if (Math.random() <= ramDropChance && localStorage.ramLVL < 1024){
+			localStorage.ramWFU = parseInt(localStorage.ramWFU) + 1
+			slotsFull = 1
+			idrop('ram','RAM card - Allows computer gaming to be better')
+		}
+		var FPDropChance = 1 / (1.2  ** (parseInt(localStorage.FPlvl) - day + 1 - parseInt(localStorage.WFUlvl)))
+		if (Math.random() <= FPDropChance && localStorage.FPlvl < (8 * (day + 1)) && slotsFull < parseInt(localStorage.WFUslots)){
+			localStorage.FPWFU = parseInt(localStorage.FPWFU) + 1
+			slotsFull = slotsFull + 1
+			idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
+		}
 		if (day > 2){
 			localStorage.ach16 = 1
+		}
+	}
+	function idrop(item, title){
+		for (let N = 1; N <= (parseInt(localStorage.WFUslots)); N++){
+			if (document.getElementById('vent' + N).classList.contains('empty')){
+				document.getElementById('vent' + N).classList.add(item)
+				document.getElementById('vent' + N).classList.remove('empty')
+				document.getElementById('vent' + N).setAttribute('title',title)
+				N = 1000
+			}
 		}
 	}
 	function video(){
