@@ -51,7 +51,7 @@
 		<button class="ch1but hide" id="ch20but" style="top: 270px;">:D</button>
 		<button class="ch1but hide" id="ch21but" style="top: 255px;">Ok</button>
 		<button class="ch1but hide" id="ch22but" style="top: 165;">Plug</button>
-		<button class="ch1but hide" id="d4ubut" style="top: 280; z-index: 69;">Ok</button>
+		<button class="ch1but hide" id="d4ubut" style="top: 280; z-index: 69;" onclick='droneopen()'>Ok</button>
 		<button title="Go and kill things :D  [1]" class="open hide" id="adventure">Adventure</button>
 		<button class="locked hide" id="inventory">something</button>
 		<button class="locked hide" id="drone">another thing</button>
@@ -368,15 +368,19 @@ Restrictions: killed all enemies at caves at least once
 			<h5 style='opacity: 0.2; background: white; position: absolute; left: 45px; top: 160px; width: 0px; height: 30px; margin: 0;' id='healshadow'></h5>
 		</div>
 		<div class="hide" id="maxHealth">
+			<h5 class="hide" id="hp" style='text-align: center; z-index: 4; margin: 0; position: relative; height: 0px; font-size: 24px;'>0</h5>
+			<h5 id="hp2" style='text-align: center; z-index: 4; margin: 0; position: relative; height: 0px; font-size: 24px;'>0</h5>
 			<div class="hide" id="health" style="width: 0;"></div>
 		</div>
 		<div class="hide" id="eMaxHealth">
+			<h5 class="hide" id="ehp" style='text-align: center; z-index: 4; margin: 0; position: relative; height: 0px; font-size: 24px;'>0</h5>
+			<h5 id="ehp2" style='text-align: center; z-index: 4; margin: 0; position: relative; height: 0px; font-size: 24px;'>0</h5>
 			<div class="hide" id="eHealth" style="width: 0px;"></div>
 		</div>
 		<!-- Inventory -->
 		<img src="inventory.png" alt="Git gud bro" class="hide" id="invent">
 		<div class="hide" id="slots">
-			<button class="vent useall hide" style="left: 825px; top: 505px;" id="useall" onclick=useall()></button>
+			<button class="vent useall hide" style="left: 825px; top: 505px;" id="useall" onclick=useall() title='Click to consume most consumables [Enter]'></button>
 			<button class="vent weapon" style="left: 310px; top: 175px;" id="we"></button>
 			<button class="vent head" style="left: 255px; top: 120px;" id="he"></button>
 			<button class="vent body" style="left: 255px; top: 175px;" id="bo"></button>
@@ -682,17 +686,6 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent fightPicker69 notFound" style="left: 325px; top: 370px;" id="item56"></button>
 			<button class="itemBVent pants notFound" style="left: 380px; top: 370px;" id="item57" onclick=itemFilter(57)></button>
 		</div><!-- //itemsHere -->
-		<div id='anom' class='hide'>
-			<button class="itemBack itemT1 itemC" style="left: 240px; top: 320px;" id="anom1"><h5 id='anomi1' class='itemItem stickV2'></h5></button>
-			<h5 class='itemAnim' style="left: 245px; top: 325px;" id='anoma1'></h5>
-			<button class="itemBack itemT2 itemR" style="left: 300px; top: 320px;" id="anom2"><h5 id='anomi2' class='itemItem fangV2'></h5></button>
-			<h5 class='itemAnim itemR2' style="left: 305px; top: 325px;" id='anoma1'></h5>
-			<button class="itemBack itemT3 itemE" style="left: 360px; top: 320px;" id="anom3"><h5 id='anomi3' class='itemItem hideV2'></h5></button>
-			<button class="itemBack itemT4 itemL" style="left: 420px; top: 320px;" id="anom4"><h5 id='anomi4' class='itemItem stickV2'></h5></button>
-			<button class="itemBack itemT5 itemRe" style="left: 480px; top: 320px;" id="anom5"><h5 id='anomi5' class='itemItem stickV2'></h5></button>
-			<button class="itemBack itemT6 itemCo" style="left: 540px; top: 320px;" id="anom6"><h5 id='anomi6' class='itemItem stickV2'></h5></button>
-			<button class="itemBack itemT7 itemC" style="left: 600px; top: 320px;" id="anom7"><h5 id='anomi7' class='itemItem stickV2'></h5></button>
-		</div>
 		<!-- Drones -->
 		<div class='hide' id='dronebuild'>
 			<img src="dronebuild.png" alt="stuff">
@@ -705,7 +698,7 @@ Restrictions: killed all enemies at caves at least once
 			<h5 style='top: 142; left: 349;' id='stiS'>2</h5>
 			<h5 style='top: 142; left: 447;' id='stiF'>25%</h5>
 			<h5 style='top: 142; left: 509;' id='stiL'>60</h5>
-			<div id='stiBP' title='60 seconds till complete'>DRONES_ACTIVE=0</div> <!-- Must be one word if word is bigger than entity -->
+			<div id='stiBP' title='60 seconds till complete'>DRONES_ACTIVE=0</div> <!-- Must be one word if content is bigger than div width -->
 			<div id='stiMBP' title='60 seconds till complete'></div>
 			<select class='show' id='stiZ' style='top: 164px; left: 822px;'>
 				<option value='1'>Tutorial</option>
@@ -887,17 +880,44 @@ Restrictions: killed all enemies at caves at least once
 		</div>
 		<!-- GAMING FEATURE :O -->
 		<div id='gamefeature' class='hide'>
-			<img src="gameb.png" alt="stuff">
-			<a onclick='advent()' target=”_blank” href="WFU.html" style='background: url(WFUbutton.gif); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0;' id='WFUon' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding'></a>
-			<h5 style='background: url(WFUbuttonoff.png); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0; text-align: center; font-size: 80;' id='WFUoff' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding'></h5>
-			<h5 style='background: url(WFUlvlbutton.png); width: 50; height: 100; position: absolute; top: 120; left: 320; margin: 0;'></h5>
-			<!-- <h5 style='background: url(glasbygaming.png); background-size: cover; width: 512; height: 408; position: absolute; top: 150; left: 390; margin: 0; opacity: 8%;'></h5> -->
-			<button id='WFUlvlB' title='Upgrade the game to unlock more content? 20000 Xp' ></button>
-			<h5 id='WFUlvl' style='position: absolute; top: 157; left: 329; margin: 0; text-align: center; font-size: 12; width: 32; height: 16; color: rgb(0,255,255)'></h5>
-			<h5 id='RAMlvl' style='position: absolute; color: black; top: 440; left: 265; margin: 0; border: solid black; border-width: 3; background: #bbddff; padding: 0 4'>0</h5>
-			<h5 id='c1B' class='cbthings' style='position: absolute; color: black; top: 500; left: 205; margin: 0; border: solid black; border-width: 3; padding: 0 4; text-align: center; width: 128; font-size: 10;'>Need more RAM</h5>
-			<h5 id='c2B' class='cbthings' style='position: absolute; color: black; top: 538; left: 205; margin: 0; border: solid black; border-width: 3; padding: 0 4; text-align: center; width: 128; font-size: 10;'>Need more RAM</h5>
-			<h5 id='c3B' class='cbthings' style='position: absolute; color: black; top: 576; left: 205; margin: 0; border: solid black; border-width: 3; padding: 0 4; text-align: center; width: 128; font-size: 10;'>Need more RAM</h5>
+			<h5 id='anomBut' onclick='anomOn()' title='Enhanced loot inventory [Q]' class='hide'></h5> <!-- add hide once done -->
+			<div id='gaming'>
+				<img src="gameb.png" alt="stuff">
+				<a onclick='advent()' target=”_blank” href="WFU.html" style='background: url(WFUbutton.gif); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0;' id='WFUon' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding'></a>
+				<h5 style='background: url(WFUbuttonoff.png); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0; text-align: center; font-size: 80;' id='WFUoff' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding'></h5>
+				<h5 style='background: url(WFUlvlbutton.png); width: 50; height: 100; position: absolute; top: 120; left: 320; margin: 0;'></h5>
+				<!-- <h5 style='background: url(glasbygaming.png); background-size: cover; width: 512; height: 408; position: absolute; top: 150; left: 390; margin: 0; opacity: 8%;'></h5> -->
+				<button id='WFUlvlB' title='Upgrade the game to unlock more content? 20000 Xp' ></button>
+				<h5 id='WFUlvl' style='position: absolute; top: 157; left: 329; margin: 0; text-align: center; font-size: 12; width: 32; height: 16; color: rgb(0,255,255)'></h5>
+				<h5 id='RAMlvl' style='position: absolute; color: black; top: 440; left: 265; margin: 0; border: solid black; border-width: 3; background: #bbddff; padding: 0 4'>0</h5>
+				<h5 id='c1B' class='cbthings' style='position: absolute; color: black; top: 500; left: 205; margin: 0; border: solid black; border-width: 3; padding: 0 4; text-align: center; width: 128; font-size: 10;'>Need more RAM</h5>
+				<h5 id='c2B' class='cbthings' style='position: absolute; color: black; top: 538; left: 205; margin: 0; border: solid black; border-width: 3; padding: 0 4; text-align: center; width: 128; font-size: 10;'>Need more RAM</h5>
+				<h5 id='c3B' class='cbthings' style='position: absolute; color: black; top: 576; left: 205; margin: 0; border: solid black; border-width: 3; padding: 0 4; text-align: center; width: 128; font-size: 10;'>Need more RAM</h5>
+			</div>
+			<div id='anom' class='hide'>
+				<img src="anomBack.png" alt="stuff">
+				<button class="itemBack itemT1 itemC" style="left: 217px; top: 132px;" id="anom1"><h5 id='anomi1' class='itemItem stickV2'></h5></button>
+				<h5 class='itemAnim' style="left: 245px; top: 137px;" id='anoma1'></h5>
+				<button class="itemBack itemNA" style="left: 287px; top: 132px;" id="anom2"><h5 id='anomi2' class='itemItem anomLocked'></h5></button>
+				<h5 class='itemAnim' style="left: 287px; top: 137px;" id='anoma2' title='Unlocks in 5 recycles'></h5>
+				<button class="itemBack itemNA" style="left: 357px; top: 132px;" id="anom3"><h5 id='anomi3' class='itemItem anomLocked'></h5></button>
+				<h5 class='itemAnim' style="left: 362px; top: 137px;" id='anoma3' title='Unlocks in 10 recycles'></h5>
+				<button class="itemBack itemNA" style="left: 427px; top: 132px;" id="anom4"><h5 id='anomi4' class='itemItem anomLocked'></h5></button>
+				<h5 class='itemAnim' style="left: 432px; top: 137px;" id='anoma4' title='Unlocks in 20 recycles'></h5>
+				<button class="itemBack itemNA" style="left: 497px; top: 132px;" id="anom5"><h5 id='anomi5' class='itemItem anomLocked'></h5></button>
+				<h5 class='itemAnim' style="left: 502px; top: 137px;" id='anoma5' title='Unlocks in 50 recycles'></h5>
+				<button class="itemBack itemNA" style="left: 567px; top: 132px;" id="anom6"><h5 id='anomi6' class='itemItem anomLocked'></h5></button>
+				<h5 class='itemAnim' style="left: 572px; top: 137px;" id='anoma6' title='Unlocks in 100 recycles'></h5>
+				<button class="itemBack itemNA" style="left: 637px; top: 132px;" id="anom7"><h5 id='anomi7' class='itemItem anomLocked'></h5></button>
+				<h5 class='itemAnim' style="left: 643px; top: 137px;" id='anoma7' title='Unlocks in 200 recycles'></h5>
+				<button class="itemBack itemNA" style="left: 707px; top: 132px;" id="anom8"><h5 id='anomi8' class='itemItem anomLocked'></h5></button>
+				<h5 class='itemAnim' style="left: 712px; top: 137px;" id='anoma8' title='Unlocks in 500 recycles'></h5>
+				<button class="itemBack itemNA" style="left: 777px; top: 132px;" id="anom9"><h5 id='anomi9' class='itemItem anomLocked'></h5></button>
+				<h5 class='itemAnim' style="left: 782px; top: 137px;" id='anoma9' title='Unlocks in 1000 recycles'></h5>
+				<button class="itemBack itemNA" style="left: 377px; top: 232px;" id="anom10"><h5 id='anomi10' class='itemItem stiltsV2'></h5></button> <!-- make adrop() start counting from 10 -->
+				<h5 class='itemAnim' style="left: 782px; top: 137px;" id='anoma10'></h5>
+				<h5 id='anomBar' style='width = 0px;'><!-- 100 x 25, 740 532 -->
+			</div>
 		</div>
 		<!-- Settings and stuff -->
 		<div id='s&s' class='hide'>
@@ -982,7 +1002,7 @@ Restrictions: killed all enemies at caves at least once
 					</h1>
 				</div>
 				<div id='droH1' class='helpInfo hide'>
-					<h1 class='helpText'>Drones is the *first* (hopefully) idle based feature in the game<br>
+					<h1 class='helpText'>Drones is the *first* (hopefully not only) idle based feature in the game<br>
 						You can build drones by clicking a whole button, allowing to scound the zone selected in the zone thing<br>
 						Note that you must of completed (greened) the zone for the drone to collect items<br>
 						<br>
@@ -1076,18 +1096,19 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='AdvP3' class='perk' onclick='AdvP3()' style='background: url("AdvP3.png"); left: 347; top: 122;' title='Increases the chance of doubling stone drops (3 Ap)'></h5>
 					<h5 id='AdvP3B' class='perkB' style='background: rgb(0,0,0); left: 345; top: 120;'></h5>
 					<h5 id='AdvP3C' class='perkB' style='background: rgb(0,0,0); left: 345; top: 150; height: 0px;'></h5>
+					<h5 id='GamP2' class='perk' onclick='GamP2()' style='background: url("GamP2.png"); left: 377; top: 122;' title='+1 Game drop slot (4 Ap)'></h5>
+					<h5 id='GamP2B' class='perkB' style='background: rgb(0,0,0); left: 375; top: 120;'></h5>
+					<h5 id='GamP2C' class='perkB' style='background: rgb(0,0,0); left: 375; top: 150; height: 0px;'></h5>
 				</div>
 			</div>
 		</div>
-		<!-- Variables D: -->
+		<!-- Variables D: (omg math) -->
 		<h5 class="hide" id="hpM">1</h5>
 		<h5 class="hide" id="hpMTr">0</h5>
-		<h5 class="hide" id="hp">10</h5>
 		<h5 class="mhp hide" id="mhp">10</h5>
 		<h5 class="att hide" id="att">2</h5>
 		<h5 class="def hide" id="def">2</h5>
 		<h5 class="reg hide" id="reg">1</h5>
-		<h5 class="hide" id="ehp">0</h5>
 		<h5 class="hide" id="emhp" style="position: absolute; left: 663px; top: 525px; z-index: 2;">0</h5>
 		<h5 class="hide" id="eatt" style="position: absolute; left: 663px; top: 542px; z-index: 2;">0</h5>
 		<h5 class="hide" id="edef" style="position: absolute; left: 754px; top: 525px; z-index: 2;">0</h5>
@@ -2113,7 +2134,7 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.mhp = parseFloat(localStorage.mhp) + 10
 					localStorage.att = parseFloat(localStorage.att) + 2
 					localStorage.def = parseFloat(localStorage.def) + 2
-					reg.textContent = parseFloat(reg.textContent) + 1
+					localStorage.textContent = parseFloat(reg.textContent) + 1
 				}
 				if (parseInt(ufoc.textContent) >= 200){
 					UC.textContent = parseFloat(UC.textContent) * 2
@@ -2387,6 +2408,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('red').style.opacity = 0
 			document.getElementById('jetpackguy').style = ''
 			hide('miss')
+			hide('anom')
 			hide('libBack')
 			hide('anom')
 			hide('moveCools')
@@ -2985,6 +3007,38 @@ Restrictions: killed all enemies at caves at least once
 							}
 						}
 					}
+					if (localStorage.WFUstone){
+						let length = (localStorage.WFUstone).length
+						for (let i = 1; i <= length; i++){
+							if (localStorage.WFUstone[1]){
+								if (idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp', 10000)){
+									localStorage.WFUstone = (localStorage.WFUstone).slice(1)
+								} else {
+									i = 347347347
+								}
+							} if (localStorage.WFUstone[2]){
+								if (idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A', 10000)){
+									localStorage.WFUstone = (localStorage.WFUstone).slice(1)
+								} else {
+									i = 347347347
+								}
+							} if (localStorage.WFUstone[3]){
+								if (idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D', 10000)){
+									localStorage.WFUstone = (localStorage.WFUstone).slice(1)
+								} else {
+									i = 347347347
+								}
+							} if (localStorage.WFUstone[4]){
+								if (idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R', 10000)){
+									localStorage.WFUstone = (localStorage.WFUstone).slice(1)
+								} else {
+									i = 347347347
+								}
+							} else {
+								i = 39467394
+							}
+						}
+					}
 					save()
 					hideAllMenu()
 					hideLore()
@@ -3127,9 +3181,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('tutli')
 			hide('libBack')
 			hide('slots')
-			hide('anom')
-			var a = document.getElementById('mhp')
-			a.classList.add('hide')
+			hide('mhp')
 			var a = document.getElementById('att')
 			a.classList.add('hide')
 			var a = document.getElementById('def')
@@ -4005,9 +4057,6 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById('i' + N).classList.add(item)
 						document.getElementById('i' + N).classList.remove('empty')
 						document.getElementById('i' + N).setAttribute('title',title)
-						if (localStorage.itemF === '2' && flashT !== 1){
-							flash(document.getElementById('inventory'))
-						}
 						save()
 						full(N)
 						if (item === 'sachet'){
@@ -4038,6 +4087,9 @@ Restrictions: killed all enemies at caves at least once
 							}
 						}
 						N = 10248921
+						if (localStorage.itemF === '2' && flashT !== 1){
+							flash(document.getElementById('inventory'))
+						}
 						return true
 					}
 				}
@@ -5190,8 +5242,10 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function enemykill(){
 			var edeathSound = new Audio("enemydeathS.mp3")
+			ekills.textContent = parseFloat(ekills.textContent) + 1
 			edeathSound.volume = (parseFloat(document.getElementById('volume').value) / 100)
 			edeathSound.play()
+			ehp.textContent = 0
 			if (localStorage.d4Tr){
 				if (localStorage.d4Tr == 2){
 					d200 = 0
@@ -5229,12 +5283,13 @@ Restrictions: killed all enemies at caves at least once
 					}
 					let dc = (2 ** (d200 - 1)) * (1 - (0.995 ** ((parseInt(ekills.textContent) / 10000) ** 0.5))) * 100000
 					if (Math.floor(Math.random() * 100000) <= dc){
-						udrop('d4usb', 'Yes', 10000)
+						udrop('d4usb', 'Feelins? Look mate, you know who has a lot of feelings? Blokes that bludgeon their wife to death with a golf trophy. Professionals have standards.', 10000)
 						localStorage.d4Tr = 1
 					}
 				}
 			}
 			save()
+			ehp2.textContent = 0
 		}
 		function playerdead(){
 			if (document.getElementById('adv').classList.contains('hide') && document.getElementById('invent').classList.contains('hide') && document.getElementById('dronebuild').classList.contains('hide') && document.getElementById('gamefeature').classList.contains('hide') && document.getElementById('s&s').classList.contains('hide')){
@@ -5245,6 +5300,7 @@ Restrictions: killed all enemies at caves at least once
 				
 			}
 			document.getElementById("health").style.width = '0px'
+			hp2.textContent = 0
 		}
 		function setHp(){
 			if (localStorage.IFTr === '1' && localStorage.hpM){
@@ -5255,6 +5311,7 @@ Restrictions: killed all enemies at caves at least once
 				mhp.textContent = localStorage.mhp
 			}
 			hp.textContent = mhp.textContent
+			hp2.textContent = mhp.textContent
 		}
 		tutZo.onclick = tutFight;
 		function tutFight(){
@@ -5305,11 +5362,7 @@ Restrictions: killed all enemies at caves at least once
 			var x = enemyFightNum(1)
 			if (x === 1){
 				show('grass')
-				ehp.textContent = 8
-				emhp.textContent = 8
-				eatt.textContent = 3.2
-				edef.textContent = 1
-				ereg.textContent = 0.5
+				setEStats(8, 3.2, 1, 0.5)
 				document.getElementById("eHealth").style.width = "250px";
 				document.getElementById("health").style.width = "250px";
 				var re = setTimeout(gratt,50)
@@ -5319,7 +5372,7 @@ Restrictions: killed all enemies at caves at least once
 						enemykill()
 						hide('grass')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
@@ -5355,28 +5408,12 @@ Restrictions: killed all enemies at caves at least once
 					} else if (hp.textContent <= 0){
 						playerdead()
 						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('player')
-						a.classList.add('hide')
+						hide('player')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						ae = ae + 1
 						if(ae === 20){
 							ae = 0
@@ -5387,11 +5424,7 @@ Restrictions: killed all enemies at caves at least once
 			} else if (x === 2){
 				show('paper')
 				document.getElementById('paper').setAttribute('src','paper.png')
-				ehp.textContent = 8
-				emhp.textContent = 8
-				eatt.textContent = 3
-				edef.textContent = 0.5
-				ereg.textContent = 0
+				setEStats(8, 3, 0.5, 0)
 				document.getElementById("eHealth").style.width = "250px";
 				document.getElementById("health").style.width = "250px";
 				var re = setTimeout(gratt,50)
@@ -5403,7 +5436,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('paper')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -5411,10 +5444,7 @@ Restrictions: killed all enemies at caves at least once
 						inventory.textContent = 'Inventory'
 						paperc.textContent = parseInt(paperc.textContent) + 1
 						if (parseInt(ekills.textContent) === 1){
-							var b = document.getElementById('i1')
-							b.classList.add('starterCap')
-							b.classList.remove('empty')
-							document.getElementById('i1').setAttribute('title','Starter cap - Your very first item :D - +1 Hp')
+							idrop('starterCap', 'Starter cap - Your very first item :D - +1 Hp', 10000)
 						}
 						if (parseInt(paperc.textContent) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 1
@@ -5490,7 +5520,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('stick')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -5531,22 +5561,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					ae = ae + 1
 						if (ae === 20){				
 							ae = 0
@@ -5574,7 +5589,7 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -5613,14 +5628,7 @@ Restrictions: killed all enemies at caves at least once
 					} else {
 					antDodge.textContent = 1
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 10){				
 							ae = 0
@@ -5647,7 +5655,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('water')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -5695,7 +5703,8 @@ Restrictions: killed all enemies at caves at least once
 							if (parseFloat(hp.textContent) > 0){
 								document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
 							}
-						} 
+						}
+						hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 					}
 				}
 			}
@@ -5718,7 +5727,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('eraser')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -5756,22 +5765,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -5798,7 +5792,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('balloon')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -5835,22 +5829,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 140){				
 							ae = 0
@@ -5877,7 +5856,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('pebble')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -5914,22 +5893,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -6004,9 +5968,7 @@ Restrictions: killed all enemies at caves at least once
 				var a = document.getElementById('estat')
 				a.classList.add('show')
 				a.classList.remove('hide')
-				var a = document.getElementById('pstat')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('pstat')
 				var a = document.getElementById('health')
 				a.classList.add('show')
 				a.classList.remove('hide')
@@ -6043,7 +6005,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('lotsofgrass')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
@@ -6090,22 +6052,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -6133,7 +6080,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('rabbit')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						rabbitc.textContent = parseInt(rabbitc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 2
 						if (parseInt(rabbitc.textContent) === 10){
@@ -6162,22 +6109,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + (parseFloat(ereg.textContent) / 20)
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + (parseFloat(reg.textContent) / 20)
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 12){				
 							ae = 0
@@ -6204,7 +6136,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('antcolony')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						antcolonyc.textContent = parseInt(antcolonyc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 2
 						if (parseInt(antcolonyc.textContent) === 10){
@@ -6232,22 +6164,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 10){				
 							ae = 0
@@ -6256,9 +6173,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			} else if (x === 4){
-				var a = document.getElementById('tree')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('tree')
 				ehp.textContent = 20
 				emhp.textContent = 20
 				eatt.textContent = 4.5
@@ -6275,7 +6190,7 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						treec.textContent = parseInt(treec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 2
 						if (parseInt(treec.textContent) === 10){
@@ -6303,22 +6218,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						ae = ae + 1
 						if(ae === 40){				
 							ae = 0
@@ -6345,7 +6245,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('spider')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						spiderc.textContent = parseInt(spiderc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 2
 						if (parseInt(spiderc.textContent) === 10){
@@ -6372,22 +6272,7 @@ Restrictions: killed all enemies at caves at least once
 					} else {
 					var qe = setTimeout(gratt,50)
 					ae = ae + 1
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						if(ae === 16){				
 							ae = 0
 							eattack()
@@ -6413,7 +6298,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('apple')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						applec.textContent = parseInt(applec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 2
 						if (parseInt(applec.textContent) === 10){
@@ -6438,22 +6323,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -6480,7 +6350,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('puddle')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						puddlec.textContent = parseInt(puddlec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 2
 						if (parseInt(puddlec.textContent) === 10){
@@ -6517,6 +6387,7 @@ Restrictions: killed all enemies at caves at least once
 								if (parseFloat(hp.textContent) > 0){
 									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
 								}
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 							} 
 						}
 					}
@@ -6540,7 +6411,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('fire')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						firec.textContent = parseInt(firec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 3
 						if (parseInt(firec.textContent) === 10){
@@ -6568,22 +6439,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 4){				
 							ae = 0
@@ -6656,12 +6512,9 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('coderslab')
 				a.classList.add('hide')
-				var a = document.getElementById('taroy')
-				a.classList.add('hide')
+				hide('taroy')
 				document.getElementById('advZB').classList.add('hide')
-				var a = document.getElementById('estat')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('estat')
 				var a = document.getElementById('pstat')
 				a.classList.add('show')
 				a.classList.remove('hide')
@@ -6697,7 +6550,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('bird')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						birdc.textContent = parseInt(birdc.textContent) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -6732,22 +6585,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 14){				
 							ae = 0
@@ -6775,7 +6613,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('boeing')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						boeingc.textContent = parseInt(boeingc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 3
 						if (parseInt(boeingc.textContent) === 10){
@@ -6806,22 +6644,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + (parseFloat(ereg.textContent) / 20)
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + (parseFloat(reg.textContent) / 20)
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 36){				
 							ae = 0
@@ -6849,7 +6672,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('cloud')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						cloudc.textContent = parseInt(cloudc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 3
 						if (parseInt(cloudc.textContent) === 10){
@@ -6880,22 +6703,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -6923,7 +6731,7 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						meteorc.textContent = parseInt(meteorc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 3
 						if (parseInt(meteorc.textContent) === 10){
@@ -6955,50 +6763,12 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
-						var dodB = 0
-						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
-							var dp = Math.floor(Math.random() * 20) + 1
-							if (dp <= parseInt(lowD.textContent)){
-								dodB = 1
-							}
-						}
+						regen()
 						ae = ae + 1
 						if(ae === 16){				
 							ae = 0
-							if (parseInt(dodgeOn.textContent) === 0 && dodB === 0){
-								var dam =  (parseFloat(eatt.textContent) - parseFloat(def.textContent)/2) * (Math.floor(Math.random() * 101)/250 + 0.8)
-								dam = Math.round(dam * 10) / 10	
-								if (dam > 0.01){
-									if (parseInt(shieldOn.textContent) === 0){
-										hp.textContent =  parseFloat(hp.textContent) - dam
-										pdamaged(0)
-									} else {
-										shieldBlock(parseFloat(hp.textContent))
-										pdamaged(0)
-									}
-								}
-								if (parseFloat(hp.textContent) > 0){
-									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-									eatt.textContent = parseFloat(eatt.textContent) * 1.5
-								}
-							}
-							dodgeHeal()
+							eattack()
+							eatt.textContent = parseFloat(eatt.textContent) * 1.5
 						}
 					}
 				}
@@ -7021,7 +6791,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('buildings')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						buildingsc.textContent = parseInt(buildingsc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 3
 						if (parseInt(buildingsc.textContent) === 10){
@@ -7053,22 +6823,7 @@ Restrictions: killed all enemies at caves at least once
 					} else {
 					var qe = setTimeout(gratt,50)
 					ae = ae + 1
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					if(ae === 20){
 						ae = 0
 						eattack()
@@ -7094,7 +6849,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('lightning')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						lightningc.textContent = parseInt(lightningc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 3
 						if (parseInt(lightningc.textContent) === 10){
@@ -7127,22 +6882,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
 							var dp = Math.floor(Math.random() * 20) + 1
@@ -7174,9 +6914,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			} else if (x === 7){
-				var a = document.getElementById('helicopter')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('helicopter')
 				ehp.textContent = 20
 				emhp.textContent = 20
 				eatt.textContent = 5.8
@@ -7192,7 +6930,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('helicopter')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						helicopterc.textContent = parseInt(helicopterc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 3
 						if (parseInt(helicopterc.textContent) === 10){
@@ -7217,21 +6955,13 @@ Restrictions: killed all enemies at caves at least once
 					} else if (hp.textContent <= 0){
 						playerdead()
 						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('skyplayer')
-						a.classList.add('hide')
+						hide('skyplayer')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
 						ae = ae + 1
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						if(ae === 20){				
 							ae = 0
 							eattack()
@@ -7257,7 +6987,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('balloon2')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						balloon2c.textContent = parseInt(balloon2c.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 3
 						if (parseInt(balloon2c.textContent) === 10){
@@ -7285,22 +7015,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 68){				
 							ae = 0
@@ -7422,7 +7137,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('gum')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						gumc.textContent = parseFloat(gumc.textContent) + 1
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
@@ -7459,22 +7174,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
 							var dp = Math.floor(Math.random() * 20) + 1
@@ -7501,6 +7201,7 @@ Restrictions: killed all enemies at caves at least once
 									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
 								}
 							}
+							hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 							dodgeHeal()
 						} 
 					}
@@ -7525,7 +7226,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('calculator')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						calculatorc.textContent = parseFloat(calculatorc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 5
 						if (parseInt(calculatorc.textContent) === 10){
@@ -7562,22 +7263,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + (parseFloat(ereg.textContent) / 20)
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + (parseFloat(reg.textContent) / 20)
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
 							var dp = Math.floor(Math.random() * 20) + 1
@@ -7601,6 +7287,7 @@ Restrictions: killed all enemies at caves at least once
 							if (f > 0){
 								document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
 							}
+							hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 						}
 					}
 				}
@@ -7625,7 +7312,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('dodgeball')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						dodgeballc.textContent = parseFloat(dodgeballc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 5
 						if (parseInt(dodgeballc.textContent) === 10){
@@ -7653,22 +7340,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -7696,7 +7368,7 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						scissorsc.textContent = parseFloat(scissorsc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 5
 						if (parseInt(scissorsc.textContent) === 10){
@@ -7725,22 +7397,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -7773,7 +7430,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('x')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						xc.textContent = parseFloat(xc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 8
 						if (parseInt(xc.textContent) === 200){
@@ -7799,22 +7456,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
 							var dp = Math.floor(Math.random() * 20) + 1
@@ -7881,7 +7523,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('y')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						yc.textContent = parseFloat(yc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 8
 						if (parseInt(yc.textContent) === 200){
@@ -7907,22 +7549,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
 							var dp = Math.floor(Math.random() * 20) + 1
@@ -7982,7 +7609,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('ruler')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						rulerc.textContent = parseFloat(rulerc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 5
 						if (parseInt(rulerc.textContent) === 10){
@@ -8010,14 +7637,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -8044,7 +7664,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('chair')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						chairc.textContent = parseFloat(chairc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 5
 						if (parseInt(chairc.textContent) === 10){
@@ -8073,22 +7693,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -8106,683 +7711,556 @@ Restrictions: killed all enemies at caves at least once
 		function amebat(){
 			if (sky.classList.contains('btng')){
 				if (a1.classList.contains('lwing') && a2.classList.contains('rwing') || a2.classList.contains('lwing') && a1.classList.contains('rwing') || bo.classList.contains('jetpack')){
-				if (a1.classList.contains('lwing') && a2.classList.contains('rwing') || a2.classList.contains('lwing') && a1.classList.contains('rwing')){
-					show('ame1player')
-				} else if (bo.classList.contains('jetpack')){
-					show('ame2player')
-				}
-				sadvmus()
-				setHp()
-				show('airspace')
-				document.getElementById('ameair').setAttribute('title','American Airspace')
-				var a = document.getElementById('mhp')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				a.classList.remove('mhpi')
-				var a = document.getElementById('att')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				a.classList.remove('atti')
-				var a = document.getElementById('def')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				a.classList.remove('defi')
-				var a = document.getElementById('reg')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				a.classList.remove('regi')
-				var a = document.getElementById('emhp')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('eatt')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('edef')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('ereg')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('adv')
-				a.classList.add('hide')
-				var a = document.getElementById('tutli')
-				a.classList.add('hide')
-				var a = document.getElementById('tutZo')
-				a.classList.add('hide')
-				var a = document.getElementById('field')
-				a.classList.add('hide')
-				var a = document.getElementById('sky')
-				a.classList.add('hide')
-				var a = document.getElementById('school')
-				a.classList.add('hide')
-				var a = document.getElementById('ameair')
-				a.classList.add('hide')
-				var a = document.getElementById('area51')
-				a.classList.add('hide')
-				var a = document.getElementById('caves')
-				a.classList.add('hide')
-				var a = document.getElementById('mines')
-				a.classList.add('hide')
-				var a = document.getElementById('coderslab')
-				a.classList.add('hide')
-				var a = document.getElementById('taroy')
-				a.classList.add('hide')
-				document.getElementById('advZB').classList.add('hide')
-				var a = document.getElementById('estat')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('pstat')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('health')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				show('maxHealth')
-				show('eHealth')
-				show('eMaxHealth')
-				advc.textContent = parseInt(advc.textContent) - 1
-				var x = enemyFightNum(5)
-			if (x === 1){
-				var a = document.getElementById('helicopter2')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 50
-				emhp.textContent = 50
-				eatt.textContent = 20
-				edef.textContent = 15
-				ereg.textContent = 0
-				document.getElementById("eHealth").style.width = "250px";
-				document.getElementById("health").style.width = "250px";
-				var re = setTimeout(gratt,50)
-				var ae = 0
-				function gratt() {
-					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+					if (a1.classList.contains('lwing') && a2.classList.contains('rwing') || a2.classList.contains('lwing') && a1.classList.contains('rwing')){
+						show('ame1player')
+					} else if (bo.classList.contains('jetpack')){
+						show('ame2player')
+					}
+					sadvmus()
+					setHp()
+					show('airspace')
+					document.getElementById('ameair').setAttribute('title','American Airspace')
+					var a = document.getElementById('mhp')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					a.classList.remove('mhpi')
+					var a = document.getElementById('att')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					a.classList.remove('atti')
+					var a = document.getElementById('def')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					a.classList.remove('defi')
+					var a = document.getElementById('reg')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					a.classList.remove('regi')
+					var a = document.getElementById('emhp')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					var a = document.getElementById('eatt')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					var a = document.getElementById('edef')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					var a = document.getElementById('ereg')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					var a = document.getElementById('adv')
+					a.classList.add('hide')
+					var a = document.getElementById('tutli')
+					a.classList.add('hide')
+					var a = document.getElementById('tutZo')
+					a.classList.add('hide')
+					var a = document.getElementById('field')
+					a.classList.add('hide')
+					var a = document.getElementById('sky')
+					a.classList.add('hide')
+					var a = document.getElementById('school')
+					a.classList.add('hide')
+					var a = document.getElementById('ameair')
+					a.classList.add('hide')
+					var a = document.getElementById('area51')
+					a.classList.add('hide')
+					var a = document.getElementById('caves')
+					a.classList.add('hide')
+					var a = document.getElementById('mines')
+					a.classList.add('hide')
+					var a = document.getElementById('coderslab')
+					a.classList.add('hide')
+					var a = document.getElementById('taroy')
+					a.classList.add('hide')
+					document.getElementById('advZB').classList.add('hide')
+					var a = document.getElementById('estat')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					var a = document.getElementById('pstat')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					var a = document.getElementById('health')
+					a.classList.add('show')
+					a.classList.remove('hide')
+					show('maxHealth')
+					show('eHealth')
+					show('eMaxHealth')
+					advc.textContent = parseInt(advc.textContent) - 1
+					var x = enemyFightNum(5)
+					if (x === 1){
 						var a = document.getElementById('helicopter2')
-						a.classList.add('hide')
-						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
-						helicopter2c.textContent = parseFloat(helicopter2c.textContent) + 1
-						if (parseInt(helicopter2c.textContent) === 10){
-							localStorage.def = parseFloat(localStorage.def) + 1
-						}
-						if (parseInt(helicopter2c.textContent) === 50){
-							DC.textContent = parseFloat(DC.textContent) * 1.1
-						}
-						if (parseInt(helicopter2c.textContent) === 200){
-							localStorage.iN = parseInt(localStorage.iN) + 8
-						}
-						localStorage.xp = parseFloat(localStorage.xp) + 10
-						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
-						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
-						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else if (hp.textContent <= 0){
-						playerdead()
-						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('ame1player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
-						ae = ae + 1
-						if(ae === 20){				
-							ae = 0
-							eattack()
-						} 
-					}
-				}
-			} else if (x === 2){
-				var a = document.getElementById('deserteagle')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 48
-				emhp.textContent = 48
-				eatt.textContent = 18
-				edef.textContent = 10
-				ereg.textContent = 3
-				document.getElementById("eHealth").style.width = "250px";
-				document.getElementById("health").style.width = "250px";
-				var re = setTimeout(gratt,50)
-				var ae = 0
-				function gratt() {
-					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
-						var a = document.getElementById('deserteagle')
-						a.classList.add('hide')
-						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
-						deserteaglec.textContent = parseFloat(deserteaglec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 10
-						if (parseInt(deserteaglec.textContent) === 10){
-							localStorage.att = parseFloat(localStorage.att) + 1
-						}
-						if (parseInt(deserteaglec.textContent) === 50){
-							localStorage.reg = parseFloat(localStorage.reg) + 10
-						}
-						if (parseInt(deserteaglec.textContent) === 200){
-							localStorage.dodT = parseFloat(localStorage.dodT)  * 1.5
-						}
-						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
-						idrop('deagle','Deagle - Do not bring this to the school zone - +3 A -5% Attack Cooldowns',800)
-						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
-						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else if (hp.textContent <= 0){
-						playerdead()
-						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('ame1player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + (parseFloat(ereg.textContent) / 20)
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + (parseFloat(reg.textContent) / 20)
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
-						ae = ae + 1
-						if(ae === 16){				
-							ae = 0
-							eattack()
-					}
-				}
-			}
-			} else if (x === 3){
-				var a = document.getElementById('a10')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 40
-				emhp.textContent = 40
-				eatt.textContent = 1
-				edef.textContent = 16
-				ereg.textContent = 0
-				document.getElementById("eHealth").style.width = "250px";
-				document.getElementById("health").style.width = "250px";
-				var re = setTimeout(gratt,50)
-				var ae = 0
-				function gratt() {
-					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
-						var a = document.getElementById('a10')
-						a.classList.add('hide')
-						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
-						a10c.textContent = parseFloat(a10c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 10
-						if (parseInt(a10c.textContent) === 10){
-							localStorage.reg = parseFloat(localStorage.reg) + 1
-						}
-						if (parseInt(a10c.textContent) === 50){
-							localStorage.fattC = parseFloat(localStorage.fattC) - 50
-						}
-						if (parseInt(a10c.textContent) === 200){
-							TraSp.textContent = parseFloat(TraSp.textContent) * 2
-						}
-						idrop('pants', 'Leather pants - He’s got the drip - +10 Hp +4 D', 800)
-						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
-						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
-						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else if (hp.textContent <= 0){
-						playerdead()
-						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('ame1player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
-					var dodB = 0
-						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
-							var dp = Math.floor(Math.random() * 20) + 1
-							if (dp <= parseInt(lowD.textContent)){
-								dodB = 1
+						a.classList.add('show')
+						a.classList.remove('hide')
+						ehp.textContent = 50
+						emhp.textContent = 50
+						eatt.textContent = 20
+						edef.textContent = 15
+						ereg.textContent = 0
+						document.getElementById("eHealth").style.width = "250px";
+						document.getElementById("health").style.width = "250px";
+						var re = setTimeout(gratt,50)
+						var ae = 0
+						function gratt(){
+							if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								var a = document.getElementById('helicopter2')
+								a.classList.add('hide')
+								document.getElementById("eHealth").style.width = '0px'
+								
+								helicopter2c.textContent = parseFloat(helicopter2c.textContent) + 1
+								if (parseInt(helicopter2c.textContent) === 10){
+									localStorage.def = parseFloat(localStorage.def) + 1
+								}
+								if (parseInt(helicopter2c.textContent) === 50){
+									DC.textContent = parseFloat(DC.textContent) * 1.1
+								}
+								if (parseInt(helicopter2c.textContent) === 200){
+									localStorage.iN = parseInt(localStorage.iN) + 8
+								}
+								localStorage.xp = parseFloat(localStorage.xp) + 10
+								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else if (hp.textContent <= 0){
+								playerdead()
+								document.getElementById("health").style.width = '0px'
+								var a = document.getElementById('ame1player')
+								a.classList.add('hide')
+								var a = document.getElementById('ame2player')
+								a.classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else {
+							var qe = setTimeout(gratt,50)
+							regen()
+								ae = ae + 1
+								if(ae === 20){				
+									ae = 0
+									eattack()
+								} 
 							}
 						}
-						if (parseInt(dodgeOn.textContent) === 0 && dodB === 0){
-							dam = 1
-							if (dam > 0.01){
-								if (parseInt(shieldOn.textContent) === 0){
-									hp.textContent =  parseFloat(hp.textContent) - 1
-									if (parseInt(reg.textContent) < 20){
-										pdamaged(0)
-									}
-								} else {
-									hp.textContent =  parseFloat(hp.textContent) - (1 * Math.round((1 - (Math.round(((parseFloat(shiM.textContent) + (( 1 - (parseFloat(shiM.textContent))) * (1 - (1 / (parseFloat(bloL.textContent) ** 0.1))))) * 100))) / 100) * 100) / 100 )
+					} else if (x === 2){
+						show('deserteagle')
+						ehp.textContent = 48
+						emhp.textContent = 48
+						eatt.textContent = 18
+						edef.textContent = 10
+						ereg.textContent = 3
+						document.getElementById("eHealth").style.width = "250px";
+						document.getElementById("health").style.width = "250px";
+						var re = setTimeout(gratt,50)
+						var ae = 0
+						function gratt() {
+							if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								var a = document.getElementById('deserteagle')
+								a.classList.add('hide')
+								document.getElementById("eHealth").style.width = '0px'
+								
+								deserteaglec.textContent = parseFloat(deserteaglec.textContent) + 1
+								localStorage.xp = parseFloat(localStorage.xp) + 10
+								if (parseInt(deserteaglec.textContent) === 10){
+									localStorage.att = parseFloat(localStorage.att) + 1
+								}
+								if (parseInt(deserteaglec.textContent) === 50){
+									localStorage.reg = parseFloat(localStorage.reg) + 10
+								}
+								if (parseInt(deserteaglec.textContent) === 200){
+									localStorage.dodT = parseFloat(localStorage.dodT)  * 1.5
+								}
+								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
+								idrop('deagle','Deagle - Do not bring this to the school zone - +3 A -5% Attack Cooldowns',800)
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else if (hp.textContent <= 0){
+								playerdead()
+								document.getElementById("health").style.width = '0px'
+								var a = document.getElementById('ame1player')
+								a.classList.add('hide')
+								var a = document.getElementById('ame2player')
+								a.classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else {
+								var qe = setTimeout(gratt,50)
+								regen()
+								ae = ae + 1
+								if(ae === 16){				
+									ae = 0
+									eattack()
 								}
 							}
-							if (parseFloat(hp.textContent) > 0){
-								document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+						}
+					} else if (x === 3){
+						var a = document.getElementById('a10')
+						a.classList.add('show')
+						a.classList.remove('hide')
+						ehp.textContent = 40
+						emhp.textContent = 40
+						eatt.textContent = 1
+						edef.textContent = 16
+						ereg.textContent = 0
+						document.getElementById("eHealth").style.width = "250px";
+						document.getElementById("health").style.width = "250px";
+						var re = setTimeout(gratt,50)
+						var ae = 0
+						function gratt() {
+							if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								hide('a10')
+								document.getElementById("eHealth").style.width = '0px'
+								
+								a10c.textContent = parseFloat(a10c.textContent) + 1
+								localStorage.xp = parseFloat(localStorage.xp) + 10
+								if (parseInt(a10c.textContent) === 10){
+									localStorage.reg = parseFloat(localStorage.reg) + 1
+								}
+								if (parseInt(a10c.textContent) === 50){
+									localStorage.fattC = parseFloat(localStorage.fattC) - 50
+								}
+								if (parseInt(a10c.textContent) === 200){
+									TraSp.textContent = parseFloat(TraSp.textContent) * 2
+								}
+								idrop('pants', 'Leather pants - He’s got the drip - +10 Hp +4 D', 800)
+								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else if (hp.textContent <= 0){
+								playerdead()
+								document.getElementById("health").style.width = '0px'
+								hide('ame1player')
+								hide('ame2player')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else {
+							var qe = setTimeout(gratt,50)
+							regen()
+							hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+							var dodB = 0
+								if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
+									var dp = Math.floor(Math.random() * 20) + 1
+									if (dp <= parseInt(lowD.textContent)){
+										dodB = 1
+									}
+								}
+								if (parseInt(dodgeOn.textContent) === 0 && dodB === 0){
+									dam = 1
+									if (dam > 0.01){
+										if (parseInt(shieldOn.textContent) === 0){
+											hp.textContent =  parseFloat(hp.textContent) - 1
+											if (parseInt(reg.textContent) < 20){
+												pdamaged(0)
+											}
+										} else {
+											hp.textContent =  parseFloat(hp.textContent) - (1 * Math.round((1 - (Math.round(((parseFloat(shiM.textContent) + (( 1 - (parseFloat(shiM.textContent))) * (1 - (1 / (parseFloat(bloL.textContent) ** 0.1))))) * 100))) / 100) * 100) / 100 )
+										}
+									}
+									if (parseFloat(hp.textContent) > 0){
+										document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+									}
+								}
+							}
+						}
+					} else if (x === 4){
+						show('1drone')
+						ehp.textContent = 40
+						emhp.textContent = 40
+						eatt.textContent = 28
+						edef.textContent = 12
+						ereg.textContent = 0
+						document.getElementById("eHealth").style.width = "250px";
+						document.getElementById("health").style.width = "250px";
+						var re = setTimeout(gratt,50)
+						var ae = 0
+						function gratt() {
+							if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								hide('1drone')
+								document.getElementById("eHealth").style.width = '0px'
+								antDodge.textContent = 0
+								
+								drone1c.textContent = parseFloat(drone1c.textContent) + 1
+								localStorage.xp = parseFloat(localStorage.xp) + 10
+								if (parseInt(drone1c.textContent) === 10){
+									stiH.textContent = parseFloat(stiH.textContent) + 1
+								}
+								if (parseInt(drone1c.textContent) === 50){
+									stiH.textContent = parseFloat(stiH.textContent) + 3
+									kilH.textContent = parseFloat(kilH.textContent) + 10
+								}
+								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else if (hp.textContent <= 0){
+								playerdead()
+								document.getElementById("health").style.width = '0px'
+								var a = document.getElementById('ame1player')
+								a.classList.add('hide')
+								var a = document.getElementById('ame2player')
+								a.classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else {
+								var qe = setTimeout(gratt,50)
+								regen()
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+								ae = ae + 1
+								if(ae === 32){				
+									ae = 0
+									eattack()
+									} 
+								}
+							}
+					} else if (x === 5){
+						show('2drone')
+						ehp.textContent = 40
+						emhp.textContent = 40
+						eatt.textContent = 10
+						edef.textContent = 12
+						ereg.textContent = 0
+						document.getElementById("eHealth").style.width = "250px";
+						document.getElementById("health").style.width = "250px";
+						var re = setTimeout(gratt,50)
+						ae = 0
+						function gratt() {
+							if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								var a = document.getElementById('2drone')
+								a.classList.add('hide')
+								document.getElementById("eHealth").style.width = '0px'
+								
+								drone2c.textContent = parseFloat(drone2c.textContent) + 1
+								localStorage.xp = parseFloat(localStorage.xp) + 10
+								if (parseInt(drone2c.textContent) === 10){
+									stiS.textContent = parseFloat(stiS.textContent) + 0.2
+								}
+								if (parseInt(drone2c.textContent) === 50){
+									stiS.textContent = parseFloat(stiS.textContent) + 1
+									kilS.textContent = parseFloat(kilS.textContent) + 0.5
+								}
+								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else if (hp.textContent <= 0){
+								playerdead()
+								document.getElementById("health").style.width = '0px'
+								var a = document.getElementById('ame1player')
+								a.classList.add('hide')
+								var a = document.getElementById('ame2player')
+								a.classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else {
+								var qe = setTimeout(gratt,50)
+								regen()
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+								ae = ae + 1
+								if(ae === 4){				
+									ae = 0
+									eattack()
+								}
+							}
+						}
+					} else if (x === 6){
+						show('3drone')
+						setEStats(40, '1/0', 12, 0)
+						document.getElementById("eHealth").style.width = "250px";
+						document.getElementById("health").style.width = "250px";
+						var re = setTimeout(gratt,50)
+						ae = 0
+						function gratt() {
+							if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								hide('3drone')
+								document.getElementById("eHealth").style.width = '0px'
+								
+								drone3c.textContent = parseFloat(drone3c.textContent) + 1
+								localStorage.xp = parseFloat(localStorage.xp) + 10
+								if (parseInt(drone3c.textContent) === 10){
+									stiL.textContent = parseInt(stiL.textContent) + 3
+								}
+								if (parseInt(drone3c.textContent) === 50){
+									stiL.textContent = parseInt(stiL.textContent) + 12
+									kilL.textContent = parseInt(kilL.textContent) + 12
+								}
+								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else if (hp.textContent <= 0){
+								playerdead()
+								document.getElementById("health").style.width = '0px'
+								var a = document.getElementById('ame1player')
+								a.classList.add('hide')
+								var a = document.getElementById('ame2player')
+								a.classList.add('hide')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else {
+							var qe = setTimeout(gratt,50)
+							var dodB = 0
+								ae = ae + 1
+								if(ae === 68){			
+									ae = 0
+									hp.textContent = 0
+									document.getElementById("health").style.width = 0
+								} 
+							}
+						}
+					} else if (x === 7){
+						show('jetpackguy')
+						ehp.textContent = 1
+						emhp.textContent = 1
+						eatt.textContent = 20
+						edef.textContent = 0
+						ereg.textContent = 0
+						jgDodge.textContent = 1
+						document.getElementById("eHealth").style.width = "250px";
+						document.getElementById("health").style.width = "250px";
+						var re = setTimeout(gratt,50)
+						var ae = 0
+						function gratt() {
+							if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								var a = document.getElementById('jetpackguy')
+								a.classList.add('hide')
+								document.getElementById("eHealth").style.width = '0px'
+								
+								jetpackguyc.textContent = parseFloat(jetpackguyc.textContent) + 1
+								localStorage.xp = parseFloat(localStorage.xp) + 10
+								if (parseInt(jetpackguyc.textContent) === 10){
+									DC.textContent = parseFloat(DC.textContent) * 1.03
+								}
+								if (parseInt(jetpackguyc.textContent) === 50){
+									edod.textContent = parseFloat(edod.textContent) * 0.95
+								}
+								if (parseInt(jetpackguyc.textContent) === 200){
+									lowD.textContent = parseInt(lowD.textContent) + 1
+								}
+								idrop('jetpack', 'Jetpack - Fly with man made wings, without wings - +5 Hp -5% Move Cooldowns', 2000)
+								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else if (hp.textContent <= 0){
+								playerdead()
+								document.getElementById("health").style.width = '0px'
+								hide('ame1player')
+								hide('ame2player')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else {
+								var qe = setTimeout(gratt,50)
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+								ae = ae + 1
+								regen()
+								if(ae === 20){				
+									ae = 0
+									eattack()
+								}
+							}
+						}
+					} else if (x === 8){
+						show('ufo')
+						setEStats(100, 0, 100, 0)
+						document.getElementById("eHealth").style.width = "250px";
+						document.getElementById("health").style.width = "250px";
+						var re = setTimeout(gratt,50)
+						var ae = 0
+						function gratt() {
+							if (parseFloat(ehp.textContent) <= 0){
+								enemykill()
+								hide('ufo')
+								document.getElementById("eHealth").style.width = '0px'
+								ufoc.textContent = parseFloat(ufoc.textContent) + 1
+								localStorage.xp = parseFloat(localStorage.xp) + 20
+								if (parseInt(ufoc.textContent) === 10){
+									localStorage.mhp = parseFloat(localStorage.mhp) + 10
+									localStorage.att = parseFloat(localStorage.att) + 2
+									localStorage.def = parseFloat(localStorage.def) + 2
+									localStorage.reg = parseFloat(localStorage.reg) + 1
+								}
+								if (parseInt(ufoc.textContent) === 200){
+									UC.textContent = parseFloat(UC.textContent) * 2
+								}
+								if (parseInt(ufoc.textContent) === 1){
+									ToEusbD()
+								}
+								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
+								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
+								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
+								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
+								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
+								var dp = Math.floor(Math.random() * 10000) + 1
+								var a = 100 * parseFloat(UC.textContent)
+								if (dp <= a){
+									ususbD()
+								}
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else if (hp.textContent <= 0){
+								playerdead()
+								document.getElementById("health").style.width = '0px'
+								hide('ame1player')
+								hide('ame2player')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							} else {
+								var qe = setTimeout(gratt,50)
+								var retest = parseFloat(hp.textContent) - parseFloat(reg.textContent) / 20
+								if (retest < parseFloat(mhp.textContent)){
+									hp.textContent = retest
+									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+								} else {
+									hp.textContent = mhp.textContent
+									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+								}
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+								pdamaged(0)
 							}
 						}
 					}
 				}
-			} else if (x === 4){
-				var a = document.getElementById('1drone')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 40
-				emhp.textContent = 40
-				eatt.textContent = 28
-				edef.textContent = 12
-				ereg.textContent = 0
-				document.getElementById("eHealth").style.width = "250px";
-				document.getElementById("health").style.width = "250px";
-				var re = setTimeout(gratt,50)
-				var ae = 0
-				function gratt() {
-					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
-						var a = document.getElementById('1drone')
-						a.classList.add('hide')
-						document.getElementById("eHealth").style.width = '0px'
-						antDodge.textContent = 0
-						ekills.textContent = parseFloat(ekills.textContent) + 1
-						drone1c.textContent = parseFloat(drone1c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 10
-						if (parseInt(drone1c.textContent) === 10){
-							stiH.textContent = parseFloat(stiH.textContent) + 1
-						}
-						if (parseInt(drone1c.textContent) === 50){
-							stiH.textContent = parseFloat(stiH.textContent) + 3
-							kilH.textContent = parseFloat(kilH.textContent) + 10
-						}
-						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
-						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
-						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else if (hp.textContent <= 0){
-						playerdead()
-						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('ame1player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else {
-						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
-						ae = ae + 1
-						if(ae === 32){				
-							ae = 0
-							eattack()
-							} 
-						}
-					}
-			} else if (x === 5){
-				var a = document.getElementById('2drone')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 40
-				emhp.textContent = 40
-				eatt.textContent = 10
-				edef.textContent = 12
-				ereg.textContent = 0
-				document.getElementById("eHealth").style.width = "250px";
-				document.getElementById("health").style.width = "250px";
-				var re = setTimeout(gratt,50)
-				ae = 0
-				function gratt() {
-					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
-						var a = document.getElementById('2drone')
-						a.classList.add('hide')
-						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
-						drone2c.textContent = parseFloat(drone2c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 10
-						if (parseInt(drone2c.textContent) === 10){
-							stiS.textContent = parseFloat(stiS.textContent) + 0.2
-						}
-						if (parseInt(drone2c.textContent) === 50){
-							stiS.textContent = parseFloat(stiS.textContent) + 1
-							kilS.textContent = parseFloat(kilS.textContent) + 0.5
-						}
-						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
-						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
-						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else if (hp.textContent <= 0){
-						playerdead()
-						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('ame1player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
-						ae = ae + 1
-						if(ae === 4){				
-							ae = 0
-							eattack()
-						}
-					}
-				}
-			} else if (x === 6){
-				var a = document.getElementById('3drone')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 40
-				emhp.textContent = 40
-				eatt.textContent = '1/0'
-				edef.textContent = 12
-				ereg.textContent = 0
-				document.getElementById("eHealth").style.width = "250px";
-				document.getElementById("health").style.width = "250px";
-				var re = setTimeout(gratt,50)
-				ae = 0
-				function gratt() {
-					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
-						var a = document.getElementById('3drone')
-						a.classList.add('hide')
-						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
-						drone3c.textContent = parseFloat(drone3c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 10
-						if (parseInt(drone3c.textContent) === 10){
-							stiL.textContent = parseInt(stiL.textContent) + 3
-						}
-						if (parseInt(drone3c.textContent) === 50){
-							stiL.textContent = parseInt(stiL.textContent) + 12
-							kilL.textContent = parseInt(kilL.textContent) + 12
-						}
-						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
-						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
-						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else if (hp.textContent <= 0){
-						playerdead()
-						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('ame1player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else {
-					var qe = setTimeout(gratt,50)
-					var dodB = 0
-						ae = ae + 1
-						if(ae === 68){			
-							ae = 0
-							hp.textContent = 0
-							document.getElementById("health").style.width = 0
-						} 
-					}
-				}
-			} else if (x === 7){
-				var a = document.getElementById('jetpackguy')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 1
-				emhp.textContent = 1
-				eatt.textContent = 20
-				edef.textContent = 0
-				ereg.textContent = 0
-				jgDodge.textContent = 1
-				document.getElementById("eHealth").style.width = "250px";
-				document.getElementById("health").style.width = "250px";
-				var re = setTimeout(gratt,50)
-				var ae = 0
-				function gratt() {
-					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
-						var a = document.getElementById('jetpackguy')
-						a.classList.add('hide')
-						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
-						jetpackguyc.textContent = parseFloat(jetpackguyc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 10
-						if (parseInt(jetpackguyc.textContent) === 10){
-							DC.textContent = parseFloat(DC.textContent) * 1.03
-						}
-						if (parseInt(jetpackguyc.textContent) === 50){
-							edod.textContent = parseFloat(edod.textContent) * 0.95
-						}
-						if (parseInt(jetpackguyc.textContent) === 200){
-							lowD.textContent = parseInt(lowD.textContent) + 1
-						}
-						idrop('jetpack', 'Jetpack - Fly with man made wings, without wings - +5 Hp -5% Move Cooldowns', 2000)
-						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
-						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
-						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else if (hp.textContent <= 0){
-						playerdead()
-						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('ame1player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else {
-						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
-						ae = ae + 1
-						if(ae === 20){				
-							ae = 0
-							eattack()
-						}
-					}
-				}
-			} else if (x === 8){
-				var a = document.getElementById('ufo')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 100
-				emhp.textContent = 100
-				eatt.textContent = 0
-				edef.textContent = 100
-				ereg.textContent = 0
-				document.getElementById("eHealth").style.width = "250px";
-				document.getElementById("health").style.width = "250px";
-				var re = setTimeout(gratt,50)
-				var ae = 0
-				function gratt() {
-					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
-						var a = document.getElementById('ufo')
-						a.classList.add('hide')
-						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
-						ufoc.textContent = parseFloat(ufoc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 20
-						if (parseInt(ufoc.textContent) === 10){
-							localStorage.mhp = parseFloat(localStorage.mhp) + 10
-							localStorage.att = parseFloat(localStorage.att) + 2
-							localStorage.def = parseFloat(localStorage.def) + 2
-							localStorage.reg = parseFloat(localStorage.reg) + 1
-						}
-						if (parseInt(ufoc.textContent) === 200){
-							UC.textContent = parseFloat(UC.textContent) * 2
-						}
-						if (parseInt(ufoc.textContent) === 1){
-							ToEusbD()
-						}
-						idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
-						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 400)
-						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 100)
-						var dp = Math.floor(Math.random() * 10000) + 1
-						var a = 100 * parseFloat(UC.textContent)
-						if (dp <= a){
-							ususbD()
-						}
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else if (hp.textContent <= 0){
-						playerdead()
-						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('ame1player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
-						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500)
-					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) - parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
-					pdamaged(0)
-					var dodB = 0
-						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
-							var dp = Math.floor(Math.random() * 20) + 1
-							if (dp <= parseInt(lowD.textContent)){
-								dodB = 1
-							}
-						} 
-					}
-				}
+			} else {
+				newSave('ach12p', 0)
+				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
 			}
-		}
-		} else {
-			newSave('ach12p', 0)
-			localStorage.ach12p = parseInt(localStorage.ach12p) + 1
-		}
 		}
 		area51.onclick = area51bat;
 		function area51bat(){
 			if (ameair.classList.contains('btng')){
 				sadvmus()
 				setHp()
-				var hideStart = document.getElementById('area51b')
-				hideStart.classList.add('show')
-				hideStart.classList.remove('hide')
+				show('area51b')
 				document.getElementById('area51').setAttribute('title','Area 51')
-				var a = document.getElementById('player')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('player')
 				var a = document.getElementById('mhp')
 				a.classList.add('show')
 				a.classList.remove('hide')
@@ -8861,7 +8339,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('guard')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						guardc.textContent = parseFloat(guardc.textContent) + 1
 						if (parseInt(localStorage.guardc) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 8
@@ -8885,22 +8363,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 18){				
 							ae = 0
@@ -8956,7 +8419,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('deep3')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						deepc.textContent = parseFloat(deepc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 20
 						if (parseInt(localStorage.deepc) === 10){
@@ -8986,22 +8449,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + (parseFloat(ereg.textContent) / 20)
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + (parseFloat(reg.textContent) / 20)
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === sp){				
 							ae = 0
@@ -9010,14 +8458,8 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 			} else if (x === 3){
-				var a = document.getElementById('ufo2')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				ehp.textContent = 100
-				emhp.textContent = 100
-				eatt.textContent = 0
-				edef.textContent = 100
-				ereg.textContent = 0
+				show('ufo2')
+				setEStats(100, 0, 100, 0)
 				document.getElementById("eHealth").style.width = "250px";
 				document.getElementById("health").style.width = "250px";
 				var re = setTimeout(gratt,50)
@@ -9025,10 +8467,9 @@ Restrictions: killed all enemies at caves at least once
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
 						enemykill()
-						var a = document.getElementById('ufo2')
-						a.classList.add('hide')
+						hide('ufo2')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						ufo2c.textContent = parseFloat(ufo2c.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 20
 						if (parseInt(localStorage.ufo2c) === 10){
@@ -9056,37 +8497,26 @@ Restrictions: killed all enemies at caves at least once
 					} else if (hp.textContent <= 0){
 						playerdead()
 						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('player')
-						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
+						hide('player')
+						hide('ame2player')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) - (parseFloat(reg.textContent) / 20) * 3
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
-					pdamaged(0)
+						var qe = setTimeout(gratt,50)
+						var retest = parseFloat(hp.textContent) - (parseFloat(reg.textContent) / 20) * 3
+						if (retest < parseFloat(mhp.textContent)){
+							hp.textContent = retest
+							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+						} else {
+							hp.textContent = mhp.textContent
+							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+						}
+						hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+						pdamaged(0)
 					}
 				}
 			} else if (x === 4){
-				var a = document.getElementById('alien')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('alien')
 				ehp.textContent = 55
 				emhp.textContent = 55
 				eatt.textContent = 25
@@ -9103,7 +8533,7 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						alienc.textContent = parseFloat(alienc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 20
 						if (parseInt(localStorage.alienc) === 10){
@@ -9128,28 +8558,12 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById("health").style.width = '0px'
 						var a = document.getElementById('player')
 						a.classList.add('hide')
-						var a = document.getElementById('ame2player')
-						a.classList.add('hide')
+						hide('ame2player')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
 							var dp = Math.floor(Math.random() * 20) + 1
@@ -9199,7 +8613,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('tree2')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						tree2c.textContent = parseFloat(tree2c.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 20
 						if (parseInt(localStorage.tree2c) === 10){
@@ -9229,22 +8643,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
 							var dp = Math.floor(Math.random() * 20) + 1
@@ -9296,7 +8695,6 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('4drone')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
 						drone4c.textContent = parseFloat(drone4c.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 20
 						if (parseInt(localStorage.drone4c) === 10){
@@ -9323,22 +8721,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
@@ -9418,7 +8801,6 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('ant2')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
 						ant2c.textContent = parseFloat(ant2c.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 20
 						if (parseInt(localStorage.ant2c) === 10){
@@ -9446,14 +8828,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						ae = ae + 1
 						if(ae === sp){				
 							ae = 0
@@ -9473,6 +8848,7 @@ Restrictions: killed all enemies at caves at least once
 				eatt.textContent = 25
 				edef.textContent = 30
 				ereg.textContent = -5
+				reg.textContent = parseInt(reg.textContent) - 20
 				document.getElementById("eHealth").style.width = "250px";
 				document.getElementById("health").style.width = "250px";
 				var re = setTimeout(gratt,50)
@@ -9483,7 +8859,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('radioactive')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						radioactivec.textContent = parseFloat(radioactivec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 30
 						if (parseInt(localStorage.radioactivec) === 10){
@@ -9511,22 +8887,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20 - 1
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						if (parseInt(reg.textContent) < 20){
 							pdamaged(0)
 						}
@@ -9617,8 +8978,7 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('school')
 				a.classList.add('hide')
-				var a = document.getElementById('ameair')
-				a.classList.add('hide')
+				hide('ameair')
 				var a = document.getElementById('area51')
 				a.classList.add('hide')
 				var a = document.getElementById('caves')
@@ -9681,7 +9041,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('bat')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						batc.textContent = parseFloat(batc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 30
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
@@ -9706,22 +9066,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 8){				
 							ae = 0
@@ -9747,7 +9092,7 @@ Restrictions: killed all enemies at caves at least once
 						enemykill()
 						hide('stalicite')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						stalicitec.textContent = parseFloat(stalicitec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 30
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
@@ -9768,23 +9113,8 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
+						regen()
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + (parseFloat(ereg.textContent) / 20)
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + (parseFloat(reg.textContent) / 20)
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
 					ae = ae + 1
 					if(ae === 20){				
 						ae = 0
@@ -9811,7 +9141,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('stalimite')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						stalimitec.textContent = parseFloat(stalimitec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 30
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
@@ -9835,23 +9165,8 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
+						regen()
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
 					ae = ae + 1
 					if(ae === 20){				
 						ae = 0
@@ -9877,7 +9192,7 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						rockc.textContent = parseFloat(rockc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 30
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
@@ -9902,23 +9217,8 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
+						regen()
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -9945,7 +9245,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('skeleton')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						skeletonc.textContent = parseFloat(skeletonc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 30
 						FPdrop(6,2)
@@ -9970,23 +9270,8 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+						var qe = setTimeout(gratt,50)
+						regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -10019,7 +9304,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('torch')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						torchc.textContent = parseFloat(torchc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 30
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
@@ -10045,22 +9330,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -10086,7 +9356,7 @@ Restrictions: killed all enemies at caves at least once
 						enemykill()
 						hide('glowworm')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						glowwormc.textContent = parseFloat(glowwormc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 30
 						eNHTr.textContent = 0
@@ -10109,14 +9379,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						if (ae === 10){
 							geD.textContent = 0
 						}
@@ -10154,13 +9417,14 @@ Restrictions: killed all enemies at caves at least once
 				hideStart.classList.remove('hide')
 				var a = document.getElementById('caveb')
 				a.classList.add('hide')
+				reg.textContent = parseInt(reg.textContent) - 20
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
 						enemykill()
 						var a = document.getElementById('lava')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						lavac.textContent = parseFloat(lavac.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 50
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
@@ -10183,28 +9447,12 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						var a = document.getElementById('torchplayer')
 						a.classList.add('hide')
-						var a = document.getElementById('minerplayer')
-						a.classList.add('hide')
+						hide('minerplayer')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20 - 1
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 							ae = ae + 1
 							if(ae === 10){
 							if(parseFloat(hp.textContent) > 0){					
@@ -10214,6 +9462,7 @@ Restrictions: killed all enemies at caves at least once
 								if (parseFloat(hp.textContent) > 0){
 									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
 								}
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 							} 
 						}						
 					}
@@ -10284,15 +9533,11 @@ Restrictions: killed all enemies at caves at least once
 				var a = document.getElementById('edef')
 				a.classList.add('show')
 				a.classList.remove('hide')
-				var a = document.getElementById('ereg')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('ereg')
 				hide('adv')
 				hide('tutli')
-				var a = document.getElementById('tutZo')
-				a.classList.add('hide')
-				var a = document.getElementById('field')
-				a.classList.add('hide')
+				hide('tutZo')
+				hide('field')
 				var a = document.getElementById('sky')
 				a.classList.add('hide')
 				var a = document.getElementById('school')
@@ -10330,8 +9575,7 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.remove('hide')
 				var a = document.getElementById('stone')
 				a.classList.add('hide')
-				var a = document.getElementById('pickaxe')
-				a.classList.add('hide')
+				hide('pickaxe')
 				hide('minecart')
 				hide('miner')
 				hide('drill')
@@ -10357,7 +9601,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('stone')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						stonec.textContent = parseFloat(stonec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 50
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
@@ -10372,30 +9616,13 @@ Restrictions: killed all enemies at caves at least once
 						playerdead()
 						document.getElementById("health").style.width = '0px'
 						hide('player')
-						var a = document.getElementById('torchplayer')
-						a.classList.add('hide')
-						var a = document.getElementById('minerplayer')
-						a.classList.add('hide')
+						hide('torchplayer')
+						hide('minerplayer')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+						var qe = setTimeout(gratt,50)
+						regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -10404,9 +9631,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			} else if (x === 2){
-				var a = document.getElementById('pickaxe')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('pickaxe')
 				ehp.textContent = 300
 				emhp.textContent = 300
 				eatt.textContent = 105
@@ -10422,7 +9647,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('pickaxe')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						pickaxec.textContent = parseFloat(pickaxec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 50
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
@@ -10445,23 +9670,8 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
-					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + (parseFloat(ereg.textContent) / 20)
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + (parseFloat(reg.textContent) / 20)
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+						var qe = setTimeout(gratt,50)
+						regen()
 						ae = ae + 1
 						if(ae === 14){				
 							ae = 0
@@ -10489,7 +9699,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('minecart')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						minecartc.textContent = parseFloat(minecartc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 50
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
@@ -10512,22 +9722,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					ae = ae + 1
 						if(ae === sp){				
 							ae = 0
@@ -10538,9 +9733,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			} else if (x === 4){
-				var a = document.getElementById('miner')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('miner')
 				ehp.textContent = 340
 				emhp.textContent = 340
 				eatt.textContent = 120
@@ -10565,7 +9758,7 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						minerc.textContent = parseFloat(minerc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 50
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
@@ -10589,22 +9782,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-						if (retest < parseFloat(emhp.textContent)){
-							ehp.textContent = retest
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						} else {
-							ehp.textContent = emhp.textContent
-							document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-						}
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						ae = ae + 1
 						if(ae === 20){				
 							ae = 0
@@ -10631,7 +9809,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('drill')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						drillc.textContent = parseFloat(drillc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 50
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
@@ -10655,22 +9833,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 						ae = ae + 1
 						if(ae === 8){				
 							ae = 0
@@ -10698,7 +9861,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('uranium')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						uraniumc.textContent = parseFloat(uraniumc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 50
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
@@ -10722,22 +9885,7 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500)
 					} else {
 					var qe = setTimeout(gratt,50)
-					var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-					if (retest < parseFloat(emhp.textContent)){
-						ehp.textContent = retest
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					} else {
-						ehp.textContent = emhp.textContent
-						document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-					}
-					var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20 - 4
-					if (retest < parseFloat(mhp.textContent)){
-						hp.textContent = retest
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					} else {
-						hp.textContent = mhp.textContent
-						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-					}
+					regen()
 					if (parseInt(reg.textContent) < 80){
 						pdamaged(0)
 					}
@@ -10762,10 +9910,9 @@ Restrictions: killed all enemies at caves at least once
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
 						enemykill()
-						var a = document.getElementById('diamond')
-						a.classList.add('hide')
+						hide('diamond')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
+						
 						diamondc.textContent = parseFloat(diamondc.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 50
 						eNHTr.textContent = 0
@@ -10784,20 +9931,12 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						var a = document.getElementById('torchplayer')
 						a.classList.add('hide')
-						var a = document.getElementById('minerplayer')
-						a.classList.add('hide')
+						hide('minerplayer')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500)
 					} else {
 						var qe = setTimeout(gratt,50)
-						var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-						if (retest < parseFloat(mhp.textContent)){
-							hp.textContent = retest
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						} else {
-							hp.textContent = mhp.textContent
-							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-						}
+						regen()
 						var dodB = 0
 						if (parseFloat(hp.textContent) < (parseInt(mhp.textContent) / 10) && parseInt(lowD.textContent) != 0){
 							var dp = Math.floor(Math.random() * 20) + 1
@@ -10848,7 +9987,6 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('hoe')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						ekills.textContent = parseFloat(ekills.textContent) + 1
 						hoec.textContent = parseFloat(hoec.textContent) + 1
 						localStorage.xp = parseFloat(localStorage.xp) + 80
 						FPdrop(8,4)
@@ -11190,6 +10328,7 @@ Restrictions: killed all enemies at caves at least once
 									MSnum = (Math.floor(Math.random() * 6) + 1)
 									document.getElementById('MSpaint').setAttribute('src', 'MSpaint' + MSnum + '.png')
 								}
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 								setTimeout(battle, 50, ae, sp, spe, lolw, lolt)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill()
@@ -11239,7 +10378,7 @@ Restrictions: killed all enemies at caves at least once
 											document.getElementById('IE').setAttribute('src', 'ie2.gif')
 										} else if (aN === 2){
 											aN = 3
-											attDelay.textContent = parseFloat(attDelay.textContent) + 500
+											attDelay.textContent = parseFloat(attDelay.textContent) + 300
 										} else {
 											aN = 1
 										}
@@ -11951,23 +11090,23 @@ Restrictions: killed all enemies at caves at least once
 						}
 					}
 				} else if (true){
-					if (parseInt(localStorage.mhp) * 2.178 < 27180){
-						emhp.textContent = Math.floor(parseInt(localStorage.mhp) * 2.178)
+					if (parseInt(localStorage.mhp) * 2.718 < 27182){
+						emhp.textContent = Math.floor(parseInt(localStorage.mhp) * 2.718)
 					} else {
-						emhp.textContent = 27180
+						emhp.textContent = 27182
 					}
 					if (parseInt(localStorage.att) < 2718){
 						eatt.textContent = Math.floor(parseInt(localStorage.att))
 					} else {
 						eatt.textContent = 2718
 					}
-					if (parseInt(localStorage.def) * 2.178 < 2718){
-						edef.textContent = Math.floor(parseInt(localStorage.def) * 2.178)
+					if (parseInt(localStorage.def) * 2.718 < 2718){
+						edef.textContent = Math.floor(parseInt(localStorage.def) * 2.718)
 					} else {
 						edef.textContent = 2718
 					}
-					if (parseInt(localStorage.reg) * 2.178 < 272){
-						ereg.textContent = Math.floor(parseInt(localStorage.reg) * 2.178)
+					if (parseInt(localStorage.reg) * 2.718 < 272){
+						ereg.textContent = Math.floor(parseInt(localStorage.reg) * 2.718)
 					} else {
 						ereg.textContent = 272
 					}
@@ -11994,10 +11133,7 @@ Restrictions: killed all enemies at caves at least once
 							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							FPdrop(24,12)
-							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
-							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
-							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
-							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
+							stoneDrops(9)
 							idrop('e',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +68 A +68 D +17 R", 100)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
@@ -12028,6 +11164,36 @@ Restrictions: killed all enemies at caves at least once
 				return Math.floor(Math.random() * 8) + 1
 			}
 		}
+		function setEStats(mhp, att, def, reg){
+			emhp.textContent = mhp
+			ehp.textContent = mhp
+			ehp2.textContent = mhp
+			eatt.textContent = att
+			edef.textContent = def
+			ereg.textContent = reg
+		}
+		function stoneDrops(multi,bypass){
+			if (multi < 8 || bypass){
+				sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 400 * multi)
+			} else {
+				sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
+			}
+			if (multi < 30 || bypass){
+				sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 100 * multi)
+			} else {
+				sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 3000)
+			}
+			if (multi < 30 || bypass){
+				sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 100 * multi)
+			} else {
+				sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 3000)
+			}
+			if (multi < 120 || bypass){
+				sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 25 * multi)
+			} else {
+				sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 3000)
+			}
+		}
 		function regen(){
 			var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
 			if (retest < parseFloat(emhp.textContent)){
@@ -12045,6 +11211,8 @@ Restrictions: killed all enemies at caves at least once
 				hp.textContent = mhp.textContent
 				document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
 			}
+			hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+			ehp2.textContent = Math.round(parseFloat(ehp.textContent) * 10) / 10
 		}
 		function eattack(){
 			var dodB = 0
@@ -12069,8 +11237,11 @@ Restrictions: killed all enemies at caves at least once
 					}
 					if (parseFloat(hp.textContent) > 0){
 						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+						hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 					} else {
 						document.getElementById("health").style.width = '0px'
+						hp2.textContent = 0
+						hp.textContent = 0
 					}
 				}
 			}
@@ -12671,6 +11842,10 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			}
+			ehp2.textContent = Math.round(parseFloat(ehp.textContent) * 10) / 10
+			if (parseFloat(ehp.textContent) <= 0){
+				ehp2.textContent = 0
+			}
 		}
 		function attackShadow(time,cool){
 			if (time <= 30 && cooldown === 1){
@@ -12840,6 +12015,7 @@ Restrictions: killed all enemies at caves at least once
 			} else {
 				dam = (((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20))))) / 100) * (parseFloat(eatt.textContent) - parseFloat(def.textContent)/2) * (Math.floor(Math.random() * 101)/250 + 0.8)
 			}
+			dam = Math.round(dam * 10) / 10
 			console.log('Player took ' + dam)
 			hp.textContent = parseFloat(hp.textContent) - dam
 		}
@@ -12911,6 +12087,10 @@ Restrictions: killed all enemies at caves at least once
 				} else if (e.key === 'r' || e.key === 'R'){
 					if (document.getElementById('itemLibB').classList.contains('hide') === false){
 						itemBookOn()
+					}
+				} else if (e.key === 'Enter'){
+					if (document.getElementById('elibr').classList.contains('hide') === false){
+						useall()
 					}
 				}
 				if (parseFloat(hp.textContent) > 0){
@@ -13472,7 +12652,6 @@ Restrictions: killed all enemies at caves at least once
 		d3u3but.onclick = droneopen;
 		buiL.onclick = droneopen;
 		buill.onclick = droneopen;
-		d4ubut.onclick = droneopen;
 		function droneopen(){
 			sadvmus()
 			document.getElementById('drone').setAttribute('title','Build drones to go and get stuff  [3]')
@@ -13507,6 +12686,10 @@ Restrictions: killed all enemies at caves at least once
 			if (parseInt(guardc.textContent) >= 200){
 				document.getElementById('stiz6').classList.remove('hide')
 			}
+			stiS.textContent = Math.round(parseFloat(stiS.textContent) * 10) / 10
+			kilS.textContent = Math.round(parseFloat(kilS.textContent) * 10) / 10
+			fedS.textContent = Math.round(parseFloat(fedS.textContent) * 10) / 10
+			sniS.textContent = Math.round(parseFloat(sniS.textContent) * 10) / 10
 			if (parseInt(localStorage.d4Tr) === 2){
 				var b = document.getElementById('sniBS')
 				b.classList.remove('hide')
@@ -13528,11 +12711,8 @@ Restrictions: killed all enemies at caves at least once
 		}
 		upgr.onclick = dupgr;
 		function dupgr(){
-			var a = document.getElementById('droneupgrade')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('dronebuild')
-			a.classList.add('hide')
+			show('droneupgrade')
+			hide('dronebuild')
 		}
 		function StiB(){
 			if (parseInt(stiBTr.textContent) === 0){
@@ -13555,8 +12735,8 @@ Restrictions: killed all enemies at caves at least once
 							stiDone()
 							stiPB.textContent = 0
 						}
-						document.getElementById('stiBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
-						document.getElementById('stiMBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
+						document.getElementById('stiBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent)) / (parseFloat(stiBT.textContent)))) + ' seconds till complete')
+						document.getElementById('stiMBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent)) / (parseFloat(stiBT.textContent)))) + ' seconds till complete')
 					}
 				} else {
 					stiBTr.textContent = 0
@@ -13566,47 +12746,59 @@ Restrictions: killed all enemies at caves at least once
 		function stiDone(){
 			var speed = (60 / (parseFloat(stiS.textContent))) * 1000
 			var health = parseInt(stiH.textContent)
-			var fail = stiF.textContent
-			fail = parseInt(fail.slice(0,-1))
-			var lifetime = parseInt(stiL.textContent) * 1000
+			var fail = parseInt((stiF.textContent).slice(0,-1))
 			document.getElementById('stiBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
-			stiGo(0)
-			function stiGo(a){
-				if (health > 0){
-					var stiSp = setTimeout(stiI,speed)
-					var stid = setTimeout(stiD,lifetime)
-				}
-				function stiD(){
-					if (a === 0){
-						document.getElementById('stiBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
-					}
-					clearTimeout(stiSp)
-					clearTimeout(stid)
+			console.log('Stickman created')
+			var destroyedTr = 0
+			stiGo(health)
+			setTimeout(stiD, parseInt(stiL.textContent) * 1000, 1)
+			function stiGo(hp){
+				if (hp > 0){
+					setTimeout(stiI, speed)
 				}
 				function stiI(){
-					var dp = Math.floor(Math.random() * 100) + 1
-					if (dp > fail){
-						if (parseInt(stiZ.value) === 1){
-							health = Dtut(health)
-							stiGo()
-						} else if (parseInt(stiZ.value) === 2){
-							health = Dfie(health)
-							stiGo()
-						} else if (parseInt(stiZ.value) === 3){
-							health = Dsky(health)
-							stiGo()
-						} else if (parseInt(stiZ.value) === 4){
-							health = Dsch(health)
-							stiGo()
-						} else if (parseInt(stiZ.value) === 5){
-							health = Dame(health)
-							stiGo()
-						} else if (parseInt(stiZ.value) === 6){
-							health = Dare(health)
-							stiGo()
+					if (destroyedTr === 0){
+						var dp = Math.floor(Math.random() * 100) + 1
+						if (dp > fail){
+							if (parseInt(stiZ.value) === 1){
+								hp = Dtut(hp)
+								stiGo(hp)
+							} else if (parseInt(stiZ.value) === 2){
+								hp = Dfie(hp)
+								stiGo(hp)
+							} else if (parseInt(stiZ.value) === 3){
+								hp = Dsky(hp)
+								stiGo(hp)
+							} else if (parseInt(stiZ.value) === 4){
+								hp = Dsch(hp)
+								stiGo(hp)
+							} else if (parseInt(stiZ.value) === 5){
+								hp = Dame(hp)
+								stiGo(hp)
+							} else if (parseInt(stiZ.value) === 6){
+								hp = Dare(hp)
+								stiGo(hp)
+							}
+							if (hp <= 0){
+								console.log('Stickman was destroyed')
+								stiD()
+							} else {
+								console.log('Stickman has only ' + hp + ' hp')
+							}
+						} else {
+							hp = 0
+							console.log('Stickman failed')
+							stiD()
 						}
-					} else {
-						health = 0
+					}
+				}
+			}
+			function stiD(a){
+				if (destroyedTr === 0){
+					destroyedTr = 1
+					document.getElementById('stiBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
+					if (a === 1){
+						console.log('Stickman Expired')
 					}
 				}
 			}
@@ -13644,57 +12836,61 @@ Restrictions: killed all enemies at caves at least once
 		function kilDone(){
 			var speed = (60 / (parseFloat(kilS.textContent))) * 1000
 			var health = parseInt(kilH.textContent)
-			var fail = kilF.textContent
-			fail = parseInt(fail.slice(0,-1))
-			var lifetime = parseInt(kilL.textContent) * 1000
+			var fail = parseInt((kilF.textContent).slice(0,-1))
 			document.getElementById('kilBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
-			kilGo(0)
-			function kilGo(a){
-				if (health > 0){
-					var kilSp = setTimeout(kilI,speed)
-					var kild = setTimeout(kilD,lifetime)
-				}
-				function kilD(){
-					if (a === 0){
-						document.getElementById('kilBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
-					}
-					clearTimeout(kilSp)
-					clearTimeout(kild)
+			console.log('Killer robot created')
+			var destroyedTr = 0
+			kilGo(health)
+			setTimeout(kilD, parseInt(kilL.textContent) * 1000, 1)
+			function kilGo(hp){
+				if (hp > 0){
+					setTimeout(kilI, speed)
 				}
 				function kilI(){
-					var dp = Math.floor(Math.random() * 100) + 1
-					if (dp > fail){
-						if (parseInt(kilZ.value) === 1){
-							health = Dsky(health)
-							kilGo()
-							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 4 * 2))
-							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 2))
-							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 2))
-							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 2 / 4))
-						} else if (parseInt(kilZ.value) === 2){
-							health = Dsch(health)
-							kilGo()
-							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 4 * 3))
-							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 3))
-							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 3))
-							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 3 / 4))
-						} else if (parseInt(kilZ.value) === 3){
-							health = Dame(health)
-							kilGo()
-							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 4 * 4))
-							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 4))
-							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 4))
-							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 4 / 4))
-						} else if (parseInt(kilZ.value) === 4){
-							health = Dare(health)
-							kilGo()
-							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 4 * 5))
-							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 5))
-							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 5))
-							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', (parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 100 * 5 / 4))
+					if (destroyedTr === 0){
+						var dp = Math.floor(Math.random() * 100) + 1
+						if (dp > fail){
+							if (parseInt(kilZ.value) === 2){
+								hp = Dfie(hp)
+								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 2),1)
+								kilGo(hp)
+							} else if (parseInt(kilZ.value) === 3){
+								hp = Dsky(hp)
+								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 3),1)
+								kilGo(hp)
+							} else if (parseInt(kilZ.value) === 4){
+								hp = Dsch(hp)
+								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 4),1)
+								kilGo(hp)
+							} else if (parseInt(kilZ.value) === 5){
+								hp = Dame(hp)
+								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 5),1)
+								kilGo(hp)
+							} else if (parseInt(kilZ.value) === 6){
+								hp = Dare(hp)
+								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 6),1)
+								kilGo(hp)
+							}
+							if (hp <= 0){
+								console.log('Killer robot was destroyed')
+								kilD()
+							} else {
+								console.log('Killer robot has only ' + hp + ' hp')
+							}
+						} else {
+							hp = 0
+							console.log('Killer robot failed')
+							kilD()
 						}
-					} else {
-						health = 0
+					}
+				}
+			}
+			function kilD(a){
+				if (destroyedTr === 0){
+					destroyedTr = 1
+					document.getElementById('kilBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
+					if (a === 1){
+						console.log('Killer robot Expired')
 					}
 				}
 			}
@@ -13732,43 +12928,55 @@ Restrictions: killed all enemies at caves at least once
 		function fedDone(){
 			var speed = (60 / (parseFloat(fedS.textContent))) * 1000
 			var health = parseInt(fedH.textContent)
-			var fail = fedF.textContent
-			fail = parseInt(fail.slice(0,-1))
-			var lifetime = parseInt(fedL.textContent) * 1000
+			var fail = parseInt((fedF.textContent).slice(0,-1))
 			document.getElementById('fedBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('fedBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
-			fedGo(0)
-			function fedGo(a){
-				if (health > 0){
-					var fedSp = setTimeout(fedI,speed)
-				}
-				var fedd = setTimeout(fedD,lifetime)
-				function fedD(){
-					if (a === 0){
-						document.getElementById('fedBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('fedBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
-						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 10000)
-						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 10000)
-					}
-					clearTimeout(fedSp)
-					clearTimeout(fedd)
+			console.log('Feddy created')
+			var destroyedTr = 0
+			fedGo(health)
+			setTimeout(fedD, parseInt(fedL.textContent) * 1000, 1)
+			function fedGo(hp){
+				if (hp > 0){
+					setTimeout(fedI, speed)
 				}
 				function fedI(){
-					var dp = Math.floor(Math.random() * 100) + 1
-					if (dp > fail){
-						if (parseInt(fedZ.value) === 1){
-							health = Dtut(health)
-							fedGo()
-						} else if (parseInt(fedZ.value) === 2){
-							health = Dfie(health)
-							fedGo()
-						} else if (parseInt(fedZ.value) === 3){
-							health = Dsky(health)
-							fedGo()
-						} else if (parseInt(fedZ.value) === 4){
-							health = Dcav(health)
-							fedGo()
+					if (destroyedTr === 0){
+						var dp = Math.floor(Math.random() * 100) + 1
+						if (dp > fail){
+							if (parseInt(fedZ.value) === 1){
+								hp = Dtut(hp)
+								fedGo(hp)
+							} else if (parseInt(fedZ.value) === 2){
+								hp = Dfie(hp)
+								fedGo(hp)
+							} else if (parseInt(fedZ.value) === 3){
+								hp = Dsch(hp)
+								fedGo(hp)
+							} else if (parseInt(fedZ.value) === 4){
+								hp = Dcav(hp)
+								fedGo(hp)
+							}
+							if (hp <= 0){
+								console.log('Feddy was destroyed')
+								fedD()
+							} else {
+								console.log('Feddy has only ' + hp + ' hp')
+							}
+						} else {
+							hp = 0
+							console.log('Feddy failed')
+							fedD()
 						}
-					} else {
-						fedD()
+					}
+				}
+			}
+			function fedD(a){
+				if (destroyedTr === 0){
+					destroyedTr = 1
+					document.getElementById('fedBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('fedBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
+					sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 10000)
+					sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 10000)
+					if (a === 1){
+						console.log('Feddy Expired')
 					}
 				}
 			}
@@ -13808,32 +13016,41 @@ Restrictions: killed all enemies at caves at least once
 			var speed = (60 / (parseFloat(sniS.textContent))) * 1000
 			var health = parseInt(sniH.textContent)
 			document.getElementById('sniBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('sniBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
-			sniGo(0)
-			function sniGo(a){
-				if (health > 0){
-					var sniSp = setTimeout(sniI,speed)
-				}
-				function sniD(){
-					if (a === 0){
-						document.getElementById('sniBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('sniBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
-					}
-					clearTimeout(sniSp)
-					clearTimeout(snid)
+			console.log('Sniper created')
+			var destroyedTr = 0
+			sniGo(health)
+			function sniGo(hp){
+				if (hp > 0){
+					setTimeout(sniI, speed)
 				}
 				function sniI(){
-					if (parseInt(sniZ.value) === 1){
-						health = Dare(health,4)
-						sniGo()
-					} else if (parseInt(sniZ.value) === 2){
-						health = Dmin(health,4)
-						sniGo()
-					} else if (parseInt(sniZ.value) === 3){
-						health = Dcod(health,4)
-						sniGo()
-					} else if (parseInt(sniZ.value) === 4){
-						health = Dtar(health,4)
-						sniGo()
+					if (destroyedTr === 0){
+						if (parseInt(sniZ.value) === 1){
+							hp = Dare(hp,4)
+							sniGo(hp)
+						} else if (parseInt(sniZ.value) === 2){
+							hp = Dmin(hp,4)
+							sniGo(hp)
+						} else if (parseInt(sniZ.value) === 3){
+							hp = Dcod(hp,4)
+							sniGo(hp)
+						} else if (parseInt(sniZ.value) === 4){
+							hp = Dtar(hp,4)
+							sniGo(hp)
+						}
+						if (hp <= 0){
+							console.log('Sniper was destroyed')
+							sniD()
+						} else {
+							console.log('Sniper has only ' + hp + ' hp')
+						}
 					}
+				}
+			}
+			function sniD(a){
+				if (destroyedTr === 0){
+					destroyedTr = 1
+					document.getElementById('sniBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('sniBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
 				}
 			}
 		}
@@ -14561,10 +13778,8 @@ Restrictions: killed all enemies at caves at least once
 			hide('libBack')
 			hide('tutli')
 			hide('tutb')
-			hide('anom')
 			hide('grassc')
-				var a = document.getElementById('grassp')
-				a.classList.add('hide')
+			hide('grassp')
 				var a = document.getElementById('paperp')
 				a.classList.add('hide')
 				var a = document.getElementById('paperc')
@@ -14931,7 +14146,6 @@ Restrictions: killed all enemies at caves at least once
 				hide('tutb')
 				hide('grassp')
 				hide('libBack')
-				hide('anom')
 				hide('paperp')
 				var a = document.getElementById('stickp')
 				a.classList.add('hide')
@@ -15309,17 +14523,6 @@ Restrictions: killed all enemies at caves at least once
 			a.classList.add('show')
 			a.classList.remove('hide')
 		}
-		d4ubut.onclick = d4ust;
-		function d4ust(){
-			var a = document.getElementById('usbVent')
-			a.classList.add('hide')
-			var a = document.getElementById('d4u')
-			a.classList.remove('hide')
-			var a = document.getElementById('d4ub')
-			a.classList.remove('hide')
-			var a = document.getElementById('d4ubut')
-			a.classList.remove('hide')
-		}
 		function ch23st(){
 			var a = document.getElementById('usbVent')
 			a.classList.add('hide')
@@ -15373,24 +14576,17 @@ Restrictions: killed all enemies at caves at least once
 		}, false);
 		ch22but.onclick = vent;
 		games.onclick = gameOn;
-		function gameOn(){
-			if (games.textContent === 'unlocked' || games.textContent === 'Gaming'){
+		function gameOn(a){
+			if (games.textContent === 'unlocked' || games.textContent === 'Gaming' || a){
 				if (games.textContent === 'unlocked'){
 					setTimeout(WFUCool, 1000)
 				}
 				WFUlvl.textContent = localStorage.WFUlvl
 				vent()
 				hideLore()
-				hide('itemLibB')
-				document.getElementById('slots').classList.add('hide')
-				document.getElementById('elibr').classList.add('hide')
-				document.getElementById('invent').classList.add('hide')
-				document.getElementById('trainB').classList.add('hide')
-				document.getElementById('att').classList.add('hide')
-				document.getElementById('def').classList.add('hide')
-				document.getElementById('mhp').classList.add('hide')
-				document.getElementById('reg').classList.add('hide')
-				document.getElementById('xpB').classList.add('hide')
+				hideAllMenu()
+				show('gaming')
+				hide('anom')
 				document.getElementById('gamefeature').classList.remove('hide')
 				document.getElementById('WFUon').classList.add('hide')
 				document.getElementById('WFUoff').classList.add('hide')
@@ -15796,6 +14992,7 @@ Restrictions: killed all enemies at caves at least once
 			newSave('GamP1', 0)
 			newSave('MisP1', 0)
 			newSave('AdvP3', 0)
+			newSave('GamP2', 0)
 			document.getElementById('AdvP1').setAttribute('title', 'Multiply health by 1.05 (' + (2 * (parseInt(localStorage.AdvP1) + 1)) +' Ap)')
 			AP = AP - (parseInt(localStorage.AdvP1) * (parseInt(localStorage.AdvP1) + 1))
 			AP = AP - (parseInt(localStorage.InvP1) * 3)
@@ -15804,6 +15001,7 @@ Restrictions: killed all enemies at caves at least once
 			AP = AP - (parseInt(localStorage.GamP1) * 10)
 			AP = AP + (parseInt(localStorage.MisP1) * 50)
 			AP = AP - (parseInt(localStorage.AdvP3) * 3)
+			AP = AP - (parseInt(localStorage.GamP2) * 4)
 			perkBack('AdvP1',parseInt(localStorage.AdvP1),10)
 			perkBack('InvP1',parseInt(localStorage.InvP1),16)
 			perkBack('DroP1',parseInt(localStorage.DroP1),10)
@@ -15811,6 +15009,7 @@ Restrictions: killed all enemies at caves at least once
 			perkBack('GamP1',parseInt(localStorage.GamP1),1)
 			perkBack('MisP1',parseInt(localStorage.MisP1),1)
 			perkBack('AdvP3',parseInt(localStorage.AdvP3),5)
+			perkBack('GamP2',parseInt(localStorage.GamP2),4)
 			document.getElementById('AP').textContent = AP
 			achBar()
 		}
@@ -15819,6 +15018,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('ach5').classList.replace('achF','achCT')
 			document.getElementById('ach5').setAttribute('title', '7 - What does it say?')
 			localStorage.ach5 = 1
+			totalAP()
 		}
 		var ach10prog = 0;
 		function achi10(){
@@ -15892,6 +15092,13 @@ Restrictions: killed all enemies at caves at least once
 		function AdvP3(){
 			if (3 <= parseInt(document.getElementById('AP').textContent) && parseInt(localStorage.AdvP3) < 5){
 				localStorage.AdvP3 = parseInt(localStorage.AdvP3) + 1
+			}
+			totalAP()
+		}
+		function GamP2(){
+			if (4 <= parseInt(document.getElementById('AP').textContent) && parseInt(localStorage.GamP2) < 4){
+				localStorage.GamP2 = parseInt(localStorage.GamP2) + 1
+				localStorage.WFUslots = parseInt(localStorage.WFUslots) + 1
 			}
 			totalAP()
 		}
@@ -16033,7 +15240,6 @@ Restrictions: killed all enemies at caves at least once
 		var itemsFound = 0
 		function itemBookOn(){
 			show('itemLib')
-			hide('anom')
 			hide('invent')
 			hide('XP')
 			hide('training')
@@ -16302,21 +15508,8 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}//itemsHere
 		function anomOn(){
-			hide('itemLib')
-			hide('invent')
-			hide('XP')
-			hide('training')
-			hide('slots')
-			hide('eLib')
-			hide('schoolLib')
-			hide('skyLib')
-			hide('fieldLib')
-			hide('tutli')
-			hide('library')
-			hide('tutzobook')
-			hide('fieldbook')
-			hide('skybook')
-			hide('schoolbook')
+			gameOn(1)//remove when update
+			hide('gaming')
 			show('anom')
 		}
 		function helpOn(){

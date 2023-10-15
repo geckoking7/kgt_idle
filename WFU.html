@@ -66,6 +66,18 @@
 	.fightPicker69{
 		background-image: url('fightPicker69.png');
 	}
+	.healthstone2{
+		background-image: url('healthstone2.png');
+	}
+	.damagestone2{
+		background-image: url('damagestone2.png')
+	}
+	.defencestone2{
+		background-image: url('defencestone2.png')
+	}
+	.regenerationstone2{
+		background-image: url('regenerationstone2.png')
+	}
 	</style>
 	<body style='background-color: rgb(200,200,200);' id='body' onload='HTPcheck()'>
 		<img src="monitor.png" alt="computer" style='position: absolute; height: 600px; width: 1000px; left: 50px; top: 50px; z-index: 5;'>
@@ -132,6 +144,7 @@
 		<h5 class='vent empty hide' id='vent8'></h5>
 	</body>
 	<script>
+	//Make stone drops fill the remainder of empty slots
 	var ob1 = 0;
 	var ob2 = 0;
 	var mo1 = 0;
@@ -1514,6 +1527,23 @@
 		}
 		if (day > 2){
 			localStorage.ach16 = 1
+		}
+		for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
+			newSave('WFUstone', '')
+			let stoneRNG = Math.floor(Math.random() * 25) + 1
+			if (stoneRNG === 1){
+				idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R')
+				localStorage.WFUstone = localStorage.WFUstone + '4'
+			} else if (stoneRNG <= 5){
+				idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D')
+				localStorage.WFUstone = localStorage.WFUstone + '3'
+			} else if (stoneRNG <= 9){
+				idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A')
+				localStorage.WFUstone = localStorage.WFUstone + '2'
+			} else {
+				idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp')
+				localStorage.WFUstone = localStorage.WFUstone + '1'
+			}
 		}
 	}
 	function idrop(item, title){

@@ -1148,7 +1148,6 @@ h5{
     height: 18px;
     background-color: rgb(0,162,232);
 	z-index: 2;
-	padding: 0 0 0 5px;
 }
 #stiUP{
     position: absolute;
@@ -1185,7 +1184,6 @@ h5{
     height: 18px;
     background-color: rgb(0,162,232);
 	z-index: 2;
-	padding: 0 0 0 5px;
 }
 #kilUP{
     position: absolute;
@@ -1222,7 +1220,6 @@ h5{
     height: 18px;
     background-color: rgb(0,162,232);
 	z-index: 2;
-	padding: 0 0 0 5px;
 }
 #fedUP{
     position: absolute;
@@ -1259,7 +1256,6 @@ h5{
     height: 18px;
     background-color: rgb(0,162,232);
 	z-index: 2;
-	padding: 0 0 0 5px;
 }
 #sniUP{
     position: absolute;
@@ -1519,6 +1515,9 @@ select{
 	width: 60px;
 	height: 60px;
 }
+.itemNA{
+	border: 5px rgb(127,127,127) solid;
+}
 .itemC{
 	border: 5px rgb(127,255,127) solid;
 }
@@ -1572,12 +1571,51 @@ select{
 	background-image: url('rareAnim.gif');
 	opacity: 0.1;
 }
+.itemE2{
+	background-image: url('epicAnim.gif');
+	opacity: 0.2;
+}
+.itemL2{
+	background-image: url('legendAnim.gif');
+	opacity: 0.3;
+}
+.itemRe2{
+	background-image: url('relicAnim.gif');
+	opacity: 0.4;
+}
+.itemCo2{
+	background-image: url('contraAnim.gif');
+	opacity: 0.5;
+}
 .itemItem{
 	width: 50px;
 	height: 50px;
 	margin: 0px;
 	left: 0px;
 	top: 0px;
+}
+#anomBut{
+	background-image: url('anomBut.png');
+	position: absolute;
+	top: 58px;
+	left: 45px;
+	height: 30px;
+	width: 30px;
+	z-index: 1;
+}
+#anomBut:hover{
+	background-image: url('anomButhover.png');
+}
+#anomBar{
+	background: #0000FF;
+	position: absolute;
+	left: 740px;
+	top: 532px;
+	height: 25px;
+	margin: 0;
+}
+.anomLocked{
+	background: url('locked.png');
 }
 .stickV2{
 	background: url('stickV2.png');
@@ -1587,4 +1625,16 @@ select{
 }
 .hideV2{
 	background: url('rabbithideV2.png');
+}
+.lwingV2{
+	background: url('leftwingV2.png');
+}
+.rwingV2{
+	background: url('rightwingV2.png');
+}
+.scissorV2{
+	background: url('scissorV2.png');
+}
+.stiltsV2{
+	background: url('stiltsV2.png');
 }
