@@ -1514,6 +1514,9 @@ select{
 	position: absolute;
 	width: 60px;
 	height: 60px;
+	padding: 0px;
+	margin: 0;
+	border-width: 5px;
 }
 .itemNA{
 	border: 5px rgb(127,127,127) solid;
@@ -1594,6 +1597,12 @@ select{
 	left: 0px;
 	top: 0px;
 }
+.anomText{
+	position: absolute;
+	top: 200px;
+	left: 725px;
+	font-size: 15px;
+}
 #anomBut{
 	background-image: url('anomBut.png');
 	position: absolute;
@@ -1606,16 +1615,20 @@ select{
 #anomBut:hover{
 	background-image: url('anomButhover.png');
 }
-#anomBar{
+#anomBar, #anomBarBack, #anomBarAnim{
 	background: #0000FF;
 	position: absolute;
 	left: 740px;
 	top: 532px;
 	height: 25px;
 	margin: 0;
+	width: 100px;
 }
 .anomLocked{
 	background: url('locked.png');
+}
+.anomEmpty{
+	background: #bbb;
 }
 .stickV2{
 	background: url('stickV2.png');
@@ -1637,4 +1650,52 @@ select{
 }
 .stiltsV2{
 	background: url('stiltsV2.png');
+}
+.jetpackV2{
+	background: url('jetpackV2.png');
+}
+.lasergunV2{
+	background: url('lasergunV2.png');
+}
+.torchV2{
+	background: url('torchV2.png');
+}
+.pickaxeV2{
+	background: url('pickaxeV2.png');
+}
+.minercapV2{
+	background: url('minercapV2.png');
+}
+.ramV2{
+	background: url('ramV2.png');
+}
+.eV2{
+	background: url('eV2.png');
+}
+.dronedrop1V2{
+	background: url('dronedrop1V2.png');
+}
+.dronedrop2V2{
+	background: url('dronedrop2V2.png');
+}
+.dronedrop3V2{
+	background: url('dronedrop3V2.png');
+}
+.deagleV2{
+	background: url('deagleV2.png');
+}
+.ventV2{
+	background: url('ventV2.png');
+}
+.trashV2{
+	background: url('trashV2.png');
+}
+.stoneV2{
+	background: url('stoneV2.png');
+}
+.usbV2{
+	background: url('usbV2.png');
+}
+.airV2{
+	background: url('airV2.png');
 }

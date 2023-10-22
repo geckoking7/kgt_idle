@@ -718,10 +718,11 @@ Restrictions: killed all enemies at caves at least once
 				<div id='kilBP' title='120 seconds till complete'>DRONES_ACTIVE=0</div>
 				<div id='kilMBP' title='120 seconds till complete'></div>
 				<select id='kilZ' style='top: 197px; left: 822px;'>
-					<option value='1'>Sky</option>
-					<option value='2'>School</option>
-					<option value='3'>American Airspace</option>
-					<option id='kilz4' class='hide' value='4'>Area 51</option>
+					<option value='2'>Fields</option>
+					<option value='3'>Sky</option>
+					<option value='4'>School</option>
+					<option value='5'>American airspace</option>
+					<option id='kilz4' class='hide' value='6'>Area 51</option>
 				</select>
 			</div>
 			<div class='hide' id='fedBS'>
@@ -880,7 +881,7 @@ Restrictions: killed all enemies at caves at least once
 		</div>
 		<!-- GAMING FEATURE :O -->
 		<div id='gamefeature' class='hide'>
-			<h5 id='anomBut' onclick='anomOn()' title='Enhanced loot inventory [Q]' class='hide'></h5> <!-- add hide once done -->
+			<h5 id='anomBut' onclick='anomOn()' class='hide' title='Enhanced loot inventory [Q]'></h5> <!-- add hide once done -->
 			<div id='gaming'>
 				<img src="gameb.png" alt="stuff">
 				<a onclick='advent()' target=”_blank” href="WFU.html" style='background: url(WFUbutton.gif); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0;' id='WFUon' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding'></a>
@@ -896,27 +897,64 @@ Restrictions: killed all enemies at caves at least once
 			</div>
 			<div id='anom' class='hide'>
 				<img src="anomBack.png" alt="stuff">
-				<button class="itemBack itemT1 itemC" style="left: 217px; top: 132px;" id="anom1"><h5 id='anomi1' class='itemItem stickV2'></h5></button>
-				<h5 class='itemAnim' style="left: 245px; top: 137px;" id='anoma1'></h5>
+				<button class="itemBack itemNA" style="left: 217px; top: 132px;" id="anom1"><h5 id='anomi1' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 222px; top: 137px;" id='anoma1' onclick=anomUnequip(1)></h5>
 				<button class="itemBack itemNA" style="left: 287px; top: 132px;" id="anom2"><h5 id='anomi2' class='itemItem anomLocked'></h5></button>
-				<h5 class='itemAnim' style="left: 287px; top: 137px;" id='anoma2' title='Unlocks in 5 recycles'></h5>
+				<h5 class='itemAnim' style="left: 292px; top: 137px;" id='anoma2' onclick=anomUnequip(2) title='Unlocks in 5 recycles'></h5>
 				<button class="itemBack itemNA" style="left: 357px; top: 132px;" id="anom3"><h5 id='anomi3' class='itemItem anomLocked'></h5></button>
-				<h5 class='itemAnim' style="left: 362px; top: 137px;" id='anoma3' title='Unlocks in 10 recycles'></h5>
+				<h5 class='itemAnim' style="left: 362px; top: 137px;" id='anoma3' onclick=anomUnequip(3) title='Unlocks in 10 recycles'></h5>
 				<button class="itemBack itemNA" style="left: 427px; top: 132px;" id="anom4"><h5 id='anomi4' class='itemItem anomLocked'></h5></button>
-				<h5 class='itemAnim' style="left: 432px; top: 137px;" id='anoma4' title='Unlocks in 20 recycles'></h5>
+				<h5 class='itemAnim' style="left: 432px; top: 137px;" id='anoma4' onclick=anomUnequip(4) title='Unlocks in 20 recycles'></h5>
 				<button class="itemBack itemNA" style="left: 497px; top: 132px;" id="anom5"><h5 id='anomi5' class='itemItem anomLocked'></h5></button>
-				<h5 class='itemAnim' style="left: 502px; top: 137px;" id='anoma5' title='Unlocks in 50 recycles'></h5>
+				<h5 class='itemAnim' style="left: 502px; top: 137px;" id='anoma5' onclick=anomUnequip(5) title='Unlocks in 50 recycles'></h5>
 				<button class="itemBack itemNA" style="left: 567px; top: 132px;" id="anom6"><h5 id='anomi6' class='itemItem anomLocked'></h5></button>
-				<h5 class='itemAnim' style="left: 572px; top: 137px;" id='anoma6' title='Unlocks in 100 recycles'></h5>
+				<h5 class='itemAnim' style="left: 572px; top: 137px;" id='anoma6' onclick=anomUnequip(6) title='Unlocks in 100 recycles'></h5>
 				<button class="itemBack itemNA" style="left: 637px; top: 132px;" id="anom7"><h5 id='anomi7' class='itemItem anomLocked'></h5></button>
-				<h5 class='itemAnim' style="left: 643px; top: 137px;" id='anoma7' title='Unlocks in 200 recycles'></h5>
+				<h5 class='itemAnim' style="left: 643px; top: 137px;" id='anoma7' onclick=anomUnequip(7) title='Unlocks in 200 recycles'></h5>
 				<button class="itemBack itemNA" style="left: 707px; top: 132px;" id="anom8"><h5 id='anomi8' class='itemItem anomLocked'></h5></button>
-				<h5 class='itemAnim' style="left: 712px; top: 137px;" id='anoma8' title='Unlocks in 500 recycles'></h5>
+				<h5 class='itemAnim' style="left: 712px; top: 137px;" id='anoma8' onclick=anomUnequip(8) title='Unlocks in 500 recycles'></h5>
 				<button class="itemBack itemNA" style="left: 777px; top: 132px;" id="anom9"><h5 id='anomi9' class='itemItem anomLocked'></h5></button>
-				<h5 class='itemAnim' style="left: 782px; top: 137px;" id='anoma9' title='Unlocks in 1000 recycles'></h5>
-				<button class="itemBack itemNA" style="left: 377px; top: 232px;" id="anom10"><h5 id='anomi10' class='itemItem stiltsV2'></h5></button> <!-- make adrop() start counting from 10 -->
-				<h5 class='itemAnim' style="left: 782px; top: 137px;" id='anoma10'></h5>
-				<h5 id='anomBar' style='width = 0px;'><!-- 100 x 25, 740 532 -->
+				<h5 class='itemAnim' style="left: 782px; top: 137px;" id='anoma9' onclick=anomUnequip(9) title='Unlocks in 1000 recycles'></h5>
+				<!-- make adrop() start counting from 10 -->
+				<button class="itemBack itemNA" style="left: 205px; top: 227px;" id="anom10"><h5 id='anomi10' class='itemItem anomEmpty'></h5></button> 
+				<h5 class='itemAnim' style="left: 210px; top: 232px;" id='anoma10' onclick='anomEquip(10);' onmousedown='recycle(10)'></h5>
+				<button class="itemBack itemNA" style="left: 275px; top: 227px;" id="anom11"><h5 id='anomi11' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 280px; top: 232px;" id='anoma11' onclick='anomEquip(11);' onmousedown='recycle(11)'></h5>
+				<button class="itemBack itemNA" style="left: 345px; top: 227px;" id="anom12"><h5 id='anomi12' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 350px; top: 232px;" id='anoma12' onclick='anomEquip(12);' onmousedown='recycle(12)'></h5>
+				<button class="itemBack itemNA" style="left: 415px; top: 227px;" id="anom13"><h5 id='anomi13' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 420px; top: 232px;" id='anoma13' onclick='anomEquip(13);' onmousedown='recycle(13)'></h5>
+				<button class="itemBack itemNA" style="left: 485px; top: 227px;" id="anom14"><h5 id='anomi14' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 490px; top: 232px;" id='anoma14' onclick='anomEquip(14);' onmousedown='recycle(14)'></h5>
+				<button class="itemBack itemNA" style="left: 555px; top: 227px;" id="anom15"><h5 id='anomi15' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 560px; top: 232px;" id='anoma15' onclick='anomEquip(15);' onmousedown='recycle(15)'></h5>
+				<button class="itemBack itemNA" style="left: 625px; top: 227px;" id="anom16"><h5 id='anomi16' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 630px; top: 232px;" id='anoma16' onclick='anomEquip(16);' onmousedown='recycle(16)'></h5>
+				<button class="itemBack itemNA" style="left: 205px; top: 297px;" id="anom17"><h5 id='anomi17' class='itemItem anomEmpty'></h5></button> 
+				<h5 class='itemAnim' style="left: 210px; top: 302px;" id='anoma17' onclick='anomEquip(17);' onmousedown='recycle(17)'></h5>
+				<button class="itemBack itemNA" style="left: 275px; top: 297px;" id="anom18"><h5 id='anomi18' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 280px; top: 302px;" id='anoma18' onclick='anomEquip(18);' onmousedown='recycle(18)'></h5>
+				<button class="itemBack itemNA" style="left: 345px; top: 297px;" id="anom19"><h5 id='anomi19' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 350px; top: 302px;" id='anoma19' onclick='anomEquip(19);' onmousedown='recycle(19)'></h5>
+				<button class="itemBack itemNA" style="left: 415px; top: 297px;" id="anom20"><h5 id='anomi20' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 420px; top: 302px;" id='anoma20' onclick='anomEquip(20);' onmousedown='recycle(20)'></h5>
+				<button class="itemBack itemNA" style="left: 485px; top: 297px;" id="anom21"><h5 id='anomi21' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 490px; top: 302px;" id='anoma21' onclick='anomEquip(21);' onmousedown='recycle(21)'></h5>
+				<button class="itemBack itemNA" style="left: 555px; top: 297px;" id="anom22"><h5 id='anomi22' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 560px; top: 302px;" id='anoma22' onclick='anomEquip(22);' onmousedown='recycle(22)'></h5>
+				<button class="itemBack itemNA" style="left: 625px; top: 297px;" id="anom23"><h5 id='anomi23' class='itemItem anomEmpty'></h5></button>
+				<h5 class='itemAnim' style="left: 630px; top: 302px;" id='anoma23' onclick='anomEquip(23);' onmousedown='recycle(23)'></h5>
+				<h5 class='anomText'>Bonuses: </h5>
+				<h5 id='anomB1' class='anomText' style='top: 230px;'>Attack +0%</h5>
+				<h5 id='anomB2' class='anomText' style='top: 260px;'>Defence +0%</h5>
+				<h5 id='anomB3' class='anomText' style='top: 290px;'>Drop chance +0%</h5>
+				<h5 id='anomB4' class='anomText' style='top: 320px;'>Stone chance +0%</h5>
+				<h5 id='anomB5' class='anomText' style='top: 350px;'>Build speed +0%</h5>
+				<h5 id='anomB6' class='anomText' style='top: 380px;'>Upgrade speed +0%</h5>
+				<h5 id='anomB7' class='anomText' style='top: 410px;'>XP gain +0%</h5>
+				<h5 id='anomBarBack'style='background: #00FFFF;'><!-- 100 x 25, 740 532 -->
+				<h5 id='anomBar' style='width: 0px;'><!-- 100 x 25, 740 532 also code the amount of times you have recycled as you cannot create a new line unless coded through js-->
+				<h5 id='anomBarAnim' style='opacity: 0; background: #FFFFFF;' title='This is your recycle bar, once filled you get a free enhanced item'>
 			</div>
 		</div>
 		<!-- Settings and stuff -->
@@ -1290,9 +1328,19 @@ Restrictions: killed all enemies at caves at least once
 		var Qn = 0;
 		var backValue = 0;
 		const totalAch = 30;
-		const totalItems = 56;
+		const totalItems = 57;
 		const totalZones = 10;
+		const maxAnomSlots = 23;
 		var currentAch = 0;
+		var b1 = 0;
+		var b2 = 0;
+		var b3 = 0;
+		var b4 = 0;
+		var b5 = 0;
+		var b6 = 0;
+		var b7 = 0;
+		var recyclePro = 0;
+		var anomBarValue = 0;
  		var helpNo = 1; //use variable as decimal eg for stuff like advH2 helpNo = 1.2
 		function newSave(thing, value){ //thing must be string
 			if (localStorage.getItem(thing)){
@@ -1300,6 +1348,19 @@ Restrictions: killed all enemies at caves at least once
 			} else {
 				localStorage.setItem(thing, value)
 				return localStorage.getItem(thing)
+			}
+		}
+		function existTr(thing,valueTr){
+			if (thing){
+				if (valueTr === 1){
+					return parseInt(thing)
+				}
+				return true
+			} else {
+				if (valueTr === 1){
+					return 0
+				}
+				return false
 			}
 		}
 		function hide(id){
@@ -2215,6 +2276,19 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			}
+			for (let N = 1; N <= maxAnomSlots; N++){
+				if (localStorage.getItem('anom' + N)){
+					let rarity = findRarity(localStorage.getItem('anom' + N))
+					let item = findRarity(localStorage.getItem('anom' + N), 1)
+					document.getElementById('anom' + N).classList.replace('itemNA', 'item' + rarity)
+					document.getElementById('anomi' + N).classList.remove('anomLocked')
+					document.getElementById('anom' + N).classList.add('itemT' + localStorage.getItem('anom' + N).slice(-1))
+					document.getElementById('anomi' + N).classList.replace('anomEmpty', item + 'V2')
+					document.getElementById('anoma' + N).classList.add('item' + rarity + '2')
+					document.getElementById('anoma' + N).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + N)))
+				}
+			}
+			calculateBonus()
 			if (localStorage.u1){
 				var box = document.getElementById('u1')
 				box.classList.replace('umpty',localStorage.u1)
@@ -2249,8 +2323,7 @@ Restrictions: killed all enemies at caves at least once
 			}
 			hide('start')
 			hide('changelog')
-			var hideStartB = document.getElementById('startB')
-			hideStartB.classList.add('hide')
+			hide('startB')
 			var hideStart = document.getElementById('start1')
 			hideStart.classList.add('hide')
 			var hideStart = document.getElementById('start2')
@@ -2410,7 +2483,6 @@ Restrictions: killed all enemies at caves at least once
 			hide('miss')
 			hide('anom')
 			hide('libBack')
-			hide('anom')
 			hide('moveCools')
 			hide('diamond')
 			hide('eLib')
@@ -5240,7 +5312,7 @@ Restrictions: killed all enemies at caves at least once
 			def.textContent = localStorage.def
 			reg.textContent = localStorage.reg
 		}
-		function enemykill(){
+		function enemykill(z){
 			var edeathSound = new Audio("enemydeathS.mp3")
 			ekills.textContent = parseFloat(ekills.textContent) + 1
 			edeathSound.volume = (parseFloat(document.getElementById('volume').value) / 100)
@@ -5290,6 +5362,31 @@ Restrictions: killed all enemies at caves at least once
 			}
 			save()
 			ehp2.textContent = 0
+			if (z === 1){
+				adrop('stick',10)
+			} else if (z === 2){
+				adrop('fang',5)
+				adrop('hide',5)
+			} else if (z === 3){
+				adrop('lwing',5)
+				adrop('rwing',5)
+			} else if (z === 4){
+				adrop('scissor',5)
+				adrop('stilts',5)
+			} else if (z === 5){
+				adrop('jetpack',10)
+			} else if (z === 6){
+				adrop('lasergun',10)
+			} else if (z === 7){
+				adrop('torch',10)
+			} else if (z === 8){
+				adrop('pickaxe',5)
+				adrop('minercap',5)
+			} else if (z === 9){
+				adrop('ram',10)
+			} else if (z === 10){
+				adrop('e',10)
+			}
 		}
 		function playerdead(){
 			if (document.getElementById('adv').classList.contains('hide') && document.getElementById('invent').classList.contains('hide') && document.getElementById('dronebuild').classList.contains('hide') && document.getElementById('gamefeature').classList.contains('hide') && document.getElementById('s&s').classList.contains('hide')){
@@ -5369,7 +5466,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(1)
 						hide('grass')
 						document.getElementById("eHealth").style.width = '0px'
 						
@@ -5432,7 +5529,7 @@ Restrictions: killed all enemies at caves at least once
 				var pcut = parseFloat(reg.textContent)
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(1)
 						var a = document.getElementById('paper')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -5516,7 +5613,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(1)
 						var a = document.getElementById('stick')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -5584,7 +5681,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(1)
 						var a = document.getElementById('ant')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -5651,7 +5748,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(1)
 						var a = document.getElementById('water')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -5723,7 +5820,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(1)
 						var a = document.getElementById('eraser')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -5788,7 +5885,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(1)
 						var a = document.getElementById('balloon')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -5852,7 +5949,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(1)
 						var a = document.getElementById('pebble')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6001,7 +6098,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(2)
 						var a = document.getElementById('lotsofgrass')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6076,7 +6173,7 @@ Restrictions: killed all enemies at caves at least once
 				var pcut = parseFloat(reg.textContent)
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(2)
 						var a = document.getElementById('rabbit')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6132,7 +6229,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(2)
 						var a = document.getElementById('antcolony')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6185,7 +6282,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(2)
 						var a = document.getElementById('tree')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6241,7 +6338,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(2)
 						var a = document.getElementById('spider')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6294,7 +6391,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(2)
 						var a = document.getElementById('apple')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6346,7 +6443,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(2)
 						var a = document.getElementById('puddle')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6407,7 +6504,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(2)
 						var a = document.getElementById('fire')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6546,7 +6643,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(3)
 						var a = document.getElementById('bird')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6609,7 +6706,7 @@ Restrictions: killed all enemies at caves at least once
 				var pcut = parseFloat(reg.textContent)
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(3)
 						var a = document.getElementById('boeing')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6668,7 +6765,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(3)
 						var a = document.getElementById('cloud')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6726,7 +6823,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(3)
 						var a = document.getElementById('meteor')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6787,7 +6884,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(3)
 						var a = document.getElementById('buildings')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6845,7 +6942,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(3)
 						var a = document.getElementById('lightning')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6926,7 +7023,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(3)
 						var a = document.getElementById('helicopter')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -6983,7 +7080,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(3)
 						var a = document.getElementById('balloon2')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7133,7 +7230,7 @@ Restrictions: killed all enemies at caves at least once
 				var sdef = parseInt(def.textContent)
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(4)
 						var a = document.getElementById('gum')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7222,7 +7319,7 @@ Restrictions: killed all enemies at caves at least once
 				var pcut = parseFloat(reg.textContent)
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(4)
 						var a = document.getElementById('calculator')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7308,7 +7405,7 @@ Restrictions: killed all enemies at caves at least once
 				dodgeballDodge.textContent = 1
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(4)
 						var a = document.getElementById('dodgeball')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7363,7 +7460,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(4)
 						var a = document.getElementById('scissors')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7426,7 +7523,7 @@ Restrictions: killed all enemies at caves at least once
 				var fdef2 = 1
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(4)
 						var a = document.getElementById('x')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7519,7 +7616,7 @@ Restrictions: killed all enemies at caves at least once
 				ae = 0
 				function gratt(){
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(4)
 						var a = document.getElementById('y')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7605,7 +7702,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(4)
 						var a = document.getElementById('ruler')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7660,7 +7757,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(4)
 						var a = document.getElementById('chair')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -7802,7 +7899,7 @@ Restrictions: killed all enemies at caves at least once
 						var ae = 0
 						function gratt(){
 							if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(5)
 								var a = document.getElementById('helicopter2')
 								a.classList.add('hide')
 								document.getElementById("eHealth").style.width = '0px'
@@ -7857,7 +7954,7 @@ Restrictions: killed all enemies at caves at least once
 						var ae = 0
 						function gratt() {
 							if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(5)
 								var a = document.getElementById('deserteagle')
 								a.classList.add('hide')
 								document.getElementById("eHealth").style.width = '0px'
@@ -7915,7 +8012,7 @@ Restrictions: killed all enemies at caves at least once
 						var ae = 0
 						function gratt() {
 							if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(5)
 								hide('a10')
 								document.getElementById("eHealth").style.width = '0px'
 								
@@ -7987,7 +8084,7 @@ Restrictions: killed all enemies at caves at least once
 						var ae = 0
 						function gratt() {
 							if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(5)
 								hide('1drone')
 								document.getElementById("eHealth").style.width = '0px'
 								antDodge.textContent = 0
@@ -8041,7 +8138,7 @@ Restrictions: killed all enemies at caves at least once
 						ae = 0
 						function gratt() {
 							if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(5)
 								var a = document.getElementById('2drone')
 								a.classList.add('hide')
 								document.getElementById("eHealth").style.width = '0px'
@@ -8091,7 +8188,7 @@ Restrictions: killed all enemies at caves at least once
 						ae = 0
 						function gratt() {
 							if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(5)
 								hide('3drone')
 								document.getElementById("eHealth").style.width = '0px'
 								
@@ -8145,7 +8242,7 @@ Restrictions: killed all enemies at caves at least once
 						var ae = 0
 						function gratt() {
 							if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(5)
 								var a = document.getElementById('jetpackguy')
 								a.classList.add('hide')
 								document.getElementById("eHealth").style.width = '0px'
@@ -8196,7 +8293,7 @@ Restrictions: killed all enemies at caves at least once
 						var ae = 0
 						function gratt() {
 							if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(5)
 								hide('ufo')
 								document.getElementById("eHealth").style.width = '0px'
 								ufoc.textContent = parseFloat(ufoc.textContent) + 1
@@ -8335,7 +8432,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(6)
 						var a = document.getElementById('guard')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -8404,7 +8501,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(6)
 						if (deep2.classList.contains('hide') && deep3.classList.contains('hide')){
 							idrop('thebox','The box - Good on defence and stuff - +8 Hp +3 A +6 D', 500)
 						} else if (deep1.classList.contains('hide') && deep3.classList.contains('hide')){
@@ -8466,7 +8563,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(6)
 						hide('ufo2')
 						document.getElementById("eHealth").style.width = '0px'
 						
@@ -8528,7 +8625,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(6)
 						var a = document.getElementById('alien')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -8609,7 +8706,7 @@ Restrictions: killed all enemies at caves at least once
 				ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(6)
 						var a = document.getElementById('tree2')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -8691,7 +8788,7 @@ Restrictions: killed all enemies at caves at least once
 				ce = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(6)
 						var a = document.getElementById('4drone')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -8797,7 +8894,7 @@ Restrictions: killed all enemies at caves at least once
 				sp = 16
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(6)
 						var a = document.getElementById('ant2')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -8855,7 +8952,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(6)
 						var a = document.getElementById('radioactive')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9037,7 +9134,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(7)
 						var a = document.getElementById('bat')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9089,7 +9186,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(7)
 						hide('stalicite')
 						document.getElementById("eHealth").style.width = '0px'
 						
@@ -9137,7 +9234,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(7)
 						var a = document.getElementById('stalimite')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9187,7 +9284,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(7)
 						var a = document.getElementById('rock')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9241,7 +9338,7 @@ Restrictions: killed all enemies at caves at least once
 				ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(7)
 						var a = document.getElementById('skeleton')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9300,7 +9397,7 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(7)
 						var a = document.getElementById('torch')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9353,7 +9450,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById("glowworm").style.opacity = 0.2
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(7)
 						hide('glowworm')
 						document.getElementById("eHealth").style.width = '0px'
 						
@@ -9420,7 +9517,7 @@ Restrictions: killed all enemies at caves at least once
 				reg.textContent = parseInt(reg.textContent) - 20
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(7)
 						var a = document.getElementById('lava')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9597,7 +9694,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(8)
 						var a = document.getElementById('stone')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9643,7 +9740,7 @@ Restrictions: killed all enemies at caves at least once
 				var ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(8)
 						var a = document.getElementById('pickaxe')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9695,7 +9792,7 @@ Restrictions: killed all enemies at caves at least once
 				var sp = 10
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(8)
 						var a = document.getElementById('minecart')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9753,7 +9850,7 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.remove('hide')
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(8)
 						var a = document.getElementById('miner')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9805,7 +9902,7 @@ Restrictions: killed all enemies at caves at least once
 				ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(8)
 						var a = document.getElementById('drill')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9857,7 +9954,7 @@ Restrictions: killed all enemies at caves at least once
 				ae = 0
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(8)
 						var a = document.getElementById('uranium')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -9909,7 +10006,7 @@ Restrictions: killed all enemies at caves at least once
 				show('diamond')
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(8)
 						hide('diamond')
 						document.getElementById("eHealth").style.width = '0px'
 						
@@ -9983,7 +10080,7 @@ Restrictions: killed all enemies at caves at least once
 				eNHTr.textContent = 1
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
-						enemykill()
+						enemykill(8)
 						var a = document.getElementById('hoe')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
@@ -10126,7 +10223,7 @@ Restrictions: killed all enemies at caves at least once
 								}
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(9)
 								document.getElementById('z9back').setAttribute('src', 'coderslab2.png')
 								if (Math.floor(Math.random() * 10) === 0){
 									document.getElementById('z9back').setAttribute('src', 'coderslab.png')
@@ -10202,7 +10299,7 @@ Restrictions: killed all enemies at caves at least once
 								}
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(9)
 								document.getElementById('wikipedia').classList.add('hide')
 								advc.textContent = parseInt(advC.textContent)
 								newSave('wikipediac',0)
@@ -10331,7 +10428,7 @@ Restrictions: killed all enemies at caves at least once
 								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 								setTimeout(battle, 50, ae, sp, spe, lolw, lolt)
 							} else if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(9)
 								document.getElementById('MSpaint').classList.add('hide')
 								advc.textContent = parseInt(advC.textContent)
 								newSave('MSpc',0)
@@ -10392,7 +10489,7 @@ Restrictions: killed all enemies at caves at least once
 								}
 								setTimeout(battle, 50, ae, sp, aN)
 							} else if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(9)
 								document.getElementById('IE').classList.add('hide')
 								newSave('IEc',0)
 								localStorage.IEc = parseInt(localStorage.IEc) + 1
@@ -10462,7 +10559,7 @@ Restrictions: killed all enemies at caves at least once
 								}
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(9)
 								document.getElementById('FE').classList.add('hide')
 								hide('FEimg')
 								advc.textContent = parseInt(advC.textContent)
@@ -10518,7 +10615,7 @@ Restrictions: killed all enemies at caves at least once
 								}
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(9)
 								document.getElementById('googol').classList.add('hide')
 								newSave('googolc',0)
 								localStorage.googolc = parseInt(localStorage.googolc) + 1
@@ -10556,7 +10653,7 @@ Restrictions: killed all enemies at caves at least once
 								}
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(9)
 								document.getElementById('CMG').classList.add('hide')
 								advc.textContent = parseInt(advC.textContent)
 								newSave('CMGc',0)
@@ -10633,7 +10730,7 @@ Restrictions: killed all enemies at caves at least once
 								}
 								setTimeout(battle, 50, ae, sp, yes)
 							} else if (parseFloat(ehp.textContent) <= 0){
-								enemykill()
+								enemykill(9)
 								if (parseInt(bloN.textContent) != 3){
 									localStorage.ach11 = 1
 								}
@@ -10767,7 +10864,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50, ae, sp, sab1, sab2, sab2Timer)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill()
+							enemykill(10)
 							document.getElementById('sus').classList.add('hide')
 							advc.textContent = parseInt(advC.textContent)
 							newSave('susc',0)
@@ -10826,7 +10923,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill()
+							enemykill(10)
 							hide('grass2')
 							hide('fire')
 							advc.textContent = parseInt(advC.textContent)
@@ -10876,7 +10973,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill()
+							enemykill(10)
 							hide('ctrlh')
 							advc.textContent = parseInt(advC.textContent)
 							newSave('ctrlhc',0)
@@ -10916,7 +11013,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill()
+							enemykill(10)
 							hide('bing')
 							newSave('bingc',0)
 							localStorage.bingc = parseInt(localStorage.bingc) + 1
@@ -10960,7 +11057,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill()
+							enemykill(10)
 							hide('greenEnemy')
 							newSave('greenc',0)
 							localStorage.greenc = parseInt(localStorage.greenc) + 1
@@ -11027,7 +11124,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill()
+							enemykill(10)
 							hide('gravity')
 							hide('jetpackguy')
 							newSave('gravityc',0)
@@ -11069,7 +11166,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill()
+							enemykill(10)
 							hide('ant3')
 							newSave('ant3c',0)
 							localStorage.ant3c = parseInt(localStorage.ant3c) + 1
@@ -11124,7 +11221,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill()
+							enemykill(10)
 							hide('eEnemy')
 							newSave('ec',0)
 							localStorage.ec = parseInt(localStorage.ec) + 1
@@ -11391,6 +11488,8 @@ Restrictions: killed all enemies at caves at least once
 							droneopen()
 						} else if (document.getElementById('dronebuild').classList.contains('hide') === false){
 							dupgr()
+						} else if (document.getElementById('anomBut').classList.contains('hide') === false &&document.getElementById('gamefeature').classList.contains('hide') === false && localStorage.anomTr === '1'){
+							anomOn()
 						} else if (document.getElementById('statB').classList.contains('hide') === false){
 							statsOn()
 						}
@@ -12779,6 +12878,7 @@ Restrictions: killed all enemies at caves at least once
 								hp = Dare(hp)
 								stiGo(hp)
 							}
+							adrop('droneDrop2',2)
 							if (hp <= 0){
 								console.log('Stickman was destroyed')
 								stiD()
@@ -12799,6 +12899,7 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('stiBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
 					if (a === 1){
 						console.log('Stickman Expired')
+						adrop('droneDrop1',50)
 					}
 				}
 			}
@@ -12852,25 +12953,34 @@ Restrictions: killed all enemies at caves at least once
 						if (dp > fail){
 							if (parseInt(kilZ.value) === 2){
 								hp = Dfie(hp)
+								adrop('fang',5)
+								adrop('hide',5)
 								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 2),1)
 								kilGo(hp)
 							} else if (parseInt(kilZ.value) === 3){
 								hp = Dsky(hp)
 								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 3),1)
 								kilGo(hp)
+								adrop('lwing',5)
+								adrop('rwing',5)
 							} else if (parseInt(kilZ.value) === 4){
 								hp = Dsch(hp)
 								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 4),1)
 								kilGo(hp)
+								adrop('scissor',5)
+								adrop('stilts',5)
 							} else if (parseInt(kilZ.value) === 5){
 								hp = Dame(hp)
 								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 5),1)
 								kilGo(hp)
+								adrop('jetpack',10)
 							} else if (parseInt(kilZ.value) === 6){
 								hp = Dare(hp)
 								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 6),1)
 								kilGo(hp)
+								adrop('lasergun',10)
 							}
+							adrop('droneDrop2',2)
 							if (hp <= 0){
 								console.log('Killer robot was destroyed')
 								kilD()
@@ -12891,6 +13001,7 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('kilBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
 					if (a === 1){
 						console.log('Killer robot Expired')
+						adrop('droneDrop1',50)
 					}
 				}
 			}
@@ -12955,6 +13066,7 @@ Restrictions: killed all enemies at caves at least once
 								hp = Dcav(hp)
 								fedGo(hp)
 							}
+							adrop('droneDrop2',2)
 							if (hp <= 0){
 								console.log('Feddy was destroyed')
 								fedD()
@@ -12977,6 +13089,7 @@ Restrictions: killed all enemies at caves at least once
 					sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 10000)
 					if (a === 1){
 						console.log('Feddy Expired')
+						adrop('droneDrop1',50)
 					}
 				}
 			}
@@ -13038,6 +13151,7 @@ Restrictions: killed all enemies at caves at least once
 							hp = Dtar(hp,4)
 							sniGo(hp)
 						}
+						adrop('droneDrop2',2)
 						if (hp <= 0){
 							console.log('Sniper was destroyed')
 							sniD()
@@ -13118,6 +13232,7 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 5){
 					ususbD()
+					adrop('droneDrop3',20)
 				} else if (dp <= 45){
 					sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 10000)
 				} else if (dp <= 85){
@@ -13133,8 +13248,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
+					adrop('droneDrop3',20)
 				} else if (dp <= 10){
 					ususbD()
+					adrop('droneDrop3',20)
 				} else if (dp <= 50){
 					sdrop('parrystone', 'Parrystone - Now you counter - +1 A +1 D', 10000)
 				} else {
@@ -13154,8 +13271,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
+					adrop('droneDrop3',20)
 				} else if (dp <= 10){
 					ususbD()
+					adrop('droneDrop3',20)
 				} else if (dp <= 15 && parseInt(d2Tr.textContent) === 1 && parseInt(d3Tr.textContent) === 0){
 					d3usbD()
 				} else if (dp <= 40){
@@ -13173,8 +13292,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
+					adrop('droneDrop3',20)
 				} else if (dp <= 10){
 					ususbD()
+					adrop('droneDrop3',20)
 				} else if (dp <= 30){
 					wboteq()
 				} else if (dp <= 50){
@@ -13205,8 +13326,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
+					adrop('droneDrop3',20)
 				} else if (dp <= 10){
 					ususbD()
+					adrop('droneDrop3',20)
 				} else if (dp <= 20){
 					sdrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp', 10000)
 					sdrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A', 10000)
@@ -13227,8 +13350,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
+					adrop('droneDrop3',20)
 				} else if (dp <= 10){
 					ususbD()
+					adrop('droneDrop3',20)
 				} else if (dp <= 99){
 					sdrop('parrystone', 'Parrystone - Now you counter - +1 A +1 D', 10000)
 					wboteq()
@@ -14581,6 +14706,9 @@ Restrictions: killed all enemies at caves at least once
 				if (games.textContent === 'unlocked'){
 					setTimeout(WFUCool, 1000)
 				}
+				if (localStorage.anomTr === '1'){
+					show('anomBut')
+				}
 				WFUlvl.textContent = localStorage.WFUlvl
 				vent()
 				hideLore()
@@ -14921,7 +15049,7 @@ Restrictions: killed all enemies at caves at least once
 				AP = AP + 1
 				currentAch = currentAch + 1
 			}
-			if ((parseInt(localStorage.item3) + parseInt(localStorage.item4) + parseInt(localStorage.item5) + parseInt(localStorage.item6) + parseInt(localStorage.item7) + parseInt(localStorage.item8) + parseInt(localStorage.item9) + parseInt(localStorage.item10)) >= 3000){
+			if ((existTr(localStorage.item3,1) + existTr(localStorage.item4,1) + existTr(localStorage.item5,1) + existTr(localStorage.item6,1) + existTr(localStorage.item7,1) + existTr(localStorage.item8,1) + existTr(localStorage.item9,1) + existTr(localStorage.item10,1)) >= 3000){
 				document.getElementById('ach21').classList.replace('achF','achRT')
 				AP = AP + 2
 				currentAch = currentAch + 1
@@ -15508,9 +15636,508 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}//itemsHere
 		function anomOn(){
-			gameOn(1)//remove when update
+			gameOn(1)//remove when update maybe?
 			hide('gaming')
 			show('anom')
+			newSave('recyclePro',0)
+			calculateBonus()
+			recyclePro = parseInt(localStorage.recyclePro)
+			document.getElementById('anomBar').style.width = recyclePro + 'px'
+			if (parseInt(localStorage.recycle) >= 5 && existTr(localStorage.anom2) === false){
+				document.getElementById('anomi2').classList.replace('anomLocked','anomEmpty')
+			}
+			if (parseInt(localStorage.recycle) >= 10 && existTr(localStorage.anom3) === false){
+				document.getElementById('anomi3').classList.replace('anomLocked','anomEmpty')
+			}
+			if (parseInt(localStorage.recycle) >= 20 && existTr(localStorage.anom4) === false){
+				document.getElementById('anomi4').classList.replace('anomLocked','anomEmpty')
+			}
+			if (parseInt(localStorage.recycle) >= 50 && existTr(localStorage.anom5) === false){
+				document.getElementById('anomi5').classList.replace('anomLocked','anomEmpty')
+			}
+			if (parseInt(localStorage.recycle) >= 100 && existTr(localStorage.anom6) === false){
+				document.getElementById('anomi6').classList.replace('anomLocked','anomEmpty')
+			}
+			if (parseInt(localStorage.recycle) >= 200 && existTr(localStorage.anom7) === false){
+				document.getElementById('anomi7').classList.replace('anomLocked','anomEmpty')
+			}
+			if (parseInt(localStorage.recycle) >= 500 && existTr(localStorage.anom8) === false){
+				document.getElementById('anomi8').classList.replace('anomLocked','anomEmpty')
+			}
+			if (parseInt(localStorage.recycle) >= 1000 && existTr(localStorage.anom9) === false){
+				document.getElementById('anomi9').classList.replace('anomLocked','anomEmpty')
+			}
+			anomTitles()
+		}
+		function anomTitles(){
+			let rec = parseInt(localStorage.recycle)
+			if (parseInt(localStorage.recycle) < 5){
+				document.getElementById('anoma2').setAttribute('title','Unlocks in ' + (5 - rec) +' recycles')
+			} else if (document.getElementById('anomi2').classList.contains('anomEmpty')){
+				document.getElementById('anoma2').setAttribute('title','')
+			}
+			if (parseInt(localStorage.recycle) < 10){
+				document.getElementById('anoma3').setAttribute('title','Unlocks in ' + (10 - rec) +' recycles')
+			} else if (document.getElementById('anomi3').classList.contains('anomEmpty')){
+				document.getElementById('anoma3').setAttribute('title','')
+			}
+			if (parseInt(localStorage.recycle) < 20){
+				document.getElementById('anoma4').setAttribute('title','Unlocks in ' + (20 - rec) +' recycles')
+			} else if (document.getElementById('anomi4').classList.contains('anomEmpty')){
+				document.getElementById('anoma4').setAttribute('title','')
+			}
+			if (parseInt(localStorage.recycle) < 50){
+				document.getElementById('anoma5').setAttribute('title','Unlocks in ' + (50 - rec) +' recycles')
+			} else if (document.getElementById('anomi5').classList.contains('anomEmpty')){
+				document.getElementById('anoma5').setAttribute('title','')
+			}
+			if (parseInt(localStorage.recycle) < 100){
+				document.getElementById('anoma6').setAttribute('title','Unlocks in ' + (100 - rec) +' recycles')
+			} else if (document.getElementById('anomi6').classList.contains('anomEmpty')){
+				document.getElementById('anoma6').setAttribute('title','')
+			}
+			if (parseInt(localStorage.recycle) < 200){
+				document.getElementById('anoma7').setAttribute('title','Unlocks in ' + (200 - rec) +' recycles')
+			} else if (document.getElementById('anomi7').classList.contains('anomEmpty')){
+				document.getElementById('anoma7').setAttribute('title','')
+			}
+			if (parseInt(localStorage.recycle) < 500){
+				document.getElementById('anoma8').setAttribute('title','Unlocks in ' + (500 - rec) +' recycles')
+			} else if (document.getElementById('anomi8').classList.contains('anomEmpty')){
+				document.getElementById('anoma8').setAttribute('title','')
+			}
+			if (parseInt(localStorage.recycle) < 1000){
+				document.getElementById('anoma9').setAttribute('title','Unlocks in ' + (1000 - rec) +' recycles')
+			} else if (document.getElementById('anomi9').classList.contains('anomEmpty')){
+				document.getElementById('anoma9').setAttribute('title','')
+			}
+		}
+		function adrop(item,chance,rarity,bonus){ //anom = border + bonus type, anomi = item, anoma = background + title, rarity as C R E L Re Co, tier is number 1-7
+			dropR = Math.floor(Math.random() * 10000) + 1
+			if (chance){
+				
+			} else {
+				chance = 10000
+			}
+			if (localStorage.anomTr != 1){
+				chance = 0
+			}
+			if (rarity){
+				
+			} else {
+				let y = Math.floor(Math.random() * 1000) + 1
+				if (y <= 500){
+					rarity = 'C'
+				} else if (y <= 800){
+					rarity = 'R'
+				} else if (y <= 950){
+					rarity = 'E'
+				} else if (y <= 990){
+					rarity = 'L'
+				} else if (y <= 999){
+					rarity = 'Re'
+				} else {
+					rarity = 'Co'
+				}
+			}
+			if (bonus){
+				
+			} else {
+				if (item === 'stick'){ //newAnom chances of bonus
+					bonus = createBonus(30,30,10,10,5,5)
+				} else if (item === 'fang'){
+					bonus = createBonus(40,10,10,10,10,10)
+				} else if (item === 'hide'){
+					bonus = createBonus(10,40,10,10,10,10)
+				} else if (item === 'lwing'){
+					bonus = createBonus(40,5,20,20,5,5)
+				} else if (item === 'rwing'){
+					bonus = createBonus(5,40,20,20,5,5)
+				} else if (item === 'scissor'){
+					bonus = createBonus(70,5,5,5,5,5)
+				} else if (item === 'stilts'){
+					bonus = createBonus(5,70,5,5,5,5)
+				} else if (item === 'jetpack'){
+					bonus = createBonus(20,20,15,15,10,10)
+				} else if (item === 'lasergun'){
+					bonus = createBonus(50,6,6,6,6,6)
+				} else if (item === 'torch'){
+					bonus = createBonus(18,18,18,18,5,5)
+				} else if (item === 'pickaxe'){
+					bonus = createBonus(30,8,30,8,8,8)
+				} else if (item === 'minercap'){
+					bonus = createBonus(8,30,8,30,8,8)
+				} else if (item === 'ram'){
+					bonus = createBonus(5,5,18,18,18,18)	
+				} else if (item === 'e'){
+					bonus = createBonus(10,10,20,20,19,19)
+				} else if (item === 'droneDrop1'){
+					bonus = createBonus(35,35,4,4,9,9)
+				} else if (item === 'droneDrop2'){
+					bonus = createBonus(4,4,35,35,9,9)
+				} else if (item === 'droneDrop3'){
+					bonus = createBonus(6,6,6,6,35,35)
+				} else if (item === 'trash'){
+					bonus = createBonus(15,15,14,14,14,14)
+				} else if (item === 'stone'){
+					bonus = createBonus(4,4,10,70,4,4)
+				} else if (item === 'usb'){
+					bonus = createBonus(14,14,14,14,15,15)
+				} else if (item === 'air'){
+					bonus = createBonus(5,5,5,5,5,5)
+				} else if (item === 'deagle'){
+					bonus = createBonus(15,15,15,15,10,10)
+				} else if (item === 'vent'){
+					bonus = createBonus(20,20,10,10,10,10)
+				}
+			}
+			if (dropR <= chance){
+				for (let N = 10; N <= maxAnomSlots; N++){
+					if (document.getElementById('anom' + N).classList.contains('itemNA')){
+						document.getElementById('anom' + N).classList.replace('itemNA', 'item' + rarity)
+						document.getElementById('anom' + N).classList.add('itemT' + bonus)
+						document.getElementById('anomi' + N).classList.replace('anomEmpty', item + 'V2')
+						document.getElementById('anoma' + N).classList.add('item' + rarity + '2')
+						localStorage.setItem('anom' + N, item + rarity + bonus)
+						document.getElementById('anoma' + N).setAttribute('title', makeAnomTitle(localStorage.getItem('anom' + N)))
+						save()
+						console.log('Collected a ' + rarity + ' ' + item + ' with bonus ' + bonus)
+						return true	
+					}
+				}		
+			} else {
+				return false
+			}
+		}
+		function createBonus(a,b,c,d,e,f){
+			let x = Math.floor(Math.random() * 100) + 1
+			if (x <= a){
+				return 1
+			} else if (x <= a + b){
+				return 2
+			} else if (x <= a + b + c){
+				return 3
+			} else if (x <= a + b + c + d){
+				return 4
+			} else if (x <= a + b + c + d + e){
+				return 5
+			} else if (x <= a + b + c + d + e + f){
+				return 6
+			} else {
+				return 7
+			}
+		}
+		function findRarity(value,itemTr){
+			rare = value.slice(-3,-1)
+			if ((rare === 'Re'|| rare === 'Co') && itemTr === 1){
+				return value.slice(0,-3)
+			} else if (itemTr === 1){
+				return value.slice(0,-2)
+			}
+			if (rare === 'Co'){
+				return 'Co'
+			} else if (rare === 'Re'){
+				return 'Re'
+			} else if (rare.includes('L')){
+				return 'L'
+			} else if (rare.includes('E')){
+				return 'E'
+			} else if (rare.includes('R')){
+				return 'R'
+			} else if (rare.includes('C')){
+				return 'C'
+			}
+		}
+		function makeAnomTitle(value){
+			let rare = findRarity(value)
+			let item = findRarity(value,1)
+			let bonus = parseInt(value.slice(-1))
+			let title = ''
+			if (item === 'stick'){ //newAnom
+				title = 'stick - dropped from the tutorial zone'
+			} else if (item === 'fang'){
+				title = 'fang - dropped from the fields'
+			} else if (item === 'hide'){
+				title = 'rabbit hide - dropped from the fields'
+			} else if (item === 'lwing'){
+				title = 'left wing - dropped from the sky'
+			} else if (item === 'rwing'){
+				title = 'right wing - dropped from the sky'
+			} else if (item === 'scissor'){
+				title = 'scissor - dropped from the school'
+			} else if (item === 'stilts'){
+				title = 'stilts - dropped from the school'
+			} else if (item === 'jetpack'){
+				title = 'jetpack - dropped from american airspace'
+			} else if (item === 'lasergun'){
+				title = 'lasergun - dropped from area 51'
+			} else if (item === 'torch'){
+				title = 'torch - dropped from the caves'
+			} else if (item === 'pickaxe'){
+				title = 'pickaxe - dropped from the mines'
+			} else if (item === 'minercap'){
+				title = 'minercap - dropped from the mines'
+			} else if (item === 'ram'){
+				title = "ram - dropped from the coder's lab"			
+			} else if (item === 'e'){
+				title = 'e - dropped from the alternating reality of yes'
+			} else if (item === 'droneDrop1'){
+				title = 'ParryDroneSystem - dropped from a drone that lived a long and full life'
+			} else if (item === 'droneDrop2'){
+				title = 'DroneItemDetectionDevice - collected from a drone'
+			} else if (item === 'droneDrop3'){
+				title = 'DroneTrassmissionSoftware - collected from a drone that collected a usb'
+			} else if (item === 'deagle'){
+				title = 'deagle - dropped from WFU (objective 1)'
+			} else if (item === 'vent'){
+				title = 'vent - dropped from WFU (objective 2)'
+			} else if (item === 'trash'){
+				title = 'trash can - gained from recycling'
+			} else if (item === 'stone'){
+				title = 'stoneStone - gained from recycling'
+			} else if (item === ''){
+				title = 'empty usb - gained from recycling'
+			} else if (item === 'air'){
+				title = 'heterogenous mixture composing of high amounts of nitrogen and oxygen, with minor amounts of argon and carbon dioxide\n - gained from recycling'
+			}
+			if (bonus === 1){
+				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your attack' 
+			} else if (bonus === 2){
+				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your defence' 
+			} else if (bonus === 3){
+				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your drop chance' 
+			} else if (bonus === 4){
+				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your stone chance' 
+			} else if (bonus === 5){
+				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to drone build speed' 
+			} else if (bonus === 6){
+				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to drone build speed' 
+			} else if (bonus === 7){
+				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to xp gain' 
+			}
+			if (rare === 'C'){
+				title = 'Common ' + title + '\nRecycling this item will fill up the recycle progress by 25%'
+			} else if (rare === 'R'){
+				title = 'Rare ' + title + '\nRecycling this item will fill up the recycle progress by 50%'
+			} else if (rare === 'E'){
+				title = 'Epic ' + title + '\nRecycling this item will fill up the recycle progress by 75%'
+			} else if (rare === 'L'){
+				title = 'Legendary ' + title + '\nRecycling this item will fill up the recycle progress by 50% and give you a free enhanced item'
+			} else if (rare === 'Re'){
+				title = 'Relic ' + title + '\nRecycling this item will fill up the recycle progress by 50% and give you two free enhanced items'
+			} else if (rare === 'Co'){
+				title = 'Contraband ' + title + '\nRecycling this item will fill up the recycle progress by 50% and give you seven free enhanced items'
+			}
+			return title
+		}
+		function rareBonus(rare){
+			if (rare === 'C'){
+				return 2
+			} else if (rare === 'R'){
+				return 5
+			} else if (rare === 'E'){
+				return 8
+			} else if (rare === 'L'){
+				return 10
+			} else if (rare === 'Re'){
+				return 15
+			} else if (rare === 'Co'){
+				return 25
+			} else {
+				return ' ERROR: ' + rare + ' IS NOT YES'
+			}
+		}
+		function anomEquip(slot){
+			let emptySlot = findEmptySlot(1,9)
+			if (localStorage.getItem('anom' + slot) && emptySlot){
+				let rarity = findRarity(localStorage.getItem('anom' + slot))
+				let item = findRarity(localStorage.getItem('anom' + slot), 1)
+				//delete
+				document.getElementById('anom' + slot).classList.replace('item' + rarity, 'itemNA')
+				document.getElementById('anom' + slot).classList.remove('itemT' + localStorage.getItem('anom' + slot).slice(-1))
+				document.getElementById('anomi' + slot).classList.replace(item + 'V2', 'anomEmpty')
+				document.getElementById('anoma' + slot).classList.remove('item' + rarity + '2')
+				document.getElementById('anoma' + slot).setAttribute('title','')
+				//equip
+				document.getElementById('anom' + emptySlot).classList.replace('itemNA', 'item' + rarity)
+				document.getElementById('anom' + emptySlot).classList.add('itemT' + localStorage.getItem('anom' + slot).slice(-1))
+				document.getElementById('anomi' + emptySlot).classList.replace('anomEmpty', item + 'V2')
+				document.getElementById('anoma' + emptySlot).classList.add('item' + rarity + '2')
+				document.getElementById('anoma' + emptySlot).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + slot)))
+				localStorage.setItem('anom' + emptySlot, localStorage.getItem('anom' + slot))
+				localStorage.removeItem('anom' + slot) //note that does equip yet also use removeItem in future also add all other slots fill empty slots
+				calculateBonus()
+				for (let N = slot + 1; N <= maxAnomSlots; N++){
+					if (localStorage.getItem('anom' + N)){
+						let rarity = findRarity(localStorage.getItem('anom' + N))
+						let item = findRarity(localStorage.getItem('anom' + N), 1)
+						document.getElementById('anom' + (N - 1)).classList.replace('itemNA', 'item' + rarity)
+						document.getElementById('anom' + (N - 1)).classList.add('itemT' + localStorage.getItem('anom' + N).slice(-1))
+						document.getElementById('anomi' + (N - 1)).classList.replace('anomEmpty', item + 'V2')
+						document.getElementById('anoma' + (N - 1)).classList.add('item' + rarity + '2')
+						document.getElementById('anoma' + (N - 1)).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + N)))
+						document.getElementById('anom' + N).classList.replace('item' + rarity, 'itemNA')
+						document.getElementById('anom' + N).classList.remove('itemT' + localStorage.getItem('anom' + N).slice(-1))
+						document.getElementById('anomi' + N).classList.replace(item + 'V2', 'anomEmpty')
+						document.getElementById('anoma' + N).classList.remove('item' + rarity + '2')
+						document.getElementById('anoma' + N).setAttribute('title','')
+						localStorage.setItem('anom' + (N - 1), localStorage.getItem('anom' + N))
+						localStorage.removeItem('anom' + N)
+					}
+				}
+			}
+		}
+		function anomUnequip(slot){
+			let emptySlot = findEmptySlot(10,23)
+			if (localStorage.getItem('anom' + slot) && emptySlot){
+				let rarity = findRarity(localStorage.getItem('anom' + slot))
+				let item = findRarity(localStorage.getItem('anom' + slot), 1)
+				//delete
+				document.getElementById('anom' + slot).classList.replace('item' + rarity, 'itemNA')
+				document.getElementById('anom' + slot).classList.remove('itemT' + localStorage.getItem('anom' + slot).slice(-1))
+				document.getElementById('anomi' + slot).classList.replace(item + 'V2', 'anomEmpty')
+				document.getElementById('anomi' + slot).classList.add('anomEmpty')
+				console.log(document.getElementById('anomi' + slot).classList)
+				document.getElementById('anoma' + slot).classList.remove('item' + rarity + '2')
+				document.getElementById('anoma' + slot).setAttribute('title','')
+				//equip
+				document.getElementById('anom' + emptySlot).classList.replace('itemNA', 'item' + rarity)
+				document.getElementById('anom' + emptySlot).classList.add('itemT' + localStorage.getItem('anom' + slot).slice(-1))
+				document.getElementById('anomi' + emptySlot).classList.replace('anomEmpty', item + 'V2')
+				document.getElementById('anoma' + emptySlot).classList.add('item' + rarity + '2')
+				document.getElementById('anoma' + emptySlot).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + slot)))
+				localStorage.setItem('anom' + emptySlot, localStorage.getItem('anom' + slot))
+				localStorage.removeItem('anom' + slot) //note that does equip yet also use removeItem in future also add all other slots fill empty slots
+				calculateBonus()
+			}
+		}
+		function findEmptySlot(min,max){
+			for (let N = min; N <= max; N++){
+				if (document.getElementById('anomi' + N).classList.contains('anomEmpty')){
+					return N
+				}
+			}
+			return false
+		}
+		function calculateBonus(){
+			b1 = 0
+			b2 = 0
+			b3 = 0
+			b4 = 0
+			b5 = 0
+			b6 = 0
+			b7 = 0
+			for (let N = 1; N <= 9; N++){
+				if (localStorage.getItem('anom' + N)){
+					let bonus = rareBonus(findRarity(localStorage.getItem('anom' + N)))
+					let bonusType = parseInt(localStorage.getItem('anom' + N).slice(-1))
+					if (bonusType === 1){
+						b1 = b1 + bonus
+					} else if (bonusType === 2){
+						b2 = b2 + bonus
+					} else if (bonusType === 3){
+						b3 = b3 + bonus
+					} else if (bonusType === 4){
+						b4 = b4 + bonus
+					} else if (bonusType === 5){
+						b5 = b5 + bonus
+					} else if (bonusType === 6){
+						b6 = b6 + bonus
+					} else if (bonusType === 7){
+						b7 = b7 + bonus
+					}
+				}
+			}
+			document.getElementById('anomB1').textContent = 'Attack +' + b1 +'%'
+			document.getElementById('anomB2').textContent = 'Defence +' + b2 +'%'
+			document.getElementById('anomB3').textContent = 'Drop chance +' + b3 +'%'
+			document.getElementById('anomB4').textContent = 'Stone chance +' + b4 +'%'
+			document.getElementById('anomB5').textContent = 'Build speed +' + b5 +'%'
+			document.getElementById('anomB6').textContent = 'Upgrade speed +' + b6 +'%'
+			document.getElementById('anomB7').textContent = 'XP gain +' + b7 +'%'
+		}
+		function recycle(slot){
+			var e = window.event
+			if ((e.which && e.which == 3 || e.button && e.button == 2) && document.getElementById('anomi' + slot).classList.contains('anomEmpty') === false){
+				let rarity = findRarity(localStorage.getItem('anom' + slot))
+				let item = findRarity(localStorage.getItem('anom' + slot), 1)
+				document.getElementById('anom' + slot).classList.replace('item' + rarity, 'itemNA')
+				document.getElementById('anom' + slot).classList.remove('itemT' + localStorage.getItem('anom' + slot).slice(-1))
+				document.getElementById('anomi' + slot).classList.replace(item + 'V2', 'anomEmpty')
+				document.getElementById('anoma' + slot).classList.remove('item' + rarity + '2')
+				document.getElementById('anoma' + slot).setAttribute('title','')
+				localStorage.removeItem('anom' + slot)
+				for (let N = slot + 1; N <= maxAnomSlots; N++){
+					if (localStorage.getItem('anom' + N)){
+						let rarity = findRarity(localStorage.getItem('anom' + N))
+						let item = findRarity(localStorage.getItem('anom' + N), 1)
+						document.getElementById('anom' + (N - 1)).classList.replace('itemNA', 'item' + rarity)
+						document.getElementById('anom' + (N - 1)).classList.add('itemT' + localStorage.getItem('anom' + N).slice(-1))
+						document.getElementById('anomi' + (N - 1)).classList.replace('anomEmpty', item + 'V2')
+						document.getElementById('anoma' + (N - 1)).classList.add('item' + rarity + '2')
+						document.getElementById('anoma' + (N - 1)).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + N)))
+						document.getElementById('anom' + N).classList.replace('item' + rarity, 'itemNA')
+						document.getElementById('anom' + N).classList.remove('itemT' + localStorage.getItem('anom' + N).slice(-1))
+						document.getElementById('anomi' + N).classList.replace(item + 'V2', 'anomEmpty')
+						document.getElementById('anoma' + N).classList.remove('item' + rarity + '2')
+						document.getElementById('anoma' + N).setAttribute('title','')
+						localStorage.setItem('anom' + (N - 1), localStorage.getItem('anom' + N))
+						localStorage.removeItem('anom' + N)
+					}
+				}
+				if (rarity === 'C'){
+					recyclePro = recyclePro + 25
+				} else if (rarity === 'R'){
+					recyclePro = recyclePro + 50
+				} else if (rarity === 'E'){
+					recyclePro = recyclePro + 75
+				} else if (rarity === 'L'){
+					recyclePro = recyclePro + 50
+					recycleReward(1)
+				} else if (rarity === 'Re'){
+					recyclePro = recyclePro + 50
+					recycleReward(2)
+				} else if (rarity === 'Co'){
+					recyclePro = recyclePro + 50
+					recycleReward(7)
+				}
+				if (recyclePro >= 100){
+					recycleReward(1)
+					recyclePro = recyclePro - 100
+					anomAnim(0,anomBarValue + 1)
+				}
+				localStorage.recyclePro = recyclePro
+				document.getElementById('anomBar').style.width = recyclePro + 'px'
+				anomOn()
+			}
+		}
+		function recycleReward(times){
+			for (let N = 1; N <= times; N++){
+				newSave('recycle',0)
+				localStorage.recycle = parseInt(localStorage.recycle) + 1
+				let x = Math.floor(Math.random() * 100) + 1
+				if (x <= 40){
+					adrop('trash')
+				} else if (x <= 80){
+					adrop('stone')
+				} else if (x <= 99){
+					adrop('usb')
+				} else {
+					adrop('air')
+				}
+			}
+		}
+		function anomAnim(t,value){
+			if (t === 0){
+				document.getElementById('anomBarAnim').style.opacity = 1
+				anomBarValue = anomBarValue + 1
+				t = 1
+				setTimeout(anomAnim, 100, t, value)
+			} else if (t <= 10 && value === anomBarValue){
+				document.getElementById('anomBarAnim').style.opacity = 1 - (t / 10)
+				t = t + 1
+				setTimeout(anomAnim, 100, t, value)
+			}
 		}
 		function helpOn(){
 			hide('Smain')

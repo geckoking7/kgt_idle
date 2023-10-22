@@ -448,6 +448,23 @@
 				slotsFull = slotsFull + 1
 				idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
 			}
+			for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
+			newSave('WFUstone', '')
+			let stoneRNG = Math.floor(Math.random() * 25) + 1
+			if (stoneRNG === 1){
+				idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R')
+				localStorage.WFUstone = localStorage.WFUstone + '4'
+			} else if (stoneRNG <= 5){
+				idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D')
+				localStorage.WFUstone = localStorage.WFUstone + '3'
+			} else if (stoneRNG <= 9){
+				idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A')
+				localStorage.WFUstone = localStorage.WFUstone + '2'
+			} else {
+				idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp')
+				localStorage.WFUstone = localStorage.WFUstone + '1'
+			}
+		}
 		}
 	}
 	let keysPressed = {};
