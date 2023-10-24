@@ -2918,6 +2918,9 @@ Restrictions: killed all enemies at caves at least once
 				}
 			} else if (parseInt(localStorage.gasbyc) > 0){
 				localStorage.gasbyL1 = 1
+				if (existTr(localStorage.item58) === false){
+					idrop('LotG','Luck of the Game III - A gift from the gasby gaming',10000)
+				}
 				hideAllMenu()
 				ch33st()
 			} else {
@@ -10781,9 +10784,6 @@ Restrictions: killed all enemies at caves at least once
 								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 								if (parseInt(bloN.textContent) != 3){
 									localStorage.ach11 = 1
-								}
-								if (existTr(localStorage.item58) === false){
-									idrop('LotG','Luck of the Game III - A gift from the gasby gaming',10000)
 								}
 								document.getElementById('gasby').classList.add('hide')
 								newSave('gasbyc',0)
