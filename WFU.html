@@ -119,6 +119,7 @@
 		<h1 style='z-index: 23;'><a class='hide' href='' onclick='window.close()' style='position: absolute; top: 205; left: 390; margin: 0; text-decoration: none; font-size: 16; width: 200; margin: 0; z-index: 23;' id='kgtlink'>Return to KGT idle</a></h1>
 		<h1 class='hide' style='position: absolute; top: 285; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='xpR'>Xp: 0</h1>
 		<h1 class='hide' style='position: absolute; top: 305; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='goldR'>Gold earned: 0</h1>
+		<h1 class='hide' style='position: absolute; top: 400; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='anomR'>Enhanced items: 0</h1>
 		<div id='guard1' class='hide'>
 			<h5 class='shadow' id='guard1S' style='background: url("WFUguard.gif"); width: 30px; height: 50px; left: 485px; top: 412px; position: absolute; z-index: 2;'></h5>
 			<h5 class='player' id='guard1p' style='background: url("WFUguard.gif"); width: 30px; height: 50px; left: 0px; top: 0px; position: absolute; z-index: 3;'></h5>
@@ -144,6 +145,7 @@
 		<h5 class='vent empty hide' id='vent8'></h5>
 	</body>
 	<script>
+	var maxAnomSlots = 23;
 	//Make stone drops fill the remainder of empty slots
 	var ob1 = 0;
 	var ob2 = 0;
@@ -388,7 +390,8 @@
 			ob1 = 2
 			document.getElementById("eagle").style.left = 0
 			document.getElementById("eagle").style.top = 0
-		} else if (ob2 === 1){
+		}
+		if (ob2 === 1){
 			ob2 = 2
 			document.getElementById("eagle").style.left = 0
 			document.getElementById("eagle").style.top = 0
@@ -407,6 +410,12 @@
 			setTimeout(game,2000)
 			blackscreen()
 		} else {
+			if (mo1 === 1){
+				mo1 = 2
+			}
+			if (mo2 === 1){
+				mo2 = 2
+			}
 			guard1p.textContent = 0
 			guard2p.textContent = 0
 			blackscreen()
@@ -448,23 +457,34 @@
 				slotsFull = slotsFull + 1
 				idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
 			}
-			for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
-			newSave('WFUstone', '')
-			let stoneRNG = Math.floor(Math.random() * 25) + 1
-			if (stoneRNG === 1){
-				idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R')
-				localStorage.WFUstone = localStorage.WFUstone + '4'
-			} else if (stoneRNG <= 5){
-				idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D')
-				localStorage.WFUstone = localStorage.WFUstone + '3'
-			} else if (stoneRNG <= 9){
-				idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A')
-				localStorage.WFUstone = localStorage.WFUstone + '2'
-			} else {
-				idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp')
-				localStorage.WFUstone = localStorage.WFUstone + '1'
+			for (let X = slotsFull + 1; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
+				newSave('WFUstone', '')
+				let stoneRNG = Math.floor(Math.random() * 25) + 1
+				if (stoneRNG === 1){
+					idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R')
+					localStorage.WFUstone = localStorage.WFUstone + '4'
+				} else if (stoneRNG <= 5){
+					idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D')
+					localStorage.WFUstone = localStorage.WFUstone + '3'
+				} else if (stoneRNG <= 9){
+					idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A')
+					localStorage.WFUstone = localStorage.WFUstone + '2'
+				} else {
+					idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp')
+					localStorage.WFUstone = localStorage.WFUstone + '1'
+				}
 			}
-		}
+			if (localStorage.anomTr === '1'){
+				let a = 0
+				if (ob1 === 2){
+					a = adrop('deagle',2000)
+				}
+				if (ob2 === 2){
+					a = a + adrop('vent',2000)
+				}
+				show('anomR')
+				document.getElementById('anomR').textContent = 'Enhanced items: ' + a
+			}
 		}
 	}
 	let keysPressed = {};
@@ -1562,6 +1582,17 @@
 				localStorage.WFUstone = localStorage.WFUstone + '1'
 			}
 		}
+		if (localStorage.anomTr === '1'){
+				let a = 0
+				if (ob1 === 2){
+					a = adrop('deagle',2000)
+				}
+				if (ob2 === 2){
+					a = a + adrop('vent',2000)
+				}
+				show('anomR')
+				document.getElementById('anomR').textContent = 'Enhanced items: ' + a
+			}
 	}
 	function idrop(item, title){
 		for (let N = 1; N <= (parseInt(localStorage.WFUslots)); N++){
@@ -1571,6 +1602,117 @@
 				document.getElementById('vent' + N).setAttribute('title',title)
 				N = 1000
 			}
+		}
+	}
+	function adrop(item,chance,rarity,bonus){ //anom = border + bonus type, anomi = item, anoma = background + title, rarity as C R E L Re Co, tier is number 1-7
+		dropR = Math.floor(Math.random() * 10000) + 1
+		if (chance){
+			
+		} else {
+			chance = 10000
+		}
+		if (localStorage.anomTr != 1){
+			chance = 0
+		}
+		if (rarity){
+			
+		} else {
+			let y = Math.floor(Math.random() * 1000) + 1
+			if (y <= 500){
+				rarity = 'C'
+			} else if (y <= 800){
+				rarity = 'R'
+			} else if (y <= 950){
+				rarity = 'E'
+			} else if (y <= 990){
+				rarity = 'L'
+			} else if (y <= 999){
+				rarity = 'Re'
+			} else {
+				rarity = 'Co'
+			}
+		}
+		if (bonus){
+			
+		} else {
+			if (item === 'stick'){ //newAnom chances of bonus
+				bonus = createBonus(30,30,10,10,5,5)
+			} else if (item === 'fang'){
+				bonus = createBonus(40,10,10,10,10,10)
+			} else if (item === 'hide'){
+				bonus = createBonus(10,40,10,10,10,10)
+			} else if (item === 'lwing'){
+				bonus = createBonus(40,5,20,20,5,5)
+			} else if (item === 'rwing'){
+				bonus = createBonus(5,40,20,20,5,5)
+			} else if (item === 'scissor'){
+				bonus = createBonus(70,5,5,5,5,5)
+			} else if (item === 'stilts'){
+				bonus = createBonus(5,70,5,5,5,5)
+			} else if (item === 'jetpack'){
+				bonus = createBonus(20,20,15,15,10,10)
+			} else if (item === 'lasergun'){
+				bonus = createBonus(50,6,6,6,6,6)
+			} else if (item === 'torch'){
+				bonus = createBonus(18,18,18,18,5,5)
+			} else if (item === 'pickaxe'){
+				bonus = createBonus(30,8,30,8,8,8)
+			} else if (item === 'minercap'){
+				bonus = createBonus(8,30,8,30,8,8)
+			} else if (item === 'ram'){
+				bonus = createBonus(5,5,18,18,18,18)	
+			} else if (item === 'e'){
+				bonus = createBonus(10,10,20,20,19,19)
+			} else if (item === 'droneDrop1'){
+				bonus = createBonus(35,35,4,4,9,9)
+			} else if (item === 'droneDrop2'){
+				bonus = createBonus(4,4,35,35,9,9)
+			} else if (item === 'droneDrop3'){
+				bonus = createBonus(6,6,6,6,35,35)
+			} else if (item === 'trash'){
+				bonus = createBonus(15,15,14,14,14,14)
+			} else if (item === 'stone'){
+				bonus = createBonus(4,4,10,70,4,4)
+			} else if (item === 'usb'){
+				bonus = createBonus(14,14,14,14,15,15)
+			} else if (item === 'air'){
+				bonus = createBonus(5,5,5,5,5,5)
+			} else if (item === 'deagle'){
+				bonus = createBonus(15,15,15,15,10,10)
+			} else if (item === 'vent'){
+				bonus = createBonus(20,20,10,10,10,10)
+			}
+		}
+		if (dropR <= chance){
+			for (let N = 10; N <= maxAnomSlots; N++){
+				if (localStorage.getItem('anom' + N)){
+					
+				} else {	
+					localStorage.setItem('anom' + N, item + rarity + bonus)
+					console.log('Collected a ' + rarity + ' ' + item + ' with bonus ' + bonus + ' in slot ' + N)
+					return 1
+				}
+			}		
+		} else {
+			return 0
+		}
+	}
+	function createBonus(a,b,c,d,e,f){
+		let x = Math.floor(Math.random() * 100) + 1
+		if (x <= a){
+			return 1
+		} else if (x <= a + b){
+			return 2
+		} else if (x <= a + b + c){
+			return 3
+		} else if (x <= a + b + c + d){
+			return 4
+		} else if (x <= a + b + c + d + e){
+			return 5
+		} else if (x <= a + b + c + d + e + f){
+			return 6
+		} else {
+			return 7
 		}
 	}
 	function video(){

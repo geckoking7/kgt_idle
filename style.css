@@ -789,6 +789,9 @@ img{
 .pants{
 	background-image: url('pants.png');
 }
+.LotG{
+	background-image: url('luckOfTheGame.gif');
+}
 .useall{
 	background-image: url('useall.png');
 }
@@ -1517,6 +1520,7 @@ select{
 	padding: 0px;
 	margin: 0;
 	border-width: 5px;
+	background: #bbb;
 }
 .itemNA{
 	border: 5px rgb(127,127,127) solid;

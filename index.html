@@ -196,6 +196,26 @@
 			<h4 class="lore">Congratulations, you didn’t find any mlp r34 and instead unlocked a new subfeature.<br>You can now look at all the items you have collected, and make them automatically get deleted before they get in your inventory.<br>Also, the more items you collect, and the more of each item you collect will add up to (using complicated maths) a health multiplier.</h4>
 			<button class="ch1but " style="top: 200px; left: 800;" onclick=vent()>Yes</button>
 		</div>
+		<div id='ch33' class='hide'>
+			<img src="ch33back.png" alt="lore">
+			<h4 class="lore">Upon defeating  xX_69GasbyGaming420_Xx you hear a door slam open.<br>“I KNOW YOU’RE HACKING”<br>Gasby rushes in and tries to strangle you, fueled by his nerd rage<br>Unfortunately for him you had <span id='ch33att'>localStorage.att</span> million power in Rise of Kingdoms</h4>
+			<button class="ch1but " style="top: 185px;" onclick='chNst(34)'>Ok</button>
+		</div>
+		<div id='ch34' class='hide'>
+			<img src="ch34back.png" alt="lore">
+			<h4 class="lore">After your swift victory, you proceed to the exit of the lab.<br>Gasby follows, now accompanied by a strong limp.<br>“Chris was right about you.”<br>Yes, being able to do basic addition puts me within the highest quartile of the intellectual capability <br>( = you are in the top 25% most smart people) but no<br>“I think you should have this”<br>He reached into his pocket, and pulls out a what looks like an enchanted version of the gaming button<br> <br></h4>
+			<button class="ch1but " style="top: 255px;" onclick='chNst(35)'>Ok</button>
+		</div>
+		<div id='ch35' class='hide'>
+			<img src="ch35back.png" alt="lore">
+			<h4 class="lore">“Ever thought that the gaming feature was kinda useless?”<br>I hope you don’t<br>“Well with this you now able to get loot similar to that of adventure however instead of giving stats like +2 attack they now give multipliers to a lot of things”<br>Out of all words you would use to describe gasby, wise may now be one of them</h4>
+			<button class="ch1but " style="top: 195px;" onclick='chNst(36)'>Ok</button>
+		</div>
+		<div id='ch36' class='hide'>
+			<img src="ch36back.png" alt="lore">
+			<h4 class="lore">Now after those 3 png files showcasing all of my creative talent<br>I need to remind you that there is a help button called help button used to get help after clicking the button<br>Just, I know reading is a rare skill these days but, please, there is more info there. Also I don’t know how to display this information in lore form.<br>If you want a simple version tho it's just another inventory system with bonuses</h4>
+			<button class="ch1but " style="top: 215px;" onclick='advent()'>Yes</button>
+		</div>
 		<!-- Adventure -->
 		<img src="adv.png" alt="Git gud bro" class="hide" id="adv">
 		<img src="fMeTutZo.png" alt="Git gud bro" class="zone hide" id="fMeTutZo">
@@ -322,6 +342,9 @@
 		<img src="ant2.png" alt="Something u dont touchy" class="hide enemy" id="ant2">
 		<img src="radioactive.png" alt="Something u dont touchy" class="hide enemy" id="radioactive">
 		<img src="miss.png" alt="Something that means you failed to touchy" class="hide" id="miss" style='width: 100px; height: 40px; position: absolute; top: 375px; left: 675px;'>
+		<img src="10KB.png" alt="Alot of touching you must of ensued" class="hide" id="KB10" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
+		<img src="50KB.png" alt="Alot of touching you must of ensued" class="hide" id="KB50" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
+		<img src="200KB.png" alt="Alot of touching you must of ensued" class="hide" id="KB200" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
 		<button title="Tutorial Zone" class="btny tutZo  hide" id="tutZo"></button>
 		<button title="Fields
 Restriction: killed all tutorial enemies at least once" class="btnr field  hide" id="field"></button>
@@ -685,6 +708,7 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent crown notFound" style="left: 270px; top: 370px;" id="item55" onclick=itemFilter(55)></button>
 			<button class="itemBVent fightPicker69 notFound" style="left: 325px; top: 370px;" id="item56"></button>
 			<button class="itemBVent pants notFound" style="left: 380px; top: 370px;" id="item57" onclick=itemFilter(57)></button>
+			<button class="itemBVent LotG notFound" style="left: 435px; top: 370px;" id="item58"></button>
 		</div><!-- //itemsHere -->
 		<!-- Drones -->
 		<div class='hide' id='dronebuild'>
@@ -995,8 +1019,9 @@ Restrictions: killed all enemies at caves at least once
 						<option value='5' id='FPE5' class='hide'>5</option>
 						<option value='6' id='FPE6' class='hide'>6</option>
 						<option value='7' id='FPE7' class='hide'>7</option>
-						<option value='8' id='FPE8' class='hide'>8</option>
+						<option value='8' id='FPE8' class='hide'>8</option> 
 					</select>
+					&emsp;&emsp;&emsp;&emsp;Newest victim = <span id='FPnew'>idk</span>
 				</h1>
 				<button style='position: absolute; top: 115; left: 700; font-size: 32px; margin-left: 5px; background: #cfc;' class='on' title='Does you want the knowledge of the worst game known to man?' onclick=helpOn()>Help button</button>
 			</div>
@@ -1319,7 +1344,7 @@ Restrictions: killed all enemies at caves at least once
 		var advmusic = new Audio('advmusic.mp3');
 		var clicked = new Audio('buttonClicked.mp3');
 		localStorage.WFUmlvl = 2;
-		var lore = 32;
+		var lore = 36;
 		var wikiTr = 0;
 		var wikiCh = 5;
 		var MSnum = 0;
@@ -1725,14 +1750,14 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage, pierces 80% of defence')
 					document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
 				}
-				document.getElementById('kilBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
-				document.getElementById('kilMBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
-				document.getElementById('stiBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
-				document.getElementById('stiMBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
-				document.getElementById('stiUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
-				document.getElementById('stiMUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
-				document.getElementById('kilUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
-				document.getElementById('kilMUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
+				document.getElementById('kilBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
+				document.getElementById('kilMBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
+				document.getElementById('stiBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
+				document.getElementById('stiMBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
+				document.getElementById('stiUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
+				document.getElementById('stiMUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
+				document.getElementById('kilUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
+				document.getElementById('kilMUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
 				document.getElementById('attP').setAttribute('title', Math.floor((100 - parseFloat(attPr.textContent)) / (100 / (((((parseFloat(attL.textContent) / 4) + 4)) ** 2) * 60 / 8) * parseFloat(TraSp.textContent))) + ' seconds till complete')
 				document.getElementById('attMP').setAttribute('title', Math.floor((100 - parseFloat(attPr.textContent)) / (100 / (((((parseFloat(attL.textContent) / 4) + 4)) ** 2) * 60 / 8) * parseFloat(TraSp.textContent))) + ' seconds till complete')
 				document.getElementById('bloP').setAttribute('title', Math.floor((100 - parseFloat(bloPr.textContent)) / (100 / (((((parseFloat(bloL.textContent) / 4) + 4)) ** 2.1) * 60 / 7) * parseFloat(TraSp.textContent))) + ' seconds till complete')
@@ -1860,11 +1885,11 @@ Restrictions: killed all enemies at caves at least once
 				fedF.textContent = localStorage.fedF
 				fedLvl.textContent = localStorage.fedLvl
 				fedZ.value = localStorage.fedZ
-				document.getElementById('fedBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
-				document.getElementById('fedMBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
+				document.getElementById('fedBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
+				document.getElementById('fedMBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
 				document.getElementById("fedBP").style.width = parseFloat(fedPB.textContent) * 2.18 + 'px'
-				document.getElementById('fedUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
-				document.getElementById('fedMUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
+				document.getElementById('fedUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
+				document.getElementById('fedMUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
 				document.getElementById("fedUP").style.width = parseFloat(fedPU.textContent) * 5.1 + 'px'
 			}
 			if (localStorage.guardc){
@@ -2276,18 +2301,6 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			}
-			for (let N = 1; N <= maxAnomSlots; N++){
-				if (localStorage.getItem('anom' + N)){
-					let rarity = findRarity(localStorage.getItem('anom' + N))
-					let item = findRarity(localStorage.getItem('anom' + N), 1)
-					document.getElementById('anom' + N).classList.replace('itemNA', 'item' + rarity)
-					document.getElementById('anomi' + N).classList.remove('anomLocked')
-					document.getElementById('anom' + N).classList.add('itemT' + localStorage.getItem('anom' + N).slice(-1))
-					document.getElementById('anomi' + N).classList.replace('anomEmpty', item + 'V2')
-					document.getElementById('anoma' + N).classList.add('item' + rarity + '2')
-					document.getElementById('anoma' + N).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + N)))
-				}
-			}
 			calculateBonus()
 			if (localStorage.u1){
 				var box = document.getElementById('u1')
@@ -2391,7 +2404,7 @@ Restrictions: killed all enemies at caves at least once
 				itemS()
 			} else {
 				var e = window.event
-				if ((e.which && e.which == 3 || e.button && e.button == 2) && (id.classList.contains('sachet') === false) && (id.classList.contains('workFolder') === false) && (id.classList.contains('lava') === false) && (id.classList.contains('fightPicker69') === false) && (id.classList.contains('ram') === false)){
+				if ((e.which && e.which == 3 || e.button && e.button == 2) && (id.classList.contains('sachet') === false) && (id.classList.contains('workFolder') === false) && (id.classList.contains('lava') === false) && (id.classList.contains('fightPicker69') === false) && (id.classList.contains('ram') === false) && (id.classList.contains('LotG') === false)){
 					if (id.classList.contains('empty')){
 						
 					} else {
@@ -2481,6 +2494,9 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('red').style.opacity = 0
 			document.getElementById('jetpackguy').style = ''
 			hide('miss')
+			hide('KB10')
+			hide('KB50')
+			hide('KB200')
 			hide('anom')
 			hide('libBack')
 			hide('moveCools')
@@ -2735,7 +2751,7 @@ Restrictions: killed all enemies at caves at least once
 		ch20but.onclick = advent;
 		adventure.onclick = advent;
 		function advent(){
-			if (parseInt(ch5t.textContent) === 1 || parseInt(grassc.textContent) < 1 || parseInt(paperc.textContent) < 1 || parseInt(stickc.textContent) < 1 || parseInt(antc.textContent) < 1 || parseInt(waterc.textContent) < 1 || parseInt(eraserc.textContent) < 1 || parseInt(balloonc.textContent) < 1 || parseInt(pebblec.textContent) < 1){
+			if ((parseInt(ch5t.textContent) === 1 || parseInt(grassc.textContent) < 1 || parseInt(paperc.textContent) < 1 || parseInt(stickc.textContent) < 1 || parseInt(antc.textContent) < 1 || parseInt(waterc.textContent) < 1 || parseInt(eraserc.textContent) < 1 || parseInt(balloonc.textContent) < 1 || parseInt(pebblec.textContent) < 1) && (existTr(localStorage.gasbyc) === false || localStorage.gasbyL1 === '1')){
 				advmus()
 				attn = 0
 				geD.textContent = 0
@@ -2900,6 +2916,10 @@ Restrictions: killed all enemies at caves at least once
 				if (parseInt(localStorage.susc) > 0 && parseInt(localStorage.grass2c) > 0 && parseInt(localStorage.ctrlhc) > 0 && parseInt(localStorage.bingc) > 0 && parseInt(localStorage.greenc) > 0 && parseInt(localStorage.gravityc) > 0 && parseInt(localStorage.ant3c) > 0 && parseInt(localStorage.ec) > 0){
 					document.getElementById('taroy').classList.replace('btny','btng')
 				}
+			} else if (parseInt(localStorage.gasbyc) > 0){
+				localStorage.gasbyL1 = 1
+				hideAllMenu()
+				ch33st()
 			} else {
 				ch5t.textContent = 1
 				hp.textContent = 0
@@ -3082,25 +3102,25 @@ Restrictions: killed all enemies at caves at least once
 					if (localStorage.WFUstone){
 						let length = (localStorage.WFUstone).length
 						for (let i = 1; i <= length; i++){
-							if (localStorage.WFUstone[1]){
+							if (localStorage.WFUstone[0] === '1'){
 								if (idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp', 10000)){
 									localStorage.WFUstone = (localStorage.WFUstone).slice(1)
 								} else {
 									i = 347347347
 								}
-							} if (localStorage.WFUstone[2]){
+							} if (localStorage.WFUstone[0] === '2'){
 								if (idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A', 10000)){
 									localStorage.WFUstone = (localStorage.WFUstone).slice(1)
 								} else {
 									i = 347347347
 								}
-							} if (localStorage.WFUstone[3]){
+							} if (localStorage.WFUstone[0] === '3'){
 								if (idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D', 10000)){
 									localStorage.WFUstone = (localStorage.WFUstone).slice(1)
 								} else {
 									i = 347347347
 								}
-							} if (localStorage.WFUstone[4]){
+							} if (localStorage.WFUstone[0] === '4'){
 								if (idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R', 10000)){
 									localStorage.WFUstone = (localStorage.WFUstone).slice(1)
 								} else {
@@ -4117,7 +4137,7 @@ Restrictions: killed all enemies at caves at least once
 		function idrop(item,title,chance,flashT){
 			dropR = Math.floor(Math.random() * 10000) + 1
 			newSave('AdvP2', 0)
-			dropC = chance * parseFloat(DC.textContent) * (1 + (parseInt(localStorage.AdvP2) * 0.05))
+			dropC = chance * parseFloat(DC.textContent) * (1 + (parseInt(localStorage.AdvP2) * 0.05)) * (1 + (b3 / 100))
 			if (item === 'sachet' && sachd.textContent !== '0' || item === 'workFolder' && localStorage.IFTr){
 				dropC = 0
 			} else if (item === 'sachet' && parseInt(birdc.textContent) > 0 && parseInt(boeingc.textContent) > 0 && parseInt(cloudc.textContent) > 0 && parseInt(meteorc.textContent) > 0 && parseInt(buildingsc.textContent) > 0 && parseInt(lightningc.textContent) > 0 && parseInt(helicopterc.textContent) > 0 && parseInt(balloon2c.textContent) > 0){
@@ -4172,7 +4192,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function sdrop(item,title,chance){
 			dropR = Math.floor(Math.random() * 10000) + 1
-			dropC = chance * parseFloat(SC.textContent)
+			dropC = chance * parseFloat(SC.textContent) * (1 + (b4 / 100))
 			bs = 0
 			if (parseInt(applec.textContent) >= 200){
 				bs = Math.floor(Math.random() * 40) + 1
@@ -5139,7 +5159,7 @@ Restrictions: killed all enemies at caves at least once
 			} else if (iv2.classList.contains('gold')){
 				iv2.classList.remove('gold')
 				iv2.classList.add('empty')
-				localStorage.xp = parseFloat(localStorage.xp) + Math.round(parseInt(ekills.textContent) / 8)
+				localStorage.xp = parseFloat(localStorage.xp) + Math.round(parseInt(ekills.textContent) * (1 + (b7 / 1000)) / 8)
 				iv2.setAttribute('title','')
 			} else if (iv2.classList.contains('hoe') && we.classList.contains('weapon')){
 				iv2.classList.remove('hoe')
@@ -5247,11 +5267,16 @@ Restrictions: killed all enemies at caves at least once
 					newSave('FP' + x + 'lvl',0)
 					if (parseInt(localStorage.getItem('FP' + x + 'lvl')) < totalZones){
 						localStorage.setItem('FP' + x + 'lvl', parseInt(localStorage.getItem('FP' + x + 'lvl')) + 1)
+						document.getElementById('FPnew').textContent = 'Zone ' + localStorage.getItem('FP' + x + 'lvl') + ', Enemy ' + x
 						i = 4
 					} else {
 						i = 1
 					}
 				}
+			} else if (iv2.classList.contains('LotG')){
+				iv2.classList.replace('LotG','empty')
+				iv2.setAttribute('title','')
+				localStorage.anomTr = 1
 			} else {
 				if (iv2.classList.item(1) !== 'empty'){
 					idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
@@ -5363,29 +5388,29 @@ Restrictions: killed all enemies at caves at least once
 			save()
 			ehp2.textContent = 0
 			if (z === 1){
-				adrop('stick',10)
+				adrop('stick',20)
 			} else if (z === 2){
-				adrop('fang',5)
-				adrop('hide',5)
+				adrop('fang',10)
+				adrop('hide',10)
 			} else if (z === 3){
-				adrop('lwing',5)
-				adrop('rwing',5)
+				adrop('lwing',10)
+				adrop('rwing',10)
 			} else if (z === 4){
-				adrop('scissor',5)
-				adrop('stilts',5)
+				adrop('scissor',10)
+				adrop('stilts',10)
 			} else if (z === 5){
-				adrop('jetpack',10)
+				adrop('jetpack',20)
 			} else if (z === 6){
-				adrop('lasergun',10)
+				adrop('lasergun',20)
 			} else if (z === 7){
-				adrop('torch',10)
+				adrop('torch',20)
 			} else if (z === 8){
-				adrop('pickaxe',5)
-				adrop('minercap',5)
+				adrop('pickaxe',10)
+				adrop('minercap',10)
 			} else if (z === 9){
-				adrop('ram',10)
+				adrop('ram',20)
 			} else if (z === 10){
-				adrop('e',10)
+				adrop('e',20)
 			}
 		}
 		function playerdead(){
@@ -5399,7 +5424,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById("health").style.width = '0px'
 			hp2.textContent = 0
 		}
-		function setHp(){
+		function setStats(){
 			if (localStorage.IFTr === '1' && localStorage.hpM){
 				mhp.textContent = Math.floor(parseInt(localStorage.mhp) * parseFloat(localStorage.hpM) * (1000 + parseInt(localStorage.itemHpBonus)) / 1000)
 			} else if (localStorage.hpM){
@@ -5407,6 +5432,8 @@ Restrictions: killed all enemies at caves at least once
 			} else {
 				mhp.textContent = localStorage.mhp
 			}
+			att.textContent = Math.floor(parseInt(localStorage.att) * (1 + (b1 / 100)))
+			def.textContent = Math.floor(parseInt(localStorage.def) * (1 + (b2 / 100)))
 			hp.textContent = mhp.textContent
 			hp2.textContent = mhp.textContent
 		}
@@ -5455,7 +5482,7 @@ Restrictions: killed all enemies at caves at least once
 			show('player')
 			var attc = parseInt(advC.textContent)
 			advc.textContent = parseInt(advc.textContent) - 1
-			setHp()
+			setStats()
 			var x = enemyFightNum(1)
 			if (x === 1){
 				show('grass')
@@ -5474,8 +5501,9 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
-						localStorage.xp = parseFloat(localStorage.xp) + 1
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
 						grassc.textContent = parseInt(grassc.textContent) + 1
+						KBify(grassc.textContent)
 						if (parseInt(ekills.textContent) === 1){
 							var b = document.getElementById('i1')
 							b.classList.add('starterCap')
@@ -5534,12 +5562,13 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						
-						localStorage.xp = parseFloat(localStorage.xp) + 1
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
 						paperc.textContent = parseInt(paperc.textContent) + 1
+						KBify(paperc.textContent)
 						if (parseInt(ekills.textContent) === 1){
 							idrop('starterCap', 'Starter cap - Your very first item :D - +1 Hp', 10000)
 						}
@@ -5618,12 +5647,13 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						
-						localStorage.xp = parseFloat(localStorage.xp) + 1
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
 						stickc.textContent = parseInt(stickc.textContent) + 1
+						KBify(stickc.textContent)
 						if (parseInt(ekills.textContent) === 1){
 							var b = document.getElementById('i1')
 							b.classList.add('starterCap')
@@ -5687,12 +5717,13 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
 						
-						localStorage.xp = parseFloat(localStorage.xp) + 1
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
 						antc.textContent = parseInt(antc.textContent) + 1
+						KBify(antc.textContent)
 						if (parseInt(ekills.textContent) === 1){
 							var b = document.getElementById('i1')
 							b.classList.add('starterCap')
@@ -5753,12 +5784,13 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						
-						localStorage.xp = parseFloat(localStorage.xp) + 1
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
 						waterc.textContent = parseInt(waterc.textContent) + 1
+						KBify(waterc.textContent)
 						if (parseInt(ekills.textContent) === 1){
 							var b = document.getElementById('i1')
 							b.classList.add('starterCap')
@@ -5825,12 +5857,13 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						
-						localStorage.xp = parseFloat(localStorage.xp) + 1
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
 						eraserc.textContent = parseInt(eraserc.textContent) + 1
+						KBify(eraserc.textContent)
 						if (parseInt(ekills.textContent) === 1){
 							var b = document.getElementById('i1')
 							b.classList.add('starterCap')
@@ -5890,12 +5923,13 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						
-						localStorage.xp = parseFloat(localStorage.xp) + 1
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
 						balloonc.textContent = parseInt(balloonc.textContent) + 1
+						KBify(balloonc.textContent)
 						if (parseInt(ekills.textContent) === 1){
 							var b = document.getElementById('i1')
 							b.classList.add('starterCap')
@@ -5954,12 +5988,13 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						
-						localStorage.xp = parseFloat(localStorage.xp) + 1
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
 						pebblec.textContent = parseInt(pebblec.textContent) + 1
+						KBify(pebblec.textContent)
 						if (parseInt(ekills.textContent) === 1){
 							var b = document.getElementById('i1')
 							b.classList.add('starterCap')
@@ -6004,7 +6039,7 @@ Restrictions: killed all enemies at caves at least once
 		function fieldbat(){
 			if (parseInt(ch5t.textContent) === 1){
 				sadvmus()
-				setHp()
+				setStats()
 				var hideStart = document.getElementById('fields')
 				hideStart.classList.add('show')
 				hideStart.classList.remove('hide')
@@ -6107,8 +6142,9 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
-						localStorage.xp = parseFloat(localStorage.xp) + 2
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(2)
 						lotsofgrassc.textContent = parseInt(lotsofgrassc.textContent) + 1
+						KBify(lotsofgrassc.textContent)
 						if (parseInt(lotsofgrassc.textContent) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.02
 						}
@@ -6177,9 +6213,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('rabbit')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						rabbitc.textContent = parseInt(rabbitc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 2
+						KBify(rabbitc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(2)
 						if (parseInt(rabbitc.textContent) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.02
 						}
@@ -6233,9 +6269,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('antcolony')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						antcolonyc.textContent = parseInt(antcolonyc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 2
+						KBify(antcolonyc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(2)
 						if (parseInt(antcolonyc.textContent) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.02
 						}
@@ -6287,9 +6323,9 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						
 						treec.textContent = parseInt(treec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 2
+						KBify(treec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(2)
 						if (parseInt(treec.textContent) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.02
 						}
@@ -6342,9 +6378,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('spider')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						spiderc.textContent = parseInt(spiderc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 2
+						KBify(spiderc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(2)
 						if (parseInt(spiderc.textContent) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.02
 						}
@@ -6395,9 +6431,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('apple')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						applec.textContent = parseInt(applec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 2
+						KBify(applec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(2)
 						if (parseInt(applec.textContent) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.02
 						}
@@ -6447,9 +6483,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('puddle')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						puddlec.textContent = parseInt(puddlec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 2
+						KBify(puddlec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(2)
 						if (parseInt(puddlec.textContent) === 10){
 							localStorage.mhp = parseFloat(localStorage.mhp) + 2
 						}
@@ -6508,9 +6544,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('fire')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						firec.textContent = parseInt(firec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						KBify(firec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(firec.textContent) === 10){
 							localStorage.att = parseFloat(localStorage.att) + 1
 						}
@@ -6554,7 +6590,7 @@ Restrictions: killed all enemies at caves at least once
 		function skybat(){
 			if (parseInt(ch5t.textContent) === 1){
 				sadvmus()
-				setHp()
+				setStats()
 				var hideStart = document.getElementById('thesky')
 				hideStart.classList.add('show')
 				hideStart.classList.remove('hide')
@@ -6647,13 +6683,13 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('bird')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						birdc.textContent = parseInt(birdc.textContent) + 1
+						KBify(birdc.textContent)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(birdc.textContent) === 10){
 							localStorage.mhp = parseFloat(localStorage.mhp) + 2
 						}
@@ -6710,9 +6746,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('boeing')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						boeingc.textContent = parseInt(boeingc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						KBify(boeingc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(boeingc.textContent) === 10){
 							localStorage.mhp = parseFloat(localStorage.mhp) + 2
 						}
@@ -6769,9 +6805,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('cloud')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						cloudc.textContent = parseInt(cloudc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						KBify(cloudc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(cloudc.textContent) === 10){
 							localStorage.mhp = parseFloat(localStorage.mhp) + 2
 						}
@@ -6828,9 +6864,9 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						
 						meteorc.textContent = parseInt(meteorc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						KBify(meteorc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(meteorc.textContent) === 10){
 							localStorage.att = parseFloat(localStorage.att) + 1
 						}
@@ -6888,9 +6924,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('buildings')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						buildingsc.textContent = parseInt(buildingsc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						KBify(buildingsc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(buildingsc.textContent) === 10){
 							stiH.textContent = parseFloat(stiH.textContent) + 1
 						}
@@ -6946,9 +6982,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('lightning')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						lightningc.textContent = parseInt(lightningc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						KBify(lightningc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(lightningc.textContent) === 10){
 							stiBT.textContent = parseInt(stiBT.textContent) - 1
 						}
@@ -7027,9 +7063,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('helicopter')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						helicopterc.textContent = parseInt(helicopterc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						KBify(helicopterc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(helicopterc.textContent) === 10){
 							localStorage.mhp = parseFloat(localStorage.mhp) + 2
 						}
@@ -7084,9 +7120,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('balloon2')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						balloon2c.textContent = parseInt(balloon2c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 3
+						KBify(balloon2c.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(3)
 						if (parseInt(balloon2c.textContent) === 10){
 							localStorage.def = parseFloat(localStorage.def) + 1
 						}
@@ -7133,7 +7169,7 @@ Restrictions: killed all enemies at caves at least once
 		function schoolbat(){
 			if (parseInt(sachd.textContent) === 2 && field.classList.contains('btng')){
 				sadvmus()
-				setHp()
+				setStats()
 				var hideStart = document.getElementById('theschool')
 				hideStart.classList.add('show')
 				hideStart.classList.remove('hide')
@@ -7234,13 +7270,13 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('gum')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						gumc.textContent = parseFloat(gumc.textContent) + 1
+						KBify(gumc.textContent)
 						var a = document.getElementById('inventory')
 						a.classList.add('open')
 						a.classList.remove('locked')
 						inventory.textContent = 'Inventory'
-						localStorage.xp = parseFloat(localStorage.xp) + 5
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(5)
 						if (parseInt(gumc.textContent) === 10){
 							localStorage.mhp = parseFloat(localStorage.mhp) + 3
 						}
@@ -7323,9 +7359,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('calculator')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						calculatorc.textContent = parseFloat(calculatorc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 5
+						KBify(calculatorc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(5)
 						if (parseInt(calculatorc.textContent) === 10){
 							localStorage.mhp = parseFloat(localStorage.mhp) + 3
 						}
@@ -7409,9 +7445,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('dodgeball')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						dodgeballc.textContent = parseFloat(dodgeballc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 5
+						KBify(dodgeballc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(5)
 						if (parseInt(dodgeballc.textContent) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 3
 						}
@@ -7465,9 +7501,9 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						
 						scissorsc.textContent = parseFloat(scissorsc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 5
+						KBify(scissorsc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(5)
 						if (parseInt(scissorsc.textContent) === 10){
 							localStorage.att = parseFloat(localStorage.att) + 1
 						}
@@ -7527,9 +7563,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('x')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						xc.textContent = parseFloat(xc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 8
+						KBify(xc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(8)
 						if (parseInt(xc.textContent) === 200){
 							UC.textContent = parseFloat(UC.textContent) * 2
 						}
@@ -7620,9 +7656,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('y')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						yc.textContent = parseFloat(yc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 8
+						KBify(yc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(8)
 						if (parseInt(yc.textContent) === 200){
 							DUC.textContent = parseFloat(UC.textContent) * 2
 						}
@@ -7706,9 +7742,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('ruler')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						rulerc.textContent = parseFloat(rulerc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 5
+						KBify(rulerc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(5)
 						if (parseInt(rulerc.textContent) === 10){
 							localStorage.mhp = parseFloat(localStorage.mhp) + 3
 						}
@@ -7761,9 +7797,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('chair')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						chairc.textContent = parseFloat(chairc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 5
+						KBify(chairc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(5)
 						if (parseInt(chairc.textContent) === 10){
 							localStorage.def = parseFloat(localStorage.def) + 1
 						}
@@ -7814,7 +7850,7 @@ Restrictions: killed all enemies at caves at least once
 						show('ame2player')
 					}
 					sadvmus()
-					setHp()
+					setStats()
 					show('airspace')
 					document.getElementById('ameair').setAttribute('title','American Airspace')
 					var a = document.getElementById('mhp')
@@ -7903,8 +7939,8 @@ Restrictions: killed all enemies at caves at least once
 								var a = document.getElementById('helicopter2')
 								a.classList.add('hide')
 								document.getElementById("eHealth").style.width = '0px'
-								
 								helicopter2c.textContent = parseFloat(helicopter2c.textContent) + 1
+								KBify(helicopter2c.textContent)
 								if (parseInt(helicopter2c.textContent) === 10){
 									localStorage.def = parseFloat(localStorage.def) + 1
 								}
@@ -7914,7 +7950,7 @@ Restrictions: killed all enemies at caves at least once
 								if (parseInt(helicopter2c.textContent) === 200){
 									localStorage.iN = parseInt(localStorage.iN) + 8
 								}
-								localStorage.xp = parseFloat(localStorage.xp) + 10
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(10)
 								idrop('glasses', 'Fiddy shades - yea nah - +1 Hp +1 A +1 D +1R', 400)
 								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 1600)
 								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 400)
@@ -7958,9 +7994,9 @@ Restrictions: killed all enemies at caves at least once
 								var a = document.getElementById('deserteagle')
 								a.classList.add('hide')
 								document.getElementById("eHealth").style.width = '0px'
-								
 								deserteaglec.textContent = parseFloat(deserteaglec.textContent) + 1
-								localStorage.xp = parseFloat(localStorage.xp) + 10
+								KBify(deserteaglec.textContent)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(10)
 								if (parseInt(deserteaglec.textContent) === 10){
 									localStorage.att = parseFloat(localStorage.att) + 1
 								}
@@ -8015,9 +8051,9 @@ Restrictions: killed all enemies at caves at least once
 								enemykill(5)
 								hide('a10')
 								document.getElementById("eHealth").style.width = '0px'
-								
 								a10c.textContent = parseFloat(a10c.textContent) + 1
-								localStorage.xp = parseFloat(localStorage.xp) + 10
+								KBify(a10c.textContent)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(10)
 								if (parseInt(a10c.textContent) === 10){
 									localStorage.reg = parseFloat(localStorage.reg) + 1
 								}
@@ -8088,9 +8124,9 @@ Restrictions: killed all enemies at caves at least once
 								hide('1drone')
 								document.getElementById("eHealth").style.width = '0px'
 								antDodge.textContent = 0
-								
 								drone1c.textContent = parseFloat(drone1c.textContent) + 1
-								localStorage.xp = parseFloat(localStorage.xp) + 10
+								KBify(drone1c.textContent)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(10)
 								if (parseInt(drone1c.textContent) === 10){
 									stiH.textContent = parseFloat(stiH.textContent) + 1
 								}
@@ -8142,9 +8178,9 @@ Restrictions: killed all enemies at caves at least once
 								var a = document.getElementById('2drone')
 								a.classList.add('hide')
 								document.getElementById("eHealth").style.width = '0px'
-								
 								drone2c.textContent = parseFloat(drone2c.textContent) + 1
-								localStorage.xp = parseFloat(localStorage.xp) + 10
+								KBify(drone2c.textContent)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(10)
 								if (parseInt(drone2c.textContent) === 10){
 									stiS.textContent = parseFloat(stiS.textContent) + 0.2
 								}
@@ -8191,9 +8227,9 @@ Restrictions: killed all enemies at caves at least once
 								enemykill(5)
 								hide('3drone')
 								document.getElementById("eHealth").style.width = '0px'
-								
 								drone3c.textContent = parseFloat(drone3c.textContent) + 1
-								localStorage.xp = parseFloat(localStorage.xp) + 10
+								KBify(drone3c.textContent)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(10)
 								if (parseInt(drone3c.textContent) === 10){
 									stiL.textContent = parseInt(stiL.textContent) + 3
 								}
@@ -8246,9 +8282,9 @@ Restrictions: killed all enemies at caves at least once
 								var a = document.getElementById('jetpackguy')
 								a.classList.add('hide')
 								document.getElementById("eHealth").style.width = '0px'
-								
 								jetpackguyc.textContent = parseFloat(jetpackguyc.textContent) + 1
-								localStorage.xp = parseFloat(localStorage.xp) + 10
+								KBify(jetpackguyc.textContent)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(10)
 								if (parseInt(jetpackguyc.textContent) === 10){
 									DC.textContent = parseFloat(DC.textContent) * 1.03
 								}
@@ -8297,7 +8333,8 @@ Restrictions: killed all enemies at caves at least once
 								hide('ufo')
 								document.getElementById("eHealth").style.width = '0px'
 								ufoc.textContent = parseFloat(ufoc.textContent) + 1
-								localStorage.xp = parseFloat(localStorage.xp) + 20
+								KBify(ufoc.textContent)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
 								if (parseInt(ufoc.textContent) === 10){
 									localStorage.mhp = parseFloat(localStorage.mhp) + 10
 									localStorage.att = parseFloat(localStorage.att) + 2
@@ -8354,7 +8391,7 @@ Restrictions: killed all enemies at caves at least once
 		function area51bat(){
 			if (ameair.classList.contains('btng')){
 				sadvmus()
-				setHp()
+				setStats()
 				show('area51b')
 				document.getElementById('area51').setAttribute('title','Area 51')
 				show('player')
@@ -8436,12 +8473,12 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('guard')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						guardc.textContent = parseFloat(guardc.textContent) + 1
+						KBify(guardc.textContent)
 						if (parseInt(localStorage.guardc) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 8
 						}
-						localStorage.xp = parseFloat(localStorage.xp) + 20
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
 						FPdrop(4,0)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 00)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 500)
@@ -8516,9 +8553,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('deep3')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						deepc.textContent = parseFloat(deepc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 20
+						KBify(deepc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
 						if (parseInt(localStorage.deepc) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.05
 						}
@@ -8566,9 +8603,9 @@ Restrictions: killed all enemies at caves at least once
 						enemykill(6)
 						hide('ufo2')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						ufo2c.textContent = parseFloat(ufo2c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 20
+						KBify(ufo2c.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
 						if (parseInt(localStorage.ufo2c) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 10
 							localStorage.att = parseInt(localStorage.att) + 2
@@ -8630,9 +8667,9 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						
 						alienc.textContent = parseFloat(alienc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 20
+						KBify(alienc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
 						if (parseInt(localStorage.alienc) === 10){
 							localStorage.att = parseInt(localStorage.att) + 3
 						}
@@ -8710,9 +8747,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('tree2')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						tree2c.textContent = parseFloat(tree2c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 20
+						KBify(tree2c.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
 						if (parseInt(localStorage.tree2c) === 10){
 							localStorage.def = parseInt(localStorage.def) + 3
 						}
@@ -8793,7 +8830,8 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						drone4c.textContent = parseFloat(drone4c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 20
+						KBify(drone4c.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
 						if (parseInt(localStorage.drone4c) === 10){
 							stiBT.textContent = parseInt(stiBT.textContent) - 5
 						}
@@ -8899,7 +8937,8 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						ant2c.textContent = parseFloat(ant2c.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 20
+						KBify(ant2c.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
 						if (parseInt(localStorage.ant2c) === 10){
 							edod.textContent = parseFloat(edod.textContent) * 0.95
 						}
@@ -8956,9 +8995,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('radioactive')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						radioactivec.textContent = parseFloat(radioactivec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 30
+						KBify(radioactivec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
 						if (parseInt(localStorage.radioactivec) === 10){
 							localStorage.reg = parseInt(localStorage.reg) + 3
 						}
@@ -9005,7 +9044,7 @@ Restrictions: killed all enemies at caves at least once
 		function cavebat(){
 			if (school.classList.contains('btng') && parseInt(localStorage.ToE) === 1 && parseInt(ch16t.textContent) === 1){
 				sadvmus()
-				setHp()
+				setStats()
 				show('cave')
 				show('caveb')
 				hide('caveb2')
@@ -9138,9 +9177,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('bat')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						batc.textContent = parseFloat(batc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 30
+						KBify(batc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
@@ -9189,9 +9228,9 @@ Restrictions: killed all enemies at caves at least once
 						enemykill(7)
 						hide('stalicite')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						stalicitec.textContent = parseFloat(stalicitec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 30
+						KBify(stalicitec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
@@ -9238,9 +9277,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('stalimite')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						stalimitec.textContent = parseFloat(stalimitec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 30
+						KBify(stalimitec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
@@ -9289,9 +9328,9 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						
 						rockc.textContent = parseFloat(rockc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 30
+						KBify(rockc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
@@ -9342,9 +9381,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('skeleton')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						skeletonc.textContent = parseFloat(skeletonc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 30
+						KBify(skeletonc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
 						FPdrop(6,2)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
@@ -9401,9 +9440,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('torch')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						torchc.textContent = parseFloat(torchc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 30
+						KBify(torchc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
@@ -9453,9 +9492,9 @@ Restrictions: killed all enemies at caves at least once
 						enemykill(7)
 						hide('glowworm')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						glowwormc.textContent = parseFloat(glowwormc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 30
+						KBify(glowwormc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
 						eNHTr.textContent = 0
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
@@ -9521,9 +9560,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('lava')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						lavac.textContent = parseFloat(lavac.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 50
+						KBify(lavac.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2400)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
@@ -9574,7 +9613,7 @@ Restrictions: killed all enemies at caves at least once
 		function minebat(){
 			if (caves.classList.contains('btng')){
 				sadvmus()
-				setHp()
+				setStats()
 				show('mine')
 				show('mineb')
 				hide('mineb2')
@@ -9698,9 +9737,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('stone')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						stonec.textContent = parseFloat(stonec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 50
+						KBify(stonec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
@@ -9744,9 +9783,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('pickaxe')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						pickaxec.textContent = parseFloat(pickaxec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 50
+						KBify(pickaxec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
@@ -9796,9 +9835,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('minecart')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						minecartc.textContent = parseFloat(minecartc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 50
+						KBify(minecartc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
@@ -9855,9 +9894,9 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						antDodge.textContent = 0
-						
 						minerc.textContent = parseFloat(minerc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 50
+						KBify(minerc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
@@ -9906,9 +9945,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('drill')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						drillc.textContent = parseFloat(drillc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 50
+						KBify(drillc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
@@ -9958,9 +9997,9 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('uranium')
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						uraniumc.textContent = parseFloat(uraniumc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 50
+						KBify(uraniumc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
@@ -10009,9 +10048,9 @@ Restrictions: killed all enemies at caves at least once
 						enemykill(8)
 						hide('diamond')
 						document.getElementById("eHealth").style.width = '0px'
-						
 						diamondc.textContent = parseFloat(diamondc.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 50
+						KBify(diamondc.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
 						eNHTr.textContent = 0
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
@@ -10085,7 +10124,8 @@ Restrictions: killed all enemies at caves at least once
 						a.classList.add('hide')
 						document.getElementById("eHealth").style.width = '0px'
 						hoec.textContent = parseFloat(hoec.textContent) + 1
-						localStorage.xp = parseFloat(localStorage.xp) + 80
+						KBify(hoec.textContent)
+						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(80)
 						FPdrop(8,4)
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2800)
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
@@ -10123,7 +10163,7 @@ Restrictions: killed all enemies at caves at least once
 			if (localStorage.ch31Tr === '1'){
 				if (area51.classList.contains('btng') && localStorage.d3Tr === '2' && localStorage.ch31Tr === '1'){
 					sadvmus()
-					setHp()
+					setStats()
 					document.getElementById('codlab').classList.remove('hide')
 					document.getElementById('coderslab').setAttribute('title',"Coder's lab")
 					document.getElementById('computer').classList.add('hide')
@@ -10224,12 +10264,14 @@ Restrictions: killed all enemies at caves at least once
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(120)
 								document.getElementById('z9back').setAttribute('src', 'coderslab2.png')
 								if (Math.floor(Math.random() * 10) === 0){
 									document.getElementById('z9back').setAttribute('src', 'coderslab.png')
 								}
 								newSave('computerc',0)
 								localStorage.computerc = parseInt(localStorage.computerc) + 1
+								KBify(localStorage.computerc)
 								document.getElementById('computer').classList.add('hide')
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500)
@@ -10248,7 +10290,6 @@ Restrictions: killed all enemies at caves at least once
 								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
 								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
 								sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 200)
-								localStorage.xp = parseInt(localStorage.xp) + 120
 							} else {
 								playerdead()
 								document.getElementById('player').classList.add('hide')
@@ -10300,12 +10341,13 @@ Restrictions: killed all enemies at caves at least once
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(120)
 								document.getElementById('wikipedia').classList.add('hide')
 								advc.textContent = parseInt(advC.textContent)
 								newSave('wikipediac',0)
 								localStorage.wikipediac = parseInt(localStorage.wikipediac) + 1
+								KBify(localStorage.wikipediac)
 								var qe = setTimeout(enki,500)
-								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
 								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
@@ -10429,12 +10471,13 @@ Restrictions: killed all enemies at caves at least once
 								setTimeout(battle, 50, ae, sp, spe, lolw, lolt)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(120)
 								document.getElementById('MSpaint').classList.add('hide')
 								advc.textContent = parseInt(advC.textContent)
 								newSave('MSpc',0)
 								localStorage.MSpc = parseInt(localStorage.MSpc) + 1
+								KBify(localStorage.MSpc)
 								var qe = setTimeout(enki,500)
-								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
 								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
@@ -10490,12 +10533,13 @@ Restrictions: killed all enemies at caves at least once
 								setTimeout(battle, 50, ae, sp, aN)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(120)
 								document.getElementById('IE').classList.add('hide')
 								newSave('IEc',0)
 								localStorage.IEc = parseInt(localStorage.IEc) + 1
+								KBify(localStorage.Iec)
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500)
-								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
 								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
@@ -10560,13 +10604,14 @@ Restrictions: killed all enemies at caves at least once
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(120)
 								document.getElementById('FE').classList.add('hide')
 								hide('FEimg')
 								advc.textContent = parseInt(advC.textContent)
 								newSave('FEc',0)
 								localStorage.FEc = parseInt(localStorage.FEc) + 1
+								KBify(localStorage.FEc)
 								var qe = setTimeout(enki,500)
-								localStorage.xp = parseInt(localStorage.xp) + 120
 								idrop('workFolder', "Work Folder - I wonder what's in here…", 1000)
 								for (let i = 1; i < 20; i++) {
 									document.getElementById('codlab').removeChild(document.getElementById('FEimg' + i))
@@ -10616,12 +10661,13 @@ Restrictions: killed all enemies at caves at least once
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(120)
 								document.getElementById('googol').classList.add('hide')
 								newSave('googolc',0)
 								localStorage.googolc = parseInt(localStorage.googolc) + 1
+								KBify(localStorage.googolc)
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500)
-								localStorage.xp = parseInt(localStorage.xp) + 120
 								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 								sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 800)
 								sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 800)
@@ -10654,13 +10700,14 @@ Restrictions: killed all enemies at caves at least once
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(120)
 								document.getElementById('CMG').classList.add('hide')
 								advc.textContent = parseInt(advC.textContent)
 								newSave('CMGc',0)
 								FPdrop(16,8)
 								localStorage.CMGc = parseInt(localStorage.CMGc) + 1
+								KBify(localStorage.CMGc)
 								var qe = setTimeout(enki,500)
-								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
 								document.getElementById("eHealth").style.width = '0px'
 								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
@@ -10731,15 +10778,19 @@ Restrictions: killed all enemies at caves at least once
 								setTimeout(battle, 50, ae, sp, yes)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 								if (parseInt(bloN.textContent) != 3){
 									localStorage.ach11 = 1
+								}
+								if (existTr(localStorage.item58) === false){
+									idrop('LotG','Luck of the Game III - A gift from the gasby gaming',10000)
 								}
 								document.getElementById('gasby').classList.add('hide')
 								newSave('gasbyc',0)
 								localStorage.gasbyc = parseInt(localStorage.gasbyc) + 1
+								KBify(localStorage.gasbyc)
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500)
-								localStorage.xp = parseInt(localStorage.xp) + 120
 								eNHTr.textContent = 0
 								document.getElementById("eHealth").style.width = '0px'
 								sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
@@ -10777,7 +10828,7 @@ Restrictions: killed all enemies at caves at least once
 		function taroybat(enemyN){
 			if (area51.classList.contains('btng') && localStorage.ToE2Tr === '2'){
 				sadvmus()
-				setHp()
+				setStats()
 				currentGrass = 0;
 				grassNeg = 0;
 				grassNeg2 = 0;
@@ -10865,12 +10916,13 @@ Restrictions: killed all enemies at caves at least once
 							setTimeout(battle, 50, ae, sp, sab1, sab2, sab2Timer)
 						} else if (parseFloat(ehp.textContent) <= 0){
 							enemykill(10)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 							document.getElementById('sus').classList.add('hide')
 							advc.textContent = parseInt(advC.textContent)
 							newSave('susc',0)
 							localStorage.susc = parseInt(localStorage.susc) + 1
+							KBify(localStorage.susc)
 							var qe = setTimeout(enki,500)
-							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
@@ -10924,13 +10976,14 @@ Restrictions: killed all enemies at caves at least once
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
 							enemykill(10)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 							hide('grass2')
 							hide('fire')
 							advc.textContent = parseInt(advC.textContent)
 							newSave('grass2c',0)
 							localStorage.grass2c = parseInt(localStorage.grass2c) + 1
+							KBify(localStorage.grass2c)
 							var qe = setTimeout(enki,500)
-							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							for (let i = 0; i <= currentGrass; i++){
 								if (document.getElementById('grassClone' + i)){
@@ -10974,12 +11027,13 @@ Restrictions: killed all enemies at caves at least once
 							setTimeout(battle, 50)
 						} else if (parseFloat(ehp.textContent) <= 0){
 							enemykill(10)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 							hide('ctrlh')
 							advc.textContent = parseInt(advC.textContent)
 							newSave('ctrlhc',0)
 							localStorage.ctrlhc = parseInt(localStorage.ctrlhc) + 1
+							KBify(localStorage.ctrlhc)
 							var qe = setTimeout(enki,500)
-							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
@@ -11014,12 +11068,13 @@ Restrictions: killed all enemies at caves at least once
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
 							enemykill(10)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 							hide('bing')
 							newSave('bingc',0)
 							localStorage.bingc = parseInt(localStorage.bingc) + 1
+							KBify(localStorage.bingc)
 							advc.textContent = parseInt(advC.textContent)
 							var qe = setTimeout(enki,500)
-							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
@@ -11058,12 +11113,13 @@ Restrictions: killed all enemies at caves at least once
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
 							enemykill(10)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 							hide('greenEnemy')
 							newSave('greenc',0)
 							localStorage.greenc = parseInt(localStorage.greenc) + 1
+							KBify(localStorage.greenc)
 							advc.textContent = parseInt(advC.textContent)
 							var qe = setTimeout(enki,500)
-							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
@@ -11125,13 +11181,14 @@ Restrictions: killed all enemies at caves at least once
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
 							enemykill(10)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 							hide('gravity')
 							hide('jetpackguy')
 							newSave('gravityc',0)
 							localStorage.gravityc = parseInt(localStorage.gravityc) + 1
+							KBify(localStorage.gravityc)
 							advc.textContent = parseInt(advC.textContent)
 							var qe = setTimeout(enki,500)
-							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
@@ -11167,12 +11224,13 @@ Restrictions: killed all enemies at caves at least once
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
 							enemykill(10)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
 							hide('ant3')
 							newSave('ant3c',0)
 							localStorage.ant3c = parseInt(localStorage.ant3c) + 1
+							KBify(localStorage.ant3c)
 							advc.textContent = parseInt(advC.textContent)
 							var qe = setTimeout(enki,500)
-							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							idrop('crown','Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D', 500)
 							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
@@ -11222,12 +11280,13 @@ Restrictions: killed all enemies at caves at least once
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
 							enemykill(10)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(300)
 							hide('eEnemy')
 							newSave('ec',0)
 							localStorage.ec = parseInt(localStorage.ec) + 1
+							KBify(localStorage.ec)
 							advc.textContent = parseInt(advC.textContent)
 							var qe = setTimeout(enki,500)
-							localStorage.xp = parseInt(localStorage.xp) + 200
 							document.getElementById("eHealth").style.width = '0px'
 							FPdrop(24,12)
 							stoneDrops(9)
@@ -11967,7 +12026,7 @@ Restrictions: killed all enemies at caves at least once
 			a.classList.remove('fattackcool')
 		}
 		var missN = 0;
-		function miss(t,u,y){
+		function miss(t,u,y){ // t = frame, u = check if miss is the current newest miss, y = first frame
 			if (y === 1){
 				if (u === missN){
 					if (t < 5){
@@ -11989,6 +12048,27 @@ Restrictions: killed all enemies at caves at least once
 				show('miss')
 				t = t + 1
 				setTimeout(miss, 100, t,u,y)
+			}
+		}
+		function KBify(kills){
+			if (kills === '10'){
+				KBthing(0,10)
+			} else if (kills === '50'){
+				KBthing(0,50)
+			} else if (kills === '200'){
+				KBthing(0,200)
+			}
+		}
+		function KBthing(t,b){ // t = frame (0 should be on all calls), bonus number
+			if (t < 5){
+				if (t === 0){
+					show('KB' + b)
+				}
+				document.getElementById('KB' + b).style.opacity = 1 - (t / 5)
+				t = t + 1
+				setTimeout(KBthing, 100, t,b)
+			} else {
+				hide('KB' + b)
 			}
 		}
 		function LvlAttack(){
@@ -12796,11 +12876,11 @@ Restrictions: killed all enemies at caves at least once
 				b.classList.remove('hide')
 				if (localStorage.sniPB){
 					document.getElementById("sniBP").style.width = parseFloat(localStorage.sniPB) * 2.18 + 'px'
-					document.getElementById('sniBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
-					document.getElementById('sniMBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
+					document.getElementById('sniBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
+					document.getElementById('sniMBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
 					document.getElementById("sniUP").style.width = parseFloat(localStorage.sniPU) * 5.1 + 'px'
-					document.getElementById('sniUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
-					document.getElementById('sniMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
+					document.getElementById('sniUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
+					document.getElementById('sniMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
 					sniH.textContent = localStorage.sniH
 				} else {
 					localStorage.sniPB = 0
@@ -12834,8 +12914,8 @@ Restrictions: killed all enemies at caves at least once
 							stiDone()
 							stiPB.textContent = 0
 						}
-						document.getElementById('stiBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent)) / (parseFloat(stiBT.textContent)))) + ' seconds till complete')
-						document.getElementById('stiMBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent)) / (parseFloat(stiBT.textContent)))) + ' seconds till complete')
+						document.getElementById('stiBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100))) / (parseFloat(stiBT.textContent)))) + ' seconds till complete')
+						document.getElementById('stiMBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100))) / (parseFloat(stiBT.textContent)))) + ' seconds till complete')
 					}
 				} else {
 					stiBTr.textContent = 0
@@ -12926,8 +13006,8 @@ Restrictions: killed all enemies at caves at least once
 							kilDone()
 							kilPB.textContent = 0
 						}
-						document.getElementById('kilBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
-						document.getElementById('kilMBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
+						document.getElementById('kilBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
+						document.getElementById('kilMBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
 					}
 				} else {
 					kilBTr.textContent = 0
@@ -13028,8 +13108,8 @@ Restrictions: killed all enemies at caves at least once
 							fedDone()
 							fedPB.textContent = 0
 						}
-						document.getElementById('fedBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
-						document.getElementById('fedMBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
+						document.getElementById('fedBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
+						document.getElementById('fedMBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
 					}
 				} else {
 					fedBTr.textContent = 0
@@ -13117,8 +13197,8 @@ Restrictions: killed all enemies at caves at least once
 							sniDone()
 							localStorage.sniPB = 0
 						}
-						document.getElementById('sniBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
-						document.getElementById('sniMBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
+						document.getElementById('sniBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
+						document.getElementById('sniMBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
 					}
 				} else {
 					sniBTr.textContent = 0
@@ -13383,7 +13463,7 @@ Restrictions: killed all enemies at caves at least once
 						stiUTr.textContent = 0
 					} else {
 						setTimeout(stiU2,200)
-						stiPU.textContent = parseFloat(stiPU.textContent) + (100 / (5 * 60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))) * parseFloat(DroneUspeed.textContent)
+						stiPU.textContent = parseFloat(stiPU.textContent) + (100 / (5 * 60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						stiUTr.textContent = 1
 						if (parseFloat(stiPU.textContent) < 100){
 							document.getElementById("stiUP").style.width = parseFloat(stiPU.textContent) * 5.1 + 'px'
@@ -13394,8 +13474,8 @@ Restrictions: killed all enemies at caves at least once
 							stiLvl.textContent = parseInt(stiLvl.textContent) + 1
 							stiPU.textContent = 0
 						}
-						document.getElementById('stiUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
-						document.getElementById('stiMUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
+						document.getElementById('stiUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2)))))) + ' seconds till complete')
+						document.getElementById('stiMUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
 					}
 				} else {
 					stiUTr.textContent = 0
@@ -13415,7 +13495,7 @@ Restrictions: killed all enemies at caves at least once
 						kilUTr.textContent = 0
 					} else {
 						setTimeout(kilU2,200)
-						kilPU.textContent = parseFloat(kilPU.textContent) + (100 / (5 * 60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))) * parseFloat(DroneUspeed.textContent)
+						kilPU.textContent = parseFloat(kilPU.textContent) + (100 / (5 * 60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						kilUTr.textContent = 1
 						if (parseFloat(kilPU.textContent) < 100){
 							document.getElementById("kilUP").style.width = parseFloat(kilPU.textContent) * 5.1 + 'px'
@@ -13427,8 +13507,8 @@ Restrictions: killed all enemies at caves at least once
 							kilPU.textContent = 0
 							kilSC.textContent = Math.round((parseFloat(kilSC.textContent) + 0.1) * 10) / 10
 						}
-						document.getElementById('kilUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
-						document.getElementById('kilMUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
+						document.getElementById('kilUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
+						document.getElementById('kilMUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
 					}
 				} else {
 					kilUTr.textContent = 0
@@ -13448,7 +13528,7 @@ Restrictions: killed all enemies at caves at least once
 						fedUTr.textContent = 0
 					} else {
 						setTimeout(fedU2,200)
-						fedPU.textContent = parseFloat(fedPU.textContent) + (100 / (5 * 60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))) * parseFloat(DroneUspeed.textContent)
+						fedPU.textContent = parseFloat(fedPU.textContent) + (100 / (5 * 60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						fedUTr.textContent = 1
 						if (parseFloat(fedPU.textContent) < 100){
 							document.getElementById("fedUP").style.width = parseFloat(fedPU.textContent) * 5.1 + 'px'
@@ -13459,8 +13539,8 @@ Restrictions: killed all enemies at caves at least once
 							fedLvl.textContent = parseInt(fedLvl.textContent) + 1
 							fedPU.textContent = 0
 						}
-						document.getElementById('fedUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
-						document.getElementById('fedMUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
+						document.getElementById('fedUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
+						document.getElementById('fedMUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
 					}
 				} else {
 					fedUTr.textContent = 0
@@ -13480,7 +13560,7 @@ Restrictions: killed all enemies at caves at least once
 						sniUTr.textContent = 0
 					} else {
 						setTimeout(sniU2,200)
-						localStorage.sniPU = parseFloat(localStorage.sniPU) + (100 / (5 * 60 * (((parseInt(sniLvl.textContent) + 1)**1.7) + 6))) * parseFloat(DroneUspeed.textContent)
+						localStorage.sniPU = parseFloat(localStorage.sniPU) + (100 / (5 * 60 * (((parseInt(sniLvl.textContent) + 1)**1.7) + 6))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						sniUTr.textContent = 1
 						if (parseFloat(localStorage.sniPU) < 100){
 							document.getElementById("sniUP").style.width = parseFloat(localStorage.sniPU) * 5.1 + 'px'
@@ -13492,8 +13572,8 @@ Restrictions: killed all enemies at caves at least once
 							sniLvl.textContent = localStorage.sniLvl
 							localStorage.sniPU = 0
 						}
-						document.getElementById('sniUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
-						document.getElementById('sniMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
+						document.getElementById('sniUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
+						document.getElementById('sniMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
 					}
 				} else {
 					sniUTr.textContent = 0
@@ -14907,8 +14987,8 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('Sachi').classList.add('hide')
 			hide('Shelp')
 			document.getElementById('Sstat').classList.remove('hide')
-			DCT.textContent = 'Drop Chance - ' + (Math.floor((parseFloat(DC.textContent) * 100) * (1 + ((parseInt(localStorage.AdvP2)) * 0.05)))) / 100
-			SCT.textContent = 'Stone Chance - ' + Math.floor(parseFloat(SC.textContent) * 100) / 100
+			DCT.textContent = 'Drop Chance - ' + (Math.floor((parseFloat(DC.textContent) * 100) * (1 + ((parseInt(localStorage.AdvP2)) * 0.05))  * (1 + (b3 / 100)))) / 100
+			SCT.textContent = 'Stone Chance - ' + Math.floor(parseFloat(SC.textContent) * 100  * (1 + (b4 / 100))) / 100
 			UCT.textContent = 'Usb Chance - ' + Math.floor(parseFloat(UC.textContent) * 100) / 100
 			ekillsT.textContent = 'Total enemies killed - ' + ekills.textContent
 			DBST.textContent = 'Drone build speed multiplier - ' + Math.floor(parseFloat(DroneBspeed.textContent) * 100) / 100
@@ -15634,9 +15714,24 @@ Restrictions: killed all enemies at caves at least once
 			if (ifFound('item57')){
 				document.getElementById('item57').setAttribute('title', "Leather pants - He’s got the drip - +10 Hp +4 D\nDrops from the A10 plane thing (8%)\n" + document.getElementById('item57').getAttribute('title'))
 			}
+			if (ifFound('item58')){
+				document.getElementById('item58').setAttribute('title', "Luck of the Game III - A gift from the gasby gaming\nDropped from gasby gaming\n" + document.getElementById('item58').getAttribute('title'))
+			}
 		}//itemsHere
 		function anomOn(){
 			gameOn(1)//remove when update maybe?
+			for (let N = 1; N <= maxAnomSlots; N++){
+				if (localStorage.getItem('anom' + N)){
+					let rarity = findRarity(localStorage.getItem('anom' + N))
+					let item = findRarity(localStorage.getItem('anom' + N), 1)
+					document.getElementById('anom' + N).classList.replace('itemNA', 'item' + rarity)
+					document.getElementById('anomi' + N).classList.remove('anomLocked')
+					document.getElementById('anom' + N).classList.add('itemT' + localStorage.getItem('anom' + N).slice(-1))
+					document.getElementById('anomi' + N).classList.replace('anomEmpty', item + 'V2')
+					document.getElementById('anoma' + N).classList.add('item' + rarity + '2')
+					document.getElementById('anoma' + N).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + N)))
+				}
+			}
 			hide('gaming')
 			show('anom')
 			newSave('recyclePro',0)
@@ -15997,7 +16092,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('anom' + slot).classList.remove('itemT' + localStorage.getItem('anom' + slot).slice(-1))
 				document.getElementById('anomi' + slot).classList.replace(item + 'V2', 'anomEmpty')
 				document.getElementById('anomi' + slot).classList.add('anomEmpty')
-				console.log(document.getElementById('anomi' + slot).classList)
+				//bugfix console.log(document.getElementById('anomi' + slot).classList)
 				document.getElementById('anoma' + slot).classList.remove('item' + rarity + '2')
 				document.getElementById('anoma' + slot).setAttribute('title','')
 				//equip
@@ -16139,6 +16234,9 @@ Restrictions: killed all enemies at caves at least once
 				setTimeout(anomAnim, 100, t, value)
 			}
 		}
+		function xpMulti(value){
+			return Math.floor(value * (1 + (b7 / 100)))
+		}
 		function helpOn(){
 			hide('Smain')
 			hide('Sstat')
@@ -16171,8 +16269,12 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('helpB3').classList.add('helpButtonOn')
 			}
 		}
-		function FPZChange(){
-			
+		function ch33st(){
+			show('ch33')
 		}
+		function chNst(N){
+			show('ch' + N)
+			hide('ch' + (N - 1))
+		}		
 	</script>
 </html>
