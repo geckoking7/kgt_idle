@@ -271,13 +271,16 @@
 			<img src="taroyback.png" alt="Git gud bro" class="zone">
 			<img src="amogus.png" style='' alt="no" class="hide enemy" id="sus">
 			<img src="grass2.png" alt="no" class="hide enemy" id="grass2">
-			<img src="ctrlh.png" alt="no" class="hide enemy" id="ctrlh">
+			<img src="ctrlh.png" alt="no" class="hide enemy" id="ctrlh" style='width: 225px; height: 200px; left: 600px;'>
 			<img src="bing.png" alt="no" class="hide enemy" id="bing">
 			<h5 class='enemy' style='width: 180px; background: rgb(0,255,0); top: 225px; left: 635px;' id='greenEnemy'></h5>
 			<img src="gravity.png" alt="no" class="hide enemy" id="gravity">
 			<img src="gravityBack.gif" alt="no" class="hide" id="gravityBack" style='width: 300px; height: 300px; position: absolute; opacity: 0.4; left: 175px; top: 200px;'>
 			<img src="ant3.png" alt="yes" class="hide enemy" id="ant3">
 			<img src="e.png" alt="no" class="hide enemy" id="eEnemy">
+		</div>
+		<div id='z11' class='hide'>
+			<img src="z11back.png" alt="Git gud bro" class="zone">
 		</div>
 		<div id='players' style='position: absolute;'>
 			<img src="player.gif" alt="an idiot" class="player hide" id="player">
@@ -372,6 +375,10 @@ Restrictions: killed all enemies at area 51 at least once
 Restrictions: killed all enemies at area 51 at least once
                     Have the theory from the deep" class="hide btnr taroy" id="taroy"></button>
 		<div id='advZB' class='hide'>
+		<button title="Underground Research Facility
+Restrictions: killed all enemies in the mines at least once
+                    killed all enemies in the Coder's lab at least once
+                    More restrictions in the next update" class="btnr urf" id="urf"></button>
 		<button title="No grass touch
 Restrictions: killed all enemies at caves at least once
                     Some other stuff" class="btnr tconb" id="Tconb"></button>
@@ -709,6 +716,7 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent fightPicker69 notFound" style="left: 325px; top: 370px;" id="item56"></button>
 			<button class="itemBVent pants notFound" style="left: 380px; top: 370px;" id="item57" onclick=itemFilter(57)></button>
 			<button class="itemBVent LotG notFound" style="left: 435px; top: 370px;" id="item58"></button>
+			<button class="itemBVent susSuit notFound" style="left: 490px; top: 370px;" id="item59" onclick=itemFilter(59)></button>
 		</div><!-- //itemsHere -->
 		<!-- Drones -->
 		<div class='hide' id='dronebuild'>
@@ -1030,6 +1038,13 @@ Restrictions: killed all enemies at caves at least once
 				<button style='top: 115; left: 162;' class='helpButton helpButtonOn' title='thing_1' onclick=changeHelp(1) id='helpB1'>Adventure</button>
 				<button style='top: 140; left: 162;' class='helpButton hide' title='thing_2' onclick=changeHelp(2) id='helpB2'>Inventory</button>
 				<button style='top: 165; left: 162;' class='helpButton hide' title='thing_3' onclick=changeHelp(3) id='helpB3'>Drones</button>
+				<button style='top: 190; left: 162;' class='helpButton hide' title='thing_4' onclick=changeHelp(4) id='helpB4'>Gaming</button>
+				<button style='top: 215; left: 162;' class='helpButton' title='thing_5' onclick=changeHelp(5) id='helpB5'>Tech stuff</button>
+				<button style='top: 140; left: 262;' class='helpButton hide' title='thing_7' onclick=changeHelp(7) id='helpB7'>Training</button>
+				<button style='top: 190; left: 262;' class='helpButton hide' title='thing_9' onclick=changeHelp(9) id='helpB9'>Enhanced</button>
+				<button style='top: 215; left: 262;' class='helpButton hide' title='thing_10' onclick=changeHelp(10) id='helpB10'>Achieves</button>
+				<button style='top: 140; left: 362;' class='helpButton hide' title='thing_12' onclick=changeHelp(12) id='helpB12'>Experience</button>
+				<button style='top: 140; left: 462;' class='helpButton hide' title='thing_17' onclick=changeHelp(17) id='helpB17'>Library</button>
 				<div id='advH1' class='helpInfo'>
 					<h1 class='helpText'>The adventure is where you kill things<br>
 						This is the most important feature, as most things affect and are unlocked from it<br>
@@ -1083,6 +1098,83 @@ Restrictions: killed all enemies at caves at least once
 						&emsp;<span style='font-style: italic;'>And much more...</span><br>
 					</h1>
 					<h5 class="upgrade" style='left: 300px; top: 350px; z-index: 2;'></h5>
+				</div>
+				<div id='gamH1' class='helpInfo hide'>
+					<h1 class='helpText'>Gaming is an excuse for me not to work on KGT idle however say I am working on KGT idle<br>
+					But how does it benefit you?<br>
+					<br>
+					Gaming is a place where you play other bad games to get rewards from them<br>
+					All the games have a HTP button (how to play) to tell you of its own unique stuff<br>
+					<br>
+					All games have a cooldown so you can't only play it and still be forced to play KGT<br>
+					(also for balance of their loot)<br>
+					This can be decreased by upgrading their respective system<br>
+					They also can be upgraded to improve the rewards and how far you can progress on them<br>
+					<br>
+					Since they take alot of effort to create there is currently only 1 game(s)<br> 
+					</h1>
+				</div>
+				<div id='tecH1' class='helpInfo hide'>
+					<h1 class='helpText'>Technical stuffs (game mechanics)<br>
+						&emsp;Save:<br>
+						&emsp;&emsp;The game saves whenever you open inventory, so just do that<br>
+						&emsp;&emsp;The game is also saved only to your browser, so it won't persist on other browsers or computers<br>
+						&emsp;I don't know what else to put here<br>
+					</h1>
+				</div>
+				<div id='traH1' class='helpInfo hide'>
+					<h1 class='helpText'>Idk lvl up your moves and they stronger<br>
+						Why did I think this was worthy of its own page?
+					</h1>
+				</div>
+				<div id='enhH1' class='helpInfo hide'>
+					<h1 class='helpText'>THE BETTER ITEM DROP SYSTEM GAMEYTHING<br>
+						DO you want to see numbers go up?<br>
+						<span style='font-size: 6px;'>Go play NGU idle its a way better game</span><br>
+						<br>
+						Well this thing gives you stat multipliers to help you on your goal of world domination such as:<br>
+						&emsp;<span style='color: rgb(237,28,36); background: rgb(0,0,0); padding: 0 5px;'>Attack</span><br>
+						&emsp;<span style='color: rgb(0,162,232); background: rgb(0,0,0); padding: 0 5px;'>Defence</span><br>
+						&emsp;<span style='color: rgb(255,201,14); background: rgb(0,0,0); padding: 0 5px;'>Drop Chance</span><br>
+						&emsp;<span style='color: rgb(127,127,127); background: rgb(0,0,0); padding: 0 5px;'>Stone chance</span><br>
+						&emsp;<span style='color: rgb(112,146,190); background: rgb(0,0,0); padding: 0 5px;'>Drone build speed</span><br>
+						&emsp;<span style='color: rgb(255,242,0); background: rgb(0,0,0); padding: 0 5px;'>Drone upgrade speed</span><br>
+						&emsp;<span style='color: rgb(163,73,164); background: rgb(0,0,0); padding: 0 5px;'>Xp gain</span><br>
+						And rarities for how good that bonus is!11!!1
+						<br>
+						These enhanced items drop from many things; zones, drones but most commonly from games<br>
+						You need to grind different places since you can only equip 1 of each item (not bonus or rarity)<br>
+						<br>
+						Right clicking and unequipped item will fill up a bar, and once that bar is full you will can a new item<br>
+					</h1>
+				</div>
+				<div id='achH1' class='helpInfo hide'>
+					<h1 class='helpText'>Do achievements to gain AP to buy perks and stuff<br>
+						The amount of AP gained is based on the difficulty of the achievement;<br>
+						&emsp;Green - 1<br>
+						&emsp;Blue - 2<br>
+						&emsp;Purple - 3<br>
+						&emsp;Yellow - 4<br>
+						&emsp;Red - 5<br>
+						&emsp;Black - 10<br>
+					</h1>
+				</div>
+				<div id='expH1' class='helpInfo hide'>
+					<h1 class='helpText'>Get Xp from doing things<br>
+						Then press leftMouseButton to buy a something
+					</h1>
+				</div>
+				<div id='libH1' class='helpInfo hide'>
+					<h1 class='helpText'>The item Library is a place to view the items you have collected<br>
+					To filter an item, click on it and it will grey out (some Items can't be greyed out for reasons)<br>
+					Filtering an item means it is automatically deleted from your inventory for you<br>
+					(Also note that the erasers bonus still applies to filtered items so don't worry)<br>
+					<br>
+					Also collecting more items gives a health multiplier<br>
+					&emsp;The amount of multiplier gaing per item is this math:<br>
+					&emsp;sqrt(amount collected) * 0.1 %<br>
+					&emsp;(Bonus is additive, meaning all of these bonuses are added together per item)<br>
+					</h1>
 				</div>
 			</div>
 			<div id='Sstat'>
@@ -2579,6 +2671,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('coderslab')
 			hide('taroy')
 			hide('advZB')
+			hide('z11')
 			for (let i = 23; i < (lore + 1); i++) {
 				document.getElementById('ch'+ i).classList.add('hide')
 			}
@@ -2911,11 +3004,15 @@ Restrictions: killed all enemies at caves at least once
 				}
 				if (area51.classList.contains('btng') && localStorage.ToE2Tr === '2'){
 					document.getElementById('taroy').classList.replace('btnr','btny')
-					document.getElementById('taroy').setAttribute('title',"The Alternating Reality Of Yes: " + (ifFound('item52',1) + ifFound('item53',1) + ifFound('item54',1) + ifFound('item55',1)) + ' out of 4 items found')
+					document.getElementById('taroy').setAttribute('title',"The Alternating Reality Of Yes: " + (ifFound('item52',1) + ifFound('item53',1) + ifFound('item54',1) + ifFound('item55',1) + ifFound('item59',1)) + ' out of 5 items found')
 				}
 				if (parseInt(localStorage.susc) > 0 && parseInt(localStorage.grass2c) > 0 && parseInt(localStorage.ctrlhc) > 0 && parseInt(localStorage.bingc) > 0 && parseInt(localStorage.greenc) > 0 && parseInt(localStorage.gravityc) > 0 && parseInt(localStorage.ant3c) > 0 && parseInt(localStorage.ec) > 0){
 					document.getElementById('taroy').classList.replace('btny','btng')
 				}
+				//if (mines.classList.contains('btng') && coderslab.classList.contains('btng')){ //change when fully finshed
+				//	document.getElementById('urf').classList.replace('btnr','btny')
+				//	document.getElementById('urf').setAttribute('title','Underground Research facility (DEMO)')
+				//}
 			} else if (parseInt(localStorage.gasbyc) > 0){
 				localStorage.gasbyL1 = 1
 				if (existTr(localStorage.item58) === false){
@@ -3103,7 +3200,7 @@ Restrictions: killed all enemies at caves at least once
 						}
 					}
 					if (localStorage.WFUstone){
-						let length = (localStorage.WFUstone).length
+						let length = parseInt((localStorage.WFUstone).length)
 						for (let i = 1; i <= length; i++){
 							if (localStorage.WFUstone[0] === '1'){
 								if (idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp', 10000)){
@@ -4387,6 +4484,12 @@ Restrictions: killed all enemies at caves at least once
 				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) + 0.05
 				document.getElementById('bo').setAttribute('title','')
 				idrop('jetpack','Jetpack - Fly with manmade wings, without wings - +5 Hp -5% Move Cooldown', 10000, 1)
+			} else if (bo.classList.contains('susSuit')){
+				document.getElementById('bo').classList.replace('susSuit','body')
+				localStorage.mhp = parseFloat(localStorage.mhp) - 300
+				localStorage.def = parseFloat(localStorage.def) - 150
+				document.getElementById('bo').setAttribute('title','')
+				idrop('susSuit','Crewmate Suit - Whilst you wear this item, avoid any 10 year olds you find - +300 Hp +150 D', 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5280,6 +5383,13 @@ Restrictions: killed all enemies at caves at least once
 				iv2.classList.replace('LotG','empty')
 				iv2.setAttribute('title','')
 				localStorage.anomTr = 1
+			} else if (iv2.classList.contains('susSuit') && bo.classList.contains('body')){
+				iv2.classList.replace('susSuit','empty')
+				document.getElementById('bo').classList.replace('body','susSuit')
+				localStorage.mhp = parseFloat(localStorage.mhp) + 300
+				localStorage.def = parseFloat(localStorage.def) + 150
+				iv2.setAttribute('title','')
+				document.getElementById('bo').setAttribute('title','Crewmate Suit - Whilst you wear this item, avoid any 10 year olds you find - +300 Hp +150 D')
 			} else {
 				if (iv2.classList.item(1) !== 'empty'){
 					idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
@@ -10924,6 +11034,7 @@ Restrictions: killed all enemies at caves at least once
 							KBify(localStorage.susc)
 							var qe = setTimeout(enki,500)
 							document.getElementById("eHealth").style.width = '0px'
+							idrop('susSuit','Crewmate Suit - Whilst you wear this item, avoid any 10 year olds you find - +300 Hp +150 D', 300)
 							sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
 							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
@@ -11299,6 +11410,50 @@ Restrictions: killed all enemies at caves at least once
 						}
 					}
 				}
+			} else {
+				newSave('ach12p', 0)
+				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
+			}
+		}
+		function startBat(){
+			document.getElementById('mhp').classList.remove('hide','mhpi')
+			document.getElementById('att').classList.remove('hide','atti')
+			document.getElementById('def').classList.remove('hide','defi')
+			document.getElementById('reg').classList.remove('hide','regi')
+			show('emhp')
+			show('eatt')
+			show('edef')
+			show('ereg')
+			hide('adv')
+			hide('tutli')
+			hide('tutZo')
+			hide('field')
+			hide('sky')
+			hide('school')
+			hide('ameair')
+			hide('area51')
+			hide('caves')
+			hide('mines')
+			hide('coderslab')
+			hide('taroy')
+			hide('advZB')
+			show('estat')
+			show('pstat')
+			show('health')
+			show('maxHealth')
+			show('eHealth')
+			show('eMaxHealth')
+			show('player')
+			advc.textContent = parseInt(advc.textContent) - 1
+			document.getElementById("health").style.width = 250
+		}
+		//urf.onclick = urfbat;
+		function urfbat(){
+			if (mines.classList.contains('btng') && coderslab.classList.contains('btng')){
+				sadvmus()
+				setStats()
+				startBat()
+				show('z11')
 			} else {
 				newSave('ach12p', 0)
 				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
@@ -15717,6 +15872,9 @@ Restrictions: killed all enemies at caves at least once
 			if (ifFound('item58')){
 				document.getElementById('item58').setAttribute('title', "Luck of the Game III - A gift from the gasby gaming\nDropped from gasby gaming\n" + document.getElementById('item58').getAttribute('title'))
 			}
+			if (ifFound('item59')){
+				document.getElementById('item59').setAttribute('title', "Crewmate Suit - Whilst you wear this item, avoid any 10 year olds you find - +300 Hp +150 D\nDropped from a suspicous shape (3%)\n" + document.getElementById('item59').getAttribute('title'))
+			}
 		}//itemsHere
 		function anomOn(){
 			gameOn(1)//remove when update maybe?
@@ -16006,7 +16164,7 @@ Restrictions: killed all enemies at caves at least once
 			} else if (bonus === 5){
 				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to drone build speed' 
 			} else if (bonus === 6){
-				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to drone build speed' 
+				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to drone upgrade speed' 
 			} else if (bonus === 7){
 				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to xp gain' 
 			}
@@ -16033,9 +16191,9 @@ Restrictions: killed all enemies at caves at least once
 			} else if (rare === 'E'){
 				return 8
 			} else if (rare === 'L'){
-				return 10
+				return 12
 			} else if (rare === 'Re'){
-				return 15
+				return 18
 			} else if (rare === 'Co'){
 				return 25
 			} else {
@@ -16044,7 +16202,14 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function anomEquip(slot){
 			let emptySlot = findEmptySlot(1,9)
-			if (localStorage.getItem('anom' + slot) && emptySlot){
+			let uniqueItem = 1
+			for (let N = 1; N <= 9; N++){
+				if (document.getElementById('anomi' + N).classList.contains(findRarity(localStorage.getItem('anom' + slot), 1) + 'V2')){
+					uniqueItem = 0
+					N = 3983
+				}
+			}
+			if (localStorage.getItem('anom' + slot) && emptySlot && uniqueItem === 1){
 				let rarity = findRarity(localStorage.getItem('anom' + slot))
 				let item = findRarity(localStorage.getItem('anom' + slot), 1)
 				//delete
@@ -16248,6 +16413,24 @@ Restrictions: killed all enemies at caves at least once
 			if (document.getElementById('drone').classList.contains('open')){
 				show('helpB3')
 			}
+			if (document.getElementById('games').classList.contains('open')){
+				show('helpB4')
+			}
+			if (localStorage.traTr === '2'){
+				show('helpB7')
+			}
+			if (localStorage.anomTr === '1'){
+				show('helpB9')
+			}
+			if (localStorage.ToE2Tr === '2'){
+				show('helpB10')
+			}
+			if (localStorage.traTr === '2'){
+				show('helpB12')
+			}
+			if (localStorage.IFTr === '1'){
+				show('helpB17')
+			}
 		}
 		function changeHelp(n){
 			const helpThings = document.getElementsByClassName('helpInfo');
@@ -16258,15 +16441,27 @@ Restrictions: killed all enemies at caves at least once
 			for (const id of helpButtons) {
 				id.classList.remove('helpButtonOn')
 			}
+			document.getElementById('helpB' + n).classList.add('helpButtonOn')
 			if (n === 1){
 				show('advH1')
-				document.getElementById('helpB1').classList.add('helpButtonOn')
 			} else if (n === 2){
 				show('invH1')
-				document.getElementById('helpB2').classList.add('helpButtonOn')
 			} else if (n === 3){
 				show('droH1')
-				document.getElementById('helpB3').classList.add('helpButtonOn')
+			} else if (n === 4){
+				show('gamH1')
+			} else if (n === 5){
+				show('tecH1')
+			} else if (n === 7){
+				show('traH1')
+			} else if (n === 9){
+				show('enhH1')
+			} else if (n === 10){
+				show('achH1')
+			} else if (n === 12){
+				show('expH1')
+			} else if (n === 17){
+				show('libH1')
 			}
 		}
 		function ch33st(){

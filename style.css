@@ -487,7 +487,10 @@ img{
 	top: 174px;
 	left: 373px;
 }
-
+.urf{
+	top: 208px;
+	left: 270px;
+}
 .tconb{
 	top: 256px;
 	left: 163px;
@@ -791,6 +794,9 @@ img{
 }
 .LotG{
 	background-image: url('luckOfTheGame.gif');
+}
+.susSuit{
+	background-image: url('susSuit.png');
 }
 .useall{
 	background-image: url('useall.png');
