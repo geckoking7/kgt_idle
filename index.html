@@ -1685,6 +1685,10 @@ Restrictions: killed all enemies at caves at least once
 			newSave('sniS',1)
 			newSave('dodgeCoolM',1)
 			newSave('goldWFU',0)
+			newSave('hpM', 1)
+			if (localStorage.hpM === 'NaN'){
+				localStorage.hpM = 1
+			}
 			if (localStorage.goldWFU === 'NaN'){
 				localStorage.goldWFU = 0
 			}
@@ -1811,7 +1815,6 @@ Restrictions: killed all enemies at caves at least once
 				yc.textContent = localStorage.yc
 				rulerc.textContent = localStorage.rulerc
 				chairc.textContent = localStorage.chairc
-				newSave('hpM', 1)
 				if (localStorage.attL){
 					attL.textContent = localStorage.attL
 					bloL.textContent = localStorage.bloL
