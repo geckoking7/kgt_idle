@@ -298,8 +298,12 @@
 			<img src="z11back3.png" alt="Git gud bro" class="zone" id='z11b3'>
 			<img src="guard2.png" alt="scout" class="hide enemy" id="guard2">
 			<img src="headcrab.png" alt="hl3" class="hide enemy" id="headcrab">
+			<img src="portalsentry.png" alt="p3" class="hide enemy" id="portalrobot">
 			<h5 id='youDied' class='hide' style='color: white; font-size: 72; position: absolute; top: 200px; left: 400px; z-index: 212351205;'>YOU DIED</h5>
 			<h5 id='doorTimerID' class='hide' style='color: white; font-size: 48; position: absolute; top: 100px; left: 290px; z-index: 4;'>30</h5>
+			<img src="cube.png" alt="fren?" class="hide" id="pCube" style='width: 100px; height: 100px; position: absolute; left: 350px; top: 400px;'>
+			<img src="portalback.gif" alt="arrow" class="hide" id="upArrow" style='width: 50px; height: 150px; position: absolute; left: 300px; top: 150px; opacity: 0.6;'>
+			<img src="downarrow.gif" alt="arrow2" class="hide" id="downArrow" style='width: 50px; height: 150px; position: absolute; left: 300px; top: 150px; opacity: 0.6;'>
 		</div>
 		<div id='players' style='position: absolute;'>
 			<img src="player.gif" alt="an idiot" class="player hide" id="player">
@@ -309,7 +313,8 @@
 			<img src="torchplayer.png" alt="an idiot" class="player hide" id="torchplayer">
 			<img src="minerplayer.png" alt="an idiot" class="player hide" id="minerplayer">
 			<img src="playerCry.gif" alt=":c" class="player hide" id="cryingPlayer">
-			<img src="playerFall1.gif" alt=":c" class="player hide" id="fallingPlayer" style="top: 44px; left:225">
+			<img src="playerFall1.gif" alt="yay" class="player hide" id="fallingPlayer" style="top: 44px; left:225">
+			<img src="playerHide.png" alt="uasebvjklf" class="player hide" id="hidingPlayer">
 		</div>
 		<img src="fightstats.png" alt="numbre" class="hide" style="position: absolute; left: 225px; top: 540px; height: 50px; width: 200px; z-index: 1;" id="pstat">
 		<img src="fightstats.png" alt="number" class="hide" style="position: absolute; left: 625px; top: 540px; height: 50px; width: 200px; z-index: 1;" id="estat">
@@ -417,6 +422,9 @@ Restrictions: killed all enemies at caves at least once
 			<h5 style='opacity: 0.2; background: white; position: absolute; left: 45px; top: 120px; width: 0px; height: 30px; margin: 0;' id='blockshadow'></h5>
 			<h5 style='opacity: 0.2; background: white; position: absolute; left: 45px; top: 160px; width: 0px; height: 30px; margin: 0;' id='healshadow'></h5>
 		</div>
+		<h5 style='background: white; position: absolute; left: 35px; top: 70px; width: 50px; height: 50px; margin: 0; background: url("noMove.png");' id='noMove1' class='hide'></h5>
+		<h5 style='background: white; position: absolute; left: 35px; top: 110px; width: 50px; height: 50px; margin: 0; background: url("noMove.png");' id='noMove2' class='hide'></h5>
+		<h5 style='background: white; position: absolute; left: 35px; top: 150px; width: 50px; height: 50px; margin: 0; background: url("noMove.png");' id='noMove3' class='hide'></h5>
 		<div class="hide" id="maxHealth">
 			<h5 class="hide" id="hp" style='text-align: center; z-index: 4; margin: 0; position: relative; height: 0px; font-size: 24px;'>0</h5>
 			<h5 id="hp2" style='text-align: center; z-index: 4; margin: 0; position: relative; height: 0px; font-size: 24px;'>0</h5>
@@ -2640,6 +2648,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('ame1player')
 			hide('ame2player')
 			hide('skyplayer')
+			hide('hidingPlayer')
 			hide('mine')
 			hide('tutli')
 			hide('tutb')
@@ -2867,6 +2876,9 @@ Restrictions: killed all enemies at caves at least once
 			hide('d4ub')
 			hide('d4ubut')
 			hide('fire')
+			hide('noMove1')
+			hide('noMove2')
+			hide('noMove3')
 			save()
 		}
 		window.addEventListener('keydown', function (e) {
@@ -3073,12 +3085,9 @@ Restrictions: killed all enemies at caves at least once
 				hide('slots')
 				hide('tutzobook')
 				hide('adv')
-				var a = document.getElementById('tutZo')
-				a.classList.add('hide')
-				var a = document.getElementById('field')
-				a.classList.add('hide')
-				var a = document.getElementById('sky')
-				a.classList.add('hide')
+				hide('tutZo')
+				hide('field')
+				hide('sky')
 				var a = document.getElementById('attack')
 				a.classList.add('hide')
 				var a = document.getElementById('fMeTutZo')
@@ -3118,11 +3127,9 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('taroy')
 				a.classList.add('hide')
-				var a = document.getElementById('coderslab')
-				a.classList.add('hide')
+				hide('coderslab')
 				document.getElementById('advZB').classList.add('hide')
-				var a = document.getElementById('ch3b')
-				a.classList.add('hide')
+				hide('ch3b')
 				hide('ch4')
 				hide('ch4b')
 				var a = document.getElementById('estat')
@@ -11773,6 +11780,7 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
 			}
 		}
+		var upTr = 0;
 		urf.onclick = urfbat;
 		function urfbat(enemyN){
 			if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && localStorage.ch37Tr === '1' || enemyN <= 8 && enemyN >= 1){
@@ -11785,9 +11793,13 @@ Restrictions: killed all enemies at caves at least once
 				hide('z11b3')
 				hide('youDied')
 				hide('doorTimerID')
+				hide('pCube')
+				hide('upArrow')
 				//hide all enemies
 				hide('guard2')
 				hide('headcrab')
+				hide('portalrobot')
+				upTr = 0
 				if (localStorage.doorKill != '1' && (enemyN <= 8) === false && (enemyN >= 1) === false){
 					show('z11b2')
 					show('doorTimerID')
@@ -11836,7 +11848,7 @@ Restrictions: killed all enemies at caves at least once
 					if (enemyN < 9 && enemyN > 0){
 						x = enemyN
 					}
-					if (x < 5){
+					if (x === 1){
 						show('guard2')
 						setEStats(12000, 1200, 1000, 200)
 						battle(0, 20)
@@ -11867,23 +11879,25 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500)
 							}
 						}
-					} else if (true){
+					} else if (x === 2){
 						show('headcrab')
-						setEStats(10000, 500, 0, 100)
+						setEStats(10000, 369, 0, 0)
 						battle(0, 1)
 						function battle(ae, sp){
 							if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
 								regen()
 								ae = ae + 1
 								if (ae === sp){
-									healthTest = eattack(1)
-									if (parseInt(ehp.textContent) + healthTest >= parseInt(emhp.textContent)){
+									healthTest = parseInt(eattack(1) * 0.1)
+									if (parseInt(ehp.textContent) + healthTest >= parseInt(emhp.textContent) && healthTest > 0){
 										ehp.textContent = emhp.textContent
 									} else {
-										ehp.textContent = parseInt(ehp.textContent) + healthTest
+										if (healthTest > 0){
+											ehp.textContent = parseInt(ehp.textContent) + healthTest
+										}
 									}
 									ae = 0
-									eatt.textContent = Math.floor(parseInt(eatt.textContent) * 1.01)
+									eatt.textContent = Math.ceil(parseInt(eatt.textContent) * 1.002)
 								}
 								setTimeout(battle, 50, ae, sp)
 							} else if (parseFloat(ehp.textContent) <= 0){
@@ -11893,6 +11907,45 @@ Restrictions: killed all enemies at caves at least once
 								newSave('headcrabc',0)
 								localStorage.headcrabc = parseInt(localStorage.headcrabc) + 1
 								KBify(localStorage.headcrabc)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+								document.getElementById("eHealth").style.width = '0px'
+								stoneDrops(10)
+							} else if (parseFloat(hp.textContent) <= 0){
+								playerdead()
+								hide('player')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500)
+							}
+						}
+					} else if (true){
+						show('portalrobot')
+						show('pCube')
+						hide('player')
+						show('hidingPlayer')
+						show('upArrow')
+						show('noMove1')
+						show('noMove2')
+						setEStats(12000, 1200, 1200, 500)
+						battle(0, 4)
+						function battle(ae, sp){
+							if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+								regen()
+								ae = ae + 1
+								if (ae === sp){
+									if (upTr === 1){
+										eattack()
+									}
+									ae = 0
+								}
+								setTimeout(battle, 50, ae, sp)
+							} else if (parseFloat(ehp.textContent) <= 0){
+								enemykill(11)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(300)
+								hide('portalrobot')
+								newSave('portalrobotc',0)
+								localStorage.portalrobot2c = parseInt(localStorage.portalrobotc) + 1
+								KBify(localStorage.portalrobotc)
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500)
 								document.getElementById("eHealth").style.width = '0px'
@@ -12220,7 +12273,7 @@ Restrictions: killed all enemies at caves at least once
 		Fattack.onclick = attac;
 		var cooldown = 0;
 		function attac(){
-			if (cooldown === 0 && eating === 0){
+			if (cooldown === 0 && eating === 0 && document.getElementById('noMove1').classList.contains('hide')){
 				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
 					if (attn > 0){
 						attn = attn + 1
@@ -12764,7 +12817,7 @@ Restrictions: killed all enemies at caves at least once
 		block.onclick = bloc;
 		var bcooldown = 0;
 		function bloc(){
-			if (bcooldown === 0){
+			if (bcooldown === 0 && document.getElementById('noMove2').classList.contains('hide')){
 				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
 					bcooldown = 1
 					var a = document.getElementById('block')
@@ -12817,7 +12870,7 @@ Restrictions: killed all enemies at caves at least once
 		shield.onclick = shiel;
 		var scooldown = 0;
 		function shiel(){
-			if (scooldown === 0){
+			if (scooldown === 0 && document.getElementById('noMove2').classList.contains('hide')){
 				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
 					scooldown = 1
 					shieldOn.textContent = 1
@@ -12858,7 +12911,7 @@ Restrictions: killed all enemies at caves at least once
 		dodge.onclick = dodg;
 		var dcooldown = 0;
 		function dodg(){
-			if (dcooldown === 0){
+			if (dcooldown === 0 && document.getElementById('noMove2').classList.contains('hide')){
 				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
 					dodgeOn.textContent = 1
 					dcooldown = 1
@@ -12936,16 +12989,35 @@ Restrictions: killed all enemies at caves at least once
 					} else if (e.key === 'ArrowDown'){
 						document.getElementById('fallingPlayer').style.left = '225px'
 						playerPos = 1
+						if (document.getElementById('z11').classList.contains('hide') === false && document.getElementById('portalrobot').classList.contains('hide') === false){
+							upTr = 0
+							show('hidingPlayer')
+							hide('player')
+							show('upArrow')
+							hide('downArrow')
+							show('noMove1')
+							show('noMove2')
+						}
 					} else if (e.key === 'ArrowRight'){
 						document.getElementById('fallingPlayer').style.left = '325px'
 						playerPos = 2
+					} else if (e.key === 'ArrowUp'){
+						if (document.getElementById('z11').classList.contains('hide') === false && document.getElementById('portalrobot').classList.contains('hide') === false){
+							upTr = 1
+							hide('hidingPlayer')
+							show('player')
+							hide('upArrow')
+							show('downArrow')
+							hide('noMove1')
+							hide('noMove2')
+						}
 					}
 				}
 			}
 		}, false);
 		var hcooldown = 0;
 		function healUse(){
-			if (hcooldown === 0 && mhp.textContent != hp.textContent){
+			if (hcooldown === 0 && mhp.textContent != hp.textContent && document.getElementById('noMove3').classList.contains('hide')){
 				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0 && mhp.textContent != hp.textContent){
 					hcooldown = 1
 					if (parseInt(localStorage.heaL) <= 20){
@@ -12975,7 +13047,7 @@ Restrictions: killed all enemies at caves at least once
 		var h2cooldown = 0;
 		var hyperValue = 0;
 		function hyperUse(){
-			if (h2cooldown === 0){
+			if (h2cooldown === 0 && document.getElementById('noMove3').classList.contains('hide')){
 				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
 					h2cooldown = 1
 					if (parseInt(localStorage.heaL) <= 20){
@@ -13004,7 +13076,7 @@ Restrictions: killed all enemies at caves at least once
 		var eating = 0;
 		var h3cooldown = 0;
 		function sandUse(){
-			if (h3cooldown === 0){
+			if (h3cooldown === 0 && document.getElementById('noMove3').classList.contains('hide')){
 				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0 && mhp.textContent != hp.textContent){
 					h3cooldown = 1
 					document.getElementById('sandwich').classList.replace('sandwich','sandwichon')
