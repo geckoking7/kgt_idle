@@ -11848,7 +11848,7 @@ Restrictions: killed all enemies at caves at least once
 					if (enemyN < 9 && enemyN > 0){
 						x = enemyN
 					}
-					if (x === 1){
+					if (x <= 3){
 						show('guard2')
 						setEStats(12000, 1200, 1000, 200)
 						battle(0, 20)
@@ -11879,7 +11879,7 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500)
 							}
 						}
-					} else if (x === 2){
+					} else if (x <= 6){
 						show('headcrab')
 						setEStats(10000, 369, 0, 0)
 						battle(0, 1)
