@@ -1,0 +1,349 @@
+<html>
+	<head>
+		<title>Lore</title>
+		<link rel="icon" type="image/x-icon" href="logo.png">
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+		<body onload='yes()'>
+		<button onclick='home()' class='open' style='width: 960px; margin: 5px;'>Go back to menu of lore reader button (always here)</button>
+		<div id='main'>
+			<img src="setBack.png" alt="lore">
+			<button id='btn1' onclick='chNst(1)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 120px;'>Welcoming</button>
+			<button id='btn2' onclick='chNst(3)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 145px;'>Unlock inventory</button>
+			<button id='btn3' onclick='chNst(5)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 170px;'>Newbies first quest</button>
+			<button id='btn4' onclick='chNst(7)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 195px;'>Quest complete</button>
+			<button id='btn5' onclick='chNst(9)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 220px;'>Proof you have intellect</button>
+			<button id='btn6' onclick='chNst(15)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 245px;'>Training unlocked</button>
+			<button id='btn7' onclick='chNst(16)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 270px;'>You gets the killer robots</button>
+			<button id='btn8' onclick='hideAllMenu(); show("d3u1")' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 295px;'>Is that feddy fasbaer?!??!</button>
+			<button id='btn9' onclick='chNst(18);' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 320px;'>The Quest for the 4th feature</button>
+			<button id='btn10' onclick='chNst(21);' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 345px;'>The reward</button>
+			<button id='btn11' onclick='hideAllMenu(); show("d4u")' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 370px;'>A professtional unlocked</button>
+			<button id='btn12' onclick='chNst(23)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 395px;'>The lore thickens...</button>
+			<button id='btn13' onclick='chNst(31)' class='helpButton' style='width: 230px; position: absolute; left: 160px; top: 420px;'>Entering the lab</button>
+			<button id='btn14' onclick='hideAllMenu(); show("ifunlock")' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 445px;'>4th subfeature of inventory</button>
+			<button id='btn15' onclick='document.getElementById("ch33att").textContent = localStorage.att; chNst(33)' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 470px;'>Pain (Staring Gasby)</button>
+			<button id='btn16' onclick='chNst(37)' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 495px;'>Earns a domination</button>
+		</div>
+		<div id='ch1' class='hide'>
+			<h4 class="lore" id="ch1">You wake up, in the middle of a something.<br>Confused of where you are, however, you have this feeling, of major dislike, of slightly less major hate.<br>Something, no, someone, has destroyed this place. Somebody needs to pay.<br>In front of you, you see a bunch of weird objects. What is this, green line, or the, flat piece of white.<br>Ok, what strange objects, but there is also this person next to them.<br><br>“Ah, Finally, you’re awake”</h4>
+			<img src="ch1back.png" alt="lore" id="ch1b">
+			<button class="ch1but" onclick="chNst(2)">Ok</button>
+		</div>
+		<div id='ch2' class='hide'>
+			<h4 class="lore" id="ch2">This sounds familiar. Looking at him, he seems neutral, however, friendly at the same time.<br>“Could you destroy these things for me? They may look basic, but don’t underestimate them”<br>What<br>“Oh, you don’t know how to fight. To fight, press adventure, notice where the attack button is (sword) then click the yellow button and spam the attack button”<br>"And if you beat an enemy, you might get something"<br>Okey dokey</h4>
+			<img src="ch2back.png" alt="lore" class=" " id="ch2b">
+			<button class="ch1but " id="ch2but" style="top: 220px; width: 70px; left: 785px;" onclick="home()">yay</button>
+		</div>
+		<div id='ch3' class='hide'>
+			<h4 class="lore " id="ch3">FINALLY IT BECAME OF THE DEAD<br>Looking at the dead carcass, it has dropped a weird, smiling hat thing.<br>Wow<br>Much wow<br>You take it to the guy and see what knowledge he can share</h4>
+			<img src="ch3back.png" alt="lore" class=" " id="ch3b">
+			<button class="ch1but " id="ch3but" style="top: 205px;" onclick=chNst(4)>Ok</button>
+		</div>
+		<div id='ch4' class='hide'>
+			<h4 class="lore " id="ch4">“Ok what is that”<br>You tell him that the thing dropped it and now you clicked on ‘Inventory’ button<br>“Oh, well You need to click on it to equip and a second time to unequip”<br>Very knowledgeable, this guy<br>“And if you want to unlock more things, you need to beat the tutorial zone by defeating all of them”<br><br> </h4>
+			<img src="ch4back.png" alt="lore" class=" " id="ch4b">
+			<button class="ch1but " id="ch4but" style="top: 220px;" onclick=home()>Ok</button>
+		</div>
+		<div id='ch5' class='hide'>
+			<h4 class="lore " id="ch5">You walk to the end of the road, notice the helicopter on the left and a field on your right.<br>“Now I must leave you, since now you can take care of yourself”<br>You thank him, but ask what happens if you get something new, or get an idle game that actually is IDLE<br>He just says, “Read the sign”<br>What sign?</h4>
+			<h4 class="lore  ch5a" id="ch5a">Ok, nothing about the idle game, but there’s also a note on the side</h4>
+			<img src="ch5back.png" alt="lore" class="" id="ch5b">
+			<button class="ch1but " id="ch5but" style="top: 562px;" onclick=chNst(6)>Ok</button>
+		</div>
+		<div id='ch6' class='hide'>
+			<h4 class="lore  ch6" id="ch6">What is a teneledo four ES, And what idiot plays KGT idle<br>But reflecting on the three questions above, they all apply to you.<br>You have to help L.Gasby</h4>
+			<img src="ch6back.png" alt="lore" class="" id="ch6b">
+			<button class="ch1but " id="ch6but" style="top: 562px;" onclick=home()>Ok</button>
+		</div>
+		<div id='ch7' class='hide'>
+			<h4 class="lore " id="ch7">You go to the tutorial guy and ask where do you find Gasby<br>“Walk down the road past the fields and you see his house, right next to a school”<br>So you have to simulate doing more exercise. Great</h4>
+			<img src="ch7back.png" alt="lore" class="" id="ch7b">
+			<button class="ch1but " id="ch7but" style="top: 165px;" onclick=chNst(8)>Ok</button>
+		</div>
+		<div id='ch8' class='hide'>
+			<h4 class="lore " id="ch8">You do a few knocks before you get an answer<br>*Opens door* (art = work so stfu)<br>You tell him you has the sachet<br>“Oh, thank you, a stone is outside, under the pot”<br>Yay, all that work for<br>another thing</h4>
+			<img src="ch8back.png" alt="lore" class="" id="ch8b">
+			<button class="ch1but " id="ch8but" style="top: 220px;" onclick='home()'>Ok</button>
+		</div>
+		<div id='ch9' class='hide'>
+			<h4 class="lore " id="ch9">Wasn’t I meant to get a new feature<br>Stupid game dev<br>This is trash<br>You knock on gasby’s door, again<br>“Yes”<br>You tell him that you want a new feature<br>“WOW”<br>Yes gasby, much wow<br>“You solved it”<br>Yes, this world, this lore, this game, is bad<br>“You aren’t like everyone else”<br>Yes, I don’t touch grass<br>“Come inside”<br>Why not</h4>
+			<img src="ch9back.png" alt="lore" class="" id="ch9b">
+			<button class="ch9but " id="ch9but" style="top: 450px; left: 490px;" onclick=chNst(10)>Go</button>
+		</div>
+		<div id='ch10' class='hide'>
+			<h4 class="lore " id="ch10">You walk in, see nothing special, until<br>OMG STEVE JOBS NOOOOOOOOOO</h4>
+			<img src="ch10back.png" alt="lore" class="" id="ch10b">
+			<button class="ch1but " id="ch10but" style="top: 140px;" onclick=chNst(11)>Ok</button>
+		</div>
+		<div id='ch11' class='hide'>
+			<h4 class="lore " id="ch11">(flexes MS paint skills)<br>“Don’t worry about him, there’s nothing you can do”<br>Oh, Ok<br>He takes you to a room, relatively empty, only has what’s in the picture below</h4>
+			<h4 class="lore  ch11a" id="ch11a">“Chris, this is, um, a guy”<br>I love my name<br>“He could possibly be the guy we need”<br>“Whats 9 + 10”</h4>
+			<img src="ch11back.png" alt="lore" class="" id="ch11b">
+			<button class="ch1but " id="ch11but" style="top: 562px;" onclick=chNst(12)>19</button>
+		</div>
+		<div id='ch12' class='hide'>
+			<h4 class="lore " id="ch12">(Why would I let you say the funny)<br>Chris looks astonished<br>“He got my game sachet as well”<br>“So, what do you want?”<br>A new feature<br>“Can you help us?”<br>If I get a new feature</h4>
+			<img src="ch12back.png" alt="lore" class="" id="ch12b">
+			<button class="ch1but " id="ch12but" style="top: 235px;" onclick=chNst(13)>Ok</button>
+		</div>
+		<div id='ch13' class='hide'>
+			<h4 class="lore " id="ch13">He takes you to a room, full of metal people things.<br>Then holds a Usb<br>“This, this is what you need”<br>He gives it to you<br>Ok<br>“These drones, all can be made, just from that Usb”<br>“Plug it into the computer”</h4>
+			<img src="ch13back.png" alt="lore" class="" id="ch13b">
+			<button class="ch1but " id="ch13but" style="top: 235px;" onclick=chNst(14)>Ok</button>
+		</div>
+		<div id='ch14' class='hide'>
+			<h4 class="lore " id="ch14">Chris presses the power and you wait a minute until<br>“Oops, forgot windows update”<br>2 hours later<br>“Ok, the process takes a minute to register, since we haven’t got the full version”<br>A minute later you see a bear humanoid, wearing a top hat, right in front of you<br>“Gasby, is this another fantasy you have made?”<br>“Umm…” He walks in</h4>
+			<h4 class="lore  ch11a" id="ch14a">“No”<br>What does he mean by fantasy?<br>“Anyways, with these robots we try and find the thing we believe controls it…<br>GASBY WHAT ARE YOU DOING”</h4>
+			<img src="ch14back.png" alt="lore" class="" id="ch14b">
+			<button class="ch1but " id="ch14but" style="top: 562px;" onclick=dt1st()>Ok</button>
+		</div>
+		<div id='dt1' class='hide'>
+			<h4 class="lore " id="dt1w">So gasby deleted some files on the usb and one contained the tutorial for this feature so I guess I’ll do it myself<br><br>This is the first idle feature of the game and was very effortful to add so please enjoy :D<br>Here you build (summon i guess) drones/robot things to go and collect things<br>Note that only one drone can be built at a time and click to start<br><br>Drone - y<br>Hp - How much the drone has, if is 0 it joins the many ants you have killed<br>Speed - Interval of collecting items<br>Fail - Chance of failing. Hp will be set to 0<br>Lifetime - How long before death<br>Progress - Time before drone is complete, hover to check how long till complete<br>Zone - Where the drone will collect items (only zones you have completed work)</h4>
+			<img src="dronetut1.png" alt="lore" class="" id="dt1">
+			<button class="ch1but " id="dt1but" style="top: 370px;" onclick=dt2st()>Ok</button>
+		</div>
+		<div id='dt2' class='hide'>
+			<h4 class="lore " id="dt2w">You can also ask chris to spend hours upgrading drones to be more tanky and faster<br>Chris can only work on one drone on a time because he actually makes contact with the default enemy<br>Note however that you can’t upgrade and build same drone at same time and triple click to start<br><br>Drone - x<br>Level - Level<br>Progress - Time before level is complete, hover to check how long till complete<br><br>There is also a usb inventory which you can store certain USBs and use them<br>Note drones unexist if u reload or close KGT Idle<br>New features for this feature will be unlocked later as well as new features so yes</h4>
+			<img src="dronetut2.png" alt="lore" class="" id="dt2">
+			<button class="ch1but " id="dt2but" style="top: 305px;" onclick='home()'>Ok</button>
+		</div>
+		<div id='ch15' class='hide'>
+			<h4 class="lore " id="ch15">You ask Chris what is this USB<br>“How did you get this?”<br>Killing values of math<br>The pain math has given<br>“I can make a system that allows you to unlock new moves in adventure…”<br>Chris > Gasby<br>“...and also simulate training, but it will be very effortful”<br>:’(</h4>
+			<img src="ch15back.png" alt="lore" class="">
+			<button class="ch1but " id="ch15but" style="top: 255px;" onclick=home()>oK</button>
+		</div>
+		<div id='ch16' class='hide'>
+			<h4 class="lore " id="ch16">Another Usb? Eh<br>But what does killer robots mean?<br>Chris pauses for a moment<br>“That is, um, very, very illegal”<br>Why<br>“This isn’t a good sign, Gasby, come here”<br>“What”<br>He holds the USB</h4>
+			<img src="ch16back.png" alt="lore" class="">
+			<button class="ch1but " id="ch16but" style="top: 255px;" onclick=chNst(17)>Ok</button>
+		</div>
+		<div id='ch17' class='hide'>
+			<h4 class="lore " id="ch17">Gasby stops<br>“How, is”<br>“They want us dead”<br>:c<br>Wait, am I in that us<br>“And this code is nerfed, severely…”<br>He has a grin<br>“But usable, this drone has upgradable buffed stone chance from the enemies it kills”</h4>
+			<img src="ch17back.png" alt="lore" class="">
+			<button class="ch1but " id="ch17but" style="top: 255px;" onclick='home()'>Ok</button>
+		</div>
+		<div id='d3u1' class='hide'>
+			<h4 class="lore " id="d3u1">You try to give it to chris but gasby stops you<br>“Can I check that USB”<br>What could possibly go wrong<br>He plugs it in, waits a minute and the bear humanoid from before appears<br>“FEDDY”<br>Feddy?</h4>
+			<img src="d3u1.png" alt="lore" class="">
+			<button class="ch1but " id="d3u1but" style="top: 220px;" onclick=d3uN(2)>wow</button>
+		</div>
+		<div id='d3u2' class='hide'>
+			<h4 class="lore " id="d3u2">It stands, confused, 15 seconds before it faces gasby, then charges<br>Gasby, taken from pure surprise, takes the flee approach, followed behind by this bear<br>Do you help?</h4>
+			<img src="d3u2.png" alt="lore" class="" id="d3u2b">
+			<button class="ch1but " id="d3u2ybut" style="top: 165px; left: 600px;" onclick=d3yst()>yes</button>
+			<button class="ch1but " id="d3u2nbut" style="top: 165px; left: 420px;" onclick=d3nN(1)>nah</button>
+		</div>
+		<div id='d3y' class='hide'>
+			<h4 class="lore " id="d3uy">You speed up with your wings and stab it from behind with your old stick<br>Gasby looks stunned at what he just witnessed<br>Chris walks in<br>“What was that screaming?”<br>It was gas-<br>“It was feddy”<br>He points at wear bear lays, but 2 stones are now lying next to him<br>“Guess the you didn’t assign a zone”</h4>
+			<img src="d3uy.png" alt="lore" class="" id="d3uyb">
+			<button class="ch1but " id="d3uybut" style="top: 255px;" onclick=d3uN(3)>Ok</button>
+		</div>
+		<div id='d3n1' class='hide'>
+			<h4 class="lore " id="d3un">You just watch, eating some popcorn you found<br>Gasby Screams with words like “HELP ME” and “AHHAH”<br>He runs back to your position and all of the sudden the bear has interest in you<br>Piss</h4>
+			<img src="d3un.png" alt="lore" class="" id="d3unb">
+			<button class="ch1but " id="d3unbut" style="top: 180px;" onclick=d3nN(2)>kill</button>
+		</div>
+		<div id='d3n2' class='hide'>
+			<h4 class="lore " id="d3un2">You grab the enormous fang and shank it in the stomach<br>Chris walks in<br>He pauses at what's in front of you then takes a look at gasby crying in the corner<br>Then he looks at the computer<br>“Well, this is why you bring it to me”</h4>
+			<img src="d3un2.png" alt="lore" class="" id="d3un2b">
+			<button class="ch1but " id="d3un2but" style="top: 195px;" onclick=d3uN(3)>ok</button>
+		</div>
+		<div id='d3u3' class='hide'>
+			<h4 class="lore " id="d3u3">“Feddy is tanky, fast drone with regen but you need to assign him a zone to fail so-”<br>He pauses, looks at gasby<br>“He fails, alot.”<br>“At least he drops guaranteed stones”<br>So I want him to backfire?<br>“Well, he at least he accesses really hard zones”<br>To die in?<br>“Shut”</h4>
+			<img src="d3u3.png" alt="lore" class="" id="d3u3b">
+			<button class="ch1but " id="d3u3but" style="top: 255px;" onclick='home()'>OK</button>
+		</div>
+		<div id='ch18' class='hide'>
+			<h4 class="lore " id="ch18">More lore?<br>You give it to chris but unlike the other times, hes confused<br>“This is a normal USB”<br>Mkay<br>He plugs it in and…</h4>
+			<img src="ch18back.png" alt="lore" class="" id="ch18b">
+			<button class="ch1but " id="ch18but" style="top: 195px;" onclick=chNst(19)>Ok</button>
+		</div>
+		<div id='ch19' class='hide'>
+			<h4 class="lore " id="ch19">Nothing bad happened<br>Chris opens the file named ToE, above the work folder<br>“Ok”<br>Ok doesn’t sound very 0K</h4>
+			<img src="ch19back.png" alt="lore" class="" id="ch19b">
+			<button class="ch1but " id="ch19but" style="top: 180px;" onclick=chNst(20)>Ok</button>
+		</div>
+		<div id='ch20' class='hide'>
+			<h4 class="lore " id="ch20">“Follow me”<br>Ok<br>He takes you to a the entrance of a   something<br>“They hid the second part of the USB in this cave”<br>Soooooooo<br>“Get it”<br>Bu-<br>“If you want another feature it’ll be in there”<br>**************************** YEA</h4>
+			<img src="ch20back.png" alt="lore" class="" id="ch20b">
+			<button class="ch1but " id="ch20but" style="top: 270px;" onclick=home()>:D</button>
+		</div>
+		<div id='ch21' class='hide'>
+			<h4 class="lore " id="ch21">How does a usb survive lav-<br>Gasby admires the WFU usb<br>“Can I have a try”<br>Umm, why<br>“This is the best rng in existence”<br>Oh, he’s a nerd<br>Well sorry gasby but is mine<br>*Walks off*</h4>
+			<img src="ch21back.png" alt="lore" class="" id="ch21b">
+			<button class="ch1but " id="ch21but" style="top: 255px;" onclick=chNst(22)>Ok</button>
+		</div>
+		<div id='ch22' class='hide'>
+			<h4 class="lore " id="ch22">You buy a gaming computer because why not<br>Just to play some rng thingy<br>Why not</h4>
+			<img src="ch22back.png" alt="lore" class="" id="ch22b">
+			<button class="ch1but " id="ch22but" style="top: 165;" onclick=home()>Plug</button>
+		</div>
+		<div id='d4u' class='hide'>
+			<h4 class="lore " id="d4u">A new usb means a visit to chris<br>“Where did you get this?”<br>Somewhere (how polished do you think this is?)<br>“Well, this is where all the american government has been pouring their money”<br>So Good drone?<br>“This drone can’t be hit, or even die from power loss”<br>So OP<br>“But It still has a hp stat?”<br>Shut chris and let me use drone</h4>
+			<img src="d4u.png" alt="lore" class="" id="d4ub">
+			<button class="ch1but " id="d4ubut" style="top: 280; z-index: 69;" onclick=home()>Ok</button>
+		</div>
+		<div id='ch23' class='hide'>
+			<img src="ch23mon.gif" alt="lore" class="" style='z-index: 1; left: 479px; top: 259px; width: 128; height: 128;'>
+			<img src="ch23back.png" alt="lore" class="" style='z-index: 2'>
+			<h4 class="lore " style='z-index: 2'>Damn MS paint is good<br>You bring this 2nd one to chris, even though you already unlocked the 4th feature<br>“Ok”<br>Oh no</h4>
+			<button class="ch1but " style="top: 180px;" onclick='chNst(24)'>Ok</button>
+		</div>
+		<div id='ch24' class='hide'>
+			<img src="ch24back.png" alt="lore" class="">
+			<h4 class="lore ">He takes you past the entrance of the cave, to the zone that should be below on the map<br>You go into a building and find a little thing of grass<br>“That would be something you have to commit, later”<br>NONONONONOONONNONO GOD PLZ NONONOO<br>“Now where is that idiot”</h4>
+			<button class="ch1but " style="top: 200px;"  onclick=chNst(25)>Ok</button>
+		</div>
+		<div id='ch25' class='hide'>
+			<img src="ch25back.png" alt="lore" class="" >
+			<h4 class="lore ">Chris taps the play button on the monitor, and the ‘idiot’ showed up</h4>
+			<h4 class="lore " style='top: 455;'>“WWDUBWDI NOOOOOOOO”<br>The idiot grabs the deagle and points it at chris<br>“Do that and your waifu drone ain’t getting real”<br>Daym<br>“Why have you been messing around with the aliens”</h4>
+			<button class="ch1but " style="top: 565px;"  onclick=chNst(26)>yes</button>
+		</div>
+		<div id='ch26' class='hide'>
+			<img src="ch26back.png" alt="lore" class="" >
+			<h4 class="lore ">“BEcause thEY caLleD ME a viRgIN”<br>Ngl, but…<br>“Well now they all dead”<br>Wat<br>“Wat”<br>“The yo mama joke made them spontaneously combust”<br>Ok, wtf is wrong with this game dev<br></h4>
+			<button class="ch1but " style="top: 235px;" onclick=chNst(27)>Ok</button>
+		</div>
+		<div id='ch27' class='hide'>
+			<img src="ch27back.png" alt="lore" class="" >
+			<h4 class="lore ">“Now this USB is all we have to defeat the…”<br>Just before a name was going to be said a thing appeared<br>It was Just a piece of grass, identical to the first enemy</h4>
+			<button class="ch1but " style="top: 160px;" onclick=chNst(28)>Ok</button>
+		</div>
+		<div id='ch28' class='hide'>
+			<img src="ch28back.png" alt="lore" class="" >
+			<h4 class="lore ">Lets just called the idiot the idiot<br>Well, he might of /kill @s himself</h4>
+			<button class="ch1but " style="top: 140px;" onclick=chNst(29)>Ok</button>
+		</div>
+		<div id='ch29' class='hide'>
+			<img src="ch29back.png" alt="lore" class="" >
+			<h4 class="lore ">“Well, we have to get back”<br>As you leave, the grass starts glitching out</h4>
+			<h4 class="lore ch11a" >Tf is that<br>Chris looks slightly concerned<br>“We gotta go”<br>Yes, we can to that</h4>
+			<button class="ch1but " style="top: 555px;" onclick=chNst(30)>Ok</button>
+		</div>
+		<div id='ch30' class='hide'>
+			<img src="ch30back.png" alt="lore" class="" >
+			<h4 class="lore ">You two become speed and arrive soon at the house<br>“Ok, Well that is a problem for later”<br>For me, obviously<br>“And to help you, the aliens theory me the code to set up achievements, and you can see some numbers”</h4>
+			<button class="ch1but " style="top: 195px;" onclick='home()'>Ok</button>
+			<button class="ch1but " style="top: 505px; left: 250;" onclick='home()'>O/A</button>
+			<button class="ch1but " style="top: 505px; left: 375;" onclick='home()'>A/H</button>
+			<button class="ch1but " style="top: 505px; left: 500;" onclick='home()'>O/H</button>
+		</div>
+		<div id='ch31' class='hide'>
+			<img src="ch31back.png" alt="lore" class="" >
+			<h4 class="lore ">You head to the next zone, but you are stopped by gasby<br>“You don’t want to go in there”<br>Why?<br>“Just don’t try to kill the gamer”<br>Why?<br>“Because they are gonna kill you”<br>Why?<br>Gasby walks off<br>Meh, however there is a sign on the wall</h4>
+			<button class="ch1but " style="top: 265px;" onclick='chNst(32)'>Ok</button>
+		</div>
+		<div id='ch32' class='hide'>
+			<img src="ch32back.png" alt="lore" class="" >
+			<h4 class="lore ch11a">Will you obey the sign</h4>
+			<button class="ch1but " style="top: 505px; left: 400;" onclick='home()'>Yes</button>
+			<button class="ch1but " style="top: 505px; left: 600;" onclick='home()'>No</button>
+		</div>
+		<div id='ifunlock' class='hide lorething'>
+			<img src="ifunlock1back.png" alt="lore">
+			<h4 class="lore">After 2 hours of debating you finally decide to open this work folder<br>What it contains can inform, scar, give severe brain damage or yes<br>Open?</h4>
+			<button class="ch1but " style="top: 535px; left: 400;" onclick="hideAllMenu(); show('ifunlock2')">Yes</button>
+			<button class="ch1but " style="top: 535px; left: 600;" onclick="hideAllMenu(); show('ifunlock2')">yes</button>
+		</div>
+		<div id='ifunlock2' class='hide lorething'>
+			<img src="ifunlock2back.png" alt="lore">
+			<h4 class="lore">Congratulations, you didn’t find any mlp r34 and instead unlocked a new subfeature.<br>You can now look at all the items you have collected, and make them automatically get deleted before they get in your inventory.<br>Also, the more items you collect, and the more of each item you collect will add up to (using complicated maths) a health multiplier.</h4>
+			<button class="ch1but " style="top: 200px; left: 800;" onclick=home()>Yes</button>
+		</div>
+		<div id='ch33' class='hide'>
+			<img src="ch33back.png" alt="lore">
+			<h4 class="lore">Upon defeating  xX_69GasbyGaming420_Xx you hear a door slam open.<br>“I KNOW YOU’RE HACKING”<br>Gasby rushes in and tries to strangle you, fueled by his nerd rage<br>Unfortunately for him you had <span id='ch33att'>localStorage.att</span> million power in Rise of Kingdoms</h4>
+			<button class="ch1but " style="top: 185px;" onclick='chNst(34)'>Ok</button>
+		</div>
+		<div id='ch34' class='hide'>
+			<img src="ch34back.png" alt="lore">
+			<h4 class="lore">After your swift victory, you proceed to the exit of the lab.<br>Gasby follows, now accompanied by a strong limp.<br>“Chris was right about you.”<br>Yes, being able to do basic addition puts me within the highest quartile of the intellectual capability <br>( = you are in the top 25% most smart people) but no<br>“I think you should have this”<br>He reached into his pocket, and pulls out a what looks like an enchanted version of the gaming button<br> <br></h4>
+			<button class="ch1but " style="top: 255px;" onclick='chNst(35)'>Ok</button>
+		</div>
+		<div id='ch35' class='hide'>
+			<img src="ch35back.png" alt="lore">
+			<h4 class="lore">“Ever thought that the gaming feature was kinda useless?”<br>I hope you don’t<br>“Well with this you now able to get loot similar to that of adventure however instead of giving stats like +2 attack they now give multipliers to a lot of things”<br>Out of all words you would use to describe gasby, wise may now be one of them</h4>
+			<button class="ch1but " style="top: 195px;" onclick='chNst(36)'>Ok</button>
+		</div>
+		<div id='ch36' class='hide'>
+			<img src="ch36back.png" alt="lore">
+			<h4 class="lore">Now after those 3 png files showcasing all of my creative talent<br>I need to remind you that there is a help button called help button used to get help after clicking the button<br>Just, I know reading is a rare skill these days but, please, there is more info there. Also I don’t know how to display this information in lore form.<br>If you want a simple version tho it's just another inventory system with bonuses</h4>
+			<button class="ch1but " style="top: 215px;" onclick='home()'>Yes</button>
+		</div>
+		<div id='ch37' class='hide'>
+			<img src="ch37back.png" alt="lore">
+			<img src="handwithgun.png" style='position: absolute; left: 500px; top: 200px;'>
+			<h4 class="lore">After hearing a semi obscure game reference you hear Gasby scream out into the room, similar to last time.<br>However this time he has a gun</h4>
+			<button class="ch1but " style="top: 165px;" onclick='home()'>OOPS THERE IS A LAZY DEV WHO MADE A SEVERE LACK OF LORE FOR THIS SECTION, WAIT NEXT WEEK FOR MORE LORE</button>
+		</div>
+	</body>
+	<script>
+		function hide(id){
+			document.getElementById(id).classList.add('hide')
+		}
+		function show(id){
+			document.getElementById(id).classList.remove('hide')
+		}
+		function home(){
+			hideAllMenu()
+			show('main')
+		}
+		function yes(){
+			if (localStorage.d4Tr){
+				show('btn11')
+			}
+			if (localStorage.item50 === '1'){
+				show('btn14')
+			}
+			if (parseInt(localStorage.gasbyc) >= 1){
+				show('btn15')
+			}
+			if (parseInt(localStorage.gasbyc) >= 4){
+				show('btn16')
+			}
+		}
+		function hideAllMenu(){
+			for (let i = 1; i <= 37; i++) {
+				hide('ch'+ i)
+			}
+			hide('dt1')
+			hide('dt2')
+			hide('d3u1')
+			hide('d3u2')
+			hide('d3u3')
+			hide('d3y')
+			hide('d3n1')
+			hide('d3n2')
+			hide('d4u')
+			hide('ifunlock')
+			hide('ifunlock2')
+			hide('main')
+		}
+		function chNst(N){
+			hideAllMenu()
+			show('ch' + N)
+		}
+		function dt1st(){
+			hideAllMenu()
+			show('dt1')
+		}
+		function dt2st(){
+			hideAllMenu()
+			show('dt2')
+		}
+		function d3uN(N){
+			hideAllMenu()
+			show('d3u' + N)
+		}
+		function d3yst(){
+			hideAllMenu()
+			show('d3y')
+		}
+		function d3nN(N){
+			hideAllMenu()
+			show('d3n' + N)
+		}
+	</script>
+</html>

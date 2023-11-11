@@ -79,7 +79,7 @@ h3{
 	border-top: none;
 	margin: 5px 0px 5px 5px;
 	width: 137px;
-	height: 30px;
+	height: 40px;
 }
 .open:hover{
 	background: rgb(150,150,150);
@@ -91,7 +91,7 @@ h3{
 	border-top: none;
 	margin: 5px 0px 5px 5px;
 	width: 137px;
-	height: 30px;
+	height: 40px;
 }
 .openS{
 	background: url('setbut.png');
@@ -102,8 +102,8 @@ h3{
 	position: absolute;
 	left: 1169px;
 	top: 5px;
-	width: 30px;
-	height: 30px;
+	width: 40px;
+	height: 40px;
 }
 .openS:hover{
 	background: url('setbuthover.png');
@@ -535,7 +535,8 @@ img{
 	z-index: 1;
 	background: #eee;
 	padding: 10px;
-	width: 690px
+	width: 690px;
+	font-family: Calibri;
 }
 .ch1but{
 	z-index: 2;
@@ -563,7 +564,7 @@ img{
 	position: absolute;
 	width: 100px;
 	height: 25px;
-	background: #ccc;
+	background: #ddd;
 	border: 2px solid black;
 	font-size: 16px;
 }
@@ -797,6 +798,12 @@ img{
 }
 .susSuit{
 	background-image: url('susSuit.png');
+}
+.bat{
+	background-image: url('bati.png');
+}
+.cbt{
+	background-image: url('CBT.png');
 }
 .useall{
 	background-image: url('useall.png');
@@ -1382,13 +1389,15 @@ select{
 	position: absolute;
 	height: 30;
 	width: 30;
-	filter: brightness(0.6)
+	filter: brightness(0.6);
+	margin: 0;
 }
 .achCT{
 	position: absolute;
 	height: 30;
 	width: 30;
-	filter: brightness(0.9)
+	filter: brightness(0.9);
+	margin: 0;
 }
 .achCT:hover{
 	filter: brightness(1)
@@ -1398,7 +1407,8 @@ select{
 	position: absolute;
 	height: 30;
 	width: 30;
-	filter: brightness(0.9)
+	filter: brightness(0.9);
+	margin: 0;
 }
 .achRT:hover{
 	filter: brightness(1)
@@ -1407,7 +1417,8 @@ select{
 	position: absolute;
 	height: 30;
 	width: 30;
-	filter: brightness(0.9)
+	filter: brightness(0.9);
+	margin: 0;
 }
 .achET:hover{
 	filter: brightness(1)
@@ -1416,7 +1427,8 @@ select{
 	position: absolute;
 	height: 30;
 	width: 30;
-	filter: brightness(0.9)
+	filter: brightness(0.9);
+	margin: 0;
 }
 .achLT:hover{
 	filter: brightness(1)
@@ -1425,7 +1437,8 @@ select{
 	position: absolute;
 	height: 30;
 	width: 30;
-	filter: brightness(0.9)
+	filter: brightness(0.9);
+	margin: 0;
 }
 .achReT:hover{
 	filter: brightness(1)
@@ -1434,7 +1447,8 @@ select{
 	position: absolute;
 	height: 30;
 	width: 30;
-	filter: brightness(0.9)
+	filter: brightness(0.9);
+	margin: 0;
 }
 .achCoT:hover{
 	filter: brightness(1)
