@@ -1091,6 +1091,7 @@ Restrictions: killed all enemies at caves at least once
 				<button style='top: 190; left: 262;' class='helpButton hide' title='thing_9' onclick=changeHelp(9) id='helpB9'>Enhanced</button>
 				<button style='top: 215; left: 262;' class='helpButton hide' title='thing_10' onclick=changeHelp(10) id='helpB10'>Achieves</button>
 				<button style='top: 140; left: 362;' class='helpButton hide' title='thing_12' onclick=changeHelp(12) id='helpB12'>Experience</button>
+				<button style='top: 190; left: 362;' class='helpButton hide' title='thing_14' onclick=changeHelp(14) id='helpB14'>Enhanced2</button>
 				<button style='top: 140; left: 462;' class='helpButton hide' title='thing_17' onclick=changeHelp(17) id='helpB17'>Library</button>
 				<div id='advH1' class='helpInfo'>
 					<h1 class='helpText'>The adventure is where you kill things<br>
@@ -1123,7 +1124,7 @@ Restrictions: killed all enemies at caves at least once
 						&emsp;Items with light blue background are accessories, meaning they are accessories<br>
 						&emsp;Items with grey background are all consumables, click to consume<br>
 						&emsp;DC = Drop chance<br>
-						&emsp;SC = Stone chance<br>
+						&emsp;SC = Stone drop chance<br>
 					</h1>
 				</div>
 				<div id='droH1' class='helpInfo hide'>
@@ -1192,7 +1193,20 @@ Restrictions: killed all enemies at caves at least once
 						These enhanced items drop from many things; zones, drones but most commonly from games<br>
 						You need to grind different places since you can only equip 1 of each item (not bonus or rarity)<br>
 						<br>
-						Right clicking and unequipped item will fill up a bar, and once that bar is full you will can a new item<br>
+						Right clicking and unequipped item will fill up the recycle bar, and once that bar is full you get a new item<br>
+					</h1>
+				</div>
+				<div id='enhH2' class='helpInfo hide'>
+					<h1 class='helpText'>And now due to 50% of the KGT community requested for this (literally 1 whole person);<br>
+					<br>
+					Recycling an item will increase its rarities drop chance, except for common because they suck<br>
+					The exact numbers are too complicated for you but I'll tell you this (Beware: MATH and CODEY things);<br>
+					&emsp;The rarities drop chances are calculated with the rarest ones first, meaning that recycling to increase<br>
+					&emsp;the drop chance of that rarity will only decrease the chances of the lowest one, and if you somehow<br>
+					&emsp;recycle enough to not be able to get commons anymore then it will only decrease rare drop chances<br>
+					&emsp;Hope that made sense<br>
+					<br>
+					Just know that recycling is always a good thing, Ok?<br>
 					</h1>
 				</div>
 				<div id='achH1' class='helpInfo hide'>
@@ -1277,6 +1291,11 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='ach33' class='achF' style='background: url("Ach33.png"); position: absolute; left: 405; top: 172;' title='Contraband? - Recycle a contraband rarity enhanced item'></h5>
 					<h5 id='ach34' class='achF' style='background: url("Ach34.png"); position: absolute; left: 435; top: 172;' title='Credo in amogum et impostores suspectos - Become imposter'></h5>
 					<h5 id='ach35' class='achF' style='background: url("Ach35.png"); position: absolute; left: 465; top: 172;' title='Uncreative game developer makes achievements part 35 - Unlock all the enhanced loot slots'></h5>
+					<h5 id='ach36' class='achF' style='background: url("Ach36.png"); position: absolute; left: 495; top: 172;' title='And have a plan to kill everyone you meet - produce a 10 health sniper'></h5>
+					<h5 id='ach37' class='achF' style='background: url("Ach37.png"); position: absolute; left: 525; top: 172;' title='More gun required - ???'></h5>
+					<h5 id='ach38' class='achF' style='background: url("Ach38.png"); position: absolute; left: 555; top: 172;' title='Army preservation - have 10 drones active at once'></h5>
+					<h5 id='ach39' class='achF' style='background: url("Ach39.png"); position: absolute; left: 585; top: 172;' title='Collector 2 - Unlock 50 different items'></h5>
+					<h5 id='ach40' class='achF' style='background: url("Ach40.png"); position: absolute; left: 615; top: 172;' title='2e - collect 2 different e’s from killing e'></h5>
 				</div>
 				<h5 id='AP' style='font-size: 24; position: absolute; left: 680px; top: 557px; margin: 0;'>1</h5>
 				<button id='achBut' onclick='spendAP()'>Spend AP</button>
@@ -1505,7 +1524,7 @@ Restrictions: killed all enemies at caves at least once
 		var MS6Tr = 0;
 		var Qn = 0;
 		var backValue = 0;
-		const totalAch = 35;
+		const totalAch = 40;
 		const totalItems = 62;
 		const totalZones = 10;
 		const maxAnomSlots = 23;
@@ -5575,8 +5594,12 @@ Restrictions: killed all enemies at caves at least once
 					if (parseInt(drone4c.textContent) >= 200){
 						d200 = d200 + 1
 					}
-					let dc = (2 ** (d200 - 1)) * (1 - (0.9995 ** ((parseInt(ekills.textContent) / (25000 * (parseInt(localStorage.sniH) ** 4))) ** 2))) * 10 * parseInt(localStorage.UC)
+					if (localStorage.sniH){
+						newSave('d4uLvl', parseInt(localStorage.sniH) - 1)	
+					}
+					let dc = (2 ** (d200 - 1)) * (1 - (0.9995 ** ((parseInt(ekills.textContent) / (50000 * ((parseInt(localStorage.d4uLvl) + 1) ** 4))) ** 2))) * 10 * parseInt(localStorage.UC)
 					if (Math.floor(Math.random() * 100000) <= dc){
+						localStorage.d4uLvl = parseInt(localStorage.d4uLvl) + 1
 						udrop('d4Uusb', 'Increse Sniper Drone health by i to the power of 4', 10000)
 					}
 				}
@@ -5628,7 +5651,9 @@ Restrictions: killed all enemies at caves at least once
 				adrop('ram',50)
 			} else if (z === 10){
 				adrop('e',50)
+				return 1
 			}
+			return 0
 		}
 		function playerdead(){
 			if (document.getElementById('adv').classList.contains('hide') && document.getElementById('invent').classList.contains('hide') && document.getElementById('dronebuild').classList.contains('hide') && document.getElementById('gamefeature').classList.contains('hide') && document.getElementById('s&s').classList.contains('hide')){
@@ -11794,7 +11819,7 @@ Restrictions: killed all enemies at caves at least once
 							}
 							setTimeout(battle, 50, ae, sp)
 						} else if (parseFloat(ehp.textContent) <= 0){
-							enemykill(10)
+							e2 = enemykill(10)
 							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(300)
 							hide('eEnemy')
 							newSave('ec',0)
@@ -11809,7 +11834,13 @@ Restrictions: killed all enemies at caves at least once
 							document.getElementById("eHealth").style.width = '0px'
 							FPdrop(24,12)
 							stoneDrops(9)
-							idrop('e',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +68 A +68 D +17 R", 100)
+							e1 = 0
+							if (idrop('e',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +68 A +68 D +17 R", 100)){
+								e1 = 1
+							}
+							if (e1 + e2 === 2){
+								localStorage.ach40 = 1
+							}
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -12075,9 +12106,9 @@ Restrictions: killed all enemies at caves at least once
 						show('player')
 						if (parseInt(localStorage.sci1c) >= 1 && x === 5 || true){ //remove when add new enemies
 							fightSci1()
-						} else if (parseInt(localStorage.sci1c) >= 2 && x === 6){
+						} else if (parseInt(localStorage.sci2c) >= 2 && x === 6){
 							fightSci2()
-						} else if (parseInt(localStorage.sci1c) >= 3 && x === 7){
+						} else if (parseInt(localStorage.sci3c) >= 3 && x === 7){
 							fightSci3()
 						} else {
 							show('z11glass')
@@ -12152,6 +12183,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 					if (ce === 1){
 						document.getElementById('sci1Charge').style.filter = 'brightness(' + (be / 100) + ')'
+						localStorage.ach37 = 1
 					}
 					if (be >= 200 || (be === 100 && ce === 1)){
 						hp.textContent = parseInt(hp.textContent) - 69420
@@ -12164,6 +12196,7 @@ Restrictions: killed all enemies at caves at least once
 					enemykill(11)
 					localStorage.xp = parseFloat(localStorage.xp) + xpMulti(300)
 					hide('sci1')
+					hide('sci1Charge')
 					show('sciD')
 					newSave('sci1c',0)
 					localStorage.sci1c = parseInt(localStorage.sci1c) + 1
@@ -13874,6 +13907,7 @@ Restrictions: killed all enemies at caves at least once
 			var health = parseInt(stiH.textContent)
 			var fail = parseInt((stiF.textContent).slice(0,-1))
 			document.getElementById('stiBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
+			ach38()
 			console.log('Stickman created')
 			var destroyedTr = 0
 			stiGo(health)
@@ -13966,6 +14000,7 @@ Restrictions: killed all enemies at caves at least once
 			var health = parseInt(kilH.textContent)
 			var fail = parseInt((kilF.textContent).slice(0,-1))
 			document.getElementById('kilBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
+			ach38()
 			console.log('Killer robot created')
 			var destroyedTr = 0
 			kilGo(health)
@@ -14073,6 +14108,7 @@ Restrictions: killed all enemies at caves at least once
 			var health = parseInt(fedH.textContent)
 			var fail = parseInt((fedF.textContent).slice(0,-1))
 			document.getElementById('fedBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('fedBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
+			ach38()
 			console.log('Feddy created')
 			var destroyedTr = 0
 			fedGo(health)
@@ -14161,6 +14197,7 @@ Restrictions: killed all enemies at caves at least once
 			var speed = (60 / (parseFloat(sniS.textContent))) * 1000
 			var health = parseInt(sniH.textContent)
 			document.getElementById('sniBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('sniBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
+			ach38()
 			console.log('Sniper created')
 			var destroyedTr = 0
 			sniGo(health)
@@ -14400,6 +14437,15 @@ Restrictions: killed all enemies at caves at least once
 				} else {
 					return hp - Math.floor(Math.random() * 57)
 				}
+			}
+		}
+		function ach38(){
+			var a = (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")))
+			var b = (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")))
+			var c = (parseInt(((document.getElementById('fedBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")))
+			var d = (parseInt(((document.getElementById('sniBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")))
+			if (a + b + c + d >= 10){
+				localStorage.ach38 = 1
 			}
 		}
 		function stiU(){
@@ -16179,6 +16225,33 @@ Restrictions: killed all enemies at caves at least once
 				AP = AP + 5
 				currentAch = currentAch + 1
 			}
+			if (parseInt(localStorage.sniH) >= 10){
+				document.getElementById('ach36').classList.replace('achF','achLT')
+				AP = AP + 4
+				currentAch = currentAch + 1
+			}
+			if (localStorage.ach37 === '1'){
+				document.getElementById('ach37').classList.replace('achF','achRT')
+				document.getElementById('ach37').setAttribute('title', "More gun required - survive a fully charged attack from the engineer's sentry gun") //I am listenning to 'More Gun' rn lol
+				AP = AP + 2
+				currentAch = currentAch + 1
+			}
+			if (localStorage.ach38 === '1'){
+				document.getElementById('ach38').classList.replace('achF','achRT')
+				AP = AP + 2
+				currentAch = currentAch + 1
+			}
+			if (itemsFound >= 50 || localStorage.ach39 === '1'){
+				document.getElementById('ach39').classList.replace('achF','achCT')
+				AP = AP + 1
+				currentAch = currentAch + 1
+				newSave('ach39',1)
+			}
+			if (localStorage.ach40 === '1'){
+				document.getElementById('ach40').classList.replace('achF','achET')
+				AP = AP + 3
+				currentAch = currentAch + 1
+			}
 			newSave('AdvP1', 0)
 			newSave('InvP1', 0)
 			newSave('DroP1', 0)
@@ -16750,6 +16823,12 @@ Restrictions: killed all enemies at caves at least once
 			hide('gaming')
 			show('anom')
 			newSave('recyclePro',0)
+			newSave('recycleC',0)
+			newSave('recycleR',0)
+			newSave('recycleE',0)
+			newSave('recycleL',0)
+			newSave('recycleRe',0)
+			newSave('recycleCo',0)
 			calculateBonus()
 			recyclePro = parseInt(localStorage.recyclePro)
 			document.getElementById('anomBar').style.width = recyclePro + 'px'
@@ -16836,18 +16915,23 @@ Restrictions: killed all enemies at caves at least once
 				
 			} else {
 				let y = Math.floor(Math.random() * 1000) + 1
-				if (y <= 500){
-					rarity = 'C'
-				} else if (y <= 800){
-					rarity = 'R'
-				} else if (y <= 950){
-					rarity = 'E'
-				} else if (y <= 990){
-					rarity = 'L'
-				} else if (y <= 999){
-					rarity = 'Re'
-				} else {
+				let aA = 1 + (parseInt(localStorage.recycleCo) / 16)
+				let bB = 9 + (parseInt(localStorage.recycleRe) / 8)
+				let cC = 40 + (parseInt(localStorage.recycleL) / 4)
+				let dD = 150 + (parseInt(localStorage.recycleE) / 2)
+				let eE = 300 + parseInt(localStorage.recycleR)
+				if (y <= aA){
 					rarity = 'Co'
+				} else if (y <= aA + bB){
+					rarity = 'Re'
+				} else if (y <= aA + bB + cC){
+					rarity = 'L'
+				} else if (y <= aA + bB + cC + dD){
+					rarity = 'E'
+				} else if (y <= aA + bB + cC + dD + eE){
+					rarity = 'R'
+				} else {
+					rarity = 'C'
 				}
 			}
 			if (bonus){
@@ -17187,6 +17271,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('anomi' + slot).classList.replace(item + 'V2', 'anomEmpty')
 				document.getElementById('anoma' + slot).classList.remove('item' + rarity + '2')
 				document.getElementById('anoma' + slot).setAttribute('title','')
+				localStorage.setItem('recycle' + rarity, parseInt(localStorage.getItem('recycle' + rarity)) + 1)
 				if (rarity === 'Co'){
 					newSave('ach33',1)
 				}
@@ -17282,9 +17367,10 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if (localStorage.traTr === '2'){
 				show('helpB7')
-			}
+			}2
 			if (localStorage.anomTr === '1'){
 				show('helpB9')
+				show('helpB14')
 			}
 			if (localStorage.ToE2Tr === '2'){
 				show('helpB10')
@@ -17324,6 +17410,8 @@ Restrictions: killed all enemies at caves at least once
 				show('achH1')
 			} else if (n === 12){
 				show('expH1')
+			} else if (n === 14){
+				show('enhH2')
 			} else if (n === 17){
 				show('libH1')
 			}

@@ -1618,18 +1618,23 @@
 			
 		} else {
 			let y = Math.floor(Math.random() * 1000) + 1
-			if (y <= 500){
-				rarity = 'C'
-			} else if (y <= 800){
-				rarity = 'R'
-			} else if (y <= 950){
-				rarity = 'E'
-			} else if (y <= 990){
-				rarity = 'L'
-			} else if (y <= 999){
-				rarity = 'Re'
-			} else {
+			let aA = 1 + (parseInt(localStorage.recycleCo) / 16)
+			let bB = 9 + (parseInt(localStorage.recycleRe) / 8)
+			let cC = 40 + (parseInt(localStorage.recycleL) / 4)
+			let dD = 150 + (parseInt(localStorage.recycleE) / 2)
+			let eE = 300 + parseInt(localStorage.recycleR)
+			if (y <= aA){
 				rarity = 'Co'
+			} else if (y <= aA + bB){
+				rarity = 'Re'
+			} else if (y <= aA + bB + cC){
+				rarity = 'L'
+			} else if (y <= aA + bB + cC + dD){
+				rarity = 'E'
+			} else if (y <= aA + bB + cC + dD + eE){
+				rarity = 'R'
+			} else {
+				rarity = 'C'
 			}
 		}
 		if (bonus){
