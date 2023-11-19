@@ -5597,7 +5597,7 @@ Restrictions: killed all enemies at caves at least once
 					if (localStorage.sniH){
 						newSave('d4uLvl', parseInt(localStorage.sniH) - 1)	
 					}
-					let dc = (2 ** (d200 - 1)) * (1 - (0.9995 ** ((parseInt(ekills.textContent) / (50000 * ((parseInt(localStorage.d4uLvl) + 1) ** 4))) ** 2))) * 10 * parseInt(localStorage.UC)
+					let dc = (2 ** (d200 - 1)) * (1 - (0.9995 ** ((parseInt(ekills.textContent) / (50000 * ((parseInt(localStorage.d4uLvl) + 1) ** 4))) ** 2))) * parseInt(localStorage.UC)
 					if (Math.floor(Math.random() * 100000) <= dc){
 						localStorage.d4uLvl = parseInt(localStorage.d4uLvl) + 1
 						udrop('d4Uusb', 'Increse Sniper Drone health by i to the power of 4', 10000)
