@@ -193,7 +193,7 @@
 		</div>
 		<div id='ifunlock2' class='hide lorething'>
 			<img src="ifunlock2back.png" alt="lore">
-			<h4 class="lore">Congratulations, you didn’t find any mlp r34 and instead unlocked a new subfeature.<br>You can now look at all the items you have collected, and make them automatically get deleted before they get in your inventory.<br>Also, the more items you collect, and the more of each item you collect will add up to (using complicated maths) a health multiplier.</h4>
+			<h4 class="lore">Congratulations, you didn’t find any mlp r34 and instead unlocked a new subfeature.<br>You can now look at all the items you have collected, and make them automatically get deleted before they get in your inventory by clicking the item.<br>Also, the more items you collect, and the more of each item you collect will add up to (using complicated maths) a health multiplier.</h4>
 			<button class="ch1but " style="top: 200px; left: 800;" onclick=vent()>Yes</button>
 		</div>
 		<div id='ch33' class='hide'>
@@ -220,7 +220,12 @@
 			<img src="ch37back.png" alt="lore">
 			<img src="handwithgun.png" style='position: absolute; left: 500px; top: 200px;'>
 			<h4 class="lore">After hearing a semi obscure game reference you hear Gasby scream out into the room, similar to last time.<br>However this time he has a gun</h4>
-			<button class="ch1but " style="top: 165px;" onclick='advent'>OOPS THERE IS A LAZY DEV WHO MADE A SEVERE LACK OF LORE FOR THIS SECTION, WAIT NEXT WEEK FOR MORE LORE</button>
+			<button class="ch1but " style="top: 165px;" onclick='chNst(38)'>Run</button>
+		</div>
+		<div id='ch38' class='hide'>
+			<img src="ch38back.png" alt="lore">
+			<h4 class="lore">You run, gunshots follow<br>Didn’t he give you a subfeature on your first win?<br>Where is Chris?<br>Why does this game exist?<br>No time for asking these stupid and unreasonable questions however, you reached a dead end</h4>
+			<button class="ch1but " style="top: 210px;" onclick='advent()'>Lore = effort</button>
 		</div>
 		<!-- 
 		<div id='ch##' class='hide'>
@@ -296,11 +301,17 @@
 			<img src="z11back.png" alt="Git gud bro" class="zone" id='z11b1'>
 			<img src="z11back2.png" alt="Git gud bro" class="zone" id='z11b2'>
 			<img src="z11back3.png" alt="Git gud bro" class="zone" id='z11b3'>
-			<img src="z11com1.gif" alt="Gaun" style='position: absolute; width: 126px; height: 297px; left: 423px; top: 162px; margin: 0;' id='z11c3'>
+			<img src="z11gla1.gif" alt="things" style='position: absolute; width: 290px; height: 195px; left: 602px; top: 174px; margin: 0;' id='z11g1'>
+			<img src="z11gla2.gif" alt="things" style='position: absolute; width: 290px; height: 195px; left: 602px; top: 174px; margin: 0;' id='z11g2'>
+			<h5 style='position: absolute; width: 290px; height: 195px; left: 602px; top: 174px; margin: 0; background: rgb(153,217,234); opacity: 0.5;' id='z11glass'></h5>
+			<img src="z11com1.gif" alt="Gaun" style='position: absolute; width: 126px; height: 297px; left: 423px; top: 162px; margin: 0;' id='z11c1'>
 			<img src="guard2.png" alt="scout" class="hide enemy" id="guard2">
 			<img src="headcrab.png" alt="hl3" class="hide enemy" id="headcrab">
 			<img src="freeman.png" alt="has crowbar" class="hide enemy" id="freeman">
 			<img src="portalsentry.png" alt="p3" class="hide enemy" id="portalrobot">
+			<img src="sci1a.gif" alt="nope.avi" class="hide enemy" id="sci1" style='width: 770px; height: 496px; left: 140px; top: 104px; z-index: 2;'>
+			<img src="sciD.gif" alt="yesnt" class="hide enemy" id="sciD" style='width: 770px; height: 496px; left: 140px; top: 104px;'>
+			<h5 id='sci1Charge' style='left: 560px; top: 377px; width: 71px; height: 19px; margin: 0; background: white; z-index: 1; filter: brightness(0);'></h5>
 			<h5 id='youDied' class='hide' style='color: white; font-size: 72; position: absolute; top: 200px; left: 400px; z-index: 212351205;'>YOU DIED</h5>
 			<h5 id='doorTimerID' class='hide' style='color: white; font-size: 48; position: absolute; top: 100px; left: 290px; z-index: 4;'>30</h5>
 			<img src="cube.png" alt="fren?" class="hide" id="pCube" style='width: 100px; height: 100px; position: absolute; left: 350px; top: 400px;'>
@@ -318,8 +329,8 @@
 			<img src="playerFall1.gif" alt="yay" class="player hide" id="fallingPlayer" style="top: 44px; left:225">
 			<img src="playerHide.png" alt="uasebvjklf" class="player hide" id="hidingPlayer">
 		</div>
-		<img src="fightstats.png" alt="numbre" class="hide" style="position: absolute; left: 225px; top: 540px; height: 50px; width: 200px; z-index: 1;" id="pstat">
-		<img src="fightstats.png" alt="number" class="hide" style="position: absolute; left: 625px; top: 540px; height: 50px; width: 200px; z-index: 1;" id="estat">
+		<img src="fightstats.png" alt="numbre" class="hide" style="position: absolute; left: 225px; top: 540px; height: 50px; width: 200px; z-index: 2;" id="pstat">
+		<img src="fightstats.png" alt="number" class="hide" style="position: absolute; left: 625px; top: 540px; height: 50px; width: 200px; z-index: 2;" id="estat">
 		<img src="grass.png" alt="Something u dont touchy" class="hide enemy" id="grass">
 		<img src="paper.png" alt="Something u dont touchy" class="enemy hide" id="paper">
 		<img src="stick.png" alt="Something u dont touchy" class="enemy hide" id="stick">
@@ -749,6 +760,7 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent susSuit notFound" style="left: 490px; top: 370px;" id="item59" onclick=itemFilter(59)></button>
 			<button class="itemBVent bat notFound" style="left: 545px; top: 370px;" id="item60" onclick=itemFilter(60)></button>
 			<button class="itemBVent cbt notFound" style="left: 600px; top: 370px;" id="item61"></button>
+			<button class="itemBVent valve notFound" style="left: 655px; top: 370px;" id="item62" onclick=itemFilter(62)></button>
 		</div><!-- //itemsHere -->
 		<!-- Drones -->
 		<div class='hide' id='dronebuild'>
@@ -1066,7 +1078,7 @@ Restrictions: killed all enemies at caves at least once
 				</h1>
 				<h1 id='FSZ' class='hide' style='position: absolute; top: 337; left: 145; font-size: 16;'>Brawl in zone: <button id='FSZY' class='off' title='When you have won a fight, spawn another enemy instead of leaving zone' onclick='FSZf("yes")'>Yes</button><button id='FSZN' class='on' title='When an enemy is killed, get automatically sent back to the adventure menu' onclick='FSZf("no")'>No</button> - Note that this will only work if all enemies in the zone are fightpickable</h1>
 				<button style='position: absolute; top: 115; left: 700; font-size: 32px; margin-left: 5px; background: #cfc;' class='on' title='Does you want the knowledge of the worst game known to man?' onclick=helpOn()>Help button</button>
-				<a target=”_blank” href="zLoreLib.html" class='helpButton' style='left: 145px; top: 380px; width: 150px; color: black; text-decoration: none; text-align: center; font-weight: bold;' id='loreLib' title='Lots of lore'>Lore Library</a>
+				<a target=”_blank” href="zLoreLib.html" class='helpButton hide' style='left: 145px; top: 380px; color: black; text-decoration: none; text-align: center; height: 25px;' id='loreLib' title='Lots of lore'>Lore Library</a>
 			</div>
 			<div id='Shelp'>
 				<img id='setBack' src="Shelpback.png" alt="stuff"> <!-- add a left and right button for more info-->
@@ -1485,16 +1497,16 @@ Restrictions: killed all enemies at caves at least once
 		var clicked = new Audio('buttonClicked.mp3');
 		var domination = new Audio('tf_domination.mp3');
 		localStorage.WFUmlvl = 2;
-		var lore = 37;
+		var lore = 38;
 		var wikiTr = 0;
-		var wikiCh = 5;
+		var wikiCh = 4;
 		var MSnum = 0;
 		var MS5Tr = 0;
 		var MS6Tr = 0;
 		var Qn = 0;
 		var backValue = 0;
 		const totalAch = 35;
-		const totalItems = 60;
+		const totalItems = 62;
 		const totalZones = 10;
 		const maxAnomSlots = 23;
 		var currentAch = 0;
@@ -1736,6 +1748,9 @@ Restrictions: killed all enemies at caves at least once
 			newSave('goldWFU',0)
 			newSave('hpM', 1)
 			newSave('GamP1', 0)
+			if (parseInt(localStorage.WFUmlvl) < parseInt(localStorage.WFUlvl)){
+				localStorage.WFUlvl = localStorage.WFUmlvl
+			}
 			if (localStorage.hpM === 'NaN'){
 				localStorage.hpM = 1
 			}
@@ -2202,7 +2217,7 @@ Restrictions: killed all enemies at caves at least once
 					UC.textContent = parseFloat(UC.textContent) * 2
 				}
 				if (parseInt(yc.textContent) >= 200){
-					DUC.textContent = parseFloat(UC.textContent) * 2
+					UC.textContent = parseFloat(UC.textContent) * 2
 				}
 				if (parseInt(rulerc.textContent) >= 10){
 					localStorage.mhp = parseFloat(localStorage.mhp) + 3
@@ -2291,6 +2306,13 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.s026 = 1
 				if (localStorage.helicopterc >= 200){
 					DroneBspeed.textContent = parseFloat(DroneBspeed.textContent) * 1.2
+				}
+			}
+			if (localStorage.s027){
+				
+			} else {
+				if (localStorage.helicopterc >= 200){
+					UC.textContent = parseFloat(UC.textContent) * 2
 				}
 			}
 			if (localStorage.iN){
@@ -3079,7 +3101,7 @@ Restrictions: killed all enemies at caves at least once
 				if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && localStorage.ch37Tr === '1'){ //change when fully finshed
 					document.getElementById('urf').classList.replace('btnr','btny')
 					document.getElementById('urf').setAttribute('title','Underground Research facility (DEMO)')
-					document.getElementById('urf').setAttribute('title',"The Alternating Reality Of Yes: " + (ifFound('item60',1)) + ' out of 1 item found')
+					document.getElementById('urf').setAttribute('title',"The Alternating Reality Of Yes: " + (ifFound('item60',1) + ifFound('item62',1)) + ' out of 2 item found')
 				}
 			} else if (parseInt(localStorage.gasbyc) > 0){
 				localStorage.gasbyL1 = 1
@@ -5460,6 +5482,12 @@ Restrictions: killed all enemies at caves at least once
 				iv2.setAttribute('title','')
 				localStorage.cbtTr = 1
 				setOn()
+			} else if (iv2.classList.contains('valve') && emptyAccess()){
+				iv2.classList.replace('valve', 'empty')
+				iv2.setAttribute('title','')
+				localStorage.mhp = parseFloat(localStorage.mhp) + 1000
+				localStorage.reg = parseFloat(localStorage.reg) + 100
+				equipAccess('valve','A valve - Corroded by steam - +1000 Hp +100 R')
 			} else {
 				if (iv2.classList.item(1) !== 'empty'){
 					idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
@@ -5514,6 +5542,12 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.reg = parseFloat(localStorage.reg) - 17
 				slotId.setAttribute('title','')
 				idrop('e',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +69 A +68 D +17 R", 10000, 1)
+			} else if (slotId.classList.contains('valve')){
+				slotId.classList.replace('valve','access')
+				localStorage.mhp = parseFloat(localStorage.mhp) - 1000
+				localStorage.reg = parseFloat(localStorage.reg) - 100
+				slotId.setAttribute('title','')
+				idrop('valve',"A valve - Corroded by steam - +1000 Hp +100 R", 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5541,9 +5575,9 @@ Restrictions: killed all enemies at caves at least once
 					if (parseInt(drone4c.textContent) >= 200){
 						d200 = d200 + 1
 					}
-					let dc = (2 ^ (d200 - 1)) * (1 - (0.9995 ** ((parseInt(ekills.textContent) / 10000) ** 0.5))) * 1000
+					let dc = (2 ** (d200 - 1)) * (1 - (0.9995 ** ((parseInt(ekills.textContent) / (25000 * (parseInt(localStorage.sniH) ** 4))) ** 2))) * 10 * parseInt(localStorage.UC)
 					if (Math.floor(Math.random() * 100000) <= dc){
-						udrop('d4Uusb', 'Increse Sniper Drone health', 10000)
+						udrop('d4Uusb', 'Increse Sniper Drone health by i to the power of 4', 10000)
 					}
 				}
 			} else {
@@ -5561,9 +5595,9 @@ Restrictions: killed all enemies at caves at least once
 					if (parseInt(drone4c.textContent) >= 200){
 						d200 = d200 + 1
 					}
-					let dc = (2 ** (d200 - 1)) * (1 - (0.995 ** ((parseInt(ekills.textContent) / 10000) ** 0.5))) * 100000
+					let dc = (2 ** (d200 - 1)) * (1 - (0.995 ** ((parseInt(ekills.textContent) / 10000) ** 0.5))) * 100000 * parseInt(localStorage.UC)
 					if (Math.floor(Math.random() * 100000) <= dc){
-						udrop('d4usb', 'Feelins? Look mate, you know who has a lot of feelings? Blokes that bludgeon their wife to death with a golf trophy. Professionals have standards.', 10000)
+						udrop('d4usb', 'Upon grasping the usb, you hear the voice of a Professional.\nHe says, "Feelins? Look mate, you know who has a lot of feelings? Blokes that bludgeon their wife to death with a golf trophy. Professionals have standards."\nSuch wisdom', 10000)
 						localStorage.d4Tr = 1
 					}
 				}
@@ -5926,12 +5960,12 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 100)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 100)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 25)
+						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
-						advc.textContent = parseInt(advC.textContent)
 					} else if (hp.textContent <= 0){
 						playerdead()
 						document.getElementById("health").style.width = '0px'
@@ -5941,9 +5975,9 @@ Restrictions: killed all enemies at caves at least once
 						var qe = setTimeout(enki,500,advc.textContent)
 						advc.textContent = parseInt(advC.textContent)
 					} else {
-					antDodge.textContent = 1
-					var qe = setTimeout(gratt,50)
-					regen()
+						antDodge.textContent = 1
+						var qe = setTimeout(gratt,50)
+						regen()
 						ae = ae + 1
 						if(ae === 10){				
 							ae = 0
@@ -7941,7 +7975,7 @@ Restrictions: killed all enemies at caves at least once
 						KBify(yc.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(8)
 						if (parseInt(yc.textContent) === 200){
-							DUC.textContent = parseFloat(UC.textContent) * 2
+							UC.textContent = parseFloat(UC.textContent) * 2
 						}
 						idrop('paper', 'Paper - A flat piece of white - +2 M +1 R', 500)
 						if (parseInt(traTr.textContent) === 0){
@@ -9521,7 +9555,7 @@ Restrictions: killed all enemies at caves at least once
 				show('bat')
 				ehp.textContent = 175
 				emhp.textContent = 175
-				eatt.textContent = 60
+				eatt.textContent = 55
 				edef.textContent = 20
 				ereg.textContent = 10
 				document.getElementById("eHealth").style.width = "250px";
@@ -9531,8 +9565,7 @@ Restrictions: killed all enemies at caves at least once
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
 						enemykill(7)
-						var a = document.getElementById('bat')
-						a.classList.add('hide')
+						hide('bat')
 						document.getElementById("eHealth").style.width = '0px'
 						batc.textContent = parseFloat(batc.textContent) + 1
 						KBify(batc.textContent)
@@ -9553,12 +9586,9 @@ Restrictions: killed all enemies at caves at least once
 					} else if (hp.textContent <= 0){
 						playerdead()
 						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('player')
-						a.classList.add('hide')
-						var a = document.getElementById('torchplayer')
-						a.classList.add('hide')
-						var a = document.getElementById('minerplayer')
-						a.classList.add('hide')
+						hide('player')
+						hide('torchplayer')
+						hide('minerplayer')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500,advc.textContent)
 					} else {
@@ -9572,9 +9602,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			} else if (x === 2){
-				var a = document.getElementById('stalicite')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('stalicite')
 				ehp.textContent = 200
 				emhp.textContent = 200
 				eatt.textContent = 70
@@ -9938,7 +9966,7 @@ Restrictions: killed all enemies at caves at least once
 				hideStart.classList.remove('hide')
 				var a = document.getElementById('caveb')
 				a.classList.add('hide')
-				reg.textContent = parseInt(reg.textContent) - 20
+				reg.textContent = parseInt(reg.textContent) - 15
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
 						enemykill(7)
@@ -11798,28 +11826,43 @@ Restrictions: killed all enemies at caves at least once
 		var upTr = 0;
 		urf.onclick = urfbat;
 		function urfbat(enemyN){
-			if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && localStorage.ch37Tr === '1' || enemyN <= 8 && enemyN >= 1){
+			if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && localStorage.ch37Tr === '1' || enemyN >= 0 && enemyN <= 8){
 				sadvmus()
 				setStats()
 				startBat()
 				show('z11')
+				show('z11glass')
+				hide('sciD')
+				show('z11g1')
+				hide('z11g2')
+				//hide('z11g3')
+				//hide('z11g4')
 				hide('z11b1')
 				hide('z11b2')
 				hide('z11b3')
+				hide('sci1Charge')
 				hide('youDied')
 				hide('doorTimerID')
 				hide('pCube')
 				hide('upArrow')
 				hide('downArrow')
+				document.getElementById('sci1').setAttribute('src','sci1a.gif')
 				//hide all enemies
 				hide('guard2')
 				hide('headcrab')
 				hide('portalrobot')
 				hide('freeman')
+				hide('sci1')
+				//hide('sci2')
+				//hide('sci3')
+				//hide('killerrobot')
 				upTr = 0
-				if (localStorage.doorKill != '1' && (enemyN <= 8) === false && (enemyN >= 1) === false){
+				if (localStorage.doorKill != '1' && ((enemyN >= 1 && enemyN <= 8) === false)){
 					show('z11b2')
 					show('doorTimerID')
+					hide('z11c1')
+					hide('z11g1')
+					hide('z11glass')
 					let doorTimer = 600 //600 normally
 					doorTimerID.textContent = Math.ceil(doorTimer / 20)
 					setEStats(10000, 0, 2500, 0)
@@ -11865,7 +11908,7 @@ Restrictions: killed all enemies at caves at least once
 					if (enemyN < 9 && enemyN > 0){
 						x = enemyN
 					}
-					if (x <= 2){
+					if (x === 1){
 						let critTr = 0
 						show('guard2')
 						setEStats(12000, 1000, 1000, 200)
@@ -11899,6 +11942,7 @@ Restrictions: killed all enemies at caves at least once
 								document.getElementById("eHealth").style.width = '0px'
 								stoneDrops(10)
 								idrop('bat','Aluminium bat - BONK - -500 Hp +150 A',300)
+								idrop('valve','A valve - Corroded by steam - +1000 Hp +100 R',100)
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								hide('player')
@@ -11906,7 +11950,7 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 							}
 						}
-					} else if (x <= 4){
+					} else if (x === 2){
 						show('headcrab')
 						setEStats(10000, 369, 0, 0)
 						battle(0, 1)
@@ -11938,6 +11982,7 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 								document.getElementById("eHealth").style.width = '0px'
 								stoneDrops(10)
+								idrop('valve','A valve - Corroded by steam - +1000 Hp +100 R',100)
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								hide('player')
@@ -11945,7 +11990,7 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 							}
 						}
-					} else if (x <= 6){
+					} else if (x <= 4){
 						show('portalrobot')
 						show('pCube')
 						hide('player')
@@ -11977,6 +12022,7 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 								document.getElementById("eHealth").style.width = '0px'
 								stoneDrops(10)
+								idrop('valve','A valve - Corroded by steam - +1000 Hp +100 R',100)
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								hide('player')
@@ -11984,7 +12030,7 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 							}
 						}
-					} else if (true){
+					} else if (x <= 6){
 						show('freeman')
 						show('player')
 						setEStats(16000, 1600, 600, 80)
@@ -12015,6 +12061,56 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 								document.getElementById("eHealth").style.width = '0px'
 								stoneDrops(10)
+								idrop('valve','A valve - Corroded by steam - +1000 Hp +100 R',100)
+							} else if (parseFloat(hp.textContent) <= 0){
+								playerdead()
+								hide('player')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+						}
+					} else if (true){
+						hide('z11glass') //thing that theyre fight, placeholder
+						hide('z11g1')
+						show('player')
+						if (parseInt(localStorage.sci1c) >= 1 && x === 5 || true){ //remove when add new enemies
+							fightSci1()
+						} else if (parseInt(localStorage.sci1c) >= 2 && x === 6){
+							fightSci2()
+						} else if (parseInt(localStorage.sci1c) >= 3 && x === 7){
+							fightSci3()
+						} else {
+							show('z11glass')
+							if (true){//x === 5){
+								show('z11g2')
+							} else if (x === 6){
+								//show('z11g3')
+							} else if (x === 7){
+								//show('z11g4')
+							}
+							setEStats(10000, 1000, 1000, 100)
+							battle(0, 20)
+						}
+						function battle(ae, sp){
+							if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+								regen()
+								ae = ae + 1
+								if (ae === sp){
+									eattack()
+									ae = 0
+								}
+								setTimeout(battle, 50, ae, sp)
+							} else if (parseFloat(ehp.textContent) <= 0){
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+								hide('z11glass')
+								document.getElementById("eHealth").style.width = '0px'
+								if (true){//x === 5){
+									setTimeout(fightSci1, 1000)
+								} else if (x === 6){
+									//setTimeout(fightSci2, 1000)
+								} else if (x === 7){
+									//setTimeout(fightSci3, 1000)
+								}
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								hide('player')
@@ -12027,6 +12123,62 @@ Restrictions: killed all enemies at caves at least once
 			} else {
 				newSave('ach12p', 0)
 				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
+			}
+		}
+		function fightSci1(){
+			show('sci1')
+			show('player')
+			document.getElementById('sci1').style.filter = ''
+			setEStats(12500, 600, 800, 160)
+			battle(0, 3, 0, 0)
+			function battle(ae, sp, be, ce){
+				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+					regen()
+					ae = ae + 1
+					be = be + 1
+					if (ae === sp){
+						eattack()
+						ae = 0
+					}
+					if (be === 50 && ce === 0){
+						document.getElementById('sci1').setAttribute('src','sci1b.gif')
+					}
+					if (be === 100 && ce === 0){
+						show('sci1Charge')
+						document.getElementById('sci1').setAttribute('src','sci1c.gif')
+					}
+					if (be >= 100 && ce === 0){
+						document.getElementById('sci1Charge').style.filter = 'brightness(' + ((be - 100) / 100) + ')'
+					}
+					if (ce === 1){
+						document.getElementById('sci1Charge').style.filter = 'brightness(' + (be / 100) + ')'
+					}
+					if (be >= 200 || (be === 100 && ce === 1)){
+						hp.textContent = parseInt(hp.textContent) - 69420
+						console.log('Player took 69420')
+						be = 0
+						ce = 1
+					}
+					setTimeout(battle, 50, ae, sp, be, ce)
+				} else if (parseFloat(ehp.textContent) <= 0){
+					enemykill(11)
+					localStorage.xp = parseFloat(localStorage.xp) + xpMulti(300)
+					hide('sci1')
+					show('sciD')
+					newSave('sci1c',0)
+					localStorage.sci1c = parseInt(localStorage.sci1c) + 1
+					KBify(localStorage.sci1c)
+					advc.textContent = parseInt(advC.textContent)
+					var qe = setTimeout(enki,500,advc.textContent)
+					document.getElementById("eHealth").style.width = '0px'
+					stoneDrops(10)
+					idrop('valve','A valve - Corroded by steam - +1000 Hp +100 R',100)
+				} else if (parseFloat(hp.textContent) <= 0){
+					playerdead()
+					hide('player')
+					advc.textContent = parseInt(advC.textContent)
+					var qe = setTimeout(enki,500,advc.textContent)
+				}
 			}
 		}
 		function startBat(){
@@ -13855,7 +14007,7 @@ Restrictions: killed all enemies at caves at least once
 								kilGo(hp)
 								adrop('lasergun',50)
 							} else if (parseInt(kilZ.value) === 7){
-								hp = Dare(hp)
+								hp = Dcav(hp)
 								stoneDrops((parseFloat(SC.textContent) * parseFloat(kilSC.textContent) * 7),1)
 								kilGo(hp)
 								adrop('torch',50)
@@ -15676,7 +15828,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		WFUlvlB.onclick = WFUlvlUp;
 		function WFUlvlUp(){
-			if (parseInt(localStorage.xp) >= (10000 * (2 ** parseInt(localStorage.WFUlvl)))){
+			if (parseInt(localStorage.xp) >= (10000 * (2 ** parseInt(localStorage.WFUlvl))) && parseInt(localStorage.WFUlvl) < parseInt(localStorage.WFUmlvl)){
 				localStorage.xp = parseInt(localStorage.xp) - (10000 * (2 ** parseInt(localStorage.WFUlvl)))
 				localStorage.WFUlvl = parseInt(localStorage.WFUlvl) + 1
 				localStorage.WFUlvlBt = 'Upgrade the game to unlock more content? '+ (10000 * (2 ** parseInt(localStorage.WFUlvl))) +' Xp'
@@ -16002,28 +16154,28 @@ Restrictions: killed all enemies at caves at least once
 				currentAch = currentAch + 1
 			}
 			if (localStorage.ach31){
-				document.getElementById('ach31').classList.replace('achF','achRT')
+				document.getElementById('ach31').classList.replace('achF','achCoT')
 				AP = AP + 10
 				currentAch = currentAch + 1
 				document.getElementById('ach31').setAttribute('title', 'Very scary easter egg that requires the ability to use math and read (Difficulty - IMPOSSIBLE) - and you done it :D')
 			}
 			if (localStorage.doorKill === '1'){
-				document.getElementById('ach32').classList.replace('achF','achRT')
+				document.getElementById('ach32').classList.replace('achF','achCT')
 				AP = AP + 1
 				currentAch = currentAch + 1
 			}
 			if (localStorage.ach33 === '1'){
-				document.getElementById('ach33').classList.replace('achF','achRT')
+				document.getElementById('ach33').classList.replace('achF','achET')
 				AP = AP + 3
 				currentAch = currentAch + 1
 			}
 			if (localStorage.ach34 === '1'){
-				document.getElementById('ach34').classList.replace('achF','achRT')
+				document.getElementById('ach34').classList.replace('achF','achCT')
 				AP = AP + 1
 				currentAch = currentAch + 1
 			}
 			if (parseInt(localStorage.recycle) >= 1000){
-				document.getElementById('ach35').classList.replace('achF','achRT')
+				document.getElementById('ach35').classList.replace('achF','achReT')
 				AP = AP + 5
 				currentAch = currentAch + 1
 			}
@@ -16067,7 +16219,7 @@ Restrictions: killed all enemies at caves at least once
 			if (document.getElementById('ach10').classList.contains('achRT') || localStorage.ach10 === '1'){
 			
 			} else if (ach10prog >= 7200){
-				localStorage.ach10 === '1'
+				localStorage.ach10 = '1'
 			} else {
 				ach10prog = ach10prog + 1
 				setTimeout(achi10, 1000)
@@ -16576,6 +16728,9 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if (ifFound('item61')){
 				document.getElementById('item61').setAttribute('title', "Cognitive Behaviour Therapy - Could possibly cure your depression - Unlocks lore library in the settings\nDropped from wikipedia (10%)\n" + document.getElementById('item61').getAttribute('title'))
+			}
+			if (ifFound('item62')){
+				document.getElementById('item62').setAttribute('title', "A valve - Corroded by steam - +1000 Hp +100 R\nDropped from all enemies in the underground research facility (1%)\n" + document.getElementById('item62').getAttribute('title'))
 			}
 		}//itemsHere
 		function anomOn(){

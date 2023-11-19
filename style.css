@@ -378,6 +378,7 @@ img{
 	top: 244px;
 	left: 225px;
 	margin: 0;
+	z-index: 2;
 }
 .enemy{
 	position: absolute;
@@ -502,14 +503,14 @@ img{
 	background-color: white;
 	top: 500px;
 	left: 200px;
-	z-index: 1;
+	z-index: 2;
 }
 #health{
 	position: absolute;
 	width: 0;
 	height: 30px;
 	background-color: red;
-	z-index: 2;
+	z-index: 3;
 }
 #eMaxHealth{
 	position: absolute;
@@ -518,14 +519,14 @@ img{
 	background-color: white;
 	top: 500px;
 	left: 600px;
-	z-index: 1;
+	z-index: 2;
 }
 #eHealth{
 	position: absolute;
 	width: 0;
 	height: 30px;
 	background-color: red;
-	z-index: 2;
+	z-index: 3;
 }
 .lore{
 	position: absolute;
@@ -804,6 +805,9 @@ img{
 }
 .cbt{
 	background-image: url('CBT.png');
+}
+.valve{
+	background-image: url('valve.png');
 }
 .useall{
 	background-image: url('useall.png');
