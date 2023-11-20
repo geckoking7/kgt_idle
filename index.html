@@ -2327,12 +2327,23 @@ Restrictions: killed all enemies at caves at least once
 					DroneBspeed.textContent = parseFloat(DroneBspeed.textContent) * 1.2
 				}
 			}
-			if (localStorage.s027){
+			if (localStorage.s028){
 				
 			} else {
-				if (localStorage.helicopterc >= 200){
-					UC.textContent = parseFloat(UC.textContent) * 2
+				UC.textContent = 1
+				if (parseInt(localStorage.xc) >= 200){
+					UC.textContent = 2
 				}
+				if (parseInt(localStorage.yc) >= 200){
+					UC.textContent = parseInt(UC.textContent) * 2
+				}
+				if (parseInt(localStorage.ufoc) >= 200){
+					UC.textContent = parseInt(UC.textContent) * 2
+				}
+				if (parseInt(localStorage.deepc) >= 200){
+					UC.textContent = parseInt(UC.textContent) * 2
+				}
+				localStorage.s028 = 1
 			}
 			if (localStorage.iN){
 				
@@ -5597,7 +5608,7 @@ Restrictions: killed all enemies at caves at least once
 					if (localStorage.sniH){
 						newSave('d4uLvl', parseInt(localStorage.sniH) - 1)	
 					}
-					let dc = (2 ** (d200 - 1)) * (1 - (0.9995 ** ((parseInt(ekills.textContent) / (50000 * ((parseInt(localStorage.d4uLvl) + 1) ** 4))) ** 2))) * parseInt(localStorage.UC)
+					let dc = (2 ** (d200 - 1)) * (1 - (0.9995 ** ((parseInt(ekills.textContent) / (25000 * ((parseInt(localStorage.d4uLvl) + 1) ** 4))) ** 2))) * 10 * parseInt(localStorage.UC)
 					if (Math.floor(Math.random() * 100000) <= dc){
 						localStorage.d4uLvl = parseInt(localStorage.d4uLvl) + 1
 						udrop('d4Uusb', 'Increse Sniper Drone health by i to the power of 4', 10000)
