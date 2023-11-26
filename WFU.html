@@ -1618,20 +1618,20 @@
 			
 		} else {
 			let y = Math.floor(Math.random() * 1000) + 1
-			let aA = 1 + (parseInt(localStorage.recycleCo) / 16)
-			let bB = 9 + (parseInt(localStorage.recycleRe) / 8)
-			let cC = 40 + (parseInt(localStorage.recycleL) / 4)
-			let dD = 150 + (parseInt(localStorage.recycleE) / 2)
-			let eE = 300 + parseInt(localStorage.recycleR)
-			if (y <= aA){
+			let aA = (parseInt(localStorage.recycleCo) / 16)
+			let bB = (parseInt(localStorage.recycleRe) / 8)
+			let cC = (parseInt(localStorage.recycleL) / 4)
+			let dD = (parseInt(localStorage.recycleE) / 2)
+			let eE = parseInt(localStorage.recycleR)
+			if (y <= 1 + aA){
 				rarity = 'Co'
-			} else if (y <= aA + bB){
+			} else if (y <= 10 + aA * 4 + bB){
 				rarity = 'Re'
-			} else if (y <= aA + bB + cC){
+			} else if (y <= 50 + aA * 16 + bB * 4 + cC){
 				rarity = 'L'
-			} else if (y <= aA + bB + cC + dD){
+			} else if (y <= 300 + aA * 64 + bB * 16 + cC * 4 + dD){
 				rarity = 'E'
-			} else if (y <= aA + bB + cC + dD + eE){
+			} else if (y <= 500 + aA * 256 + bB * 64 + cC * 16 + dD * 4 + eE){
 				rarity = 'R'
 			} else {
 				rarity = 'C'
