@@ -304,6 +304,7 @@
 			<img src="z11gla1.gif" alt="things" style='position: absolute; width: 290px; height: 195px; left: 602px; top: 174px; margin: 0;' id='z11g1'>
 			<img src="z11gla2.gif" alt="things" style='position: absolute; width: 290px; height: 195px; left: 602px; top: 174px; margin: 0;' id='z11g2'>
 			<img src="z11gla3.gif" alt="things" style='position: absolute; width: 290px; height: 195px; left: 602px; top: 174px; margin: 0;' id='z11g3'>
+			<img src="z11gla4.gif" alt="things" style='position: absolute; width: 290px; height: 195px; left: 602px; top: 174px; margin: 0;' id='z11g4'>
 			<h5 style='position: absolute; width: 290px; height: 195px; left: 602px; top: 174px; margin: 0; background: rgb(153,217,234); opacity: 0.5;' id='z11glass'></h5>
 			<img src="z11com1.gif" alt="Gaun" style='position: absolute; width: 126px; height: 297px; left: 423px; top: 162px; margin: 0;' id='z11c1'>
 			<img src="guard2.png" alt="scout" class="hide enemy" id="guard2">
@@ -320,6 +321,8 @@
 			<img src="cube.png" alt="fren?" class="hide" id="pCube" style='width: 100px; height: 100px; position: absolute; left: 350px; top: 400px;'>
 			<img src="portalback.gif" alt="arrow" class="hide" id="upArrow" style='width: 50px; height: 150px; position: absolute; left: 300px; top: 150px; opacity: 0.6;'>
 			<img src="downarrow.gif" alt="arrow2" class="hide" id="downArrow" style='width: 50px; height: 150px; position: absolute; left: 300px; top: 150px; opacity: 0.6;'>
+			<img src="portalBlue.gif" alt="portal" class="hide" id="portal1" style='width: 100px; height: 50px; position: absolute; left: 267px; top: 130px; border-radius: 50%'>
+			<img src="portalOrange.gif" alt="porta2" class="hide" id="portal2" style='width: 100px; height: 50px; position: absolute; left: 267px; top: 450px; border-radius: 50%'>
 		</div>
 		<div id='players' style='position: absolute;'>
 			<img src="player.gif" alt="an idiot" class="player hide" id="player">
@@ -3079,7 +3082,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('ameair')
 						a.classList.add('btny')
 						a.classList.remove('btnr')
-						document.getElementById('ameair').setAttribute('title','American Airspace: ' + (ifFound('item28',1) + ifFound('item29',1) + ifFound('item30',1)) + ' out of 3 items found')
+						document.getElementById('ameair').setAttribute('title','American Airspace: ' + (ifFound('item28',1) + ifFound('item29',1) + ifFound('item30',1)) + ' out of 3 items found\nNote that you must be able to fly to enter this zone!')
 					}
 				}
 				if (parseInt(helicopter2c.textContent) > 0 && parseInt(deserteaglec.textContent) > 0 && parseInt(a10c.textContent) > 0 && parseInt(drone1c.textContent) > 0 && parseInt(drone2c.textContent) > 0 && parseInt(drone3c.textContent) > 0 && parseInt(jetpackguyc.textContent) > 0 && parseInt(ufoc.textContent) > 0){
@@ -3087,6 +3090,7 @@ Restrictions: killed all enemies at caves at least once
 					a.classList.add('btng')
 					a.classList.remove('btny')
 					a.classList.remove('btnr')
+					document.getElementById('ameair').setAttribute('title','American Airspace: ' + (ifFound('item28',1) + ifFound('item29',1) + ifFound('item30',1)) + ' out of 3 items found\nNote that you must be able to fly to enter this zone!')
 				}
 				if (ameair.classList.contains('btng')){
 					var q = document.getElementById('area51')
@@ -3139,8 +3143,7 @@ Restrictions: killed all enemies at caves at least once
 				}
 				if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && localStorage.ch37Tr === '1'){ //change when fully finshed
 					document.getElementById('urf').classList.replace('btnr','btny')
-					document.getElementById('urf').setAttribute('title','Underground Research facility (DEMO)')
-					document.getElementById('urf').setAttribute('title',"The Alternating Reality Of Yes: " + (ifFound('item60',1) + ifFound('item62',1)) + ' out of 2 item found')
+					document.getElementById('urf').setAttribute('title',"Underground Research facility (almost done): " + (ifFound('item60',1) + ifFound('item62',1)) + ' out of 2 item found')
 				}
 			} else if (parseInt(localStorage.gasbyc) > 0){
 				localStorage.gasbyL1 = 1
@@ -4533,7 +4536,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('we').setAttribute('title','')
 				idrop('hoe','Hoe - UR MOM HEHEHEHA - -5% Move Cooldowns', 10000, 1)
 			} else if (we.classList.contains('greenstick')){
-				document.getElementById('we').classList.replace('bat','greenstick')
+				document.getElementById('we').classList.replace('greenstick','weapon')
 				localStorage.mhp = parseInt(localStorage.mhp) - 100
 				localStorage.att = parseInt(localStorage.att) - 45
 				localStorage.reg = parseInt(localStorage.reg) - 15
@@ -8290,7 +8293,6 @@ Restrictions: killed all enemies at caves at least once
 					sadvmus()
 					setStats()
 					show('airspace')
-					document.getElementById('ameair').setAttribute('title','American Airspace')
 					var a = document.getElementById('mhp')
 					a.classList.add('show')
 					a.classList.remove('hide')
@@ -11959,7 +11961,7 @@ Restrictions: killed all enemies at caves at least once
 				show('z11g1')
 				hide('z11g2')
 				hide('z11g3')
-				//hide('z11g4')
+				hide('z11g4')
 				hide('z11b1')
 				hide('z11b2')
 				hide('z11b3')
@@ -11970,6 +11972,8 @@ Restrictions: killed all enemies at caves at least once
 				hide('pCube')
 				hide('upArrow')
 				hide('downArrow')
+				hide('portal1')
+				hide('portal2')
 				document.getElementById('sci1').setAttribute('src','sci1a.gif')
 				//hide all enemies
 				hide('guard2')
@@ -12114,7 +12118,7 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 							}
 						}
-					} else if (x <= 3){
+					} else if (x === 3){
 						show('portalrobot')
 						show('pCube')
 						hide('player')
@@ -12154,7 +12158,7 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 							}
 						}
-					} else if (x <= 4){
+					} else if (x === 4){
 						show('freeman')
 						show('player')
 						setEStats(16000, 1600, 600, 80)
@@ -12205,12 +12209,12 @@ Restrictions: killed all enemies at caves at least once
 							fightSci3()
 						} else {
 							show('z11glass')
-							if (x <= 6){
+							if (x === 5){
 								show('z11g2')
-							} else if (x <= 8){
+							} else if (true){
 								show('z11g3')
-							} else if (x === 7){
-								//show('z11g4')
+							} else if (true){
+								show('z11g4')
 							}
 							setEStats(10000, 1000, 1000, 100)
 							battle(0, 20)
@@ -12228,11 +12232,11 @@ Restrictions: killed all enemies at caves at least once
 								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
 								hide('z11glass')
 								document.getElementById("eHealth").style.width = '0px'
-								if (x <= 6){
+								if (x === 5){
 									setTimeout(fightSci1, 1000)
-								} else if (x <= 8){
+								} else if (x <= 7){
 									setTimeout(fightSci2, 1000)
-								} else if (x === 7){
+								} else if (x === 8){
 									//setTimeout(fightSci3, 1000)
 								}
 							} else if (parseFloat(hp.textContent) <= 0){
@@ -12657,7 +12661,7 @@ Restrictions: killed all enemies at caves at least once
 		function complify(num){
 			x = Math.floor(Math.random() * 10) + 1
 			if (num === 1 && x < 6){
-				return Math.floor(Math.random() * 99 + 1) + '** 0'
+				return Math.floor(Math.random() * 99 + 1) + ' ** 0'
 			} else if (num === 1 && x < 8){
 				return '1/1*1'
 			} else if ((num === 4 || num === 9 || num === 16 || num === 25 || num === 36) && x < 2){
