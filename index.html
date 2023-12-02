@@ -56,7 +56,7 @@
 		<button class="locked hide" id="inventory">something</button>
 		<button class="locked hide" id="drone">another thing</button>
 		<button class="locked hide" id="games">not unlocked</button>
-		<button class="locked hide" id="e" style='left: 586px; position: absolute; top: 5px; margin: 0;'>commit grass touch</button>
+		<button class="locked hide" id="e" style='left: 586px; position: absolute; top: 5px; margin: 0;' onclick='newSave("ach45",0); localStorage.ach45 = parseInt(localStorage.ach45) + 1; document.getElementById("ach45").setAttribute("title", "I challenge you… - Click commit grass touch " + (69420 - parseInt(localStorage.ach45)) +" more times")'>commit grass touch</button>
 		<button class="locked hide" id="f" style='left: 733px; position: absolute; top: 5px; margin: 0;'>git gud</button>
 		<button title='What does it say?' class="locked hide" id="g" style='left: 880px; position: absolute; top: 5px; margin: 0;'>No touchy</button>
 		<button class="locked hide" style='left: 1027px; position: absolute; top: 5px; margin: 0;' id="h">don't</button>
@@ -312,7 +312,9 @@
 			<img src="freeman.png" alt="has crowbar" class="hide enemy" id="freeman">
 			<img src="portalsentry.png" alt="p3" class="hide enemy" id="portalrobot">
 			<img src="sci1a.gif" alt="nope.avi" class="hide enemy" id="sci1" style='width: 770px; height: 496px; left: 140px; top: 104px; z-index: 2;'>
-			<img src="sci2.gif" alt="nope.avi" class="hide enemy" id="sci2" style='width: 770px; height: 496px; left: 140px; top: 104px; z-index: 2;'>
+			<img src="sci2.gif" alt="oktoberfest.avi" class="hide enemy" id="sci2" style='width: 770px; height: 496px; left: 140px; top: 104px; z-index: 2;'>
+			<img src="sci3.gif" alt="uhmActaully.avi" class="hide enemy" id="sci3" style='width: 770px; height: 496px; left: 140px; top: 104px; z-index: 2;'>
+			<img src="killerrobotE.gif" alt="drone 2" class="hide enemy" id="killerrobot">
 			<img src="sciD.gif" alt="yesnt" class="hide enemy" id="sciD" style='width: 770px; height: 496px; left: 140px; top: 104px;'>
 			<h5 id='sci1Charge' style='left: 560px; top: 377px; width: 71px; height: 19px; margin: 0; background: white; z-index: 1; filter: brightness(0);'></h5>
 			<h5 id='sci2Charge' style='left: 670px; top: 217px; width: 0px; height: 23px; margin: 0; background: #FF4D4D; z-index: 2; filter:'></h5>
@@ -321,8 +323,9 @@
 			<img src="cube.png" alt="fren?" class="hide" id="pCube" style='width: 100px; height: 100px; position: absolute; left: 350px; top: 400px;'>
 			<img src="portalback.gif" alt="arrow" class="hide" id="upArrow" style='width: 50px; height: 150px; position: absolute; left: 300px; top: 150px; opacity: 0.6;'>
 			<img src="downarrow.gif" alt="arrow2" class="hide" id="downArrow" style='width: 50px; height: 150px; position: absolute; left: 300px; top: 150px; opacity: 0.6;'>
-			<img src="portalBlue.gif" alt="portal" class="hide" id="portal1" style='width: 100px; height: 50px; position: absolute; left: 267px; top: 130px; border-radius: 50%'>
-			<img src="portalOrange.gif" alt="porta2" class="hide" id="portal2" style='width: 100px; height: 50px; position: absolute; left: 267px; top: 450px; border-radius: 50%'>
+			<img src="portalBlue.gif" alt="portal" class="hide" id="portal1" style='width: 100px; height: 50px; position: absolute; left: 267px; top: 130px; border-radius: 50%; z-index: 2;'>
+			<img src="portalOrange.gif" alt="portal2" class="hide" id="portal2" style='width: 100px; height: 50px; position: absolute; left: 267px; top: 450px; border-radius: 50%; z-index: 2;'>
+			<img src="sci3arrow.gif" alt="yesssssss" class="hide" id="sci3back" style='width: 100px; height: 280px; position: absolute; left: 400px; top: 180px; z-index: 2; opacity: 0.5;'>
 		</div>
 		<div id='players' style='position: absolute;'>
 			<img src="player.gif" alt="an idiot" class="player hide" id="player">
@@ -1306,6 +1309,11 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='ach38' class='achF' style='background: url("Ach38.png"); position: absolute; left: 555; top: 172;' title='Army preservation - have 10 drones active at once'></h5>
 					<h5 id='ach39' class='achF' style='background: url("Ach39.png"); position: absolute; left: 585; top: 172;' title='Collector 2 - Unlock 50 different items'></h5>
 					<h5 id='ach40' class='achF' style='background: url("Ach40.png"); position: absolute; left: 615; top: 172;' title='2e - collect 2 different e’s from killing e'></h5>
+					<h5 id='ach41' class='achF' style='background: url("Ach41.png"); position: absolute; left: 645; top: 172;' title='KGT development crew :) - Click this achievement to open a google form to give feedback for the game' onclick='localStorage.ach41 = 1; totalAP()'><a style='display: block; width: 30px; height: 30px; padding: 0; margin: 0; z-index: 5;' target=”_blank” href='https://forms.gle/ifBLzw8Fuo32R8Gv6'></a></h5>
+					<h5 id='ach42' class='achF' style='background: url("Ach42.png"); position: absolute; left: 675; top: 172;' title='Trainer - Get 500 levels in training'></h5>
+					<h5 id='ach43' class='achF' style='background: url("Ach43.png"); position: absolute; left: 705; top: 172;' title='8v1 - Brawl in the tutorial zone'></h5>
+					<h5 id='ach44' class='achF' style='background: url("Ach44.png"); position: absolute; left: 735; top: 172;' title='Common low constants - collect 100 common enhanced items'></h5>
+					<h5 id='ach45' class='achF' style='background: url("Ach45.png"); position: absolute; left: 765; top: 172;' title='I challenge you… -  Click commit grass touch 69420 more times'></h5>
 				</div>
 				<h5 id='AP' style='font-size: 24; position: absolute; left: 680px; top: 557px; margin: 0;'>1</h5>
 				<button id='achBut' onclick='spendAP()'>Spend AP</button>
@@ -1534,7 +1542,7 @@ Restrictions: killed all enemies at caves at least once
 		var MS6Tr = 0;
 		var Qn = 0;
 		var backValue = 0;
-		const totalAch = 40;
+		const totalAch = 45;
 		const totalItems = 65;
 		const totalZones = 10;
 		const maxAnomSlots = 23;
@@ -2548,6 +2556,9 @@ Restrictions: killed all enemies at caves at least once
 				setTimeout(WFUCool, 1000)
 			} else if (parseInt(localStorage.f4Tr) === 1){
 				games.textContent = 'unlocked'
+			}
+			if (localStorage.ach45){
+				document.getElementById('ach45').setAttribute('title', "I challenge you… - Click commit grass touch " + (69420 - parseInt(localStorage.ach45)) +" more times")
 			}
 			hide('start')
 			hide('changelog')
@@ -4419,6 +4430,9 @@ Restrictions: killed all enemies at caves at least once
 		function sdrop(item,title,chance){
 			dropR = Math.floor(Math.random() * 10000) + 1
 			dropC = chance * parseFloat(SC.textContent) * (1 + (b4 / 100))
+			if (dropC > 3000 && chance <= 3000){
+				dropC = 3000
+			}
 			bs = 0
 			if (parseInt(applec.textContent) >= 200){
 				bs = Math.floor(Math.random() * 40) + 1
@@ -5731,6 +5745,8 @@ Restrictions: killed all enemies at caves at least once
 				if (adrop('e',50)){
 					return 1
 				}
+			} else if (z === 11){
+				adrop('valve',50)
 			}
 			return 0
 		}
@@ -5852,6 +5868,7 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
+							localStorage.ach43 = '1'
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
@@ -5913,6 +5930,7 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
+							localStorage.ach43 = '1'
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
@@ -5968,8 +5986,7 @@ Restrictions: killed all enemies at caves at least once
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
 						enemykill(1)
-						var a = document.getElementById('stick')
-						a.classList.add('hide')
+						hide('stick')
 						document.getElementById("eHealth").style.width = '0px'
 						
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(1)
@@ -6000,6 +6017,7 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
+							localStorage.ach43 = '1'
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
@@ -6069,6 +6087,7 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
+							localStorage.ach43 = '1'
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
@@ -6136,6 +6155,7 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
+							localStorage.ach43 = '1'
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
@@ -6212,6 +6232,7 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
+							localStorage.ach43 = '1'
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
@@ -6281,6 +6302,7 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
+							localStorage.ach43 = '1'
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
@@ -6350,14 +6372,14 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(1)){
 							setTimeout(tutFight, 200)
+							localStorage.ach43 = '1'
 						} else {
 							var qe = setTimeout(enki,500,advc.textContent)
 						}
 					} else if (hp.textContent <= 0){
 						playerdead()
 						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('player')
-						a.classList.add('hide')
+						hide('player')
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500,advc.textContent)
 					} else {
@@ -6417,10 +6439,8 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('field')
 				a.classList.add('hide')
-				var a = document.getElementById('sky')
-				a.classList.add('hide')
-				var a = document.getElementById('school')
-				a.classList.add('hide')
+				hide('sky')
+				hide('school')
 				var a = document.getElementById('ameair')
 				a.classList.add('hide')
 				var a = document.getElementById('area51')
@@ -11974,6 +11994,7 @@ Restrictions: killed all enemies at caves at least once
 				hide('downArrow')
 				hide('portal1')
 				hide('portal2')
+				hide('sci3back')
 				document.getElementById('sci1').setAttribute('src','sci1a.gif')
 				//hide all enemies
 				hide('guard2')
@@ -11982,8 +12003,8 @@ Restrictions: killed all enemies at caves at least once
 				hide('freeman')
 				hide('sci1')
 				hide('sci2')
-				//hide('sci3')
-				//hide('killerrobot')
+				hide('sci3')
+				hide('killerrobot')
 				upTr = 0
 				if (localStorage.doorKill != '1' && ((enemyN >= 1 && enemyN <= 8) === false)){
 					show('z11b2')
@@ -12197,23 +12218,23 @@ Restrictions: killed all enemies at caves at least once
 								var qe = setTimeout(enki,500,advc.textContent)
 							}
 						}
-					} else if (true){
+					} else if (x <= 7 && x >= 5){
 						hide('z11glass') //thing that theyre fight, placeholder
 						hide('z11g1')
 						show('player')
-						if (parseInt(localStorage.sci1c) >= 1 && x <= 6){ //remove when add new enemies
+						if (parseInt(localStorage.sci1c) >= 1 && x === 5){ //remove when add new enemies
 							fightSci1()
-						} else if (parseInt(localStorage.sci2c) >= 2 && x <= 8){
+						} else if (parseInt(localStorage.sci2c) >= 1 && x === 6){
 							fightSci2()
-						} else if (parseInt(localStorage.sci3c) >= 3 && x === 7){
+						} else if (parseInt(localStorage.sci3c) >= 1 && x === 7){
 							fightSci3()
 						} else {
 							show('z11glass')
 							if (x === 5){
 								show('z11g2')
-							} else if (true){
+							} else if (x === 6){
 								show('z11g3')
-							} else if (true){
+							} else if (x === 7){
 								show('z11g4')
 							}
 							setEStats(10000, 1000, 1000, 100)
@@ -12234,14 +12255,88 @@ Restrictions: killed all enemies at caves at least once
 								document.getElementById("eHealth").style.width = '0px'
 								if (x === 5){
 									setTimeout(fightSci1, 1000)
-								} else if (x <= 7){
+								} else if (x === 6){
 									setTimeout(fightSci2, 1000)
-								} else if (x === 8){
-									//setTimeout(fightSci3, 1000)
+								} else if (x === 7){
+									setTimeout(fightSci3, 1000)
 								}
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
 								hide('player')
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+						}
+					} else if (true){
+						show('killerrobot')
+						show('player')
+						document.getElementById('killerrobot').setAttribute('src','killerrobotE.gif')
+						setEStats(20000, 1000, 1000, 0)
+						battle(0, 20)
+						var attKillN = 0
+						idE.textContent = 0
+						function battle(ae, sp){
+							if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+								regen()
+								ae = ae + 1
+								if (ae === sp){
+									attKillN = attKillN + 1
+									eattack()
+									if ((attKillN + 1) / 7 === Math.round((attKillN + 1) / 7)){
+										document.getElementById('killerrobot').setAttribute('src','killerrobotE3.gif')
+									} else if ((attKillN + 1)/ 3 === Math.round((attKillN + 1)/ 3)){
+										document.getElementById('killerrobot').setAttribute('src','killerrobotE2.gif')
+									} else {
+										document.getElementById('killerrobot').setAttribute('src','killerrobotE.gif')
+									}
+									if (attKillN / 7 === Math.round(attKillN / 7)){
+										let uwbia = Math.floor(Math.random() * 6) + 1
+										if (uwbia <= 3){
+											hp.textContent = parseInt(hp.textContent) - Math.floor(parseInt(mhp.textContent) / 5) - parseInt(reg.textContent)
+											regen()
+										} else if (uwbia <= 5){
+											attDelay.textContent = parseFloat(attDelay.textContent) + 200
+										} else {
+											show('noMove2')
+										}
+									} else if (attKillN / 3 === Math.round(attKillN / 3)){
+										let uwbia = Math.floor(Math.random() * 5) + 1
+										if (uwbia === 1){
+											reg.textContent = parseInt(reg.textContent) - 100
+										} else if (uwbia === 2){
+											eattack()
+											eattack()
+											eattack()
+										} else if (uwbia === 3){
+											ehp.textContent = parseInt(ehp.textContent) + 2000
+											regen()
+											hp.textContent = parseInt(hp.textContent) - parseInt(reg.textContent)
+										} else if (uwbia === 4){
+											idE.textContent = parseInt(idE.textContent) + 0.1
+										} else {
+											show('noMove3')
+										}
+									}
+									ae = 0
+								}
+								setTimeout(battle, 50, ae, sp)
+							} else if (parseFloat(ehp.textContent) <= 0){
+								enemykill(11)
+								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(450)
+								hide('killerrobot')
+								newSave('killerrobotc',0)
+								localStorage.killerrobotc = parseInt(localStorage.killerrobotc) + 1
+								KBify(localStorage.killerrobotc)
+								advc.textContent = parseInt(advC.textContent)
+								var qe = setTimeout(enki,500,advc.textContent)
+								document.getElementById("eHealth").style.width = '0px'
+								stoneDrops(10)
+								idE.textContent = 0
+								idrop('valve','A valve - Corroded by steam - +1000 Hp +100 R',100)
+							} else if (parseFloat(hp.textContent) <= 0){
+								playerdead()
+								hide('player')
+								idE.textContent = 0
 								advc.textContent = parseInt(advC.textContent)
 								var qe = setTimeout(enki,500,advc.textContent)
 							}
@@ -12407,6 +12502,91 @@ Restrictions: killed all enemies at caves at least once
 					hide('player')
 					advc.textContent = parseInt(advC.textContent)
 					var qe = setTimeout(enki,500,advc.textContent)
+				}
+			}
+		}
+		var playerStuck = 0;
+		function fightSci3(){
+			show('sci3')
+			show('player')
+			show('portal2')
+			document.getElementById('sci3').setAttribute('src','sci3.gif')
+			setEStats(16000, 800, 800, 200)
+			rightValid = 0
+			timeYes = 0
+			battle(0, 20)
+			function battle(ae, sp){
+				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+					regen()
+					ae = ae + 1
+					if (playerStuck === 0 && ae >= 10){
+						document.getElementById('sci3').setAttribute('src','sci3a.gif')
+					} else {
+						if (document.getElementById('sci3').getAttribute('src') === 'sci3a.gif'){
+							document.getElementById('sci3').setAttribute('src','sci3.gif')
+						}
+					}
+					timeYes = 0
+					if (playerStuck === 1){
+						document.getElementById('player').style.top = 90 * (2 * Math.atan(Math.tan(Math.PI * (ae - 5) / 10)) / Math.PI) + 150 //Math is fun, innit
+						if (ae === 5 || ae === 15){
+							timeYes = 1
+						} else if (ae === 10 || ae === 20){
+							rightValid = 0
+							document.getElementById('sci3back').setAttribute('src','sci3arrow.gif')
+						}
+					}
+					if (ae === sp){
+						eattack()
+						ae = 0
+						if (playerStuck === 0){
+							playerStuck = 1
+							show('noMove1')
+							show('sci3back')
+						}
+						show('portal1')
+					}
+					setTimeout(battle, 50, ae, sp)
+				} else if (parseFloat(ehp.textContent) <= 0){
+					enemykill(11)
+					localStorage.xp = parseFloat(localStorage.xp) + xpMulti(300)
+					hide('sci3')
+					show('sciD')
+					newSave('sci3c',0)
+					localStorage.sci3c = parseInt(localStorage.sci3c) + 1
+					KBify(localStorage.sci3c)
+					advc.textContent = parseInt(advC.textContent)
+					var qe = setTimeout(enki,500,advc.textContent)
+					document.getElementById("eHealth").style.width = '0px'
+					stoneDrops(10)
+					playerStuck = 0
+					document.getElementById('player').style.top = 244
+					document.getElementById('player').style.left = 225
+					idrop('valve','A valve - Corroded by steam - +1000 Hp +100 R',100)
+				} else if (parseFloat(hp.textContent) <= 0){
+					playerdead()
+					hide('player')
+					playerStuck = 0
+					document.getElementById('player').style.top = 244
+					document.getElementById('player').style.left = 225
+					advc.textContent = parseInt(advC.textContent)
+					var qe = setTimeout(enki,500,advc.textContent)
+				}
+			}
+		}
+		var rightValid = 0;
+		var timeYes = 0;
+		function sci3Right(){
+			if (rightValid === 0){
+				rightValid = 1
+				if (timeYes === 1){
+					hide('noMove1')
+					document.getElementById('player').style.top = 244
+					document.getElementById('player').style.left = 325
+					playerStuck = 2
+					hide('sci3back')
+				} else {
+					document.getElementById('sci3back').setAttribute('src','sci3arrow2.gif')
 				}
 			}
 		}
@@ -13506,6 +13686,9 @@ Restrictions: killed all enemies at caves at least once
 					} else if (e.key === 'ArrowRight'){
 						document.getElementById('fallingPlayer').style.left = '325px'
 						playerPos = 2
+						if (document.getElementById('z11').classList.contains('hide') === false && document.getElementById('sci3').classList.contains('hide') === false){
+							sci3Right()
+						}
 					} else if (e.key === 'ArrowUp'){
 						if (document.getElementById('z11').classList.contains('hide') === false && document.getElementById('portalrobot').classList.contains('hide') === false){
 							upTr = 1
@@ -16507,6 +16690,33 @@ Restrictions: killed all enemies at caves at least once
 				AP = AP + 3
 				currentAch = currentAch + 1
 			}
+			if (localStorage.ach41 === '1'){
+				document.getElementById('ach41').classList.replace('achF','achCT')
+				document.getElementById('ach41').setAttribute('title', "KGT development crew :) - Thanks")
+				AP = AP + 1
+				currentAch = currentAch + 1
+			}
+			if (parseInt(attL.textContent) + parseInt(bloL.textContent) + parseInt(heaL.textContent) >= 500){
+				document.getElementById('ach42').classList.replace('achF','achRT')
+				AP = AP + 2
+				currentAch = currentAch + 1
+			}
+			if (localStorage.ach43 === '1'){
+				document.getElementById('ach43').classList.replace('achF','achCT')
+				AP = AP + 1
+				currentAch = currentAch + 1
+			}
+			if (parseInt(localStorage.ach44) >= 100){
+				document.getElementById('ach44').classList.replace('achF','achCT')
+				AP = AP + 1
+				currentAch = currentAch + 1
+			}
+			if (localStorage.ach45 === '69420'){
+				document.getElementById('ach45').classList.replace('achF','achET')
+				document.getElementById('ach45').setAttribute('title', "I challenge you… - Ok now get some help, unless you used an autoclicker, in which, fair enough")
+				AP = AP + 3
+				currentAch = currentAch + 1
+			}
 			newSave('AdvP1', 0)
 			newSave('InvP1', 0)
 			newSave('DroP1', 0)
@@ -16557,10 +16767,6 @@ Restrictions: killed all enemies at caves at least once
 			let yes = prompt("Enter something true for prize", "yes");
 			if (yes === 'kgt equals bad'){
 				localStorage.ach31 = 1
-			} else if (yes === 'ephc'){
-				localStorage.mhp = 7000
-				localStorage.att = 3000
-				localStorage.reg = 400
 			}
 		}
 		function achBar(){
@@ -17200,6 +17406,8 @@ Restrictions: killed all enemies at caves at least once
 					rarity = 'R'
 				} else {
 					rarity = 'C'
+					newSave('ach44',0)
+					localStorage.ach44 = parseInt(localStorage.ach44) + 1
 				}
 			}
 			if (bonus){
@@ -17233,6 +17441,8 @@ Restrictions: killed all enemies at caves at least once
 					bonus = createBonus(5,5,18,18,18,18)	
 				} else if (item === 'e'){
 					bonus = createBonus(10,10,20,20,19,19)
+				} else if (item === 'valve'){
+					bonus = createBonus(25,25,8,8,8,1)
 				} else if (item === 'droneDrop1'){
 					bonus = createBonus(35,35,4,4,9,9)
 				} else if (item === 'droneDrop2'){
