@@ -1309,7 +1309,7 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='ach38' class='achF' style='background: url("Ach38.png"); position: absolute; left: 555; top: 172;' title='Army preservation - have 10 drones active at once'></h5>
 					<h5 id='ach39' class='achF' style='background: url("Ach39.png"); position: absolute; left: 585; top: 172;' title='Collector 2 - Unlock 50 different items'></h5>
 					<h5 id='ach40' class='achF' style='background: url("Ach40.png"); position: absolute; left: 615; top: 172;' title='2e - collect 2 different e’s from killing e'></h5>
-					<h5 id='ach41' class='achF' style='background: url("Ach41.png"); position: absolute; left: 645; top: 172;' title='KGT development crew :) - Click this achievement to open a google form to give feedback for the game' onclick='localStorage.ach41 = 1; totalAP()'><a style='display: block; width: 30px; height: 30px; padding: 0; margin: 0; z-index: 5;' target=”_blank” href='https://forms.gle/ifBLzw8Fuo32R8Gv6'></a></h5>
+					<h5 id='ach41' class='achF' style='background: url("Ach41.png"); position: absolute; left: 645; top: 172;' title='KGT development crew :) - Click this achievement to open a google form to give feedback for the game' onclick='localStorage.ach41 = 1; totalAP()'><a style='display: block; width: 30px; height: 30px; padding: 0; margin: 0; z-index: 5;' target=”_blank” href='https://forms.gle/MweeK5W9JD1cbpbC7'></a></h5>
 					<h5 id='ach42' class='achF' style='background: url("Ach42.png"); position: absolute; left: 675; top: 172;' title='Trainer - Get 500 levels in training'></h5>
 					<h5 id='ach43' class='achF' style='background: url("Ach43.png"); position: absolute; left: 705; top: 172;' title='8v1 - Brawl in the tutorial zone'></h5>
 					<h5 id='ach44' class='achF' style='background: url("Ach44.png"); position: absolute; left: 735; top: 172;' title='Common low constants - collect 100 common enhanced items'></h5>
@@ -3155,6 +3155,9 @@ Restrictions: killed all enemies at caves at least once
 				if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && localStorage.ch37Tr === '1'){ //change when fully finshed
 					document.getElementById('urf').classList.replace('btnr','btny')
 					document.getElementById('urf').setAttribute('title',"Underground Research facility: " + (ifFound('item60',1) + ifFound('item62',1)) + ' out of 2 item found')
+				}
+				if (parseInt(localStorage.guard2c) > 0 && parseInt(localStorage.headcrabc) > 0 && parseInt(localStorage.portalrobotc) > 0 && parseInt(localStorage.freemanc) > 0 && parseInt(localStorage.sci1c) > 0 && parseInt(localStorage.sci2c) > 0 && parseInt(localStorage.sci3c) > 0 && parseInt(localStorage.killerrobotc) > 0){
+					document.getElementById('urf').classList.replace('btny','btng')
 				}
 			} else if (parseInt(localStorage.gasbyc) > 0){
 				localStorage.gasbyL1 = 1
@@ -12332,6 +12335,7 @@ Restrictions: killed all enemies at caves at least once
 								document.getElementById("eHealth").style.width = '0px'
 								stoneDrops(10)
 								idE.textContent = 0
+								FPdrop(32,16)
 								idrop('valve','A valve - Corroded by steam - +1000 Hp +100 R',100)
 							} else if (parseFloat(hp.textContent) <= 0){
 								playerdead()
@@ -17250,7 +17254,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item55').setAttribute('title', "Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D\nDrops from the ant king (5%)\n" + document.getElementById('item55').getAttribute('title'))
 			}
 			if (ifFound('item56')){
-				document.getElementById('item56').setAttribute('title', "FightPicker69 - Unlocks a random enemy for you to bully. More info in settings\nDrops from the guard, skeleton, hoe, Cool math games and e through negative expodential arithmetic\nI advise grinding of the hardest one to access for greater chance and it also has a higher cap\n" + document.getElementById('item56').getAttribute('title'))
+				document.getElementById('item56').setAttribute('title', "FightPicker69 - Unlocks a random enemy for you to bully. More info in settings\nDrops from the guard, skeleton, hoe, Cool math games, e and killer robot through negative expodential arithmetic\nI advise grinding of the hardest one to access for greater chance and it also has a higher cap\n" + document.getElementById('item56').getAttribute('title'))
 			}
 			if (ifFound('item57')){
 				document.getElementById('item57').setAttribute('title', "Leather pants - He’s got the drip - +10 Hp +4 D\nDrops from the A10 plane thing (8%)\n" + document.getElementById('item57').getAttribute('title'))
