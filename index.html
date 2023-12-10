@@ -1780,6 +1780,9 @@ Restrictions: killed all enemies at caves at least once
 			newSave('sniBT',240)
 			newSave('sniPr',0)
 			newSave('sniLvl',0)
+			if ((parseInt(localStorage.sniLvl) >= 0) === false){
+				localStorage.sniLvl = 0
+			}
 			newSave('sniS',1)
 			newSave('dodgeCoolM',1)
 			newSave('goldWFU',0)
@@ -1932,21 +1935,12 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById("kilUP").style.width = parseFloat(kilPU.textContent) * 5.1 + 'px'
 				document.getElementById("attP").style.width = parseFloat(attPr.textContent) * 4.23 + 'px'
 				document.getElementById("bloP").style.width = parseFloat(bloPr.textContent) * 4.23 + 'px'
-				if (parseInt(attL.textContent) <= 20){
-					document.getElementById('attack').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage')
-					document.getElementById('Pattack').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage, pierces 80% of defence')
-					document.getElementById('Fattack').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage')
-					document.getElementById('attackB').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage')
-					document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage, pierces 80% of defence')
-					document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage')
-				} else {
-					document.getElementById('attack').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
-					document.getElementById('Pattack').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage, pierces 80% of defence')
-					document.getElementById('Fattack').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
-					document.getElementById('attackB').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
-					document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage, pierces 80% of defence')
-					document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
-				}
+				document.getElementById('attack').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * LvlAttack()) * 100) / 100 + ' damage')
+				document.getElementById('Pattack').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * LvlAttack()) * 100) / 100 + ' damage, pierces 80% of defence')
+				document.getElementById('Fattack').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * LvlAttack()) * 100) / 100 + ' damage')
+				document.getElementById('attackB').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * LvlAttack()) * 100) / 100 + ' damage')
+				document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * LvlAttack()) * 100) / 100 + ' damage, pierces 80% of defence')
+				document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * LvlAttack()) * 100) / 100 + ' damage')
 				document.getElementById('kilBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
 				document.getElementById('kilMBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
 				document.getElementById('stiBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
@@ -4430,10 +4424,10 @@ Restrictions: killed all enemies at caves at least once
 				return false
 			}
 		}
-		function sdrop(item,title,chance){
+		function sdrop(item,title,chance,bypass){
 			dropR = Math.floor(Math.random() * 10000) + 1
 			dropC = chance * parseFloat(SC.textContent) * (1 + (b4 / 100))
-			if (dropC > 3000 && chance <= 3000){
+			if (dropC > 3000 && chance <= 3000 && bypass != 1){
 				dropC = 3000
 			}
 			bs = 0
@@ -9704,8 +9698,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 50)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 50)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -9754,8 +9748,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 50)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 50)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -9807,8 +9801,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 50)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 50)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -9862,8 +9856,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 50)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 50)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						udrop('rockusb', 'If only I could destroy the rock', 10000)
 						advc.textContent = parseInt(advC.textContent)
@@ -9920,8 +9914,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 50)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 50)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -9982,8 +9976,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 50)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 50)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						idrop('torch','Torch - *continues to wave it around menacingly* - +4 A', 2000)
 						advc.textContent = parseInt(advC.textContent)
@@ -10039,8 +10033,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 50)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 50)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -10114,8 +10108,8 @@ Restrictions: killed all enemies at caves at least once
 							idrop('lava','Lava - what can I destroy with this - Click to use', 10000)
 							localStorage.lavaTr = 1
 						}
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 50)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 50)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -10348,7 +10342,7 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 175)
-						idrop('pickaxe','Pickaxe - Now this is a weapon - +50 A', 200)
+						idrop('pickaxe','Pickaxe - Now this is a weapon - +50 A', 600)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(8)){
@@ -10467,7 +10461,7 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 175)
-						idrop('minercap','Minercap - call me kevin because they gotta be sev- oh shi - +30 D +50 Hp', 400)
+						idrop('minercap','Minercap - call me kevin because they gotta be sev- oh shi - +30 D +50 Hp', 600)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(8)){
@@ -11771,8 +11765,8 @@ Restrictions: killed all enemies at caves at least once
 							sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 900)
 							sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 900)
 							sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 225)
-							idrop('yellow', 'Yellow - FFFF00 - -5% Attack cooldowns +5% Block cooldowns +50 A', 100)
-							idrop('cyan', 'Cyan - 00FFFF - -8% Block cooldowns +5% Attack cooldowns +50 D', 100)
+							idrop('yellow', 'Yellow - FFFF00 - -5% Attack cooldowns +5% Block cooldowns +50 A', 200)
+							idrop('cyan', 'Cyan - 00FFFF - -8% Block cooldowns +5% Attack cooldowns +50 D', 200)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -12663,22 +12657,22 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function stoneDrops(multi,bypass){
 			if (multi < 8 || bypass === 1){
-				sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 400 * multi)
+				sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 400 * multi, 1)
 			} else {
 				sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 3000)
 			}
 			if (multi < 30 || bypass === 1){
-				sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 100 * multi)
+				sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 100 * multi, 1)
 			} else {
 				sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 3000)
 			}
 			if (multi < 30 || bypass === 1){
-				sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 100 * multi)
+				sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 100 * multi, 1)
 			} else {
 				sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 3000)
 			}
 			if (multi < 120 || bypass === 1){
-				sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 25 * multi)
+				sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 25 * multi, 1)
 			} else {
 				sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 3000)
 			}
@@ -13470,10 +13464,10 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function LvlAttack(){
-			if (attL.textContent <= 20){
+			if (attL.textContent <= 50){
 				return (1 + (parseInt(attL.textContent) * 0.005))
 			} else {
-				return ((100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9) / 100)
+				return (100 + ((parseInt(attL.textContent) / 2) - 25) ** 0.6 + 25) / 100
 			}
 		}
 		window.addEventListener('keydown', function (e) {
@@ -15184,21 +15178,12 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function ch16st(){
 			ch16t.textContent = 1
-			var b = document.getElementById('kilBS')
-			b.classList.remove('hide')
-			var b = document.getElementById('kilUS')
-			b.classList.remove('hide')			
-			var a = document.getElementById('usbVent')
-			a.classList.add('hide')
-			var a = document.getElementById('ch16')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('ch16b')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('ch16but')
-			a.classList.add('show')
-			a.classList.remove('hide')
+			show('kilBS')
+			show('kilUS')
+			hide('usbVent')
+			show('ch16')
+			show('ch16b')
+			show('ch16but')
 		}
 		ch16but.onclick = ch17st;
 		function ch17st(){
@@ -15217,6 +15202,12 @@ Restrictions: killed all enemies at caves at least once
 			var a = document.getElementById('ch17but')
 			a.classList.add('show')
 			a.classList.remove('hide')
+		}
+		function d4ust(){
+			hide('usbVent')
+			show('d4u')
+			show('d4ub')
+			show('d4ubut')
 		}
 		zl1.onclick = zL;
 		zl2.onclick = zL;
@@ -15685,21 +15676,12 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById("attP").style.width = '423px'
 						attL.textContent = parseInt(attL.textContent) + 1
 						attPr.textContent = 0
-						if (parseInt(attL.textContent) <= 20){
-							document.getElementById('attack').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage')
-							document.getElementById('Pattack').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage, pierces 80% of defence')
-							document.getElementById('Fattack').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage')
-							document.getElementById('attackB').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage')
-							document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage, pierces 80% of defence')
-							document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (parseInt(attL.textContent) * 0.5)))) / 100 + ' damage')
-						} else {
-							document.getElementById('attack').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
-							document.getElementById('Pattack').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage, pierces 80% of defence')
-							document.getElementById('Fattack').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
-							document.getElementById('attackB').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
-							document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage, pierces 80% of defence')
-							document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * (100 + (((parseInt(attL.textContent) * 0.5) - 9) ** 0.5) + 9))) / 100 + ' damage')
-						}
+						document.getElementById('attack').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * LvlAttack())) / 100 + ' damage')
+						document.getElementById('Pattack').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * LvlAttack())) / 100 + ' damage, pierces 80% of defence')
+						document.getElementById('Fattack').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * LvlAttack())) / 100 + ' damage')
+						document.getElementById('attackB').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * LvlAttack())) / 100 + ' damage')
+						document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * LvlAttack() * 0.5)) / 100 + ' damage, pierces 80% of defence')
+						document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * LvlAttack() * 0.5)) / 100 + ' damage')
 					}
 					document.getElementById('attP').setAttribute('title', Math.floor((100 - parseFloat(attPr.textContent)) / (100 / (((((parseFloat(attL.textContent) / 4) + 4)) ** 2) * 60 / 8) * parseFloat(TraSp.textContent))) + ' seconds till complete')
 					document.getElementById('attMP').setAttribute('title', Math.floor((100 - parseFloat(attPr.textContent)) / (100 / (((((parseFloat(attL.textContent) / 4) + 4)) ** 2) * 60 / 8) * parseFloat(TraSp.textContent))) + ' seconds till complete')
@@ -16700,7 +16682,7 @@ Restrictions: killed all enemies at caves at least once
 				AP = AP + 1
 				currentAch = currentAch + 1
 			}
-			if (parseInt(attL.textContent) + parseInt(bloL.textContent) + parseInt(heaL.textContent) >= 500){
+			if (parseInt(attL.textContent) + parseInt(bloL.textContent) + parseInt(heaL.textContent) >= 200){
 				document.getElementById('ach42').classList.replace('achF','achRT')
 				AP = AP + 2
 				currentAch = currentAch + 1
@@ -16710,7 +16692,7 @@ Restrictions: killed all enemies at caves at least once
 				AP = AP + 1
 				currentAch = currentAch + 1
 			}
-			if (parseInt(localStorage.ach44) >= 100){
+			if (parseInt(localStorage.ach44) >= 50){
 				document.getElementById('ach44').classList.replace('achF','achCT')
 				AP = AP + 1
 				currentAch = currentAch + 1
@@ -17203,10 +17185,10 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item38').setAttribute('title', "Torch - *continues to wave it around menacingly* - +4 A\nDrops from the torch (20%)\n" + document.getElementById('item38').getAttribute('title'))
 			}
 			if (ifFound('item39')){
-				document.getElementById('item39').setAttribute('title', "Jeans - i love this game - +10 D +20 Hp\nDrops from all enemies in the caves (0.5%)\n" + document.getElementById('item39').getAttribute('title'))
+				document.getElementById('item39').setAttribute('title', "Jeans - i love this game - +10 D +20 Hp\nDrops from all enemies in the caves (1%)\n" + document.getElementById('item39').getAttribute('title'))
 			}
 			if (ifFound('item40')){
-				document.getElementById('item40').setAttribute('title', "Boot - y - -5% Attack Cooldowns +8 D +6 A\nDrops from all enemies in the caves (0.5%)\n" + document.getElementById('item40').getAttribute('title'))
+				document.getElementById('item40').setAttribute('title', "Boot - y - -5% Attack Cooldowns +8 D +6 A\nDrops from all enemies in the caves (1%)\n" + document.getElementById('item40').getAttribute('title'))
 			}
 			if (ifFound('item41')){
 				document.getElementById('item41').setAttribute('title', "Parrystone - Now you counter - +1 A +1 D\nAn item only drones collect\n" + document.getElementById('item41').getAttribute('title'))
@@ -17215,13 +17197,13 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item42').setAttribute('title', "A stone - Generic and not special - +11 D +11 A\nDrops from the stone (2%)\n" + document.getElementById('item42').getAttribute('title'))
 			}
 			if (ifFound('item43')){
-				document.getElementById('item43').setAttribute('title', "Pickaxe - Now this is a weapon - +50 A\nDrops from the pickaxe (2%)\n" + document.getElementById('item43').getAttribute('title'))
+				document.getElementById('item43').setAttribute('title', "Pickaxe - Now this is a weapon - +50 A\nDrops from the pickaxe (6%)\n" + document.getElementById('item43').getAttribute('title'))
 			}
 			if (ifFound('item44')){
 				document.getElementById('item44').setAttribute('title', "Wheels - With this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns\nDrops from the minecart (2%)\n" + document.getElementById('item44').getAttribute('title'))
 			}
 			if (ifFound('item45')){
-				document.getElementById('item45').setAttribute('title', "Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D\nDrops from the miner (4%)\n" + document.getElementById('item45').getAttribute('title'))
+				document.getElementById('item45').setAttribute('title', "Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D\nDrops from the miner (6%)\n" + document.getElementById('item45').getAttribute('title'))
 			}
 			if (ifFound('item46')){
 				document.getElementById('item46').setAttribute('title', "Gears - how do you equip these? - -5% Block Cooldowns\nDrops from the drill (1%)\n" + document.getElementById('item46').getAttribute('title'))
@@ -17278,10 +17260,10 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item63').setAttribute('title', "Ice cream - How does a search engine have anything to do with ice cream? - -5% Heal cooldowns\nDropped from bing (3%)\n" + document.getElementById('item63').getAttribute('title'))
 			}
 			if (ifFound('item64')){
-				document.getElementById('item64').setAttribute('title', "Yellow - FFFF00 - -5% Attack cooldowns +5% Block cooldowns +50 A\nDropped from the colour green (1%)\n" + document.getElementById('item64').getAttribute('title'))
+				document.getElementById('item64').setAttribute('title', "Yellow - FFFF00 - -5% Attack cooldowns +5% Block cooldowns +50 A\nDropped from the colour green (2%)\n" + document.getElementById('item64').getAttribute('title'))
 			}
 			if (ifFound('item65')){
-				document.getElementById('item65').setAttribute('title', "Cyan - 00FFFF - -8% Block cooldowns +5% Attack cooldowns +50 D\nDropped from the colour green (1%)\n" + document.getElementById('item65').getAttribute('title'))
+				document.getElementById('item65').setAttribute('title', "Cyan - 00FFFF - -8% Block cooldowns +5% Attack cooldowns +50 D\nDropped from the colour green (2%)\n" + document.getElementById('item65').getAttribute('title'))
 			}
 		}//itemsHere
 		function anomOn(){
