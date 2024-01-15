@@ -518,6 +518,7 @@ Restrictions: killed all enemies at caves at least once
 			<button class="vent empty" style="left: 770px; top: 395px;" id="i47" onmousedown=rightclick(i47); onclick=equip(document.getElementById('i47'))></button>
 			<button class="vent empty" style="left: 825px; top: 395px;" id="i48" onmousedown=rightclick(i48); onclick=equip(document.getElementById('i48'))></button>
 		</div>
+		<h1 id='mmifi' class='hide' style='position: absolute; top: 493; left: 562; font-size: 16;'>Delete items on clicking slot: <button id='mmiY' class='off' title="Click on a slot to destroy it's item" onclick='mmIf("yes")'>Yes</button><button id='mmiN' class='on' title='Click on an item slot to move/equip it' onclick='mmIf("no")'>No</button></h1>
 		<h5 title="Enemy library [Q]" class="hide elibr" id="elibr"></h5>
 		<img src="library.png" alt="Git gud bro" class="hide" id="library">
 		<button title="Tutorial book" class="vent tutzobook hide" id="tutzobook"></button>
@@ -527,6 +528,7 @@ Restrictions: killed all enemies at caves at least once
 		<div id='elibrb' class='hide'>
 			<button title="American airspace book" class="vent hide" id="ameairbook"></button>
 			<button title="Area 51 book" class="vent hide" id="areabook" onclick=arelibr()></button>
+			<button title="Cave book" class="vent hide" id="cavebook" onclick=cavlibr()></button>
 		</div>
 		<button class='hide' id='libBack' onclick=backClick()>Back</button>
 		<img src='tutoriallibrary.png' alt='go read' class='hide' id='tutli'>
@@ -653,6 +655,27 @@ Restrictions: killed all enemies at caves at least once
 				<img src='4dronepage.png' alt='go read' class='hide epage' id='d4p'>
 				<img src='ant2page.png' alt='go read' class='hide epage' id='ant2p'>
 				<img src='radioactivepage.png' alt='go read' class='hide epage' id='radioactivep'>
+			</div>
+			<div id='caveLib' class='hide'>
+				<div class='hide' id='caveB'>
+					<img src='cavelibrary.png' alt='go read'>
+					<button class="pageb" onclick=batpa() style='top: 320px; left: 200px;'>Bat</button>
+					<button class="pageb" onclick=stalicitepa() style='top: 320px; left: 380px;'>Stalicite</button>
+					<button class="pageb" onclick=stalimitepa() style='top: 320px; left: 580px'>Stalimite</button>
+					<button class="pageb" onclick=rockpa() style='top: 320px; left: 760px;'>Rock</button>
+					<button class="pageb" onclick=skeletonpa() style='top: 520px; left: 200px;'>Skeleton</button>
+					<button class="pageb" onclick=torchpa() style='top: 520px; left: 380px;'>Torch</button>
+					<button class="pageb" onclick=glowwormpa() style='top: 520px; left: 580px;'>Glowworm</button>
+					<button class="pageb" onclick=lavapa() style='top: 520px; left: 760px;'>Lava</button>
+				</div>
+				<img src='batpage.png' alt='go read' class='hide epage' id='batp'>
+				<img src='stalicitepage.png' alt='go read' class='hide epage' id='stalicitep'>
+				<img src='stalimitepage.png' alt='go read' class='hide epage' id='stalimitep'>
+				<img src='rockpage.png' alt='go read' class='hide epage' id='rockp'>
+				<img src='skeletonpage.png' alt='go read' class='hide epage' id='skeletonp'>
+				<img src='torchpage.png' alt='go read' class='hide epage' id='torchp'>
+				<img src='glowwormpage.png' alt='go read' class='hide epage' id='glowwormp'>
+				<img src='lavapage.png' alt='go read' class='hide epage' id='lavap'>
 			</div>
 		</div>
 		<h5 title="Training [W]" class="hide" id="trainB"></h5>
@@ -1090,6 +1113,7 @@ Restrictions: killed all enemies at caves at least once
 					&emsp;&emsp;&emsp;&emsp;Newest victim = <span id='FPnew'>idk</span>
 				</h1>
 				<h1 id='FSZ' class='hide' style='position: absolute; top: 337; left: 145; font-size: 16;'>Brawl in zone: <button id='FSZY' class='off' title='When you have won a fight, spawn another enemy instead of leaving zone' onclick='FSZf("yes")'>Yes</button><button id='FSZN' class='on' title='When an enemy is killed, get automatically sent back to the adventure menu' onclick='FSZf("no")'>No</button> - Note that this will only work if all enemies in the zone are fightpickable</h1>
+				<h1 style='position: absolute; top: 367; left: 145; font-size: 16;'>Mobile mode: <button id='mmY' class='off' title='Shows certain buttons to allow you to destroy your items' onclick='mmf("yes")'>Yes</button><button id='mmN' class='on' title='Oppositte of the yes' onclick='mmf("no")'>No</button></h1>
 				<button style='position: absolute; top: 115; left: 700; font-size: 32px; margin-left: 5px; background: #cfc;' class='on' title='Does you want the knowledge of the worst game known to man?' onclick=helpOn()>Help button</button>
 				<a target=”_blank” href="zLoreLib.html" class='helpButton hide' style='left: 145px; top: 380px; color: black; text-decoration: none; text-align: center; height: 25px;' id='loreLib' title='Lots of lore'>Lore Library</a>
 			</div>
@@ -1557,6 +1581,8 @@ Restrictions: killed all enemies at caves at least once
 		var recyclePro = 0;
 		var anomBarValue = 0;
  		var helpNo = 1; //use variable as decimal eg for stuff like advH2 helpNo = 1.2
+		var mmif = 1;
+		var mmef = 1;
 		function newSave(thing, value){ //thing must be string
 			if (localStorage.getItem(thing)){
 				return true
@@ -2624,7 +2650,7 @@ Restrictions: killed all enemies at caves at least once
 				itemS()
 			} else {
 				var e = window.event
-				if ((e.which && e.which == 3 || e.button && e.button == 2) && (id.classList.contains('sachet') === false) && (id.classList.contains('workFolder') === false) && (id.classList.contains('lava') === false) && (id.classList.contains('fightPicker69') === false) && (id.classList.contains('ram') === false) && (id.classList.contains('LotG') === false)){
+				if ((e.which && e.which == 3 || e.button && e.button == 2 || mmif === 2) && (id.classList.contains('sachet') === false) && (id.classList.contains('workFolder') === false) && (id.classList.contains('lava') === false) && (id.classList.contains('fightPicker69') === false) && (id.classList.contains('ram') === false) && (id.classList.contains('LotG') === false)){
 					if (id.classList.contains('empty')){
 						
 					} else {
@@ -2967,6 +2993,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('noMove1')
 			hide('noMove2')
 			hide('noMove3')
+			hide('mmifi')
 			save()
 		}
 		window.addEventListener('keydown', function (e) {
@@ -3397,6 +3424,9 @@ Restrictions: killed all enemies at caves at least once
 						show('trainB')
 						show('useall')
 					}
+					if (localStorage.mmf === '2'){
+						show('mmifi')
+					}
 				} else {
 					inventunlock.textContent = 1
 					var a = document.getElementById('ch3')
@@ -3502,25 +3532,17 @@ Restrictions: killed all enemies at caves at least once
 			hide('mhp')
 			hide('att')
 			hide('def')
-			var a = document.getElementById('reg')
-			a.classList.add('hide')
-			var a = document.getElementById('tutzobook')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('tutb')
-			a.classList.add('hide')
-			var a = document.getElementById('XP')
-			a.classList.add('hide')
-			var a = document.getElementById('training')
-			a.classList.add('hide')
-			var a = document.getElementById('fieldLib')
-			a.classList.add('hide')
-			var a = document.getElementById('skyLib')
-			a.classList.add('hide')
-			var a = document.getElementById('schoolLib')
-			a.classList.add('hide')
+			hide('reg')
+			show('tutzobook')
+			hide('tutb')
+			hide('XP')
+			hide('training')
+			hide('fieldLib')
+			hide('skyLib')
+			hide('schoolLib')
 			hide('ameairLib')
 			hide('areaLib')
+			hide('caveLib')
 			show('eLib')
 			show('elibrb')
 			setKills()
@@ -3551,6 +3573,9 @@ Restrictions: killed all enemies at caves at least once
 			if (area51.classList.contains('btny') || area51.classList.contains('btng')){
 				show('areabook')
 			}
+			if (caves.classList.contains('btny') || caves.classList.contains('btng')){
+				show('cavebook')
+			}
 		}
 		function backClick(){
 			const allEkills = document.getElementsByClassName('ekill');
@@ -3573,6 +3598,8 @@ Restrictions: killed all enemies at caves at least once
 				amelibr()
 			} else if (backValue === 6){
 				arelibr()
+			} else if (backValue === 7){
+				cavlibr()
 			}
 		}
 		function setKills(){
@@ -4352,6 +4379,67 @@ Restrictions: killed all enemies at caves at least once
 			show('radioactivec')
 			show('libBack')
 		}
+		function cavlibr(){
+			backValue = 7
+			show('caveLib')
+			show('caveB')
+			show('enemykills')
+			hide('library')
+			hide('tutzobook')
+			hide('fieldbook')
+			hide('skybook')
+			hide('schoolbook')
+			hide('elibrb')
+			hide('libBack')
+		}
+		function batpa(){
+			show('batp')
+			hide('caveb')
+			show('batc')
+			show('libBack')
+		}
+		function stalicitepa(){
+			show('stalicitep')
+			hide('caveb')
+			show('stalicitec')
+			show('libBack')
+		}
+		function stalimitepa(){
+			show('stalimitep')
+			hide('caveb')
+			show('stalimitec')
+			show('libBack')
+		}
+		function rockpa(){
+			show('rockp')
+			hide('caveb')
+			show('rockc')
+			show('libBack')
+		}
+		function skeletonpa(){
+			show('skeletonp')
+			hide('caveb')
+			show('skeletonc')
+			show('libBack')
+		}
+		function torchpa(){
+			show('torchp')
+			hide('caveb')
+			show('torchc')
+			show('libBack')
+		}
+		function glowwormpa(){
+			show('glowwormp')
+			hide('caveb')
+			show('glowwormc')
+			show('libBack')
+		}
+		function lavapa(){
+			show('lavap')
+			hide('caveb')
+			show('lavac')
+			show('libBack')
+		}
 		function wboteq(){
 			sdrop('waterbottle', 'Bottle o water - Filled of water hopefully - +0.001 Drop Chance', 10000)
 		}
@@ -4923,672 +5011,676 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function equip(iv2){
-			if (iv2.classList.contains('starterCap') && he.classList.contains('head')){
-				iv2.classList.remove('starterCap')
-				iv2.classList.add('empty')
-				var b = document.getElementById('he')
-				b.classList.add('starterCap')
-				b.classList.remove('head')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('he').setAttribute('title','Starter cap - Your very first item :D - +1 Hp')
-			} else if (iv2.classList.contains('stick') && we.classList.contains('weapon')){
-				iv2.classList.remove('stick')
-				iv2.classList.add('empty')
-				var b = document.getElementById('we')
-				b.classList.add('stick')
-				b.classList.remove('weapon')
-				localStorage.att = parseFloat(localStorage.att) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Stick - *Waves it around menacingly* - + 1 A')
-			} else if (iv2.classList.contains('healthstone')){
-				iv2.classList.remove('healthstone')
-				iv2.classList.add('empty')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 1
-				iv2.setAttribute('title','')
-			} else if (iv2.classList.contains('defencestone')){
-				iv2.classList.remove('defencestone')
-				iv2.classList.add('empty')
-				localStorage.def = parseFloat(localStorage.def) + 1
-				iv2.setAttribute('title','')
-			} else if (iv2.classList.contains('damagestone')){				
-				iv2.classList.remove('damagestone')
-				iv2.classList.add('empty')					
-				localStorage.att = parseFloat(localStorage.att) + 1
-				iv2.setAttribute('title','')				
-			} else if (iv2.classList.contains('regenerationstone')){
-				iv2.classList.remove('regenerationstone')
-				iv2.classList.add('empty')				
-				localStorage.reg = parseFloat(localStorage.reg) + 1
-				iv2.setAttribute('title','')
-			} else if (iv2.classList.contains('healthstone2') || iv2.classList.contains('healthstone2a')){
-				iv2.classList.remove('healthstone2')
-				iv2.classList.add('empty')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 10
-				iv2.setAttribute('title','')
-				if (iv2.classList.contains('healthstone2a')){
-					if (localStorage.hsaD){
-						localStorage.hsaD = parseInt(localStorage.hsaD) + 1
+			if (mmif === 2){
+				rightclick(document.getElementById(iv2.getAttribute('id')))
+			} else {
+				if (iv2.classList.contains('starterCap') && he.classList.contains('head')){
+					iv2.classList.remove('starterCap')
+					iv2.classList.add('empty')
+					var b = document.getElementById('he')
+					b.classList.add('starterCap')
+					b.classList.remove('head')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('he').setAttribute('title','Starter cap - Your very first item :D - +1 Hp')
+				} else if (iv2.classList.contains('stick') && we.classList.contains('weapon')){
+					iv2.classList.remove('stick')
+					iv2.classList.add('empty')
+					var b = document.getElementById('we')
+					b.classList.add('stick')
+					b.classList.remove('weapon')
+					localStorage.att = parseFloat(localStorage.att) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Stick - *Waves it around menacingly* - + 1 A')
+				} else if (iv2.classList.contains('healthstone')){
+					iv2.classList.remove('healthstone')
+					iv2.classList.add('empty')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 1
+					iv2.setAttribute('title','')
+				} else if (iv2.classList.contains('defencestone')){
+					iv2.classList.remove('defencestone')
+					iv2.classList.add('empty')
+					localStorage.def = parseFloat(localStorage.def) + 1
+					iv2.setAttribute('title','')
+				} else if (iv2.classList.contains('damagestone')){				
+					iv2.classList.remove('damagestone')
+					iv2.classList.add('empty')					
+					localStorage.att = parseFloat(localStorage.att) + 1
+					iv2.setAttribute('title','')				
+				} else if (iv2.classList.contains('regenerationstone')){
+					iv2.classList.remove('regenerationstone')
+					iv2.classList.add('empty')				
+					localStorage.reg = parseFloat(localStorage.reg) + 1
+					iv2.setAttribute('title','')
+				} else if (iv2.classList.contains('healthstone2') || iv2.classList.contains('healthstone2a')){
+					iv2.classList.remove('healthstone2')
+					iv2.classList.add('empty')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 10
+					iv2.setAttribute('title','')
+					if (iv2.classList.contains('healthstone2a')){
+						if (localStorage.hsaD){
+							localStorage.hsaD = parseInt(localStorage.hsaD) + 1
+						} else {
+							localStorage.hsaD = 1
+						}					
+					}
+				} else if (iv2.classList.contains('defencestone2') || iv2.classList.contains('defencestone2a')){
+					iv2.classList.remove('defencestone2')
+					iv2.classList.add('empty')
+					localStorage.def = parseFloat(localStorage.def) + 10
+					iv2.setAttribute('title','')
+					if (iv2.classList.contains('defencestone2a')){
+						if (localStorage.DsaD){
+							localStorage.DsaD = parseInt(localStorage.DsaD) + 1
+						} else {
+							localStorage.DsaD = 1
+						}					
+					}
+				} else if (iv2.classList.contains('damagestone2') || iv2.classList.contains('damagestone2a')){				
+					iv2.classList.remove('damagestone2')
+					iv2.classList.add('empty')					
+					localStorage.att = parseFloat(localStorage.att) + 10
+					iv2.setAttribute('title','')
+					if (iv2.classList.contains('damagestone2a')){
+						if (localStorage.dsaD){
+							localStorage.dsaD = parseInt(localStorage.dsaD) + 1
+						} else {
+							localStorage.dsaD = 1
+						}					
+					}				
+				} else if (iv2.classList.contains('regenerationstone2') || iv2.classList.contains('regenerationstone2a')){
+					iv2.classList.remove('regenerationstone2')
+					iv2.classList.add('empty')				
+					localStorage.reg = parseFloat(localStorage.reg) + 10
+					iv2.setAttribute('title','')
+					if (iv2.classList.contains('regenerationstone2a')){
+						if (localStorage.rsaD){
+							localStorage.rsaD = parseInt(localStorage.rsaD) + 1
+						} else {
+							localStorage.rsaD = 1
+						}					
+					}
+				} else if (iv2.classList.contains('parrystone')){
+					iv2.classList.remove('parrystone')
+					iv2.classList.add('empty')
+					localStorage.def = parseFloat(localStorage.def) + 1
+					localStorage.att = parseFloat(localStorage.att) + 1
+					iv2.setAttribute('title','')
+				} else if (iv2.classList.contains('sneaker') && sh.classList.contains('shoe')){
+					iv2.classList.remove('sneaker')
+					iv2.classList.add('empty')
+					var b = document.getElementById('sh')
+					b.classList.add('sneaker')
+					b.classList.remove('shoe')
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.05
+					iv2.setAttribute('title','')
+					document.getElementById('sh').setAttribute('title','Sneakers - Kill enemies in 95% of the time just by wearing regular shoes :D - -5% Attack Cooldowns')
+				} else if (iv2.classList.contains('fang') && we.classList.contains('weapon')){
+					iv2.classList.remove('fang')
+					iv2.classList.add('empty')
+					var b = document.getElementById('we')
+					b.classList.add('fang')
+					b.classList.remove('weapon')
+					localStorage.att = parseFloat(localStorage.att) + 2
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Fang - How can this be a 2 handed weapon? Because its was austrailian - +2 A')
+				} else if (iv2.classList.contains('rabbithide') && bo.classList.contains('body')){
+					iv2.classList.remove('rabbithide')
+					iv2.classList.add('empty')
+					var b = document.getElementById('bo')
+					b.classList.add('rabbithide')
+					b.classList.remove('body')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 1
+					localStorage.def = parseFloat(localStorage.def) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('bo').setAttribute('title','Rabbithide - Armour made from Bunny :D - +1 D +1 Hp')
+				} else if (iv2.classList.contains('lwing') && a1.classList.contains('access')){
+					iv2.classList.remove('lwing')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('lwing')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','Left Wing - You still can’t fly without the other half :c - +1 A')
+				} else if (iv2.classList.contains('lwing') && a2.classList.contains('access')){
+					iv2.classList.remove('lwing')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('lwing')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','Left Wing - You still can’t fly without the other half :c - +1 A')
+				} else if (iv2.classList.contains('rwing') && a1.classList.contains('access')){
+					iv2.classList.remove('rwing')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('rwing')
+					b.classList.remove('access')
+					localStorage.def = parseFloat(localStorage.def) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','Right Wing - You still can’t fly without the other half :c - +1 D')
+				} else if (iv2.classList.contains('rwing') && a2.classList.contains('access')){
+					iv2.classList.remove('rwing')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('rwing')
+					b.classList.remove('access')
+					localStorage.def = parseFloat(localStorage.def) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','Right Wing - You still can’t fly without the other half :c - +1 D')
+				} else if (iv2.classList.contains('air') && a1.classList.contains('access')){
+					iv2.classList.remove('air')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('air')
+					b.classList.remove('access')
+					localStorage.reg = parseFloat(localStorage.reg) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','Right Wing - You still can’t fly without the other half :c - +1 D')
+				} else if (iv2.classList.contains('air') && a2.classList.contains('access')){
+					iv2.classList.remove('air')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('air')
+					b.classList.remove('access')
+					localStorage.reg = parseFloat(localStorage.reg) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','Air - *effort* - +1 D')
+				} else if (iv2.classList.contains('sachet')){
+					iv2.classList.remove('sachet')
+					iv2.classList.add('empty')
+					iv2.setAttribute('title','')
+					ch7st()
+				} else if (iv2.classList.contains('paper') && a1.classList.contains('access')){
+					iv2.classList.remove('paper')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('paper')
+					b.classList.remove('access')
+					localStorage.reg = parseFloat(localStorage.reg) + 1
+					localStorage.mhp = parseFloat(localStorage.mhp) + 2
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','Paper - A flat piece of white - +2 Hp +1 R')
+				} else if (iv2.classList.contains('paper') && a2.classList.contains('access')){
+					iv2.classList.remove('paper')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('paper')
+					b.classList.remove('access')
+					localStorage.reg = parseFloat(localStorage.reg) + 1
+					localStorage.mhp = parseFloat(localStorage.mhp) + 2
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','Paper - A flat piece of white - +2 M +1 R')
+				} else if (iv2.classList.contains('scissor') && we.classList.contains('weapon')){
+					iv2.classList.remove('scissor')
+					iv2.classList.add('empty')
+					var b = document.getElementById('we')
+					b.classList.add('scissor')
+					b.classList.remove('weapon')
+					localStorage.att = parseFloat(localStorage.att) + 4
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Scissor - The most dangerous piece of stationary known to man - +4 A')
+				} else if (iv2.classList.contains('stilts') && le.classList.contains('legs')){
+					iv2.classList.remove('stilts')
+					iv2.classList.add('empty')
+					var b = document.getElementById('le')
+					b.classList.add('stilts')
+					b.classList.remove('legs')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 6
+					localStorage.def = parseFloat(localStorage.def) + 3
+					cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) + 0.15
+					iv2.setAttribute('title','')
+					document.getElementById('le').setAttribute('title','Stilts - It may look impractical but it, it is - +5 M +2 D +15% Move Cooldowns')
+				} else if (iv2.classList.contains('waterbottle')){
+					iv2.classList.remove('waterbottle')
+					iv2.classList.add('empty')
+					DC.textContent = parseFloat(DC.textContent) * 1.001
+					iv2.setAttribute('title','')
+				} else if (iv2.classList.contains('vodkabottle')){
+					iv2.classList.remove('vodkabottle')
+					iv2.classList.add('empty')
+					SC.textContent = parseFloat(SC.textContent) * 1.001
+					iv2.setAttribute('title','')
+				} else if (iv2.classList.contains('pencil') && a1.classList.contains('access')){
+					iv2.classList.remove('pencil')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('pencil')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 2
+					localStorage.def = parseFloat(localStorage.def) + 2
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','Pencil - Used for stab-I mean writing - +2 A +2 D')
+				} else if (iv2.classList.contains('pencil') && a2.classList.contains('access')){
+					iv2.classList.remove('pencil')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('pencil')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 2
+					localStorage.def = parseFloat(localStorage.def) + 2
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','Pencil - Used for stab-I mean writing - +2 A +2 D')
+				} else if (iv2.classList.contains('glasses') && he.classList.contains('head')){
+					iv2.classList.remove('glasses')
+					iv2.classList.add('empty')
+					var b = document.getElementById('he')
+					b.classList.add('glasses')
+					b.classList.remove('head')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 1
+					localStorage.att = parseFloat(localStorage.att) + 1
+					localStorage.def = parseFloat(localStorage.def) + 1
+					localStorage.reg = parseFloat(localStorage.reg) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('he').setAttribute('title','Pilot glasses - yea nah - +1 Hp +1 A +1 D +1 R')
+				} else if (iv2.classList.contains('deagle') && we.classList.contains('weapon')){
+					iv2.classList.remove('deagle')
+					iv2.classList.add('empty')
+					var b = document.getElementById('we')
+					b.classList.add('deagle')
+					b.classList.remove('weapon')
+					localStorage.att = parseFloat(localStorage.att) + 3
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.05
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Deagle - Do not bring this to the school zone - +3 A -5% Attack Cooldowns')
+				} else if (iv2.classList.contains('jetpack') && bo.classList.contains('body')){
+					iv2.classList.remove('jetpack')
+					iv2.classList.add('empty')
+					var b = document.getElementById('bo')
+					b.classList.add('jetpack')
+					b.classList.remove('body')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 5
+					cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) - 0.05
+					iv2.setAttribute('title','')
+					document.getElementById('bo').setAttribute('title','Jetpack - Fly with manmade wings, without wings - +5 Hp -5% Move Cooldowns')
+				} else if (iv2.classList.contains('lasergun') && we.classList.contains('weapon')){
+					iv2.classList.remove('lasergun')
+					iv2.classList.add('empty')
+					var b = document.getElementById('we')
+					b.classList.add('lasergun')
+					b.classList.remove('weapon')
+					localStorage.att = parseFloat(localStorage.att) + 9
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Lasergun - Only does nine damage? - +9 A')
+				} else if (iv2.classList.contains('thebox') && a1.classList.contains('access')){
+					iv2.classList.remove('thebox')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('thebox')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 3
+					localStorage.mhp = parseFloat(localStorage.mhp) + 8
+					localStorage.def = parseFloat(localStorage.def) + 6
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','The box - Good on defence and stuff - +8 Hp +3 A +6 D')
+				} else if (iv2.classList.contains('thebox') && a2.classList.contains('access')){
+					iv2.classList.remove('thebox')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('thebox')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 3
+					localStorage.mhp = parseFloat(localStorage.mhp) + 8
+					localStorage.def = parseFloat(localStorage.def) + 6
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','The box - Good on defence and stuff - +8 Hp +3 A +6 D')
+				} else if (iv2.classList.contains('thestone') && a1.classList.contains('access')){
+					iv2.classList.remove('thestone')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('thestone')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 5
+					localStorage.mhp = parseFloat(localStorage.mhp) + 5
+					localStorage.def = parseFloat(localStorage.def) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','The stone - Good at stuff and attack - +5 Hp +5 A +1 D')
+				} else if (iv2.classList.contains('thestone') && a2.classList.contains('access')){
+					iv2.classList.remove('thestone')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('thestone')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 5
+					localStorage.mhp = parseFloat(localStorage.mhp) + 5
+					localStorage.def = parseFloat(localStorage.def) + 1
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','The stone - Good at stuff and attack - +5 Hp +5 A +1 D')
+				} else if (iv2.classList.contains('thestrat') && a1.classList.contains('access')){
+					iv2.classList.remove('thestrat')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('thestrat')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 6
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','The strat - Good - +6 A')
+				} else if (iv2.classList.contains('thestrat') && a2.classList.contains('access')){
+					iv2.classList.remove('thestrat')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('thestrat')
+					b.classList.remove('access')
+					localStorage.att = parseFloat(localStorage.att) + 6
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','The strat - Good - +6 A')
+				} else if (iv2.classList.contains('uranium') && a1.classList.contains('access')){
+					iv2.classList.remove('uranium')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('uranium')
+					b.classList.remove('access')
+					localStorage.reg = parseFloat(localStorage.reg) + 6
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','Uranium - oK, hoW - +6 R')
+				} else if (iv2.classList.contains('uranium') && a2.classList.contains('access')){
+					iv2.classList.remove('uranium')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('uranium')
+					b.classList.remove('access')
+					localStorage.reg = parseFloat(localStorage.reg) + 6
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','Uranium - oK, hoW - +6 R')
+				} else if (iv2.classList.contains('windows9') && a1.classList.contains('access')){
+					iv2.classList.remove('windows9')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('windows9')
+					b.classList.remove('access')
+					localStorage.reg = parseFloat(localStorage.reg) + 4
+					localStorage.mhp = parseFloat(localStorage.mhp) + 12
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','Windows 9 - The predecessor of windows 10 - +12 Hp +4 R')
+				} else if (iv2.classList.contains('windows9') && a2.classList.contains('access')){
+					iv2.classList.remove('windows9')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('windows9')
+					b.classList.remove('access')
+					localStorage.reg = parseFloat(localStorage.reg) + 4
+					localStorage.mhp = parseFloat(localStorage.mhp) + 12
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','Windows 9 - The predecessor of windows 10 - +12 Hp +4 R')
+				} else if (iv2.classList.contains('torch') && we.classList.contains('weapon')){
+					iv2.classList.remove('torch')
+					iv2.classList.add('empty')
+					var b = document.getElementById('we')
+					b.classList.add('torch')
+					b.classList.remove('weapon')
+					localStorage.att = parseFloat(localStorage.att) + 4
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Torch - *continues to wave it around menacingly* - +4 A')
+				} else if (iv2.classList.contains('jeans') && le.classList.contains('legs')){
+					iv2.classList.remove('jeans')
+					iv2.classList.add('empty')
+					var b = document.getElementById('le')
+					b.classList.add('jeans')
+					b.classList.remove('legs')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 20
+					localStorage.def = parseFloat(localStorage.def) + 10
+					iv2.setAttribute('title','')
+					document.getElementById('le').setAttribute('title','Jeans - i love this game - +10 D +20 Hp')
+				} else if (iv2.classList.contains('boot') && sh.classList.contains('shoe')){
+					iv2.classList.remove('boot')
+					iv2.classList.add('empty')
+					var b = document.getElementById('sh')
+					b.classList.add('boot')
+					b.classList.remove('shoe')
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.05
+					localStorage.att = parseFloat(localStorage.att) + 6
+					localStorage.def = parseFloat(localStorage.def) + 8
+					iv2.setAttribute('title','')
+					document.getElementById('sh').setAttribute('title','Boot - y - -5% Attack Cooldowns +8 D +6 A')
+				} else if (iv2.classList.contains('astone') && a1.classList.contains('access')){
+					iv2.classList.remove('astone')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('astone')
+					b.classList.remove('access')
+					localStorage.def = parseFloat(localStorage.def) + 11
+					localStorage.att = parseFloat(localStorage.att) + 11
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','A Stone - Generic and not special - +11 D +11 A')
+				} else if (iv2.classList.contains('astone') && a2.classList.contains('access')){
+					iv2.classList.remove('astone')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('astone')
+					b.classList.remove('access')
+					localStorage.def = parseFloat(localStorage.def) + 11
+					localStorage.att = parseFloat(localStorage.att) + 11
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','A Stone - Generic and not special - +11 D +11 A')
+				} else if (iv2.classList.contains('pickaxe') && we.classList.contains('weapon')){
+					iv2.classList.remove('pickaxe')
+					iv2.classList.add('empty')
+					var b = document.getElementById('we')
+					b.classList.add('pickaxe')
+					b.classList.remove('weapon')
+					localStorage.att = parseFloat(localStorage.att) + 50
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Pickaxe - Now this is a weapon - +50 A')
+				} else if (iv2.classList.contains('wheels') && sh.classList.contains('shoe')){
+					iv2.classList.remove('wheels')
+					iv2.classList.add('empty')
+					var b = document.getElementById('sh')
+					b.classList.add('wheels')
+					b.classList.remove('shoe')
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.1
+					blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) + 0.3
+					iv2.setAttribute('title','')
+					document.getElementById('sh').setAttribute('title','Wheels - with this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns')
+				} else if (iv2.classList.contains('minercap') && he.classList.contains('head')){
+					iv2.classList.remove('minercap')
+					iv2.classList.add('empty')
+					var b = document.getElementById('he')
+					b.classList.add('minercap')
+					b.classList.remove('head')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 50
+					localStorage.def = parseFloat(localStorage.def) + 30
+					iv2.setAttribute('title','')
+					document.getElementById('he').setAttribute('title','Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D')
+				} else if (iv2.classList.contains('gears') && a1.classList.contains('access')){
+					iv2.classList.remove('gears')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a1')
+					b.classList.add('gears')
+					b.classList.remove('access')
+					blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.05
+					iv2.setAttribute('title','')
+					document.getElementById('a1').setAttribute('title','Gears - how do you equip these? - -5% Block Cooldowns')
+				} else if (iv2.classList.contains('gears') && a2.classList.contains('access')){
+					iv2.classList.remove('gears')
+					iv2.classList.add('empty')
+					var b = document.getElementById('a2')
+					b.classList.add('gears')
+					b.classList.remove('access')
+					blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.05
+					iv2.setAttribute('title','')
+					document.getElementById('a2').setAttribute('title','Gears - how do you equip these? - -5% Block Cooldowns')
+				} else if (iv2.classList.contains('gold')){
+					iv2.classList.remove('gold')
+					iv2.classList.add('empty')
+					localStorage.xp = parseFloat(localStorage.xp) + Math.round(parseInt(ekills.textContent) * (1 + (b7 / 1000)) / 8)
+					iv2.setAttribute('title','')
+				} else if (iv2.classList.contains('hoe') && we.classList.contains('weapon')){
+					iv2.classList.remove('hoe')
+					iv2.classList.add('empty')
+					var b = document.getElementById('we')
+					b.classList.add('hoe')
+					b.classList.remove('weapon')
+					cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) - 0.05
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Hoe - UR MOM HEHEHEHA - -5% Move Cooldowns')
+				} else if ((iv2.classList.contains('lava')) && (u1.classList.contains('rockusb') || u2.classList.contains('rockusb') || u3.classList.contains('rockusb') || u4.classList.contains('rockusb') || u5.classList.contains('rockusb'))){
+					iv2.classList.remove('lava')
+					iv2.classList.add('empty')
+					iv2.setAttribute('title','')
+					if (u1.classList.contains('rockusb')){
+						var b = document.getElementById('u1')
+						b.classList.add('WFUusb')
+						b.classList.remove('rockusb')
+						document.getElementById('u1').setAttribute('title','WFU')
+					} else if (u2.classList.contains('rockusb')){
+						var b = document.getElementById('u2')
+						b.classList.add('WFUusb')
+						b.classList.remove('rockusb')
+						document.getElementById('u2').setAttribute('title','WFU')
+					} else if (u3.classList.contains('rockusb')){
+						var b = document.getElementById('u3')
+						b.classList.add('WFUusb')
+						b.classList.remove('rockusb')
+						document.getElementById('u3').setAttribute('title','WFU')
+					} else if (u4.classList.contains('rockusb')){
+						var b = document.getElementById('u4')
+						b.classList.add('WFUusb')
+						b.classList.remove('rockusb')
+						document.getElementById('u4').setAttribute('title','WFU')
+					} else if (u5.classList.contains('rockusb')){
+						var b = document.getElementById('u5')
+						b.classList.add('WFUusb')
+						b.classList.remove('rockusb')
+						document.getElementById('u5').setAttribute('title','WFU')
+					}
+				} else if (iv2.classList.contains('ram')){
+					iv2.classList.remove('ram')
+					iv2.classList.add('empty')
+					iv2.setAttribute('title','')
+					if (localStorage.ramCLVL){
+						localStorage.ramCLVL = parseInt(localStorage.ramCLVL) + 1
 					} else {
-						localStorage.hsaD = 1
-					}					
-				}
-			} else if (iv2.classList.contains('defencestone2') || iv2.classList.contains('defencestone2a')){
-				iv2.classList.remove('defencestone2')
-				iv2.classList.add('empty')
-				localStorage.def = parseFloat(localStorage.def) + 10
-				iv2.setAttribute('title','')
-				if (iv2.classList.contains('defencestone2a')){
-					if (localStorage.DsaD){
-						localStorage.DsaD = parseInt(localStorage.DsaD) + 1
-					} else {
-						localStorage.DsaD = 1
-					}					
-				}
-			} else if (iv2.classList.contains('damagestone2') || iv2.classList.contains('damagestone2a')){				
-				iv2.classList.remove('damagestone2')
-				iv2.classList.add('empty')					
-				localStorage.att = parseFloat(localStorage.att) + 10
-				iv2.setAttribute('title','')
-				if (iv2.classList.contains('damagestone2a')){
-					if (localStorage.dsaD){
-						localStorage.dsaD = parseInt(localStorage.dsaD) + 1
-					} else {
-						localStorage.dsaD = 1
-					}					
-				}				
-			} else if (iv2.classList.contains('regenerationstone2') || iv2.classList.contains('regenerationstone2a')){
-				iv2.classList.remove('regenerationstone2')
-				iv2.classList.add('empty')				
-				localStorage.reg = parseFloat(localStorage.reg) + 10
-				iv2.setAttribute('title','')
-				if (iv2.classList.contains('regenerationstone2a')){
-					if (localStorage.rsaD){
-						localStorage.rsaD = parseInt(localStorage.rsaD) + 1
-					} else {
-						localStorage.rsaD = 1
-					}					
-				}
-			} else if (iv2.classList.contains('parrystone')){
-				iv2.classList.remove('parrystone')
-				iv2.classList.add('empty')
-				localStorage.def = parseFloat(localStorage.def) + 1
-				localStorage.att = parseFloat(localStorage.att) + 1
-				iv2.setAttribute('title','')
-			} else if (iv2.classList.contains('sneaker') && sh.classList.contains('shoe')){
-				iv2.classList.remove('sneaker')
-				iv2.classList.add('empty')
-				var b = document.getElementById('sh')
-				b.classList.add('sneaker')
-				b.classList.remove('shoe')
-				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.05
-				iv2.setAttribute('title','')
-				document.getElementById('sh').setAttribute('title','Sneakers - Kill enemies in 95% of the time just by wearing regular shoes :D - -5% Attack Cooldowns')
-			} else if (iv2.classList.contains('fang') && we.classList.contains('weapon')){
-				iv2.classList.remove('fang')
-				iv2.classList.add('empty')
-				var b = document.getElementById('we')
-				b.classList.add('fang')
-				b.classList.remove('weapon')
-				localStorage.att = parseFloat(localStorage.att) + 2
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Fang - How can this be a 2 handed weapon? Because its was austrailian - +2 A')
-			} else if (iv2.classList.contains('rabbithide') && bo.classList.contains('body')){
-				iv2.classList.remove('rabbithide')
-				iv2.classList.add('empty')
-				var b = document.getElementById('bo')
-				b.classList.add('rabbithide')
-				b.classList.remove('body')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 1
-				localStorage.def = parseFloat(localStorage.def) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('bo').setAttribute('title','Rabbithide - Armour made from Bunny :D - +1 D +1 Hp')
-			} else if (iv2.classList.contains('lwing') && a1.classList.contains('access')){
-				iv2.classList.remove('lwing')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('lwing')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','Left Wing - You still can’t fly without the other half :c - +1 A')
-			} else if (iv2.classList.contains('lwing') && a2.classList.contains('access')){
-				iv2.classList.remove('lwing')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('lwing')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','Left Wing - You still can’t fly without the other half :c - +1 A')
-			} else if (iv2.classList.contains('rwing') && a1.classList.contains('access')){
-				iv2.classList.remove('rwing')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('rwing')
-				b.classList.remove('access')
-				localStorage.def = parseFloat(localStorage.def) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','Right Wing - You still can’t fly without the other half :c - +1 D')
-			} else if (iv2.classList.contains('rwing') && a2.classList.contains('access')){
-				iv2.classList.remove('rwing')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('rwing')
-				b.classList.remove('access')
-				localStorage.def = parseFloat(localStorage.def) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','Right Wing - You still can’t fly without the other half :c - +1 D')
-			} else if (iv2.classList.contains('air') && a1.classList.contains('access')){
-				iv2.classList.remove('air')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('air')
-				b.classList.remove('access')
-				localStorage.reg = parseFloat(localStorage.reg) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','Right Wing - You still can’t fly without the other half :c - +1 D')
-			} else if (iv2.classList.contains('air') && a2.classList.contains('access')){
-				iv2.classList.remove('air')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('air')
-				b.classList.remove('access')
-				localStorage.reg = parseFloat(localStorage.reg) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','Air - *effort* - +1 D')
-			} else if (iv2.classList.contains('sachet')){
-				iv2.classList.remove('sachet')
-				iv2.classList.add('empty')
-				iv2.setAttribute('title','')
-				ch7st()
-			} else if (iv2.classList.contains('paper') && a1.classList.contains('access')){
-				iv2.classList.remove('paper')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('paper')
-				b.classList.remove('access')
-				localStorage.reg = parseFloat(localStorage.reg) + 1
-				localStorage.mhp = parseFloat(localStorage.mhp) + 2
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','Paper - A flat piece of white - +2 Hp +1 R')
-			} else if (iv2.classList.contains('paper') && a2.classList.contains('access')){
-				iv2.classList.remove('paper')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('paper')
-				b.classList.remove('access')
-				localStorage.reg = parseFloat(localStorage.reg) + 1
-				localStorage.mhp = parseFloat(localStorage.mhp) + 2
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','Paper - A flat piece of white - +2 M +1 R')
-			} else if (iv2.classList.contains('scissor') && we.classList.contains('weapon')){
-				iv2.classList.remove('scissor')
-				iv2.classList.add('empty')
-				var b = document.getElementById('we')
-				b.classList.add('scissor')
-				b.classList.remove('weapon')
-				localStorage.att = parseFloat(localStorage.att) + 4
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Scissor - The most dangerous piece of stationary known to man - +4 A')
-			} else if (iv2.classList.contains('stilts') && le.classList.contains('legs')){
-				iv2.classList.remove('stilts')
-				iv2.classList.add('empty')
-				var b = document.getElementById('le')
-				b.classList.add('stilts')
-				b.classList.remove('legs')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 6
-				localStorage.def = parseFloat(localStorage.def) + 3
-				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) + 0.15
-				iv2.setAttribute('title','')
-				document.getElementById('le').setAttribute('title','Stilts - It may look impractical but it, it is - +5 M +2 D +15% Move Cooldowns')
-			} else if (iv2.classList.contains('waterbottle')){
-				iv2.classList.remove('waterbottle')
-				iv2.classList.add('empty')
-				DC.textContent = parseFloat(DC.textContent) * 1.001
-				iv2.setAttribute('title','')
-			} else if (iv2.classList.contains('vodkabottle')){
-				iv2.classList.remove('vodkabottle')
-				iv2.classList.add('empty')
-				SC.textContent = parseFloat(SC.textContent) * 1.001
-				iv2.setAttribute('title','')
-			} else if (iv2.classList.contains('pencil') && a1.classList.contains('access')){
-				iv2.classList.remove('pencil')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('pencil')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 2
-				localStorage.def = parseFloat(localStorage.def) + 2
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','Pencil - Used for stab-I mean writing - +2 A +2 D')
-			} else if (iv2.classList.contains('pencil') && a2.classList.contains('access')){
-				iv2.classList.remove('pencil')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('pencil')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 2
-				localStorage.def = parseFloat(localStorage.def) + 2
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','Pencil - Used for stab-I mean writing - +2 A +2 D')
-			} else if (iv2.classList.contains('glasses') && he.classList.contains('head')){
-				iv2.classList.remove('glasses')
-				iv2.classList.add('empty')
-				var b = document.getElementById('he')
-				b.classList.add('glasses')
-				b.classList.remove('head')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 1
-				localStorage.att = parseFloat(localStorage.att) + 1
-				localStorage.def = parseFloat(localStorage.def) + 1
-				localStorage.reg = parseFloat(localStorage.reg) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('he').setAttribute('title','Pilot glasses - yea nah - +1 Hp +1 A +1 D +1 R')
-			} else if (iv2.classList.contains('deagle') && we.classList.contains('weapon')){
-				iv2.classList.remove('deagle')
-				iv2.classList.add('empty')
-				var b = document.getElementById('we')
-				b.classList.add('deagle')
-				b.classList.remove('weapon')
-				localStorage.att = parseFloat(localStorage.att) + 3
-				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.05
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Deagle - Do not bring this to the school zone - +3 A -5% Attack Cooldowns')
-			} else if (iv2.classList.contains('jetpack') && bo.classList.contains('body')){
-				iv2.classList.remove('jetpack')
-				iv2.classList.add('empty')
-				var b = document.getElementById('bo')
-				b.classList.add('jetpack')
-				b.classList.remove('body')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 5
-				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) - 0.05
-				iv2.setAttribute('title','')
-				document.getElementById('bo').setAttribute('title','Jetpack - Fly with manmade wings, without wings - +5 Hp -5% Move Cooldowns')
-			} else if (iv2.classList.contains('lasergun') && we.classList.contains('weapon')){
-				iv2.classList.remove('lasergun')
-				iv2.classList.add('empty')
-				var b = document.getElementById('we')
-				b.classList.add('lasergun')
-				b.classList.remove('weapon')
-				localStorage.att = parseFloat(localStorage.att) + 9
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Lasergun - Only does nine damage? - +9 A')
-			} else if (iv2.classList.contains('thebox') && a1.classList.contains('access')){
-				iv2.classList.remove('thebox')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('thebox')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 3
-				localStorage.mhp = parseFloat(localStorage.mhp) + 8
-				localStorage.def = parseFloat(localStorage.def) + 6
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','The box - Good on defence and stuff - +8 Hp +3 A +6 D')
-			} else if (iv2.classList.contains('thebox') && a2.classList.contains('access')){
-				iv2.classList.remove('thebox')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('thebox')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 3
-				localStorage.mhp = parseFloat(localStorage.mhp) + 8
-				localStorage.def = parseFloat(localStorage.def) + 6
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','The box - Good on defence and stuff - +8 Hp +3 A +6 D')
-			} else if (iv2.classList.contains('thestone') && a1.classList.contains('access')){
-				iv2.classList.remove('thestone')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('thestone')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 5
-				localStorage.mhp = parseFloat(localStorage.mhp) + 5
-				localStorage.def = parseFloat(localStorage.def) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','The stone - Good at stuff and attack - +5 Hp +5 A +1 D')
-			} else if (iv2.classList.contains('thestone') && a2.classList.contains('access')){
-				iv2.classList.remove('thestone')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('thestone')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 5
-				localStorage.mhp = parseFloat(localStorage.mhp) + 5
-				localStorage.def = parseFloat(localStorage.def) + 1
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','The stone - Good at stuff and attack - +5 Hp +5 A +1 D')
-			} else if (iv2.classList.contains('thestrat') && a1.classList.contains('access')){
-				iv2.classList.remove('thestrat')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('thestrat')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 6
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','The strat - Good - +6 A')
-			} else if (iv2.classList.contains('thestrat') && a2.classList.contains('access')){
-				iv2.classList.remove('thestrat')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('thestrat')
-				b.classList.remove('access')
-				localStorage.att = parseFloat(localStorage.att) + 6
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','The strat - Good - +6 A')
-			} else if (iv2.classList.contains('uranium') && a1.classList.contains('access')){
-				iv2.classList.remove('uranium')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('uranium')
-				b.classList.remove('access')
-				localStorage.reg = parseFloat(localStorage.reg) + 6
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','Uranium - oK, hoW - +6 R')
-			} else if (iv2.classList.contains('uranium') && a2.classList.contains('access')){
-				iv2.classList.remove('uranium')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('uranium')
-				b.classList.remove('access')
-				localStorage.reg = parseFloat(localStorage.reg) + 6
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','Uranium - oK, hoW - +6 R')
-			} else if (iv2.classList.contains('windows9') && a1.classList.contains('access')){
-				iv2.classList.remove('windows9')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('windows9')
-				b.classList.remove('access')
-				localStorage.reg = parseFloat(localStorage.reg) + 4
-				localStorage.mhp = parseFloat(localStorage.mhp) + 12
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','Windows 9 - The predecessor of windows 10 - +12 Hp +4 R')
-			} else if (iv2.classList.contains('windows9') && a2.classList.contains('access')){
-				iv2.classList.remove('windows9')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('windows9')
-				b.classList.remove('access')
-				localStorage.reg = parseFloat(localStorage.reg) + 4
-				localStorage.mhp = parseFloat(localStorage.mhp) + 12
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','Windows 9 - The predecessor of windows 10 - +12 Hp +4 R')
-			} else if (iv2.classList.contains('torch') && we.classList.contains('weapon')){
-				iv2.classList.remove('torch')
-				iv2.classList.add('empty')
-				var b = document.getElementById('we')
-				b.classList.add('torch')
-				b.classList.remove('weapon')
-				localStorage.att = parseFloat(localStorage.att) + 4
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Torch - *continues to wave it around menacingly* - +4 A')
-			} else if (iv2.classList.contains('jeans') && le.classList.contains('legs')){
-				iv2.classList.remove('jeans')
-				iv2.classList.add('empty')
-				var b = document.getElementById('le')
-				b.classList.add('jeans')
-				b.classList.remove('legs')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 20
-				localStorage.def = parseFloat(localStorage.def) + 10
-				iv2.setAttribute('title','')
-				document.getElementById('le').setAttribute('title','Jeans - i love this game - +10 D +20 Hp')
-			} else if (iv2.classList.contains('boot') && sh.classList.contains('shoe')){
-				iv2.classList.remove('boot')
-				iv2.classList.add('empty')
-				var b = document.getElementById('sh')
-				b.classList.add('boot')
-				b.classList.remove('shoe')
-				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.05
-				localStorage.att = parseFloat(localStorage.att) + 6
-				localStorage.def = parseFloat(localStorage.def) + 8
-				iv2.setAttribute('title','')
-				document.getElementById('sh').setAttribute('title','Boot - y - -5% Attack Cooldowns +8 D +6 A')
-			} else if (iv2.classList.contains('astone') && a1.classList.contains('access')){
-				iv2.classList.remove('astone')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('astone')
-				b.classList.remove('access')
-				localStorage.def = parseFloat(localStorage.def) + 11
-				localStorage.att = parseFloat(localStorage.att) + 11
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','A Stone - Generic and not special - +11 D +11 A')
-			} else if (iv2.classList.contains('astone') && a2.classList.contains('access')){
-				iv2.classList.remove('astone')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('astone')
-				b.classList.remove('access')
-				localStorage.def = parseFloat(localStorage.def) + 11
-				localStorage.att = parseFloat(localStorage.att) + 11
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','A Stone - Generic and not special - +11 D +11 A')
-			} else if (iv2.classList.contains('pickaxe') && we.classList.contains('weapon')){
-				iv2.classList.remove('pickaxe')
-				iv2.classList.add('empty')
-				var b = document.getElementById('we')
-				b.classList.add('pickaxe')
-				b.classList.remove('weapon')
-				localStorage.att = parseFloat(localStorage.att) + 50
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Pickaxe - Now this is a weapon - +50 A')
-			} else if (iv2.classList.contains('wheels') && sh.classList.contains('shoe')){
-				iv2.classList.remove('wheels')
-				iv2.classList.add('empty')
-				var b = document.getElementById('sh')
-				b.classList.add('wheels')
-				b.classList.remove('shoe')
-				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.1
-				blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) + 0.3
-				iv2.setAttribute('title','')
-				document.getElementById('sh').setAttribute('title','Wheels - with this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns')
-			} else if (iv2.classList.contains('minercap') && he.classList.contains('head')){
-				iv2.classList.remove('minercap')
-				iv2.classList.add('empty')
-				var b = document.getElementById('he')
-				b.classList.add('minercap')
-				b.classList.remove('head')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 50
-				localStorage.def = parseFloat(localStorage.def) + 30
-				iv2.setAttribute('title','')
-				document.getElementById('he').setAttribute('title','Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D')
-			} else if (iv2.classList.contains('gears') && a1.classList.contains('access')){
-				iv2.classList.remove('gears')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a1')
-				b.classList.add('gears')
-				b.classList.remove('access')
-				blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.05
-				iv2.setAttribute('title','')
-				document.getElementById('a1').setAttribute('title','Gears - how do you equip these? - -5% Block Cooldowns')
-			} else if (iv2.classList.contains('gears') && a2.classList.contains('access')){
-				iv2.classList.remove('gears')
-				iv2.classList.add('empty')
-				var b = document.getElementById('a2')
-				b.classList.add('gears')
-				b.classList.remove('access')
-				blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.05
-				iv2.setAttribute('title','')
-				document.getElementById('a2').setAttribute('title','Gears - how do you equip these? - -5% Block Cooldowns')
-			} else if (iv2.classList.contains('gold')){
-				iv2.classList.remove('gold')
-				iv2.classList.add('empty')
-				localStorage.xp = parseFloat(localStorage.xp) + Math.round(parseInt(ekills.textContent) * (1 + (b7 / 1000)) / 8)
-				iv2.setAttribute('title','')
-			} else if (iv2.classList.contains('hoe') && we.classList.contains('weapon')){
-				iv2.classList.remove('hoe')
-				iv2.classList.add('empty')
-				var b = document.getElementById('we')
-				b.classList.add('hoe')
-				b.classList.remove('weapon')
-				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) - 0.05
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Hoe - UR MOM HEHEHEHA - -5% Move Cooldowns')
-			} else if ((iv2.classList.contains('lava')) && (u1.classList.contains('rockusb') || u2.classList.contains('rockusb') || u3.classList.contains('rockusb') || u4.classList.contains('rockusb') || u5.classList.contains('rockusb'))){
-				iv2.classList.remove('lava')
-				iv2.classList.add('empty')
-				iv2.setAttribute('title','')
-				if (u1.classList.contains('rockusb')){
-					var b = document.getElementById('u1')
-					b.classList.add('WFUusb')
-					b.classList.remove('rockusb')
-					document.getElementById('u1').setAttribute('title','WFU')
-				} else if (u2.classList.contains('rockusb')){
-					var b = document.getElementById('u2')
-					b.classList.add('WFUusb')
-					b.classList.remove('rockusb')
-					document.getElementById('u2').setAttribute('title','WFU')
-				} else if (u3.classList.contains('rockusb')){
-					var b = document.getElementById('u3')
-					b.classList.add('WFUusb')
-					b.classList.remove('rockusb')
-					document.getElementById('u3').setAttribute('title','WFU')
-				} else if (u4.classList.contains('rockusb')){
-					var b = document.getElementById('u4')
-					b.classList.add('WFUusb')
-					b.classList.remove('rockusb')
-					document.getElementById('u4').setAttribute('title','WFU')
-				} else if (u5.classList.contains('rockusb')){
-					var b = document.getElementById('u5')
-					b.classList.add('WFUusb')
-					b.classList.remove('rockusb')
-					document.getElementById('u5').setAttribute('title','WFU')
-				}
-			} else if (iv2.classList.contains('ram')){
-				iv2.classList.remove('ram')
-				iv2.classList.add('empty')
-				iv2.setAttribute('title','')
-				if (localStorage.ramCLVL){
-					localStorage.ramCLVL = parseInt(localStorage.ramCLVL) + 1
+						localStorage.ramCLVL = 1
+					}
+				} else if (iv2.classList.contains('workFolder')){
+					iv2.classList.replace('workFolder','empty')
+					iv2.setAttribute('title','')
+					localStorage.IFTr = 1
+					ifunlock()
+				} else if (iv2.classList.contains('calculator') && emptyAccess()){
+					iv2.classList.replace('calculator', 'empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 3
+					localStorage.def = parseFloat(localStorage.def) + 3
+					equipAccess('calculator','Calculator - 6 + 9 + 6 x 9 - +3 Hp +3 D')
+				} else if (iv2.classList.contains('mantreads') && sh.classList.contains('shoe')){
+					iv2.classList.replace('mantreads', 'empty')
+					iv2.setAttribute('title','')
+					document.getElementById('sh').classList.replace('shoe', 'mantreads')
+					document.getElementById('sh').setAttribute('title','Mantreads - Since these shoes are weighted down with 50kg of lead, you say a yo mama joke every time you put them on - +150 A + 40 D + 25% Attack Cooldowns')
+					localStorage.att = parseFloat(localStorage.att) + 150
+					localStorage.def = parseFloat(localStorage.def) + 40
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.25
+				} else if (iv2.classList.contains('e') && emptyAccess()){
+					iv2.classList.replace('e', 'empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 272
+					localStorage.att = parseFloat(localStorage.att) + 68
+					localStorage.def = parseFloat(localStorage.def) + 68
+					localStorage.reg = parseFloat(localStorage.reg) + 17
+					equipAccess('e',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +68 A +68 D +17 R")
+				} else if (iv2.classList.contains('greenstick') && we.classList.contains('weapon')){
+					iv2.classList.replace('greenstick','empty')
+					document.getElementById('we').classList.replace('weapon','greenstick')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 100
+					localStorage.att = parseFloat(localStorage.att) + 45
+					localStorage.reg = parseFloat(localStorage.reg) + 15
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Green Stick - Fortunately it still classifies as a stick, so your agrostophobia is not triggered - +100 Hp +45 A +15 R')
+				} else if (iv2.classList.contains('crown') && he.classList.contains('head')){
+					iv2.classList.replace('crown','empty')
+					document.getElementById('he').classList.replace('head','crown')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 500
+					localStorage.att = parseFloat(localStorage.att) + 50
+					localStorage.def = parseFloat(localStorage.def) - 50
+					iv2.setAttribute('title','')
+					document.getElementById('he').setAttribute('title','Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D')
+				} else if (iv2.classList.contains('pants') && le.classList.contains('legs')){
+					iv2.classList.replace('pants','empty')
+					document.getElementById('le').classList.replace('legs','pants')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 10
+					localStorage.def = parseFloat(localStorage.def) + 4
+					iv2.setAttribute('title','')
+					document.getElementById('le').setAttribute('title','Leather pants - He’s got the drip - +10 Hp +4 D')
+				} else if (iv2.classList.contains('fightPicker69')){
+					iv2.classList.replace('fightPicker69','empty')
+					iv2.setAttribute('title','')
+					for (var i = 1; i <= 3; i++){
+						var x = Math.floor(Math.random() * 8) + 1
+						newSave('FP' + x + 'lvl',0)
+						if (parseInt(localStorage.getItem('FP' + x + 'lvl')) < totalZones){
+							localStorage.setItem('FP' + x + 'lvl', parseInt(localStorage.getItem('FP' + x + 'lvl')) + 1)
+							document.getElementById('FPnew').textContent = 'Zone ' + localStorage.getItem('FP' + x + 'lvl') + ', Enemy ' + x
+							i = 4
+						} else {
+							i = 1
+						}
+					}
+				} else if (iv2.classList.contains('LotG')){
+					iv2.classList.replace('LotG','empty')
+					iv2.setAttribute('title','')
+					localStorage.anomTr = 1
+					gameOn()
+				} else if (iv2.classList.contains('susSuit') && bo.classList.contains('body')){
+					iv2.classList.replace('susSuit','empty')
+					document.getElementById('bo').classList.replace('body','susSuit')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 300
+					localStorage.def = parseFloat(localStorage.def) + 150
+					iv2.setAttribute('title','')
+					document.getElementById('bo').setAttribute('title','Crewmate Suit - Whilst you wear this item, avoid any 10 year olds you find - +300 Hp +150 D')
+				}  else if (iv2.classList.contains('bat') && we.classList.contains('weapon')){
+					iv2.classList.replace('bat','empty')
+					document.getElementById('we').classList.replace('weapon','bat')
+					localStorage.mhp = parseFloat(localStorage.mhp) - 500
+					localStorage.att = parseFloat(localStorage.att) + 150
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Aluminium bat - BONK - -500 Hp +150 A')
+				} else if (iv2.classList.contains('cbt')){
+					iv2.classList.replace('cbt','empty')
+					iv2.setAttribute('title','')
+					localStorage.cbtTr = 1
+					setOn()
+				} else if (iv2.classList.contains('valve') && emptyAccess()){
+					iv2.classList.replace('valve', 'empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 1000
+					localStorage.reg = parseFloat(localStorage.reg) + 100
+					equipAccess('valve','A valve - Corroded by steam - +1000 Hp +100 R')
+				} else if (iv2.classList.contains('icecream') && emptyAccess()){
+					iv2.classList.replace('icecream', 'empty')
+					iv2.setAttribute('title','')
+					localStorage.healcoolspeed = parseFloat(localStorage.healcoolspeed) - 0.05
+					equipAccess('icecream','Ice cream - How does a search engine have anything to do with ice cream? - -5% Heal cooldowns')
+				} else if (iv2.classList.contains('yellow') && emptyAccess()){
+					iv2.classList.replace('yellow', 'empty')
+					iv2.setAttribute('title','')
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.05
+					blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) + 0.05
+					localStorage.att = parseFloat(localStorage.att) + 50
+					equipAccess('yellow','Yellow - FFFF00 - -5% Attack cooldowns +5% Block cooldowns +50 A')
+				} else if (iv2.classList.contains('cyan') && emptyAccess()){
+					iv2.classList.replace('cyan', 'empty')
+					iv2.setAttribute('title','')
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.05
+					blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.08
+					localStorage.def = parseFloat(localStorage.def) + 50
+					equipAccess('cyan','Cyan - 00FFFF - -8% Block cooldowns +5% Attack cooldowns +50 D')
 				} else {
-					localStorage.ramCLVL = 1
-				}
-			} else if (iv2.classList.contains('workFolder')){
-				iv2.classList.replace('workFolder','empty')
-				iv2.setAttribute('title','')
-				localStorage.IFTr = 1
-				ifunlock()
-			} else if (iv2.classList.contains('calculator') && emptyAccess()){
-				iv2.classList.replace('calculator', 'empty')
-				iv2.setAttribute('title','')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 3
-				localStorage.def = parseFloat(localStorage.def) + 3
-				equipAccess('calculator','Calculator - 6 + 9 + 6 x 9 - +3 Hp +3 D')
-			} else if (iv2.classList.contains('mantreads') && sh.classList.contains('shoe')){
-				iv2.classList.replace('mantreads', 'empty')
-				iv2.setAttribute('title','')
-				document.getElementById('sh').classList.replace('shoe', 'mantreads')
-				document.getElementById('sh').setAttribute('title','Mantreads - Since these shoes are weighted down with 50kg of lead, you say a yo mama joke every time you put them on - +150 A + 40 D + 25% Attack Cooldowns')
-				localStorage.att = parseFloat(localStorage.att) + 150
-				localStorage.def = parseFloat(localStorage.def) + 40
-				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.25
-			} else if (iv2.classList.contains('e') && emptyAccess()){
-				iv2.classList.replace('e', 'empty')
-				iv2.setAttribute('title','')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 272
-				localStorage.att = parseFloat(localStorage.att) + 68
-				localStorage.def = parseFloat(localStorage.def) + 68
-				localStorage.reg = parseFloat(localStorage.reg) + 17
-				equipAccess('e',"e - I'm a math nerd, alright, let me have some fun - +272 Hp +68 A +68 D +17 R")
-			} else if (iv2.classList.contains('greenstick') && we.classList.contains('weapon')){
-				iv2.classList.replace('greenstick','empty')
-				document.getElementById('we').classList.replace('weapon','greenstick')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 100
-				localStorage.att = parseFloat(localStorage.att) + 45
-				localStorage.reg = parseFloat(localStorage.reg) + 15
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Green Stick - Fortunately it still classifies as a stick, so your agrostophobia is not triggered - +100 Hp +45 A +15 R')
-			} else if (iv2.classList.contains('crown') && he.classList.contains('head')){
-				iv2.classList.replace('crown','empty')
-				document.getElementById('he').classList.replace('head','crown')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 500
-				localStorage.att = parseFloat(localStorage.att) + 50
-				localStorage.def = parseFloat(localStorage.def) - 50
-				iv2.setAttribute('title','')
-				document.getElementById('he').setAttribute('title','Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D')
-			} else if (iv2.classList.contains('pants') && le.classList.contains('legs')){
-				iv2.classList.replace('pants','empty')
-				document.getElementById('le').classList.replace('legs','pants')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 10
-				localStorage.def = parseFloat(localStorage.def) + 4
-				iv2.setAttribute('title','')
-				document.getElementById('le').setAttribute('title','Leather pants - He’s got the drip - +10 Hp +4 D')
-			} else if (iv2.classList.contains('fightPicker69')){
-				iv2.classList.replace('fightPicker69','empty')
-				iv2.setAttribute('title','')
-				for (var i = 1; i <= 3; i++){
-					var x = Math.floor(Math.random() * 8) + 1
-					newSave('FP' + x + 'lvl',0)
-					if (parseInt(localStorage.getItem('FP' + x + 'lvl')) < totalZones){
-						localStorage.setItem('FP' + x + 'lvl', parseInt(localStorage.getItem('FP' + x + 'lvl')) + 1)
-						document.getElementById('FPnew').textContent = 'Zone ' + localStorage.getItem('FP' + x + 'lvl') + ', Enemy ' + x
-						i = 4
-					} else {
-						i = 1
+					if (iv2.classList.item(1) !== 'empty'){
+						idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
+						iv2.classList.replace(iv2.classList.item(1), 'empty')
+						iv2.setAttribute('title','')
 					}
 				}
-			} else if (iv2.classList.contains('LotG')){
-				iv2.classList.replace('LotG','empty')
-				iv2.setAttribute('title','')
-				localStorage.anomTr = 1
-				gameOn()
-			} else if (iv2.classList.contains('susSuit') && bo.classList.contains('body')){
-				iv2.classList.replace('susSuit','empty')
-				document.getElementById('bo').classList.replace('body','susSuit')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 300
-				localStorage.def = parseFloat(localStorage.def) + 150
-				iv2.setAttribute('title','')
-				document.getElementById('bo').setAttribute('title','Crewmate Suit - Whilst you wear this item, avoid any 10 year olds you find - +300 Hp +150 D')
-			}  else if (iv2.classList.contains('bat') && we.classList.contains('weapon')){
-				iv2.classList.replace('bat','empty')
-				document.getElementById('we').classList.replace('weapon','bat')
-				localStorage.mhp = parseFloat(localStorage.mhp) - 500
-				localStorage.att = parseFloat(localStorage.att) + 150
-				iv2.setAttribute('title','')
-				document.getElementById('we').setAttribute('title','Aluminium bat - BONK - -500 Hp +150 A')
-			} else if (iv2.classList.contains('cbt')){
-				iv2.classList.replace('cbt','empty')
-				iv2.setAttribute('title','')
-				localStorage.cbtTr = 1
-				setOn()
-			} else if (iv2.classList.contains('valve') && emptyAccess()){
-				iv2.classList.replace('valve', 'empty')
-				iv2.setAttribute('title','')
-				localStorage.mhp = parseFloat(localStorage.mhp) + 1000
-				localStorage.reg = parseFloat(localStorage.reg) + 100
-				equipAccess('valve','A valve - Corroded by steam - +1000 Hp +100 R')
-			} else if (iv2.classList.contains('icecream') && emptyAccess()){
-				iv2.classList.replace('icecream', 'empty')
-				iv2.setAttribute('title','')
-				localStorage.healcoolspeed = parseFloat(localStorage.healcoolspeed) - 0.05
-				equipAccess('icecream','Ice cream - How does a search engine have anything to do with ice cream? - -5% Heal cooldowns')
-			} else if (iv2.classList.contains('yellow') && emptyAccess()){
-				iv2.classList.replace('yellow', 'empty')
-				iv2.setAttribute('title','')
-				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.05
-				blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) + 0.05
-				localStorage.att = parseFloat(localStorage.att) + 50
-				equipAccess('yellow','Yellow - FFFF00 - -5% Attack cooldowns +5% Block cooldowns +50 A')
-			} else if (iv2.classList.contains('cyan') && emptyAccess()){
-				iv2.classList.replace('cyan', 'empty')
-				iv2.setAttribute('title','')
-				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.05
-				blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.08
-				localStorage.def = parseFloat(localStorage.def) + 50
-				equipAccess('cyan','Cyan - 00FFFF - -8% Block cooldowns +5% Attack cooldowns +50 D')
-			} else {
-				if (iv2.classList.item(1) !== 'empty'){
-					idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
-					iv2.classList.replace(iv2.classList.item(1), 'empty')
-					iv2.setAttribute('title','')
-				}
+				mhp.textContent = localStorage.mhp
+				att.textContent = localStorage.att
+				def.textContent = localStorage.def
+				reg.textContent = localStorage.reg
+				save()
+				//itemsHere
 			}
-			mhp.textContent = localStorage.mhp
-			att.textContent = localStorage.att
-			def.textContent = localStorage.def
-			reg.textContent = localStorage.reg
-			save()
-			//itemsHere
 		}
 		function emptyAccess(){
 			var yes = 0
@@ -7640,8 +7732,7 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('caves')
 				a.classList.add('hide')
-				var a = document.getElementById('mines')
-				a.classList.add('hide')
+				hide('mines')
 				var a = document.getElementById('coderslab')
 				a.classList.add('hide')
 				var a = document.getElementById('taroy')
@@ -9644,14 +9735,10 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('tutli')
 				a.classList.add('hide')
-				var a = document.getElementById('tutZo')
-				a.classList.add('hide')
-				var a = document.getElementById('field')
-				a.classList.add('hide')
-				var a = document.getElementById('sky')
-				a.classList.add('hide')
-				var a = document.getElementById('school')
-				a.classList.add('hide')
+				hide('tutZo')
+				hide('field')
+				hide('sky')
+				hide('school')
 				hide('ameair')
 				hide('area51')
 				hide('caves')
@@ -9698,8 +9785,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -9748,8 +9835,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -9801,8 +9888,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -9856,8 +9943,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						udrop('rockusb', 'If only I could destroy the rock', 10000)
 						advc.textContent = parseInt(advC.textContent)
@@ -9914,8 +10001,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -9976,8 +10063,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						idrop('torch','Torch - *continues to wave it around menacingly* - +4 A', 2000)
 						advc.textContent = parseInt(advC.textContent)
@@ -9989,8 +10076,7 @@ Restrictions: killed all enemies at caves at least once
 					} else if (hp.textContent <= 0){
 						playerdead()
 						document.getElementById("health").style.width = '0px'
-						var a = document.getElementById('player')
-						a.classList.add('hide')
+						hide('player')
 						var a = document.getElementById('torchplayer')
 						a.classList.add('hide')
 						var a = document.getElementById('minerplayer')
@@ -10033,8 +10119,8 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 600)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 600)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 150)
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -10072,9 +10158,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 			} else if (x === 8){
-				var a = document.getElementById('lava')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('lava')
 				ehp.textContent = 200
 				emhp.textContent = 200
 				eatt.textContent = '10%'
@@ -10108,8 +10192,8 @@ Restrictions: killed all enemies at caves at least once
 							idrop('lava','Lava - what can I destroy with this - Click to use', 10000)
 							localStorage.lavaTr = 1
 						}
-						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 100)
-						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 100)
+						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
+						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
@@ -10292,7 +10376,7 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 175)
-						idrop('astone','A stone - Generic and not special - +11 D +11 A', 200)
+						idrop('astone','A stone - Generic and not special - +11 D +11 A', 300)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(8)){
@@ -10372,9 +10456,7 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 			} else if (x === 3){
-				var a = document.getElementById('minecart')
-				a.classList.add('show')
-				a.classList.remove('hide')
+				show('minecart')
 				ehp.textContent = 320
 				emhp.textContent = 320
 				eatt.textContent = 60
@@ -10398,7 +10480,7 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 175)
-						idrop('wheels','Wheels - with this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns', 200)
+						idrop('wheels','Wheels - with this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns', 300)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(8)){
@@ -10516,7 +10598,7 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 175)
-						idrop('gears','Gears - how do you equip these? - -5% Block Cooldowns', 100)
+						idrop('gears','Gears - how do you equip these? - -5% Block Cooldowns', 300)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(8)){
@@ -16361,6 +16443,10 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('FSZY').classList.replace('off', 'on')
 				document.getElementById('FSZN').classList.replace('on', 'off')
 			}
+			if (localStorage.mmf === '2'){
+				document.getElementById('mmY').classList.replace('off', 'on')
+				document.getElementById('mmN').classList.replace('on', 'off')
+			}
 			if (localStorage.ToE2Tr === '2'){
 				document.getElementById('statB').classList.remove('hide')
 				document.getElementById('achiB').classList.remove('hide')
@@ -16912,6 +16998,28 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.FSZf = 1
 			}
 		}
+		function mmf(T){
+			if (T === 'yes'){
+				document.getElementById('mmY').classList.replace('off', 'on')
+				document.getElementById('mmN').classList.replace('on', 'off')
+				localStorage.mmf = 2
+			} else {
+				document.getElementById('mmN').classList.replace('off', 'on')
+				document.getElementById('mmY').classList.replace('on', 'off')
+				localStorage.mmf = 1
+			}
+		}
+		function mmIf(T){
+			if (T === 'yes'){
+				document.getElementById('mmiY').classList.replace('off', 'on')
+				document.getElementById('mmiN').classList.replace('on', 'off')
+				mmif = 2
+			} else {
+				document.getElementById('mmiN').classList.replace('off', 'on')
+				document.getElementById('mmiY').classList.replace('on', 'off')
+				mmif = 1
+			}
+		}
 		function flash(id, F){
 			if (F){
 				id.style.background = ''
@@ -17185,28 +17293,28 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item38').setAttribute('title', "Torch - *continues to wave it around menacingly* - +4 A\nDrops from the torch (20%)\n" + document.getElementById('item38').getAttribute('title'))
 			}
 			if (ifFound('item39')){
-				document.getElementById('item39').setAttribute('title', "Jeans - i love this game - +10 D +20 Hp\nDrops from all enemies in the caves (1%)\n" + document.getElementById('item39').getAttribute('title'))
+				document.getElementById('item39').setAttribute('title', "Jeans - i love this game - +10 D +20 Hp\nDrops from all enemies in the caves (2%)\n" + document.getElementById('item39').getAttribute('title'))
 			}
 			if (ifFound('item40')){
-				document.getElementById('item40').setAttribute('title', "Boot - y - -5% Attack Cooldowns +8 D +6 A\nDrops from all enemies in the caves (1%)\n" + document.getElementById('item40').getAttribute('title'))
+				document.getElementById('item40').setAttribute('title', "Boot - y - -5% Attack Cooldowns +8 D +6 A\nDrops from all enemies in the caves (2%)\n" + document.getElementById('item40').getAttribute('title'))
 			}
 			if (ifFound('item41')){
 				document.getElementById('item41').setAttribute('title', "Parrystone - Now you counter - +1 A +1 D\nAn item only drones collect\n" + document.getElementById('item41').getAttribute('title'))
 			}
 			if (ifFound('item42')){
-				document.getElementById('item42').setAttribute('title', "A stone - Generic and not special - +11 D +11 A\nDrops from the stone (2%)\n" + document.getElementById('item42').getAttribute('title'))
+				document.getElementById('item42').setAttribute('title', "A stone - Generic and not special - +11 D +11 A\nDrops from the stone (3%)\n" + document.getElementById('item42').getAttribute('title'))
 			}
 			if (ifFound('item43')){
 				document.getElementById('item43').setAttribute('title', "Pickaxe - Now this is a weapon - +50 A\nDrops from the pickaxe (6%)\n" + document.getElementById('item43').getAttribute('title'))
 			}
 			if (ifFound('item44')){
-				document.getElementById('item44').setAttribute('title', "Wheels - With this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns\nDrops from the minecart (2%)\n" + document.getElementById('item44').getAttribute('title'))
+				document.getElementById('item44').setAttribute('title', "Wheels - With this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns\nDrops from the minecart (3%)\n" + document.getElementById('item44').getAttribute('title'))
 			}
 			if (ifFound('item45')){
 				document.getElementById('item45').setAttribute('title', "Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D\nDrops from the miner (6%)\n" + document.getElementById('item45').getAttribute('title'))
 			}
 			if (ifFound('item46')){
-				document.getElementById('item46').setAttribute('title', "Gears - how do you equip these? - -5% Block Cooldowns\nDrops from the drill (1%)\n" + document.getElementById('item46').getAttribute('title'))
+				document.getElementById('item46').setAttribute('title', "Gears - how do you equip these? - -5% Block Cooldowns\nDrops from the drill (3%)\n" + document.getElementById('item46').getAttribute('title'))
 			}
 			if (ifFound('item47')){
 				document.getElementById('item47').setAttribute('title', "Gold - Can be molten into xp\nDrops from the diamond (5%) and can be collected from drones\n" + document.getElementById('item47').getAttribute('title'))

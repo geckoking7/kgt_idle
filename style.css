@@ -1118,6 +1118,14 @@ h5{
 #areabook:hover{
 	background-image: url('area51bookhover.png')
 }
+#cavebook{
+	background-image: url('cavebook.png');
+	left: 490px;
+	top: 120px;
+}
+#cavebook:hover{
+	background-image: url('cavebookhover.png')
+}
 .ch5a{
 	top: 530px;
 }
