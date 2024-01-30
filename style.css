@@ -1126,6 +1126,14 @@ h5{
 #cavebook:hover{
 	background-image: url('cavebookhover.png')
 }
+#minesbook{
+	background-image: url('minesbook.png');
+	left: 545px;
+	top: 120px;
+}
+#minesbook:hover{
+	background-image: url('minesbookhover.png')
+}
 .ch5a{
 	top: 530px;
 }

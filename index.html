@@ -529,6 +529,7 @@ Restrictions: killed all enemies at caves at least once
 			<button title="American airspace book" class="vent hide" id="ameairbook"></button>
 			<button title="Area 51 book" class="vent hide" id="areabook" onclick=arelibr()></button>
 			<button title="Cave book" class="vent hide" id="cavebook" onclick=cavlibr()></button>
+			<button title="Mines book" class="vent hide" id="minesbook" onclick=minlibr()></button>
 		</div>
 		<button class='hide' id='libBack' onclick=backClick()>Back</button>
 		<img src='tutoriallibrary.png' alt='go read' class='hide' id='tutli'>
@@ -676,6 +677,27 @@ Restrictions: killed all enemies at caves at least once
 				<img src='torchpage.png' alt='go read' class='hide epage' id='torchp'>
 				<img src='glowwormpage.png' alt='go read' class='hide epage' id='glowwormp'>
 				<img src='lavapage.png' alt='go read' class='hide epage' id='lavap'>
+			</div>
+			<div id='minesLib' class='hide'>
+				<div class='hide' id='minesB'>
+					<img src='mineslibrary.png' alt='go read'>
+					<button class="pageb" onclick=stonepa() style='top: 320px; left: 200px;'>Stone</button>
+					<button class="pageb" onclick=pickaxepa() style='top: 320px; left: 380px;'>Pickaxe</button>
+					<button class="pageb" onclick=minecartpa() style='top: 320px; left: 580px'>Minecart</button>
+					<button class="pageb" onclick=minerpa() style='top: 320px; left: 760px;'>Miner</button>
+					<button class="pageb" onclick=drillpa() style='top: 520px; left: 200px;'>Drill</button>
+					<button class="pageb" onclick=uraniumpa() style='top: 520px; left: 380px;'>Uranium</button>
+					<button class="pageb" onclick=diamondpa() style='top: 520px; left: 580px;'>Diamond</button>
+					<button class="pageb" onclick=hoepa() style='top: 520px; left: 760px;'>Hoe</button>
+				</div>
+				<img src='stonepage.png' alt='go read' class='hide epage' id='stonep'>
+				<img src='pickaxepage.png' alt='go read' class='hide epage' id='pickaxep'>
+				<img src='minecartpage.png' alt='go read' class='hide epage' id='minecartp'>
+				<img src='minerpage.png' alt='go read' class='hide epage' id='minerp'>
+				<img src='drillpage.png' alt='go read' class='hide epage' id='drillp'>
+				<img src='uraniumpage.png' alt='go read' class='hide epage' id='uraniump'>
+				<img src='diamondpage.png' alt='go read' class='hide epage' id='diamondp'>
+				<img src='hoepage.png' alt='go read' class='hide epage' id='hoep'>
 			</div>
 		</div>
 		<h5 title="Training [W]" class="hide" id="trainB"></h5>
@@ -2001,8 +2023,8 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById('blockB').setAttribute('title', 'Block [W] - x' + Math.round(parseFloat(bloM.textContent) * (1.3 + (-20 / (parseInt(bloL.textContent) + 20))) * 100) / 100 + ' defence for 3s')
 					}
 					if (parseInt(bloL.textContent) <= 20){
-						document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) / 10000 + ' for 5s')
-						document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) / 10000 + ' for 5s')
+						document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) / 100 + ' for 5s')
+						document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) / 100 + ' for 5s')
 					} else {
 						document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20)))))) / 100 + ' for 5s')
 						document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20)))))) / 100 + ' for 5s')
@@ -3543,6 +3565,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('ameairLib')
 			hide('areaLib')
 			hide('caveLib')
+			hide('minesLib')
 			show('eLib')
 			show('elibrb')
 			setKills()
@@ -3576,6 +3599,9 @@ Restrictions: killed all enemies at caves at least once
 			if (caves.classList.contains('btny') || caves.classList.contains('btng')){
 				show('cavebook')
 			}
+			if (mines.classList.contains('btny') || mines.classList.contains('btng')){
+				show('minesbook')
+			}
 		}
 		function backClick(){
 			const allEkills = document.getElementsByClassName('ekill');
@@ -3600,6 +3626,8 @@ Restrictions: killed all enemies at caves at least once
 				arelibr()
 			} else if (backValue === 7){
 				cavlibr()
+			} else if (backValue === 8){
+				minlibr()
 			}
 		}
 		function setKills(){
@@ -4438,6 +4466,67 @@ Restrictions: killed all enemies at caves at least once
 			show('lavap')
 			hide('caveb')
 			show('lavac')
+			show('libBack')
+		}
+		function minlibr(){
+			backValue = 8
+			show('minesLib')
+			show('minesB')
+			show('enemykills')
+			hide('library')
+			hide('tutzobook')
+			hide('fieldbook')
+			hide('skybook')
+			hide('schoolbook')
+			hide('elibrb')
+			hide('libBack')
+		}
+		function stonepa(){
+			show('stonep')
+			hide('caveb')
+			show('stonec')
+			show('libBack')
+		}
+		function pickaxepa(){
+			show('pickaxep')
+			hide('caveb')
+			show('pickaxec')
+			show('libBack')
+		}
+		function minecartpa(){
+			show('minecartp')
+			hide('caveb')
+			show('minecartc')
+			show('libBack')
+		}
+		function minerpa(){
+			show('minerp')
+			hide('caveb')
+			show('minerc')
+			show('libBack')
+		}
+		function drillpa(){
+			show('drillp')
+			hide('caveb')
+			show('drillc')
+			show('libBack')
+		}
+		function uraniumpa(){
+			show('uraniump')
+			hide('caveb')
+			show('uraniumc')
+			show('libBack')
+		}
+		function diamondpa(){
+			show('diamondp')
+			hide('caveb')
+			show('diamondc')
+			show('libBack')
+		}
+		function hoepa(){
+			show('hoep')
+			hide('caveb')
+			show('hoec')
 			show('libBack')
 		}
 		function wboteq(){
@@ -10338,11 +10427,8 @@ Restrictions: killed all enemies at caves at least once
 				var a = document.getElementById('eHealth')
 				a.classList.add('show')
 				a.classList.remove('hide')
-				var a = document.getElementById('eMaxHealth')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('stone')
-				a.classList.add('hide')
+				show('eMaxHealth')
+				hide('stone')
 				hide('pickaxe')
 				hide('minecart')
 				hide('miner')
@@ -15796,8 +15882,8 @@ Restrictions: killed all enemies at caves at least once
 							document.getElementById('blockB').setAttribute('title', 'Block [W] - x' + Math.round((parseFloat(bloM.textContent) * (130 + (-2000 / (parseInt(bloL.textContent) + 20))))) / 100 + ' defence for 3s')
 						}
 						if (parseInt(bloL.textContent) <= 20){
-							document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) / 10000 + ' for 5s')
-							document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) / 10000 + ' for 5s')
+							document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) / 100 + ' for 5s')
+							document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((100 - (parseInt(bloL.textContent) * 0.5)))))) / 100 + ' for 5s')
 						} else {
 							document.getElementById('shield').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20)))))) / 100 + ' for 5s')
 							document.getElementById('shieldB').setAttribute('title', 'Shield [W] - damage taken x' + Math.round(((parseFloat(shiM.textContent) * ((80 * 0.995 ** (parseInt(bloL.textContent) - 20)))))) / 100 + ' for 5s')
