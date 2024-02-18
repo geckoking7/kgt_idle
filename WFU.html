@@ -4,6 +4,9 @@
 			<link rel="icon" type="image/x-icon" href="logo.png">
 	</head>
 	<style>
+	*{
+		margin: 0;
+	}
 	.hide{
 		display: none;
 	}
@@ -37,11 +40,13 @@
 	.player{
 		z-index: 4;
 		color: transparent;
+		position: absolute;
 	}
 	.shadow{
 		z-index: 3;
 		filter: brightness(0);
 		opacity: 50%;
+		position: absolute;
 	}
 	.htp{
 		background: url('WFUhtpb.gif');
@@ -79,7 +84,7 @@
 		background-image: url('regenerationstone2.png')
 	}
 	</style>
-	<body style='background-color: rgb(200,200,200);' id='body' onload='HTPcheck()'>
+	<body style='background-color: rgb(200,200,200);' id='body'>
 		<img src="monitor.png" alt="computer" style='position: absolute; height: 600px; width: 1000px; left: 50px; top: 50px; z-index: 5;'>
 		<img src="WFUtitle.gif" alt="computer" class="screen" id='stSc'>
 		<img src="outsidemap.png" alt="computer" class="screen hide" id='outm'>
@@ -88,52 +93,94 @@
 		<img src="gameend.png" alt="computer" class="screen hide" id='geSc'>
 		<img src="gamelost.png" alt="computer" class="screen hide" id='glSc'>
 		<h5 alt="computer" class="screen hide" id='blSc' style='background: black; opacity: 1; z-index: 39439; margin: 0;'></h5>
-		<button id='play' style='width: 200px; height: 100px; background-color: transparent; border: none; left: 700px; top: 340px; position: absolute; transform: rotate(345deg);' onClick=start()></button>
+		<button id='play' style='width: 200px; height: 100px; background-color: transparent; border: none; left: 700px; top: 340px; position: absolute; transform: rotate(345deg);' onclick='startGame()'></button>
 		<a href="HTP.html" id='htp' class='htp hide' style='width: 100px; height: 80px; border: none; left: 880px; top: 100px; position: absolute; z-index: 6;' target=”_blank”></a>
 		<h1 class='hide' id='dayE'>Day 1</h1>
-		<div id='deA' class='hide'>
-			<h5 class='shadow' id='deaS' style='background: url("WFUdeagleF.png"); width: 20px; height: 20px; left: 961px; top: 251px; position: absolute; z-index: 2;'></h5>
-			<h5 class='player' id='dea' style='background: url("WFUdeagleF.png"); width: 20px; height: 20px; left: 960px; top: 250px; position: absolute; z-index: 3;'></h5>
+		<div id='deA' class='hide' style='background: url("WFUdeagleF.png"); left: 960px; top: 285px; position: absolute; z-index: 2; background-repeat: no-repeat; background-size: cover;'>
+			<h5 class='player' style='width: 40px; height: 40px; background: inherit;'></h5>
+			<h5 class='shadow' style='width: 40px; height: 40px; top: 1px; left: 1px; background: inherit;'></h5>
 		</div>
-		<h5 class='hide player' id='player' style='background: url("WFUplayer.gif"); width: 30px; height: 50px; left: 100px; top: 240px; position: absolute;'></h5>
-		<h5 class='hide shadow' id='playerS' style='background: url("WFUplayerS.gif"); width: 30px; height: 50px; left: 102px; top: 242px; position: absolute; opacity: 50%'></h5>
-		<h5 class='hide player' id='wilko' style='background: url("wilko.png"); width: 30px; height: 50px; left: 980px; top: 240px; position: absolute; opacity: 20%;'></h5>
-		<h5 class='hide player' id='carup' style='background: url("carup.gif"); width: 80px; height: 100px; left: 560px; top: 500px; position: absolute; margin: 0;'></h5>
-		<h5 class='hide shadow' id='carupS' style='background: url("carup.gif"); width: 80px; height: 100px; left: 564px; top: 502px; position: absolute; margin: 0; filter: brightness(0); opacity: 50%;'></h5>
-		<h5 class='hide player' id='cardown' style='background: url("cardown.gif"); width: 80px; height: 100px; left: 750px; top: 50px; position: absolute; margin: 0;'></h5>
-		<h5 class='hide shadow' id='cardownS' style='background: url("cardown.gif"); width: 80px; height: 100px; left: 754px; top: 50px; position: absolute; margin: 0; filter: brightness(0); opacity: 50%;'></h5>
-		<h4 id='objective' class='hide' style='background-color: white; font-size: 20px; position: absolute; left: 95; top: 70; width: 910px; text-align: center; z-index: 7; height: 30px; padding: 5px; opacity: 70%; font-family: arial;'>hi</h4>
-		<h4 id='modifier' class='hide' style='background-color: white; font-size: 20px; position: absolute; left: 95; top: 110; width: 910px; text-align: center; z-index: 7; height: 30px; padding: 5px; opacity: 70%; font-family: arial;'>die</h4>
+		<div id='player' class='hide' style='left: 100px; top: 260px; position: absolute; background: url("WFUplayer.gif");'>
+			<h5 class='player' id='playerR' style='width: 30px; height: 50px; background: inherit;'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div id='carup' class='hide' style='left: 560px; top: 500px; position: absolute; background: url("carup.gif");'>
+			<h5 class='player' id='playerR' style='width: 80px; height: 100px; background: inherit;'></h5>
+			<h5 class='shadow' style='width: 80px; height: 100px; left: 3px; top: 3px; background: inherit;'></h5>
+		</div>
+		<div id='cardown' class='hide' style='left: 750px; top: 50px; position: absolute; background: url("cardown.gif");'>
+			<h5 class='player' id='playerR' style='width: 80px; height: 100px; background: inherit;'></h5>
+			<h5 class='shadow' style='width: 80px; height: 100px; left: 3px; top: 3px; background: inherit;'></h5>
+		</div>
+		<h5 class='hide player' id='wilko' style='background: url("wilko.png"); width: 30px; height: 50px; left: 980px; top: 270px; position: absolute; opacity: 20%;'></h5>
+		<h4 id='objective' class='hide' style='background-color: white; font-size: 20px; position: absolute; left: 95; top: 90; width: 910px; text-align: center; z-index: 7; height: 30px; padding: 5px; opacity: 70%; font-family: arial;'>hi</h4>
+		<h4 id='modifier' class='hide' style='background-color: white; font-size: 20px; position: absolute; left: 95; top: 130; width: 910px; text-align: center; z-index: 7; height: 30px; padding: 5px; opacity: 70%; font-family: arial;'>die</h4>
 		<h5 id='miniplayer' style='background: url("miniOff.gif"); width: 216px; height: 91px; left: 750px; top: 529px; position: absolute; margin: 0; z-index: 7;'></h5>
 		<img src='outsidemap.png' id='miniplayerM' class='hide' style='width: 162px; height: 68px; left: 750px; top: 529px; position: absolute; margin: 0; z-index: 6; object-fit: contain;'>
-		<h5 class='hide shadow' id='deagleIS' style='background: url("WFUdeagleF.png"); width: 40px; height: 40px; left: 971px; top: 261px; position: absolute; z-index: 2; background-repeat: no-repeat; background-size: cover;'></h5>
-		<h5 class='hide player' id='deagleI' style='background: url("WFUdeagleF.png"); width: 40px; height: 40px; left: 970px; top: 260px; position: absolute; z-index: 3; background-repeat: no-repeat; background-size: cover;'></h5>
 		<img class='hide' id='itemSlot' style='width: 30px; height: 30px; left: 864px; top: 546px; position: absolute; z-index: 8; object-fit: contain;'>
-		<div id='dbdiv'>
-			<h5 class='hide' id='deagleB' style='background: white; width: 10px; height: 4px; left: 0px; top: 0px; position: absolute; z-index: 4; margin: 0;'></h5>
-		</div>
+		<h5 class='hide' id='BNode' style='background: white; width: 10px; height: 4px; left: 0px; top: 0px; position: absolute; z-index: 4; margin: 0; color: transparent;'></h5>
 		<h5 class='hide' id='Mhp' style='background: url("healthd.png"); width: 120px; height: 20px; left: 769px; top: 586px; position: absolute; z-index: 7; margin: 0; border-radius: 8px 15px 15px 8px; color: transparent; filter: grayscale(1) brightness(50%);'>3</h5>
 		<h5 class='hide' id='hp' style='background: url("healthd.png"); width: 120px; height: 20px; left: 769px; top: 586px; position: absolute; z-index: 8; margin: 0; border-radius: 8px 15px 15px 8px; filter: hue-rotate(90deg); color: transparent'>3</h5>
-		<h5 class='hide shadow' id='eagleS' style='background: url("WFUdeagle.gif"); width: 80px; height: 80px; left: 605px; top: 245px; position: absolute; opacity: 50%'></h5>
-		<h5 class='hide player' id='eagle' style='background: url("WFUdeagle.gif"); width: 80px; height: 80px; left: 600px; top: 240px; position: absolute; z-index: 6;'></h5>
+		<div id='eagle' class='hide' style='background: url("WFUdeagle.gif"); left: 600px; top: 240px; position: absolute;'>
+			<h5 class='player' id='eagleT' style='background: inherit; width: 80px; height: 80px;'></h5>
+			<h5 class='shadow' id='eagleS' style='left: 5px; top: 5px; background: inherit; width: 80px; height: 80px;'></h5>
+		</div>
 		<h1 style='z-index: 23;'><a class='hide' href='' onclick='window.close()' style='position: absolute; top: 205; left: 390; margin: 0; text-decoration: none; font-size: 16; width: 200; margin: 0; z-index: 23;' id='kgtlink'>Return to KGT idle</a></h1>
 		<h1 class='hide' style='position: absolute; top: 285; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='xpR'>Xp: 0</h1>
 		<h1 class='hide' style='position: absolute; top: 305; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='goldR'>Gold earned: 0</h1>
 		<h1 class='hide' style='position: absolute; top: 400; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='anomR'>Enhanced items: 0</h1>
-		<div id='guard1' class='hide'>
-			<h5 class='shadow' id='guard1S' style='background: url("WFUguard.gif"); width: 30px; height: 50px; left: 485px; top: 412px; position: absolute; z-index: 2;'></h5>
-			<h5 class='player' id='guard1p' style='background: url("WFUguard.gif"); width: 30px; height: 50px; left: 0px; top: 0px; position: absolute; z-index: 3;'></h5>
+		<div id='guard1' class='hide' style='left: 485px; top: 410px; position: absolute; background: url("WFUguard.gif");'>
+			<h5 class='shadow' id='guard1S' style='background: inherit; width: 30px; height: 50px; left: 2px; top: 2px; z-index: 2;'></h5>
+			<h5 class='player' id='guard1p' style='background: inherit; width: 30px; height: 50px; z-index: 3;'></h5>
 		</div>
-		<div id='guard2' class='hide'>
-			<h5 class='shadow' id='guard2S' style='background: url("WFUguard.gif"); width: 30px; height: 50px; left: 870px; top: 412px; position: absolute; z-index: 2;'></h5>
-			<h5 class='player' id='guard2p' style='background: url("WFUguard.gif"); width: 30px; height: 50px; left: 0px; top: 0px; position: absolute; z-index: 3;'></h5>
+		<div id='guard2' class='hide' style='left: 870px; top: 410px; position: absolute; background: url("WFUguard.gif");'>
+			<h5 class='shadow' id='guard2S' style='background: inherit; width: 30px; height: 50px; left: 2px; top: 2px; z-index: 2;'></h5>
+			<h5 class='player' id='guard2p' style='background: inherit; width: 30px; height: 50px; z-index: 3;'></h5>
 		</div>
 		<div class='hide' id='Fbar'>
-			<h5 id='fbar' style='width: 0; position: absolute; height: 4; left: 902; top: 549; background: rgb(0,255,255); z-index: 8;'></h5>
-			<h5 id='fbarb' style='width: 50; position: absolute; height: 4; left: 902; top: 549; background: rgb(127,127,127); z-index: 7;'></h5>
+			<h5 id='fbar' style='width: 0; position: absolute; height: 4; left: 902; top: 571; background: rgb(0,255,255); z-index: 8; color: transparent;'>1</h5>
+			<h5 id='fbarb' style='width: 50; position: absolute; height: 4; left: 902; top: 571; background: rgb(127,127,127); z-index: 7; color: transparent;'></h5>
 		</div>
-		<h5 class='hide player' id='pCnode' style='background: url("WFUplayerC.gif"); width: 30px; height: 50px; left: 100px; top: 240px; position: absolute;'></h5>
-		<h5 class='hide player' id='Enode' style='background: url("emu.gif"); width: 80px; height: 80px; top: 240px; left: 60px; position: absolute; display: show;'></h5>
+		<div class='hide ' id='crew1' style='background: url("WFUplayerC2.gif");  left: 100px; top: 140px; position: absolute; '>
+			<h5 class='player' id='crew1T' style='width: 30px; height: 50px; background: inherit;'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide ' id='crew2' style='background: url("WFUplayerC.gif");  left: 100px; top: 400px; position: absolute;'>
+			<h5 class='player' id='crew2T' style='width: 30px; height: 50px; background: inherit; filter: hue-rotate(315deg);'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide ' id='crew3' style='background: url("WFUplayerC.gif");  left: 290px; top: 190px; position: absolute; '>
+			<h5 class='player' id='crew3T' style='width: 30px; height: 50px; background: inherit;'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide ' id='crew4' style='background: url("WFUplayerC.gif");  left: 290px; top: 330px; position: absolute;'>
+			<h5 class='player' id='crew4T' style='width: 30px; height: 50px; background: inherit; filter: hue-rotate(45deg);'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide ' id='crew5' style='background: url("WFUplayerC2.gif");  left: 485px; top: 190px; position: absolute;'>
+			<h5 class='player' id='crew5T' style='width: 30px; height: 50px; background: inherit; filter: hue-rotate(135deg);'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide ' id='crew6' style='background: url("WFUplayerC.gif");  left: 485px; top: 330px; position: absolute;'>
+			<h5 class='player' id='crew6T' style='width: 30px; height: 50px; background: inherit; filter: hue-rotate(120deg);'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide ' id='crew7' style='background: url("WFUplayerC2.gif");  left: 870px; top: 140px; position: absolute;'>
+			<h5 class='player' id='crew7T' style='width: 30px; height: 50px; background: inherit; filter: hue-rotate(240deg);'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide ' id='crew8' style='background: url("WFUplayerC2.gif");  left: 870px; top: 260px; position: absolute;'>
+			<h5 class='player' id='crew8T' style='width: 30px; height: 50px; background: inherit; filter: hue-rotate(280deg);'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide ' id='crew9' style='background: url("WFUplayerC.gif");  left: 870px; top: 400px; position: absolute;'>
+			<h5 class='player' id='crew9T' style='width: 30px; height: 50px; background: inherit; filter: hue-rotate(225deg);'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
+		<div class='hide' id='Enode' style='background: url("emu.gif"); width: 80px; height: 80px; top: 240px; left: 60px; position: absolute; display: show;'></h5>
+			<h5 class='shadow' style='width: inherit; height: inherit; left: 2px; top: 2px; background: inherit;'></h5>
+			<h5 class='player' style='width: inherit; height: inherit; background: inherit;'></h5>
+		</div>
 		<h5 class='hide player' id='eThing' style='background: url("eThing.gif"); width: 100px; height: 50px; position: absolute;'></h5>
 		<h5 class='vent empty hide' id='vent1'></h5> <!--left 560px; is center-->
 		<h5 class='vent empty hide' id='vent2'></h5>
@@ -145,24 +192,44 @@
 		<h5 class='vent empty hide' id='vent8'></h5>
 	</body>
 	<script>
-	var maxAnomSlots = 23;
-	//Make stone drops fill the remainder of empty slots
+	var tick = 0;
+	var DEhp = 0;
 	var ob1 = 0;
 	var ob2 = 0;
 	var mo1 = 0;
 	var mo2 = 0;
 	var day = 1;
-	var DEhp = 0;
-	var obj = 0;
-	var mod = 0;
+	var gaming = 1;
+	var carUc = 0;
+	var carDc = 0;
+	var attackC = 1;
+	var DEx = 0;
+	var DEy = 0;
+	var DEx2 = -1;
+	var DEy2 = -1;
+	var g1c = 0;
+	var g1H = 0;
+	var g1s = 0;
+	var g2c = 0;
+	var g2H = 0;
+	var g2s = 0;
+	var impH = 1;
 	var impF = 0;
-	var impH = 0;
+	var blackSc = 0
 	var emuDelay = 0;
-	var slotsFull = 0;
+	var keysPressed = [];
+	var imposter = false;
+	var crewT = 0;
+	var susT = 0;
+	var crewMove = [8,8,8,8,8,8,8,8,8];
 	var pl = document.getElementById('player');
-	var plS = document.getElementById('playerS');
-	var de = document.getElementById('eagle');
 	var wilk = document.getElementById('wilko');
+	var carup = document.getElementById('carup');
+	var cardown = document.getElementById('cardown');
+	var eagle = document.getElementById('eagle');
+	var ENode = document.getElementById('Enode').cloneNode(true);
+	var BNode = document.getElementById('BNode').cloneNode(true);
+	var curWea = 0;
 	function newSave(thing, value){ //thing must be string
 		if (localStorage.getItem(thing)){
 			return true
@@ -177,30 +244,7 @@
 	function show(id){
 		document.getElementById(id).classList.remove('hide')
 	}
-	function HTPcheck(){
-		document.getElementById('htp').classList.remove('hide')
-	}
-	setInterval(showE, 50)
-	function showE(){
-		if (deagleI.classList.contains('hide') === false && parseInt(pl.style.left) >= 920 && parseInt(pl.style.left) <= 1010 && parseInt(pl.style.top) >= 210 && parseInt(pl.style.top) <= 300){
-			show('eThing')
-		} else if (de.style.background === 'url("WFUdeagledead.png")' && parseInt(pl.style.left) - 80 <= parseInt(de.style.left) && parseInt(pl.style.left) + 30 >= parseInt(de.style.left) && parseInt(pl.style.top) - 80 <= parseInt(de.style.top) && parseInt(pl.style.top) + 50 >= parseInt(de.style.top)){
-			show('eThing')
-		} else if (document.getElementById("imposter") &&(parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("imposter").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("imposter").style.left)){
-			show('eThing')
-		} else {
-			hide('eThing')
-		}
-	}
-	function newSave(thing, value){ //thing must be string
-		if (localStorage.getItem(thing)){
-			return true
-		} else {
-			localStorage.setItem(thing, value)
-			return localStorage.getItem(thing)
-		}
-	}
-	function start(){
+	function startGame(){
 		hide('stSc')
 		hide('play')
 		newSave('WFUslots', 1)
@@ -230,11 +274,9 @@
 		} else {
 			localStorage.WFUcool = 0
 		}
-		if (parseInt(localStorage.WFUcool) <= 0 || localStorage.WFUlvl === '69'){ //0
-			var a = document.getElementById('gstSc')
-			a.classList.remove('hide')
-			var a = document.getElementById('dayE')
-			a.classList.remove('hide')
+		if (parseInt(localStorage.WFUcool) <= 0 || localStorage.WFUlvl === '69'){
+			show('gstSc')
+			show('dayE')
 			document.getElementById("miniplayer").style.background = 'url(miniStart.gif)'
 			document.getElementById('htp').classList.add('hide')
 			setTimeout(game,2000)
@@ -244,57 +286,39 @@
 		} else if (parseInt(localStorage.WFUcool) > 0){
 			document.getElementById('wilko').classList.remove('hide')
 			document.getElementById('wilko').style.width = 3000
-			document.getElementById('wilko').style.top = 1000
+			document.getElementById('wilko').style.top = 0
 			document.getElementById('wilko').style.height = 10000
 			document.getElementById('wilko').style.zIndex = 10000
 			document.getElementById('wilko').style.opacity = '80%'
 			localStorage.ach8 = 1
-		} else {
-			//localStorage.tutorW = 1
-			video()
 		}
 	}
 	function game(){
-		pl.style.top = 240
+		pl.style.top = 260
 		pl.style.left = 100
-		plS.style.top = 242
-		plS.style.left = 102
-		wilk.style.top = 240
+		wilk.style.top = 270
 		wilk.style.left = 980
+		carUc = 0
+		carDc = 0
 		guard1p.textContent = ''
 		guard2p.textContent = ''
 		emuDelay = 100;
-		var a = document.getElementById('gstSc')
-		a.classList.add('hide')
-		var a = document.getElementById('dayE')
-		a.classList.add('hide')
+		hide('gstSc')
+		hide('dayE')
 		map = Math.floor(Math.random() * 100000) + 1
-		var a = document.getElementById('player')
-		a.classList.remove('hide')
-		var a = document.getElementById('playerS')
-		a.classList.remove('hide')
-		var a = document.getElementById('wilko')
-		a.classList.remove('hide')
-		var a = document.getElementById('miniplayerM')
-		a.classList.remove('hide')
-		var a = document.getElementById('Mhp')
-		a.classList.remove('hide')
-		var a = document.getElementById('hp')
-		a.classList.remove('hide')
-		var a = document.getElementById('dbdiv')
-		a.classList.add('hide')
+		show('player')
+		show('wilko')
+		show('miniplayerM')
+		show('Mhp')
+		show('hp')
 		document.getElementById('gwSc').classList.add('hide')
 		document.getElementById('Fbar').classList.remove('hide')
 		document.getElementById("miniplayer").style.background = 'url(miniOn.png)'
 		document.getElementById("eagle").style.background = 'url("WFUdeagle.gif")'
-		document.getElementById("eagleS").style.background = 'url("WFUdeagle.gif")'
 		if (true){
-			var a = document.getElementById('outm')
-			a.classList.remove('hide')
-			var a = document.getElementById('objective')
-			a.classList.remove('hide')
-			var a = document.getElementById('modifier')
-			a.classList.remove('hide')
+			show('outm')
+			show('objective')
+			show('modifier')
 			document.getElementById('miniplayerM').setAttribute('src','outsidemap.png')
 			obj = Objective()
 			if (obj === 1){
@@ -302,38 +326,37 @@
 				ob1 = 1
 				document.getElementById("eagle").style.left = 605
 				document.getElementById("eagle").style.top = 245
-				var a = document.getElementById('deagleI')
-				a.classList.remove('hide')
-				var a = document.getElementById('deagleIS')
-				a.classList.remove('hide')
-				var a = document.getElementById('eagle')
-				a.classList.remove('hide')
-				var a = document.getElementById('eagleS')
-				a.classList.remove('hide')
+				show('deA')
+				show('eagle')
 				DEhp = 2 + day
-				var deez = Math.floor(Math.random() * 16) + 1
-				var nutz = ((400 - deez ** 2) ** 0.5) / 20
-				DE(deez/20,nutz,1,1)
+				DEx = (Math.floor(Math.random() * 8) + 12) / 20
+				DEy = (1 - (DEx ** 2)) ** 0.5
 			} else if (obj === 2){
 				objective.textContent = 'Objective: Find and kill the imposter'
 				ob2 = 1
 				impH = 4 + day / 2
-				OB2(0)
+				for (var i = 1; i <=  9; i++){
+					show('crew' + i)
+				}
+				var sus = Math.floor(Math.random() * 9) + 1
+				document.getElementById('crew' + sus).classList.add('imposter')
+				imposter = document.getElementById('crew' + sus)
 			}
 			mod = Modifier()
 			if (mod === 1){
 				modifier.textContent = 'Modifier: none'
 				mo1 = 1
-			} else if(mod === 2){
+			} else if (mod === 2){
 				modifier.textContent = 'Modifier: The war of emus'
 				mo2 = 1
-				mod2(0)
 			}
-		} else if (true){
+		} else if (true){ //when other zone things exist (never{ever[ever]})
 		
 		} else {
 		
 		}
+		gaming = 0
+		Gaming()
 	}
 	function Objective(){
 		for (let i = 0; i < 2; i++) {
@@ -369,1116 +392,755 @@
 			}
 		}
 	}
-	function win(){
-		pl.style.left = 0
-		pl.classList.add('hide')
-		document.getElementById('wilko').classList.add('hide')
-		document.getElementById('playerS').classList.add('hide')
-		document.getElementById('outm').classList.add('hide')
-		de.classList.add('hide')
-		document.getElementById('eagleS').classList.add('hide')
-		document.getElementById('carup').classList.add('hide')
-		document.getElementById('cardown').classList.add('hide')
-		document.getElementById('carupS').classList.add('hide')
-		document.getElementById('cardownS').classList.add('hide')
-		document.getElementById('objective').classList.add('hide')
-		document.getElementById('modifier').classList.add('hide')
-		guard1p.textContent = 0
-		guard2p.textContent = 0
-		de.style.top = 700
-		if (ob1 === 1){
-			ob1 = 2
-			document.getElementById("eagle").style.left = 0
-			document.getElementById("eagle").style.top = 0
-		}
-		if (ob2 === 1){
-			ob2 = 2
-			document.getElementById("eagle").style.left = 0
-			document.getElementById("eagle").style.top = 0
-		}
-		if (mo1 === 1){
-			mo1 = 2
-		} else if (mo2 === 1){
-			mo2 = 2
-		}
-		if (day < parseInt(localStorage.WFUlvl)){
-			day = day + 1
-			document.getElementById('gwSc').classList.remove('hide')
-			dayE.textContent = 'Day ' + (day)
-			var a = document.getElementById('dayE')
-			a.classList.remove('hide')
-			setTimeout(game,2000)
-			blackscreen()
-		} else {
-			if (mo1 === 1){
-				mo1 = 2
+	var EmuSpawnCool = 0;
+	function Gaming(){ //tick is 1/50 seconds
+			if (attackC > 0 && curWea !== 0){
+				attackC = attackC - 1
 			}
-			if (mo2 === 1){
-				mo2 = 2
+			if (blackSc > 0){
+				blackSc = blackSc - 1
+				document.getElementById('blSc').style.opacity = parseFloat(document.getElementById('blSc').style.opacity) - 0.02
+			} else {
+				hide('blSc')
 			}
-			guard1p.textContent = 0
-			guard2p.textContent = 0
-			blackscreen()
-			document.getElementById('itemSlot').classList.add('hide')
-			document.getElementById('deA').classList.add('hide')
-			document.getElementById('hp').classList.add('hide')
-			document.getElementById('Mhp').classList.add('hide')
-			document.getElementById('miniplayerM').classList.add('hide')
-			document.getElementById('Fbar').classList.add('hide')
-			document.getElementById('geSc').classList.remove('hide')
-			document.getElementById("kgtlink").style.color = 'rgb(0,255,255)'
-			document.getElementById("kgtlink").classList.remove('hide')
-			document.getElementById("xpR").classList.remove('hide')
-			document.getElementById("goldR").classList.remove('hide')
-			localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
-			xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
-			goldR.textContent = 'Gold earned:  ' + Math.floor(day + parseInt(localStorage.WFUlvl) / 2)
-			localStorage.goldWFU = parseInt(localStorage.goldWFU) + Math.floor(day + parseInt(localStorage.WFUlvl) / 2)
-			document.getElementById("miniplayer").style.background = 'url(miniEnd.png)'
-			if (day >= 2){
-				localStorage.ach16 = 1
-			}
-			newSave('ramLVL', 0)
-			newSave('ramWFU', 0)
-			newSave('FPWFU', 0)
-			for (let N = 1; N <= parseInt(localStorage.WFUslots); N++){
-				document.getElementById('vent' + N).style.left = Math.floor(490 - (parseInt(localStorage.WFUslots) * 27.5) + (N * 55))
-				show('vent' + N)
-			}
-			var ramDropChance = 1 / (1.2  ** (parseInt(localStorage.ramLVL) - day - parseInt(localStorage.WFUlvl)))
-			if (Math.random() <= ramDropChance && localStorage.ramLVL < 1024){
-				localStorage.ramWFU = parseInt(localStorage.ramWFU) + 1
-				slotsFull = 1
-				idrop('ram','RAM card - Allows computer gaming to be better')
-			}
-			var FPDropChance = 1 / (1.2  ** (parseInt(localStorage.FPlvl) - day - parseInt(localStorage.WFUlvl)))
-			if (Math.random() <= FPDropChance && localStorage.FPlvl < (8 * (day + 2)) && slotsFull < parseInt(localStorage.WFUslots)){
-				localStorage.FPWFU = parseInt(localStorage.FPWFU) + 1
-				slotsFull = slotsFull + 1
-				idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
-			}
-			for (let X = slotsFull + 1; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
-				newSave('WFUstone', '')
-				let stoneRNG = Math.floor(Math.random() * 25) + 1
-				if (stoneRNG === 1){
-					idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R')
-					localStorage.WFUstone = localStorage.WFUstone + '4'
-				} else if (stoneRNG <= 5){
-					idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D')
-					localStorage.WFUstone = localStorage.WFUstone + '3'
-				} else if (stoneRNG <= 9){
-					idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A')
-					localStorage.WFUstone = localStorage.WFUstone + '2'
-				} else {
-					idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp')
-					localStorage.WFUstone = localStorage.WFUstone + '1'
+			document.getElementById("fbar").style.width = ((parseInt(document.getElementById("fbar").textContent) - attackC) / parseInt(document.getElementById("fbar").textContent)) * 50
+			document.getElementById("fbar").style.filter = 'grayscale(' + (1 - ((parseInt(document.getElementById("fbar").textContent) - attackC) / parseInt(document.getElementById("fbar").textContent))) + ')'
+			if ((keysPressed['a'] === true && (keysPressed['d'] === true) === false || keysPressed['A'] === true && (keysPressed['D'] === true) === false) && parseInt(pl.style.left) >= 85){
+				pl.style.left = parseInt(pl.style.left) - 5
+				if (pl.style.background != 'url("WFUplayerl.gif")'){
+					pl.style.background = 'url("WFUplayerl.gif")'
 				}
 			}
-			if (localStorage.anomTr === '1'){
-				let a = 0
-				if (ob1 === 2){
-					a = adrop('deagle',2000)
+			if ((keysPressed['d'] === true && (keysPressed['a'] === true) === false || keysPressed['D'] === true && (keysPressed['A'] === true) === false) && parseInt(pl.style.left) <= 985){
+				pl.style.left = parseInt(pl.style.left) + 5
+				if (pl.style.background != 'url("WFUplayerr.gif")'){
+					pl.style.background = 'url("WFUplayerr.gif")'
 				}
-				if (ob2 === 2){
-					a = a + adrop('vent',2000)
-				}
-				show('anomR')
-				document.getElementById('anomR').textContent = 'Enhanced items: ' + a
 			}
-		}
-	}
-	let keysPressed = {};
-	var lT = 0;
-	var rT = 0;
-	var uT = 0;
-	var dT = 0;
-	var mT = 0;
-	var db = document.getElementById('deagleB').cloneNode(true);
-	var dbc = 0;
-	var DEd = 0;
-	document.addEventListener('keydown', (event) => {
-		keysPressed[event.key] = true;
-		//player.textContent = lT + '' + rT + '' + uT + '' + dT + '' //debugging tool
-		if (player.classList.contains('hide')){
-		
-		} else {
-			if (keysPressed['a'] === true && lT === 0||keysPressed['A'] === true && lT === 0){
-				pmove()
-				lT = 1
-			} if (keysPressed['d'] === true && rT === 0||keysPressed['D'] === true && rT === 0){
-				pmove()
-				rT = 1
-			} if (keysPressed['w'] === true && uT === 0||keysPressed['W'] === true && uT === 0){
-				pmove()
-				uT = 1
-			} if (keysPressed['s'] === true && dT === 0||keysPressed['S'] === true && dT === 0){
-				pmove()
-				dT = 1
-			}
-			if (keysPressed['e'] === true){
-				if (deagleI.classList.contains('hide')){
-					
-				} else {
-					if (parseInt(pl.style.left) >= 920 && parseInt(pl.style.left) <= 1010 && parseInt(pl.style.top) >= 210 && parseInt(pl.style.top) <= 300){
-						var a = document.getElementById('deagleIS')
-						a.classList.add('hide')
-						var a = document.getElementById('deagleI')
-						a.classList.add('hide')
-						document.getElementById('itemSlot').setAttribute('src','WFUdeagleF.png')
-						var a = document.getElementById('itemSlot')
-						a.classList.remove('hide')
-						document.getElementById("fbar").style.width = 50
-						document.getElementById("guard1p").style.left = 483
-						document.getElementById("guard2p").style.left = 868
-						document.getElementById("guard1p").style.top = 410
-						document.getElementById("guard2p").style.top = 410
-						guardM(0)
-						hide('eThing')
-					}
+			if ((keysPressed['w'] === true && (keysPressed['s'] === true) === false || keysPressed['W'] === true && (keysPressed['S'] === true) === false) && parseInt(pl.style.top) >= 80){
+				pl.style.top = parseInt(pl.style.top) - 5
+				if (pl.style.background != 'url("WFUplayeru.gif")' && (keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false){
+					pl.style.background = 'url("WFUplayeru.gif")'
 				}
-				if (de.style.background === 'url("WFUdeagledead.png")' && parseInt(pl.style.left) - 80 <= parseInt(de.style.left) && parseInt(pl.style.left) + 30 >= parseInt(de.style.left) && parseInt(pl.style.top) - 80 <= parseInt(de.style.top) && parseInt(pl.style.top) + 50 >= parseInt(de.style.top)){
-					win()
+			}
+			if ((keysPressed['s'] === true && (keysPressed['w'] === true) === false || keysPressed['S'] === true && (keysPressed['W'] === true) === false) && parseInt(pl.style.top) <= 430){
+				pl.style.top = parseInt(pl.style.top) + 5
+				if (pl.style.background != 'url("WFUplayerd.gif")' && (keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false){
+					pl.style.background = 'url("WFUplayerd.gif")'
+				}
+			}
+			if ((keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && (keysPressed['w'] === true) === false && (keysPressed['s'] === true) === false && (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false && (keysPressed['W'] === true) === false && (keysPressed['S'] === true) === false || keysPressed['a'] === true && keysPressed['d'] === true && (keysPressed['w'] === true) === false && (keysPressed['s'] === true) === false || keysPressed['A'] === true && keysPressed['D'] === true && (keysPressed['W'] === true) === false && (keysPressed['S'] === true) === false || (keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && keysPressed['w'] === true && keysPressed['s'] === true || (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false && keysPressed['W'] === true && keysPressed['S'] === true){
+				if (pl.style.background != 'url("WFUplayer.gif")' && curWea === 0){
+					pl.style.background = 'url("WFUplayer.gif")'
+				} else if (curWea){
+					pl.style.background = 'url("WFUplayerWea1.gif")'
+				}
+			}
+			if ((keysPressed['e'] === true) || (keysPressed['E'] === true)){
+				if (deA.classList.contains('hide') === false && parseInt(pl.style.left) >= 920 && parseInt(pl.style.left) <= 1010 && parseInt(pl.style.top) >= 240 && parseInt(pl.style.top) <= 325){
+					hide('deA')
+					document.getElementById('itemSlot').setAttribute('src','WFUdeagleF.png')
+					show('itemSlot')
+					document.getElementById("fbar").style.width = 50
 					hide('eThing')
+					curWea = 1
+					show('guard1')
+					show('guard2')
+					g1H = day
+					g2H = day
+				} else if (pcontact(parseInt(eagle.style.left), parseInt(eagle.style.top), 80, 80) && eagle.classList.contains('hide') == false && DEhp <= 0){
+					gaming = 1
+				} else if (imposter != false && pcontact(parseInt(imposter.style.left) + 6, parseInt(imposter.style.top) + 6, 18, 38) && impF === 0){
+					susF()
 				}
-				if (document.getElementById("imposter") &&(parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("imposter").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("imposter").style.left)){
-					impF = 1
-					emuDelay = 200
-					hide('eThing')
-				}
-			} if (keysPressed['ArrowLeft'] === true){
-				if (document.getElementById('itemSlot').getAttribute('src') === 'WFUdeagleF.png'){
-					DB(1, 'hi')
-				}
-			} 
+			}
+			eThing.style.top = parseFloat(player.style.top) - 50
+			eThing.style.left = parseFloat(player.style.left) - 33
+			if (deA.classList.contains('hide') === false && parseInt(pl.style.left) >= 920 && parseInt(pl.style.left) <= 1010 && parseInt(pl.style.top) >= 210 && parseInt(pl.style.top) <= 300 || eagle.style.background === 'url("WFUdeagledead.png")' && parseInt(pl.style.left) - 80 <= parseInt(eagle.style.left) && parseInt(pl.style.left) + 30 >= parseInt(eagle.style.left) && parseInt(pl.style.top) - 80 <= parseInt(eagle.style.top) && parseInt(pl.style.top) + 50 >= parseInt(eagle.style.top) || document.getElementById("imposter") &&(parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("imposter").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("imposter").style.left)){
+				show('eThing')
+			} else {
+				hide('eThing')
+			}
 			if (keysPressed['ArrowRight'] === true){
-				if (document.getElementById('itemSlot').getAttribute('src') === 'WFUdeagleF.png'){
-					DB(2, 'hi')
+				if (curWea === 1 && attackC <= 0){
+					fireWea1(0)
+				} else if (curWea === 2 && attackC === 0){
+					fireWea1(0)
+				}
+			} else if (keysPressed['ArrowUp'] === true){
+				if (curWea === 1 && attackC <= 0){
+					fireWea1(1)
+				} else if (curWea === 2 && attackC === 0){
+					fireWea1(1)
+				}
+			} else if (keysPressed['ArrowLeft'] === true){
+				if (curWea === 1 && attackC <= 0){
+					fireWea1(2)
+				} else if (curWea === 2 && attackC === 0){
+					fireWea1(2)
+				}
+			} else if (keysPressed['ArrowDown'] === true){
+				if (curWea === 1 && attackC === 0){
+					fireWea1(3)
+				} else if (curWea === 2 && attackC === 0){
+					fireWea1(3)
 				}
 			}
-			if (keysPressed['ArrowUp'] === true){
-				if (document.getElementById('itemSlot').getAttribute('src') === 'WFUdeagleF.png'){
-					DB(3, 'hi')
+			if (carUc < 80){ //5sec interval at 1 2sec at max
+				if (Math.random() * (1 + 1.5 ** (1 - ((day - 1) / 4))) <= 1){
+					carUc = carUc + 1
 				}
 			}
-			if (keysPressed['ArrowDown'] === true){
-				if (document.getElementById('itemSlot').getAttribute('src') === 'WFUdeagleF.png'){
-					DB(4, 'hi')
+			if (carUc === 80){
+				show('carup')
+			}
+			if (parseFloat(carup.style.top) >= 50 && carUc === 80){
+				carup.style.top = parseFloat(carup.style.top) - (25 - 17.5/(day**0.25))
+				if (pcontact(parseInt(carup.style.left) + 14, parseInt(carup.style.top) + 6, 52, 88)){
+					pdam(parseInt(hp.textContent))
+					console.log('Player hit by blue car')
+				}
+			} else if (carUc === 80){
+				hide('carup')
+				carup.style.top = 500
+				carUc = 0
+			}
+			if (carDc < 80){
+				if (Math.random() * (1 + 1.5 ** (1 - ((day - 1) / 4))) <= 1){
+					carDc = carDc + 1
 				}
 			}
-		}
-	});
-	document.addEventListener('keyup', (event) => {
-	   delete keysPressed[event.key];
-	});
-	function DEdf(){
-		DEd = 0
-		document.getElementById('deA').classList.add('hide')
-	}
-	function DEf(cur, max){
-		if (cur === max){
-			dbc = 0
-			document.getElementById("fbar").style.width = 50
-			document.getElementById("fbar").style.filter = 'grayscale(0)'
-		} else {
-			cur = cur + 1
-			document.getElementById("fbar").style.width = (cur / max) * 50
-			document.getElementById("fbar").style.filter = 'grayscale(' + (1 - (cur / max)) + ')'
-			setTimeout(DEf, 20, cur, max)
-		}
-	}
-	var dbID = [];
-	function DBidgen(){
-		var a = 'a' + Math.random()
-		dbID.push(a)
-		return a
-	}
-	function DB(d,b){
-		if (b === 'hi'&& dbc === 0){
-			let db2 = db.cloneNode(true)
-			b = document.getElementById('body').appendChild(db2)
-			b.classList.remove('hide')
-			//b.setAttribute('id', DBidgen())
-			if (d === 1||d === 2){
-				b.style.top = parseFloat(player.style.top) + 45
+			if (carDc === 80){
+				show('cardown')
 			}
-			if (d === 3){
-				b.style.top = parseFloat(player.style.top) + 25
-			}
-			if (d === 4){
-				b.style.top = parseFloat(player.style.top) + 75
-			}
-			if (d === 1){
-				b.style.left = parseFloat(player.style.left) - 5
-				DEd = 1
-				setTimeout(DEdf, 300)
-				document.getElementById('deA').classList.remove('hide')
-				document.getElementById("dea").style.transform = 'scaleX(1)'
-				document.getElementById("deaS").style.transform = 'scaleX(1)'
-				document.getElementById("dea").style.left = (parseInt(document.getElementById("player").style.left) - 10)
-				document.getElementById("deaS").style.left = (parseInt(document.getElementById("player").style.left) - 8)
-				document.getElementById("dea").style.top = (parseInt(document.getElementById("player").style.top) + 20)
-				document.getElementById("deaS").style.top = (parseInt(document.getElementById("player").style.top) + 22)
-				document.getElementById("dea").style.background = 'url(WFUdeagleF.png)'
-				document.getElementById("deaS").style.background = 'url(WFUdeagleF.png)'
-				document.getElementById("dea").style.zIndex = 4
-			}
-			if (d === 2){
-				b.style.left = parseFloat(player.style.left) + 28
-				DEd = 2
-				setTimeout(DEdf, 300)
-				document.getElementById('deA').classList.remove('hide')
-				document.getElementById("dea").style.transform = 'scaleX(-1)'
-				document.getElementById("deaS").style.transform = 'scaleX(-1)'
-				document.getElementById("dea").style.left = (parseInt(document.getElementById("player").style.left) + 20)
-				document.getElementById("deaS").style.left = (parseInt(document.getElementById("player").style.left) + 22)
-				document.getElementById("dea").style.top = (parseInt(document.getElementById("player").style.top) + 20)
-				document.getElementById("deaS").style.top = (parseInt(document.getElementById("player").style.top) + 22)
-				document.getElementById("dea").style.background = 'url(WFUdeagleF.png)'
-				document.getElementById("deaS").style.background = 'url(WFUdeagleF.png)'
-				document.getElementById("dea").style.zIndex = 4
-			}
-			if (d === 3||d === 4){
-				b.style.left = parseFloat(player.style.left) + 11
-				b.style.transform = 'rotate(90deg)'
-			}
-			setTimeout(DBm, 20, d, b)
-			dbc = 1
-			DEf(0, 50)
-		}
-	}
-	function DBm(d,b){
-		if (parseInt(hp.textContent) <= 0 || document.getElementById("outm").classList.contains('hide')){
-			b.classList.add('hide')
-			document.getElementById('body').removeChild(b)
-		} else {
-			if (d === 1){
-				b.style.left = parseFloat(b.style.left) - 10
-			} else if (d === 2){
-				b.style.left = parseFloat(b.style.left) + 10
-			} else if (d === 3){
-				b.style.top = parseFloat(b.style.top) - 10
-			} else if (d === 4){
-				b.style.top = parseFloat(b.style.top) + 10
-			}
-			if (parseInt(b.style.left) <= 85 || parseInt(b.style.left) >= 1005 || parseInt(b.style.top) <= 60 || parseInt(b.style.top) >= 480){
-				b.classList.add('hide')
-				document.getElementById('body').removeChild(b)
-			} else if (parseInt(b.style.left) - 80 <= parseInt(document.getElementById("eagle").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("eagle").style.left) && parseInt(b.style.top) - 100 <= parseInt(document.getElementById("eagle").style.top) && parseInt(b.style.top) - 16 >= parseInt(document.getElementById("eagle").style.top)){
-				DEhp = DEhp - parseInt(localStorage.DLVL) - 1
-				document.getElementById('body').removeChild(b)
-				edam(document.getElementById('eagle'), 0)
-			} else if (parseInt(b.style.left) - 28 <= parseInt(document.getElementById("guard1p").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("guard1p").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("guard1p").style.top) && parseInt(b.style.top) - 24 >= parseInt(document.getElementById("guard1p").style.top)){
-				guard1p.textContent = parseInt(guard1p.textContent) - parseInt(localStorage.DLVL) - 1
-				document.getElementById('body').removeChild(b)
-				edam(document.getElementById('guard1p'), 0)
-			} else if (parseInt(b.style.left) - 28 <= parseInt(document.getElementById("guard2p").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("guard2p").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("guard2p").style.top) && parseInt(b.style.top) - 24 >= parseInt(document.getElementById("guard2p").style.top)){
-				guard2p.textContent = parseInt(guard2p.textContent) - parseInt(localStorage.DLVL) - 1
-				document.getElementById('body').removeChild(b)
-				edam(document.getElementById('guard2p'), 0)
-			} else if (document.getElementById("imposter") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("imposter").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("imposter").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("imposter").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("imposter").style.top)){
-				impH = impH - parseInt(localStorage.DLVL) - 1
-				impF = 1
-				document.getElementById('body').removeChild(b)
-				edam(document.getElementById('imposter'), 0)
-			} else if (document.getElementById("Np1") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np1").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np1").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np1").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np1").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np1'))
-				document.getElementById('body').removeChild(document.getElementById('Np1S'))
-			} else if (document.getElementById("Np2") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np2").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np2").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np2").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np2").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np2'))
-				document.getElementById('body').removeChild(document.getElementById('Np2S'))
-			} else if (document.getElementById("Np3") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np3").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np3").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np3").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np3").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np3'))
-				document.getElementById('body').removeChild(document.getElementById('Np3S'))
-			} else if (document.getElementById("Np4") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np4").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np4").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np4").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np4").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np4'))
-				document.getElementById('body').removeChild(document.getElementById('Np4S'))
-			} else if (document.getElementById("Np5") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np5").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np5").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np5").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np5").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np5'))
-				document.getElementById('body').removeChild(document.getElementById('Np5S'))
-			} else if (document.getElementById("Np6") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np6").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np6").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np6").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np6").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np6'))
-				document.getElementById('body').removeChild(document.getElementById('Np6S'))
-			} else if (document.getElementById("Np7") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np7").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np7").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np7").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np7").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np7'))
-				document.getElementById('body').removeChild(document.getElementById('Np7S'))
-			} else if (document.getElementById("Np8") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np8").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np8").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np8").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np8").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np8'))
-				document.getElementById('body').removeChild(document.getElementById('Np8S'))
-			} else if (document.getElementById("Np9") && parseInt(b.style.left) - 28 <= parseInt(document.getElementById("Np9").style.left) && parseInt(b.style.left) + 4>= parseInt(document.getElementById("Np9").style.left) && parseInt(b.style.top) - 74 <= parseInt(document.getElementById("Np9").style.top) && parseInt(b.style.top) - 28 >= parseInt(document.getElementById("Np9").style.top)){
-				document.getElementById('body').removeChild(b)
-				document.getElementById('body').removeChild(document.getElementById('Np9'))
-				document.getElementById('body').removeChild(document.getElementById('Np9S'))
-			} else {
-				setTimeout(DBm, 20, d, b)
-			}
-		}
-	}
-	function pmove(){
-		if (mT === 0){
-			pmove2()
-		}
-		function pmove2(){
-			var fnk = 0
-			mT = 1
-			if (keysPressed['a'] === true){
-				if (parseInt(pl.style.left) >= 85){
-					pl.style.left = (parseInt(pl.style.left) - 5)
-					document.getElementById("playerS").style.left = (parseInt(document.getElementById("playerS").style.left) - 5)
+			if (parseFloat(cardown.style.top) <= 500 && carDc === 80){
+				cardown.style.top = parseFloat(cardown.style.top) + (25 - 17.5/(day**0.25))
+				if (pcontact(parseInt(cardown.style.left) + 14, parseInt(cardown.style.top) + 6, 52, 88)){
+					pdam(parseInt(hp.textContent))
+					console.log('Player hit by red car')
 				}
-				fnk = 1
-			} else {
-				lT = 0
+			} else if (carDc === 80){
+				hide('cardown')
+				cardown.style.top = 50
+				carDc = 0
 			}
-			if (keysPressed['d'] === true){
-				if (parseInt(pl.style.left) <= 985){
-					pl.style.left = (parseInt(pl.style.left) + 5)
-					document.getElementById("playerS").style.left = (parseInt(document.getElementById("playerS").style.left) + 5)
+			wilkoTr = 1 //disable wilk movement
+			if (parseFloat(pl.style.left) > parseFloat(wilk.style.left) + 3 && wilkoTr === 1){
+				wilk.style.left = parseFloat(wilk.style.left) + (4-3/(day**0.4))
+			} else if (parseFloat(pl.style.left) < parseFloat(wilk.style.left) - 3 && wilkoTr === 1){
+				wilk.style.left = parseFloat(wilk.style.left) - (4-3/(day**0.4))
+			}
+			if (parseFloat(pl.style.top) > parseFloat(wilk.style.top) + 3 && wilkoTr === 1){
+				wilk.style.top = parseFloat(wilk.style.top) + (4-3/(day**0.4))
+			} else if (parseFloat(pl.style.top) < parseFloat(wilk.style.top) - 3 && wilkoTr === 1){
+				wilk.style.top = parseFloat(wilk.style.top) - (4-3/(day**0.4))
+			}
+			if (pcontact(parseInt(wilk.style.left) + 4, parseInt(wilk.style.top) + 4, 22, 42)){
+				pdam(parseInt(hp.textContent))
+				console.log('Player was found by wilko')
+			}
+			if (ob1 === 1 && DEhp > 0){
+				if (parseFloat(eagle.style.left) + (10 + day / 2) * DEx * DEx2 <= 85){
+					DEx2 = 1
+					document.getElementById("eagleT").style.transform = 'scaleX(-1)'
+					document.getElementById("eagleS").style.transform = 'scaleX(-1)'
+					DEx = (Math.floor(Math.random() * 8) + 12) / 20
+					DEy = (1 - (DEx ** 2)) ** 0.5
+				} else if (parseFloat(eagle.style.left) + (10 + day / 2) * DEx * DEx2 >= 935){
+					DEx2 = -1
+					document.getElementById("eagleT").style.transform = ''
+					document.getElementById("eagleS").style.transform = ''
+					DEx = (Math.floor(Math.random() * 8) + 12) / 20
+					DEy = (1 - (DEx ** 2)) ** 0.5
 				}
-				fnk = 1
-			} else {
-				rT = 0
-			}
-			if (keysPressed['w'] === true){
-				if (parseInt(pl.style.top) >= 60){
-					pl.style.top = (parseInt(pl.style.top) - 5)
-					document.getElementById("playerS").style.top = (parseInt(document.getElementById("playerS").style.top) - 5)
+				if (parseFloat(eagle.style.top) + (10 + day / 2) * DEy * DEy2 <= 80){
+					DEy2 = 1
+				} else if (parseFloat(eagle.style.top) + (10 + day / 2) * DEy * DEy2 >= 400){
+					DEy2 = -1
 				}
-				fnk = 1
-			} else {
-				uT = 0
+				eagle.style.left = parseFloat(eagle.style.left) + (10 + day / 2) * DEx * DEx2
+				eagle.style.top = parseFloat(eagle.style.top) + (10 + day / 2) * DEy * DEy2
+			} else if (DEhp <= 0){
+				eagle.style.background = 'url("WFUdeagledead.png")'
+				eagle.style.zIndex = 2
 			}
-			if (keysPressed['s'] === true){
-				if (parseInt(pl.style.top) <= 410){
-					pl.style.top = (parseInt(pl.style.top) + 5)
-					document.getElementById("playerS").style.top = (parseInt(document.getElementById("playerS").style.top) + 5)
-				}
-				fnk = 1
-			} else {
-				dT = 0
-			}
-			if (lT === 1 && rT === 0){
-				pl.style.background = 'url("WFUplayerl.gif")'
-				document.getElementById("playerS").style.background = 'url("WFUplayerlS.gif")'
-			}
-			if (lT === 0 && rT === 1){
-				pl.style.background = 'url("WFUplayerr.gif")'
-				document.getElementById("playerS").style.background = 'url("WFUplayerrS.gif")'
-			}
-			if (lT === 0 && rT === 0 && uT === 1 && dT === 0){
-				pl.style.background = 'url("WFUplayeru.gif")'
-				document.getElementById("playerS").style.background = 'url("WFUplayeruS.gif")'
-			}
-			if (lT === 0 && rT === 0 && uT === 0 && dT === 1){
-				pl.style.background = 'url("WFUplayerd.gif")'
-				document.getElementById("playerS").style.background = 'url("WFUplayerdS.gif")'
-			}
-			if (lT === 0 && rT === 0 && uT === 0 && dT === 0||lT === 1 && rT === 1 && uT === 0 && dT === 0||lT === 0 && rT === 0 && uT === 1 && dT === 1||lT === 1 && rT === 1 && uT === 1 && dT === 1){
-				pl.style.background = 'url("WFUplayer.gif")'
-				document.getElementById("playerS").style.background = 'url("WFUplayerS.gif")'
-			}
-			if (DEd === 1){
-				document.getElementById("dea").style.transform = 'scaleX(1)'
-				document.getElementById("deaS").style.transform = 'scaleX(1)'
-				document.getElementById("dea").style.left = (parseInt(document.getElementById("player").style.left) - 10)
-				document.getElementById("deaS").style.left = (parseInt(document.getElementById("player").style.left) - 8)
-				document.getElementById("dea").style.top = (parseInt(document.getElementById("player").style.top) + 20)
-				document.getElementById("deaS").style.top = (parseInt(document.getElementById("player").style.top) + 22)
-			}
-			if (DEd === 2){
-				document.getElementById("dea").style.transform = 'scaleX(-1)'
-				document.getElementById("deaS").style.transform = 'scaleX(-1)'
-				document.getElementById("dea").style.left = (parseInt(document.getElementById("player").style.left) + 20)
-				document.getElementById("deaS").style.left = (parseInt(document.getElementById("player").style.left) + 22)
-				document.getElementById("dea").style.top = (parseInt(document.getElementById("player").style.top) + 20)
-				document.getElementById("deaS").style.top = (parseInt(document.getElementById("player").style.top) + 22)
-			}
-			document.getElementById("eThing").style.left = (parseInt(document.getElementById("player").style.left) - 33)
-			document.getElementById("eThing").style.top = (parseInt(document.getElementById("player").style.top) - 50)
-			if (fnk === 1){
-				setTimeout(pmove2, 20)
-			} else {
-				mT = 0
-			}
-		}
-	}
-	setInterval(wfu, 50)
-	function wfu(){
-		if (wilko.classList.contains('hide')){
-			
-		} else {
-			if (parseInt(pl.style.top) - (7-6/(day**0.2)) > parseInt(document.getElementById("wilko").style.top)){
-				document.getElementById("wilko").style.top = (parseFloat(document.getElementById("wilko").style.top) + (7-6/(day**0.2)))
-			} else if (parseInt(pl.style.top) < parseInt(document.getElementById("wilko").style.top)){
-				document.getElementById("wilko").style.top = (parseFloat(document.getElementById("wilko").style.top) - (7-6/(day**0.2)))
-			}
-			if (parseInt(pl.style.left) - (7-6/(day**0.2)) > parseInt(document.getElementById("wilko").style.left)){
-				document.getElementById("wilko").style.left = (parseFloat(document.getElementById("wilko").style.left) + (7-6/(day**0.2)))
-			} else if (parseInt(pl.style.left) < parseInt(document.getElementById("wilko").style.left)){
-				document.getElementById("wilko").style.left = (parseFloat(document.getElementById("wilko").style.left) - (7-6/(day**0.2)))
-			}
-			if ((parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("wilko").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("wilko").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("wilko").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("wilko").style.left)){
-				pdam(parseInt(Mhp.textContent))
-				console.log('Wilko found you')
-			}
-		}
-	}
-	function DE(a,b,c,d,hp){ //top is a, left is b, c is u/d, d is l/r
-		if (eagle.classList.contains('hide')){
-			
-		} else {
-			if (parseInt(document.getElementById("eagle").style.top) - (10 + day/2) * a >= 60 && c === 0 || parseInt(document.getElementById("eagle").style.top) + (10 + day/2) * a >= 365){
-				document.getElementById("eagle").style.top = (parseFloat(document.getElementById("eagle").style.top)) - (10 + day/2) * a
-				document.getElementById("eagleS").style.top = (parseFloat(document.getElementById("eagle").style.top)) + 5
-				c = 0
-			} else {
-				document.getElementById("eagle").style.top = (parseFloat(document.getElementById("eagle").style.top)) + (10 + day/2) * a
-				document.getElementById("eagleS").style.top = (parseFloat(document.getElementById("eagle").style.top)) + 5
-				c = 1
-			}
-			if (parseInt(document.getElementById("eagle").style.left) - (10 + day/2) * b >= 85 && d === 0 || parseInt(document.getElementById("eagle").style.left) + (10 + day/2) * b >= 945){
-				document.getElementById("eagle").style.left = (parseFloat(document.getElementById("eagle").style.left)) - (10 + day/2) * b
-				document.getElementById("eagleS").style.left = (parseFloat(document.getElementById("eagle").style.left)) + 5
-				document.getElementById("eagle").style.transform = 'scaleX(1)'
-				document.getElementById("eagleS").style.transform = 'scaleX(1)'
-				d = 0
-			} else {
-				document.getElementById("eagle").style.left = (parseFloat(document.getElementById("eagle").style.left)) + (10 + day/2) * b
-				document.getElementById("eagleS").style.left = (parseFloat(document.getElementById("eagle").style.left)) + 5
-				document.getElementById("eagle").style.transform = 'scaleX(-1)'
-				document.getElementById("eagleS").style.transform = 'scaleX(-1)'
-				d = 1
-			}
-			//if (parseInt(document.getElementById("eagle").style.left) <= parseInt(document.getElementById(dbID).style.left)){
-			//	var a = document.getElementById('eagle')
-			//	a.classList.add('hide')
-			//	var a = document.getElementById('eagleS')
-			//	a.classList.add('hide')
-			//}
-			if (DEhp <= 0){
-				document.getElementById("eagle").style.background = 'url("WFUdeagledead.png")'
-				document.getElementById("eagleS").style.background = 'url("WFUdeagledead.png")'
-				document.getElementById("eagleS").style.left = (parseFloat(document.getElementById("eagle").style.left)) + 2
-				document.getElementById("eagleS").style.top = (parseFloat(document.getElementById("eagle").style.top)) + 2
-				document.getElementById("eagle").style.zIndex = '3'
-			} else {
-				setTimeout(DE,20,a,b,c,d)
-			}
-		}
-	}
-	var carC = 0;
-	setInterval(carupf, 20)
-	function carupf(){
-		if (outm.classList.contains('hide')){
-			
-		} else {
-			if (carup.classList.contains('hide')){
-				var carCl = Math.floor(Math.random() * 1000) + 1
-				if (carCl <= 1000 - 750/(day**0.25)){
-					carC = carC + 1
-				}
-				if (carC >= 50){
-					var a = document.getElementById('carup')
-					a.classList.remove('hide')
-					var a = document.getElementById('carupS')
-					a.classList.remove('hide')
-					document.getElementById("carup").style.top = 550
-					document.getElementById("carupS").style.top = 552
-					carC = 0
-				}
-			} else if ((parseInt(pl.style.top) - 74) <= parseInt(document.getElementById("carup").style.top) && (parseInt(pl.style.top) + 68) > parseInt(document.getElementById("carup").style.top) && (parseInt(pl.style.left) - 68) <= parseInt(document.getElementById("carup").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("carup").style.left)){
-				pdam(parseInt(Mhp.textContent))
-				console.log('CarBlue kill')
-			}  else if (document.getElementById("imposter") && (parseInt(document.getElementById("imposter").style.top) - 74) <= parseInt(document.getElementById("carup").style.top) && (parseInt(document.getElementById("imposter").style.top) + 68) > parseInt(document.getElementById("carup").style.top) && (parseInt(document.getElementById("imposter").style.left) - 68) <= parseInt(document.getElementById("carup").style.left) && (parseInt(document.getElementById("imposter").style.left) + 18) > parseInt(document.getElementById("carup").style.left)){
-				impH = 0
-			} else if (parseFloat(document.getElementById("carup").style.top) <= 50){
-				var a = document.getElementById('carup')
-				a.classList.add('hide')
-				var a = document.getElementById('carupS')
-				a.classList.add('hide')
-			} else {
-				document.getElementById("carup").style.top = parseFloat(document.getElementById("carup").style.top) - (20 - 15/(day**0.25))
-				document.getElementById("carupS").style.top = parseFloat(document.getElementById("carupS").style.top) - (20 - 15/(day**0.25))
-			}
-		}
-	}
-	var carC2 = 0;
-	setInterval(cardof, 20)
-	function cardof(){
-		if (outm.classList.contains('hide')){
-			
-		} else {
-			if (cardown.classList.contains('hide')){
-				var carCl2 = Math.floor(Math.random() * 1000) + 1
-				if (carCl2 <= 1000 - 750/(day**0.25)){
-					carC2 = carC2 + 1
-				}
-				if (carC2 >= 50){
-					var a = document.getElementById('cardown')
-					a.classList.remove('hide')
-					var a = document.getElementById('cardownS')
-					a.classList.remove('hide')
-					document.getElementById("cardown").style.top = 50
-					document.getElementById("cardownS").style.top = 52
-					carC2 = 0
-				}
-			} else if ((parseInt(pl.style.top) - 74) <= parseInt(document.getElementById("cardown").style.top) && (parseInt(pl.style.top) + 68) > parseInt(document.getElementById("cardown").style.top) && (parseInt(pl.style.left) - 68) <= parseInt(document.getElementById("cardown").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("cardown").style.left)){
-				pdam(parseInt(Mhp.textContent))
-				console.log('CarRed kill')
-			}  else if (document.getElementById("imposter") && (parseInt(document.getElementById("imposter").style.top) - 74) <= parseInt(document.getElementById("cardown").style.top) && (parseInt(document.getElementById("imposter").style.top) + 68) > parseInt(document.getElementById("cardown").style.top) && (parseInt(document.getElementById("imposter").style.left) - 68) <= parseInt(document.getElementById("cardown").style.left) && (parseInt(document.getElementById("imposter").style.left) + 18) > parseInt(document.getElementById("cardown").style.left)){
-				impH = 0
-			} else if (parseFloat(document.getElementById("cardown").style.top) >= 500){
-				var a = document.getElementById('cardown')
-				a.classList.add('hide')
-				var a = document.getElementById('cardownS')
-				a.classList.add('hide')
-			} else {
-				document.getElementById("cardown").style.top = parseFloat(document.getElementById("cardown").style.top) + (20 - 15/(day**0.25))
-				document.getElementById("cardownS").style.top = parseFloat(document.getElementById("cardownS").style.top) + (20 - 15/(day**0.25))
-			}
-		}
-	}
-	var gY = 1;
-	var g2Y = 1;
-	function guardM(ae){
-		var gMTr = 0
-		var ae = ae + 1
-		if (parseInt(guard1.textContent) > 0){
-			gMTr = 1
-			if (gY === 1 && (parseFloat(document.getElementById("guard1p").style.top) - (2 + (day / 40))) >= 60){
-				document.getElementById("guard1p").style.top = (parseFloat(document.getElementById("guard1p").style.top) - (2 + (day / 40)))
-				document.getElementById("guard1S").style.top = (parseFloat(document.getElementById("guard1p").style.top) - (2 + (day / 40))) + 5
-			} else if (gY === 2 && (parseFloat(document.getElementById("guard1p").style.top) - (2 + (day / 40))) <= 410){
-				document.getElementById("guard1p").style.top = (parseFloat(document.getElementById("guard1p").style.top) + (2 + (day / 40)))
-				document.getElementById("guard1S").style.top = (parseFloat(document.getElementById("guard1p").style.top) + (2 + (day / 40))) + 1
-			}
-			if (ae >= ((1/(day**0.3)) * 50)){
-				if (Math.floor(Math.random() * 2) === 1){
-					gY = 1
+			if (document.getElementById('guard1').classList.contains('hide') == false){
+				if (g1c === 0){
+					g1c = Math.floor(Math.random() * 3) + 1 //1 = up 2 = down 3 = still, increases by 10 per tick so it is a dual use variable
+				} else if (g1H <= 0){
+					hide('guard1')
 				} else {
-					gY = 2
-				}
-			}
-			if (ae >= ((1/(day**0.3)) * 50)){
-				let db2 = db.cloneNode(true)
-				b = document.getElementById('body').appendChild(db2)
-				b.classList.remove('hide')
-				leftT = (parseFloat(pl.style.left) -  parseFloat(document.getElementById("guard1p").style.left) + 15)
-				topT = (parseFloat(pl.style.top) - parseFloat(document.getElementById("guard1p").style.top) + 25)
-				left = leftT / (((leftT ** 2) + (topT ** 2)) ** 0.5)
-				top2 = topT / (((leftT ** 2) + (topT ** 2)) ** 0.5)
-				b.style.left = parseFloat(document.getElementById("guard1p").style.left) + 15
-				b.style.top = parseFloat(document.getElementById("guard1p").style.top) + 25
-				b.style.transform = 'rotate('+ (Math.atan(top2 / left)) +'rad)'
-				Gshoot(b, left, top2)
-				document.getElementById("guard1p").style.background = 'url(WFUguardA.gif)'
-				document.getElementById("guard1S").style.background = 'url(WFUguardA.gif)'
-				if (parseFloat(pl.style.left) < parseFloat(document.getElementById("guard1p").style.left)){
-					document.getElementById("guard1p").style.transform = 'scaleX(1)'
-					document.getElementById("guard1S").style.transform = 'scaleX(1)'
-				} else if (parseFloat(pl.style.left) - 30 > parseFloat(document.getElementById("guard1p").style.left)){
-					document.getElementById("guard1p").style.transform = 'scaleX(-1)'
-					document.getElementById("guard1S").style.transform = 'scaleX(-1)'
-				} else {
-					// upward shot //maybe add angle for above ones
-				}
-			}
-		} else if (guard1p.textContent === ''){
-			
-		} else {
-			document.getElementById("guard1").classList.add('hide')
-			document.getElementById("guard1p").style.left = 0
-			document.getElementById("guard1p").style.top = 0
-		}
-		if (parseInt(guard2.textContent) > 0){
-			gMTr = 1
-			if (g2Y === 1 && (parseFloat(document.getElementById("guard2p").style.top) - (2 + (day / 40))) >= 60){
-				document.getElementById("guard2p").style.top = (parseFloat(document.getElementById("guard2p").style.top) - (2 + (day / 40)))
-				document.getElementById("guard2S").style.top = (parseFloat(document.getElementById("guard2p").style.top) - (2 + (day / 40))) + 5
-			} else if (g2Y === 2 && (parseFloat(document.getElementById("guard2p").style.top) - (2 + (day / 40))) <= 410){
-				document.getElementById("guard2p").style.top = (parseFloat(document.getElementById("guard2p").style.top) + (2 + (day / 40)))
-				document.getElementById("guard2S").style.top = (parseFloat(document.getElementById("guard2p").style.top) + (2 + (day / 40))) + 1
-			}
-			if (ae >= ((1/(day**0.3)) * 50)){
-				if (Math.floor(Math.random() * 2) === 1){
-					g2Y = 1
-				} else {
-					g2Y = 2
-				}
-			}
-			if (ae >= ((1/(day**0.3)) * 50)){
-				let db2 = db.cloneNode(true)
-				b = document.getElementById('body').appendChild(db2)
-				b.classList.remove('hide')
-				leftT = (parseFloat(pl.style.left) - 15 -  parseFloat(document.getElementById("guard2p").style.left) + 15)
-				topT = (parseFloat(pl.style.top) - 25 - parseFloat(document.getElementById("guard2p").style.top) + 25)
-				left = leftT / (((leftT ** 2) + (topT ** 2)) ** 0.5)
-				top1 = topT / (((leftT ** 2) + (topT ** 2)) ** 0.5)
-				b.style.left = parseFloat(document.getElementById("guard2p").style.left) + 15
-				b.style.top = parseFloat(document.getElementById("guard2p").style.top) + 25
-				b.style.transform = 'rotate('+ (Math.atan(top1 / left)) +'rad)'
-				Gshoot(b, left, top1)
-				document.getElementById("guard2p").style.background = 'url(WFUguardA.gif)'
-				document.getElementById("guard2S").style.background = 'url(WFUguardA.gif)'
-				if (parseFloat(pl.style.left) < parseFloat(document.getElementById("guard2p").style.left)){
-					document.getElementById("guard2p").style.transform = 'scaleX(1)'
-					document.getElementById("guard2S").style.transform = 'scaleX(1)'
-				} else if (parseFloat(pl.style.left) - 30 > parseFloat(document.getElementById("guard2p").style.left)){
-					document.getElementById("guard2p").style.transform = 'scaleX(-1)'
-					document.getElementById("guard2S").style.transform = 'scaleX(-1)'
-				} else {
-					// upward shot //maybe add angle for above ones
-				}
-			}
-		} else if (guard2p.textContent === ''){
-		
-		} else {
-			document.getElementById("guard2").classList.add('hide')
-			document.getElementById("guard2p").style.left = 0
-			document.getElementById("guard2p").style.top = 0
-		}
-		if (ae >= ((1/(day**0.3)) * 50)){
-			ae = 0
-		}
-		if (guard1p.textContent === ''){
-			guard1p.textContent = Math.floor(1 + day / 2)
-			guard2p.textContent = Math.floor(1 + day / 2)
-			gMTr = 1
-			var ae = 0
-			document.getElementById("guard1").classList.remove('hide')
-			document.getElementById("guard2").classList.remove('hide')
-		}
-		if (ae >= ((1/(day**0.3)) * 20)){
-			document.getElementById("guard1p").style.background = 'url(WFUguard.gif)'
-			document.getElementById("guard1S").style.background = 'url(WFUguard.gif)'
-			document.getElementById("guard2p").style.background = 'url(WFUguard.gif)'
-			document.getElementById("guard2S").style.background = 'url(WFUguard.gif)'
-		}
-		if (gMTr === 1){
-			setTimeout(guardM, 20, ae)
-		}
-	}
-	function Gshoot(b, l, t){
-		b.style.top = parseFloat(b.style.top) + (5 + (day / 5)) * t
-		b.style.left = parseFloat(b.style.left) + (5 + (day / 5)) * l
-		if (parseInt(hp.textContent) <= 0 || document.getElementById("outm").classList.contains('hide')){
-			b.classList.add('hide')
-			document.getElementById('body').removeChild(b)
-		} else if (parseInt(b.style.left) <= 85 || parseInt(b.style.left) >= 1005 || parseInt(b.style.top) <= 60 || parseInt(b.style.top) >= 480){
-			b.classList.add('hide')
-			document.getElementById('body').removeChild(b)
-		} else if (parseInt(b.style.left) - 18 <= parseInt(pl.style.left) && parseInt(b.style.left) + 4 >= parseInt(pl.style.left) && parseInt(b.style.top) - 74 <= parseInt(pl.style.top) && parseInt(b.style.top) - 28 >= parseInt(pl.style.top)){
-			pdam(Math.floor(1 + day/10))
-			b.classList.add('hide')
-			document.getElementById('body').removeChild(b)
-		} else {
-			setTimeout(Gshoot, 20, b, l, t)
-		}
-	}
-	var pls = document.getElementById('pCnode').cloneNode(true);
-	function OB2(start){
-		if (start === 0){
-			start = 1
-			let pl1node = pls.cloneNode(true)
-			let pl2node = pls.cloneNode(true)
-			let pl3node = pls.cloneNode(true)
-			let pl4node = pls.cloneNode(true)
-			let pl5node = pls.cloneNode(true)
-			let pl6node = pls.cloneNode(true)
-			let pl7node = pls.cloneNode(true)
-			let pl8node = pls.cloneNode(true)
-			let pl9node = pls.cloneNode(true)
-			let pl1Snode = pls.cloneNode(true)
-			let pl2Snode = pls.cloneNode(true)
-			let pl3Snode = pls.cloneNode(true)
-			let pl4Snode = pls.cloneNode(true)
-			let pl5Snode = pls.cloneNode(true)
-			let pl6Snode = pls.cloneNode(true)
-			let pl7Snode = pls.cloneNode(true)
-			let pl8Snode = pls.cloneNode(true)
-			let pl9Snode = pls.cloneNode(true)
-			Np1 = document.getElementById('body').appendChild(pl1node)
-			Np1.setAttribute('id', 'Np1')
-			Np1.classList.remove('hide')
-			Np1.style.background = 'url(WFUplayerC2.gif)'
-			Np1.style.top = 120
-			Np1.style.left = 100
-			Np1S = document.getElementById('body').appendChild(pl1Snode)
-			Np1S.setAttribute('id', 'Np1S')
-			Np1S.classList.replace('hide', 'shadow')
-			Np1S.style.top = 122
-			Np1S.style.left = 102
-			Np2 = document.getElementById('body').appendChild(pl2node)
-			Np2.setAttribute('id', 'Np2')
-			Np2.style.filter = 'hue-rotate(315deg)'
-			Np2.classList.remove('hide')
-			Np2.style.top = 380
-			Np2.style.left = 100
-			Np2S = document.getElementById('body').appendChild(pl2Snode)
-			Np2S.setAttribute('id', 'Np2S')
-			Np2S.classList.replace('hide', 'shadow')
-			Np2S.style.top = 382
-			Np2S.style.left = 102
-			Np3 = document.getElementById('body').appendChild(pl3node)
-			Np3.setAttribute('id', 'Np3')
-			Np3.classList.remove('hide')
-			Np3.style.top = 170
-			Np3.style.left = 290
-			Np3S = document.getElementById('body').appendChild(pl3Snode)
-			Np3S.setAttribute('id', 'Np3S')
-			Np3S.classList.replace('hide', 'shadow')
-			Np3S.style.top = 172
-			Np3S.style.left = 292
-			Np4 = document.getElementById('body').appendChild(pl4node)
-			Np4.setAttribute('id', 'Np4')
-			Np4.style.filter = 'hue-rotate(45deg)'
-			Np4.classList.remove('hide')
-			Np4.style.top = 310
-			Np4.style.left = 290
-			Np4S = document.getElementById('body').appendChild(pl4Snode)
-			Np4S.setAttribute('id', 'Np4S')
-			Np4S.classList.replace('hide', 'shadow')
-			Np4S.style.top = 312
-			Np4S.style.left = 292
-			Np5 = document.getElementById('body').appendChild(pl5node)
-			Np5.setAttribute('id', 'Np5')
-			Np5.style.background = 'url(WFUplayerC2.gif)'
-			Np5.style.filter = 'hue-rotate(135deg)'
-			Np5.classList.remove('hide')
-			Np5.style.top = 170
-			Np5.style.left = 480
-			Np5S = document.getElementById('body').appendChild(pl5Snode)
-			Np5S.setAttribute('id', 'Np5S')
-			Np5S.classList.replace('hide', 'shadow')
-			Np5S.style.top = 172
-			Np5S.style.left = 482
-			Np6 = document.getElementById('body').appendChild(pl6node)
-			Np6.setAttribute('id', 'Np6')
-			Np6.style.filter = 'hue-rotate(120deg)'
-			Np6.classList.remove('hide')
-			Np6.style.top = 310
-			Np6.style.left = 480
-			Np6S = document.getElementById('body').appendChild(pl6Snode)
-			Np6S.setAttribute('id', 'Np6S')
-			Np6S.classList.replace('hide', 'shadow')
-			Np6S.style.top = 312
-			Np6S.style.left = 482
-			Np7 = document.getElementById('body').appendChild(pl7node)
-			Np7.setAttribute('id', 'Np7')
-			Np7.style.background = 'url(WFUplayerC2.gif)'
-			Np7.style.filter = 'hue-rotate(240deg)'
-			Np7.classList.remove('hide')
-			Np7.style.top = 120
-			Np7.style.left = 870
-			Np7S = document.getElementById('body').appendChild(pl7Snode)
-			Np7S.setAttribute('id', 'Np7S')
-			Np7S.classList.replace('hide', 'shadow')
-			Np7S.style.top = 122
-			Np7S.style.left = 872
-			Np8 = document.getElementById('body').appendChild(pl8node)
-			Np8.setAttribute('id', 'Np8')
-			Np8.style.background = 'url(WFUplayerC2.gif)'
-			Np8.style.filter = 'hue-rotate(280deg)'
-			Np8.classList.remove('hide')
-			Np8.style.top = 240
-			Np8.style.left = 870
-			Np8S = document.getElementById('body').appendChild(pl8Snode)
-			Np8S.setAttribute('id', 'Np8S')
-			Np8S.classList.replace('hide', 'shadow')
-			Np8S.style.top = 242
-			Np8S.style.left = 872
-			Np9 = document.getElementById('body').appendChild(pl9node)
-			Np9.setAttribute('id', 'Np9')
-			Np9.style.filter = 'hue-rotate(225deg)'
-			Np9.classList.remove('hide')
-			Np9.style.top = 380
-			Np9.style.left = 870
-			Np9S = document.getElementById('body').appendChild(pl9Snode)
-			Np9S.setAttribute('id', 'Np9S')
-			Np9S.classList.replace('hide', 'shadow')
-			Np9S.style.top = 382
-			Np9S.style.left = 872
-			impos = Math.floor(Math.random() * 9) + 1
-			document.getElementById('Np' + impos).setAttribute('id', 'imposter')
-			document.getElementById('Np' + impos + 'S').setAttribute('id', 'imposterS')
-			amogus(Np1, Np1S)
-			amogus(Np2, Np2S)
-			amogus(Np3, Np3S)
-			amogus(Np4, Np4S)
-			amogus(Np5, Np5S)
-			amogus(Np6, Np6S)
-			amogus(Np7, Np7S)
-			amogus(Np8, Np8S)
-			amogus(Np9, Np9S)
-		} else {
-			
-		}
-	}
-	function amogus(e, S, d, ae, be, imF){
-		if (e === document.getElementById('imposter') && parseFloat(pl.style.left) > 1){
-			if (ae){
-			
-			} else {
-				ae = 0
-			}
-			if (be){
-			
-			} else {
-				be = 0
-			}
-			if (imF){
-			
-			} else {
-				imF = 0
-			}
-			if (impF === 0 && impH > 0 && parseFloat(pl.style.left) >= 1){
-				if (ae >= 50 || d === false){
-					d = Math.floor(Math.random() * 4) + 1
-					ae = 0
-				}
-				if (be >= 250 * (0.95 ** (day - 1))){
-					for (let i = 0; i < 2; i++) {
-						let dead = 'Np' + (Math.floor(Math.random() * 9) + 1)
-						if (document.getElementById(dead)){
-							blackscreen()
-							document.getElementById('body').removeChild(document.getElementById(dead))
-							document.getElementById('body').removeChild(document.getElementById(dead + 'S'))
-							i = 2
-						} else if (document.getElementById('Np1') || document.getElementById('Np2') || document.getElementById('Np3') || document.getElementById('Np4') || document.getElementById('Np5') || document.getElementById('Np6') || document.getElementById('Np7') || document.getElementById('Np8') || document.getElementById('Np9')){
-							i = 0
+					if (g1c < 500){
+						g1c = g1c + 10
+						if (g1c % 10 == 1 && parseInt(document.getElementById('guard1').style.top) >= 80){
+							document.getElementById('guard1').style.top = parseInt(document.getElementById('guard1').style.top) - 2
+						} else if (g1c % 10 == 2 && parseInt(document.getElementById('guard1').style.top) <= 430){
+							document.getElementById('guard1').style.top = parseInt(document.getElementById('guard1').style.top) + 2
+						}
+					} else {
+						var x = Math.floor(Math.random() * 3)
+						if ((g1c % 10 == 1 && parseInt(document.getElementById('guard1').style.top) <= 78) === false && (g1c % 10 == 2 && parseInt(document.getElementById('guard1').style.top) >= 432 || g1c % 10 == 1 && x < 2 || g1c % 10 == 3 && x === 1)){
+							g1c = 1
+						} else if (g1c % 10 == 1 && parseInt(document.getElementById('guard1').style.top) <= 78 || g1c % 10 == 2 && x < 2 || g1c % 10 == 3 && x === 2){
+							g1c = 2
 						} else {
-							pdam(parseInt(hp.textContent))
-							i = 2
+							g1c = 3
 						}
 					}
-					be = 0
-				}
-				if (d === 1 && parseFloat(e.style.top) <= 410 && parseFloat(e.style.left) <= 985 && parseFloat(e.style.left) != 480){ //parseFloat(imposter.style.left) <= 409 || parseFloat(imposter.style.left) >= 879 
-					e.style.top = parseFloat(e.style.top) + 1
-					e.style.left = parseFloat(e.style.left) + 1
-					S.style.top = parseFloat(e.style.top) + 2
-					S.style.left = parseFloat(e.style.left) + 2
-				} else if (d === 2 && parseFloat(e.style.top) >= 60 && parseFloat(e.style.left) <= 985 && parseFloat(e.style.left) != 480){
-					e.style.top = parseFloat(e.style.top) - 1
-					e.style.left = parseFloat(e.style.left) + 1
-					S.style.top = parseFloat(e.style.top) + 2
-					S.style.left = parseFloat(e.style.left) + 2
-				} else if (d === 3 && parseFloat(e.style.top) >= 60 && parseFloat(e.style.left) >= 85 && parseFloat(e.style.left) != 870){
-					e.style.top = parseFloat(e.style.top) - 1
-					e.style.left = parseFloat(e.style.left) - 1
-					S.style.top = parseFloat(e.style.top) + 2
-					S.style.left = parseFloat(e.style.left) + 2
-				} else if (d === 4 && parseFloat(e.style.top) <= 410 && parseFloat(e.style.left) >= 85 && parseFloat(e.style.left) != 870){
-					e.style.top = parseFloat(e.style.top) + 1
-					e.style.left = parseFloat(e.style.left) - 1
-					S.style.top = parseFloat(e.style.top) + 2
-					S.style.left = parseFloat(e.style.left) + 2
-				} else {
-					d = Math.floor(Math.random() * 4) + 1
-				}
-				ae = ae + 1
-				be = be + 1
-				setTimeout(amogus, 20, e, S, d, ae, be)
-			} else if (parseFloat(pl.style.left) < 1 || impH <= 0){
-				if (impH <= 0){
-					win()
-				}
-				document.getElementById('body').removeChild(e)
-				document.getElementById('body').removeChild(S)
-			} else {
-				if (imF === 0){
-					blackscreen()
-					e.style.background = 'url(WFUimposter.gif)'
-					S.style.background = 'url(WFUimposter.gif)'
-					e.style.filter = 'hue-rotate(0)'
-					e.style.top = 240
-					S.style.top = 242
-					e.style.left = 480
-					S.style.left = 482
-					pl.style.top = 240
-					plS.style.top = 242
-					pl.style.left = 100
-					plS.style.left = 102
-				} else {
-					if (parseInt(pl.style.top) - (7-6/(day**0.2)) > parseInt(e.style.top)){
-						e.style.top = (parseFloat(e.style.top) + (2 - 1 / (day**0.2)))
-						S.style.top = parseFloat(e.style.top)+ 2
-					} else if (parseInt(pl.style.top) < parseInt(e.style.top)){
-						e.style.top = (parseFloat(e.style.top) - (2 - 1 / (day**0.2)))
-						S.style.top = parseFloat(e.style.top)+ 2
-					}
-					if (parseInt(pl.style.left) - (7-6/(day**0.2)) > parseInt(e.style.left)){
-						e.style.left = (parseFloat(e.style.left) + (2 - 1 / (day**0.2)))
-						S.style.left = parseFloat(e.style.left)+ 2
-					} else if (parseInt(pl.style.left) < parseInt(e.style.left)){
-						e.style.left = (parseFloat(e.style.left) - (2 - 1 / (day**0.2)))
-						S.style.left = parseFloat(e.style.left)+ 2
-					}
-					ae = ae + 1
-					if (ae >= ((1/(day**0.3)) * 25)){
-						let db2 = db.cloneNode(true)
-						b = document.getElementById('body').appendChild(db2)
+					g1s = g1s + 1
+					if (g1s >= 50 / (day ** 0.3)){ //make bullet move
+						g1s = 0
+						document.getElementById('guard1').style.background = 'url("WFUguardA.gif")'
+						if (parseFloat(pl.style.left) - parseFloat(document.getElementById("guard1").style.left) > 0){
+							document.getElementById("guard1p").style.transform = 'scaleX(-1)'
+							document.getElementById("guard1S").style.transform = 'scaleX(-1)'
+						}
+						let BNodE = BNode.cloneNode(true)
+						let b = document.getElementById('body').appendChild(BNodE)
 						b.classList.remove('hide')
-						leftT = (parseFloat(pl.style.left) - 15 -  parseFloat(document.getElementById("imposter").style.left) + 15)
-						topT = (parseFloat(pl.style.top) - 47 - parseFloat(document.getElementById("imposter").style.top) + 47)
-						left = leftT / (((leftT ** 2) + (topT ** 2)) ** 0.5)
-						top1 = topT / (((leftT ** 2) + (topT ** 2)) ** 0.5)
-						b.style.left = parseFloat(document.getElementById("imposter").style.left) + 13
-						b.style.top = parseFloat(document.getElementById("imposter").style.top) + 47
-						b.style.transform = 'rotate('+ (Math.atan(top1 / left)) +'rad)'
-						Gshoot(b, left, top1)
-						ae = 0
+						b.setAttribute('id','hellNah')
+						b.classList.add('enemyB')
+						b.style.top = parseInt(document.getElementById('guard1').style.top) + 20
+						if (parseInt(document.getElementById('guard1').style.left) > parseFloat(pl.style.left)){
+							b.style.left = parseInt(document.getElementById('guard1').style.left) - 5
+						} else {
+							b.style.left = parseInt(document.getElementById('guard1').style.left) + 30
+						}
+						var leftT = (parseFloat(pl.style.left) - parseFloat(document.getElementById("guard1").style.left)) * (100 + (Math.floor(Math.random() * 51) - 25)) / 100
+						var topT = (parseFloat(pl.style.top) - parseFloat(document.getElementById("guard1").style.top)) * (100 + (Math.floor(Math.random() * 51) - 25)) / 100
+						var left = Math.abs(Math.floor(leftT / (((leftT ** 2) + (topT ** 2)) ** 0.5) * 9)) //note is 9x the multiplier for the speed
+						var top1 = Math.abs(Math.floor(topT / (((leftT ** 2) + (topT ** 2)) ** 0.5) * 9))
+						b.textContent = left + '' + top1 + '' + Math.floor(1 + (day / 10)) + '' + Math.floor(leftT / 10000 + 1) + '' + Math.floor(topT / 10000 + 1)  //5 digits as LTD(L/R)(T/B) - = 0    + = 1
+						b.style.transform = 'rotate('+ (Math.atan(topT / leftT)) +'rad)'
+					} else if (g1s >= 25 / (day ** 0.3)){
+						document.getElementById('guard1').style.background = 'url("WFUguard.gif")'
+						document.getElementById("guard1p").style.transform = ''
+						document.getElementById("guard1S").style.transform = ''
 					}
 				}
-				imF = 1
-				setTimeout(amogus, 20, e, S, 0, ae, be, imF)
 			}
+			if (document.getElementById('guard2').classList.contains('hide') == false){
+				if (g2c === 0){
+					g2c = Math.floor(Math.random() * 3) + 1 //1 = up 2 = down 3 = still, increases by 10 per tick so it is a dual use variable
+				} else if (g2H <= 0){
+					hide('guard2')
+				} else {
+					if (g2c < 500){
+						g2c = g2c + 10
+						if (g2c % 10 == 1 && parseInt(document.getElementById('guard2').style.top) >= 80){
+							document.getElementById('guard2').style.top = parseInt(document.getElementById('guard2').style.top) - 2
+						} else if (g2c % 10 == 2 && parseInt(document.getElementById('guard2').style.top) <= 430){
+							document.getElementById('guard2').style.top = parseInt(document.getElementById('guard2').style.top) + 2
+						}
+					} else {
+						var x = Math.floor(Math.random() * 3)
+						if ((g2c % 10 == 1 && parseInt(document.getElementById('guard2').style.top) <= 78) === false && (g2c % 10 == 2 && parseInt(document.getElementById('guard2').style.top) >= 432 || g2c % 10 == 1 && x < 2 || g2c % 10 == 3 && x === 1)){
+							g2c = 1
+						} else if (g2c % 10 == 1 && parseInt(document.getElementById('guard2').style.top) <= 78 || g2c % 10 == 2 && x < 2 || g2c % 10 == 3 && x === 2){
+							g2c = 2
+						} else {
+							g2c = 3
+						}
+					}
+					g2s = g2s + 1
+					if (g2s >= 50 / (day ** 0.3)){ //make bullet move
+						g2s = 0
+						document.getElementById('guard2').style.background = 'url("WFUguardA.gif")'
+						if (parseFloat(pl.style.left) - parseFloat(document.getElementById("guard2").style.left) > 0){
+							document.getElementById("guard2p").style.transform = 'scaleX(-1)'
+							document.getElementById("guard2S").style.transform = 'scaleX(-1)'
+						}
+						let BNodE = BNode.cloneNode(true)
+						let b = document.getElementById('body').appendChild(BNodE)
+						b.classList.remove('hide')
+						b.setAttribute('id','hellNah')
+						b.classList.add('enemyB')
+						b.style.top = parseInt(document.getElementById('guard2').style.top) + 20
+						if (parseInt(document.getElementById('guard2').style.left) > parseFloat(pl.style.left)){
+							b.style.left = parseInt(document.getElementById('guard2').style.left) - 5
+						} else {
+							b.style.left = parseInt(document.getElementById('guard2').style.left) + 30
+						}
+						var leftT = (parseFloat(pl.style.left) - parseFloat(document.getElementById("guard2").style.left)) * (100 + (Math.floor(Math.random() * 51) - 25)) / 100
+						var topT = (parseFloat(pl.style.top) - parseFloat(document.getElementById("guard2").style.top)) * (100 + (Math.floor(Math.random() * 51) - 25)) / 100
+						var left = Math.abs(Math.floor(leftT / (((leftT ** 2) + (topT ** 2)) ** 0.5) * 9)) //note is 9x the multiplier for the speed
+						var top1 = Math.abs(Math.floor(topT / (((leftT ** 2) + (topT ** 2)) ** 0.5) * 9))
+						b.textContent = left + '' + top1 + '' + Math.floor(1 + (day / 10)) + '' + Math.floor(leftT / 10000 + 1) + '' + Math.floor(topT / 10000 + 1)  //5 digits as LTD(L/R)(T/B) - = 0    + = 1
+						b.style.transform = 'rotate('+ (Math.atan(topT / leftT)) +'rad)'
+					} else if (g2s >= 25 / (day ** 0.3)){
+						document.getElementById('guard2').style.background = 'url("WFUguard.gif")'
+						document.getElementById("guard2p").style.transform = ''
+						document.getElementById("guard2S").style.transform = ''
+					}
+				}
+			}
+			if (ob2 === 1){
+				if (impF === 0){
+					crewT = crewT + 1
+					if (crewT === 50){
+						crewT = 1
+						susT = susT + 1
+						crewMove = [Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9), Math.floor(Math.random() * 9)]
+					}
+					if (susT >= 5 - day / 2){
+						susT = 0
+						for (var i = 1; i <=  2; i++){
+							let thing = document.getElementById('crew' + (Math.floor(Math.random() * 9) + 1))
+							if (thing.classList.contains('hide') === false && thing.classList.contains('imposter') === false){
+								hide(thing.getAttribute('id'))
+								i = 3
+								blackSc = 50
+								show('blSc')
+								document.getElementById("blSc").style.opacity = 1
+							} else {
+								var onlyI = true
+								for (var i = 1; i <= 9; i++){
+									let thing = document.getElementById('crew' + i)
+									if (thing.classList.contains('hide') === false && thing.classList.contains('imposter') === false){
+										onlyI = false
+									}
+								}
+								if (onlyI){
+									i = 10
+									pdam(parseInt(hp.textContent))
+									console.log('Player got killed by the imposter')
+								} else {
+									i = 0
+								}
+							}
+						}
+					}
+					for (var i = 1; i <=  9; i++){
+						let thing = document.getElementById('crew' + i)//14, parseInt(cardown.style.top) + 6, 52, 88
+						if (parseFloat(thing.style.left) - 8 >= 508 && parseFloat(thing.style.left) - 24 <= 648 && parseFloat(thing.style.top) + 24 >= parseFloat(carup.style.top) && parseFloat(thing.style.top) - 94 <= parseFloat(carup.style.top) && carup.classList.contains('hide') == false || parseFloat(thing.style.left) - 8 >= 726 && parseFloat(thing.style.left) - 24 <= 844 && parseFloat(thing.style.top) + 24 >= parseFloat(cardown.style.top) && parseFloat(thing.style.top) - 94 <= parseFloat(cardown.style.top) && cardown.classList.contains('hide') == false){
+							hide('crew' + i)
+						}
+						if (thing.classList.contains('hide') == false){
+							let leffy = 1
+							let toppy = 1
+							if (Math.round(Math.cos(Math.PI * crewMove[i - 1] / 4)) > 0 && parseInt(thing.style.left) >= 985 || Math.round(Math.cos(Math.PI * crewMove[i - 1] / 4)) < 0 && parseInt(thing.style.left) <= 85 || crewMove[i - 1] === 8 || thing.classList.contains('imposter') && (parseInt(thing.style.left) + 2 * Math.round(Math.cos(Math.PI * crewMove[i - 1] / 4)) < 870 && parseInt(thing.style.left) + 2 * Math.round(Math.cos(Math.PI * crewMove[i - 1] / 4)) > 485)){ //imposter still left coord
+								leffy = 0
+							}
+							if (Math.round(Math.sin(Math.PI * crewMove[i - 1] / 4)) > 0 && parseInt(thing.style.top) >= 430 || Math.round(Math.sin(Math.PI * crewMove[i - 1] / 4)) < 0 && parseInt(thing.style.top) <= 80 || crewMove[i - 1] === 8){
+								toppy = 0
+							}
+							thing.style.left = parseInt(thing.style.left) + 2 * Math.round(Math.cos(Math.PI * crewMove[i - 1] / 4)) * leffy
+							thing.style.top = parseInt(thing.style.top) + 2 * Math.round(Math.sin(Math.PI * crewMove[i - 1] / 4)) * toppy
+						}
+					}
+				} else {
+					crewT = crewT + 1
+					if (parseFloat(pl.style.left) + 2 < parseInt(imposter.style.left)){
+						imposter.style.left = parseInt(imposter.style.left) - 2
+					} else if (parseFloat(pl.style.left) - 2 > parseInt(imposter.style.left)){
+						imposter.style.left = parseInt(imposter.style.left) + 2
+					}
+					if (parseFloat(pl.style.top) + 2 < parseInt(imposter.style.top)){
+						imposter.style.top = parseInt(imposter.style.top) - 2
+					} else if (parseFloat(pl.style.top) - 2 > parseInt(imposter.style.top)){
+						imposter.style.top = parseInt(imposter.style.top) + 2
+					}
+					if (parseFloat(imposter.style.left) - 8 >= 508 && parseFloat(imposter.style.left) - 24 <= 648 && parseFloat(imposter.style.top) + 24 >= parseFloat(carup.style.top) && parseFloat(imposter.style.top) - 94 <= parseFloat(carup.style.top) && carup.classList.contains('hide') == false || parseFloat(imposter.style.left) - 8 >= 726 && parseFloat(imposter.style.left) - 24 <= 844 && parseFloat(imposter.style.top) + 24 >= parseFloat(cardown.style.top) && parseFloat(imposter.style.top) - 94 <= parseFloat(cardown.style.top) && cardown.classList.contains('hide') == false){
+						impH = 0
+					}
+					if (crewT >= (1 / ((day) ** 0.3)) * 25){
+						crewT = 0
+						let BNodE = BNode.cloneNode(true)
+						let b = document.getElementById('body').appendChild(BNodE)
+						b.classList.remove('hide')
+						b.setAttribute('id','hellNah')
+						b.classList.add('enemyB')
+						b.style.top = parseInt(imposter.style.top) + 20
+						if (parseInt(imposter.style.left) > parseFloat(pl.style.left)){
+							b.style.left = parseInt(imposter.style.left) - 5
+						} else {
+							b.style.left = parseInt(imposter.style.left) + 30
+						}
+						var leftT = (parseFloat(pl.style.left) - parseFloat(imposter.style.left)) * (100 + (Math.floor(Math.random() * 101) - 50)) / 100
+						var topT = (parseFloat(pl.style.top) - parseFloat(imposter.style.top)) * (100 + (Math.floor(Math.random() * 101) - 50)) / 100
+						var left = Math.abs(Math.floor(leftT / (((leftT ** 2) + (topT ** 2)) ** 0.5) * 9)) //note is 9x the multiplier for the speed
+						var top1 = Math.abs(Math.floor(topT / (((leftT ** 2) + (topT ** 2)) ** 0.5) * 9))
+						b.textContent = left + '' + top1 + '' + Math.floor(1 + (day / 10)) + '' + Math.floor(leftT / 10000 + 1) + '' + Math.floor(topT / 10000 + 1)  //5 digits as LTD(L/R)(T/B) - = 0    + = 1
+						b.style.transform = 'rotate('+ (Math.atan(topT / leftT)) +'rad)'
+					}
+				}
+			}
+			if (mo2 === 1){
+				if (parseFloat(pl.style.top) > 1 && mod === 2){
+				EmuSpawnCool = EmuSpawnCool + 1
+					if (EmuSpawnCool - emuDelay >= (0.95)**(day - 1) * 100){
+						EmuSpawnCool = 0
+						let ENodE = ENode.cloneNode(true)
+						let e = document.getElementById('body').appendChild(ENodE)
+						e.classList.replace('hide','eAlive')
+						e.setAttribute('id', 'abcdefg')
+						e.style.top = Math.floor(Math.random() * 330) + 60
+						emuDelay = 0
+					}
+				}
+				for (const emu of document.getElementsByClassName('eAlive')){ //also make emus die if they hit a car because yes
+					if (parseInt(emu.style.left) + 5 + day / 2 >= 975){
+						document.getElementById('body').removeChild(emu)
+					} else if (pcontact(parseInt(emu.style.left), parseInt(emu.style.top), 80, 80)){
+						pdam(Math.floor(day / 10 + 1))
+						emu.classList.replace('eAlive','eDead')
+						emu.style.opacity = 1
+						emu.style.background = 'url("emuD.gif")'
+						emu.style.zIndex = 3
+						console.log('Player hit by an emu')
+					} else if (parseFloat(emu.style.left) >= 480 && parseFloat(emu.style.left) <= 626 && parseFloat(emu.style.top) + 80 >= parseFloat(carup.style.top) && parseFloat(emu.style.top) <= parseFloat(carup.style.top) + 94 && carup.classList.contains('hide') == false || parseFloat(emu.style.left) >= 670 && parseFloat(emu.style.left) <= 816 && parseFloat(emu.style.top) + 80 >= parseFloat(cardown.style.top) && parseFloat(emu.style.top) <= parseFloat(cardown.style.top) + 94 && cardown.classList.contains('hide') == false){
+						emu.classList.replace('eAlive','eDead')
+						emu.style.opacity = 1
+						emu.style.background = 'url("emuD.gif")'
+						emu.style.zIndex = 3
+					} else if (parseFloat(emu.style.left) >= 405 && parseFloat(emu.style.left) <= 509 && parseFloat(emu.style.top) + 80 >= parseFloat(document.getElementById("guard1").style.top) && parseFloat(emu.style.top) <= parseFloat(document.getElementById("guard1").style.top) + 40 && document.getElementById("guard1").classList.contains('hide') == false){
+						g1H = 0
+						emu.classList.replace('eAlive','eDead')
+						emu.style.opacity = 1
+						emu.style.background = 'url("emuD.gif")'
+						emu.style.zIndex = 3
+					} else if (parseFloat(emu.style.left) >= 790 && parseFloat(emu.style.left) <= 894 && parseFloat(emu.style.top) + 80 >= parseFloat(document.getElementById("guard2").style.top) && parseFloat(emu.style.top) <= parseFloat(document.getElementById("guard2").style.top) + 40 && document.getElementById("guard2").classList.contains('hide') == false){
+						g2H = 0
+						emu.classList.replace('eAlive','eDead')
+						emu.style.opacity = 1
+						emu.style.background = 'url("emuD.gif")'
+						emu.style.zIndex = 3
+					} else {
+						var x = 0
+						for (var i = 1; i <=  9; i++){
+							let thing = document.getElementById('crew' + i)
+							if (thing.classList.contains('hide') == false){
+								if (parseFloat(emu.style.left) + 80 >= parseInt(thing.style.left) + 6 && parseFloat(emu.style.left) <= parseInt(thing.style.left) + 24 && parseFloat(emu.style.top) + 80 >= parseInt(thing.style.top) + 6 && parseFloat(emu.style.top) <= parseInt(thing.style.top) + 44){
+									if (thing.classList.contains('imposter')){
+										impH = impH - 3 - day / 4
+										if (impF === 1){
+											edam(imposter.getAttribute('id') + 'T')
+										}
+										emu.classList.replace('eAlive','eDead')
+										emu.style.opacity = 1
+										emu.style.background = 'url("emuD.gif")'
+										emu.style.zIndex = 3
+										susF()
+									} else {
+										hide('crew' + i)
+										emu.classList.replace('eAlive','eDead')
+										emu.style.opacity = 1
+										emu.style.background = 'url("emuD.gif")'
+										emu.style.zIndex = 3
+									}
+								}
+							}
+						}
+						if (x === 0){
+							emu.style.left = parseFloat(emu.style.left) + 5 + day / 2
+						}
+					}
+				}
+				for (const emu of document.getElementsByClassName('eDead')){
+					emu.style.opacity = parseFloat(emu.style.opacity) - 0.01
+					if (emu.style.opacity <= 0){
+						document.getElementById('body').removeChild(emu)
+					}
+				}
+			}
+			for (const bullet of document.getElementsByClassName('enemyB')){ //Standard proj speed = 200px + 10px * day
+				if (pcontact(parseInt(bullet.style.left), parseInt(bullet.style.top), 2, 2)){//player hit
+					pdam(parseInt(bullet.textContent[2]))
+					document.getElementById('body').removeChild(bullet)
+					console.log('Player was hit by bullet')
+				} else if (parseInt(bullet.style.top) <= 70 || parseInt(bullet.style.top) >= 470 || parseInt(bullet.style.left) <= 80 || parseInt(bullet.style.left) >= 1010){
+					document.getElementById('body').removeChild(bullet)
+				} else {
+					bullet.style.left = parseFloat(bullet.style.left) + (parseInt(bullet.textContent[0]) / 9) * (4 + (day - 1) / 5) * (2 * parseInt(bullet.textContent[3]) - 1)
+					bullet.style.top = parseFloat(bullet.style.top) + (parseInt(bullet.textContent[1]) / 9) * (4 + (day - 1) / 5) * (2 * parseInt(bullet.textContent[4]) - 1)
+				}
+			}
+			for (const bullet of document.getElementsByClassName('playerB')){ // deagle is 500px/s flare is 250px/s
+				if (parseFloat(bullet.style.left) >= 482 && parseFloat(bullet.style.left) <= 509 && parseFloat(bullet.style.top) - 2 >= parseFloat(document.getElementById("guard1").style.top) && parseFloat(bullet.style.top) <= parseFloat(document.getElementById("guard1").style.top) + 46 && document.getElementById("guard1").classList.contains('hide') == false){
+					g1H = g1H - parseInt(localStorage.DLVL) - 1
+					edam('guard1p')
+					document.getElementById('body').removeChild(bullet)
+				} else if (parseFloat(bullet.style.left) >= 867 && parseFloat(bullet.style.left) <= 894 && parseFloat(bullet.style.top) - 2 >= parseFloat(document.getElementById("guard2").style.top) && parseFloat(bullet.style.top) <= parseFloat(document.getElementById("guard2").style.top) + 46 && document.getElementById("guard2").classList.contains('hide') == false){
+					g2H = g2H - parseInt(localStorage.DLVL) - 1
+					edam('guard2p')
+					document.getElementById('body').removeChild(bullet)
+				} else if (parseFloat(bullet.style.left) >= parseFloat(eagle.style.left) - 4 && parseFloat(bullet.style.left) - 72 <= parseFloat(eagle.style.left) && parseFloat(bullet.style.top) >= parseFloat(eagle.style.top) - 4 && parseFloat(bullet.style.top) - 50 <= parseFloat(parseFloat(eagle.style.top)) && eagle.classList.contains('hide') == false && eagle.style.background == 'url("WFUdeagle.gif")'){
+					DEhp = DEhp - parseInt(localStorage.DLVL) - 1
+					edam('eagleT')
+					document.getElementById('body').removeChild(bullet)
+				} else if (parseInt(bullet.style.top) <= 70 || parseInt(bullet.style.top) >= 470 || parseInt(bullet.style.left) <= 80 || parseInt(bullet.style.left) >= 1010){
+					document.getElementById('body').removeChild(bullet)
+				} else {
+					var x = 0
+					for (var i = 1; i <=  9; i++){
+						let thing = document.getElementById('crew' + i)
+						if (thing.classList.contains('hide') == false){
+							if (parseFloat(bullet.style.left) + 2 >= parseInt(thing.style.left) + 6 && parseFloat(bullet.style.left) <= parseInt(thing.style.left) + 24 && parseFloat(bullet.style.top) + 2 >= parseInt(thing.style.top) + 6 && parseFloat(bullet.style.top) <= parseInt(thing.style.top) + 44){
+								if (thing.classList.contains('imposter')){
+									impH = impH - 1
+									document.getElementById('body').removeChild(bullet)
+									if (impF === 1){
+										edam(imposter.getAttribute('id') + 'T')
+									}
+									susF()
+								} else {
+									hide('crew' + i)
+									document.getElementById('body').removeChild(bullet)
+								}
+							}
+						}
+					}
+					if (x === 0){
+						bullet.style.left = parseFloat(bullet.style.left) + (3 - parseInt(bullet.textContent[1])) * 5 * Math.round(Math.cos(parseInt(bullet.textContent[0]) * Math.PI / 2)) //change when 3rd weapon is added
+						bullet.style.top = parseFloat(bullet.style.top) + (3 - parseInt(bullet.textContent[1])) * 5 *  - Math.round(Math.sin(parseInt(bullet.textContent[0]) * Math.PI / 2))
+					}
+				}
+			}
+			for (const item of document.getElementsByClassName('edam24')){
+				item.style.filter = ''
+				item.classList.remove('edam24')
+			}
+			for (i = 23; i >= 0; i--){
+				for (const item of document.getElementsByClassName('edam' + i)){
+					item.style.filter = 'brightness(' + (2 - ((i + 1) / 25)) + ')'
+					item.classList.replace('edam' + i, 'edam' + (i + 1))
+				}
+			}
+			if (ob2 === 1 && impH <= 0){
+				gaming = 1
+			}
+		if (gaming === 0){
+			setTimeout(Gaming, 20)
 		} else {
-			if (impF === 0 && parseFloat(pl.style.left) > 1 && ob2 != 2){
-				if (ae){
-				
+			hide('carup')
+			hide('player')
+			hide('cardown')
+			hide('eagle')
+			hide('guard1')
+			hide('guard2')
+			hide('wilko')
+			hide('modifier')
+			hide('objective')
+			hide('deA')
+			hide('eThing')
+			for (var i = 0; i < 2; i++){ //to ensure everything actaully deletes
+				for (const bullet of document.getElementsByClassName('playerB')){
+					document.getElementById('body').removeChild(bullet)
+				}
+				for (const bullet of document.getElementsByClassName('enemyB')){
+					document.getElementById('body').removeChild(bullet)
+				}
+				for (const emu of document.getElementsByClassName('eAlive')){
+					document.getElementById('body').removeChild(emu)
+				}
+				for (const emu of document.getElementsByClassName('eDead')){
+					document.getElementById('body').removeChild(emu)
+				}
+				if (document.getElementsByClassName('playerB')[0] || document.getElementsByClassName('enemyB')[0] || document.getElementsByClassName('eAlive')[0] || document.getElementsByClassName('eDead')[0]){
+					i = 0
 				} else {
-					ae = 0
+					i = 69
 				}
-				if (ae >= 50 || d === false){
-					d = Math.floor(Math.random() * 4) + 1
-					ae = 0
+			}
+			for (var i = 1; i <=  9; i++){
+				hide('crew' + i)
+			}
+			if (gaming === 1 && day >= parseInt(localStorage.WFUlvl)){
+				gaming = 2
+			}
+			if (ob1 === 1){
+				ob1 = 2
+			} else if (ob2 === 1){
+				ob2 = 2
+			}
+			if (mo1 === 1){
+				mo1 = 2
+			} else if (mo2 === 1){
+				mo2 = 2
+			}
+			newSave('GamP1', 0)
+			newSave('ramWFU', 0)
+			newSave('ramLVL', 0)
+			newSave('FPWFU', 0)
+			if (gaming === 1){ //complete day
+				blackscreen()
+				show('gwSc')
+				show('dayE')
+				day = day + 1
+				dayE.textContent = 'Day ' + (day)
+				setTimeout(game,2000)
+			} if (gaming === 2){ //complete final day
+				blackscreen()
+				show('geSc')
+				hide('hp')
+				hide('Mhp')
+				hide('Fbar')
+				hide('itemSlot')
+				newSave('xp')
+				show('xpR')
+				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
+				xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
+				goldR.textContent = 'Gold earned:  ' + Math.floor(day + parseInt(localStorage.WFUlvl) / 2)
+				localStorage.goldWFU = parseInt(localStorage.goldWFU) + Math.floor(day + parseInt(localStorage.WFUlvl) / 2)
+				document.getElementById("miniplayer").style.background = 'url(miniDead.gif)'
+				for (let N = 1; N <= parseInt(localStorage.WFUslots); N++){
+					document.getElementById('vent' + N).style.left = Math.floor(490 - (parseInt(localStorage.WFUslots) * 27.5) + (N * 55))
+					show('vent' + N)
 				}
-				if (d === 1 && parseFloat(e.style.top) <= 410 && parseFloat(e.style.left) <= 985){ //parseFloat(imposter.style.left) <= 409 || parseFloat(imposter.style.left) >= 879 
-					e.style.top = parseFloat(e.style.top) + 1
-					e.style.left = parseFloat(e.style.left) + 1
-					S.style.top = parseFloat(e.style.top) + 2
-					S.style.left = parseFloat(e.style.left) + 2
-				} else if (d === 2 && parseFloat(e.style.top) >= 60 && parseFloat(e.style.left) <= 985){
-					e.style.top = parseFloat(e.style.top) - 1
-					e.style.left = parseFloat(e.style.left) + 1
-					S.style.top = parseFloat(e.style.top) + 2
-					S.style.left = parseFloat(e.style.left) + 2
-				} else if (d === 3 && parseFloat(e.style.top) >= 60 && parseFloat(e.style.left) >= 85){
-					e.style.top = parseFloat(e.style.top) - 1
-					e.style.left = parseFloat(e.style.left) - 1
-					S.style.top = parseFloat(e.style.top) + 2
-					S.style.left = parseFloat(e.style.left) + 2
-				} else if (d === 4 && parseFloat(e.style.top) <= 410 && parseFloat(e.style.left) >= 85){
-					e.style.top = parseFloat(e.style.top) + 1
-					e.style.left = parseFloat(e.style.left) - 1
-					S.style.top = parseFloat(e.style.top) + 2
-					S.style.left = parseFloat(e.style.left) + 2
-				} else {
-					d = Math.floor(Math.random() * 4) + 1
+				var ramDropChance = 1 / (1.2  ** (parseInt(localStorage.ramLVL) - day + 2 - parseInt(localStorage.WFUlvl)))
+				if (Math.random() <= ramDropChance && localStorage.ramLVL < 1024){
+					localStorage.ramWFU = parseInt(localStorage.ramWFU) + 1
+					slotsFull = 1
+					idrop('ram','RAM card - Allows computer gaming to be better')
 				}
-				ae = ae + 1
-				setTimeout(amogus, 20, e, S, d, ae)
-			} else {
-				if (e.parentNode === document.getElementById('body')){
-					document.getElementById('body').removeChild(e)
-					document.getElementById('body').removeChild(S)
+				var FPDropChance = 1 / (1.2  ** (parseInt(localStorage.FPlvl) - day + 2 - parseInt(localStorage.WFUlvl)))
+				if (Math.random() <= FPDropChance && localStorage.FPlvl < (8 * (day + 2)) && slotsFull < parseInt(localStorage.WFUslots)){
+					localStorage.FPWFU = parseInt(localStorage.FPWFU) + 1
+					slotsFull = slotsFull + 1
+					idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
+				}
+				if (day > 2){
+					localStorage.ach16 = 1
+				}
+				for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
+					newSave('WFUstone', '')
+					let stoneRNG = Math.floor(Math.random() * 25) + 1
+					if (stoneRNG === 1){
+						idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R')
+						localStorage.WFUstone = localStorage.WFUstone + '4'
+					} else if (stoneRNG <= 5){
+						idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D')
+						localStorage.WFUstone = localStorage.WFUstone + '3'
+					} else if (stoneRNG <= 9){
+						idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A')
+						localStorage.WFUstone = localStorage.WFUstone + '2'
+					} else {
+						idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp')
+						localStorage.WFUstone = localStorage.WFUstone + '1'
+					}
+				}
+				if (localStorage.anomTr === '1'){
+					let a = 0
+					if (ob1 === 2){
+						a = adrop('deagle',2000)
+					}
+					if (ob2 === 2){
+						a = a + adrop('vent',2000)
+					}
+					show('anomR')
+					document.getElementById('anomR').textContent = 'Enhanced items: ' + a
+				}
+				document.getElementById("miniplayer").style.background = 'url(miniEnd.png)'
+			} if (gaming === 3){ //player dies
+				blackscreen()
+				hide('hp')
+				hide('Mhp')
+				hide('Fbar')
+				hide('itemSlot')
+				show('glSc')
+				for (var i = 1; i <=  9; i++){
+					hide('crew' + i)
+				}
+				show('xpR')
+				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
+				xpR.textContent = 'XP :  ' + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
+				goldR.textContent = 'Gold earned:  ' + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)
+				localStorage.goldWFU = parseInt(localStorage.goldWFU) + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)
+				document.getElementById("miniplayer").style.background = 'url(miniDead.gif)'
+				for (let N = 1; N <= parseInt(localStorage.WFUslots); N++){
+					document.getElementById('vent' + N).style.left = Math.floor(490 - (parseInt(localStorage.WFUslots) * 27.5) + (N * 55))
+					show('vent' + N)
+				}
+				var ramDropChance = 1 / (1.2  ** (parseInt(localStorage.ramLVL) - day + 1 - parseInt(localStorage.WFUlvl)))
+				if (Math.random() <= ramDropChance && localStorage.ramLVL < 1024){
+					localStorage.ramWFU = parseInt(localStorage.ramWFU) + 1
+					slotsFull = 1
+					idrop('ram','RAM card - Allows computer gaming to be better')
+				}
+				var FPDropChance = 1 / (1.2  ** (parseInt(localStorage.FPlvl) - day + 1 - parseInt(localStorage.WFUlvl)))
+				if (Math.random() <= FPDropChance && localStorage.FPlvl < (8 * (day + 1)) && slotsFull < parseInt(localStorage.WFUslots)){
+					localStorage.FPWFU = parseInt(localStorage.FPWFU) + 1
+					slotsFull = slotsFull + 1
+					idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
+				}
+				if (day > 2){
+					localStorage.ach16 = 1
+				}
+				for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
+					newSave('WFUstone', '')
+					let stoneRNG = Math.floor(Math.random() * 25) + 1
+					if (stoneRNG === 1){
+						idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R')
+						localStorage.WFUstone = localStorage.WFUstone + '4'
+					} else if (stoneRNG <= 5){
+						idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D')
+						localStorage.WFUstone = localStorage.WFUstone + '3'
+					} else if (stoneRNG <= 9){
+						idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A')
+						localStorage.WFUstone = localStorage.WFUstone + '2'
+					} else {
+						idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp')
+						localStorage.WFUstone = localStorage.WFUstone + '1'
+					}
+				}
+				if (localStorage.anomTr === '1'){
+					let a = 0
+					if (ob1 === 2){
+						a = adrop('deagle',2000)
+					}
+					if (ob2 === 2){
+						a = a + adrop('vent',2000)
+					}
+					show('anomR')
+					document.getElementById('anomR').textContent = 'Enhanced items: ' + a
 				}
 			}
 		}
 	}
-	var ENode = document.getElementById('Enode').cloneNode(true);
- 	function mod2(ae){
-		if (parseFloat(pl.style.top) > 1 && mo2 === 1){
-			ae = ae + 1
-			if (ae - emuDelay >= (0.95)**(day - 1) * 100){
-				ae = 0
-				console.log('Emu summoned')
-				let ENodE = ENode.cloneNode(true)
-				let ENodES = ENode.cloneNode(true)
-				let e = document.getElementById('body').appendChild(ENodE)
-				let S = document.getElementById('body').appendChild(ENodES)
-				S.classList.add('shadow')
-				S.classList.remove('hide')
-				e.classList.remove('hide')
-				e.setAttribute('id', 'awdo')
-				S.setAttribute('id', 'awdno')
-				e.style.top = Math.floor(Math.random() * 310) + 60
-				S.style.top = parseInt(e.style.top) + 2
-				S.style.left = parseInt(e.style.left) + 2
-				emuDelay = 0
-				emu(e, S)
-			}
-			setTimeout(mod2, 20, ae)
-		}
-	}
-	function emu(e, S, ae){
-		if (ae){
-		
+	function pcontact(x, y, xSize, ySize){ // player hitbox is 6-24 x , 6-44 y, x and y values can have an offest from entities hitbox
+		if (x + xSize >= parseInt(pl.style.left) + 6 && x <= parseInt(pl.style.left) + 24 && y + ySize >= parseInt(pl.style.top) + 6 && y <= parseInt(pl.style.top) + 44){
+			return true
 		} else {
-			ae = 0
-		}
-		if (ae === 0 && parseFloat(e.style.left) < 970 && mo2 != 2 && parseInt(hp.textContent) > 0 && (parseInt(pl.style.top) - 74) <= parseInt(e.style.top) && (parseInt(pl.style.top) + 24) > parseInt(e.style.top) && (parseInt(pl.style.left) - 68) <= parseInt(e.style.left) && (parseInt(pl.style.left) + 18) > parseInt(e.style.left)){
-			e.style.background = 'url(emuD.gif)'
-			S.style.background = 'url(emuD.gif)'
-			pdam(Math.floor(1 + day / 10))
-			ae = 1
-			setTimeout(emu, 20, e, S, ae)
-			console.log('Emu hit')
-		} else if (ae === 0 && parseFloat(e.style.left) < 970 && mo2 != 2 && parseInt(hp.textContent) > 0 && (parseInt(document.getElementById('guard1p').style.top) - 74) <= parseInt(e.style.top) && (parseInt(document.getElementById('guard1p').style.top) + 28) > parseInt(e.style.top) && (parseInt(document.getElementById('guard1p').style.left) - 68) <= parseInt(e.style.left) && (parseInt(document.getElementById('guard1p').style.left) + 18) > parseInt(e.style.left)){
-			e.style.background = 'url(emuD.gif)'
-			S.style.background = 'url(emuD.gif)'
-			guard1p.textContent = 0
-			ae = 1
-			setTimeout(emu, 20, e, S, ae)
-		} else if (document.getElementById('imposter') && ae === 0 && parseFloat(e.style.left) < 970 && mo2 != 2 && parseInt(hp.textContent) > 0 && (parseInt(document.getElementById('imposter').style.top) - 74) <= parseInt(e.style.top) && (parseInt(document.getElementById('imposter').style.top) + 28) > parseInt(e.style.top) && (parseInt(document.getElementById('imposter').style.left) - 68) <= parseInt(e.style.left) && (parseInt(document.getElementById('imposter').style.left) + 18) > parseInt(e.style.left)){
-			e.style.background = 'url(emuD.gif)'
-			S.style.background = 'url(emuD.gif)'
-			impH = impH - 3
-			edam(document.getElementById('imposter'), 0, '')
-			impF = 1
-			ae = 1
-			setTimeout(emu, 20, e, S, ae)
-		} else if (ae === 0 && parseFloat(e.style.left) < 970 && mo2 != 2 && parseInt(hp.textContent) > 0 && (parseInt(document.getElementById('guard2p').style.top) - 74) <= parseInt(e.style.top) && (parseInt(document.getElementById('guard2p').style.top) + 28) > parseInt(e.style.top) && (parseInt(document.getElementById('guard2p').style.left) - 68) <= parseInt(e.style.left) && (parseInt(document.getElementById('guard2p').style.left) + 18) > parseInt(e.style.left)){
-			e.style.background = 'url(emuD.gif)'
-			S.style.background = 'url(emuD.gif)'
-			guard2p.textContent = 0
-			ae = 1
-			setTimeout(emu, 20, e, S, ae)
-		} else if (mo2 != 2 && parseInt(hp.textContent) > 0 && ae < 50 && ae > 0){
-			ae = ae + 1
-			setTimeout(emu, 20, e, S, ae)
-		} else if (parseFloat(e.style.left) < 970 && mo2 != 2 && parseInt(hp.textContent) > 0 && ae === 0){
-			e.style.left = parseFloat(e.style.left) + 5 + day / 2
-			S.style.left = parseFloat(e.style.left) + 2
-			setTimeout(emu, 20, e, S, ae)
-		} else {
-			document.getElementById('body').removeChild(e)
-			document.getElementById('body').removeChild(S)
+			return false
 		}
 	}
 	function pdam(dam){
 		hp.textContent = parseInt(hp.textContent) - dam
-		edam(pl, 0)
 		if (parseInt(hp.textContent) <= 0){
-			dead()
+			document.getElementById("hp").style.width = 0
+			gaming = 3
 		} else {
 			document.getElementById("hp").style.width = (parseInt(hp.textContent) / parseInt(Mhp.textContent)) * 120
 			document.getElementById("hp").style.filter = 'hue-rotate('+ (parseInt(hp.textContent) / parseInt(Mhp.textContent)) * 90 +'deg)'
+			edam('playerR')
 		}
 	}
-	function edam(enemy, frame, a){
-		if (frame === 0){
-			a = enemy.style.filter
+	function fireWea1(d){ //d = direction is angle / pi/2
+		let BNodE = BNode.cloneNode(true)
+		let b = document.getElementById('body').appendChild(BNodE)
+		b.classList.replace('hide','playerB')
+		b.setAttribute('id','hellYeah')
+		if (d ** 2 - d * 4 + 3 === 0){ //QUADRATIC FORMULA USEFUL CONFIRMED!!111?!?1??
+			b.style.transform = 'rotate(90deg)'
 		}
-		if (frame < 10){
-			frame = frame + 1
-			enemy.style.filter = 'brightness(' + (2 - frame / 10) +')' + a
-			setTimeout(edam, 20, enemy, frame, a)
-		} else {
-			enemy.style.filter = a
-		}
+		b.textContent = d + '' + 1 //first digit is direction then bullet type
+		b.style.left = parseFloat(pl.style.left) + 10 + Math.round(Math.cos(d * Math.PI / 2)) * 20
+		b.style.top = parseFloat(pl.style.top) + 25 - Math.round(Math.sin(d * Math.PI / 2)) * 30
+		attackC = 50
+		document.getElementById("fbar").style.width = 0
+		document.getElementById("fbar").style.filter = 'grayscale(1)'
+		document.getElementById('fbar').textContent = 50
+	}
+	function fireWea2(d){ //2s cooldown
+		attackC = 100
+	}
+	function edam(id){
+		document.getElementById(id).classList.add('edam0')
+		document.getElementById(id).style.filter = 'brightness(2)'
 	}
 	function blackscreen(){
 		if (parseFloat(document.getElementById("blSc").style.opacity) > 0){
-			document.getElementById("blSc").classList.remove('hide')
+			show("blSc")
 			document.getElementById("blSc").style.opacity = parseFloat(document.getElementById("blSc").style.opacity) - 0.1
 			setTimeout(blackscreen, 100)
 		} else {
@@ -1486,112 +1148,20 @@
 			document.getElementById("blSc").style.opacity = 1
 		}
 	}
-	function dead(){
-		blackscreen()
-		document.getElementById("miniplayer").style.background = 'url(miniDead.gif)'
-		guard1p.textContent = 0
-		guard2p.textContent = 0
-		pl.style.left = -5
-		pl.style.top = 0
-		document.getElementById('Fbar').classList.add('hide')
-		document.getElementById('deA').classList.add('hide')
-		var a = document.getElementById('player')
-		a.classList.add('hide')
-		var a = document.getElementById('playerS')
-		a.classList.add('hide')
-		var a = document.getElementById('wilko')
-		a.classList.add('hide')
-		var a = document.getElementById('carup')
-		a.classList.add('hide')
-		var a = document.getElementById('carupS')
-		a.classList.add('hide')
-		var a = document.getElementById('outm')
-		a.classList.add('hide')
-		var a = document.getElementById('cardown')
-		a.classList.add('hide')
-		var a = document.getElementById('cardownS')
-		a.classList.add('hide')
-		var a = document.getElementById('objective')
-		a.classList.add('hide')
-		var a = document.getElementById('modifier')
-		a.classList.add('hide')
-		var a = document.getElementById('deagleI')
-		a.classList.add('hide')
-		var a = document.getElementById('deagleIS')
-		a.classList.add('hide')
-		var a = document.getElementById('itemSlot')
-		a.classList.add('hide')
-		var a = document.getElementById('hp')
-		a.classList.add('hide')
-		var a = document.getElementById('Mhp')
-		a.classList.add('hide')
-		var a = document.getElementById('eagle')
-		a.classList.add('hide')
-		var a = document.getElementById('eagleS')
-		a.classList.add('hide')
-		var a = document.getElementById('dbdiv')
-		a.classList.add('hide')
-		document.getElementById("glSc").classList.remove('hide')
-		document.getElementById("kgtlink").style.color = 'rgb(255,0,0)'
-		document.getElementById("kgtlink").classList.remove('hide')
-		document.getElementById("xpR").classList.remove('hide')
-		document.getElementById("goldR").classList.remove('hide')
-		// Make sure all rewards apply to the win() functions aswell (without the -1 for day)
-		localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
-		newSave('GamP1', 0)
-		xpR.textContent = 'XP :  ' + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
-		goldR.textContent = 'Gold earned:  ' + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)
-		localStorage.goldWFU = parseInt(localStorage.goldWFU) + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)
-		newSave('ramWFU', 0)
-		newSave('ramLVL', 0)
-		newSave('FPWFU', 0)
-		for (let N = 1; N <= parseInt(localStorage.WFUslots); N++){
-			document.getElementById('vent' + N).style.left = Math.floor(490 - (parseInt(localStorage.WFUslots) * 27.5) + (N * 55))
-			show('vent' + N)
-		}
-		var ramDropChance = 1 / (1.2  ** (parseInt(localStorage.ramLVL) - day + 1 - parseInt(localStorage.WFUlvl)))
-		if (Math.random() <= ramDropChance && localStorage.ramLVL < 1024){
-			localStorage.ramWFU = parseInt(localStorage.ramWFU) + 1
-			slotsFull = 1
-			idrop('ram','RAM card - Allows computer gaming to be better')
-		}
-		var FPDropChance = 1 / (1.2  ** (parseInt(localStorage.FPlvl) - day + 1 - parseInt(localStorage.WFUlvl)))
-		if (Math.random() <= FPDropChance && localStorage.FPlvl < (8 * (day + 1)) && slotsFull < parseInt(localStorage.WFUslots)){
-			localStorage.FPWFU = parseInt(localStorage.FPWFU) + 1
-			slotsFull = slotsFull + 1
-			idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
-		}
-		if (day > 2){
-			localStorage.ach16 = 1
-		}
-		for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
-			newSave('WFUstone', '')
-			let stoneRNG = Math.floor(Math.random() * 25) + 1
-			if (stoneRNG === 1){
-				idrop('regenerationstone2', 'Regenerationstone - Now you gain more health from EXISTING :) - +10 R')
-				localStorage.WFUstone = localStorage.WFUstone + '4'
-			} else if (stoneRNG <= 5){
-				idrop('defencestone2', 'Defencestone - Now you tough :) - +10 D')
-				localStorage.WFUstone = localStorage.WFUstone + '3'
-			} else if (stoneRNG <= 9){
-				idrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A')
-				localStorage.WFUstone = localStorage.WFUstone + '2'
-			} else {
-				idrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp')
-				localStorage.WFUstone = localStorage.WFUstone + '1'
+	function susF(){
+		if (impF === 0){
+			blackSc = 50
+			impF = 1
+			crewT = -25
+			show('blSc')
+			document.getElementById("blSc").style.opacity = 1
+			for (var i = 1; i <=  9; i++){
+				hide('crew' + i)
 			}
+			imposter.classList.remove('hide')
+			imposter.style.background = 'url("WFUimposter.gif")'
+			imposter.style.filter = ''
 		}
-		if (localStorage.anomTr === '1'){
-				let a = 0
-				if (ob1 === 2){
-					a = adrop('deagle',2000)
-				}
-				if (ob2 === 2){
-					a = a + adrop('vent',2000)
-				}
-				show('anomR')
-				document.getElementById('anomR').textContent = 'Enhanced items: ' + a
-			}
 	}
 	function idrop(item, title){
 		for (let N = 1; N <= (parseInt(localStorage.WFUslots)); N++){
@@ -1719,8 +1289,11 @@
 			return 7
 		}
 	}
-	function video(){
-		
-	}
+	document.addEventListener('keydown', (event) => {
+		keysPressed[event.key] = true;
+	});
+	document.addEventListener('keyup', (event) => {
+	   delete keysPressed[event.key];
+	});
 	</script>
 </html>
