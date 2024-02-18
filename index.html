@@ -1087,6 +1087,7 @@ Restrictions: killed all enemies at caves at least once
 				<h5 id='anomB5' class='anomText' style='top: 350px;'>Build speed +0%</h5>
 				<h5 id='anomB6' class='anomText' style='top: 380px;'>Upgrade speed +0%</h5>
 				<h5 id='anomB7' class='anomText' style='top: 410px;'>XP gain +0%</h5>
+				<h1 id='mmefi' class='hide' style='position: absolute; top: 470; left: 735; font-size: 12;'>Delete items on click:<br>&emsp;&ensp;&nbsp;<button id='mmeY' class='off' title="Click on a slot to destroy it's item" onclick='mmEf("yes")'>Yes</button><button id='mmeN' class='on' title='Click on an item slot to move/equip it' onclick='mmEf("no")'>No</button></h1>
 				<h5 id='anomBarBack'style='background: #00FFFF;'><!-- 100 x 25, 740 532 -->
 				<h5 id='anomBar' style='width: 0px;'><!-- 100 x 25, 740 532 also code the amount of times you have recycled as you cannot create a new line unless coded through js-->
 				<h5 id='anomBarAnim' style='opacity: 0; background: #FFFFFF;' title='This is your recycle bar, once filled you get a free enhanced item'>
@@ -3016,6 +3017,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('noMove2')
 			hide('noMove3')
 			hide('mmifi')
+			hide('mmefi')
 			save()
 		}
 		window.addEventListener('keydown', function (e) {
@@ -17093,6 +17095,8 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('mmN').classList.replace('off', 'on')
 				document.getElementById('mmY').classList.replace('on', 'off')
 				localStorage.mmf = 1
+				mmif = 1
+				mmef = 1
 			}
 		}
 		function mmIf(T){
@@ -17104,6 +17108,17 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('mmiN').classList.replace('off', 'on')
 				document.getElementById('mmiY').classList.replace('on', 'off')
 				mmif = 1
+			}
+		}
+		function mmEf(T){
+			if (T === 'yes'){
+				document.getElementById('mmeY').classList.replace('off', 'on')
+				document.getElementById('mmeN').classList.replace('on', 'off')
+				mmef = 2
+			} else {
+				document.getElementById('mmeN').classList.replace('off', 'on')
+				document.getElementById('mmeY').classList.replace('on', 'off')
+				mmef = 1
 			}
 		}
 		function flash(id, F){
@@ -17474,6 +17489,11 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('anoma' + N).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + N)))
 				}
 			}
+			if (localStorage.mmf === '2'){
+				show('mmefi')
+			} else {
+				hide('mmefi')
+			}
 			hide('gaming')
 			show('anom')
 			newSave('recyclePro',0)
@@ -17802,52 +17822,56 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function anomEquip(slot){
-			if (localStorage.getItem('anom' + slot)){
-				let emptySlot = findEmptySlot(1,9)
-				let uniqueItem = 1
-				for (let N = 1; N <= 9; N++){
-					if (document.getElementById('anomi' + N).classList.contains(findRarity(localStorage.getItem('anom' + slot), 1) + 'V2')){
-						uniqueItem = 0
-						N = 3983
+			if (mmef === 1){
+				if (localStorage.getItem('anom' + slot)){
+					let emptySlot = findEmptySlot(1,9)
+					let uniqueItem = 1
+					for (let N = 1; N <= 9; N++){
+						if (document.getElementById('anomi' + N).classList.contains(findRarity(localStorage.getItem('anom' + slot), 1) + 'V2')){
+							uniqueItem = 0
+							N = 3983
+						}
 					}
-				}
-				if (localStorage.getItem('anom' + slot) && emptySlot && uniqueItem === 1){
-					let rarity = findRarity(localStorage.getItem('anom' + slot))
-					let item = findRarity(localStorage.getItem('anom' + slot), 1)
-					//delete
-					document.getElementById('anom' + slot).classList.replace('item' + rarity, 'itemNA')
-					document.getElementById('anom' + slot).classList.remove('itemT' + localStorage.getItem('anom' + slot).slice(-1))
-					document.getElementById('anomi' + slot).classList.replace(item + 'V2', 'anomEmpty')
-					document.getElementById('anoma' + slot).classList.remove('item' + rarity + '2')
-					document.getElementById('anoma' + slot).setAttribute('title','')
-					//equip
-					document.getElementById('anom' + emptySlot).classList.replace('itemNA', 'item' + rarity)
-					document.getElementById('anom' + emptySlot).classList.add('itemT' + localStorage.getItem('anom' + slot).slice(-1))
-					document.getElementById('anomi' + emptySlot).classList.replace('anomEmpty', item + 'V2')
-					document.getElementById('anoma' + emptySlot).classList.add('item' + rarity + '2')
-					document.getElementById('anoma' + emptySlot).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + slot)))
-					localStorage.setItem('anom' + emptySlot, localStorage.getItem('anom' + slot))
-					localStorage.removeItem('anom' + slot) //note that does equip yet also use removeItem in future also add all other slots fill empty slots
-					calculateBonus()
-					for (let N = slot + 1; N <= maxAnomSlots; N++){
-						if (localStorage.getItem('anom' + N)){
-							let rarity = findRarity(localStorage.getItem('anom' + N))
-							let item = findRarity(localStorage.getItem('anom' + N), 1)
-							document.getElementById('anom' + (N - 1)).classList.replace('itemNA', 'item' + rarity)
-							document.getElementById('anom' + (N - 1)).classList.add('itemT' + localStorage.getItem('anom' + N).slice(-1))
-							document.getElementById('anomi' + (N - 1)).classList.replace('anomEmpty', item + 'V2')
-							document.getElementById('anoma' + (N - 1)).classList.add('item' + rarity + '2')
-							document.getElementById('anoma' + (N - 1)).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + N)))
-							document.getElementById('anom' + N).classList.replace('item' + rarity, 'itemNA')
-							document.getElementById('anom' + N).classList.remove('itemT' + localStorage.getItem('anom' + N).slice(-1))
-							document.getElementById('anomi' + N).classList.replace(item + 'V2', 'anomEmpty')
-							document.getElementById('anoma' + N).classList.remove('item' + rarity + '2')
-							document.getElementById('anoma' + N).setAttribute('title','')
-							localStorage.setItem('anom' + (N - 1), localStorage.getItem('anom' + N))
-							localStorage.removeItem('anom' + N)
+					if (localStorage.getItem('anom' + slot) && emptySlot && uniqueItem === 1){
+						let rarity = findRarity(localStorage.getItem('anom' + slot))
+						let item = findRarity(localStorage.getItem('anom' + slot), 1)
+						//delete
+						document.getElementById('anom' + slot).classList.replace('item' + rarity, 'itemNA')
+						document.getElementById('anom' + slot).classList.remove('itemT' + localStorage.getItem('anom' + slot).slice(-1))
+						document.getElementById('anomi' + slot).classList.replace(item + 'V2', 'anomEmpty')
+						document.getElementById('anoma' + slot).classList.remove('item' + rarity + '2')
+						document.getElementById('anoma' + slot).setAttribute('title','')
+						//equip
+						document.getElementById('anom' + emptySlot).classList.replace('itemNA', 'item' + rarity)
+						document.getElementById('anom' + emptySlot).classList.add('itemT' + localStorage.getItem('anom' + slot).slice(-1))
+						document.getElementById('anomi' + emptySlot).classList.replace('anomEmpty', item + 'V2')
+						document.getElementById('anoma' + emptySlot).classList.add('item' + rarity + '2')
+						document.getElementById('anoma' + emptySlot).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + slot)))
+						localStorage.setItem('anom' + emptySlot, localStorage.getItem('anom' + slot))
+						localStorage.removeItem('anom' + slot) //note that does equip yet also use removeItem in future also add all other slots fill empty slots
+						calculateBonus()
+						for (let N = slot + 1; N <= maxAnomSlots; N++){
+							if (localStorage.getItem('anom' + N)){
+								let rarity = findRarity(localStorage.getItem('anom' + N))
+								let item = findRarity(localStorage.getItem('anom' + N), 1)
+								document.getElementById('anom' + (N - 1)).classList.replace('itemNA', 'item' + rarity)
+								document.getElementById('anom' + (N - 1)).classList.add('itemT' + localStorage.getItem('anom' + N).slice(-1))
+								document.getElementById('anomi' + (N - 1)).classList.replace('anomEmpty', item + 'V2')
+								document.getElementById('anoma' + (N - 1)).classList.add('item' + rarity + '2')
+								document.getElementById('anoma' + (N - 1)).setAttribute('title',makeAnomTitle(localStorage.getItem('anom' + N)))
+								document.getElementById('anom' + N).classList.replace('item' + rarity, 'itemNA')
+								document.getElementById('anom' + N).classList.remove('itemT' + localStorage.getItem('anom' + N).slice(-1))
+								document.getElementById('anomi' + N).classList.replace(item + 'V2', 'anomEmpty')
+								document.getElementById('anoma' + N).classList.remove('item' + rarity + '2')
+								document.getElementById('anoma' + N).setAttribute('title','')
+								localStorage.setItem('anom' + (N - 1), localStorage.getItem('anom' + N))
+								localStorage.removeItem('anom' + N)
+							}
 						}
 					}
 				}
+			} else {
+				recycle(slot,2)
 			}
 		}
 		function anomUnequip(slot){
@@ -17919,9 +17943,9 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('anomB6').textContent = 'Upgrade speed +' + b6 +'%'
 			document.getElementById('anomB7').textContent = 'XP gain +' + b7 +'%'
 		}
-		function recycle(slot){
+		function recycle(slot, mm){
 			var e = window.event
-			if ((e.which && e.which == 3 || e.button && e.button == 2) && document.getElementById('anomi' + slot).classList.contains('anomEmpty') === false){
+			if ((e.which && e.which == 3 || e.button && e.button == 2) && document.getElementById('anomi' + slot).classList.contains('anomEmpty') === false || mm === 2){
 				let rarity = findRarity(localStorage.getItem('anom' + slot))
 				let item = findRarity(localStorage.getItem('anom' + slot), 1)
 				document.getElementById('anom' + slot).classList.replace('item' + rarity, 'itemNA')
