@@ -410,6 +410,9 @@
 			if (localStorage.WFUob > 0){
 				return parseInt(localStorage.WFUob)
 			}
+			if (parseInt(localStorage.WFUlvl) === 69){
+				return Math.floor(Math.random() * 2) + 1
+			}
 			if (obj === 1 && ob1 === 0){
 				i = 2
 				return 1
@@ -420,9 +423,6 @@
 				i = 2
 				return 3
 			} else {
-				if (parseInt(localStorage.WFUlvl) === 69){
-					return Math.floor(Math.random() * 2) + 1
-				}
 				i = 0
 			}
 		}
@@ -432,6 +432,9 @@
 			mod = Math.floor(Math.random() * parseInt(localStorage.WFUlvl)) + 1
 			if (localStorage.WFUmo > 0){
 				return parseInt(localStorage.WFUmo)
+			}
+			if (parseInt(localStorage.WFUlvl) === 69){
+				return Math.floor(Math.random() * 3) + 1
 			}
 			if (mod === 1 && mo1 === 0){
 				i = 2
@@ -443,9 +446,6 @@
 				i = 2
 				return 3
 			} else {
-				if (parseInt(localStorage.WFUlvl) === 69){
-					return Math.floor(Math.random() * 2) + 1
-				}
 				i = 0
 			}
 		}
@@ -1143,7 +1143,7 @@
 						} else if (item.getAttribute('id') === 'guard2'){
 							edam('guard2p')
 							g2H = g2H - stock() - 1
-						} else if (item.getAttribute('id') === 'eagle'){
+						} else if (item.getAttribute('id') === 'eagle' && DEhp > 0){
 							edam('eagle')
 							DEhp = DEhp - stock() - 1
 						} else if (item.getAttribute('id') === imposter.getAttribute('id')){
@@ -1160,7 +1160,7 @@
 					} else if (imposter && item.getAttribute('id') === imposter.getAttribute('id') && impH > 0){
 						makeFire(parseInt(imposter.style.left),parseInt(imposter.style.top),30,50)
 					}
-					if (i === 300){
+					if (i === 300 || imposter && item.getAttribute('id') === imposter.getAttribute('id') && impH <= 0 || item.getAttribute('id') === 'guard1' && g1H <= 0 || item.getAttribute('id') === 'guard2' && g2H <= 0 || item.getAttribute('id') === 'eagle' && DEhp <= 0){
 						item.classList.remove('fire' + (i + 1))
 					}
 				}
