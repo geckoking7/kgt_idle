@@ -93,10 +93,15 @@
 		<img src="gameend.png" alt="computer" class="screen hide" id='geSc'>
 		<img src="gamelost.png" alt="computer" class="screen hide" id='glSc'>
 		<h5 alt="computer" class="screen hide" id='blSc' style='background: black; opacity: 1; z-index: 39439; margin: 0;'></h5>
+		<a href="HTP.html" id='htp' class='htp hide' style='width: 100px; height: 80px; border: none; left: 880px; top: 100px; position: absolute; z-index: 6;' target=”_blank”></a>
 		<button id='play' style='width: 200px; height: 100px; background-color: transparent; border: none; left: 700px; top: 340px; position: absolute; transform: rotate(345deg);' onclick='startGame()'></button>
 		<a href="HTP.html" id='htp' class='htp hide' style='width: 100px; height: 80px; border: none; left: 880px; top: 100px; position: absolute; z-index: 6;' target=”_blank”></a>
 		<h1 class='hide' id='dayE'>Day 1</h1>
-		<div id='deA' class='hide' style='background: url("WFUdeagleF.png"); left: 960px; top: 285px; position: absolute; z-index: 2; background-repeat: no-repeat; background-size: cover;'>
+		<div id='deA' class='hide' style='background: url("WFUflareGun.png"); left: 960px; top: 285px; position: absolute; z-index: 2; background-repeat: no-repeat; background-size: cover;'>
+			<h5 class='player' style='width: 40px; height: 40px; background: inherit;'></h5>
+			<h5 class='shadow' style='width: 40px; height: 40px; top: 1px; left: 1px; background: inherit;'></h5>
+		</div>
+		<div id='flA' class='hide' style='background: url("WFUflareGun.png"); left: 400px; top: 285px; position: absolute; z-index: 2; background-repeat: no-repeat; background-size: cover;'>
 			<h5 class='player' style='width: 40px; height: 40px; background: inherit;'></h5>
 			<h5 class='shadow' style='width: 40px; height: 40px; top: 1px; left: 1px; background: inherit;'></h5>
 		</div>
@@ -117,8 +122,11 @@
 		<h4 id='modifier' class='hide' style='background-color: white; font-size: 20px; position: absolute; left: 95; top: 130; width: 910px; text-align: center; z-index: 7; height: 30px; padding: 5px; opacity: 70%; font-family: arial;'>die</h4>
 		<h5 id='miniplayer' style='background: url("miniOff.gif"); width: 216px; height: 91px; left: 750px; top: 529px; position: absolute; margin: 0; z-index: 7;'></h5>
 		<img src='outsidemap.png' id='miniplayerM' class='hide' style='width: 162px; height: 68px; left: 750px; top: 529px; position: absolute; margin: 0; z-index: 6; object-fit: contain;'>
-		<img class='hide' id='itemSlot' style='width: 30px; height: 30px; left: 864px; top: 546px; position: absolute; z-index: 8; object-fit: contain;'>
+		<img class='hide' id='itemSlot' style='width: 30px; height: 30px; left: 864px; top: 543px; position: absolute; z-index: 8; object-fit: contain;'>
+		<img class='hide' id='itemSlot2' style='width: 20px; height: 20px; left: 902px; top: 543px; position: absolute; z-index: 8; object-fit: contain;'>
+		<img class='hide' id='itemSlot3' style='width: 20px; height: 20px; left: 932px; top: 543px; position: absolute; z-index: 8; object-fit: contain;'>
 		<h5 class='hide' id='BNode' style='background: white; width: 10px; height: 4px; left: 0px; top: 0px; position: absolute; z-index: 4; margin: 0; color: transparent;'></h5>
+		<h5 class='hide' id='FPNode' style='background: #25BBFF; width: 4px; height: 4px; left: 0px; top: 0px; position: absolute; z-index: 4; margin: 0; color: transparent;'></h5> <!-- flare particles, give random colours and fall down-->
 		<h5 class='hide' id='Mhp' style='background: url("healthd.png"); width: 120px; height: 20px; left: 769px; top: 586px; position: absolute; z-index: 7; margin: 0; border-radius: 8px 15px 15px 8px; color: transparent; filter: grayscale(1) brightness(50%);'>3</h5>
 		<h5 class='hide' id='hp' style='background: url("healthd.png"); width: 120px; height: 20px; left: 769px; top: 586px; position: absolute; z-index: 8; margin: 0; border-radius: 8px 15px 15px 8px; filter: hue-rotate(90deg); color: transparent'>3</h5>
 		<div id='eagle' class='hide' style='background: url("WFUdeagle.gif"); left: 600px; top: 240px; position: absolute;'>
@@ -136,6 +144,14 @@
 		<div id='guard2' class='hide' style='left: 870px; top: 410px; position: absolute; background: url("WFUguard.gif");'>
 			<h5 class='shadow' id='guard2S' style='background: inherit; width: 30px; height: 50px; left: 2px; top: 2px; z-index: 2;'></h5>
 			<h5 class='player' id='guard2p' style='background: inherit; width: 30px; height: 50px; z-index: 3;'></h5>
+		</div>
+		<div id='cannonBoss' class='hide' style='left: 900px; top: 250px; position: absolute;'>
+			<h5 class='player' id='cannon1' style='background: url("cannonBoss1.png"); width: 100px; height: 30px;'></h5>
+			<h5 class='shadow' id='cannon1s' style='background: url("cannonBoss1.png"); width: 100px; height: 30px; top: 3px; left: 3px;'></h5>
+			<h5 class='player' id='cannon2' style='background: url("cannonBoss2.png"); width: 100px; height: 40px; top: 30px;'></h5>
+			<h5 class='shadow' id='cannon2s' style='background: url("cannonBoss2.png"); width: 100px; height: 40px; top: 33px; left: 3px;'></h5>
+			<h5 class='player' id='cannon3' style='background: url("cannonBoss3.png"); width: 100px; height: 30px; top: 70px;'></h5>
+			<h5 class='shadow' id='cannon3s' style='background: url("cannonBoss3.png"); width: 100px; height: 30px; top: 73px; left: 3px;'></h5>
 		</div>
 		<div class='hide' id='Fbar'>
 			<h5 id='fbar' style='width: 0; position: absolute; height: 4; left: 902; top: 571; background: rgb(0,255,255); z-index: 8; color: transparent;'>1</h5>
@@ -181,6 +197,10 @@
 			<h5 class='shadow' style='width: inherit; height: inherit; left: 2px; top: 2px; background: inherit;'></h5>
 			<h5 class='player' style='width: inherit; height: inherit; background: inherit;'></h5>
 		</div>
+		<div class='hide ' id='Pnode' style='background: url("WFUpedu.gif");  left: 485px; top: 500px; position: absolute; color: transparent;'>
+			<h5 class='player' style='width: 30px; height: 50px; background: inherit;'></h5>
+			<h5 class='shadow' style='width: 30px; height: 50px; left: 2px; top: 2px; background: inherit;'></h5>
+		</div>
 		<h5 class='hide player' id='eThing' style='background: url("eThing.gif"); width: 100px; height: 50px; position: absolute;'></h5>
 		<h5 class='vent empty hide' id='vent1'></h5> <!--left 560px; is center-->
 		<h5 class='vent empty hide' id='vent2'></h5>
@@ -193,11 +213,14 @@
 	</body>
 	<script>
 	var tick = 0;
+	var gameSpeed = 20;
 	var DEhp = 0;
 	var ob1 = 0;
 	var ob2 = 0;
+	var ob3 = 0;
 	var mo1 = 0;
 	var mo2 = 0;
+	var mo3 = 0;
 	var day = 1;
 	var gaming = 1;
 	var carUc = 0;
@@ -217,11 +240,14 @@
 	var impF = 0;
 	var blackSc = 0
 	var emuDelay = 0;
+	var pedT = 0;
 	var keysPressed = [];
 	var imposter = false;
 	var crewT = 0;
 	var susT = 0;
 	var slotsFull = 0;
+	var pStun = 0;
+	var wilkoTr = 1; //disable wilk movement
 	var crewMove = [8,8,8,8,8,8,8,8,8];
 	var pl = document.getElementById('player');
 	var wilk = document.getElementById('wilko');
@@ -230,7 +256,13 @@
 	var eagle = document.getElementById('eagle');
 	var ENode = document.getElementById('Enode').cloneNode(true);
 	var BNode = document.getElementById('BNode').cloneNode(true);
+	var FPNode = document.getElementById('FPNode').cloneNode(true);
 	var curWea = 0;
+	var maxAnomSlots = 23;
+	var slot2 = 0;
+	var slot3 = 0;
+	var key2 = true;
+	var key3 = true;
 	function newSave(thing, value){ //thing must be string
 		if (localStorage.getItem(thing)){
 			return true
@@ -248,6 +280,7 @@
 	function startGame(){
 		hide('stSc')
 		hide('play')
+		hide('htp')
 		newSave('WFUslots', 1)
 		document.getElementById('htp').classList.add('hide')
 		if (localStorage.WFUlvl){
@@ -275,15 +308,19 @@
 		} else {
 			localStorage.WFUcool = 0
 		}
-		if (parseInt(localStorage.WFUcool) <= 0 || localStorage.WFUlvl === '69'){
+		if (parseInt(localStorage.WFUcool) <= 0 || localStorage.WFUlvl === '69' || parseInt(localStorage.WFUob) > 0 || parseInt(localStorage.WFUmo) > 0){
 			show('gstSc')
 			show('dayE')
 			document.getElementById("miniplayer").style.background = 'url(miniStart.gif)'
 			document.getElementById('htp').classList.add('hide')
 			setTimeout(game,2000)
-			localStorage.WFUcool = Math.floor(300 * (100 - parseInt(localStorage.CDLVL)) / 100)
+			localStorage.WFUcool = Math.floor(150 * (100 - parseInt(localStorage.CDLVL)) / 100)
 			hp.textContent = parseInt(localStorage.HLVL) + 3
 			Mhp.textContent = parseInt(localStorage.HLVL) + 3
+			if (localStorage.WFUstock === '1'){
+				hp.textContent = 3
+				Mhp.textContent = 3
+			}
 		} else if (parseInt(localStorage.WFUcool) > 0){
 			document.getElementById('wilko').classList.remove('hide')
 			document.getElementById('wilko').style.width = 3000
@@ -342,6 +379,11 @@
 				var sus = Math.floor(Math.random() * 9) + 1
 				document.getElementById('crew' + sus).classList.add('imposter')
 				imposter = document.getElementById('crew' + sus)
+			} else if (obj === 3){
+				objective.textContent = 'Objective: Generic boss fight'
+				ob3 = 1
+				show('cannonBoss')
+				show('flA')
 			}
 			mod = Modifier()
 			if (mod === 1){
@@ -350,6 +392,9 @@
 			} else if (mod === 2){
 				modifier.textContent = 'Modifier: The war of emus'
 				mo2 = 1
+			} else if (mod === 3){
+				modifier.textContent = 'Modifier: Pedsetrians'
+				mo3 = 1
 			}
 		} else if (true){ //when other zone things exist (never{ever[ever]})
 		
@@ -362,12 +407,18 @@
 	function Objective(){
 		for (let i = 0; i < 2; i++) {
 			obj = Math.floor(Math.random() * parseInt(localStorage.WFUlvl)) + 1
+			if (localStorage.WFUob > 0){
+				return parseInt(localStorage.WFUob)
+			}
 			if (obj === 1 && ob1 === 0){
 				i = 2
 				return 1
 			} else if (obj === 2 && ob2 === 0){
 				i = 2
 				return 2
+			} else if (obj === 3 && ob3 === 0){
+				i = 2
+				return 3
 			} else {
 				if (parseInt(localStorage.WFUlvl) === 69){
 					return Math.floor(Math.random() * 2) + 1
@@ -379,12 +430,18 @@
 	function Modifier(){
 		for (let i = 0; i < 2; i++) {
 			mod = Math.floor(Math.random() * parseInt(localStorage.WFUlvl)) + 1
+			if (localStorage.WFUmo > 0){
+				return parseInt(localStorage.WFUmo)
+			}
 			if (mod === 1 && mo1 === 0){
 				i = 2
 				return 1
 			} else if (mod === 2 && mo2 === 0){
 				i = 2
 				return 2
+			} else if (mod === 3 && mo3 === 0){
+				i = 2
+				return 3
 			} else {
 				if (parseInt(localStorage.WFUlvl) === 69){
 					return Math.floor(Math.random() * 2) + 1
@@ -398,57 +455,78 @@
 			if (attackC > 0 && curWea !== 0){
 				attackC = attackC - 1
 			}
+			if (pStun > 0){
+				pStun = pStun - 1
+				pl.style.background = 'url("WFUplayerSoc.gif")'
+			} else {
+				pl.children[0].style.transform = ''
+			}
 			if (blackSc > 0){
 				blackSc = blackSc - 1
 				document.getElementById('blSc').style.opacity = parseFloat(document.getElementById('blSc').style.opacity) - 0.02
 			} else {
 				hide('blSc')
 			}
+			if (keysPressed['2'] === true && key2){
+				equip(slot2)
+				key2 = false
+			} else if ((keysPressed['2'] === true) == false){
+				key2 = true
+			}
+			if (keysPressed['3'] === true && key3){
+				equip(slot3)
+				key3 = false
+			} else if ((keysPressed['3'] === true) === false){
+				key3 = true
+			}
 			document.getElementById("fbar").style.width = ((parseInt(document.getElementById("fbar").textContent) - attackC) / parseInt(document.getElementById("fbar").textContent)) * 50
 			document.getElementById("fbar").style.filter = 'grayscale(' + (1 - ((parseInt(document.getElementById("fbar").textContent) - attackC) / parseInt(document.getElementById("fbar").textContent))) + ')'
-			if ((keysPressed['a'] === true && (keysPressed['d'] === true) === false || keysPressed['A'] === true && (keysPressed['D'] === true) === false) && parseInt(pl.style.left) >= 85){
+			if (pStun === 0 && (keysPressed['a'] === true && (keysPressed['d'] === true) === false || keysPressed['A'] === true && (keysPressed['D'] === true) === false) && parseInt(pl.style.left) >= 85){
 				pl.style.left = parseInt(pl.style.left) - 5
 				if (pl.style.background != 'url("WFUplayerl.gif")'){
 					pl.style.background = 'url("WFUplayerl.gif")'
 				}
 			}
-			if ((keysPressed['d'] === true && (keysPressed['a'] === true) === false || keysPressed['D'] === true && (keysPressed['A'] === true) === false) && parseInt(pl.style.left) <= 985){
+			if (pStun === 0 && (keysPressed['d'] === true && (keysPressed['a'] === true) === false || keysPressed['D'] === true && (keysPressed['A'] === true) === false) && parseInt(pl.style.left) <= 985){
 				pl.style.left = parseInt(pl.style.left) + 5
 				if (pl.style.background != 'url("WFUplayerr.gif")'){
 					pl.style.background = 'url("WFUplayerr.gif")'
 				}
 			}
-			if ((keysPressed['w'] === true && (keysPressed['s'] === true) === false || keysPressed['W'] === true && (keysPressed['S'] === true) === false) && parseInt(pl.style.top) >= 80){
+			if (pStun === 0 && (keysPressed['w'] === true && (keysPressed['s'] === true) === false || keysPressed['W'] === true && (keysPressed['S'] === true) === false) && parseInt(pl.style.top) >= 80){
 				pl.style.top = parseInt(pl.style.top) - 5
 				if (pl.style.background != 'url("WFUplayeru.gif")' && (keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false){
 					pl.style.background = 'url("WFUplayeru.gif")'
 				}
 			}
-			if ((keysPressed['s'] === true && (keysPressed['w'] === true) === false || keysPressed['S'] === true && (keysPressed['W'] === true) === false) && parseInt(pl.style.top) <= 430){
+			if (pStun === 0 && (keysPressed['s'] === true && (keysPressed['w'] === true) === false || keysPressed['S'] === true && (keysPressed['W'] === true) === false) && parseInt(pl.style.top) <= 430){
 				pl.style.top = parseInt(pl.style.top) + 5
 				if (pl.style.background != 'url("WFUplayerd.gif")' && (keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false){
 					pl.style.background = 'url("WFUplayerd.gif")'
 				}
 			}
-			if ((keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && (keysPressed['w'] === true) === false && (keysPressed['s'] === true) === false && (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false && (keysPressed['W'] === true) === false && (keysPressed['S'] === true) === false || keysPressed['a'] === true && keysPressed['d'] === true && (keysPressed['w'] === true) === false && (keysPressed['s'] === true) === false || keysPressed['A'] === true && keysPressed['D'] === true && (keysPressed['W'] === true) === false && (keysPressed['S'] === true) === false || (keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && keysPressed['w'] === true && keysPressed['s'] === true || (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false && keysPressed['W'] === true && keysPressed['S'] === true){
+			if (pStun === 0 && (keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && (keysPressed['w'] === true) === false && (keysPressed['s'] === true) === false && (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false && (keysPressed['W'] === true) === false && (keysPressed['S'] === true) === false || keysPressed['a'] === true && keysPressed['d'] === true && (keysPressed['w'] === true) === false && (keysPressed['s'] === true) === false || keysPressed['A'] === true && keysPressed['D'] === true && (keysPressed['W'] === true) === false && (keysPressed['S'] === true) === false || (keysPressed['a'] === true) === false && (keysPressed['d'] === true) === false && keysPressed['w'] === true && keysPressed['s'] === true || (keysPressed['A'] === true) === false && (keysPressed['D'] === true) === false && keysPressed['W'] === true && keysPressed['S'] === true){
 				if (pl.style.background != 'url("WFUplayer.gif")' && curWea === 0){
 					pl.style.background = 'url("WFUplayer.gif")'
-				} else if (curWea){
+				} else if (pStun === 0 && curWea === 1){
 					pl.style.background = 'url("WFUplayerWea1.gif")'
+				} else if (pStun === 0 && curWea === 2){
+					pl.style.background = 'url("WFUplayerWea2.gif")'
 				}
 			}
-			if ((keysPressed['e'] === true) || (keysPressed['E'] === true)){
+			if (pStun === 0 && (keysPressed['e'] === true) || (keysPressed['E'] === true)){
 				if (deA.classList.contains('hide') === false && parseInt(pl.style.left) >= 920 && parseInt(pl.style.left) <= 1010 && parseInt(pl.style.top) >= 240 && parseInt(pl.style.top) <= 325){
 					hide('deA')
-					document.getElementById('itemSlot').setAttribute('src','WFUdeagleF.png')
-					show('itemSlot')
 					document.getElementById("fbar").style.width = 50
-					hide('eThing')
-					curWea = 1
+					equip(2)
 					show('guard1')
 					show('guard2')
 					g1H = day
 					g2H = day
+				} else if (flA.classList.contains('hide') === false && parseInt(pl.style.left) >= 380 && parseInt(pl.style.left) <= 440 && parseInt(pl.style.top) >= 240 && parseInt(pl.style.top) <= 325){
+					hide('flA')
+					document.getElementById("fbar").style.width = 50
+					equip(2)
 				} else if (pcontact(parseInt(eagle.style.left), parseInt(eagle.style.top), 80, 80) && eagle.classList.contains('hide') == false && DEhp <= 0){
 					gaming = 1
 				} else if (imposter != false && pcontact(parseInt(imposter.style.left) + 6, parseInt(imposter.style.top) + 6, 18, 38) && impF === 0){
@@ -457,7 +535,7 @@
 			}
 			eThing.style.top = parseFloat(player.style.top) - 50
 			eThing.style.left = parseFloat(player.style.left) - 33
-			if (deA.classList.contains('hide') === false && parseInt(pl.style.left) >= 920 && parseInt(pl.style.left) <= 1010 && parseInt(pl.style.top) >= 210 && parseInt(pl.style.top) <= 300 || eagle.style.background === 'url("WFUdeagledead.png")' && parseInt(pl.style.left) - 80 <= parseInt(eagle.style.left) && parseInt(pl.style.left) + 30 >= parseInt(eagle.style.left) && parseInt(pl.style.top) - 80 <= parseInt(eagle.style.top) && parseInt(pl.style.top) + 50 >= parseInt(eagle.style.top) || document.getElementById("imposter") &&(parseInt(pl.style.top) - 42 ) < parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.top) + 42) > parseInt(document.getElementById("imposter").style.top) && (parseInt(pl.style.left) - 18) < parseInt(document.getElementById("imposter").style.left) && (parseInt(pl.style.left) + 18) > parseInt(document.getElementById("imposter").style.left)){
+			if (deA.classList.contains('hide') === false && parseInt(pl.style.left) >= 920 && parseInt(pl.style.left) <= 1010 && parseInt(pl.style.top) >= 210 && parseInt(pl.style.top) <= 300 || eagle.classList.contains('hide') == false && eagle.style.background === 'url("WFUdeagledead.png")' && parseInt(pl.style.left) - 80 <= parseInt(eagle.style.left) && parseInt(pl.style.left) + 30 >= parseInt(eagle.style.left) && parseInt(pl.style.top) - 80 <= parseInt(eagle.style.top) && parseInt(pl.style.top) + 50 >= parseInt(eagle.style.top) || impF === 0 && imposter && (parseInt(pl.style.top) - 42 ) < parseInt(imposter.style.top) && (parseInt(pl.style.top) + 42) > parseInt(imposter.style.top) && (parseInt(pl.style.left) - 18) < parseInt(imposter.style.left) && (parseInt(pl.style.left) + 18) > parseInt(imposter.style.left) || flA.classList.contains('hide') === false && parseInt(pl.style.left) >= 380 && parseInt(pl.style.left) <= 440 && parseInt(pl.style.top) >= 240 && parseInt(pl.style.top) <= 325){
 				show('eThing')
 			} else {
 				hide('eThing')
@@ -525,7 +603,6 @@
 				cardown.style.top = 50
 				carDc = 0
 			}
-			wilkoTr = 1 //disable wilk movement
 			if (parseFloat(pl.style.left) > parseFloat(wilk.style.left) + 3 && wilkoTr === 1){
 				wilk.style.left = parseFloat(wilk.style.left) + (4-3/(day**0.4))
 			} else if (parseFloat(pl.style.left) < parseFloat(wilk.style.left) - 3 && wilkoTr === 1){
@@ -814,7 +891,7 @@
 								if (parseFloat(emu.style.left) + 80 >= parseInt(thing.style.left) + 6 && parseFloat(emu.style.left) <= parseInt(thing.style.left) + 24 && parseFloat(emu.style.top) + 80 >= parseInt(thing.style.top) + 6 && parseFloat(emu.style.top) <= parseInt(thing.style.top) + 44){
 									if (thing.classList.contains('imposter')){
 										impH = impH - 3 - day / 4
-										if (impF === 1){
+										if (impF === 1 && imposter){
 											edam(imposter.getAttribute('id') + 'T')
 										}
 										emu.classList.replace('eAlive','eDead')
@@ -844,6 +921,55 @@
 					}
 				}
 			}
+			if (mo3 === 1){
+				pedT = pedT + 1
+				if (pedT >= (0.9 ** (day - 1)) * 100){
+					pedT = 0
+					let PNodE = Pnode.cloneNode(true)
+					let ped = document.getElementById('body').appendChild(PNodE)
+					ped.classList.replace('hide', 'pedestrian')
+					ped.setAttribute('id', 'yesnsns')
+					ped.style.opacity = 1.2
+					ped.style.top = 50 + Math.floor(Math.random() * 2) * 450
+					ped.style.left = 485 + Math.floor(Math.random() * 2) * 385
+					if (parseInt(ped.style.top) < 200){//effortful coding
+						ped.style.background = 'url("WFUpedd.gif")'
+						ped.style.opacity = 1.1
+					}
+				}
+				for (const ped of document.getElementsByClassName('pedestrian')){
+					if (ped.style.background === 'url("WFUpedd.gif")'){
+						ped.style.top = parseInt(ped.style.top) + 1
+						ped.children[0].style.transform = ''
+						ped.style.opacity = 1.1
+					} else if (ped.style.background === 'url("WFUpedu.gif")'){
+						ped.style.top = parseInt(ped.style.top) - 1
+						ped.style.opacity = 1.2
+						ped.children[0].style.transform = ''
+					}
+					if (parseInt(ped.style.opacity) >= 2){
+						ped.style.opacity = parseFloat(ped.style.opacity) - 1
+					} else {
+						if (parseFloat(ped.style.opacity) === 1.1){
+							ped.style.background = 'url("WFUpedd.gif")'
+						} else {
+							ped.style.background = 'url("WFUpedu.gif")'
+						}
+					}
+					if (pcontact(parseInt(ped.style.left), parseInt(ped.style.top), 30, 50) && parseFloat(ped.style.opacity) <= 1.2){
+						pStun = 50 + day * 5
+						ped.style.opacity = 150 + 5 * day + parseFloat(ped.style.opacity)
+						ped.style.background = 'url("WFUpedSoc.gif")'
+						if (parseInt(ped.style.left) > parseInt(pl.style.left)){
+							ped.children[0].style.transform = 'scaleX(-1)'
+						} else {
+							pl.children[0].style.transform = 'scaleX(-1)'
+						}
+					} else if (parseInt(ped.style.top) >= 511 || parseInt(ped.style.top) <= 49){
+						document.getElementById('body').removeChild(ped)
+					}
+				}
+			}
 			for (const bullet of document.getElementsByClassName('enemyB')){ //Standard proj speed = 200px + 10px * day
 				if (pcontact(parseInt(bullet.style.left), parseInt(bullet.style.top), 2, 2)){//player hit
 					pdam(parseInt(bullet.textContent[2]))
@@ -858,16 +984,49 @@
 			}
 			for (const bullet of document.getElementsByClassName('playerB')){ // deagle is 500px/s flare is 250px/s
 				if (parseFloat(bullet.style.left) >= 482 && parseFloat(bullet.style.left) <= 509 && parseFloat(bullet.style.top) - 2 >= parseFloat(document.getElementById("guard1").style.top) && parseFloat(bullet.style.top) <= parseFloat(document.getElementById("guard1").style.top) + 46 && document.getElementById("guard1").classList.contains('hide') == false){
-					g1H = g1H - parseInt(localStorage.DLVL) - 1
+					g1H = g1H - stock() - 1
 					edam('guard1p')
+					if (parseInt(bullet.textContent[1]) === 2){
+						for (var i = 0; i <= 300; i++){//change both 300 when afterburn dur icreases
+							if (document.getElementById('guard1').classList.contains('fire' + i)){
+								g1H = g1H - (stock() + 1) * Math.floor((300 - i) / 100)
+								document.getElementById('guard1').classList.remove('fire' + i)
+								i = 400
+							}
+						}
+						document.getElementById('guard1').classList.add('fire0')
+						makeFire(parseInt(guard1.style.left),parseInt(guard1.style.top),30,50,25)
+					}
 					document.getElementById('body').removeChild(bullet)
 				} else if (parseFloat(bullet.style.left) >= 867 && parseFloat(bullet.style.left) <= 894 && parseFloat(bullet.style.top) - 2 >= parseFloat(document.getElementById("guard2").style.top) && parseFloat(bullet.style.top) <= parseFloat(document.getElementById("guard2").style.top) + 46 && document.getElementById("guard2").classList.contains('hide') == false){
-					g2H = g2H - parseInt(localStorage.DLVL) - 1
+					g2H = g2H - stock() - 1
 					edam('guard2p')
+					if (parseInt(bullet.textContent[1]) === 2){
+						for (var i = 0; i <= 300; i++){
+							if (document.getElementById('guard2').classList.contains('fire' + i)){
+								g2H = g2H - (stock() + 1) * Math.floor((300 - i) / 100)
+								document.getElementById('guard2').classList.remove('fire' + i)
+								i = 400
+							}
+						}
+						document.getElementById('guard2').classList.add('fire0')
+						makeFire(parseInt(guard2.style.left),parseInt(guard2.style.top),30,50,25)
+					}
 					document.getElementById('body').removeChild(bullet)
 				} else if (parseFloat(bullet.style.left) >= parseFloat(eagle.style.left) - 4 && parseFloat(bullet.style.left) - 72 <= parseFloat(eagle.style.left) && parseFloat(bullet.style.top) >= parseFloat(eagle.style.top) - 4 && parseFloat(bullet.style.top) - 50 <= parseFloat(parseFloat(eagle.style.top)) && eagle.classList.contains('hide') == false && eagle.style.background == 'url("WFUdeagle.gif")'){
-					DEhp = DEhp - parseInt(localStorage.DLVL) - 1
+					DEhp = DEhp - stock() - 1
 					edam('eagleT')
+					if (parseInt(bullet.textContent[1]) === 2){
+						for (var i = 0; i <= 300; i++){
+							if (eagle.classList.contains('fire' + i)){
+								DEhp = DEhp - (stock() + 1) * Math.floor((300 - i) / 100)
+								eagle.classList.remove('fire' + i)
+								i = 400
+							}
+						}
+						eagle.classList.add('fire0')
+						makeFire(parseInt(eagle.style.left),parseInt(eagle.style.top),30,80,80)
+					}
 					document.getElementById('body').removeChild(bullet)
 				} else if (parseInt(bullet.style.top) <= 70 || parseInt(bullet.style.top) >= 470 || parseInt(bullet.style.left) <= 80 || parseInt(bullet.style.left) >= 1010){
 					document.getElementById('body').removeChild(bullet)
@@ -878,7 +1037,18 @@
 						if (thing.classList.contains('hide') == false){
 							if (parseFloat(bullet.style.left) + 2 >= parseInt(thing.style.left) + 6 && parseFloat(bullet.style.left) <= parseInt(thing.style.left) + 24 && parseFloat(bullet.style.top) + 2 >= parseInt(thing.style.top) + 6 && parseFloat(bullet.style.top) <= parseInt(thing.style.top) + 44){
 								if (thing.classList.contains('imposter')){
-									impH = impH - 1
+									impH = impH - stock() - 1
+									if (parseInt(bullet.textContent[1]) === 2){
+										for (var i = 0; i <= 300; i++){
+											if (imposter.classList.contains('fire' + i)){
+												impH = impH - (stock() + 1) * Math.floor((300 - i) / 100)
+												imposter.classList.remove('fire' + i)
+												i = 400
+											}
+										}
+										imposter.classList.add('fire0')
+										makeFire(parseInt(imposter.style.left),parseInt(imposter.style.top),30,50,25)
+									}
 									document.getElementById('body').removeChild(bullet)
 									if (impF === 1){
 										edam(imposter.getAttribute('id') + 'T')
@@ -894,6 +1064,34 @@
 					if (x === 0){
 						bullet.style.left = parseFloat(bullet.style.left) + (3 - parseInt(bullet.textContent[1])) * 5 * Math.round(Math.cos(parseInt(bullet.textContent[0]) * Math.PI / 2)) //change when 3rd weapon is added
 						bullet.style.top = parseFloat(bullet.style.top) + (3 - parseInt(bullet.textContent[1])) * 5 *  - Math.round(Math.sin(parseInt(bullet.textContent[0]) * Math.PI / 2))
+						if (parseInt(bullet.textContent[1]) === 2){
+							if (Math.random() <= 0.4){
+								let FPNodE = FPNode.cloneNode(true)
+								let fp = document.getElementById('body').appendChild(FPNodE)
+								fp.classList.replace('hide','particle')
+								fp.classList.add('FP0')
+								fp.setAttribute('id','Yes')
+								if (Math.random() < 0.3333){
+									fp.style.background = '#B3E8FF'
+								} else if (Math.random() < 0.5){
+									fp.style.background = '#5F5F5F'
+								}
+								if (parseInt(bullet.textContent[0]) === 1){
+									fp.style.top = parseInt(bullet.style.top) + 10
+									fp.style.left = parseInt(bullet.style.left) + 4
+								} else if (parseInt(bullet.textContent[0]) === 3){
+									fp.style.top = parseInt(bullet.style.top) - 4
+									fp.style.left = parseInt(bullet.style.left) + 4
+								} else {
+									fp.style.top = parseInt(bullet.style.top)
+									if (parseInt(bullet.textContent[0]) === 0){
+										fp.style.left = parseInt(bullet.style.left) - 4
+									} else {
+										fp.style.left = parseInt(bullet.style.left) + 10
+									}
+								}
+							}
+						}
 					}
 				}
 			}
@@ -901,17 +1099,77 @@
 				item.style.filter = ''
 				item.classList.remove('edam24')
 			}
-			for (i = 23; i >= 0; i--){
+			for (let i = 23; i >= 0; i--){
 				for (const item of document.getElementsByClassName('edam' + i)){
 					item.style.filter = 'brightness(' + (2 - ((i + 1) / 25)) + ')'
 					item.classList.replace('edam' + i, 'edam' + (i + 1))
+				}
+			}
+			for (let i = 24; i >= 0; i--){
+				for (const fp of document.getElementsByClassName('FP' + i)){
+					fp.style.opacity = 1 - (i / 25)
+					if (Math.random() < 0.5){
+						fp.style.top = parseFloat(fp.style.top) + 1
+						fp.classList.replace('FP' + i, 'FP' + (i + 1))
+					}
+					fp.classList.replace('FP' + i, 'FP' + (i + 1))
+					if (i === 24){
+						document.getElementById('body').removeChild(fp)
+					}
+				}
+			}
+			for (let i = 49; i >= 0; i--){
+				for (const fp of document.getElementsByClassName('ffP' + i)){ //Note that css is note case sensitive (cannot detect difference in character capatilisation)
+					fp.style.opacity = 1 - (i / 50)
+					if (Math.random() < 0.2 || fp.style.background === '#3F3F3F'){
+						fp.style.top = parseFloat(fp.style.top) - 1
+					}
+					if (Math.random() < 0.5){
+						fp.style.l = parseFloat(fp.style.left) + 1
+					}
+					fp.classList.replace('ffP' + i, 'ffP' + (i + 1))
+					if (i === 49){
+						document.getElementById('body').removeChild(fp)
+					}
+				}
+			}
+			for (let i = 300; i >= 0; i--){
+				for (const item of document.getElementsByClassName('fire' + i)){
+					item.classList.replace('fire' + i, 'fire' + (i + 1))
+					if (i % 100 == 0 && 'fire' + i !== 'fire0'){
+						if (item.getAttribute('id') === 'guard1'){
+							edam('guard1p')
+							g1H = g1H - stock() - 1
+						} else if (item.getAttribute('id') === 'guard2'){
+							edam('guard2p')
+							g2H = g2H - stock() - 1
+						} else if (item.getAttribute('id') === 'eagle'){
+							edam('eagle')
+							DEhp = DEhp - stock() - 1
+						} else if (item.getAttribute('id') === imposter.getAttribute('id')){
+							edam(imposter.getAttribute('id'))
+							impH = impH - stock() - 1
+						}
+					}
+					if (item.getAttribute('id') === 'guard1' && g1H > 0){
+						makeFire(parseInt(guard1.style.left),parseInt(guard1.style.top),30,50)
+					} else if (item.getAttribute('id') === 'guard2' && g2H > 0){
+						makeFire(parseInt(guard2.style.left),parseInt(guard2.style.top),30,50)
+					} else if (item.getAttribute('id') === 'eagle' && DEhp > 0){
+						makeFire(parseInt(eagle.style.left),parseInt(eagle.style.top),80,80)
+					} else if (item.getAttribute('id') === imposter.getAttribute('id') && DEhp > 0){
+						makeFire(parseInt(imposter.style.left),parseInt(imposter.style.top),30,50)
+					}
+					if (i === 300){
+						item.classList.remove('fire' + (i + 1))
+					}
 				}
 			}
 			if (ob2 === 1 && impH <= 0){
 				gaming = 1
 			}
 		if (gaming === 0){
-			setTimeout(Gaming, 20)
+			setTimeout(Gaming, gameSpeed)
 		} else {
 			hide('carup')
 			hide('player')
@@ -923,7 +1181,9 @@
 			hide('modifier')
 			hide('objective')
 			hide('deA')
+			hide('flA')
 			hide('eThing')
+			hide('cannonBoss')
 			for (var i = 0; i < 2; i++){ //to ensure everything actaully deletes
 				for (const bullet of document.getElementsByClassName('playerB')){
 					document.getElementById('body').removeChild(bullet)
@@ -937,7 +1197,13 @@
 				for (const emu of document.getElementsByClassName('eDead')){
 					document.getElementById('body').removeChild(emu)
 				}
-				if (document.getElementsByClassName('playerB')[0] || document.getElementsByClassName('enemyB')[0] || document.getElementsByClassName('eAlive')[0] || document.getElementsByClassName('eDead')[0]){
+				for (const ped of document.getElementsByClassName('pedestrian')){
+					document.getElementById('body').removeChild(ped)
+				}
+				for (const particle of document.getElementsByClassName('particle')){
+					document.getElementById('body').removeChild(particle)
+				}
+				if (document.getElementsByClassName('playerB')[0] || document.getElementsByClassName('enemyB')[0] || document.getElementsByClassName('eAlive')[0] || document.getElementsByClassName('eDead')[0] || document.getElementsByClassName('pedestrian')[0] || document.getElementsByClassName('particle')[0]){
 					i = 0
 				} else {
 					i = 69
@@ -953,11 +1219,15 @@
 				ob1 = 2
 			} else if (ob2 === 1){
 				ob2 = 2
+			} else if (ob3 === 1){
+				ob3 = 2
 			}
 			if (mo1 === 1){
 				mo1 = 2
 			} else if (mo2 === 1){
 				mo2 = 2
+			} else if (mo3 === 1){
+				mo3 = 2
 			}
 			newSave('GamP1', 0)
 			newSave('ramWFU', 0)
@@ -977,6 +1247,8 @@
 				hide('Mhp')
 				hide('Fbar')
 				hide('itemSlot')
+				hide('itemSlot2')
+				hide('itemSlot3')
 				newSave('xp')
 				show('xpR')
 				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
@@ -1038,6 +1310,8 @@
 				hide('Mhp')
 				hide('Fbar')
 				hide('itemSlot')
+				hide('itemSlot2')
+				hide('itemSlot3')
 				show('glSc')
 				for (var i = 1; i <=  9; i++){
 					hide('crew' + i)
@@ -1116,6 +1390,42 @@
 			edam('playerR')
 		}
 	}
+	function equip(num){
+		if (num > 0){
+			if (slot2 === 0 && slot3 === 0){
+				if (num === curWea || curWea === 0){
+					document.getElementById('itemSlot').setAttribute('src',weaSkin(num))
+					curWea = num
+				} else {
+					document.getElementById('itemSlot').setAttribute('src',weaSkin(num))
+					document.getElementById('itemSlot2').setAttribute('src',weaSkin(curWea))
+					slot2 = curWea
+					curWea = num
+					show('itemSlot2')
+				}
+			} else if (slot3 === 0){
+				if (slot2 === num){
+					document.getElementById('itemSlot').setAttribute('src',weaSkin(slot2))
+					document.getElementById('itemSlot2').setAttribute('src',weaSkin(curWea))
+					slot2 = curWea
+					curWea = num
+					show('itemSlot2')
+				} else {
+					
+				}
+			} else {
+				
+			}
+			show('itemSlot')
+		}
+	}
+	function weaSkin(num){
+		if (num === 1){
+			return 'WFUdeagleF.png'
+		} else if (num === 2){
+			return 'WFUflareGun.png'
+		}
+	}
 	function fireWea1(d){ //d = direction is angle / pi/2
 		let BNodE = BNode.cloneNode(true)
 		let b = document.getElementById('body').appendChild(BNodE)
@@ -1124,13 +1434,19 @@
 		if (d ** 2 - d * 4 + 3 === 0){ //QUADRATIC FORMULA USEFUL CONFIRMED!!111?!?1??
 			b.style.transform = 'rotate(90deg)'
 		}
-		b.textContent = d + '' + 1 //first digit is direction then bullet type
+		if (d === 1 || d === 2){
+			b.style.transform = b.style.transform + 'scaleX(-1)'
+		}
+		b.textContent = d + '' + curWea //first digit is direction then bullet type
 		b.style.left = parseFloat(pl.style.left) + 10 + Math.round(Math.cos(d * Math.PI / 2)) * 20
 		b.style.top = parseFloat(pl.style.top) + 25 - Math.round(Math.sin(d * Math.PI / 2)) * 30
-		attackC = 50
+		attackC = 50 * curWea
 		document.getElementById("fbar").style.width = 0
 		document.getElementById("fbar").style.filter = 'grayscale(1)'
-		document.getElementById('fbar').textContent = 50
+		document.getElementById('fbar').textContent = 50 * curWea
+		if (curWea === 2){
+			b.style.background = 'url("WFUflareProj.png")'
+		}
 	}
 	function fireWea2(d){ //2s cooldown
 		attackC = 100
@@ -1162,6 +1478,40 @@
 			imposter.classList.remove('hide')
 			imposter.style.background = 'url("WFUimposter.gif")'
 			imposter.style.filter = ''
+		}
+	}
+	function stock(){
+		if (localStorage.WFUstock === '1'){
+			return 0
+		} else {
+			return parseInt(localStorage.DLVL)
+		}
+	}
+	function makeFire(x,y,xSize,ySize,times){
+		if (times){
+			yes = times
+		} else {
+			yes = 1
+		}
+		for (let i = 1; i <= yes; i++){
+			let FPNodE = FPNode.cloneNode(true)
+			let fp = document.getElementById('body').appendChild(FPNodE)
+			fp.classList.replace('hide','particle')
+			fp.classList.add('ffP0')
+			fp.setAttribute('id','canI?')
+			if (times){
+				fp.classList.replace('ffP0','FP0')
+			} else if (Math.random() < 0.25){
+				fp.style.background = '#FF3311'
+			} else if (Math.random() < 0.3333){
+				fp.style.background = '#FF6622'
+			} else if (Math.random() < 0.5){
+				fp.style.background = '#3F3F3F'
+			} else {
+				fp.style.background = '#FFCC33'
+			}
+			fp.style.left = x + Math.floor(Math.random() * (xSize + 1))
+			fp.style.top = y + Math.floor(Math.random() * (ySize + 1))
 		}
 	}
 	function idrop(item, title){
