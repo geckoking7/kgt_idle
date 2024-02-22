@@ -1157,7 +1157,7 @@
 						makeFire(parseInt(guard2.style.left),parseInt(guard2.style.top),30,50)
 					} else if (item.getAttribute('id') === 'eagle' && DEhp > 0){
 						makeFire(parseInt(eagle.style.left),parseInt(eagle.style.top),80,80)
-					} else if (item.getAttribute('id') === imposter.getAttribute('id') && DEhp > 0){
+					} else if (imposter && item.getAttribute('id') === imposter.getAttribute('id') && impH > 0){
 						makeFire(parseInt(imposter.style.left),parseInt(imposter.style.top),30,50)
 					}
 					if (i === 300){
