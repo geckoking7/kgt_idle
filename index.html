@@ -1580,7 +1580,7 @@ Restrictions: killed all enemies at caves at least once
 		var advmusic = new Audio('advmusic.mp3');
 		var clicked = new Audio('buttonClicked.mp3');
 		var domination = new Audio('tf_domination.mp3');
-		localStorage.WFUmlvl = 2;
+		localStorage.WFUmlvl = 3;
 		var lore = 38;
 		var wikiTr = 0;
 		var wikiCh = 4;
@@ -17661,6 +17661,8 @@ Restrictions: killed all enemies at caves at least once
 					bonus = createBonus(15,15,15,15,10,10)
 				} else if (item === 'vent'){
 					bonus = createBonus(20,20,10,10,10,10)
+				} else if (item === 'flareGun'){
+					bonus = createBonus(30,30,5,5,5,5,20)
 				}
 			}
 			if (dropR <= chance){
