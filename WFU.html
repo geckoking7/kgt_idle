@@ -1789,14 +1789,16 @@
 		}
 	}
 	function pauseGame(){
-		if (pause === 0){
-			pause = 1
-			show('pause')
-		} else {
-			pause = 0
-			hide('pause')
+		if (gaming != 0){
+			if (pause === 0){
+				pause = 1
+				show('pause')
+			} else {
+				pause = 0
+				hide('pause')
+			}
+			newSave('ach49',1)
 		}
-		newSave('ach49',1)
 	}
 	function pcontact(x, y, xSize, ySize, circle){ // player hitbox is 6-24 x , 6-44 y, x and y values can have an offest from entities hitbox
 		if (x + xSize >= parseInt(pl.style.left) + 6 && x <= parseInt(pl.style.left) + 24 && y + ySize >= parseInt(pl.style.top) + 6 && y <= parseInt(pl.style.top) + 44){

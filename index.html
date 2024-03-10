@@ -1150,6 +1150,8 @@ Restrictions: killed all enemies at caves at least once
 				<h1 style='position: absolute; top: 367; left: 145; font-size: 16;'>Mobile mode: <button id='mmY' class='off' title='Shows certain buttons to allow you to destroy your items' onclick='mmf("yes")'>Yes</button><button id='mmN' class='on' title='Oppositte of the yes' onclick='mmf("no")'>No</button></h1>
 				<button style='position: absolute; top: 115; left: 700; font-size: 32px; margin-left: 5px; background: #cfc;' class='on' title='Does you want the knowledge of the worst game known to man?' onclick=helpOn()>Help button</button>
 				<a target=”_blank” href="zLoreLib.html" class='helpButton hide' style='left: 145px; top: 410px; color: black; text-decoration: none; text-align: center; height: 25px;' id='loreLib' title='Lots of lore'>Lore Library</a>
+				<h1 style='position: absolute; top: 435; left: 145; font-size: 16;'>Export save: <button class='on' title='Click me to export your save' onclick=exportCodeCreate()>Get save text</button></h1>
+				<h1 style='position: absolute; top: 465; left: 145; font-size: 16;'>Import save: <button class='on' title='Click on me to import your save' onclick=setLocalValues()>Load save</button></h1>
 			</div>
 			<div id='Shelp'>
 				<img id='setBack' src="Shelpback.png" alt="stuff"> <!-- add a left and right button for more info-->
@@ -17206,12 +17208,66 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function deleteSave(){
-			let yes = prompt("Are your sure? (enter yes or press cancel)", "no");
-			if (yes === 'yes'){
+			let yes = prompt("Are your sure? (enter yes to delete or press cancel to cancel)", "no");
+			if (yes === 'yes' || yes === 'Yes'){
 				localStorage.clear()
 				location.reload()
 			} else {
 				localStorage.ach19 = 1
+			}
+		}
+		function exportCodeCreate(){
+			string = ''
+			for (let i = 0; i < localStorage.length; i++){
+				string = string + localStorage.key(i) + '=' + localStorage.getItem(localStorage.key(i)) + '@'
+			}
+			string = string + '#'
+			code = encrypt(string)
+			navigator.clipboard.writeText(code)
+			alert("Save text copied to clipboard!")
+		}
+		function encrypt(string){
+			let x = Math.floor(Math.random() * 4) + 1 //anymore than 4 contains a [DEL] like character (looks like '')
+			let string2 = ''
+			for (let i = 0; i < string.length; i++){
+				string2 = string2 + '' + String.fromCharCode(string.charCodeAt(i) + x)
+			}
+			return string2 + '' + x
+		}
+		function decrypt(string){
+			let x = string[string.length - 1]
+			let string2 = ''
+			for (let i = 0; i < string.length - 1; i++){
+				string2 = string2 + '' + String.fromCharCode(string.charCodeAt(i) - x)
+			}
+			return string2
+		}
+		function setLocalValues(){
+			let yes = prompt("Insert import save code:")
+			if (yes){
+				string = decrypt(yes)
+			}
+			if (yes && string[string.length - 1] === '#'){
+				localStorage.clear()
+				let varName = ''
+				let varValue = ''
+				let mode = 0
+				for (let i = 0; i < string.length - 1; i++){
+					let charValue = string[i]
+					if (mode === 0 && charValue != '='){
+						varName = varName + '' + charValue
+					} else if (mode === 1 && charValue != '@'){
+						varValue = varValue + '' + charValue
+					} else if (charValue === '='){
+						mode = 1
+					} else if (charValue === '@'){
+						mode = 0
+						localStorage.setItem(varName, varValue)
+						varName = ''
+						varValue = ''
+					}
+				}
+				location.reload()
 			}
 		}
 		function correct(){
