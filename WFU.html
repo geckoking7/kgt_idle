@@ -86,6 +86,8 @@
 	</style>
 	<body style='background-color: rgb(200,200,200);' id='body'>
 		<img src="monitor.png" alt="computer" style='position: absolute; height: 600px; width: 1000px; left: 50px; top: 50px; z-index: 5;'>
+		<button id='pauseBut' style='position: absolute; left: 792px; top: 502px; width: 26px; height: 6px; background: url("WFUpause.png"); border: none;' onclick=pauseGame() onmousedown="document.getElementById('pauseBut').style.background = pauseBack2" onmouseup="document.getElementById('pauseBut').style.background = pauseBack"></button>
+		<h5 id='pause' class='hide' style='position: absolute; left: 500px; top: 220px; width: 100px; height: 100px; background: url("pause.gif"); z-index: 100;'></h5>
 		<img src="WFUtitle.gif" alt="computer" class="screen" id='stSc'>
 		<img src="outsidemap.png" alt="computer" class="screen hide" id='outm'>
 		<img src="gamestart.png" alt="computer" class="screen hide" id='gstSc'>
@@ -141,7 +143,7 @@
 			<h5 class='player' id='eagleT' style='background: inherit; width: 80px; height: 80px;'></h5>
 			<h5 class='shadow' id='eagleS' style='left: 5px; top: 5px; background: inherit; width: 80px; height: 80px;'></h5>
 		</div>
-		<h1 style='z-index: 23;'><a class='hide' href='' onclick='window.close()' style='position: absolute; top: 225; left: 390; margin: 0; text-decoration: none; font-size: 16; width: 200; margin: 0; z-index: 23; color: #0FF;' id='kgtlink'>Return to KGT idle</a></h1>
+		<h1 style='z-index: 23;'><a class='hide' href='' onclick='window.close()' style='position: absolute; top: 245; left: 390; margin: 0; text-decoration: none; font-size: 16; width: 200; margin: 0; z-index: 23; color: #0FF;' id='kgtlink'>Return to KGT idle</a></h1>
 		<h1 class='hide' style='position: absolute; top: 285; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='xpR'>Xp: 0</h1>
 		<h1 class='hide' style='position: absolute; top: 305; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='goldR'>Gold earned: 0</h1>
 		<h1 class='hide' style='position: absolute; top: 400; left: 480; margin: 0; text-decoration: none; font-size: 20; width: 200; margin: 0; z-index: 5;' id='anomR'>Enhanced items: 0</h1>
@@ -269,6 +271,8 @@
 	var c2Cool = 0;
 	var c3Cool = 0;
 	var pause = 0;
+	var pauseBack = 'url("WFUpause.png")'
+	var pauseBack2 = 'url("WFUpause2.png")'
 	var wilkoTr = 1; //disable wilk movement
 	var crewMove = [8,8,8,8,8,8,8,8,8];
 	var pl = document.getElementById('player');
@@ -440,13 +444,16 @@
 		} else {
 		
 		}
+		if (localStorage.rockc && parseInt(localStorage.rockc) >= 200){
+			pdam(-1)
+		}
 		gaming = 0
 		Gaming()
 	}
 	function Objective(){
 		for (let i = 0; i < 2; i++) {
 			obj = Math.floor(Math.random() * parseInt(localStorage.WFUlvl)) + 1
-			if (localStorage.WFUob > 0){
+			if (parseInt(localStorage.WFUob) > 0){
 				obj = parseInt(localStorage.WFUob)
 			} else if (parseInt(localStorage.WFUlvl) === 69){
 				obj = Math.floor(Math.random() * 2) + 1
@@ -470,16 +477,16 @@
 			mod = Math.floor(Math.random() * parseInt(localStorage.WFUlvl)) + 1
 			if (localStorage.WFUmo > 0){
 				mod = parseInt(localStorage.WFUmo)
-			} else if (parseInt(localStorage.WFUlvl) === 69){
+			} else if (parseInt(localStorage.WFUlvl) === 69 || parseInt(localStorage.WFUob) > 0){
 				mod = Math.floor(Math.random() * 3) + 1
 			}
-			if (mod === 1 && (mo1 === 0 || mod === parseInt(localStorage.WFUmo) || parseInt(localStorage.WFUlvl) === 69)){
+			if (mod === 1 && (mo1 === 0 || mod === parseInt(localStorage.WFUmo) || parseInt(localStorage.WFUlvl) === 69) || parseInt(localStorage.WFUob) > 0){
 				i = 2
 				return 1
-			} else if (mod === 2 && (mo2 === 0 || mod === parseInt(localStorage.WFUmo) || parseInt(localStorage.WFUlvl) === 69)){
+			} else if (mod === 2 && (mo2 === 0 || mod === parseInt(localStorage.WFUmo) || parseInt(localStorage.WFUlvl) === 69) || parseInt(localStorage.WFUob) > 0){
 				i = 2
 				return 2
-			} else if (mod === 3 && (mo3 === 0 || mod === parseInt(localStorage.WFUmo) || parseInt(localStorage.WFUlvl) === 69)){
+			} else if (mod === 3 && (mo3 === 0 || mod === parseInt(localStorage.WFUmo) || parseInt(localStorage.WFUlvl) === 69) || parseInt(localStorage.WFUob) > 0){
 				i = 2
 				return 3
 			} else {
@@ -992,7 +999,7 @@
 							emu.style.opacity = 1
 							emu.style.background = 'url("emuD.gif")'
 							emu.style.zIndex = 3
-						} else if (parseFloat(emu.style.left) + 80 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(emu.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(emu.style.top) + 80 >= parseFloat(cannonBoss.style.top) && parseFloat(emu.style.top) <= parseFloat(cannonBoss.style.top) + 30 || parseFloat(emu.style.left) + 80 >= parseFloat(cannonBoss.style.left) && parseFloat(emu.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(emu.style.top) + 80 >= parseFloat(cannonBoss.style.top) + 30 && parseFloat(emu.style.top) <= parseFloat(cannonBoss.style.top) + 70 || parseFloat(emu.style.left) + 80 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(emu.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(emu.style.top) + 80 >= parseFloat(cannonBoss.style.top) + 70 && parseFloat(emu.style.top) <= parseFloat(cannonBoss.style.top) + 100){
+						} else if ((parseFloat(emu.style.left) + 80 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(emu.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(emu.style.top) + 80 >= parseFloat(cannonBoss.style.top) && parseFloat(emu.style.top) <= parseFloat(cannonBoss.style.top) + 30 || parseFloat(emu.style.left) + 80 >= parseFloat(cannonBoss.style.left) && parseFloat(emu.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(emu.style.top) + 80 >= parseFloat(cannonBoss.style.top) + 30 && parseFloat(emu.style.top) <= parseFloat(cannonBoss.style.top) + 70 || parseFloat(emu.style.left) + 80 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(emu.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(emu.style.top) + 80 >= parseFloat(cannonBoss.style.top) + 70 && parseFloat(emu.style.top) <= parseFloat(cannonBoss.style.top) + 100) && ob3 === 1){
 							cannonH = cannonH - 5
 							document.getElementById('cannonHpB').style.height = Math.ceil(80 - 80 *  cannonH / (day ** 2 + day + 18))
 							edam('cannon1')
@@ -1567,6 +1574,10 @@
 			hide('flA')
 			hide('eThing')
 			hide('cannonBoss')
+			document.getElementById("fbar").style.width = 50
+			document.getElementById("fbar").style.filter = ''
+			document.getElementById('fbar').textContent = 0
+			attackC = 0
 			for (var i = 0; i < 2; i++){ //to ensure everything actaully deletes
 				for (const bullet of document.getElementsByClassName('playerB')){
 					document.getElementById('body').removeChild(bullet)
@@ -1601,33 +1612,38 @@
 			for (var i = 1; i <=  9; i++){
 				hide('crew' + i)
 			}
-			if (gaming === 1 && day >= parseInt(localStorage.WFUlvl) && localStorage.WFUlvl != 69){
+			if (gaming === 1 && day >= parseInt(localStorage.WFUlvl) && localStorage.WFUlvl != 69 && (parseInt(localStorage.WFUob) > 0) === false){
 				gaming = 2
-			}
-			if (ob1 === 1){
-				ob1 = 2
-			} else if (ob2 === 1){
-				ob2 = 2
-			} else if (ob3 === 1){
-				ob3 = 2
-			}
-			if (mo1 === 1){
-				mo1 = 2
-			} else if (mo2 === 1){
-				mo2 = 2
-			} else if (mo3 === 1){
-				mo3 = 2
 			}
 			newSave('GamP1', 0)
 			newSave('ramWFU', 0)
 			newSave('ramLVL', 0)
 			newSave('FPWFU', 0)
+			newSave('lavac', 0)
+			xpMulti = 1
+			if (parseInt(localStorage.lavac) >= 200){
+				xpMulti = 2
+			}
 			if (gaming === 1){ //complete day
 				blackscreen()
 				show('gwSc')
 				show('dayE')
 				day = day + 1
 				dayE.textContent = 'Day ' + (day)
+				if (ob1 === 1){
+					ob1 = 2
+				} else if (ob2 === 1){
+					ob2 = 2
+				} else if (ob3 === 1){
+					ob3 = 2
+				}
+				if (mo1 === 1){
+					mo1 = 2
+				} else if (mo2 === 1){
+					mo2 = 2
+				} else if (mo3 === 1){
+					mo3 = 2
+				}
 				setTimeout(game,2000)
 			} if (gaming === 2){ //complete final day
 				blackscreen()
@@ -1641,8 +1657,8 @@
 				newSave('xp')
 				show('xpR')
 				show('kgtlink')
-				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
-				xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
+				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1)) * xpMulti
+				xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1)) * xpMulti
 				goldR.textContent = 'Gold earned:  ' + Math.floor(day + parseInt(localStorage.WFUlvl) / 2)
 				localStorage.goldWFU = parseInt(localStorage.goldWFU) + Math.floor(day + parseInt(localStorage.WFUlvl) / 2)
 				document.getElementById("miniplayer").style.background = 'url(miniDead.gif)'
@@ -1662,8 +1678,11 @@
 					slotsFull = slotsFull + 1
 					idrop('fightPicker69','FightPicker69 - Unlocks a random enemy for you to bully. More info in settings')
 				}
-				if (day > 2){
+				if (day >= 2){
 					localStorage.ach16 = 1
+				}
+				if (day >= 3){
+					localStorage.ach48 = 1
 				}
 				for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
 					newSave('WFUstone', '')
@@ -1711,8 +1730,8 @@
 					hide('crew' + i)
 				}
 				show('xpR')
-				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
-				xpR.textContent = 'XP :  ' + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1))
+				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1)) * xpMulti
+				xpR.textContent = 'XP :  ' + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1)) * xpMulti
 				goldR.textContent = 'Gold earned:  ' + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)
 				localStorage.goldWFU = parseInt(localStorage.goldWFU) + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)
 				document.getElementById("miniplayer").style.background = 'url(miniDead.gif)'
@@ -1760,7 +1779,7 @@
 					if (ob2 === 2){
 						a = a + adrop('vent',2000)
 					}
-					if (ob2 === 2){
+					if (ob3 === 2){
 						a = a + adrop('flareGun',2000)
 					}
 					show('anomR')
@@ -1768,6 +1787,16 @@
 				}
 			}
 		}
+	}
+	function pauseGame(){
+		if (pause === 0){
+			pause = 1
+			show('pause')
+		} else {
+			pause = 0
+			hide('pause')
+		}
+		newSave('ach49',1)
 	}
 	function pcontact(x, y, xSize, ySize, circle){ // player hitbox is 6-24 x , 6-44 y, x and y values can have an offest from entities hitbox
 		if (x + xSize >= parseInt(pl.style.left) + 6 && x <= parseInt(pl.style.left) + 24 && y + ySize >= parseInt(pl.style.top) + 6 && y <= parseInt(pl.style.top) + 44){
@@ -1787,7 +1816,11 @@
 		}
 	}
 	function pdam(dam){
-		hp.textContent = parseInt(hp.textContent) - dam
+		if (parseInt(hp.textContent) - dam < parseInt(Mhp.textContent)){
+			hp.textContent = parseInt(hp.textContent) - dam
+		} else {
+			hp.textContent = Mhp.textContent
+		}
 		if (parseInt(hp.textContent) <= 0){
 			document.getElementById("hp").style.width = 0
 			gaming = 3
@@ -2029,12 +2062,13 @@
 			for (let N = 10; N <= maxAnomSlots; N++){
 				if (localStorage.getItem('anom' + N)){
 					
-				} else {	
+				} else {
 					localStorage.setItem('anom' + N, item + rarity + bonus)
 					console.log('Collected a ' + rarity + ' ' + item + ' with bonus ' + bonus + ' in slot ' + N)
 					return 1
 				}
-			}		
+			}	
+			return 0
 		} else {
 			return 0
 		}
