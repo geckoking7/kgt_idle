@@ -24,6 +24,7 @@
 			<button id='btn14' onclick='hideAllMenu(); show("ifunlock")' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 445px;'>4th subfeature of inventory</button>
 			<button id='btn15' onclick='document.getElementById("ch33att").textContent = localStorage.att; chNst(33)' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 470px;'>Pain (Staring Gasby)</button>
 			<button id='btn16' onclick='chNst(37)' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 495px;'>Earns a domination</button>
+			<button id='btn17' onclick='d5u1st()' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 520px;'>Army of ants begins</button>
 		</div>
 		<div id='ch1' class='hide'>
 			<h4 class="lore" id="ch1">You wake up, in the middle of a something.<br>Confused of where you are, however, you have this feeling, of major dislike, of slightly less major hate.<br>Something, no, someone, has destroyed this place. Somebody needs to pay.<br>In front of you, you see a bunch of weird objects. What is this, green line, or the, flat piece of white.<br>Ok, what strange objects, but there is also this person next to them.<br><br>“Ah, Finally, you’re awake”</h4>
@@ -283,6 +284,16 @@
 			<h4 class="lore">You run, gunshots follow<br>Didn’t he give you a subfeature on your first win?<br>Where is Chris?<br>Why does this game exist?<br>No time for asking these stupid and unreasonable questions however, you reached a dead end</h4>
 			<button class="ch1but " style="top: 210px;" onclick='home()'>Lore = effort</button>
 		</div>
+		<div id='d5u1' class='hide'>
+			<img src="d5u1.png" alt="lore">
+			<h4 class="lore">More ants?<br>You ask Chris for the meaning behind this USB, since the world has taught you to avoid sticking random USBs in your possessions.<br>‘Geckoking actually added content????????’<br>Impossible. I know</h4>
+			<button class="ch1but " style="top: 195px;" onclick='d5u2st()'>yes</button>
+		</div>
+		<div id='d5u2' class='hide'>
+			<img src="d5u2.png" alt="lore">
+			<h4 class="lore">He inputs several lines on his computer and a *SHOCKER* ant drone like thing appears<br>“Upon creating one of these little guys your move move cooldowns in adventure reduce”<br>How does that make sense?<br>“However the ant drone is easily the weakest and least reliable drone there is”<br>Why did I put so much effort into making 2 PAGES of lore instead of one for this?</h4>
+			<button class="ch1but " style="top: 195px;" onclick='home()'>ok</button>
+		</div>
 	</body>
 	<script>
 		function hide(id){
@@ -308,6 +319,9 @@
 			if (parseInt(localStorage.gasbyc) >= 4){
 				show('btn16')
 			}
+			if (parseInt(localStorage.d5Tr) === 2){
+				show('btn17')
+			}
 		}
 		function hideAllMenu(){
 			for (let i = 1; i <= 38; i++) {
@@ -324,6 +338,8 @@
 			hide('d4u')
 			hide('ifunlock')
 			hide('ifunlock2')
+			hide('d5u1')
+			hide('d5u2')
 			hide('main')
 		}
 		function chNst(N){
@@ -349,6 +365,14 @@
 		function d3nN(N){
 			hideAllMenu()
 			show('d3n' + N)
+		}
+		function d5u1st(N){
+			hideAllMenu()
+			show('d5u1')
+		}
+		function d5u2st(N){
+			hideAllMenu()
+			show('d5u2')
 		}
 	</script>
 </html>

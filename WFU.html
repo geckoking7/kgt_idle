@@ -259,6 +259,7 @@
 	var blackSc = 0
 	var emuDelay = 0;
 	var pedT = 0;
+	var fireMulti = 1;
 	var keysPressed = [];
 	var imposter = false;
 	var crewT = 0;
@@ -345,7 +346,7 @@
 			document.getElementById("miniplayer").style.background = 'url(miniStart.gif)'
 			document.getElementById('htp').classList.add('hide')
 			setTimeout(game,2000)
-			localStorage.WFUcool = Math.floor(150 * (100 - parseInt(localStorage.CDLVL)) / 100)
+			localStorage.WFUcool = Math.floor(300 * (100 - parseInt(localStorage.CDLVL)) / 100)
 			hp.textContent = parseInt(localStorage.HLVL) + 3
 			Mhp.textContent = parseInt(localStorage.HLVL) + 3
 			if (localStorage.WFUstock === '1'){
@@ -369,6 +370,8 @@
 		wilk.style.left = 980
 		carUc = 0
 		carDc = 0
+		carup.style.top = 500
+		cardown.style.top = 50
 		guard1p.textContent = ''
 		guard2p.textContent = ''
 		emuDelay = 100;
@@ -654,14 +657,14 @@
 					carDc = 0
 				}
 				if (parseFloat(pl.style.left) > parseFloat(wilk.style.left) + 3 && wilkoTr === 1){
-					wilk.style.left = parseFloat(wilk.style.left) + (4-3/(day**0.3))
+					wilk.style.left = parseFloat(wilk.style.left) + 4 - 3 * (0.93 ** (day - 1))
 				} else if (parseFloat(pl.style.left) < parseFloat(wilk.style.left) - 3 && wilkoTr === 1){
-					wilk.style.left = parseFloat(wilk.style.left) - (4-3/(day**0.3))
+					wilk.style.left = parseFloat(wilk.style.left) - 4 + 3 * (0.93 ** (day - 1))
 				}
 				if (parseFloat(pl.style.top) > parseFloat(wilk.style.top) + 3 && wilkoTr === 1){
-					wilk.style.top = parseFloat(wilk.style.top) + (4-3/(day**0.3))
+					wilk.style.top = parseFloat(wilk.style.top) + 4 - 3 * (0.93 ** (day - 1))
 				} else if (parseFloat(pl.style.top) < parseFloat(wilk.style.top) - 3 && wilkoTr === 1){
-					wilk.style.top = parseFloat(wilk.style.top) - (4-3/(day**0.3))
+					wilk.style.top = parseFloat(wilk.style.top) - 4 + 3 * (0.93 ** (day - 1))
 				}
 				if (pcontact(parseInt(wilk.style.left) + 4, parseInt(wilk.style.top) + 4, 22, 42)){
 					pdam(parseInt(hp.textContent))
@@ -1250,7 +1253,7 @@
 							makeFire(parseInt(eagle.style.left),parseInt(eagle.style.top),80,80,50)
 						}
 						document.getElementById('body').removeChild(bullet)
-					} else if (parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 30 || parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) + 30 && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 70 || parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) + 70 && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 100 && ob3 === 1 && cannonH > 0){
+					} else if ((parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 30 || parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) + 30 && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 70 || parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) + 70 && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 100) && ob3 === 1 && cannonH > 0 && cannonBoss.classList.contains('hide') === false){
 						cannonD()
 						if (parseInt(bullet.textContent[1]) === 2){
 							for (var i = 0; i <= 300; i++){
@@ -1684,7 +1687,7 @@
 				if (day >= 3){
 					localStorage.ach48 = 1
 				}
-				for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
+				for (let X = slotsFull; X < (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
 					newSave('WFUstone', '')
 					let stoneRNG = Math.floor(Math.random() * 25) + 1
 					if (stoneRNG === 1){
@@ -1754,7 +1757,7 @@
 				if (day > 2){
 					localStorage.ach16 = 1
 				}
-				for (let X = slotsFull; X <= (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
+				for (let X = slotsFull; X < (parseInt(localStorage.WFUslots)); X++){ //add drops to invent
 					newSave('WFUstone', '')
 					let stoneRNG = Math.floor(Math.random() * 25) + 1
 					if (stoneRNG === 1){
@@ -1789,7 +1792,7 @@
 		}
 	}
 	function pauseGame(){
-		if (gaming != 0){
+		if (gaming === 0){
 			if (pause === 0){
 				pause = 1
 				show('pause')
@@ -1882,16 +1885,16 @@
 		b.textContent = d + '' + curWea //first digit is direction then bullet type
 		b.style.left = parseFloat(pl.style.left) + 10 + Math.round(Math.cos(d * Math.PI / 2)) * 20
 		b.style.top = parseFloat(pl.style.top) + 25 - Math.round(Math.sin(d * Math.PI / 2)) * 30
-		attackC = 50 * curWea
+		attackC = 50 * curWea * fireMulti
 		document.getElementById("fbar").style.width = 0
 		document.getElementById("fbar").style.filter = 'grayscale(1)'
-		document.getElementById('fbar').textContent = 50 * curWea
+		document.getElementById('fbar').textContent = 50 * curWea * fireMulti
 		if (curWea === 2){
 			b.style.background = 'url("WFUflareProj.png")'
 		}
 	}
 	function fireWea2(d){ //2s cooldown
-		attackC = 100
+		attackC = 100 * fireMulti
 	}
 	function edam(id){
 		document.getElementById(id).classList.add('edam0')

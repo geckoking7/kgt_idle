@@ -1329,6 +1329,42 @@ h5{
     background-color: rgb(127,127,127);
 	z-index: 1;
 }
+#antBP{
+    position: absolute;
+    left: 587px;
+    top: 296px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#antUP{
+    position: absolute;
+    left: 367px;
+    top: 296px;
+    width: 0px;
+    height: 18px;
+    background-color: rgb(0,162,232);
+	z-index: 2;
+}
+#antMBP{
+    position: absolute;
+    left: 587px;
+    top: 296px;
+    width: 218px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
+#antMUP{
+    position: absolute;
+    left: 367px;
+    top: 296px;
+    width: 510px;
+    height: 18px;
+    background-color: rgb(127,127,127);
+	z-index: 1;
+}
 select{
 	width: 55px;
 	font-size: 12px;
@@ -1363,6 +1399,9 @@ select{
 .ususb{
 	background-image: url('dupg1.png');
 }
+.ususb2{
+	background-image: url('dupg5.png');
+}
 .ToEusb{
 	background-image: url('theoryusb.png');
 }
@@ -1386,6 +1425,9 @@ select{
 }
 .d4Uusb{
 	background-image: url('drone4usbu.png');
+}
+.d5usb{
+	background-image: url('d5usb.png');
 }
 #WFUlvlB{
 	background: url(WFUlvlB.png); 
@@ -1757,4 +1799,7 @@ select{
 }
 .airV2{
 	background: url('airV2.png');
+}
+.eraserV2{
+	background: url('eraserV2.png');
 }
