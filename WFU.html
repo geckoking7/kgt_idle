@@ -6,6 +6,7 @@
 	<style>
 	*{
 		margin: 0;
+		font-family: Arial;
 	}
 	.hide{
 		display: none;
@@ -657,14 +658,14 @@
 					carDc = 0
 				}
 				if (parseFloat(pl.style.left) > parseFloat(wilk.style.left) + 3 && wilkoTr === 1){
-					wilk.style.left = parseFloat(wilk.style.left) + 4 - 3 * (0.93 ** (day - 1))
+					wilk.style.left = parseFloat(wilk.style.left) + 4 - 3 * (0.92 ** (day - 1))
 				} else if (parseFloat(pl.style.left) < parseFloat(wilk.style.left) - 3 && wilkoTr === 1){
-					wilk.style.left = parseFloat(wilk.style.left) - 4 + 3 * (0.93 ** (day - 1))
+					wilk.style.left = parseFloat(wilk.style.left) - 4 + 3 * (0.92 ** (day - 1))
 				}
 				if (parseFloat(pl.style.top) > parseFloat(wilk.style.top) + 3 && wilkoTr === 1){
-					wilk.style.top = parseFloat(wilk.style.top) + 4 - 3 * (0.93 ** (day - 1))
+					wilk.style.top = parseFloat(wilk.style.top) + 4 - 3 * (0.92 ** (day - 1))
 				} else if (parseFloat(pl.style.top) < parseFloat(wilk.style.top) - 3 && wilkoTr === 1){
-					wilk.style.top = parseFloat(wilk.style.top) - 4 + 3 * (0.93 ** (day - 1))
+					wilk.style.top = parseFloat(wilk.style.top) - 4 + 3 * (0.92 ** (day - 1))
 				}
 				if (pcontact(parseInt(wilk.style.left) + 4, parseInt(wilk.style.top) + 4, 22, 42)){
 					pdam(parseInt(hp.textContent))
@@ -845,6 +846,9 @@
 							let thing = document.getElementById('crew' + i)//14, parseInt(cardown.style.top) + 6, 52, 88
 							if (parseFloat(thing.style.left) - 8 >= 508 && parseFloat(thing.style.left) - 24 <= 648 && parseFloat(thing.style.top) + 24 >= parseFloat(carup.style.top) && parseFloat(thing.style.top) - 94 <= parseFloat(carup.style.top) && carup.classList.contains('hide') == false || parseFloat(thing.style.left) - 8 >= 726 && parseFloat(thing.style.left) - 24 <= 844 && parseFloat(thing.style.top) + 24 >= parseFloat(cardown.style.top) && parseFloat(thing.style.top) - 94 <= parseFloat(cardown.style.top) && cardown.classList.contains('hide') == false){
 								hide('crew' + i)
+								if (document.getElementById('crew' + i).classList.contains('imposter')){
+									gaming = 1
+								}
 							}
 							if (thing.classList.contains('hide') == false){
 								let leffy = 1
