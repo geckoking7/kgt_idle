@@ -1113,7 +1113,7 @@ Restrictions: killed all enemies at caves at least once
 				<input id='pitemc4' type="checkbox" style='position: absolute; top: 490; left: 604;' title='Allow your normal (non-sniper) drones to collect bones' onclick='pitemDC(4)'>
 				<input id='pitemc5' type="checkbox" style='position: absolute; top: 530; left: 604;' title='Allow your normal (non-sniper) drones to collect extra beer' onclick='pitemDC(5)'>
 			</div>
-			<button id='premClear' style='font-size: 34; position: absolute; left: 845; top: 119; font-family: Arial; margin: 0; width: 50; height: 200; background: white; border: 1px black solid; padding: 0;' title='Clear the current drone from being refueled'>C L E A R</button>
+			<button id='premClear' style='font-size: 34; position: absolute; left: 845; top: 119; font-family: Arial; margin: 0; width: 50; height: 200; background: white; border: 1px black solid; padding: 0;' title='Clear the current drone from being refueled' onclick='premDroneClear()'>C L E A R</button>
 			<button id='redSpend' style='font-size: 34; position: absolute; left: 655; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: url("redSpend.png"); border: 1px #F00 solid; padding: 0;' title='Convert your red into experience for 1 R : 1000 Xp'></button>
 			<button id='greenSpend' style='font-size: 34; position: absolute; left: 725; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: #BFFFBF; border: 1px #0F0 solid; padding: 0; color: #070;' title='Spend your green'>S P E N D</button>
 			<h5 style='font-size: 40; position: absolute; left: 795; top: 380; font-family: Arial; margin: 0; color: rgb(255,0,0); text-align: center; width: 100px;' id='Rvalue'>0</h5>
@@ -15999,6 +15999,10 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('redInfo').setAttribute('title', 'Your goto drone for collecting your valuable RED\nUse this to gain a juicy health multiplier or some nutritious xp\nThis drone collects both sticks and bricks')
 			document.getElementById('greInfo').setAttribute('title', "Yup, that's right. Your purchase got you 2 WHOLE PREMIUM DRONES. Talk about value\nSend it off to get some of that GREEN to buy more stuff\nThis drone collects both stones and bones")
 		}
+		function premDroneClear(){
+			redDr.checked = false
+			greDr.checked = false
+		}
 		var totalpitemActive = 0;
 		function pitemDC(a){//switch checkboxes
 			newSave('pitemc1',0)
@@ -16022,19 +16026,19 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function pitemDc(){
 			if (localStorage.premDTr === '2'){
-				if (localStorage.pitemc1 === '1' && Math.random() <= 0.25){
+				if (localStorage.pitemc1 === '1' && Math.random() <= 0.2){
 					localStorage.pitem1 = parseInt(localStorage.pitem1) + 1
 				}
-				if (localStorage.pitemc2 === '1' && Math.random() <= 0.25){
+				if (localStorage.pitemc2 === '1' && Math.random() <= 0.2){
 					localStorage.pitem2 = parseInt(localStorage.pitem2) + 1
 				}
-				if (localStorage.pitemc3 === '1' && Math.random() <= 0.25){
+				if (localStorage.pitemc3 === '1' && Math.random() <= 0.2){
 					localStorage.pitem3 = parseInt(localStorage.pitem3) + 1
 				}
-				if (localStorage.pitemc4 === '1' && Math.random() <= 0.25){
+				if (localStorage.pitemc4 === '1' && Math.random() <= 0.2){
 					localStorage.pitem4 = parseInt(localStorage.pitem4) + 1
 				}
-				if (localStorage.pitemc5 === '1' && Math.random() <= 0.25){
+				if (localStorage.pitemc5 === '1' && Math.random() <= 0.2){
 					localStorage.pitem5 = parseInt(localStorage.pitem5) + 1
 				}
 				if (Math.random() <= 0.25){
@@ -18137,7 +18141,7 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function adrop(item,chance,rarity,bonus){ //anom = border + bonus type, anomi = item, anoma = background + title, rarity as C R E L Re Co, tier is number 1-7
-			if (localStorage.anomTr != 1){
+			if (localStorage.anomTr === '1'){
 				dropR = Math.floor(Math.random() * 10000) + 1
 				if (chance){
 					
