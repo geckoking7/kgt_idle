@@ -1,4 +1,4 @@
-<html> <!-- 19,39,16 <-- yes -->
+<html> <!-- 19,39,16 <-- yes --\>-->
 	<head>
 		<title>KillyGameyThing Idle</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
@@ -63,6 +63,7 @@
 		<button class="locked hide" style='left: 1027px; position: absolute; top: 5px; margin: 0;' id="h">don't</button>
 		<button class="openS hide" title='Settings and stuff' id="setB"></button>
 		<img src='red.png' id="red" style='width: 100%; height: 100%; opacity: 0; z-index: 69; pointer-events: none; position: absolute; left: 0; top: 0;'>
+		<h5 id='ligmaBalls' style='margin: 0;top: 400px; font-family: Comic Sans MS; position: absolute; font-size: 72px; width: 100%; text-align: center; z-index: 69; color: white; vertical-align: center;' class='hide'></h5>
 		<!-- lore -->
 		<h4 class="lore hide" id="ch1">You wake up, in the middle of a something.<br>Confused of where you are, however, you have this feeling, of major dislike, of slightly less major hate.<br>Something, no, someone, has destroyed this place. Somebody needs to pay.<br>In front of you, you see a bunch of weird objects. What is this, green line, or the, flat piece of white.<br>Ok, what strange objects, but there is also this person next to them.<br><br>“Ah, Finally, you’re awake”</h4>
 		<img src="ch1back.png" alt="lore" class=" hide" id="ch1b">
@@ -226,11 +227,82 @@
 		<div id='ch38' class='hide'>
 			<img src="ch38back.png" alt="lore">
 			<h4 class="lore">You run, gunshots follow<br>Didn’t he give you a subfeature on your first win?<br>Where is Chris?<br>Why does this game exist?<br>No time for asking these stupid and unreasonable questions however, you reached a dead end</h4>
-			<button class="ch1but " style="top: 210px;" onclick='advent()'>Lore = effort</button>
+			<button class="ch1but " style="top: 195px;" onclick='chNst(39); ch39ch()'>:c</button>
+		</div>
+		<div id='ch39' class='hide'>
+			<img src="ch39back.png" alt="lore" id='ch39back'>
+			<h4 class="lore">He slows down, seeing as you have no way to escape<br>Bargaining, you ask why he is so angry?<br>Instead of answering your question he asks this “Well, why did steve jobs die of ligma?”</h4>
+			<button id='ch39a' class="ch1but " style="top: 448px; width: 275px; left: 521;" onclick='chNst(40); localStorage.ch39 = 1;'>a)</button>
+			<button id='ch39b' class="ch1but " style="top: 468px; width: 275px; left: 521;" onclick='chNst(50); localStorage.ch39 = 2;'>b)</button>
+			<button id='ch39c' class="ch1but " style="top: 488px; width: 275px; left: 521;" onclick='ch52st(); localStorage.ligma = 1;'>c)</button>
+		</div>
+		<div id='ch40' class='hide'>
+			<img src="ch40back.png" alt="lore">
+			<h4 class="lore">Gasby drops his gun<br>“What?”<br>You repeat<br>Gasby looks stunned<br>“How did you know?”<br>If steve had any sense of a brain, he must of knew that<br>“Dear god”</h4>
+			<button class="ch1but " style="top: 240px;" onclick='ch41st()'>Ok</button>
+		</div>
+		<img src="ch45glitch.gif" alt="lore" id='glitch' class='hide'>
+		<div id='ch41' class='hide'>
+			<img src="ch41back.png" alt="lore">
+			<h4 class="loreU">Long ago, we had simple lives</h4>
+			<h4 class="loreU" style='left: 428;'>Through generation to generation, similar principles were kept constant</h4>
+			<h4 class="loreU" style='left: 673;'>These were things like taxes, the threat of nuclear war and a certain game developer’s lack of females</h4>
+		</div>
+		<div id='ch42' class='hide'>
+			<img src="ch42back.png" alt="lore">
+			<h4 class="loreU" style='left: 428;'>Then things changed</h4>
+		</div>
+		<div id='ch43' class='hide'>
+			<img src="ch43back.png" alt="lore">
+			<h4 class="loreU">First, the stars turned magenta</h4>
+			<h4 class="loreU" style='left: 428;'>Second, lots of people got snapped out of existence</h4>
+			<h4 class="loreU" style='left: 673;'>But, the worst thing of all, a portal formed</h4>
+		</div>
+		<div id='ch44' class='hide'>
+			<img src="ch44back.png" alt="lore">
+			<h4 class="loreU" style='left: 428;'>A total of 29 have ever ventured into it<br><br>0 were found</h4>
+		</div>
+		<div id='ch45' class='hide'>
+			<img src="ch45back.png" alt="lore">
+			<h4 class="loreU" style='left: 353; width: 336'>But if one ever finds this message, whether they are able to pause and read it or steal the knowledge from external means they must avoid the portal at all costs and {very important step that is left out of the story and replaced with text in curly brackets}</h4>
+		</div>
+		<div id='ch46' class='hide'>
+			<img src="ch46back.png" alt="lore">
+			<h4 class="lore">‘Ligma is thought to be given to those are too threatening’<br>Considered threatening to whom??<br>He faces the sky<br>‘I don’t know, ask Chris’<br><br></h4>
+			<button class="ch1but " style="top: 200px; left: 400px; width: 75;" onclick='chNst(47)'>Ask Chris</button>
+			<button class="ch1but " style="top: 200px; left: 500px; width: 200;" onclick='chNst(49)'>Let me play the f-ing game</button>
+		</div>
+		<div id='ch47' class='hide'>
+			<img src="ch47back.png" alt="lore">
+			<h4 class="lore">After a 2 hour journey of simulated exercise you finally reach the house<br>You ask chris<br>‘I don’t know, ask Gasby’</h4>
+			<button class="ch1but " style="top: 165px;" onclick='chNst(48)'>&emsp;</button>
+		</div>
+		<div id='ch48' class='hide'>
+			<img src="ch48back.png" alt="lore">
+			<h4 class="lore">"Well anyway, we need to get into zone 11, it seems to be another hidden base under Coder’s lab"<br>Ok but y tho<br>"I have gotten reports from sources that this is where they have created the killer robots, and it seems that they are improving them"<br>Yes<br>‘You need to go in there’<br>But y tho<br>"You want better drones don’t you?"</h4>
+			<button class="ch1but " style="top: 255px;" onclick='advent()'>Ok</button>
+		</div>
+		<div id='ch49' class='hide'>
+			<img src="ch49back.png" alt="lore">
+			<h4 class="lore">Studies have shown that not reading KGT idle lore is the most common cause of bitchlessness<br>‘There is some government laboratory below here, where they have created the killer robots’<br>But y tho<br>Gasby waves his gun around menacingly</h4>
+			<button class="ch1but " style="top: 185px;" onclick='advent()'>Ok</button>
+		</div>
+		<div id='ch50' class='hide'>
+			<img src="ch48back.png" alt="lore">
+			<h4 class="lore">Gasby drops his gun<br>“Dammit you didn’t say the line”<br>The line?<br>“Chris would only have let me kill you if he was wrong about you”<br>Yeeeeeeeeesssssssssss?<br>Gasby reads your look<br>“Well, now we have to put our fate in your hands”</h4>
+			<button class="ch1but " style="top: 235px;" onclick='chNst(51)'>Yes</button>
+		</div>
+		<div id='ch51' class='hide'>
+			<img src="ch51back.png" alt="lore">
+			<h4 class="lore">‘Under the coder’s lab is another laboratory, but is run by the government’<br>Yes x 3<br>‘Chris says that that is where the killer drones are created, aswell as other things’<br>Yes x 4<br>"Deal with them, aswell as the reading the zone’s book for advice will probably reward you with a plentiful array of things"<br>NOTE: There is a lack of a plentiful array of things because game dev lazy</h4>
+			<button class="ch1but " style="top: 235px;" onclick='vent()'>Ok</button>
+		</div>
+		<div id='ch52' class='hide'>
+			<h4 class="lore" id='ch52'></h4>
 		</div>
 		<div id='d5u1' class='hide'>
 			<img src="d5u1.png" alt="lore">
-			<h4 class="lore">More ants?<br>You ask Chris for the meaning behind this USB, since the world has taught you to avoid sticking random USBs in your possessions.<br>‘Geckoking actually added content????????’<br>Impossible. I know</h4>
+			<h4 class="lore">More ants?<br>You ask Chris for the meaning behind this USB, since the world has taught you to avoid sticking random USBs in your possessions.<br>"Geckoking actually added content????????"<br>Impossible. I know</h4>
 			<button class="ch1but " style="top: 195px;" onclick='d5u2st()'>yes</button>
 		</div>
 		<div id='d5u2' class='hide'>
@@ -768,6 +840,7 @@ Restrictions: killed all enemies at caves at least once
 			<button id='xpts' class='xptsr' title='Increase training speed by 4% - 1000 xp' style='position: absolute; top: 128px; left: 455px;'>1000</button>
 			<button id='xpis' class='xpisr' title='Add another item slot - 2000 xp' style='position: absolute; top: 128px; left: 495px;'></button>
 			<button id='xph3' class='xph3r' title='Increase health by 3% - 500 xp' style='position: absolute; top: 128px; left: 535px;'>500</button>
+			<button id='xpus' class='xpusr' title='Increase drone upgrade speed by 2% - 200 xp' style='position: absolute; top: 128px; left: 575px;'></button>
 		</div>
 		<div class='hide' id='itemLib'> <!-- make it hide and item not found texture-->
 			<img src="setBack.png" alt="Background of thing">
@@ -1075,24 +1148,32 @@ Restrictions: killed all enemies at caves at least once
 			<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
 			<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
 			<div id='droneRed'>
-				<h5 style='font-size: 20; position: absolute; left: 185; top: 280; font-family: Arial; margin: 0;' id='redDs'>1</h5>
-				<h5 style='font-size: 20; position: absolute; left: 235; top: 280; font-family: Arial; margin: 0;' id='redDc'>5</h5>
-				<h5 style='font-size: 20; position: absolute; left: 285; top: 280; font-family: Arial; margin: 0;' id='redDi'>2</h5>
-				<input id='redDr' type="radio" name='premDroneR' style='position: absolute; top: 258; left: 167;'>
-				<button class='premUbut' style='left: 165; top: 302;' id='redDsu'></button>
-				<button class='premUbut' style='left: 215; top: 302;' id='redDcu'></button>
-				<button class='premUbut' style='left: 265; top: 302;' id='redDiu'></button>
+				<h5 style='font-size: 20; position: absolute; left: 165; top: 280; font-family: Arial; margin: 0; text-align: center; width: 50px; padding: 0;' id='redDs'>1</h5>
+				<h5 style='font-size: 20; position: absolute; left: 215; top: 280; font-family: Arial; margin: 0; text-align: center; width: 50px; padding: 0;' id='redDc'>5</h5>
+				<h5 style='font-size: 20; position: absolute; left: 265; top: 280; font-family: Arial; margin: 0; text-align: center; width: 50px; padding: 0;' id='redDi'>2</h5>
+				<input id='redDr' type="radio" name='premDroneR' style='position: absolute; top: 258; left: 167;' onclick='redFuelCheck()'>
+				<button class='premUbut' style='left: 165; top: 302;' id='redDsu' onclick='premUpgradeSpeed(1)'></button>
+				<button class='premUbut' style='left: 215; top: 302;' id='redDcu' onclick='premUpgradeCost(1)'></button>
+				<button class='premUbut' style='left: 265; top: 302;' id='redDiu' onclick='premUpgradeItem(1)'></button>
 				<h5 class='info' style='left: 290; top: 230;' title='If you see this it is a bug :c. ALERT GECKOKING NOW' id='redInfo'></h5>
+				<div title='yes' id='redFuelTitle' style='position: absolute; width: 120px; background: transparent; top: 257; left: 192; height: 20px;'>
+					<div id='redFuelPro' style='position: absolute; width: 0; background: #7F0000; height: 20px;'></div>
+					<div id='redCollectPro' style='position: absolute; width: 0; background: #FF0000; height: 20px;'></div>
+				</div>
 			</div>
 			<div id='droneGreen'>
-				<h5 style='font-size: 20; position: absolute; left: 355; top: 280; font-family: Arial; margin: 0;' id='greDs'>1</h5>
-				<h5 style='font-size: 20; position: absolute; left: 405; top: 280; font-family: Arial; margin: 0;' id='greDc'>5</h5>
-				<h5 style='font-size: 20; position: absolute; left: 455; top: 280; font-family: Arial; margin: 0;' id='greDi'>2</h5>
-				<input id='greDr' type="radio" name='premDroneR' style='position: absolute; top: 258; left: 336;'>
-				<button class='premUbut' style='left: 335; top: 302;' id='greDsu'></button>
-				<button class='premUbut' style='left: 385; top: 302;' id='greDcu'></button>
-				<button class='premUbut' style='left: 435; top: 302;' id='greDiu'></button>
+				<h5 style='font-size: 20; position: absolute; left: 335; top: 280; font-family: Arial; margin: 0; text-align: center; width: 50px; padding: 0;' id='greDs'>1</h5>
+				<h5 style='font-size: 20; position: absolute; left: 385; top: 280; font-family: Arial; margin: 0; text-align: center; width: 50px; padding: 0;' id='greDc'>5</h5>
+				<h5 style='font-size: 20; position: absolute; left: 435; top: 280; font-family: Arial; margin: 0; text-align: center; width: 50px; padding: 0;' id='greDi'>2</h5>
+				<input id='greDr' type="radio" name='premDroneR' style='position: absolute; top: 258; left: 336;' onclick='greFuelCheck()'>
+				<button class='premUbut' style='left: 335; top: 302;' id='greDsu' onclick='premUpgradeSpeed(2)'></button>
+				<button class='premUbut' style='left: 385; top: 302;' id='greDcu' onclick='premUpgradeCost(2)'></button>
+				<button class='premUbut' style='left: 435; top: 302;' id='greDiu' onclick='premUpgradeItem(2)'></button>
 				<h5 class='info' style='left: 460; top: 230;' title='If you see this it is a bug :c ALERT GECKOKING NOW' id='greInfo'></h5>
+				<div title='yes' id='greFuelTitle' style='position: absolute; width: 120px; background: transparent; top: 257; left: 362; height: 20px;'>
+					<div id='greFuelPro' style='position: absolute; width: 0; background: #007F00; height: 20px;'></div>
+					<div id='greCollectPro' style='position: absolute; width: 0; background: #00FF00; height: 20px;'></div>
+				</div>
 			</div>
 			<div id='droneyellow'>
 				<h5 style='position: absolute; margin: 0; width: 150; height: 200; background: url("premLocked.png"); left: 505; top: 118;' title='This premium drone can be bought for only $39.99AUD, or from a kill bonus coming in the far future'></h5>
@@ -1114,11 +1195,11 @@ Restrictions: killed all enemies at caves at least once
 				<input id='pitemc5' type="checkbox" style='position: absolute; top: 530; left: 604;' title='Allow your normal (non-sniper) drones to collect extra beer' onclick='pitemDC(5)'>
 			</div>
 			<button id='premClear' style='font-size: 34; position: absolute; left: 845; top: 119; font-family: Arial; margin: 0; width: 50; height: 200; background: white; border: 1px black solid; padding: 0;' title='Clear the current drone from being refueled' onclick='premDroneClear()'>C L E A R</button>
-			<button id='redSpend' style='font-size: 34; position: absolute; left: 655; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: url("redSpend.png"); border: 1px #F00 solid; padding: 0;' title='Convert your red into experience for 1 R : 1000 Xp'></button>
+			<button id='redSpend' style='font-size: 34; position: absolute; left: 655; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: url("redSpend.png"); border: 1px #F00 solid; padding: 0;' title='Convert your red into experience for 1 R : 1000 Xp' onclick='redSpend()'></button>
 			<button id='greenSpend' style='font-size: 34; position: absolute; left: 725; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: #BFFFBF; border: 1px #0F0 solid; padding: 0; color: #070;' title='Spend your green'>S P E N D</button>
 			<h5 style='font-size: 40; position: absolute; left: 795; top: 380; font-family: Arial; margin: 0; color: rgb(255,0,0); text-align: center; width: 100px;' id='Rvalue'>0</h5>
-			<h5 style='font-size: 40; position: absolute; left: 795; top: 440; font-family: Arial; margin: 0; color: rgb(0,255,0); text-align: center; width: 100px;' id='Rvalue'>0</h5>
-			<h5 style='font-size: 40; position: absolute; left: 795; top: 500; font-family: Arial; margin: 0; color: rgb(0,0,255); text-align: center; width: 100px;' id='Rvalue'>0</h5>
+			<h5 style='font-size: 40; position: absolute; left: 795; top: 440; font-family: Arial; margin: 0; color: rgb(0,255,0); text-align: center; width: 100px;' id='Gvalue'>0</h5>
+			<h5 style='font-size: 40; position: absolute; left: 795; top: 500; font-family: Arial; margin: 0; color: rgb(0,0,255); text-align: center; width: 100px;' id='Bvalue'>0</h5>
 		</div>
 		<!-- GAMING FEATURE :O -->
 		<div id='gamefeature' class='hide'>
@@ -1265,6 +1346,7 @@ Restrictions: killed all enemies at caves at least once
 				<button style='top: 190; left: 162;' class='helpButton hide' title='thing_4' onclick=changeHelp(4) id='helpB4'>Gaming</button>
 				<button style='top: 215; left: 162;' class='helpButton' title='thing_5' onclick=changeHelp(5) id='helpB5'>Tech stuff</button>
 				<button style='top: 140; left: 262;' class='helpButton hide' title='thing_7' onclick=changeHelp(7) id='helpB7'>Training</button>
+				<button style='top: 165; left: 262;' class='helpButton hide' title='thing_8' onclick=changeHelp(8) id='helpB8'>Premium D</button>
 				<button style='top: 190; left: 262;' class='helpButton hide' title='thing_9' onclick=changeHelp(9) id='helpB9'>Enhanced</button>
 				<button style='top: 215; left: 262;' class='helpButton hide' title='thing_10' onclick=changeHelp(10) id='helpB10'>Achieves</button>
 				<button style='top: 140; left: 362;' class='helpButton hide' title='thing_12' onclick=changeHelp(12) id='helpB12'>Experience</button>
@@ -1352,6 +1434,24 @@ Restrictions: killed all enemies at caves at least once
 						Why did I think this was worthy of its own page?
 					</h1>
 				</div>
+				<div id='preH1' class='helpInfo hide'>
+					<h1 class='helpText'>Premium drones are an idle based subfeature in the drones tab-thing<br>
+						<br>
+						They collect 4 new items aswell as <span style='color: #F00; background: black;'>Red</span>, <span style='color: #0F0; background: black;'>Green</span> and <span style='color: #00F; background: black;'>Blue</span><br>
+						<span style='color: #F00; background: black;'>Red</span> = 1% health multiplier, exchangable for xp<br>
+						<span style='color: #0F0; background: black;'>Green</span> = purchases xp upgrades<br>
+						<span style='color: #00F; background: black;'>Blue</span> = :)<br>
+						<br>
+						These drones run on ethanol, which is easily obtained by beer<br>
+						Beer is obtained by all non-sniper drones with a 30% chance whenever they collect an item<br>
+						<br>
+						Normal drones (still not sniper) can additionally collect the 4 other items with a 10% chance and 
+						increase the beer collection chance by 10%, depending on the slots selected<br>
+						<br>
+						There is alot I probably missed but hopefully it is straight forward enough<br>
+					</h1>
+					<h5 class="upgrade" style='left: 300px; top: 350px; z-index: 2;'></h5>
+				</div>
 				<div id='enhH1' class='helpInfo hide'>
 					<h1 class='helpText'>THE BETTER ITEM DROP SYSTEM GAMEYTHING<br>
 						DO YOU want to see numbers go up?<br>
@@ -1399,7 +1499,9 @@ Restrictions: killed all enemies at caves at least once
 				</div>
 				<div id='expH1' class='helpInfo hide'>
 					<h1 class='helpText'>Get Xp from doing things<br>
-						Then press leftMouseButton to buy a something
+						Then press leftMouseButton to buy a something<br>
+						Also the upgrades things on the top row are expodential while the the upgrades on the right are linear<br>
+						I doubt anyone can understand that<br>
 					</h1>
 				</div>
 				<div id='libH1' class='helpInfo hide'>
@@ -1710,8 +1812,9 @@ Restrictions: killed all enemies at caves at least once
 		var advmusic = new Audio('advmusic.mp3');
 		var clicked = new Audio('buttonClicked.mp3');
 		var domination = new Audio('tf_domination.mp3');
+		var gunshot = new Audio('gunshot.mp3');
 		localStorage.WFUmlvl = 3;
-		var lore = 38;
+		var lore = 52;
 		var wikiTr = 0;
 		var wikiCh = 4;
 		var MSnum = 0;
@@ -1720,7 +1823,7 @@ Restrictions: killed all enemies at caves at least once
 		var Qn = 0;
 		var backValue = 0;
 		const totalAch = 50;
-		const totalItems = 66;
+		const totalItems = 67;
 		const totalZones = 11;
 		const maxAnomSlots = 23;
 		var currentAch = 0;
@@ -2833,6 +2936,8 @@ Restrictions: killed all enemies at caves at least once
 			hideStart.classList.add('blocc')
 			hideStart.classList.remove('hide')
 			document.getElementById('body').style.background = localStorage.bgColor
+			redGo(0)
+			greGo(0)
 			save()
 		}
 		function advmus(){
@@ -3417,14 +3522,14 @@ Restrictions: killed all enemies at caves at least once
 				if (parseInt(localStorage.susc) > 0 && parseInt(localStorage.grass2c) > 0 && parseInt(localStorage.ctrlhc) > 0 && parseInt(localStorage.bingc) > 0 && parseInt(localStorage.greenc) > 0 && parseInt(localStorage.gravityc) > 0 && parseInt(localStorage.ant3c) > 0 && parseInt(localStorage.ec) > 0){
 					document.getElementById('taroy').classList.replace('btny','btng')
 				}
-				if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && localStorage.ch37Tr === '1'){ //change when fully finshed
+				if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && parseInt(localStorage.ch37Tr) >= 1){ //change when fully finshed
 					document.getElementById('urf').classList.replace('btnr','btny')
 					document.getElementById('urf').setAttribute('title',"Underground Research Facility: " + (ifFound('item60',1) + ifFound('item62',1) + ifFound('item67',1)) + ' out of 3 item found')
 				}
 				if (parseInt(localStorage.guard2c) > 0 && parseInt(localStorage.headcrabc) > 0 && parseInt(localStorage.portalrobotc) > 0 && parseInt(localStorage.freemanc) > 0 && parseInt(localStorage.sci1c) > 0 && parseInt(localStorage.sci2c) > 0 && parseInt(localStorage.sci3c) > 0 && parseInt(localStorage.killerrobotc) > 0){
 					document.getElementById('urf').classList.replace('btny','btng')
 				}
-			} else if (parseInt(localStorage.gasbyc) > 0){
+			} else if (parseInt(localStorage.gasbyc) > 0 && (localStorage.gasbyL1 === 1) === false){
 				localStorage.gasbyL1 = 1
 				if (existTr(localStorage.item58) === false){
 					idrop('LotG','Luck of the Game III - A gift from the gasby gaming',10000)
@@ -4865,12 +4970,13 @@ Restrictions: killed all enemies at caves at least once
 							}
 							itemN = itemN + 1
 						}
+						if (localStorage.stemF === '2'){
+							flash(document.getElementById('inventory'))
+						}
+						return true
 					}
 				}
-				if (localStorage.stemF === '2'){
-					flash(document.getElementById('inventory'))
-				}
-				return true
+				return false
 			} else {
 				return false
 			}
@@ -6042,10 +6148,14 @@ Restrictions: killed all enemies at caves at least once
 			hp2.textContent = 0
 		}
 		function setStats(){
+			var hpMulti = 1
+			if (localStorage.premDTr === '2'){
+				hpMulti = 1 + parseInt(localStorage.redCur) / 100
+			}
 			if (localStorage.IFTr === '1' && localStorage.hpM){
-				mhp.textContent = Math.floor(parseInt(localStorage.mhp) * parseFloat(localStorage.hpM) * (1000 + parseInt(localStorage.itemHpBonus)) / 1000)
+				mhp.textContent = Math.floor(parseInt(localStorage.mhp) * parseFloat(localStorage.hpM) * hpMulti * (1000 + parseInt(localStorage.itemHpBonus)) / 1000)
 			} else if (localStorage.hpM){
-				mhp.textContent = Math.floor(parseInt(localStorage.mhp) * parseFloat(localStorage.hpM))
+				mhp.textContent = Math.floor(parseInt(localStorage.mhp) * parseFloat(localStorage.hpM) * hpMulti)
 			} else {
 				mhp.textContent = localStorage.mhp
 			}
@@ -11662,7 +11772,7 @@ Restrictions: killed all enemies at caves at least once
 								localStorage.gasbyc = parseInt(localStorage.gasbyc) + 1
 								KBify(localStorage.gasbyc)
 								advc.textContent = parseInt(advC.textContent)
-								if (parseInt(localStorage.gasbyc) >= 4 && localStorage.ch37Tr !== '1'){
+								if (parseInt(localStorage.gasbyc) >= 4 && localStorage.ch37Tr !== '2'){
 									ch37st(1)
 								} else {
 									if (localStorage.FSZf === '2' && FPzone(9)){
@@ -12248,7 +12358,7 @@ Restrictions: killed all enemies at caves at least once
 		var upTr = 0;
 		urf.onclick = urfbat;
 		function urfbat(enemyN, thingTr){
-			if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && localStorage.ch37Tr === '1' && (thingTr === 1 && document.getElementById('z11').classList.contains('hide') === false || thingTr != 1) || enemyN >= 0 && enemyN <= 8){
+			if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && parseInt(localStorage.ch37Tr) >= 1 && (thingTr === 1 && document.getElementById('z11').classList.contains('hide') === false || thingTr != 1) || enemyN >= 0 && enemyN <= 8){
 				sadvmus()
 				setStats()
 				startBat()
@@ -12867,6 +12977,8 @@ Restrictions: killed all enemies at caves at least once
 					enemykill(11)
 					localStorage.xp = parseFloat(localStorage.xp) + xpMulti(300)
 					hide('sci3')
+					hide('portal1')
+					hide('portal2')
 					show('sciD')
 					newSave('sci3c',0)
 					localStorage.sci3c = parseInt(localStorage.sci3c) + 1
@@ -15937,6 +16049,30 @@ Restrictions: killed all enemies at caves at least once
 			hide('usbVent')
 			hide('zoneLib')
 			show('premDrone')
+			newSave('redCur',0)
+			newSave('greenCur',0)
+			newSave('blueCur',0)
+			Rvalue.textContent = localStorage.redCur
+			Gvalue.textContent = localStorage.greenCur
+			Bvalue.textContent = localStorage.blueCur
+			newSave('redFuelP',0)
+			newSave('redCollectP',0)
+			redFuelPro.style.width = localStorage.redFuelP
+			redCollectPro.style.width = localStorage.redCollectP
+			if (parseInt(localStorage.redFuelP) < 120){
+				redFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.redFuelP)) / (parseInt(localStorage.redDsl) / 5 + 1)) + ' seconds left for fuelling')
+			} else {
+				redFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.redCollectP))) + ' seconds left until drone comes back')
+			}
+			newSave('greFuelP',0)
+			newSave('greCollectP',0)
+			greFuelPro.style.width = localStorage.greFuelP
+			greCollectPro.style.width = localStorage.greCollectP
+			if (parseFloat(localStorage.greFuelP) < 120){
+				greFuelTitle.setAttribute('title', Math.ceil((120 - parseFloat(localStorage.greFuelP)) / (parseInt(localStorage.greDsl) / 5 + 1)) + ' seconds left for fuelling')
+			} else {
+				greFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.greCollectP))) + ' seconds left until drone comes back')
+			}
 			newSave('redDsl', 0)
 			newSave('redDcl', 0)
 			newSave('redDil', 0)
@@ -15978,30 +16114,155 @@ Restrictions: killed all enemies at caves at least once
 			pitemS.textContent = totalpitemActive + '/' + localStorage.pitemSlots
 			document.getElementById('redDs').textContent = (parseInt(localStorage.redDsl) / 5) + 1
 			document.getElementById('redDsu').setAttribute('title', 'Increase the fueling speed for the red drone:\n  ' + (2 * ((parseInt(localStorage.redDsl) + 1) ** 2)) + ' sticks and stones\n  Purchasing this increases the fuelling cost by 1')
-			document.getElementById('redDc').textContent = 5 + parseInt(localStorage.redDsl) + (parseInt(localStorage.redDsl) * 2) - parseInt(localStorage.redDcl)
+			document.getElementById('redDc').textContent = 5 + parseInt(localStorage.redDsl) + parseInt(localStorage.redDil) - parseInt(localStorage.redDcl)
 			if (parseInt(document.getElementById('redDc').textContent) <= 3){
 				document.getElementById('redDcu').setAttribute('title', 'Minimun fueling cost reached')
 			} else {
 				document.getElementById('redDcu').setAttribute('title', 'Decrease the fueling cost for the red drone:\n  ' + (4 * parseInt(localStorage.redDcl) + 4) + ' bricks and bones')
 			}
-			document.getElementById('redDi').textContent = parseInt(localStorage.redDsl) + 2
-			document.getElementById('redDiu').setAttribute('title', 'Increase the items collected from the red drone:\n  ' + (((parseInt(localStorage.redDil) + 1) ** 2)) + ' sticks, stones, bricks and bones\n  Purchasing this increases the fuelling cost by 2')
+			document.getElementById('redDi').textContent = parseInt(localStorage.redDil) + 2
+			document.getElementById('redDiu').setAttribute('title', 'Increase the items collected from the red drone:\n  ' + (((parseInt(localStorage.redDil) + 1) ** 2)) + ' sticks, stones, bricks and bones\n  Purchasing this increases the fuelling cost by 1')
 			document.getElementById('greDs').textContent = (parseInt(localStorage.greDsl) / 5) + 1
 			document.getElementById('greDsu').setAttribute('title', 'Increase the fueling speed for the green drone:\n  ' + (2 * ((parseInt(localStorage.greDsl) + 1) ** 2)) + ' sticks and stones\n  Purchasing this increases the fuelling cost by 1')
-			document.getElementById('greDc').textContent = 5 + parseInt(localStorage.greDsl) + (parseInt(localStorage.greDsl) * 2) - parseInt(localStorage.greDcl)
+			document.getElementById('greDc').textContent = 5 + parseInt(localStorage.greDsl) + parseInt(localStorage.greDil) - parseInt(localStorage.greDcl)
 			if (parseInt(document.getElementById('greDc').textContent) <= 3){
 				document.getElementById('greDcu').setAttribute('title', 'Minimun fueling cost reached')
 			} else {
 				document.getElementById('greDcu').setAttribute('title', 'Decrease the fueling cost for the green drone:\n  ' + (4 * parseInt(localStorage.greDcl) + 4) + ' bricks and bones')
 			}
-			document.getElementById('greDi').textContent = parseInt(localStorage.greDsl) + 2
-			document.getElementById('greDiu').setAttribute('title', 'Increase the items collected from the green drone:\n  ' + (((parseInt(localStorage.greDil) + 1) ** 2)) + ' sticks, stones, bricks and bones\n  Purchasing this increases the fuelling cost by 2')
+			document.getElementById('greDi').textContent = parseInt(localStorage.greDil) + 2
+			document.getElementById('greDiu').setAttribute('title', 'Increase the items collected from the green drone:\n  ' + (((parseInt(localStorage.greDil) + 1) ** 2)) + ' sticks, stones, bricks and bones\n  Purchasing this increases the fuelling cost by 1')
 			document.getElementById('redInfo').setAttribute('title', 'Your goto drone for collecting your valuable RED\nUse this to gain a juicy health multiplier or some nutritious xp\nThis drone collects both sticks and bricks')
 			document.getElementById('greInfo').setAttribute('title', "Yup, that's right. Your purchase got you 2 WHOLE PREMIUM DRONES. Talk about value\nSend it off to get some of that GREEN to buy more stuff\nThis drone collects both stones and bones")
 		}
 		function premDroneClear(){
 			redDr.checked = false
 			greDr.checked = false
+		}
+		var redFTr = 0;
+		function redFuelCheck(){
+			if (redFTr === 0){
+				redFTr = 1
+				redFuelling()
+			}
+		}
+		function redFuelling(){
+			if (redDr.checked === true){
+				if (parseInt(localStorage.redFuelP) === 0 && parseInt(localStorage.pitem5) - 5 - parseInt(localStorage.redDsl) - parseInt(localStorage.redDsl) + parseInt(localStorage.redDcl) >= 0){
+					localStorage.pitem5 = parseInt(localStorage.pitem5) - 5 - parseInt(localStorage.redDsl) - parseInt(localStorage.redDil) + parseInt(localStorage.redDcl)
+					localStorage.redFuelP = parseInt(localStorage.redFuelP) + parseInt(localStorage.redDsl) / 5 + 1
+					redFuelPro.style.width = localStorage.redFuelP
+					redFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.redFuelP)) / (parseInt(localStorage.redDsl) / 5 + 1)) + ' seconds left for fuelling')
+					pitem5.textContent = localStorage.pitem5
+				} else if (parseInt(localStorage.redFuelP) < 120 && parseInt(localStorage.redFuelP) > 0){//120 is width
+					localStorage.redFuelP = parseInt(localStorage.redFuelP) + parseInt(localStorage.redDsl) / 5 + 1
+					redFuelPro.style.width = localStorage.redFuelP
+					redFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.redFuelP)) / (parseInt(localStorage.redDsl) / 5 + 1)) + ' seconds left for fuelling')
+				} else {
+					redGo(redCTr)
+					redCTr === 1
+				}
+				setTimeout(redFuelling, 1000)
+			} else {
+				redFTr = 0
+			}
+		}
+		redCTr = 0
+		function redGo(a){//thing collects items without the need of the radio being pressed
+			if (a === 0){
+				if (parseInt(localStorage.redCollectP) >= 120){
+					localStorage.redFuelP = 0
+					localStorage.redCollectP = 0
+					for (i = 0; i < parseInt(localStorage.redDsl) + 2; i++){
+						if (Math.floor() <= 0.5){
+							localStorage.pitem1 = parseInt(localStorage.pitem1) + 1
+						} else {
+							localStorage.pitem3 = parseInt(localStorage.pitem3) + 1
+						}
+					}
+					localStorage.redCur = parseInt(localStorage.redCur) + 3
+					localStorage.greenCur = parseInt(localStorage.greenCur) + 1
+					localStorage.blueCur = parseInt(localStorage.blueCur) + 1
+					redFuelPro.style.width = 0
+					redCollectPro.style.width = 0
+					redFuelTitle.setAttribute('title', Math.ceil(120 / (parseInt(localStorage.redDsl) / 5 + 1)) + ' seconds left for fuelling')
+					redCTr = 0
+					Rvalue.textContent = localStorage.redCur
+					Gvalue.textContent = localStorage.greenCur
+					Bvalue.textContent = localStorage.blueCur
+					pitem1.textContent = localStorage.pitem1
+					pitem2.textContent = localStorage.pitem2
+				} else if (parseInt(localStorage.redFuelP) >= 120){
+					localStorage.redFuelP = 120
+					localStorage.redCollectP = parseInt(localStorage.redCollectP) + 1
+					redCollectPro.style.width = localStorage.redCollectP
+					redFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.redCollectP))) + ' seconds left until drone comes back')
+					setTimeout(redGo, 1000, 0)
+				}
+			}
+		}
+		var greFTr = 0;
+		function greFuelCheck(){
+			if (greFTr === 0){
+				greFTr = 1
+				greFuelling()
+			}
+		}
+		function greFuelling(){
+			if (greDr.checked === true){
+				if (parseFloat(localStorage.greFuelP) === 0 && parseInt(localStorage.pitem5) - 5 - parseInt(localStorage.greDsl) - parseInt(localStorage.greDsl) + parseInt(localStorage.greDcl) >= 0){
+					localStorage.pitem5 = parseInt(localStorage.pitem5) - 5 - parseInt(localStorage.greDsl) - parseInt(localStorage.greDsl) + parseInt(localStorage.greDcl)
+					localStorage.greFuelP = parseFloat(localStorage.greFuelP) + parseInt(localStorage.greDsl) / 5 + 1
+					greFuelPro.style.width = localStorage.greFuelP
+					pitem5.textContent = localStorage.pitem5
+					greFuelTitle.setAttribute('title', Math.ceil((120 - parseFloat(localStorage.greFuelP)) / (parseInt(localStorage.greDsl) / 5 + 1)) + ' seconds left for fuelling')
+				} else if (parseFloat(localStorage.greFuelP) < 120 && parseInt(localStorage.greFuelP) > 0){//120 is width
+					localStorage.greFuelP = parseFloat(localStorage.greFuelP) + parseInt(localStorage.greDsl) / 5 + 1
+					greFuelPro.style.width = localStorage.greFuelP
+					greFuelTitle.setAttribute('title', Math.ceil((120 - parseFloat(localStorage.greFuelP)) / (parseInt(localStorage.greDsl) / 5 + 1)) + ' seconds left for fuelling')
+					
+				} else {
+					greGo(greCTr)
+					greCTr = 1
+				}
+				setTimeout(greFuelling, 1000)
+			} else {
+				greFTr = 0
+			}
+		}
+		greCTr = 0
+		function greGo(a){//thing collects items without the need of the radio being pressed
+			if (a === 0){
+				if (parseInt(localStorage.greCollectP) >= 120){
+					localStorage.greFuelP = 0
+					localStorage.greCollectP = 0
+					for (i = 0; i < parseInt(localStorage.greDsl) + 2; i++){
+						if (Math.floor() <= 0.5){
+							localStorage.pitem2 = parseInt(localStorage.pitem2) + 1
+						} else {
+							localStorage.pitem4 = parseInt(localStorage.pitem4) + 1
+						}
+					}
+					localStorage.redCur = parseInt(localStorage.redCur) + 1
+					localStorage.greenCur = parseInt(localStorage.greenCur) + 3
+					localStorage.blueCur = parseInt(localStorage.blueCur) + 1
+					greFuelPro.style.width = 0
+					greCollectPro.style.width = 0
+					greFuelTitle.setAttribute('title', Math.ceil(120 / (parseInt(localStorage.greDsl) / 5 + 1)) + ' seconds left for fuelling')
+					greCTr = 0
+					Rvalue.textContent = localStorage.redCur
+					Gvalue.textContent = localStorage.greenCur
+					Bvalue.textContent = localStorage.blueCur
+					pitem3.textContent = localStorage.pitem3
+					pitem4.textContent = localStorage.pitem4
+				} else if (parseFloat(localStorage.greFuelP) >= 120){
+					localStorage.greFuelP = 120
+					localStorage.greCollectP = parseInt(localStorage.greCollectP) + 1
+					greCollectPro.style.width = localStorage.greCollectP
+					greFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.greCollectP))) + ' seconds left until drone comes back')
+					setTimeout(greGo, 1000, 0)
+				}
+			}
 		}
 		var totalpitemActive = 0;
 		function pitemDC(a){//switch checkboxes
@@ -16026,29 +16287,79 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function pitemDc(){
 			if (localStorage.premDTr === '2'){
-				if (localStorage.pitemc1 === '1' && Math.random() <= 0.2){
+				if (localStorage.pitemc1 === '1' && Math.random() <= 0.1){
 					localStorage.pitem1 = parseInt(localStorage.pitem1) + 1
+					console.log('Drone collect pitem1')
 				}
-				if (localStorage.pitemc2 === '1' && Math.random() <= 0.2){
+				if (localStorage.pitemc2 === '1' && Math.random() <= 0.1){
 					localStorage.pitem2 = parseInt(localStorage.pitem2) + 1
+					console.log('Drone collect pitem2')
 				}
-				if (localStorage.pitemc3 === '1' && Math.random() <= 0.2){
+				if (localStorage.pitemc3 === '1' && Math.random() <= 0.1){
 					localStorage.pitem3 = parseInt(localStorage.pitem3) + 1
+					console.log('Drone collect pitem3')
 				}
-				if (localStorage.pitemc4 === '1' && Math.random() <= 0.2){
+				if (localStorage.pitemc4 === '1' && Math.random() <= 0.1){
 					localStorage.pitem4 = parseInt(localStorage.pitem4) + 1
+					console.log('Drone collect pitem4')
 				}
-				if (localStorage.pitemc5 === '1' && Math.random() <= 0.2){
+				if (localStorage.pitemc5 === '1' && Math.random() <= 0.1){
 					localStorage.pitem5 = parseInt(localStorage.pitem5) + 1
+					console.log('Drone collect pitem5a')
 				}
-				if (Math.random() <= 0.25){
+				if (Math.random() <= 0.3){
 					localStorage.pitem5 = parseInt(localStorage.pitem5) + 1
+					console.log('Drone collect pitem5b')
 				}
 				pitem1.textContent = localStorage.pitem1
-			pitem2.textContent = localStorage.pitem2
-			pitem3.textContent = localStorage.pitem3
-			pitem4.textContent = localStorage.pitem4
-			pitem5.textContent = localStorage.pitem5
+				pitem2.textContent = localStorage.pitem2
+				pitem3.textContent = localStorage.pitem3
+				pitem4.textContent = localStorage.pitem4
+				pitem5.textContent = localStorage.pitem5
+			}
+		}
+		function premThing(a){
+			if (a === 1){
+				return 'red'
+			} else if (a === 2){
+				return 'gre'
+			} else if (a === 3){
+				return 'yel'
+			} else if (a === 4){
+				return 'blue'
+			}
+		}
+		function premUpgradeSpeed(no){
+			if (parseInt(localStorage.pitem1) >= 2 * (parseInt(localStorage.getItem(premThing(no) + 'Dsl')) + 1) ** 2 && parseInt(localStorage.pitem2) >= 2 * (parseInt(localStorage.getItem(premThing(no) + 'Dsl')) + 1) ** 2){
+				localStorage.pitem1 = parseInt(localStorage.pitem1) - (2 * (parseInt(localStorage.getItem(premThing(no) + 'Dsl')) + 1) ** 2)
+				localStorage.pitem2 = parseInt(localStorage.pitem2) - (2 * (parseInt(localStorage.getItem(premThing(no) + 'Dsl')) + 1) ** 2)
+				localStorage.setItem(premThing(no) + 'Dsl', parseInt(localStorage.getItem(premThing(no) + 'Dsl')) + 1)
+				premDroneOn()
+			}
+		}
+		function premUpgradeCost(no){
+			if (parseInt(localStorage.pitem3) >= 4 * (parseInt(localStorage.getItem(premThing(no) + 'Dcl')) + 1) && parseInt(localStorage.pitem4) >= 4 * (parseInt(localStorage.getItem(premThing(no) + 'Dcl')) + 1)){
+				localStorage.pitem3 = parseInt(localStorage.pitem3) - 4 * (parseInt(localStorage.getItem(premThing(no) + 'Dcl')) + 1)
+				localStorage.pitem4 = parseInt(localStorage.pitem4) - 4 * (parseInt(localStorage.getItem(premThing(no) + 'Dcl')) + 1)
+				localStorage.setItem(premThing(no) + 'Dcl', parseInt(localStorage.getItem(premThing(no) + 'Dcl')) + 1)
+				premDroneOn()
+			}
+		}
+		function premUpgradeItem(no){
+			if (parseInt(localStorage.pitem1) >= (parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1) ** 2 && parseInt(localStorage.pitem2) >= (parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1) ** 2 && parseInt(localStorage.pitem3) >= (parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1) ** 2 && parseInt(localStorage.pitem4) >= (parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1) ** 2){
+				localStorage.pitem1 = parseInt(localStorage.pitem1) - (parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1) ** 2
+				localStorage.pitem2 = parseInt(localStorage.pitem2) - (parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1) ** 2
+				localStorage.pitem3 = parseInt(localStorage.pitem3) - (parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1) ** 2
+				localStorage.pitem4 = parseInt(localStorage.pitem4) - (parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1) ** 2
+				localStorage.setItem(premThing(no) + 'Dil', parseInt(localStorage.getItem(premThing(no) + 'Dil')) + 1)
+				premDroneOn()
+			}
+		}
+		function redSpend(){
+			if (parseInt(localStorage.redCur) >= 1){
+				localStorage.redCur = parseInt(localStorage.redCur) - 1
+				localStorage.xp = parseInt(localStorage.xp) + 1000
+				Rvalue.textContent = localStorage.redCur
 			}
 		}
 		trainB.onclick = trainOn;
@@ -16068,36 +16379,21 @@ Restrictions: killed all enemies at caves at least once
 			hide('waterc')
 			hide('eraserp')
 			hide('eraserc')
-				var a = document.getElementById('balloonp')
-				a.classList.add('hide')
-				var a = document.getElementById('balloonc')
-				a.classList.add('hide')
-				var a = document.getElementById('pebblep')
-				a.classList.add('hide')
-				var a = document.getElementById('pebblec')
-				a.classList.add('hide')
-				var hideStart = document.getElementById('fields')
-				hideStart.classList.add('hide')
-				var a = document.getElementById('ch2')
-				a.classList.add('hide')
-				var a = document.getElementById('invent')
-				a.classList.add('hide')
-				var a = document.getElementById('slots')
-				a.classList.add('hide')
-				var a = document.getElementById('tutzobook')
-				a.classList.add('hide')
-				var a = document.getElementById('mhp')
-				a.classList.add('hide')
-				var a = document.getElementById('att')
-				a.classList.add('hide')
-				var a = document.getElementById('def')
-				a.classList.add('hide')
-				var a = document.getElementById('reg')
-				a.classList.add('hide')
-				var a = document.getElementById('library')
-				a.classList.add('hide')
-				var a = document.getElementById('XP')
-				a.classList.add('hide')
+			hide('balloonp')
+			hide('balloonc')
+			hide('pebblep')
+			hide('pebblec')
+			hide('fields')
+			hide('ch2')
+			hide('invent')
+			hide('slots')
+			hide('tutzobook')
+			hide('mhp')
+			hide('att')
+			hide('def')
+			hide('reg')
+			hide('library')
+			hide('XP')
 			hide('enemykills')
 			hide('fieldLib')
 			hide('skybook')
@@ -16267,8 +16563,7 @@ Restrictions: killed all enemies at caves at least once
 				var a = document.getElementById('dodgeb')
 				a.classList.add('dodgecool')
 				a.classList.remove('dodge')
-				var a = document.getElementById('blockmoves')
-				a.classList.remove('hide')
+				show('blockmoves')
 				checkXp()
 			}
 		}
@@ -16403,8 +16698,7 @@ Restrictions: killed all enemies at caves at least once
 				hide('grassp')
 				hide('libBack')
 				hide('paperp')
-				var a = document.getElementById('stickp')
-				a.classList.add('hide')
+				hide('stickp')
 				var a = document.getElementById('antp')
 				a.classList.add('hide')
 				var a = document.getElementById('antc')
@@ -16453,16 +16747,9 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.add('hide')
 				var a = document.getElementById('skybook')
 				a.classList.add('hide')
-				var a = document.getElementById('skyLib')
-				a.classList.add('hide')
-			var a = document.getElementById('XP')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			if (localStorage.xpis){
-				
-			} else {
-				localStorage.xpis = 2000
-			}
+				hide('skyLib')
+			show('XP')
+			newSave('xpis',2000)
 			document.getElementById('xpis').setAttribute('title', 'Add another item slot - ' + parseInt(localStorage.xpis) +' xp')
 			newSave('xph3', 500)
 			document.getElementById('xph3').setAttribute('title', 'Increase health by 3% - ' + parseInt(localStorage.xph3) + ' xp')
@@ -16498,6 +16785,10 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('xph3').classList.add('xph3g')
 				document.getElementById('xph3').classList.remove('xph3r')
 			}
+			newSave('xpus',200)
+			if (parseInt(localStorage.xp) >= parseInt(localStorage.xpus)){
+				document.getElementById('xpus').classList.replace('xpusr','xpusg')
+			}
 		}
 		function checkXp(){
 			xp.textContent = localStorage.xp
@@ -16531,6 +16822,11 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('xph3').classList.add('xph3g')
 				document.getElementById('xph3').classList.remove('xph3r')
 			}
+			document.getElementById('xpus').classList.replace('xpusg','xpusr')
+			if (parseInt(localStorage.xp) >= parseInt(localStorage.xpus)){
+				document.getElementById('xpus').classList.replace('xpusr','xpusg')
+			}
+			save()
 		}
 		xpdc.onclick = xpdcC;
 		function xpdcC(){
@@ -16581,40 +16877,32 @@ Restrictions: killed all enemies at caves at least once
 			}
 			checkXp()
 		}
+		xpus.onclick = xpusC;
+		function xpusC(){
+			if (parseInt(localStorage.xp) >= parseInt(localStorage.xpus)){
+				localStorage.xp = parseInt(localStorage.xp) - parseInt(localStorage.xpus)
+				localStorage.xpus = Math.floor(parseInt(localStorage.xpus) * 1.3)
+				DroneUspeed.textContent = parseFloat(DroneUspeed.textContent) * 1.02
+				document.getElementById('xpus').setAttribute('title', 'Increase drone upgrade speed by 2% - ' + localStorage.xpus + ' xp')
+			}
+			checkXp()
+		}
 		function d3ust(){
 			d3Tr.textContent = 2
-			var a = document.getElementById('usbVent')
-			a.classList.add('hide')
-			var a = document.getElementById('d3u1')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('d3u1b')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('d3u1but')
-			a.classList.add('show')
-			a.classList.remove('hide')
+			hide('usbVent')
+			show('d3u1')
+			show('d3u1b')
+			show('d3u1but')
 		}
 		d3u1but.onclick = d3u2st;
 		function d3u2st(){
-			var a = document.getElementById('d3u1')
-			a.classList.add('hide')
-			var a = document.getElementById('d3u1b')
-			a.classList.add('hide')
-			var a = document.getElementById('d3u1but')
-			a.classList.add('hide')
-			var a = document.getElementById('d3u2')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('d3u2b')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('d3u2ybut')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('d3u2nbut')
-			a.classList.add('show')
-			a.classList.remove('hide')
+			hide('d3u1')
+			hide('d3u1b')
+			hide('d3u1but')
+			show('d3u2')
+			show('d3u2b')
+			show('d3u2ybut')
+			show('d3u2nbut')
 		}
 		d3u2ybut.onclick = d3uyst;
 		function d3uyst(){
@@ -16632,9 +16920,7 @@ Restrictions: killed all enemies at caves at least once
 			var a = document.getElementById('d3uyb')
 			a.classList.add('show')
 			a.classList.remove('hide')
-			var a = document.getElementById('d3uybut')
-			a.classList.add('show')
-			a.classList.remove('hide')
+			show('d3uybut')
 		}
 		d3u2nbut.onclick = d3unst;
 		function d3unst(){
@@ -17057,10 +17343,14 @@ Restrictions: killed all enemies at caves at least once
 			ekillsT.textContent = 'Total enemies killed - ' + ekills.textContent
 			DBST.textContent = 'Drone build speed multiplier - ' + Math.floor(parseFloat(DroneBspeed.textContent) * 100 * (1 + (b5 / 100))) / 100
 			DUST.textContent = 'Drone upgrade speed multiplier - ' + Math.floor(parseFloat(DroneUspeed.textContent) * 100 * (1 + (b6 / 100))) / 100
+			var hpMulti = 1
+			if (localStorage.premDTr === '2'){
+				hpMulti = 1 + parseInt(localStorage.redCur) / 100
+			}
 			if (localStorage.IFTr === '1' && localStorage.hpM){
-				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * (1000 + parseInt(localStorage.itemHpBonus)) / 10) / 100
+				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * hpMulti * (1000 + parseInt(localStorage.itemHpBonus)) / 10) / 100
 			} else if (localStorage.hpM){
-				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * 100) / 100
+				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * hpMulti * 100) / 100
 			} else {
 				hpMT.textContent = 'Health multiplier - 1'
 			}
@@ -18678,6 +18968,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('Smain')
 			hide('Sstat')
 			hide('Sachi')
+			hide ('droH1')
 			show('Shelp')
 			if (document.getElementById('inventory').classList.contains('open')){
 				show('helpB2')
@@ -18690,7 +18981,10 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if (localStorage.traTr === '2'){
 				show('helpB7')
-			}2
+			}
+			if (localStorage.premDTr === '2'){
+				show('helpB8')
+			}
 			if (localStorage.anomTr === '1'){
 				show('helpB9')
 				show('helpB14')
@@ -18727,6 +19021,8 @@ Restrictions: killed all enemies at caves at least once
 				show('tecH1')
 			} else if (n === 7){
 				show('traH1')
+			} else if (n === 8){
+				show('preH1')
 			} else if (n === 9){
 				show('enhH1')
 			} else if (n === 10){
@@ -18743,8 +19039,10 @@ Restrictions: killed all enemies at caves at least once
 			show('ch33')
 		}
 		function chNst(N){
+			for (let i = 23; i < (lore + 1); i++) {
+				document.getElementById('ch'+ i).classList.add('hide')
+			}
 			show('ch' + N)
-			hide('ch' + (N - 1))
 		}
 		function ch37st(a){
 			hideAllMenu()
@@ -18752,9 +19050,134 @@ Restrictions: killed all enemies at caves at least once
 			domination.volume = (parseInt(document.getElementById('volume').value) / 400)
 			domination.play()
 			if (a === 1){
-				localStorage.ch37Tr = 1
+				localStorage.ch37Tr = 2
 			}
 			show('ch37')
+		}
+		function ch39ch(){
+			if (localStorage.ligma){
+				document.getElementById('ch39a').style.top = 453
+				document.getElementById('ch39b').style.top = 483
+				hide('ch39c')
+				document.getElementById('ch39back').setAttribute('src', 'ch39back2.png')
+			}
+		}
+		function ch41st(){
+			show('ch46')
+			hide('ch40')
+			setTimeout(ch41st2, 500)
+			function ch41st2(){
+				hide('adventure')
+				hide('inventory')
+				hide('drone')
+				hide('games')
+				hide('e')
+				hide('f')
+				hide('g')
+				hide('h')
+				hide('ch46')
+				hide('setB')
+				show('glitch')
+				setTimeout(ch41st3, 1000, 0)
+			}
+			function ch41st3(t){
+				show('ch41')
+				hide('glitch')
+				document.getElementById('ch41').style.filter = 'brightness(' +  (Math.sin(t * Math.PI / 50)) + ')'
+				t = t + 1
+				if (t <= 50){
+					setTimeout(ch41st3, 100, t)
+				} else {
+					ch42st(0)
+				}
+			}
+			function ch42st(t){
+				show('ch42')
+				hide('ch41')
+				document.getElementById('ch42').style.filter = 'brightness(' +  (Math.sin(t * Math.PI / 50)) + ')'
+				t = t + 1
+				if (t <= 50){
+					setTimeout(ch42st, 100, t)
+				} else {
+					ch43st(0)
+				}
+			}
+			function ch43st(t){
+				show('ch43')
+				hide('ch42')
+				document.getElementById('ch43').style.filter = 'brightness(' +  (Math.sin(t * Math.PI / 50)) + ')'
+				t = t + 1
+				if (t <= 50){
+					setTimeout(ch43st, 100, t)
+				} else {
+					ch44st(0)
+				}
+			}
+			function ch44st(t){
+				show('ch44')
+				hide('ch43')
+				document.getElementById('ch44').style.filter = 'brightness(' +  (Math.sin(t * Math.PI / 50)) + ')'
+				t = t + 1
+				if (t <= 50){
+					setTimeout(ch44st, 100, t)
+				} else {
+					ch45st(0)
+				}
+			}
+			function ch45st(t){
+				show('ch45')
+				hide('ch44')
+				document.getElementById('ch45').style.filter = 'brightness(' +  (Math.sin(t * Math.PI / 50)) + ')'
+				t = t + 1
+				if (t <= 25){
+					setTimeout(ch45st, 100, t)
+				} else {
+					show('glitch')
+					hide('ch45')
+					setTimeout(ch46st, 1000)
+				}
+			}
+			function ch46st(){
+				hide('glitch')
+				show('adventure')
+				show('inventory')
+				show('drone')
+				show('games')
+				show('e')
+				show('f')
+				show('g')
+				show('h')
+				show('ch46')
+				show('setB')
+			}
+		}
+		const ligma = 'Ligma Balls'
+		function ch52st(){
+			document.getElementById('red').style.filter = 'brightness(1.5) grayscale(1)'
+			document.getElementById('red').style.opacity = '1'
+			show('red')
+			show('ligmaBalls')
+			setTimeout(ligmaB, 1000, 0)
+		}
+		function ligmaB(t){
+			if (t <= 10){
+				localStorage.gasbyc = parseInt(localStorage.gasbyc) - 1
+				document.getElementById('ligmaBalls').textContent = document.getElementById('ligmaBalls').textContent + ligma[t]
+				setTimeout(ligmaB, 250, t + 1)
+			} else if (t === 11){
+				setTimeout(ligmaB, 3000, t + 1)
+			} else if (t <= 311){
+				if (t === 12){
+					gunshot = new Audio("gunshot.mp3")
+					gunshot.volume = (parseInt(document.getElementById('volume').value) / 100)
+					gunshot.play()
+				}
+				hide('ligmaBalls')
+				document.getElementById('red').style.filter = 'brightness(' + 2 / (t - 11) ** 0.4 + ')'
+				setTimeout(ligmaB, 50, t + 1)
+			} else {
+				location.reload()
+			}
 		}
 	</script>
 </html>

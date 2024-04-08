@@ -87,7 +87,7 @@
 	</style>
 	<body style='background-color: rgb(200,200,200);' id='body'>
 		<img src="monitor.png" alt="computer" style='position: absolute; height: 600px; width: 1000px; left: 50px; top: 50px; z-index: 5;'>
-		<button id='pauseBut' style='position: absolute; left: 792px; top: 502px; width: 26px; height: 6px; background: url("WFUpause.png"); border: none;' onclick=pauseGame() onmousedown="document.getElementById('pauseBut').style.background = pauseBack2" onmouseup="document.getElementById('pauseBut').style.background = pauseBack"></button>
+		<button id='pauseBut' style='position: absolute; left: 792px; top: 502px; width: 26px; height: 6px; background: url("WFUpause.png"); border: none;' onclick=pauseGame() onmousedown="document.getElementById('pauseBut').style.background = pauseBack2" onmouseup="document.getElementById('pauseBut').style.background = pauseBack" title='Pause the game [SPACE]'></button>
 		<h5 id='pause' class='hide' style='position: absolute; left: 500px; top: 220px; width: 100px; height: 100px; background: url("pause.gif"); z-index: 100;'></h5>
 		<img src="WFUtitle.gif" alt="computer" class="screen" id='stSc'>
 		<img src="outsidemap.png" alt="computer" class="screen hide" id='outm'>
@@ -96,9 +96,8 @@
 		<img src="gameend.png" alt="computer" class="screen hide" id='geSc'>
 		<img src="gamelost.png" alt="computer" class="screen hide" id='glSc'>
 		<h5 alt="computer" class="screen hide" id='blSc' style='background: black; opacity: 1; z-index: 39439; margin: 0;'></h5>
-		<a href="HTP.html" id='htp' class='htp hide' style='width: 100px; height: 80px; border: none; left: 880px; top: 100px; position: absolute; z-index: 6;' target=”_blank”></a>
+		<a href="HTP.html" id='htp' class='htp' style='width: 100px; height: 80px; border: none; left: 880px; top: 100px; position: absolute; z-index: 6;' target=”_blank”></a>
 		<button id='play' style='width: 200px; height: 100px; background-color: transparent; border: none; left: 700px; top: 340px; position: absolute; transform: rotate(345deg);' onclick='startGame()'></button>
-		<a href="HTP.html" id='htp' class='htp hide' style='width: 100px; height: 80px; border: none; left: 880px; top: 100px; position: absolute; z-index: 6;' target=”_blank”></a>
 		<h1 class='hide' id='dayE'>Day 1</h1>
 		<div id='deA' class='hide' style='background: url("WFUdeagleF.png"); left: 960px; top: 285px; position: absolute; z-index: 2; background-repeat: no-repeat; background-size: cover;'>
 			<h5 class='player' style='width: 40px; height: 40px; background: inherit;'></h5>
@@ -384,6 +383,7 @@
 		show('miniplayerM')
 		show('Mhp')
 		show('hp')
+		wilk.style.opacity = (1 + 3 * (0.92 ** (day - 1))) / 20
 		document.getElementById('gwSc').classList.add('hide')
 		document.getElementById('Fbar').classList.remove('hide')
 		document.getElementById("miniplayer").style.background = 'url(miniOn.png)'
@@ -2102,6 +2102,9 @@
 	}
 	document.addEventListener('keydown', (event) => {
 		keysPressed[event.key] = true;
+		if (event.key === ' '){
+			pauseGame()
+		}
 	});
 	document.addEventListener('keyup', (event) => {
 	   delete keysPressed[event.key];

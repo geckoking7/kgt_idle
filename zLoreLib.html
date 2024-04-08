@@ -282,7 +282,49 @@
 		<div id='ch38' class='hide'>
 			<img src="ch38back.png" alt="lore">
 			<h4 class="lore">You run, gunshots follow<br>Didn’t he give you a subfeature on your first win?<br>Where is Chris?<br>Why does this game exist?<br>No time for asking these stupid and unreasonable questions however, you reached a dead end</h4>
-			<button class="ch1but " style="top: 210px;" onclick='home()'>Lore = effort</button>
+			<button class="ch1but " style="top: 210px;" onclick='home()'>Ok</button>
+		</div>
+		<div id='ch39' class='hide'>
+			<img src="ch39back.png" alt="lore" id='ch39back'>
+			<h4 class="lore">He slows down, seeing as you have no way to escape<br>Bargaining, you ask why he is so angry?<br>Instead of answering your question he asks this “Well, why did steve jobs die of ligma?”</h4>
+			<button class="ch1but " style="top: 453px; width: 275px; left: 521;" onclick='chNst(40);'>a)</button>
+			<button class="ch1but " style="top: 483px; width: 275px; left: 521;" onclick='chNst(50);'>b)</button>
+		</div>
+		<div id='ch40' class='hide'>
+			<img src="ch40back.png" alt="lore">
+			<h4 class="lore">Gasby drops his gun<br>“What?”<br>You repeat<br>Gasby looks stunned<br>“How did you know?”<br>If steve had any sense of a brain, he must of knew that<br>“Dear god”</h4>
+			<button class="ch1but " style="top: 240px;" onclick='ch46st()'>Ok</button>
+		</div>
+		<div id='ch46' class='hide'>
+			<img src="ch46back.png" alt="lore">
+			<h4 class="lore">‘Ligma is thought to be given to those are too threatening’<br>Considered threatening to whom??<br>He faces the sky<br>‘I don’t know, ask Chris’<br><br></h4>
+			<button class="ch1but " style="top: 200px; left: 400px; width: 75;" onclick='chNst(47)'>Ask Chris</button>
+			<button class="ch1but " style="top: 200px; left: 500px; width: 200;" onclick='chNst(49)'>Let me play the f-ing game</button>
+		</div>
+		<div id='ch47' class='hide'>
+			<img src="ch47back.png" alt="lore">
+			<h4 class="lore">After a 2 hour journey of simulated exercise you finally reach the house<br>You ask chris<br>‘I don’t know, ask Gasby’</h4>
+			<button class="ch1but " style="top: 165px;" onclick='chNst(48)'>&emsp;</button>
+		</div>
+		<div id='ch48' class='hide'>
+			<img src="ch48back.png" alt="lore">
+			<h4 class="lore">"Well anyway, we need to get into zone 11, it seems to be another hidden base under Coder’s lab"<br>Ok but y tho<br>"I have gotten reports from sources that this is where they have created the killer robots, and it seems that they are improving them"<br>Yes<br>‘You need to go in there’<br>But y tho<br>"You want better drones don’t you?"</h4>
+			<button class="ch1but " style="top: 255px;" onclick='home()'>Ok</button>
+		</div>
+		<div id='ch49' class='hide'>
+			<img src="ch49back.png" alt="lore">
+			<h4 class="lore">Studies have shown that not reading KGT idle lore is the most common cause of bitchlessness<br>‘There is some government laboratory below here, where they have created the killer robots’<br>But y tho<br>Gasby waves his gun around menacingly</h4>
+			<button class="ch1but " style="top: 185px;" onclick='home()'>Ok</button>
+		</div>
+		<div id='ch50' class='hide'>
+			<img src="ch48back.png" alt="lore">
+			<h4 class="lore">Gasby drops his gun<br>“Dammit you didn’t say the line”<br>The line?<br>“Chris would only have let me kill you if he was wrong about you”<br>Yeeeeeeeeesssssssssss?<br>Gasby reads your look<br>“Well, now we have to put our fate in your hands”</h4>
+			<button class="ch1but " style="top: 235px;" onclick='chNst(51)'>Yes</button>
+		</div>
+		<div id='ch51' class='hide'>
+			<img src="ch51back.png" alt="lore">
+			<h4 class="lore">‘Under the coder’s lab is another laboratory, but is run by the government’<br>Yes x 3<br>‘Chris says that that is where the killer drones are created, aswell as other things’<br>Yes x 4<br>"Deal with them, aswell as the reading the zone’s book for advice will probably reward you with a plentiful array of things"<br>NOTE: There is a lack of a plentiful array of things because game dev lazy</h4>
+			<button class="ch1but " style="top: 235px;" onclick='home()'>Ok</button>
 		</div>
 		<div id='d5u1' class='hide'>
 			<img src="d5u1.png" alt="lore">
@@ -324,8 +366,10 @@
 			}
 		}
 		function hideAllMenu(){
-			for (let i = 1; i <= 38; i++) {
-				hide('ch'+ i)
+			for (let i = 1; i <= 51; i++) {
+				if (document.getElementById('ch' + i)){
+					hide('ch'+ i)
+				}
 			}
 			hide('dt1')
 			hide('dt2')

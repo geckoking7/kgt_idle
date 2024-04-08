@@ -539,6 +539,31 @@ img{
 	width: 690px;
 	font-family: Calibri;
 }
+.lore{
+	position: absolute;
+	opacity: 0.9;
+	left: 160px;
+	top: 90px;
+	z-index: 1;
+	background: #eee;
+	padding: 10px;
+	width: 690px;
+	font-family: Calibri;
+}
+.loreU{
+	position: absolute;
+	left: 183px;
+	top: 460px;
+	z-index: 1;
+	background: #330;
+	padding: 5px;
+	width: 186px;
+	color: #990;
+	height: 90px;
+	text-align: center;
+	font-family: Courier New;
+	font-size: 13px;
+}
 .ch1but{
 	z-index: 2;
 	position: absolute;
@@ -958,6 +983,26 @@ img{
 }
 .xph3g:hover{
 	background-image: url('xpgh3hover.png');
+}
+.xpusr{
+	background-image: url('xprus.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpusr:hover{
+	background-image: url('xprushover.png');
+}
+.xpusg{
+	background-image: url('xpgus.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpusg:hover{
+	background-image: url('xpgushover.png');
 }
 #attMP{
     position: absolute;
