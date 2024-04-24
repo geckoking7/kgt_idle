@@ -310,6 +310,16 @@
 			<h4 class="lore">He inputs several lines on his computer and a *SHOCKER* ant drone like thing appears<br>“Upon creating one of these little guys your move move cooldowns in adventure reduce”<br>How does that make sense?<br>“However the ant drone is easily the weakest and least reliable drone there is”<br>Why did I put so much effort into making 2 PAGES of lore instead of one for this?</h4>
 			<button class="ch1but " style="top: 195px;" onclick='droneopen()'>ok</button>
 		</div>
+		<div id='pdu1' class='hide'>
+			<img src="pdrone1back.png" alt="lore">
+			<h4 class="lore">It turns out that the killer robot was really lonely and wanted to get friends (:c very relatable) through the only way they know how, buying some<br>Upon entering your redeem code you see this message and a question of if you want to go through a tutorial.<br><br></h4>
+			<button class="ch1but " style="top: 195px; left: 300px; width: 100px;" onclick='pdroneUnlock3();'>Yes please</button>
+			<button class="ch1but " style="top: 195px; left: 450px; width: 300px;" onclick='droneopen(); premDroneOn();'>Why would I go through a tutorial if I can suffer</button>
+		</div>
+		<div id='pdu2' class='hide'>
+			<img src="pdrone2back.png" alt="lore">
+			<button class="ch1but " style="top: 250px; left: 740;" onclick='droneopen(); premDroneOn();'>Let's rock</button>
+		</div>
 		<!-- 
 		<div id='ch##' class='hide'>
 			<img src="ch##back.png" alt="lore">
@@ -913,6 +923,7 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent cyan notFound" style="left: 820px; top: 370px;" id="item65" onclick=itemFilter(65)></button>
 			<button class="itemBVent mouse notFound" style="left: 160px; top: 425px;" id="item66" onclick=itemFilter(66)></button>
 			<button class="itemBVent syringegun notFound" style="left: 215px; top: 425px;" id="item67" onclick=itemFilter(67)></button>
+			<button class="itemBVent purchasedsub notFound" style="left: 270px; top: 425px;" id="item68"></button>
 		</div><!-- //itemsHere -->
 		<!-- Drones -->
 		<h5 title="Premium drones [R]" class='hide' id="premDroneBut" onclick='premDroneOn()'></h5>
@@ -1196,7 +1207,7 @@ Restrictions: killed all enemies at caves at least once
 			</div>
 			<button id='premClear' style='font-size: 34; position: absolute; left: 845; top: 119; font-family: Arial; margin: 0; width: 50; height: 200; background: white; border: 1px black solid; padding: 0;' title='Clear the current drone from being refueled' onclick='premDroneClear()'>C L E A R</button>
 			<button id='redSpend' style='font-size: 34; position: absolute; left: 655; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: url("redSpend.png"); border: 1px #F00 solid; padding: 0;' title='Convert your red into experience for 1 R : 1000 Xp' onclick='redSpend()'></button>
-			<button id='greenSpend' style='font-size: 34; position: absolute; left: 725; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: #BFFFBF; border: 1px #0F0 solid; padding: 0; color: #070;' title='Spend your green'>S P E N D</button>
+			<button id='greenSpend' style='font-size: 34; position: absolute; left: 725; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: #BFFFBF; border: 1px #0F0 solid; padding: 0; color: #070;' title='Spend your green (currently unavailable)'>S P E N D</button>
 			<h5 style='font-size: 40; position: absolute; left: 795; top: 380; font-family: Arial; margin: 0; color: rgb(255,0,0); text-align: center; width: 100px;' id='Rvalue'>0</h5>
 			<h5 style='font-size: 40; position: absolute; left: 795; top: 440; font-family: Arial; margin: 0; color: rgb(0,255,0); text-align: center; width: 100px;' id='Gvalue'>0</h5>
 			<h5 style='font-size: 40; position: absolute; left: 795; top: 500; font-family: Arial; margin: 0; color: rgb(0,0,255); text-align: center; width: 100px;' id='Bvalue'>0</h5>
@@ -1690,7 +1701,7 @@ Restrictions: killed all enemies at caves at least once
 			<h2 class="hide ekill" id="ufo2c" style='position: absolute; top: 337px; left: 240px;'>0</h2>
 			<h2 class="hide ekill" id="alienc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
 			<h2 class="hide ekill" id="tree2c" style='position: absolute; top: 337px; left: 240px;'>0</h2>
-			<h2 class="hide ekill" id="drone4c" style='position: absolute; top: 337px; left: 240px;'>0</h2>
+			<h2 class="hide ekill" id="drone4c" style='position: absolute; top: 337px; left: 240px;' onclick='pdroneUnlock()'>0</h2>
 			<h2 class="hide ekill" id="ant2c" style='position: absolute; top: 337px; left: 240px;'>0</h2>
 			<h2 class="hide ekill" id="radioactivec" style='position: absolute; top: 337px; left: 240px;'>0</h2>
 			<h2 class="hide ekill" id="batc" style='position: absolute; top: 337px; left: 240px;'>0</h2>
@@ -1823,7 +1834,7 @@ Restrictions: killed all enemies at caves at least once
 		var Qn = 0;
 		var backValue = 0;
 		const totalAch = 50;
-		const totalItems = 67;
+		const totalItems = 68;
 		const totalZones = 11;
 		const maxAnomSlots = 23;
 		var currentAch = 0;
@@ -3340,6 +3351,8 @@ Restrictions: killed all enemies at caves at least once
 			hide('mmefi')
 			hide('d5u1')
 			hide('d5u2')
+			hide('pdu1')
+			hide('pdu2')
 			save()
 		}
 		window.addEventListener('keydown', function (e) {
@@ -3352,7 +3365,7 @@ Restrictions: killed all enemies at caves at least once
 		adventure.onclick = advent;
 		function advent(){
 			hp.textContent = 0
-			if ((parseInt(ch5t.textContent) === 1 || parseInt(grassc.textContent) < 1 || parseInt(paperc.textContent) < 1 || parseInt(stickc.textContent) < 1 || parseInt(antc.textContent) < 1 || parseInt(waterc.textContent) < 1 || parseInt(eraserc.textContent) < 1 || parseInt(balloonc.textContent) < 1 || parseInt(pebblec.textContent) < 1) && (existTr(localStorage.gasbyc) === false || localStorage.gasbyL1 === '1')){
+			if ((parseInt(ch5t.textContent) === 1 || parseInt(grassc.textContent) < 1 || parseInt(paperc.textContent) < 1 || parseInt(stickc.textContent) < 1 || parseInt(antc.textContent) < 1 || parseInt(waterc.textContent) < 1 || parseInt(eraserc.textContent) < 1 || parseInt(balloonc.textContent) < 1 || parseInt(pebblec.textContent) < 1) && (existTr(localStorage.gasbyc) === false || parseInt(localStorage.gasbyc) < 1 ||localStorage.gasbyL1 === '1')){
 				advmus()
 				attn = 0
 				geD.textContent = 0
@@ -6052,10 +6065,8 @@ Restrictions: killed all enemies at caves at least once
 			save()
 		}
 		function enemykill(z){
-			var edeathSound = new Audio("enemydeathS.mp3")
+			playSound("enemydeathS.mp3")
 			ekills.textContent = parseFloat(ekills.textContent) + 1
-			edeathSound.volume = (parseFloat(document.getElementById('volume').value) / 100)
-			edeathSound.play()
 			ehp.textContent = 0
 			if (localStorage.d4Tr){
 				if (localStorage.d4Tr == 2){
@@ -6138,9 +6149,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function playerdead(){
 			if (document.getElementById('adv').classList.contains('hide') && document.getElementById('invent').classList.contains('hide') && document.getElementById('dronebuild').classList.contains('hide') && document.getElementById('gamefeature').classList.contains('hide') && document.getElementById('s&s').classList.contains('hide')){
-				var deathSound = new Audio('edeathsound.mp4')
-				deathSound.volume = (parseInt(volume.value) / 100)
-				deathSound.play()
+				playSound('edeathsound.mp4')
 			} else {
 				
 			}
@@ -12742,6 +12751,9 @@ Restrictions: killed all enemies at caves at least once
 								} else {
 									var qe = setTimeout(enki,500,advc.textContent)
 								}
+								if (ifFound('item68') === false){
+									idrop('purchasedsub','A purchased subscription - It says, “Ever thought that your drones are not the best drones around? And that they don’t have little drawings of them? Or if they are not idle or incremental enough? Well say no more. With your purchase you unlock the PREMIUM DRONES. They are better, cooler and more incremental-ly. To redeem your purchase, go to the buff drone page, press on the kills and enter ‘True idler’”. It can’t be equipped or consumed so destroy it I guess?', 10000)
+								}
 								document.getElementById("eHealth").style.width = '0px'
 								stoneDrops(10)
 								idE.textContent = 0
@@ -15309,7 +15321,7 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 5){
 					ususbD()
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 45){
 					sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 10000)
 				} else if (dp <= 85){
@@ -15328,10 +15340,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 10){
 					ususbD()
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 50){
 					sdrop('parrystone', 'Parrystone - Now you counter - +1 A +1 D', 10000)
 				} else {
@@ -15354,10 +15366,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 10){
 					ususbD()
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 15 && parseInt(d2Tr.textContent) === 1 && parseInt(d3Tr.textContent) === 0){
 					d3usbD()
 				} else if (dp <= 40){
@@ -15378,10 +15390,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 10){
 					ususbD()
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 30){
 					wboteq()
 				} else if (dp <= 50){
@@ -15415,10 +15427,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 10){
 					ususbD()
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 20){
 					sdrop('healthstone2', 'Healthstone - Now you die less :) - +10 Hp', 10000)
 					sdrop('damagestone2', 'Damagestone - Now you can end innocent souls more easily :) - +10 A', 10000)
@@ -15442,10 +15454,10 @@ Restrictions: killed all enemies at caves at least once
 				var dp = Math.floor(Math.random() * 100) + 1
 				if (dp <= 2){
 					udrop('bsusb', 'Increase build speed', 10000)
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 10){
 					ususbD()
-					adrop('droneDrop3',50)
+					adrop('droneDrop3',100)
 				} else if (dp <= 99){
 					sdrop('parrystone', 'Parrystone - Now you counter - +1 A +1 D', 10000)
 					wboteq()
@@ -16183,6 +16195,7 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.redCur = parseInt(localStorage.redCur) + 3
 					localStorage.greenCur = parseInt(localStorage.greenCur) + 1
 					localStorage.blueCur = parseInt(localStorage.blueCur) + 1
+					adrop('red',100)
 					redFuelPro.style.width = 0
 					redCollectPro.style.width = 0
 					redFuelTitle.setAttribute('title', Math.ceil(120 / (parseInt(localStorage.redDsl) / 5 + 1)) + ' seconds left for fuelling')
@@ -16246,6 +16259,7 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.redCur = parseInt(localStorage.redCur) + 1
 					localStorage.greenCur = parseInt(localStorage.greenCur) + 3
 					localStorage.blueCur = parseInt(localStorage.blueCur) + 1
+					adrop('green',100)
 					greFuelPro.style.width = 0
 					greCollectPro.style.width = 0
 					greFuelTitle.setAttribute('title', Math.ceil(120 / (parseInt(localStorage.greDsl) / 5 + 1)) + ' seconds left for fuelling')
@@ -16306,10 +16320,12 @@ Restrictions: killed all enemies at caves at least once
 				if (localStorage.pitemc5 === '1' && Math.random() <= 0.1){
 					localStorage.pitem5 = parseInt(localStorage.pitem5) + 1
 					console.log('Drone collect pitem5a')
+					adrop('droneDrop4',50)
 				}
 				if (Math.random() <= 0.3){
 					localStorage.pitem5 = parseInt(localStorage.pitem5) + 1
 					console.log('Drone collect pitem5b')
+					adrop('droneDrop4',50)
 				}
 				pitem1.textContent = localStorage.pitem1
 				pitem2.textContent = localStorage.pitem2
@@ -17315,6 +17331,13 @@ Restrictions: killed all enemies at caves at least once
 			localStorage.volume = document.getElementById('volume').value
 			if (document.getElementById('volume').value === '69'){
 				localStorage.ach25 = 1
+			}
+		}
+		function playSound(thing){
+			if (parseInt(document.getElementById('volume').value) > 0){
+				sound = new Audio(thing)
+				sound.volume = (parseInt(volume.value) / 100)
+				sound.play()
 			}
 		}
 		function onClicked(){
@@ -18328,6 +18351,9 @@ Restrictions: killed all enemies at caves at least once
 			if (ifFound('item67')){
 				document.getElementById('item67').setAttribute('title', "Syringe gun - Ze healing is not as rewarding as ze hurting - +200 Hp +100 A\nDropped from the medic (3%)\n" + document.getElementById('item67').getAttribute('title'))
 			}
+			if (ifFound('item68')){
+				document.getElementById('item68').setAttribute('title', "A purchased subscription - It says, “Ever thought that your drones are not the best drones around? And that they don’t have little drawings of them? Or if they are not idle or incremental enough? Well say no more. With your purchase you unlock the PREMIUM DRONES. They are better, cooler and more incremental-ly. To redeem your purchase, go to the buff drone page, press on the kills and enter ‘True idler’”. It can’t be equipped or consumed so destroy it I guess?\nDropped from the killer robot (1st kill)\n" + document.getElementById('item68').getAttribute('title'))
+			}
 		}//itemsHere
 		function anomOn(){
 			gameOn(1)//remove when update maybe?
@@ -18519,6 +18545,15 @@ Restrictions: killed all enemies at caves at least once
 						chance = chance * adropMulti(2)
 					} else if (item === 'droneDrop3'){
 						bonus = createBonus(6,6,6,6,35,35)
+						chance = chance * adropMulti(2)
+					} else if (item === 'droneDrop4'){
+						bonus = createBonus(5,5,15,15,15,15)
+						chance = chance * adropMulti(2)
+					} else if (item === 'red'){
+						bonus = createBonus(40,5,16,8,2,16)
+						chance = chance * adropMulti(2)
+					} else if (item === 'green'){
+						bonus = createBonus(8,8,30,8,8,30)
 						chance = chance * adropMulti(2)
 					} else if (item === 'trash'){
 						bonus = createBonus(15,15,14,14,14,14)
@@ -19046,9 +19081,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function ch37st(a){
 			hideAllMenu()
-			domination = new Audio("tf_domination.mp3")
-			domination.volume = (parseInt(document.getElementById('volume').value) / 400)
-			domination.play()
+			playSound("tf_domination.mp3")
 			if (a === 1){
 				localStorage.ch37Tr = 2
 			}
@@ -19168,9 +19201,7 @@ Restrictions: killed all enemies at caves at least once
 				setTimeout(ligmaB, 3000, t + 1)
 			} else if (t <= 311){
 				if (t === 12){
-					gunshot = new Audio("gunshot.mp3")
-					gunshot.volume = (parseInt(document.getElementById('volume').value) / 100)
-					gunshot.play()
+					playSound("gunshot.mp3")
 				}
 				hide('ligmaBalls')
 				document.getElementById('red').style.filter = 'brightness(' + 2 / (t - 11) ** 0.4 + ')'
@@ -19178,6 +19209,21 @@ Restrictions: killed all enemies at caves at least once
 			} else {
 				location.reload()
 			}
+		}
+		function pdroneUnlock(){
+			let yes = prompt("Enter code", "yes");
+			if (yes === 'True idler' && ifFound('item68') && (localStorage.premDTr === 2) === false){
+				localStorage.premDTr = 2
+				pdroneUnlock2()
+			}
+		}
+		function pdroneUnlock2(){
+			hideAllMenu()
+			show('pdu1')
+		}
+		function pdroneUnlock3(){
+			hide('pdu1')
+			show('pdu2')
 		}
 	</script>
 </html>

@@ -25,6 +25,7 @@
 			<button id='btn15' onclick='document.getElementById("ch33att").textContent = localStorage.att; chNst(33)' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 470px;'>Pain (Staring Gasby)</button>
 			<button id='btn16' onclick='chNst(37)' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 495px;'>Earns a domination</button>
 			<button id='btn17' onclick='d5u1st()' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 520px;'>Army of ants begins</button>
+			<button id='btn18' onclick='pdroneUnlock2()' class='helpButton hide' style='width: 230px; position: absolute; left: 160px; top: 545px;'>Premium drone tutorial</button>
 		</div>
 		<div id='ch1' class='hide'>
 			<h4 class="lore" id="ch1">You wake up, in the middle of a something.<br>Confused of where you are, however, you have this feeling, of major dislike, of slightly less major hate.<br>Something, no, someone, has destroyed this place. Somebody needs to pay.<br>In front of you, you see a bunch of weird objects. What is this, green line, or the, flat piece of white.<br>Ok, what strange objects, but there is also this person next to them.<br><br>“Ah, Finally, you’re awake”</h4>
@@ -285,7 +286,7 @@
 			<button class="ch1but " style="top: 210px;" onclick='chNst(39)'>Ok</button>
 		</div>
 		<div id='ch39' class='hide'>
-			<img src="ch39back.png" alt="lore" id='ch39back'>
+			<img src="ch39back2.png" alt="lore" id='ch39back'>
 			<h4 class="lore">He slows down, seeing as you have no way to escape<br>Bargaining, you ask why he is so angry?<br>Instead of answering your question he asks this “Well, why did steve jobs die of ligma?”</h4>
 			<button class="ch1but " style="top: 453px; width: 275px; left: 521;" onclick='chNst(40);'>a)</button>
 			<button class="ch1but " style="top: 483px; width: 275px; left: 521;" onclick='chNst(50);'>b)</button>
@@ -336,6 +337,16 @@
 			<h4 class="lore">He inputs several lines on his computer and a *SHOCKER* ant drone like thing appears<br>“Upon creating one of these little guys your move move cooldowns in adventure reduce”<br>How does that make sense?<br>“However the ant drone is easily the weakest and least reliable drone there is”<br>Why did I put so much effort into making 2 PAGES of lore instead of one for this?</h4>
 			<button class="ch1but " style="top: 195px;" onclick='home()'>ok</button>
 		</div>
+		<div id='pdu1' class='hide'>
+			<img src="pdrone1back.png" alt="lore">
+			<h4 class="lore">It turns out that the killer robot was really lonely and wanted to get friends (:c very relatable) through the only way they know how, buying some<br>Upon entering your redeem code you see this message and a question of if you want to go through a tutorial.<br><br></h4>
+			<button class="ch1but " style="top: 195px; left: 300px; width: 100px;" onclick='pdroneUnlock3();'>Yes please</button>
+			<button class="ch1but " style="top: 195px; left: 450px; width: 300px;" onclick='home();'>Why would I go through a tutorial if I can suffer</button>
+		</div>
+		<div id='pdu2' class='hide'>
+			<img src="pdrone2back.png" alt="lore">
+			<button class="ch1but " style="top: 250px; left: 740;" onclick='home();'>Let's rock</button>
+		</div>
 	</body>
 	<script>
 		function hide(id){
@@ -364,6 +375,9 @@
 			if (parseInt(localStorage.d5Tr) === 2){
 				show('btn17')
 			}
+			if (localStorage.premDTr === '2'){
+				show('btn18')
+			}
 		}
 		function hideAllMenu(){
 			for (let i = 1; i <= 51; i++) {
@@ -384,6 +398,8 @@
 			hide('ifunlock2')
 			hide('d5u1')
 			hide('d5u2')
+			hide('pdu1')
+			hide('pdu2')
 			hide('main')
 		}
 		function chNst(N){
@@ -417,6 +433,14 @@
 		function d5u2st(N){
 			hideAllMenu()
 			show('d5u2')
+		}
+		function pdroneUnlock2(){
+			hideAllMenu()
+			show('pdu1')
+		}
+		function pdroneUnlock3(){
+			hideAllMenu()
+			show('pdu2')
 		}
 	</script>
 </html>

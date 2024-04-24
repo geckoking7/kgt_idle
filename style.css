@@ -1845,6 +1845,15 @@ select{
 .dronedrop3V2{
 	background: url('dronedrop3V2.png');
 }
+.dronedrop4V2{
+	background: url('beerV2.png');
+}
+.redV2{
+	background: url('redV2.png');
+}
+.greenV2{
+	background: url('greenV2.png');
+}
 .deagleV2{
 	background: url('deagleV2.png');
 }
