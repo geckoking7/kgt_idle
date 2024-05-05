@@ -61,7 +61,7 @@
 		height: 60px;
 		border: none;
 		z-index: 4;
-		top: 320px;
+		top: 330px;
 	}
 	.empty{
 		background-image: url('ventEmpty.png');
@@ -1663,6 +1663,7 @@
 				hide('itemSlot3')
 				newSave('xp')
 				show('xpR')
+				show('goldR')
 				show('kgtlink')
 				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1)) * xpMulti
 				xpR.textContent = 'XP :  ' + (Math.floor(((2 * day) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1)) * xpMulti
@@ -1737,6 +1738,7 @@
 					hide('crew' + i)
 				}
 				show('xpR')
+				show('goldR')
 				localStorage.xp = parseInt(localStorage.xp) + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1)) * xpMulti
 				xpR.textContent = 'XP :  ' + (Math.floor(((2 * day - 1) + 2) * (parseInt(localStorage.WFUlvl) + 10) * 10) * (parseInt(localStorage.GamP1) + 1)) * xpMulti
 				goldR.textContent = 'Gold earned:  ' + Math.floor(day - 1 + parseInt(localStorage.WFUlvl) / 2)

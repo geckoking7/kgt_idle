@@ -1821,6 +1821,7 @@ Restrictions: killed all enemies at caves at least once
 		var accessN = 2;
 		var deathSound = new Audio('edeathsound.mp4');
 		var advmusic = new Audio('advmusic.mp3');
+		var fight1mus = new Audio('fight1.mp3');
 		var clicked = new Audio('buttonClicked.mp3');
 		var domination = new Audio('tf_domination.mp3');
 		var gunshot = new Audio('gunshot.mp3');
@@ -2952,12 +2953,20 @@ Restrictions: killed all enemies at caves at least once
 			save()
 		}
 		function advmus(){
-			advmusic.play()
+			if (parseInt(volume.value) > 0){
+				advmusic.play()
+			}
 		}
-		function sadvmus(){
+		function sadvmus(a){
 			if (advmusic.duration > 0 && !advmusic.paused){
 				advmusic.pause();
 				advmusic.currentTime = 0;
+			}
+			if (a === 1 && parseInt(volume.value)){
+				fight1mus.play()
+			} else {
+				fight1mus.pause()
+				fight1mus.currentTime = 0
 			}
 		}
 		function itemS(){
@@ -3379,6 +3388,8 @@ Restrictions: killed all enemies at caves at least once
 				attDelay.textContent = 0
 				wikiTr = 0
 				sci2UberTr = 0
+				fight1mus.pause()
+				fight1mus.currentTime = 0
 				hyperOff()
 				document.getElementById('edef%').textContent = 0
 				document.getElementById('red').style.opacity = 0
@@ -3445,7 +3456,7 @@ Restrictions: killed all enemies at caves at least once
 					var a = document.getElementById('tutZo')
 					a.classList.add('btng')
 					a.classList.remove('btny')
-					document.getElementById('tutZo').setAttribute('title','Tutorial Zone: ' + (ifFound('item1',1) + ifFound('item2',1)) + ' out of 2 items found')
+					document.getElementById('tutZo').setAttribute('title','Tutorial Zone: ' + ifFound('item2',1) + ' out of 1 item found')
 					document.getElementById('field').setAttribute('title','Fields: ' + (ifFound('item15',1) + ifFound('item16',1) + ifFound('item17',1)) + ' out of 3 items found')
 					document.getElementById('sky').setAttribute('title','Sky: ' + (ifFound('item18',1) + ifFound('item19',1) + ifFound('item20',1) + ifFound('item21',1)) + ' out of 4 items found')
 				}
@@ -3584,25 +3595,19 @@ Restrictions: killed all enemies at caves at least once
 				hide('ant')
 				hide('water')
 				hide('eraser')
-				var a = document.getElementById('balloon')
-				a.classList.add('hide')
-				var a = document.getElementById('pebble')
-				a.classList.add('hide')
-				var a = document.getElementById('ch3')
-				a.classList.add('hide')
-				var a = document.getElementById('area51')
-				a.classList.add('hide')
-				var a = document.getElementById('caves')
-				a.classList.add('hide')
-				var a = document.getElementById('mines')
-				a.classList.add('hide')
-				var a = document.getElementById('taroy')
-				a.classList.add('hide')
+				hide('balloon')
+				hide('pebble')
+				hide('ch3')
+				hide('area51')
+				hide('caves')
+				hide('mines')
+				hide('taroy')
 				hide('coderslab')
 				document.getElementById('advZB').classList.add('hide')
 				hide('ch3b')
 				hide('ch4')
 				hide('ch4b')
+				hide('grass2')
 				var a = document.getElementById('estat')
 				a.classList.add('hide')
 				var a = document.getElementById('pstat')
@@ -3798,13 +3803,10 @@ Restrictions: killed all enemies at caves at least once
 					show('ch3but')
 					show('ch3b')
 					hide('fMeTutZo')
-					var a = document.getElementById('field')
-					a.classList.add('hide')
-					var a = document.getElementById('sky')
-					a.classList.add('hide')
+					hide('field')
+					hide('sky')
 					hide('school')
-					var a = document.getElementById('ameair')
-					a.classList.add('hide')
+					hide('ameair')
 					var a = document.getElementById('area51')
 					a.classList.add('hide')
 					var a = document.getElementById('caves')
@@ -3815,54 +3817,31 @@ Restrictions: killed all enemies at caves at least once
 					a.classList.add('hide')
 					hide('taroy')
 					document.getElementById('advZB').classList.add('hide')
-					var a = document.getElementById('health')
-					a.classList.add('hide')
-					var a = document.getElementById('maxHealth')
-					a.classList.add('hide')
-					var a = document.getElementById('eHealth')
-					a.classList.add('hide')
-					var a = document.getElementById('eMaxHealth')
-					a.classList.add('hide')
-					var a = document.getElementById('player')
-					a.classList.add('hide')
-					var a = document.getElementById('grass')
-					a.classList.add('hide')
-					var a = document.getElementById('paper')
-					a.classList.add('hide')
-					var a = document.getElementById('stick')
-					a.classList.add('hide')
-					var a = document.getElementById('ant')
-					a.classList.add('hide')
-					var a = document.getElementById('water')
-					a.classList.add('hide')
-					var a = document.getElementById('eraser')
-					a.classList.add('hide')
-					var a = document.getElementById('balloon')
-					a.classList.add('hide')
-					var a = document.getElementById('pebble')
-					a.classList.add('hide')
-					var a = document.getElementById('adv')
-					a.classList.add('hide')
-					var a = document.getElementById('tutZo')
-					a.classList.add('hide')
-					var a = document.getElementById('attack')
-					a.classList.add('hide')
-					var a = document.getElementById('estat')
-					a.classList.add('hide')
-					var a = document.getElementById('pstat')
-					a.classList.add('hide')
-					var a = document.getElementById('mhp')
-					a.classList.add('hide')
-					var a = document.getElementById('att')
-					a.classList.add('hide')
-					var a = document.getElementById('def')
-					a.classList.add('hide')
-					var a = document.getElementById('reg')
-					a.classList.add('hide')
-					var a = document.getElementById('emhp')
-					a.classList.add('hide')
-					var a = document.getElementById('eatt')
-					a.classList.add('hide')
+					hide('health')
+					hide('maxHealth')
+					hide('eHealth')
+					hide('eMaxHealth')
+					hide('player')
+					hide('grass')
+					hide('paper')
+					hide('stick')
+					hide('ant')
+					hide('water')
+					hide('eraser')
+					hide('balloon')
+					hide('pebble')
+					hide('adv')
+					hide('tutZo')
+					hide('attack')
+					hide('estat')
+					hide('pstat')
+					hide('mhp')
+					hide('att')
+					hide('def')
+					hide('reg')
+					hide('emhp')
+					hide('emhp')
+					hide('eatt')
 					hide('edef')
 					hide('ereg')
 				}
@@ -4904,7 +4883,7 @@ Restrictions: killed all enemies at caves at least once
 									if (localStorage.getItem('item' + itemN)){
 										localStorage.setItem('item' + itemN, parseInt(localStorage.getItem('item' + itemN)) + 1)
 										if (localStorage.getItem('item' + itemN + 'f') === '1'){
-											console.log('Player filtered their item ' + localStorage.getItem('item' + itemN) + 'th of item ' + itemN)
+											console.log('Player filtered their ' + localStorage.getItem('item' + itemN) + 'th item of item ' + itemN)
 											rightclick('i' + N, true)
 											flashT = 1
 										} else {
@@ -4957,7 +4936,7 @@ Restrictions: killed all enemies at caves at least once
 				sdrop(item,title,chance)
 			}
 			if (item === 'healthstone2' || item === 'damagestone2' || item === 'defencestone2' || item === 'regenerationstone2'){
-				if (1 === Math.floor(Math.random() * 1000000) + 1){
+				if (1 === Math.floor(Math.random() * 100000) + 1){
 					item = item + 'a'
 				}
 			}
@@ -6176,7 +6155,7 @@ Restrictions: killed all enemies at caves at least once
 		tutZo.onclick = tutFight;
 		function tutFight(thingTr){
 			if (thingTr === 1 && document.getElementById('fMeTutZo').classList.contains('hide') === false || thingTr != 1){
-				sadvmus()
+				sadvmus(1)
 				var a = document.getElementById('mhp')
 				a.classList.add('show')
 				a.classList.remove('hide')
@@ -6793,7 +6772,7 @@ Restrictions: killed all enemies at caves at least once
 		field.onclick = fieldbat;
 		function fieldbat(thingTr){
 			if (parseInt(ch5t.textContent) === 1 && (thingTr === 1 && document.getElementById('fields').classList.contains('hide') === false || thingTr != 1)){
-				sadvmus()
+				sadvmus(1)
 				setStats()
 				show('fields')
 				document.getElementById('field').setAttribute('title','Fields')
@@ -7364,7 +7343,7 @@ Restrictions: killed all enemies at caves at least once
 		sky.onclick = skybat;
 		function skybat(thingTr){
 			if (parseInt(ch5t.textContent) === 1 && (thingTr === 1 && document.getElementById('thesky').classList.contains('hide') === false || thingTr != 1)){
-				sadvmus()
+				sadvmus(1)
 				setStats()
 				show('thesky')
 				document.getElementById('sky').setAttribute('title','Sky')
@@ -7967,7 +7946,7 @@ Restrictions: killed all enemies at caves at least once
 		school.onclick = schoolbat;
 		function schoolbat(thingTr){
 			if (parseInt(sachd.textContent) === 2 && field.classList.contains('btng') && (thingTr === 1 && document.getElementById('theschool').classList.contains('hide') === false || thingTr != 1)){
-				sadvmus()
+				sadvmus(1)
 				setStats()
 				show('theschool')
 				document.getElementById('school').setAttribute('title','School')
@@ -8680,7 +8659,7 @@ Restrictions: killed all enemies at caves at least once
 					} else if (bo.classList.contains('jetpack')){
 						show('ame2player')
 					}
-					sadvmus()
+					sadvmus(1)
 					setStats()
 					show('airspace')
 					var a = document.getElementById('mhp')
@@ -9250,7 +9229,7 @@ Restrictions: killed all enemies at caves at least once
 		area51.onclick = area51bat;
 		function area51bat(thingTr){
 			if (ameair.classList.contains('btng') && (thingTr === 1 && document.getElementById('area51b').classList.contains('hide') === false || thingTr != 1)){
-				sadvmus()
+				sadvmus(1)
 				setStats()
 				show('area51b')
 				document.getElementById('area51').setAttribute('title','Area 51')
@@ -9937,7 +9916,7 @@ Restrictions: killed all enemies at caves at least once
 		caves.onclick = cavebat;
 		function cavebat(thingTr){
 			if (school.classList.contains('btng') && parseInt(localStorage.ToE) === 1 && parseInt(ch16t.textContent) === 1 && (thingTr === 1 && (document.getElementById('caveB2').classList.contains('hide') === false || document.getElementById('caveb2').classList.contains('hide') === false) || thingTr != 1)){
-				sadvmus()
+				sadvmus(1)
 				setStats()
 				show('cave')
 				show('caveB2')
@@ -10553,7 +10532,7 @@ Restrictions: killed all enemies at caves at least once
 		mines.onclick = minebat;
 		function minebat(thingTr){
 			if (caves.classList.contains('btng') && (thingTr === 1 && (document.getElementById('mineb').classList.contains('hide') === false || document.getElementById('mineb2').classList.contains('hide') === false || document.getElementById('mineb3').classList.contains('hide') === false) || thingTr != 1)){
-				sadvmus()
+				sadvmus(1)
 				setStats()
 				show('mine')
 				show('mineb')
@@ -11121,7 +11100,7 @@ Restrictions: killed all enemies at caves at least once
 		function codbat(enemyN, thingTr){
 			if (((localStorage.ch31Tr === '1' && (thingTr === 1 && document.getElementById('codlab').classList.contains('hide') === false || thingTr != 1) || (enemyN <= 8 && enemyN >= 1)))){
 				if ((area51.classList.contains('btng') && localStorage.d3Tr === '2' && localStorage.ch31Tr === '1') || (enemyN <= 8 && enemyN >= 1)){
-					sadvmus()
+					sadvmus(1)
 					setStats()
 					document.getElementById('codlab').classList.remove('hide')
 					document.getElementById('coderslab').setAttribute('title',"Coder's lab")
@@ -11827,7 +11806,7 @@ Restrictions: killed all enemies at caves at least once
 		var playerPos = 1;
 		function taroybat(enemyN, thingTr){
 			if (area51.classList.contains('btng') && localStorage.ToE2Tr === '2' && (thingTr === 1 && document.getElementById('TARoY').classList.contains('hide') === false || thingTr != 1) || enemyN > 0){
-				sadvmus()
+				sadvmus(1)
 				setStats()
 				currentGrass = 0;
 				grassNeg = 0;
@@ -12368,7 +12347,7 @@ Restrictions: killed all enemies at caves at least once
 		urf.onclick = urfbat;
 		function urfbat(enemyN, thingTr){
 			if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && parseInt(localStorage.ch37Tr) >= 1 && (thingTr === 1 && document.getElementById('z11').classList.contains('hide') === false || thingTr != 1) || enemyN >= 0 && enemyN <= 8){
-				sadvmus()
+				sadvmus(1)
 				setStats()
 				startBat()
 				show('z11')
@@ -16616,12 +16595,12 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById("attP").style.width = '423px'
 						attL.textContent = parseInt(attL.textContent) + 1
 						attPr.textContent = 0
-						document.getElementById('attack').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * LvlAttack())) / 100 + ' damage')
-						document.getElementById('Pattack').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * LvlAttack())) / 100 + ' damage, pierces 80% of defence')
-						document.getElementById('Fattack').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * LvlAttack())) / 100 + ' damage')
-						document.getElementById('attackB').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * LvlAttack())) / 100 + ' damage')
-						document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * LvlAttack() * 0.5)) / 100 + ' damage, pierces 80% of defence')
-						document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * LvlAttack() * 0.5)) / 100 + ' damage')
+						document.getElementById('attack').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * LvlAttack()) * 100) / 100 + ' damage')
+						document.getElementById('Pattack').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * LvlAttack()) * 100) / 100 + ' damage, pierces 80% of defence')
+						document.getElementById('Fattack').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * LvlAttack()) * 100) / 100 + ' damage')
+						document.getElementById('attackB').setAttribute('title', 'Attack [Q] - x' +  Math.floor((parseFloat(attM.textContent) * LvlAttack()) * 100) / 100 + ' damage')
+						document.getElementById('PattackB').setAttribute('title', 'Piercing Attack [Q] - x' + Math.floor((parseFloat(PattM.textContent) * LvlAttack() * 0.6) * 100) / 100 + ' damage, pierces 80% of defence')
+						document.getElementById('FattackB').setAttribute('title', 'Fast Attack [Q] - x' + Math.floor((parseFloat(FattM.textContent) * LvlAttack() * 0.5) * 100) / 100 + ' damage')
 					}
 					document.getElementById('attP').setAttribute('title', Math.floor((100 - parseFloat(attPr.textContent)) / (100 / (((((parseFloat(attL.textContent) / 4) + 4)) ** 2) * 60 / 8) * parseFloat(TraSp.textContent))) + ' seconds till complete')
 					document.getElementById('attMP').setAttribute('title', Math.floor((100 - parseFloat(attPr.textContent)) / (100 / (((((parseFloat(attL.textContent) / 4) + 4)) ** 2) * 60 / 8) * parseFloat(TraSp.textContent))) + ' seconds till complete')
@@ -17148,7 +17127,10 @@ Restrictions: killed all enemies at caves at least once
 				hideAllMenu()
 				show('gaming')
 				hide('anom')
-				newSave('WFUlvl',0)
+				newSave('WFUlvl',1)
+				if (localStorage.WFUlvl === '0'){
+					localStorage.WFUlvl = 1
+				}
 				document.getElementById('gamefeature').classList.remove('hide')
 				document.getElementById('WFUon').classList.add('hide')
 				document.getElementById('WFUoff').classList.add('hide')
@@ -17234,6 +17216,7 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.xp = parseInt(localStorage.xp) - (10000 * (2 ** parseInt(localStorage.WFUlvl)))
 				localStorage.WFUlvl = parseInt(localStorage.WFUlvl) + 1
 				localStorage.WFUlvlBt = 'Upgrade the game to unlock more content? '+ (10000 * (2 ** parseInt(localStorage.WFUlvl))) +' Xp'
+				document.getElementById('WFUlvlB').setAttribute('title',  'Upgrade the game to unlock more content? '+ (10000 * (2 ** parseInt(localStorage.WFUlvl))) +' Xp')
 				WFUlvl.textContent = parseInt(localStorage.WFUlvl)
 			}
 		}
@@ -18190,7 +18173,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item13').setAttribute('title', "Defencestone - Now you tough :) - +10 D\n... a very good ...\n" + document.getElementById('item13').getAttribute('title'))
 			}
 			if (ifFound('item14')){
-				document.getElementById('item14').setAttribute('title', "Regenerationstone - Now you gain more health from EXISTING :) - +1 R\n... life purpose to have, isn't it?\nYay, idk why would would waste your life playing this stupid thing so I'm sorry\nWell I guess since you unlocked this Item, you must be really dedicated, so thanks." + document.getElementById('item14').getAttribute('title'))
+				document.getElementById('item14').setAttribute('title', "Regenerationstone - Now you gain more health from EXISTING :) - +1 R\n... game *this was previously very depressing and now has been changed*\nYay, idk why would would waste your life playing this stupid thing so I'm sorry\nWell I guess since you unlocked this Item, you must be really dedicated, so thanks." + document.getElementById('item14').getAttribute('title'))
 			}
 			if (ifFound('item15')){
 				document.getElementById('item15').setAttribute('title', "Sneakers - Kill enemies in 95% of the time just by wearing regular shoes :D - -5% Attack Cooldowns\nDrops from all enemies in the fields (15%)\n" + document.getElementById('item15').getAttribute('title'))
@@ -19071,6 +19054,7 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function ch33st(){
+			sadvmus()
 			show('ch33')
 		}
 		function chNst(N){
@@ -19081,6 +19065,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function ch37st(a){
 			hideAllMenu()
+			sadvmus()
 			playSound("tf_domination.mp3")
 			if (a === 1){
 				localStorage.ch37Tr = 2
