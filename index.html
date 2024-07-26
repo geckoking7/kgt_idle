@@ -631,6 +631,7 @@ Restrictions: killed all enemies at caves at least once
 			<button title="Area 51 book" class="vent hide" id="areabook" onclick=arelibr()></button>
 			<button title="Cave book" class="vent hide" id="cavebook" onclick=cavlibr()></button>
 			<button title="Mines book" class="vent hide" id="minesbook" onclick=minlibr()></button>
+			<button title="Coder's lab book" class="vent hide" id="codlabbook" onclick=codlibr()></button>
 		</div>
 		<button class='hide' id='libBack' onclick=backClick()>Back</button>
 		<img src='tutoriallibrary.png' alt='go read' class='hide' id='tutli'>
@@ -799,6 +800,27 @@ Restrictions: killed all enemies at caves at least once
 				<img src='uraniumpage.png' alt='go read' class='hide epage' id='uraniump'>
 				<img src='diamondpage.png' alt='go read' class='hide epage' id='diamondp'>
 				<img src='hoepage.png' alt='go read' class='hide epage' id='hoep'>
+			</div>
+			<div id='codlabLib' class='hide'>
+				<div class='hide' id='codlabB'>
+					<img src='codlablibrary.png' alt='go read'>
+					<button class="pageb" onclick=computerpa() style='top: 320px; left: 200px;'>Computer</button>
+					<button class="pageb" onclick=wikipediapa() style='top: 320px; left: 380px;'>Wikipedia</button>
+					<button class="pageb" onclick=MSpaintpa() style='top: 320px; left: 580px'>MS paint</button>
+					<button class="pageb" onclick=IEpa() style='top: 320px; left: 760px;'>IE</button>
+					<button class="pageb" onclick=FEpa() style='top: 520px; left: 200px;'>FE</button>
+					<button class="pageb" onclick=googolpa() style='top: 520px; left: 380px;'>Googol</button>
+					<button class="pageb" onclick=CMGpa() style='top: 520px; left: 580px;'>CMG</button>
+					<button class="pageb" onclick=gasbypa() style='top: 520px; left: 705px; width: 185;'>xX_69GasbyGaming420_Xx</button>
+				</div>
+				<img src='computerpage.png' alt='go read' class='hide epage' id='computerp'>
+				<img src='wikipediapage.png' alt='go read' class='hide epage' id='wikipediap'>
+				<img src='MSpaintpage.png' alt='go read' class='hide epage' id='MSpaintp'>
+				<img src='IEpage.png' alt='go read' class='hide epage' id='IEp'>
+				<img src='FEpage.png' alt='go read' class='hide epage' id='FEp'>
+				<img src='googolpage.png' alt='go read' class='hide epage' id='googolp'>
+				<img src='CMGpage.png' alt='go read' class='hide epage' id='CMGp'>
+				<img src='gasbypage.png' alt='go read' class='hide epage' id='gasbyp'>
 			</div>
 		</div>
 		<h5 title="Training [W]" class="hide" id="trainB"></h5>
@@ -1207,10 +1229,16 @@ Restrictions: killed all enemies at caves at least once
 			</div>
 			<button id='premClear' style='font-size: 34; position: absolute; left: 845; top: 119; font-family: Arial; margin: 0; width: 50; height: 200; background: white; border: 1px black solid; padding: 0;' title='Clear the current drone from being refueled' onclick='premDroneClear()'>C L E A R</button>
 			<button id='redSpend' style='font-size: 34; position: absolute; left: 655; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: url("redSpend.png"); border: 1px #F00 solid; padding: 0;' title='Convert your red into experience for 1 R : 1000 Xp' onclick='redSpend()'></button>
-			<button id='greenSpend' style='font-size: 34; position: absolute; left: 725; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: #BFFFBF; border: 1px #0F0 solid; padding: 0; color: #070;' title='Spend your green (currently unavailable)'>S P E N D</button>
+			<button id='greenSpend' style='font-size: 34; position: absolute; left: 725; top: 361; font-family: Arial; margin: 0; width: 50; height: 200; background: #BFFFBF; border: 1px #0F0 solid; padding: 0; color: #070;' title='Spend your green' onclick='doSpendGreen()'>S P E N D</button>
 			<h5 style='font-size: 40; position: absolute; left: 795; top: 380; font-family: Arial; margin: 0; color: rgb(255,0,0); text-align: center; width: 100px;' id='Rvalue'>0</h5>
 			<h5 style='font-size: 40; position: absolute; left: 795; top: 440; font-family: Arial; margin: 0; color: rgb(0,255,0); text-align: center; width: 100px;' id='Gvalue'>0</h5>
 			<h5 style='font-size: 40; position: absolute; left: 795; top: 500; font-family: Arial; margin: 0; color: rgb(0,0,255); text-align: center; width: 100px;' id='Bvalue'>0</h5>
+		</div>
+		<div id='greenSpending' class='hide'>
+			<img src="greenBack.png" alt="artwork">
+			<h5 title="Build [Q]" class="build" onmousedown=droneopen()></h5>
+			<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
+			<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
 		</div>
 		<!-- GAMING FEATURE :O -->
 		<div id='gamefeature' class='hide'>
@@ -1589,7 +1617,7 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='ach41' class='achF' style='background: url("Ach41.png"); position: absolute; left: 645; top: 172;' title='KGT development crew :) - Click this achievement to open a google form to give feedback for the game' onclick='localStorage.ach41 = 1; totalAP()'><a style='display: block; width: 30px; height: 30px; padding: 0; margin: 0; z-index: 5;' target=”_blank” href='https://forms.gle/MweeK5W9JD1cbpbC7'></a></h5>
 					<h5 id='ach42' class='achF' style='background: url("Ach42.png"); position: absolute; left: 675; top: 172;' title='Trainer - Get 200 levels in training'></h5>
 					<h5 id='ach43' class='achF' style='background: url("Ach43.png"); position: absolute; left: 705; top: 172;' title='8v1 - Brawl in the tutorial zone'></h5>
-					<h5 id='ach44' class='achF' style='background: url("Ach44.png"); position: absolute; left: 735; top: 172;' title='Common low constants - collect 100 common enhanced items'></h5>
+					<h5 id='ach44' class='achF' style='background: url("Ach44.png"); position: absolute; left: 735; top: 172;' title='Common low constants - collect 50 common enhanced items'></h5>
 					<h5 id='ach45' class='achF' style='background: url("Ach45.png"); position: absolute; left: 765; top: 172;' title='I challenge you… -  Click commit grass touch 69420 more times'></h5>
 					<h5 id='ach46' class='achF' style='background: url("Ach46.png"); position: absolute; left: 795; top: 172;' title='Trash compactor - Collect 250 stones from destroyed items'></h5>
 					<h5 id='ach47' class='achF' style='background: url("Ach47.png"); position: absolute; left: 825; top: 172;' title='POWER - deal more than 1000 * (13∫10 2x dx) + 7! * 2 / 4! damage in a single attack'></h5>
@@ -2247,10 +2275,10 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('kilMBP').setAttribute('title', Math.floor((100 - parseFloat(kilPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(kilBT.textContent)))) + ' seconds till complete')
 				document.getElementById('stiBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
 				document.getElementById('stiMBP').setAttribute('title', Math.floor((100 - parseFloat(stiPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(stiBT.textContent)))) + ' seconds till complete')
-				document.getElementById('stiUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
-				document.getElementById('stiMUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
-				document.getElementById('kilUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
-				document.getElementById('kilMUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
+				document.getElementById('stiUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
+				document.getElementById('stiMUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
+				document.getElementById('kilUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
+				document.getElementById('kilMUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
 				document.getElementById('attP').setAttribute('title', Math.floor((100 - parseFloat(attPr.textContent)) / (100 / (((((parseFloat(attL.textContent) / 4) + 4)) ** 2) * 60 / 8) * parseFloat(TraSp.textContent))) + ' seconds till complete')
 				document.getElementById('attMP').setAttribute('title', Math.floor((100 - parseFloat(attPr.textContent)) / (100 / (((((parseFloat(attL.textContent) / 4) + 4)) ** 2) * 60 / 8) * parseFloat(TraSp.textContent))) + ' seconds till complete')
 				document.getElementById('bloP').setAttribute('title', Math.floor((100 - parseFloat(bloPr.textContent)) / (100 / (((((parseFloat(bloL.textContent) / 4) + 4)) ** 2.1) * 60 / 7) * parseFloat(TraSp.textContent))) + ' seconds till complete')
@@ -2381,8 +2409,8 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('fedBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
 				document.getElementById('fedMBP').setAttribute('title', Math.floor((100 - parseFloat(fedPB.textContent)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ (parseFloat(fedBT.textContent)))) + ' seconds till complete')
 				document.getElementById("fedBP").style.width = parseFloat(fedPB.textContent) * 2.18 + 'px'
-				document.getElementById('fedUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
-				document.getElementById('fedMUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
+				document.getElementById('fedUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
+				document.getElementById('fedMUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
 				document.getElementById("fedUP").style.width = parseFloat(fedPU.textContent) * 5.1 + 'px'
 			}
 			if (localStorage.guardc){
@@ -3257,6 +3285,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('ereg')
 			hide('library')
 			hide('premDrone')
+			hide('greenSpending')
 			hide('ch5')
 			hide('ch5b')
 			hide('ch5but')
@@ -3916,6 +3945,9 @@ Restrictions: killed all enemies at caves at least once
 			if (mines.classList.contains('btny') || mines.classList.contains('btng')){
 				show('minesbook')
 			}
+			if (coderslab.classList.contains('btny') || coderslab.classList.contains('btng')){
+				show('codlabbook')
+			}
 		}
 		function backClick(){
 			const allEkills = document.getElementsByClassName('ekill');
@@ -3942,6 +3974,8 @@ Restrictions: killed all enemies at caves at least once
 				cavlibr()
 			} else if (backValue === 8){
 				minlibr()
+			} else if (backValue === 9){
+				codlibr()
 			}
 		}
 		function setKills(){
@@ -4837,6 +4871,67 @@ Restrictions: killed all enemies at caves at least once
 			show('hoec')
 			show('libBack')
 		}
+		function codlibr(){
+			backValue = 9
+			show('codlabLib')
+			show('codlabB')
+			show('enemykills')
+			hide('library')
+			hide('tutzobook')
+			hide('fieldbook')
+			hide('skybook')
+			hide('schoolbook')
+			hide('elibrb')
+			hide('libBack')
+		}
+		function computerpa(){
+			show('computerp')
+			hide('codlabB')
+			show('computerc')
+			show('libBack')
+		}
+		function wikipediapa(){
+			show('wikipediap')
+			hide('codlabB')
+			show('wikipediac')
+			show('libBack')
+		}
+		function MSpaintpa(){
+			show('MSpaintp')
+			hide('codlabB')
+			show('MSpc')
+			show('libBack')
+		}
+		function IEpa(){
+			show('IEp')
+			hide('codlabB')
+			show('IEc')
+			show('libBack')
+		}
+		function FEpa(){
+			show('FEp')
+			hide('codlabB')
+			show('FEc')
+			show('libBack')
+		}
+		function googolpa(){
+			show('googolp')
+			hide('codlabB')
+			show('googolc')
+			show('libBack')
+		}
+		function CMGpa(){
+			show('CMGp')
+			hide('codlabB')
+			show('CMGc')
+			show('libBack')
+		}
+		function gasbypa(){
+			show('gasbyp')
+			hide('codlabB')
+			show('gasbyc')
+			show('libBack')
+		}
 		function wboteq(){
 			sdrop('waterbottle', 'Bottle o water - Filled of water hopefully - +0.001 Drop Chance', 10000)
 		}
@@ -5084,7 +5179,7 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.mhp = parseFloat(localStorage.mhp) - 50
 				localStorage.def = parseFloat(localStorage.def) - 30
 				document.getElementById('he').setAttribute('title','')
-				idrop('minercap','Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D', 10000, 1)
+				idrop('minercap','Minercap - ?em htiw gnorw si tahw - +50 Hp +30 D', 10000, 1)
 			} else if (he.classList.contains('crown')){
 				var b = document.getElementById('he')
 				b.classList.remove('crown')
@@ -5686,7 +5781,7 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.mhp = parseFloat(localStorage.mhp) + 50
 					localStorage.def = parseFloat(localStorage.def) + 30
 					iv2.setAttribute('title','')
-					document.getElementById('he').setAttribute('title','Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D')
+					document.getElementById('he').setAttribute('title','Minercap - ?em htiw gnorw si tahw - +50 Hp +30 D')
 				} else if (iv2.classList.contains('gears') && a1.classList.contains('access')){
 					iv2.classList.remove('gears')
 					iv2.classList.add('empty')
@@ -10826,7 +10921,7 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 175)
-						idrop('minercap','Minercap - call me kevin because they gotta be sev- oh shi - +30 D +50 Hp', 600)
+						idrop('minercap','Minercap - ?em htiw gnorw si tahw - +30 D +50 Hp', 600)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(8)){
@@ -14215,20 +14310,22 @@ Restrictions: killed all enemies at caves at least once
 			}
 		}
 		function eatSand(T){
-			var retest = parseFloat(hp.textContent) + (parseFloat(mhp.textContent) / 4)
-			if (retest < parseFloat(mhp.textContent) && parseFloat(hp.textContent) > 0){
-				hp.textContent = retest
-				document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-			} else {
-				hp.textContent = mhp.textContent
-				document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-			}
-			if (T < 4){
-				T = T + 1
-				setTimeout(eatSand, 1000, T)
-			} else {
-				eating = 0
-				document.getElementById('sandwich').classList.replace('sandwichon','sandwichcool')
+			if (parseFloat(hp.textContent) > 0){
+				var retest = parseFloat(hp.textContent) + (parseFloat(mhp.textContent) / 4)
+				if (retest < parseFloat(mhp.textContent) && parseFloat(hp.textContent) > 0){
+					hp.textContent = retest
+					document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+				} else {
+					hp.textContent = mhp.textContent
+					document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+				}
+				if (T < 4){
+					T = T + 1
+					setTimeout(eatSand, 1000, T)
+				} else {
+					eating = 0
+					document.getElementById('sandwich').classList.replace('sandwichon','sandwichcool')
+				}
 			}
 		}
 		function healShadow(time,cool,yes){
@@ -14726,8 +14823,8 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('sniBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
 					document.getElementById('sniMBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.sniPB)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ parseInt(localStorage.sniBT)))) + ' seconds till complete')
 					document.getElementById("sniUP").style.width = parseFloat(localStorage.sniPU) * 5.1 + 'px'
-					document.getElementById('sniUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
-					document.getElementById('sniMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
+					document.getElementById('sniUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
+					document.getElementById('sniMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
 					sniH.textContent = localStorage.sniH
 				} else {
 					localStorage.sniPB = 0
@@ -14742,8 +14839,8 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('antBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.antPB)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ parseInt(localStorage.antBT)))) + ' seconds till complete')
 					document.getElementById('antMBP').setAttribute('title', (Math.floor((100 - parseFloat(localStorage.antPB)) / ((100  * parseFloat(DroneBspeed.textContent) * (1 + (b5 / 100)))/ parseInt(localStorage.antBT)))) + ' seconds till complete')
 					document.getElementById("antUP").style.width = parseFloat(localStorage.antPU) * 5.1 + 'px'
-					document.getElementById('antUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.antPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))))) + ' seconds till complete')
-					document.getElementById('antMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.antPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))))) + ' seconds till complete')
+					document.getElementById('antUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.antPU)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))))) + ' seconds till complete')
+					document.getElementById('antMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.antPU)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))))) + ' seconds till complete')
 					antH.textContent = Math.floor(parseInt(localStorage.antLvl) * 0.4 + 5)
 					antH.textContent = 3 + localStorage.antLvl * 0.1
 					antF.textContent = Math.ceil((0.99 ** parseInt(localStorage.antLvl)) * 80)
@@ -15498,7 +15595,7 @@ Restrictions: killed all enemies at caves at least once
 						stiUTr.textContent = 0
 					} else {
 						setTimeout(stiU2,200)
-						stiPU.textContent = parseFloat(stiPU.textContent) + (100 / (5 * 60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
+						stiPU.textContent = parseFloat(stiPU.textContent) + (200 / (5 * 60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						stiUTr.textContent = 1
 						if (parseFloat(stiPU.textContent) < 100){
 							document.getElementById("stiUP").style.width = parseFloat(stiPU.textContent) * 5.1 + 'px'
@@ -15509,8 +15606,8 @@ Restrictions: killed all enemies at caves at least once
 							stiLvl.textContent = parseInt(stiLvl.textContent) + 1
 							stiPU.textContent = 0
 						}
-						document.getElementById('stiUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2)))))) + ' seconds till complete')
-						document.getElementById('stiMUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
+						document.getElementById('stiUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2)))))) + ' seconds till complete')
+						document.getElementById('stiMUP').setAttribute('title', Math.floor((100 - parseFloat(stiPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(stiLvl.textContent) + 1)**1.5) + 2))))) + ' seconds till complete')
 					}
 				} else {
 					stiUTr.textContent = 0
@@ -15530,7 +15627,7 @@ Restrictions: killed all enemies at caves at least once
 						kilUTr.textContent = 0
 					} else {
 						setTimeout(kilU2,200)
-						kilPU.textContent = parseFloat(kilPU.textContent) + (100 / (5 * 60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
+						kilPU.textContent = parseFloat(kilPU.textContent) + (200 / (5 * 60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						kilUTr.textContent = 1
 						if (parseFloat(kilPU.textContent) < 100){
 							document.getElementById("kilUP").style.width = parseFloat(kilPU.textContent) * 5.1 + 'px'
@@ -15542,8 +15639,8 @@ Restrictions: killed all enemies at caves at least once
 							kilPU.textContent = 0
 							kilSC.textContent = Math.round((parseFloat(kilSC.textContent) + 0.1) * 10) / 10
 						}
-						document.getElementById('kilUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
-						document.getElementById('kilMUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
+						document.getElementById('kilUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
+						document.getElementById('kilMUP').setAttribute('title', Math.floor((100 - parseFloat(kilPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(kilLvl.textContent) + 1)**1.6) + 4))))) + ' seconds till complete')
 					}
 				} else {
 					kilUTr.textContent = 0
@@ -15563,7 +15660,7 @@ Restrictions: killed all enemies at caves at least once
 						fedUTr.textContent = 0
 					} else {
 						setTimeout(fedU2,200)
-						fedPU.textContent = parseFloat(fedPU.textContent) + (100 / (5 * 60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
+						fedPU.textContent = parseFloat(fedPU.textContent) + (200 / (5 * 60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						fedUTr.textContent = 1
 						if (parseFloat(fedPU.textContent) < 100){
 							document.getElementById("fedUP").style.width = parseFloat(fedPU.textContent) * 5.1 + 'px'
@@ -15574,8 +15671,8 @@ Restrictions: killed all enemies at caves at least once
 							fedLvl.textContent = parseInt(fedLvl.textContent) + 1
 							fedPU.textContent = 0
 						}
-						document.getElementById('fedUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
-						document.getElementById('fedMUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
+						document.getElementById('fedUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
+						document.getElementById('fedMUP').setAttribute('title', Math.floor((100 - parseFloat(fedPU.textContent)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(fedLvl.textContent) + 1)**1.7) + 6))))) + ' seconds till complete')
 					}
 				} else {
 					fedUTr.textContent = 0
@@ -15595,7 +15692,7 @@ Restrictions: killed all enemies at caves at least once
 						sniUTr.textContent = 0
 					} else {
 						setTimeout(sniU2,200)
-						localStorage.sniPU = parseFloat(localStorage.sniPU) + (100 / (5 * 60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
+						localStorage.sniPU = parseFloat(localStorage.sniPU) + (200 / (5 * 60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						sniUTr.textContent = 1
 						if (parseFloat(localStorage.sniPU) < 100){
 							document.getElementById("sniUP").style.width = parseFloat(localStorage.sniPU) * 5.1 + 'px'
@@ -15607,8 +15704,8 @@ Restrictions: killed all enemies at caves at least once
 							sniLvl.textContent = localStorage.sniLvl
 							localStorage.sniPU = 0
 						}
-						document.getElementById('sniUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
-						document.getElementById('sniMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
+						document.getElementById('sniUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
+						document.getElementById('sniMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.sniPU)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(sniLvl.textContent) + 1)**1.8) + 8))))) + ' seconds till complete')
 					}
 				} else {
 					sniUTr.textContent = 0
@@ -15627,7 +15724,7 @@ Restrictions: killed all enemies at caves at least once
 						antUTr.textContent = 0
 					} else {
 						setTimeout(antU2,200)
-						localStorage.antPU = parseFloat(localStorage.antPU) + (100 / (5 * 60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
+						localStorage.antPU = parseFloat(localStorage.antPU) + (200 / (5 * 60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))) * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100))
 						antUTr.textContent = 1
 						if (parseFloat(localStorage.antPU) < 100){
 							document.getElementById("antUP").style.width = parseFloat(localStorage.antPU) * 5.1 + 'px'
@@ -15638,8 +15735,8 @@ Restrictions: killed all enemies at caves at least once
 							antLvl.textContent = localStorage.antLvl
 							localStorage.antPU = 0
 						}
-						document.getElementById('antUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.antPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))))) + ' seconds till complete')
-						document.getElementById('antMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.antPU)) / ((100 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))))) + ' seconds till complete')
+						document.getElementById('antUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.antPU)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))))) + ' seconds till complete')
+						document.getElementById('antMUP').setAttribute('title', Math.floor((100 - parseFloat(localStorage.antPU)) / ((200 * parseFloat(DroneUspeed.textContent) * (1 + (b6 / 100)))/ ((60 * (((parseInt(antLvl.textContent) + 1)**1.9) + 10))))) + ' seconds till complete')
 					}
 				} else {
 					antUTr.textContent = 0
@@ -16356,6 +16453,10 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.xp = parseInt(localStorage.xp) + 1000
 				Rvalue.textContent = localStorage.redCur
 			}
+		}
+		function doSpendGreen(){
+			hide('premDrone')
+			show('greenSpending')
 		}
 		trainB.onclick = trainOn;
 		function trainOn(){
@@ -18266,7 +18367,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item44').setAttribute('title', "Wheels - With this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns\nDrops from the minecart (3%)\n" + document.getElementById('item44').getAttribute('title'))
 			}
 			if (ifFound('item45')){
-				document.getElementById('item45').setAttribute('title', "Minercap - call me kevin because they gotta be sev- oh shi - +50 Hp +30 D\nDrops from the miner (6%)\n" + document.getElementById('item45').getAttribute('title'))
+				document.getElementById('item45').setAttribute('title', "Minercap - ?em htiw gnorw si tahw - +50 Hp +30 D\nDrops from the miner (6%)\n" + document.getElementById('item45').getAttribute('title'))
 			}
 			if (ifFound('item46')){
 				document.getElementById('item46').setAttribute('title', "Gears - how do you equip these? - -5% Block Cooldowns\nDrops from the drill (3%)\n" + document.getElementById('item46').getAttribute('title'))
@@ -18299,7 +18400,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item55').setAttribute('title', "Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D\nDrops from the ant king (5%)\n" + document.getElementById('item55').getAttribute('title'))
 			}
 			if (ifFound('item56')){
-				document.getElementById('item56').setAttribute('title', "FightPicker69 - Unlocks a random enemy for you to bully. More info in settings\nDrops from the guard, skeleton, hoe, Cool math games, e and killer robot through negative expodential arithmetic\nI advise grinding of the hardest one to access for greater chance and it also has a higher cap\n" + document.getElementById('item56').getAttribute('title'))
+				document.getElementById('item56').setAttribute('title', "FightPicker69 - Unlocks a random enemy for you to bully. More info in settings\nDrops from the guard, skeleton, hoe, Cool math games, e, killer robot and WFU through negative expodential arithmetic\nI advise grinding of the hardest one to access for greater chance and it also has a higher cap\n" + document.getElementById('item56').getAttribute('title'))
 			}
 			if (ifFound('item57')){
 				document.getElementById('item57').setAttribute('title', "Leather pants - He’s got the drip - +10 Hp +4 D\nDrops from the A10 plane thing (8%)\n" + document.getElementById('item57').getAttribute('title'))
@@ -19175,11 +19276,11 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('red').style.opacity = '1'
 			show('red')
 			show('ligmaBalls')
+			localStorage.gasbyc = parseInt(localStorage.gasbyc) - 1
 			setTimeout(ligmaB, 1000, 0)
 		}
 		function ligmaB(t){
 			if (t <= 10){
-				localStorage.gasbyc = parseInt(localStorage.gasbyc) - 1
 				document.getElementById('ligmaBalls').textContent = document.getElementById('ligmaBalls').textContent + ligma[t]
 				setTimeout(ligmaB, 250, t + 1)
 			} else if (t === 11){
