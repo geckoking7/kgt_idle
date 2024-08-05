@@ -1304,7 +1304,7 @@
 										if (parseInt(bullet.textContent[1]) === 2){
 											makeFire(parseInt(document.getElementById('crew' + i).style.left),parseInt(document.getElementById('crew' + i).style.top),30,50,25)
 										}
-										document.getElementById('body').removeChild(bullet)
+										bullet.remove()
 									}
 								}
 							}

@@ -64,6 +64,12 @@
 		<button class="openS hide" title='Settings and stuff' id="setB"></button>
 		<img src='red.png' id="red" style='width: 100%; height: 100%; opacity: 0; z-index: 69; pointer-events: none; position: absolute; left: 0; top: 0;'>
 		<h5 id='ligmaBalls' style='margin: 0;top: 400px; font-family: Comic Sans MS; position: absolute; font-size: 72px; width: 100%; text-align: center; z-index: 69; color: white; vertical-align: center;' class='hide'></h5>
+		<button class="btny" id="SZ1B" onclick='SZ1bat();' style='opacity: 0;'></button>
+		<div id='SZ1' class='hide'>
+			<img src="SZ1back.png" alt="lore">
+			<img src="SZ1E1.png" alt="its him omg" class="enemy" id="SZ1E1">
+			<img src="SZ1E1V2.png" alt="its him omg" class="enemy" id="SZ1E1V2">
+		</div>
 		<!-- lore -->
 		<h4 class="lore hide" id="ch1">You wake up, in the middle of a something.<br>Confused of where you are, however, you have this feeling, of major dislike, of slightly less major hate.<br>Something, no, someone, has destroyed this place. Somebody needs to pay.<br>In front of you, you see a bunch of weird objects. What is this, green line, or the, flat piece of white.<br>Ok, what strange objects, but there is also this person next to them.<br><br>“Ah, Finally, you’re awake”</h4>
 		<img src="ch1back.png" alt="lore" class=" hide" id="ch1b">
@@ -3391,6 +3397,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('d5u2')
 			hide('pdu1')
 			hide('pdu2')
+			hide('SZ1')
 			save()
 		}
 		window.addEventListener('keydown', function (e) {
@@ -13106,6 +13113,57 @@ Restrictions: killed all enemies at caves at least once
 					hide('sci3B')
 				} else {
 					document.getElementById('sci3back').setAttribute('src','sci3arrow2.gif')
+				}
+			}
+		}
+		function SZ1bat(){
+			hideAllMenu()
+			advent()
+			show('SZ1')
+			hide('SZ1E1')
+			hide('SZ1E1V2')
+			sadvmus(1)
+			setStats()
+			startBat()
+			x = Math.floor(Math.random() * 8) + 1
+			if (x === 1 || true){
+				show('SZ1E1')
+				setEStats(parseInt(att.textContent) * 30, Math.ceil(parseInt(mhp.textContent) * 0.12 + parseInt(def.textContent) / 2), 0, 0)
+				if (Math.random() <= 0.5){//0.0001){
+					hide('SZ1E1')
+					show('SZ1E1V2')
+					setEStats(999999999999999999, 999999999999999999, 999999999999999999, 999999999999999999)
+				}
+				battle(0, 20)
+				function battle(ae, sp){
+					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+						regen()
+						ae = ae + 1
+						if (ae === sp){
+							if (Math.random() >= 0.1){
+								eattack()
+							} else {
+								missP(0,missPN + 1)
+							}
+							ae = 0
+						}
+						setTimeout(battle, 50, ae, sp)
+					} else if (parseFloat(ehp.textContent) <= 0){
+						localStorage.xp = parseFloat(localStorage.xp) + 1
+						hide('SZ1E1')
+						hide('SZ1E1V2')
+						newSave('SZ1E1c',0)
+						localStorage.SZ1E1c = parseInt(localStorage.SZ1E1c) + 1
+						KBify(localStorage.SZ1E1c)
+						advc.textContent = parseInt(advC.textContent)
+						var qe = setTimeout(enki,500,advc.textContent)
+						document.getElementById("eHealth").style.width = '0px'
+					} else if (parseFloat(hp.textContent) <= 0){
+						playerdead()
+						hide('player')
+						advc.textContent = parseInt(advC.textContent)
+						var qe = setTimeout(enki,500,advc.textContent)
+					}
 				}
 			}
 		}
