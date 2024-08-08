@@ -69,6 +69,7 @@
 			<img src="SZ1back.png" alt="lore">
 			<img src="SZ1E1.png" alt="its him omg" class="enemy" id="SZ1E1">
 			<img src="SZ1E1V2.png" alt="its him omg" class="enemy" id="SZ1E1V2">
+			<img src="SZ1E2.png" alt="its him omg" class="enemy" id="SZ1E2">
 		</div>
 		<!-- lore -->
 		<h4 class="lore hide" id="ch1">You wake up, in the middle of a something.<br>Confused of where you are, however, you have this feeling, of major dislike, of slightly less major hate.<br>Something, no, someone, has destroyed this place. Somebody needs to pay.<br>In front of you, you see a bunch of weird objects. What is this, green line, or the, flat piece of white.<br>Ok, what strange objects, but there is also this person next to them.<br><br>“Ah, Finally, you’re awake”</h4>
@@ -13122,11 +13123,12 @@ Restrictions: killed all enemies at caves at least once
 			show('SZ1')
 			hide('SZ1E1')
 			hide('SZ1E1V2')
+			hide('SZ1E2')
 			sadvmus(1)
 			setStats()
 			startBat()
-			x = Math.floor(Math.random() * 8) + 1
-			if (x === 1 || true){
+			x = Math.floor(Math.random() * 2) + 1 //8
+			if (x === 1){
 				show('SZ1E1')
 				setEStats(parseInt(att.textContent) * 30, Math.ceil(parseInt(mhp.textContent) * 0.12 + parseInt(def.textContent) / 2), 0, 0)
 				if (Math.random() <= 0.5){//0.0001){
@@ -13155,6 +13157,35 @@ Restrictions: killed all enemies at caves at least once
 						newSave('SZ1E1c',0)
 						localStorage.SZ1E1c = parseInt(localStorage.SZ1E1c) + 1
 						KBify(localStorage.SZ1E1c)
+						advc.textContent = parseInt(advC.textContent)
+						var qe = setTimeout(enki,500,advc.textContent)
+						document.getElementById("eHealth").style.width = '0px'
+					} else if (parseFloat(hp.textContent) <= 0){
+						playerdead()
+						hide('player')
+						advc.textContent = parseInt(advC.textContent)
+						var qe = setTimeout(enki,500,advc.textContent)
+					}
+				}
+			} else if (x === 2 || true){
+				show('SZ1E2')
+				setEStats(parseInt(att.textContent) * 30, Math.ceil(parseInt(mhp.textContent) * 0.7 + parseInt(def.textContent) / 2), 0, Math.ceil(parseInt(att.textContent) * 30 / 60))
+				battle(0, 60)
+				function battle(ae, sp){
+					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+						regen()
+						ae = ae + 1
+						if (ae === sp){
+							ae = 0
+							eattack()
+						}
+						setTimeout(battle, 50, ae, sp)
+					} else if (parseFloat(ehp.textContent) <= 0){
+						localStorage.xp = parseFloat(localStorage.xp) + 1
+						hide('SZ1E2')
+						newSave('SZ1E2c',0)
+						localStorage.SZ1E1c = parseInt(localStorage.SZ1E1c) + 1
+						KBify(localStorage.SZ1E2c)
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500,advc.textContent)
 						document.getElementById("eHealth").style.width = '0px'
