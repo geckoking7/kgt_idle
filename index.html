@@ -1886,6 +1886,7 @@ Restrictions: killed all enemies at caves at least once
  		var helpNo = 1; //use variable as decimal eg for stuff like advH2 helpNo = 1.2
 		var mmif = 1;
 		var mmef = 1;
+		var SZ1check = 0;
 		function newSave(thing, value){ //thing must be string
 			if (localStorage.getItem(thing)){
 				return true
@@ -13128,6 +13129,8 @@ Restrictions: killed all enemies at caves at least once
 			setStats()
 			startBat()
 			x = Math.floor(Math.random() * 2) + 1 //8
+			SZ1check = SZ1check + 1
+			var thingy = SZ1check
 			if (x === 1){
 				show('SZ1E1')
 				setEStats(parseInt(att.textContent) * 30, Math.ceil(parseInt(mhp.textContent) * 0.12 + parseInt(def.textContent) / 2), 0, 0)
@@ -13138,7 +13141,7 @@ Restrictions: killed all enemies at caves at least once
 				}
 				battle(0, 20)
 				function battle(ae, sp){
-					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0 && thingy === SZ1check){
 						regen()
 						ae = ae + 1
 						if (ae === sp){
@@ -13160,11 +13163,15 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500,advc.textContent)
 						document.getElementById("eHealth").style.width = '0px'
-					} else if (parseFloat(hp.textContent) <= 0){
+					} else {
 						playerdead()
 						hide('player')
 						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500,advc.textContent)
+						if (thingy === SZ1check){
+							var qe = setTimeout(enki,500,advc.textContent)
+						} else {
+							advent()
+						}
 					}
 				}
 			} else if (x === 2 || true){
@@ -13172,7 +13179,7 @@ Restrictions: killed all enemies at caves at least once
 				setEStats(parseInt(att.textContent) * 30, Math.ceil(parseInt(mhp.textContent) * 0.7 + parseInt(def.textContent) / 2), 0, Math.ceil(parseInt(att.textContent) * 30 / 60))
 				battle(0, 60)
 				function battle(ae, sp){
-					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0 && thingy === SZ1check){
 						regen()
 						ae = ae + 1
 						if (ae === sp){
@@ -13189,11 +13196,15 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500,advc.textContent)
 						document.getElementById("eHealth").style.width = '0px'
-					} else if (parseFloat(hp.textContent) <= 0){
+					} else {
 						playerdead()
 						hide('player')
 						advc.textContent = parseInt(advC.textContent)
-						var qe = setTimeout(enki,500,advc.textContent)
+						if (thingy === SZ1check){
+							var qe = setTimeout(enki,500,advc.textContent)
+						} else {
+							advent()
+						}
 					}
 				}
 			}
