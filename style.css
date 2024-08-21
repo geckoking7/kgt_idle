@@ -856,6 +856,12 @@ img{
 .purchasedsub{
 	background-image: url('purchasedsub.png');
 }
+.Ksuit{
+	background-image: url('Ksuit.png');
+}
+.musket{
+	background-image: url('musket.png');
+}
 .useall{
 	background-image: url('useall.png');
 }

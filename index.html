@@ -953,6 +953,8 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent mouse notFound" style="left: 160px; top: 425px;" id="item66" onclick=itemFilter(66)></button>
 			<button class="itemBVent syringegun notFound" style="left: 215px; top: 425px;" id="item67" onclick=itemFilter(67)></button>
 			<button class="itemBVent purchasedsub notFound" style="left: 270px; top: 425px;" id="item68"></button>
+			<button class="itemBVent Ksuit notFound" style="left: 325px; top: 425px;" id="item69" onclick=itemFilter(69)></button>
+			<button class="itemBVent musket notFound" style="left: 380px; top: 425px;" id="item70" onclick=itemFilter(70)></button>
 		</div><!-- //itemsHere -->
 		<!-- Drones -->
 		<h5 title="Premium drones [R]" class='hide' id="premDroneBut" onclick='premDroneOn()'></h5>
@@ -1870,7 +1872,7 @@ Restrictions: killed all enemies at caves at least once
 		var Qn = 0;
 		var backValue = 0;
 		const totalAch = 50;
-		const totalItems = 68;
+		const totalItems = 70;
 		const totalZones = 11;
 		const maxAnomSlots = 23;
 		var currentAch = 0;
@@ -2607,10 +2609,10 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.hpM = parseFloat(localStorage.hpM) * 1.25
 				}
 			}
-			if (localStorage.s019){
+			if (localStorage.s044){
 				
 			} else {
-				localStorage.s019 = 1
+				localStorage.s044 = 1
 				if (parseInt(localStorage.guardc) >= 10){
 					localStorage.mhp = parseInt(localStorage.mhp) + 8
 				}
@@ -2629,7 +2631,7 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.def = parseInt(localStorage.def) + 2
 					localStorage.reg = parseInt(localStorage.reg) + 1
 				}
-				if (parseInt(localStorage.ufoc) >= 200){
+				if (parseInt(localStorage.ufo2c) >= 200){
 					localStorage.healM = parseFloat(localStorage.healM) * 1.25
 				}
 				if (parseInt(localStorage.alienc) >= 10){
@@ -2695,10 +2697,10 @@ Restrictions: killed all enemies at caves at least once
 				}
 				localStorage.s028 = 1
 			}
-			if (localStorage.s036){
+			if (localStorage.s044){
 				
 			} else {
-				localStorage.s036 = 1
+				localStorage.s044 = 1
 				if (parseInt(localStorage.batc) >= 10){
 					DC.textContent = parseFloat(DC.textContent) * 1.05
 				}
@@ -3918,6 +3920,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('areaLib')
 			hide('caveLib')
 			hide('minesLib')
+			hide('codlabLib')
 			show('eLib')
 			show('elibrb')
 			setKills()
@@ -5155,6 +5158,11 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.att = parseInt(localStorage.att) - 100
 				document.getElementById('we').setAttribute('title','')
 				idrop('syringegun','Syringe gun - Ze healing is not as rewarding as ze hurting - +200 Hp +100 A', 10000, 1)
+			} else if (we.classList.contains('musket')){
+				document.getElementById('we').classList.replace('musket','weapon')
+				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.3
+				document.getElementById('we').setAttribute('title','')
+				idrop('musket',"Washington's musket - I own a musket for home defense copypasta - +60% attack multiplier -30% attack speed cooldowns", 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5229,6 +5237,10 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.def = parseFloat(localStorage.def) - 150
 				document.getElementById('bo').setAttribute('title','')
 				idrop('susSuit','Crewmate Suit - Whilst you wear this item, avoid any 10 year olds you find - +300 Hp +150 D', 10000, 1)
+			} else if (bo.classList.contains('Ksuit')){
+				document.getElementById('bo').classList.replace('Ksuit','body')
+				document.getElementById('bo').setAttribute('title','')
+				idrop('susSuit',"Kiryu's iconic suit - oh god, does he ever take this thing off? It smells horrible! - +20% defence multiplier -10% health multiplier", 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5980,13 +5992,24 @@ Restrictions: killed all enemies at caves at least once
 					iv2.setAttribute('title','')
 					localStorage.def = parseFloat(localStorage.def) + 40
 					equipAccess('mouse','A mouse - Something the mobile gamers wished they could use - +40 D')
-				}  else if (iv2.classList.contains('syringegun') && we.classList.contains('weapon')){
+				} else if (iv2.classList.contains('syringegun') && we.classList.contains('weapon')){
 					iv2.classList.replace('syringegun','empty')
 					document.getElementById('we').classList.replace('weapon','syringegun')
 					localStorage.mhp = parseFloat(localStorage.mhp) + 200
 					localStorage.att = parseFloat(localStorage.att) + 100
 					iv2.setAttribute('title','')
 					document.getElementById('we').setAttribute('title','Syringe gun - Ze healing is not as rewarding as ze hurting - +200 Hp +100 A')
+				} else if (iv2.classList.contains('musket') && we.classList.contains('weapon')){
+					iv2.classList.replace('musket','empty')
+					document.getElementById('we').classList.replace('weapon','musket')
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.3
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title',"Washington's musket - I own a musket for home defense copypasta - +60% attack multiplier -30% attack speed cooldowns")
+				} else if (iv2.classList.contains('Ksuit') && bo.classList.contains('body')){
+					iv2.classList.replace('Ksuit','empty')
+					document.getElementById('bo').classList.replace('body','Ksuit')
+					iv2.setAttribute('title','')
+					document.getElementById('bo').setAttribute('title',"Kiryu's iconic suit - oh god, does he ever take this thing off? It smells horrible! - +20% defence multiplier -10% health multiplier")
 				} else {
 					if (iv2.classList.item(1) !== 'empty'){
 						idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
@@ -6251,8 +6274,16 @@ Restrictions: killed all enemies at caves at least once
 			} else {
 				mhp.textContent = localStorage.mhp
 			}
-			att.textContent = Math.floor(parseInt(localStorage.att) * (1 + (b1 / 100)))
-			def.textContent = Math.floor(parseInt(localStorage.def) * (1 + (b2 / 100)))
+			var attMulti = 1
+			var defMulti = 1
+			if (we.classList.contains('musket')){
+				attMulti = 1.6
+			}
+			if (bo.classList.contains('musket')){
+				defMulti = 1.2
+			}
+			att.textContent = Math.floor(parseInt(localStorage.att) * (1 + (b1 / 100)) * attMulti)
+			def.textContent = Math.floor(parseInt(localStorage.def) * (1 + (b2 / 100)) * defMulti)
 			hp.textContent = mhp.textContent
 			hp2.textContent = mhp.textContent
 		}
@@ -9416,7 +9447,7 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById("eHealth").style.width = '0px'
 						guardc.textContent = parseFloat(guardc.textContent) + 1
 						KBify(guardc.textContent)
-						if (parseInt(localStorage.guardc) === 10){
+						if (parseInt(guardc.textContent) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 8
 						}
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
@@ -9501,13 +9532,13 @@ Restrictions: killed all enemies at caves at least once
 						deepc.textContent = parseFloat(deepc.textContent) + 1
 						KBify(deepc.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
-						if (parseInt(localStorage.deepc) === 10){
+						if (parseInt(deepc.textContent) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.05
 						}
-						if (parseInt(localStorage.deepc) === 50){
+						if (parseInt(deepc.textContent) === 50){
 							SC.textContent = parseFloat(SC.textContent) * 1.1
 						}
-						if (parseInt(localStorage.deepc) === 200){
+						if (parseInt(deepc.textContent) === 200){
 							UC.textContent = parseFloat(UC.textContent) * 2
 						}
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2000)
@@ -9555,13 +9586,13 @@ Restrictions: killed all enemies at caves at least once
 						ufo2c.textContent = parseFloat(ufo2c.textContent) + 1
 						KBify(ufo2c.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
-						if (parseInt(localStorage.ufo2c) === 10){
+						if (parseInt(ufo2c.textContent) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 10
 							localStorage.att = parseInt(localStorage.att) + 2
 							localStorage.def = parseInt(localStorage.def) + 2
 							localStorage.reg = parseInt(localStorage.reg) + 1
 						}
-						if (parseInt(localStorage.ufoc) === 200){
+						if (parseInt(ufo2c.textContent) === 200){
 							localStorage.healM = parseFloat(localStorage.healM) * 1.25
 						}
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2000)
@@ -9623,13 +9654,13 @@ Restrictions: killed all enemies at caves at least once
 						alienc.textContent = parseFloat(alienc.textContent) + 1
 						KBify(alienc.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
-						if (parseInt(localStorage.alienc) === 10){
+						if (parseInt(alienc.textContent) === 10){
 							localStorage.att = parseInt(localStorage.att) + 3
 						}
-						if (parseInt(localStorage.alienc) === 50){
+						if (parseInt(alienc.textContent) === 50){
 							DC.textContent = parseFloat(DC.textContent) * 1.1
 						}
-						if (parseInt(localStorage.alienc) === 200){
+						if (parseInt(alienc.textContent) === 200){
 							atH.textContent = parseInt(atH.textContent) + 1
 						}
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2000)
@@ -9709,13 +9740,13 @@ Restrictions: killed all enemies at caves at least once
 						tree2c.textContent = parseFloat(tree2c.textContent) + 1
 						KBify(tree2c.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
-						if (parseInt(localStorage.tree2c) === 10){
+						if (parseInt(tree2c.textContent) === 10){
 							localStorage.def = parseInt(localStorage.def) + 3
 						}
-						if (parseInt(localStorage.tree2c) === 50){
+						if (parseInt(tree2c.textContent) === 50){
 							localStorage.reg = parseInt(localStorage.reg) + 10
 						}
-						if (parseInt(localStorage.tree2c) === 200){
+						if (parseInt(tree2c.textContent) === 200){
 							localStorage.hpM = parseFloat(localStorage.hpM) * 1.25
 						}
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2000)
@@ -9797,10 +9828,10 @@ Restrictions: killed all enemies at caves at least once
 						drone4c.textContent = parseFloat(drone4c.textContent) + 1
 						KBify(drone4c.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
-						if (parseInt(localStorage.drone4c) === 10){
+						if (parseInt(drone4c.textContent) === 10){
 							stiBT.textContent = parseInt(stiBT.textContent) - 5
 						}
-						if (parseInt(localStorage.drone4c) === 50){
+						if (parseInt(drone4c.textContent) === 50){
 							localStorage.sniBT = parseInt(localStorage.sniBT) - 60
 						}
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2000)
@@ -9910,10 +9941,10 @@ Restrictions: killed all enemies at caves at least once
 						ant2c.textContent = parseFloat(ant2c.textContent) + 1
 						KBify(ant2c.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20)
-						if (parseInt(localStorage.ant2c) === 10){
+						if (parseInt(ant2c.textContent) === 10){
 							edod.textContent = parseFloat(edod.textContent) * 0.95
 						}
-						if (parseInt(localStorage.ant2c) === 200){
+						if (parseInt(ant2c.textContent) === 200){
 							localStorage.dodgeCoolM = parseFloat(localStorage.dodgeCoolM) / 2
 						}
 						eNHTr.textContent = 0
@@ -9965,16 +9996,15 @@ Restrictions: killed all enemies at caves at least once
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
 						enemykill(6)
-						var a = document.getElementById('radioactive')
-						a.classList.add('hide')
+						hide('radioactive')
 						document.getElementById("eHealth").style.width = '0px'
 						radioactivec.textContent = parseFloat(radioactivec.textContent) + 1
 						KBify(radioactivec.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
-						if (parseInt(localStorage.radioactivec) === 10){
+						if (parseInt(radioactivec.textContent) === 10){
 							localStorage.reg = parseInt(localStorage.reg) + 3
 						}
-						if (parseInt(localStorage.radioactivec) === 50){
+						if (parseInt(radioactivec.textContent) === 50){
 							SC.textContent = parseFloat(SC.textContent) * 1.1
 						}
 						sdrop('healthstone', 'Healthstone - Now you die less :) - +1 Hp', 2000)
@@ -10133,6 +10163,7 @@ Restrictions: killed all enemies at caves at least once
 						batc.textContent = parseFloat(batc.textContent) + 1
 						KBify(batc.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
+						save()
 						if (parseInt(localStorage.batc) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.05
 						}
@@ -10192,6 +10223,7 @@ Restrictions: killed all enemies at caves at least once
 						stalicitec.textContent = parseFloat(stalicitec.textContent) + 1
 						KBify(stalicitec.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
+						save()
 						if (parseInt(localStorage.stalicitec) === 10){
 							localStorage.att = parseInt(localStorage.att) + 5
 						}
@@ -10251,6 +10283,7 @@ Restrictions: killed all enemies at caves at least once
 						stalimitec.textContent = parseFloat(stalimitec.textContent) + 1
 						KBify(stalimitec.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
+						save()
 						if (parseInt(localStorage.stalimitec) === 10){
 							localStorage.def = parseInt(localStorage.def) + 10
 						}
@@ -10315,6 +10348,7 @@ Restrictions: killed all enemies at caves at least once
 						rockc.textContent = parseFloat(rockc.textContent) + 1
 						KBify(rockc.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
+						save()
 						if (parseInt(localStorage.rockc) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 15
 						}
@@ -10328,7 +10362,7 @@ Restrictions: killed all enemies at caves at least once
 						idrop('jeans','Jeans - i love this game - +10 D +20 Hp', 200)
 						idrop('boot','Boot - y - -5% Attack Cooldowns +8 D +6 A', 200)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
-						udrop('rockusb', 'If only I could destroy the rock', 10000)
+						udrop('rockusb', 'Doubt it would work. If only I could destroy the rock', 10000)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(7)){
 							setTimeout(cavebat, 200, 1)
@@ -10378,6 +10412,7 @@ Restrictions: killed all enemies at caves at least once
 						skeletonc.textContent = parseFloat(skeletonc.textContent) + 1
 						KBify(skeletonc.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
+						save()
 						FPdrop(6,2)
 						if (parseInt(localStorage.skeletonc) === 10){
 							FPdrop(6,100)
@@ -10443,6 +10478,7 @@ Restrictions: killed all enemies at caves at least once
 						torchc.textContent = parseFloat(torchc.textContent) + 1
 						KBify(torchc.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
+						save()
 						if (parseInt(localStorage.torchc) === 10){
 							DC.textContent = parseFloat(DC.textContent) * 1.05
 						}
@@ -10501,6 +10537,7 @@ Restrictions: killed all enemies at caves at least once
 						glowwormc.textContent = parseFloat(glowwormc.textContent) + 1
 						KBify(glowwormc.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(30)
+						save()
 						if (parseInt(localStorage.glowwormc) === 10){
 							localStorage.mhp = parseInt(localStorage.mhp) + 8
 							localStorage.att = parseInt(localStorage.att) + 5
@@ -10577,6 +10614,7 @@ Restrictions: killed all enemies at caves at least once
 						lavac.textContent = parseFloat(lavac.textContent) + 1
 						KBify(lavac.textContent)
 						localStorage.xp = parseFloat(localStorage.xp) + xpMulti(50)
+						save()
 						if (parseInt(localStorage.lavac) === 10){
 							localStorage.reg = parseInt(localStorage.reg) + 2
 						}
@@ -11026,7 +11064,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById("health").style.width = "250px";
 				var re = setTimeout(gratt,50)
 				ae = 0
-				reg.textContent = parseInt(reg.textContent) - 40
+				reg.textContent = parseInt(reg.textContent) - 50
 				function gratt() {
 					if (parseFloat(ehp.textContent) <= 0){
 						enemykill(8)
@@ -11807,11 +11845,11 @@ Restrictions: killed all enemies at caves at least once
 						ereg.textContent = 0
 						eNHTr.textContent = 1
 						document.getElementById("eHealth").style.width = 250
-						battle(0, 16, 0)
+						battle(0, 16, 0, 0)
 						document.getElementById('gasby').classList.remove('hide')
 						document.getElementById('player').setAttribute('src', 'playerLeg.gif')
 						document.getElementById('gasby').setAttribute('src', 'glasbygaming2.png')
-						function battle(ae, sp, yes){
+						function battle(ae, sp, yes, gp){
 							if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
 								regen()
 								ae = ae + 1
@@ -11835,12 +11873,15 @@ Restrictions: killed all enemies at caves at least once
 									eattack()
 									ae = 0
 									xixin = Math.floor(Math.random() * 16) + 1
-									if (xixin === 16 && document.getElementById('player').getAttribute('src') === 'playerLeg.gif'){
+									gp = gp + 1
+									if (xixin === 16 && document.getElementById('player').getAttribute('src') === 'playerLeg.gif' ){
 										document.getElementById('player').setAttribute('src', 'playerHea.gif')
-									} else if (xixin < 5 && document.getElementById('player').getAttribute('src') === 'playerMid.gif'){
+									} else if ((xixin < 5 || gp === 4) && document.getElementById('player').getAttribute('src') === 'playerMid.gif'){
 										document.getElementById('player').setAttribute('src', 'playerHea.gif')
-									} else if (xixin < 5 && document.getElementById('player').getAttribute('src') === 'playerLeg.gif'){
+										gp = 0
+									} else if ((xixin < 5 || gp === 4) && document.getElementById('player').getAttribute('src') === 'playerLeg.gif'){
 										document.getElementById('player').setAttribute('src', 'playerMid.gif')
+										gp = 0
 									}
 									if (dodgeOn.textContent === '1' && yes === 0){
 										document.getElementById('player').setAttribute('src', 'playerDodgeG.gif')
@@ -11852,7 +11893,7 @@ Restrictions: killed all enemies at caves at least once
 									document.getElementById('player').setAttribute('src', 'playerHea.gif')
 									yes = 1
 								}
-								setTimeout(battle, 50, ae, sp, yes)
+								setTimeout(battle, 50, ae, sp, yes, gp)
 							} else if (parseFloat(ehp.textContent) <= 0){
 								enemykill(9)
 								localStorage.xp = parseFloat(localStorage.xp) + xpMulti(200)
@@ -13133,7 +13174,7 @@ Restrictions: killed all enemies at caves at least once
 			var thingy = SZ1check
 			if (x === 1){
 				show('SZ1E1')
-				setEStats(parseInt(att.textContent) * 30, Math.ceil(parseInt(mhp.textContent) * 0.12 + parseInt(def.textContent) / 2), 0, 0)
+				setEStats(parseInt(att.textContent) * 40, Math.ceil(parseInt(mhp.textContent) * 0.15 + parseInt(def.textContent) / 2), 0, 0)
 				if (Math.random() <= 0.5){//0.0001){
 					hide('SZ1E1')
 					show('SZ1E1V2')
@@ -13157,6 +13198,7 @@ Restrictions: killed all enemies at caves at least once
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						hide('SZ1E1')
 						hide('SZ1E1V2')
+						idrop('Ksuit',"Kiryu's iconic suit - oh god, does he ever take this thing off? It smells horrible! - +20% defence multiplier -10% health multiplier", 10000)
 						newSave('SZ1E1c',0)
 						localStorage.SZ1E1c = parseInt(localStorage.SZ1E1c) + 1
 						KBify(localStorage.SZ1E1c)
@@ -13176,7 +13218,7 @@ Restrictions: killed all enemies at caves at least once
 				}
 			} else if (x === 2 || true){
 				show('SZ1E2')
-				setEStats(parseInt(att.textContent) * 30, Math.ceil(parseInt(mhp.textContent) * 0.7 + parseInt(def.textContent) / 2), 0, Math.ceil(parseInt(att.textContent) * 30 / 60))
+				setEStats(parseInt(att.textContent) * 40, Math.ceil(parseInt(mhp.textContent) * 0.7 + parseInt(def.textContent) / 2), 0, Math.ceil(parseInt(att.textContent) * 30 / 60))
 				battle(0, 60)
 				function battle(ae, sp){
 					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0 && thingy === SZ1check){
@@ -13191,6 +13233,7 @@ Restrictions: killed all enemies at caves at least once
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						hide('SZ1E2')
 						newSave('SZ1E2c',0)
+2						idrop('musket',"Washington's musket - I own a musket for home defense copypasta - +60% attack multiplier -30% attack speed cooldowns",10000)
 						localStorage.SZ1E1c = parseInt(localStorage.SZ1E1c) + 1
 						KBify(localStorage.SZ1E2c)
 						advc.textContent = parseInt(advC.textContent)
@@ -15546,8 +15589,6 @@ Restrictions: killed all enemies at caves at least once
 				} else if (dp <= 10){
 					ususbD()
 					adrop('droneDrop3',100)
-				} else if (dp <= 15 && parseInt(d2Tr.textContent) === 1 && parseInt(d3Tr.textContent) === 0){
-					d3usbD()
 				} else if (dp <= 40){
 					sdrop('parrystone', 'Parrystone - Now you counter - +1 A +1 D', 10000)
 				} else if (dp <= 70){
@@ -16950,6 +16991,7 @@ Restrictions: killed all enemies at caves at least once
 			newSave('xph3', 500)
 			document.getElementById('xph3').setAttribute('title', 'Increase health by 3% - ' + parseInt(localStorage.xph3) + ' xp')
 			document.getElementById('xph3').textContent = localStorage.xph3
+			document.getElementById('xpus').setAttribute('title', 'Increase drone upgrade speed by 2% - ' + localStorage.xpus + ' xp')
 			var a = document.getElementById('xpdc')
 			a.classList.add('xpdcr')
 			a.classList.remove('xpdcg')
@@ -17329,7 +17371,7 @@ Restrictions: killed all enemies at caves at least once
 				show('gaming')
 				hide('anom')
 				newSave('WFUlvl',1)
-				if (localStorage.WFUlvl === '0'){
+				if (localStorage.WFUlvl === '0' || (parseInt(localStorage.WFUlvl) >= 1) === false){
 					localStorage.WFUlvl = 1
 				}
 				document.getElementById('gamefeature').classList.remove('hide')
@@ -17809,7 +17851,7 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if (localStorage.ach41 === '1'){
 				document.getElementById('ach41').classList.replace('achF','achCT')
-				document.getElementById('ach41').setAttribute('title', "KGT development crew :) - Thanks")
+				document.getElementById('ach41').setAttribute('title', "KGT development crew :) - Thank you for sharing your wisdom, feel free to do another later")
 				AP = AP + 1
 				currentAch = currentAch + 1
 			}
@@ -18537,6 +18579,12 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if (ifFound('item68')){
 				document.getElementById('item68').setAttribute('title', "A purchased subscription - It says, “Ever thought that your drones are not the best drones around? And that they don’t have little drawings of them? Or if they are not idle or incremental enough? Well say no more. With your purchase you unlock the PREMIUM DRONES. They are better, cooler and more incremental-ly. To redeem your purchase, go to the buff drone page, press on the kills and enter ‘True idler’”. It can’t be equipped or consumed so destroy it I guess?\nDropped from the killer robot (1st kill)\n" + document.getElementById('item68').getAttribute('title'))
+			}
+			if (ifFound('item69')){
+				document.getElementById('item69').setAttribute('title', "Kiryu's iconic suit - oh god, does he ever take this thing off? It smells horrible! - +20% defence multiplier -10% health multiplier\nDropped from kiryu_kazuma.png (100%)\n" + document.getElementById('item69').getAttribute('title'))
+			}
+			if (ifFound('item70')){
+				document.getElementById('item70').setAttribute('title', "Washington's musket - I own a musket for home defense copypasta - +60% attack multiplier -30% attack speed cooldowns\nDropped from George Washington (100%)\n" + document.getElementById('item70').getAttribute('title'))
 			}
 		}//itemsHere
 		function anomOn(){

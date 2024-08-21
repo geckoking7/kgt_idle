@@ -1136,10 +1136,10 @@
 					}
 					if (pcontact(parseInt(bullet.style.left), parseInt(bullet.style.top), 2, 2)){//player hit
 						pdam(dam)
-						document.getElementById('body').removeChild(bullet)
+						bullet.remove()
 						console.log('Player was hit by bullet')
 					} else if (parseInt(bullet.style.top) <= 70 || parseInt(bullet.style.top) >= 470 || parseInt(bullet.style.left) <= 80 || parseInt(bullet.style.left) >= 1010){
-						document.getElementById('body').removeChild(bullet)
+						bullet.remove()
 					} else {
 						bullet.style.left = parseFloat(bullet.style.left) + (leftT / 9) * (4 + (day - 1) / 5) * (2 * leftN - 1)
 						bullet.style.top = parseFloat(bullet.style.top) + (topT / 9) * (4 + (day - 1) / 5) * (2 * topN - 1)
@@ -1153,7 +1153,7 @@
 								pud.style.left = parseInt(bullet.textContent[0] + '' + bullet.textContent[1] + '' + bullet.textContent[2]) - 10
 								pud.style.top = parseInt(bullet.textContent[3] + '' + bullet.textContent[4] + '' + bullet.textContent[5]) - 10
 								pud.textContent = 0
-								document.getElementById('body').removeChild(bullet)
+								bullet.remove()
 							} else if (Math.random() < 0.3){
 								let FPNodE = FPNode.cloneNode(true)
 								let ap = document.getElementById('body').appendChild(FPNodE)
@@ -1203,7 +1203,7 @@
 									mini.style.background = 'url("miniCannon3.png")'
 									mini.style.opacity = Math.floor(Math.random() * 4) + 1
 								}
-								document.getElementById('body').removeChild(bullet)
+								bullet.remove()
 							}
 						}
 					}
@@ -1224,7 +1224,7 @@
 							document.getElementById('guard1').classList.add('fire0')
 							makeFire(parseInt(guard1.style.left),parseInt(guard1.style.top),30,50,20)
 						}
-						document.getElementById('body').removeChild(bullet)
+						bullet.remove()
 					} else if (parseFloat(bullet.style.left) >= 867 && parseFloat(bullet.style.left) <= 894 && parseFloat(bullet.style.top) - 2 >= parseFloat(document.getElementById("guard2").style.top) && parseFloat(bullet.style.top) <= parseFloat(document.getElementById("guard2").style.top) + 46 && document.getElementById("guard2").classList.contains('hide') == false){
 						g2H = g2H - stock() - 1
 						edam('guard2p')
@@ -1240,7 +1240,7 @@
 							document.getElementById('guard2').classList.add('fire0')
 							makeFire(parseInt(guard2.style.left),parseInt(guard2.style.top),30,50,20)
 						}
-						document.getElementById('body').removeChild(bullet)
+						bullet.remove()
 					} else if (parseFloat(bullet.style.left) >= parseFloat(eagle.style.left) - 4 && parseFloat(bullet.style.left) - 72 <= parseFloat(eagle.style.left) && parseFloat(bullet.style.top) >= parseFloat(eagle.style.top) - 4 && parseFloat(bullet.style.top) - 50 <= parseFloat(parseFloat(eagle.style.top)) && eagle.classList.contains('hide') == false && eagle.style.background == 'url("WFUdeagle.gif")'){
 						DEhp = DEhp - stock() - 1
 						edam('eagleT')
@@ -1256,7 +1256,7 @@
 							eagle.classList.add('fire0')
 							makeFire(parseInt(eagle.style.left),parseInt(eagle.style.top),80,80,50)
 						}
-						document.getElementById('body').removeChild(bullet)
+						bullet.remove()
 					} else if ((parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 30 || parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) + 30 && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 70 || parseFloat(bullet.style.left) + 4 >= parseFloat(cannonBoss.style.left) + 20 && parseFloat(bullet.style.left) <= parseFloat(cannonBoss.style.left) + 100 && parseFloat(bullet.style.top) + 4 >= parseFloat(cannonBoss.style.top) + 70 && parseFloat(bullet.style.top) <= parseFloat(cannonBoss.style.top) + 100) && ob3 === 1 && cannonH > 0 && cannonBoss.classList.contains('hide') === false){
 						cannonD()
 						if (parseInt(bullet.textContent[1]) === 2){
@@ -1271,9 +1271,9 @@
 							cannonBoss.classList.add('fire0')
 							makeFire(parseInt(cannonBoss.style.left),parseInt(cannonBoss.style.top),80,80,50)
 						}
-						document.getElementById('body').removeChild(bullet)
+						bullet.remove()
 					} else if (parseInt(bullet.style.top) <= 70 || parseInt(bullet.style.top) >= 470 || parseInt(bullet.style.left) <= 80 || parseInt(bullet.style.left) >= 1010){
-						document.getElementById('body').removeChild(bullet)
+						bullet.remove()
 					} else {
 						var x = 0
 						for (var i = 1; i <=  9; i++){
@@ -1294,7 +1294,7 @@
 											imposter.classList.add('fire0')
 											makeFire(parseInt(imposter.style.left),parseInt(imposter.style.top),30,50,20)
 										}
-										document.getElementById('body').removeChild(bullet)
+										bullet.remove()
 										if (impF === 1){
 											edam(imposter.getAttribute('id') + 'T')
 										}
@@ -1315,7 +1315,7 @@
 									if (parseInt(bullet.textContent[1]) === 2){
 										makeFire(parseInt(mini.style.left),parseInt(mini.style.top),50,50,25)
 									}
-									document.getElementById('body').removeChild(bullet)
+									bullet.remove()
 									document.getElementById('body').removeChild(mini)
 								}
 							}
@@ -1587,10 +1587,10 @@
 			attackC = 0
 			for (var i = 0; i < 2; i++){ //to ensure everything actaully deletes
 				for (const bullet of document.getElementsByClassName('playerB')){
-					document.getElementById('body').removeChild(bullet)
+					bullet.remove()
 				}
 				for (const bullet of document.getElementsByClassName('enemyB')){
-					document.getElementById('body').removeChild(bullet)
+					bullet.remove()
 				}
 				for (const emu of document.getElementsByClassName('eAlive')){
 					document.getElementById('body').removeChild(emu)
