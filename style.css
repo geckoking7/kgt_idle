@@ -862,6 +862,15 @@ img{
 .musket{
 	background-image: url('musket.png');
 }
+.dio{
+	background-image: url('dio.png');
+}
+.capMessage{
+	background-image: url('capMessage.png');
+}
+.cake{
+	background-image: url('cake.png');
+}
 .useall{
 	background-image: url('useall.png');
 }
