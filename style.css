@@ -408,6 +408,13 @@ img{
 	top: 236px;
 	left: 549px;
 }
+.penemy{
+	position: absolute;
+	margin: 0;
+	height: 150px;
+	width: 100px;
+	transform: scaleX(-1);
+}
 .btnr{
 	position: absolute;
 	background-color: red;
@@ -491,6 +498,10 @@ img{
 .urf{
 	top: 208px;
 	left: 270px;
+}
+.orf{
+	top: 214px;
+	left: 329px;
 }
 .tconb{
 	top: 256px;
@@ -870,6 +881,9 @@ img{
 }
 .cake{
 	background-image: url('cake.png');
+}
+.davePot{
+	background-image: url('davePot.png');
 }
 .useall{
 	background-image: url('useall.png');

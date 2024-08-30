@@ -70,6 +70,20 @@
 			<img src="SZ1E1.png" alt="its him omg" class="enemy" id="SZ1E1">
 			<img src="SZ1E1V2.png" alt="its him omg" class="enemy" id="SZ1E1V2">
 			<img src="SZ1E2.png" alt="its him omg" class="enemy" id="SZ1E2">
+			<img src="SZ1E3.png" alt="its him omg" class="enemy" id="SZ1E3">
+			<div class='hide'>
+				<img src="plant1.png" alt='peepooper' id="plant1Node" class='penemy'>
+				<img src="plant2.png" alt='peepooper' id="plant2Node" class='penemy'>
+				<img src="plant3.png" alt='peepooper' id="plant3Node" class='penemy'>
+				<img src="plant4.png" alt='peepooper' id="plant4Node" class='penemy'>
+				<img src="plant5.png" alt='peepooper' id="plant5Node" class='penemy'>
+				<img src="plant6.png" alt='peepooper' id="plant6Node" class='penemy'>
+				<img src="plant7.png" alt='peepooper' id="plant7Node" class='penemy'>
+				<img src="plant8.png" alt='peepooper' id="plant8Node" class='penemy'>
+				<img src="plant9.png" alt='peepooper' id="plant9Node" class='penemy'>
+				<img src="plant10.png" alt='peepooper' id="plant10Node" class='penemy'>
+				<img src="plant11.png" alt='peepooper' id="plant11Node" class='penemy'>
+			</div>
 		</div>
 		<!-- lore -->
 		<h4 class="lore hide" id="ch1">You wake up, in the middle of a something.<br>Confused of where you are, however, you have this feeling, of major dislike, of slightly less major hate.<br>Something, no, someone, has destroyed this place. Somebody needs to pay.<br>In front of you, you see a bunch of weird objects. What is this, green line, or the, flat piece of white.<br>Ok, what strange objects, but there is also this person next to them.<br><br>“Ah, Finally, you’re awake”</h4>
@@ -497,8 +511,8 @@
 		<img src="4drone.png" alt="Something u dont touchy" class="hide enemy" id="4drone">
 		<img src="ant2.png" alt="Something u dont touchy" class="hide enemy" id="ant2">
 		<img src="radioactive.png" alt="Something u dont touchy" class="hide enemy" id="radioactive">
-		<img src="miss.png" alt="Something that means you failed to touchy" class="hide" id="miss" style='width: 100px; height: 40px; position: absolute; top: 375px; left: 675px;'>
-		<img src="miss.png" alt="Something that means you failed to get touched (why i made that sus?)" class="hide" id="missP" style='width: 100px; height: 40px; position: absolute; top: 375px; left: 275px;'>
+		<img src="miss.png" alt="Something that means you failed to touchy" class="hide" id="miss" style='width: 100px; height: 40px; position: absolute; top: 375px; left: 675px; z-index: 988765;'>
+		<img src="miss.png" alt="Something that means you failed to get touched (why i made that sus?)" class="hide" id="missP" style='width: 100px; height: 40px; position: absolute; top: 375px; left: 275px; z-index: 988765;'>
 		<img src="10KB.png" alt="touching you must of ensued" class="hide" id="KB10" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
 		<img src="50KB.png" alt="Alot of touching you must of ensued" class="hide" id="KB50" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
 		<img src="200KB.png" alt="Very alot of touching you must of ensued" class="hide" id="KB200" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
@@ -534,6 +548,9 @@ Restrictions: killed all enemies in the mines at least once
                     killed all enemies in the Coder's lab at least once
                     have at least level 5 killer robots
                     get a domination" class="btnr urf" id="urf"></button>
+		<button title="Overground Research Facility
+Restrictions: killed all enemies in the Coder's lab at least once
+                    killed a single enemy in the underground research facility" class="btnr orf hide" id="orf"></button>
 		<button title="No grass touch
 Restrictions: killed all enemies at caves at least once
                     Some other stuff" class="btnr tconb" id="Tconb"></button>
@@ -3454,6 +3471,9 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('edef%').textContent = 0
 				document.getElementById('red').style.opacity = 0
 				document.getElementById('player').setAttribute('src', 'player.gif')
+				if (he.classList.contains("davePot")){
+					document.getElementById('player').setAttribute('src', 'davePlayer.gif')
+				}
 				mhp.textContent = localStorage.mhp
 				att.textContent = localStorage.att
 				def.textContent = localStorage.def
@@ -5226,6 +5246,12 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.def = parseFloat(localStorage.def) + 50
 				document.getElementById('he').setAttribute('title','')
 				idrop('crown','Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D', 10000, 1)
+			} else if (he.classList.contains('davePot')){
+				var b = document.getElementById('he')
+				b.classList.remove('davePot')
+				b.classList.add('head')
+				document.getElementById('he').setAttribute('title','')
+				idrop('davePot',"Crazy Dave's pot - BECAUSE I'M CRAZY, AND NOW YOU ARE TOO! - +1 insanity +10% health multiplier - uses a special player image when equipped", 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -6037,6 +6063,11 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.att = parseInt(localStorage.att) + 69
 					localStorage.def = parseInt(localStorage.def) + 69
 					localStorage.reg = parseInt(localStorage.reg) + 69
+				} else if (iv2.classList.contains('davePot') && he.classList.contains('head')){
+					iv2.classList.replace('davePot','empty')
+					document.getElementById('he').classList.replace('body','davePot')
+					iv2.setAttribute('title','')
+					document.getElementById('he').setAttribute('title',"Crazy Dave's pot - BECAUSE I'M CRAZY, AND NOW YOU ARE TOO! - +1 insanity +10% health multiplier - uses a special player image when equipped")
 				} else {
 					if (iv2.classList.item(1) !== 'empty'){
 						idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
@@ -6293,6 +6324,9 @@ Restrictions: killed all enemies at caves at least once
 			var hpMulti = 1
 			if (localStorage.premDTr === '2'){
 				hpMulti = 1 + parseInt(localStorage.redCur) / 100
+			}
+			if (he.classList.contains('davePot')){
+				hpMulti = hpMulti * 1.1
 			}
 			if (bo.classList.contains('Ksuit')){
 				hpMulti = hpMulti * 0.9
@@ -13183,6 +13217,16 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 		}
+		function orfbat(enemyN, thingTr){
+			if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && parseInt(localStorage.ch37Tr) >= 1 && (thingTr === 1 && document.getElementById('z11').classList.contains('hide') === false || thingTr != 1) || enemyN >= 0 && enemyN <= 8){
+				sadvmus(1)
+				setStats()
+				startBat()
+			} else {
+				newSave('ach12p', 0)
+				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
+			}
+		}
 		var rightValid = 0;
 		var timeYes = 0;
 		function sci3Right(){
@@ -13207,10 +13251,11 @@ Restrictions: killed all enemies at caves at least once
 			hide('SZ1E1')
 			hide('SZ1E1V2')
 			hide('SZ1E2')
+			hide('SZ1E3')
 			sadvmus(1)
 			setStats()
 			startBat()
-			x = Math.floor(Math.random() * 2) + 1 //8
+			x = Math.floor(Math.random() * 3) + 1 //8
 			SZ1check = SZ1check + 1
 			var thingy = SZ1check
 			localStorage.SZ1Tr = 1
@@ -13242,7 +13287,7 @@ Restrictions: killed all enemies at caves at least once
 						hide('SZ1E1')
 						hide('SZ1E1V2')
 						idrop('Ksuit',"Kiryu's iconic suit - oh god, does he ever take this thing off? It smells horrible! - +20% defence multiplier -10% health multiplier", 10000)
-						idrop('Dio','Dio - You thought you got an item, but it was me, Dio!','100')
+						idrop('Dio','Dio - You thought you got an item, but it was me, Dio!',100)
 						newSave('SZ1E1c',0)
 						localStorage.SZ1E1c = parseInt(localStorage.SZ1E1c) + 1
 						KBify(localStorage.SZ1E1c)
@@ -13260,7 +13305,7 @@ Restrictions: killed all enemies at caves at least once
 						}
 					}
 				}
-			} else if (x === 2 || true){
+			} else if (x === 2){
 				show('SZ1E2')
 				setEStats(parseInt(att.textContent) * 30, Math.ceil(parseInt(mhp.textContent) * 0.7 + parseInt(def.textContent) / 2), 0, Math.ceil(parseInt(att.textContent) * 30 / 60))
 				battle(0, 60)
@@ -13278,7 +13323,7 @@ Restrictions: killed all enemies at caves at least once
 						hide('SZ1E2')
 						newSave('SZ1E2c',0)
 						idrop('musket',"Washington's musket - I own a musket for home defense copypasta - +60% attack multiplier -30% attack speed cooldowns",10000)
-						idrop('Dio','Dio - You thought you got an item, but it was me, Dio!','100')
+						idrop('Dio','Dio - You thought you got an item, but it was me, Dio!',100)
 						localStorage.SZ1E2c = parseInt(localStorage.SZ1E2c) + 1
 						KBify(localStorage.SZ1E2c)
 						advc.textContent = parseInt(advC.textContent)
@@ -13295,6 +13340,131 @@ Restrictions: killed all enemies at caves at least once
 						}
 					}
 				}
+			} else if (x === 3 || true){
+				show('SZ1E3')
+				setEStats(parseInt(att.textContent) * 25, Math.ceil(parseInt(mhp.textContent) * 0.05 + parseInt(def.textContent) / 2), 0, 0)
+				battle(0, 20, 0)
+				function battle(ae, sp, be){
+					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0 && thingy === SZ1check){
+						regen()
+						ae = ae + 1
+						if (be > 0){
+							be = be - 1
+						} else {
+							hide("noMove1")
+							hide("noMove2")
+							hide("noMove3")
+							document.getElementById('player').setAttribute("src", "player.png")
+						}
+						if (ae === sp){
+							ae = 0
+							if (document.getElementById('bombPlant1')){
+								document.getElementById('bombPlant1').remove()
+								if (dodgeOn.textContent === "0"){
+									document.getElementById('player').setAttribute("src", "playerFrozen.png")
+									be = 60
+									show("noMove1")
+									show("noMove2")
+									show("noMove3")
+								}
+							} 
+							if (document.getElementById('bombPlant2')){
+								if (dodgeOn.textContent === "0"){
+									hp.textContent = parseFloat(hp.textContent) - parseInt(mhp.textContent) * 0.2
+								}
+								document.getElementById('bombPlant2').remove()
+							}
+							if (document.getElementById('bombPlant3')){
+								if (dodgeOn.textContent === "0"){
+									hp.textContent = parseFloat(hp.textContent) - parseInt(mhp.textContent) * 0.5
+								}
+								document.getElementById('bombPlant3').remove()
+							}
+							eattack()
+							let plant = Math.floor(Math.random() * 100) + 1
+							if (plant <= 20){
+								createPlant(1)
+								eatt.textContent = parseInt(eatt.textContent) + Math.ceil(0.01 * parseInt(mhp.textContent))
+							} else if (plant <= 30){
+								createPlant(2)
+								eatt.textContent = parseInt(eatt.textContent) + Math.ceil(0.04 * parseInt(mhp.textContent))
+							} else if (plant <= 35){
+								createPlant(3)
+								eatt.textContent = parseInt(eatt.textContent) + Math.ceil(0.02 * parseInt(mhp.textContent))
+							} else if (plant <= 40){
+								createPlant(4)
+								eatt.textContent = parseInt(eatt.textContent) + Math.ceil(0.01 * parseInt(mhp.textContent))
+								attDelay.textContent = parseFloat(attDelay.textContent) + 200
+							} else if (plant <= 60){
+								createPlant(5)
+								ereg.textContent = parseInt(ereg.textContent) + Math.ceil(parseInt(emhp.textContent) / 300)
+							} else if (plant <= 65){
+								createPlant(6)
+								ereg.textContent = parseInt(ereg.textContent) + Math.ceil(parseInt(emhp.textContent) / 150)
+							} else if (plant <= 80){
+								createPlant(7)
+								edef.textContent = parseInt(edef.textContent) + Math.ceil(0.05 * parseInt(att.textContent))
+							} else if (plant <= 85){
+								createPlant(8)
+								edef.textContent = parseInt(edef.textContent) + Math.ceil(0.1 * parseInt(att.textContent))
+							} else if (plant <= 88){
+								createPlant(9)
+							} else if (plant <= 98){
+								createPlant(10)
+							} else {
+								createPlant(11)
+							}
+						}
+						setTimeout(battle, 50, ae, sp, be)
+					} else if (parseFloat(ehp.textContent) <= 0){
+						localStorage.xp = parseFloat(localStorage.xp) + 1
+						hide('SZ1E3')
+						newSave('SZ1E3c',0)
+						idrop('Dio','Dio - You thought you got an item, but it was me, Dio!',100)
+						idrop('davePot',"Crazy Dave's pot - BECAUSE I'M CRAZY, AND NOW YOU ARE TOO! - +1 insanity +10% health multiplier - uses a special player image when equipped",100)
+						localStorage.SZ1E3c = parseInt(localStorage.SZ1E3c) + 1
+						KBify(localStorage.SZ1E3c)
+						for (i = 0; i < 1; i++){
+							for (const plant of document.getElementsByClassName('plant')){
+								plant.remove()
+							}
+							if (document.getElementsByClassName('plant')[0]){
+								i = 0
+							}
+						}
+						advc.textContent = parseInt(advC.textContent)
+						var qe = setTimeout(enki,500,advc.textContent)
+						document.getElementById("eHealth").style.width = '0px'
+					} else {
+						playerdead()
+						hide('player')
+						for (i = 0; i < 1; i++){
+							for (const plant of document.getElementsByClassName('plant')){
+								plant.remove()
+							}
+							if (document.getElementsByClassName('plant')[0]){
+								i = -1
+							}
+						}
+						advc.textContent = parseInt(advC.textContent)
+						if (thingy === SZ1check){
+							var qe = setTimeout(enki,500,advc.textContent)
+						} else {
+							advent()
+						}
+					}
+				}
+			}
+		}
+		function createPlant(num){
+			let newPlantNode = document.getElementById('plant' + num + 'Node').cloneNode(true)
+			let newPlant = document.getElementById('body').appendChild(newPlantNode)
+			newPlant.setAttribute('id','aekrnjfmng')
+			newPlant.style.left = Math.floor(Math.random() * 300) + 350
+			newPlant.style.top = Math.floor(Math.random() * 200) + 250
+			newPlant.classList.add("plant")
+			if (num >= 9){
+				newPlant.setAttribute('id','bombPlant' + (num - 8))
 			}
 		}
 		function startBat(){
@@ -16326,6 +16496,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('usbVent')
 			hide('zoneLib')
 			show('premDrone')
+			hide('greenSpending')
 			newSave('redCur',0)
 			newSave('greenCur',0)
 			newSave('blueCur',0)
@@ -18661,6 +18832,9 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if (ifFound('item73')){
 				document.getElementById('item73').setAttribute('title', "Cake - Was it a lie? - +69 to all 4 stats\nDropped from the sentry turrent (1st kill)\n" + document.getElementById('item73').getAttribute('title'))
+			}
+			if (ifFound('item74')){
+				document.getElementById('item74').setAttribute('title', "Crazy Dave's pot - BECAUSE I'M CRAZY, AND NOW YOU ARE TOO! - +1 insanity +10% health multiplier - uses a special player image when equipped\nDropped from Crazy Dave (15%)\n" + document.getElementById('item74').getAttribute('title'))
 			}
 		}//itemsHere
 		function anomOn(){
