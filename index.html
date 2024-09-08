@@ -448,6 +448,19 @@
 			<img src="portalOrange.gif" alt="portal2" class="hide" id="portal2" style='width: 100px; height: 50px; position: absolute; left: 267px; top: 450px; border-radius: 50%; z-index: 2;'>
 			<img src="sci3arrow.gif" alt="yesssssss" class="hide" id="sci3back" style='width: 100px; height: 280px; position: absolute; left: 400px; top: 180px; z-index: 2; opacity: 0.5;'>
 		</div>
+		<div id='z12' class='hide'>
+			<img src="z12back.png" alt="Git gud bro" class="zone" id='z12'>
+			<img src="scientist.png" alt="an object" class="hide enemy" id="scientist">
+			<img src="higgsBoson.png" alt="an object" class="hide enemy" id="higgsBoson">
+			<img src="coronavirus.png" alt="an object" class="hide enemy" id="coronavirus">
+			<img src="calculator2.png" alt="an object" class="hide enemy" id="calculator2">
+			<img src="plutonium.png" alt="an object" class="hide enemy" id="plutonium">
+			<img src="einstein.png" alt="an object" class="hide enemy" id="einstein">
+			<img src="guard3.png" alt="an object" class="hide enemy" id="guard3">
+			<img src="sigma.png" alt="an object" class="hide enemy" id="sigma">
+			<button id='calculatorB1' style='z-index: 68; position: absolute; background: url("calculatorB1.png"); width: 30; height: 30; border: none;' class='hide' onclick="hide('calculatorB1'); eatt.textContent = Math.ceil(parseInt(eatt.textContent) / 2);"></button>
+			<h5 id='calculatorB2' style='background: transparent; width: 19; height: 8; position: absolute; left: 717; top: 401;' onclick="localStorage.ach55 = 1; document.getElementById('calculator2').setAttribute('src','calculator2v2.png')"></h5>
+		</div>
 		<div id='players' style='position: absolute;'>
 			<img src="player.gif" alt="an idiot" class="player hide" id="player">
 			<img src="skyplayer.png" alt="an idiot again" class="player hide" id="skyplayer">
@@ -550,7 +563,7 @@ Restrictions: killed all enemies in the mines at least once
                     get a domination" class="btnr urf" id="urf"></button>
 		<button title="Overground Research Facility
 Restrictions: killed all enemies in the Coder's lab at least once
-                    killed a single enemy in the underground research facility" class="btnr orf hide" id="orf"></button>
+                    killed a single enemy in the underground research facility" class="btnr orf" id="orf"></button>
 		<button title="No grass touch
 Restrictions: killed all enemies at caves at least once
                     Some other stuff" class="btnr tconb" id="Tconb"></button>
@@ -975,6 +988,11 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent dio notFound" style="left: 435px; top: 425px;" id="item71" onclick=itemFilter(71)></button>
 			<button class="itemBVent capMessage notFound" style="left: 490px; top: 425px;" id="item72" onclick=itemFilter(72)></button>
 			<button class="itemBVent cake notFound" style="left: 545px; top: 425px;" id="item73"></button>
+			<button class="itemBVent demonCore notFound" style="left: 600px; top: 425px;" id="item74" onclick=itemFilter(74)></button>
+			<button class="itemBVent demonCore notFound" style="left: 655px; top: 425px;" id="item75" onclick=itemFilter(75)></button>
+			<button class="itemBVent vlasergun notFound" style="left: 710px; top: 425px;" id="item76" onclick=itemFilter(76)></button>
+			<button class="itemBVent sigmai notFound" style="left: 765px; top: 425px;" id="item77" onclick=itemFilter(77)></button>
+			<button class="itemBVent NaOH notFound" style="left: 820px; top: 425px;" id="item78" onclick=itemFilter(78)></button>
 		</div><!-- //itemsHere -->
 		<!-- Drones -->
 		<h5 title="Premium drones [R]" class='hide' id="premDroneBut" onclick='premDroneOn()'></h5>
@@ -1654,6 +1672,11 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='ach48' class='achF' style='background: url("Ach48.png"); position: absolute; left: 855; top: 172;' title='Longer than you think - Complete day 3 of WFU'></h5>
 					<h5 id='ach49' class='achF' style='background: url("Ach49.png"); position: absolute; left: 165; top: 202;' title='Geckoking, stop hiding important features  - ???'></h5>
 					<h5 id='ach50' class='achF' style='background: url("Ach50.png"); position: absolute; left: 195; top: 202;' title='Collector 3 - Unlock 60 items'></h5>
+					<h5 id='ach51' class='achF' style='background: url("Ach51.png"); position: absolute; left: 225; top: 202;' title='Rare high moments - collect 50 rare enhanced items'></h5>
+					<h5 id='ach52' class='achF' style='background: url("Ach52.png"); position: absolute; left: 255; top: 202;' title='An understanding challenge - Equip a stones from the a stone producer to beat the dropper of the stone and collect the stone as a stony reward'></h5>
+					<h5 id='ach53' class='achF' style='background: url("Ach53.png"); position: absolute; left: 285; top: 202;' title='True stoner 2 - consume 30000 stones'></h5>
+					<h5 id='ach54' class='achF' style='background: url("Ach54.png"); position: absolute; left: 315; top: 202;' title='Hidden effort - ???'></h5>
+					<h5 id='ach55' class='achF' style='background: url("Ach55.png"); position: absolute; left: 345; top: 202;' title='Math nerd confirmed???????? - ???'></h5>
 				</div>
 				<h5 id='AP' style='font-size: 24; position: absolute; left: 680px; top: 557px; margin: 0;'>1</h5>
 				<button id='achBut' onclick='spendAP()'>Spend AP</button>
@@ -1892,8 +1915,8 @@ Restrictions: killed all enemies at caves at least once
 		var MS6Tr = 0;
 		var Qn = 0;
 		var backValue = 0;
-		const totalAch = 50;
-		const totalItems = 72;
+		const totalAch = 55;
+		const totalItems = 78;
 		const totalZones = 11;
 		const maxAnomSlots = 23;
 		var currentAch = 0;
@@ -3439,6 +3462,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('pdu1')
 			hide('pdu2')
 			hide('SZ1')
+			hide('z12')
 			save()
 		}
 		window.addEventListener('keydown', function (e) {
@@ -3628,10 +3652,17 @@ Restrictions: killed all enemies at caves at least once
 				}
 				if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && parseInt(localStorage.ch37Tr) >= 1){ //change when fully finshed
 					document.getElementById('urf').classList.replace('btnr','btny')
-					document.getElementById('urf').setAttribute('title',"Underground Research Facility: " + (ifFound('item60',1) + ifFound('item62',1) + ifFound('item67',1)) + ' out of 3 item found')
+					document.getElementById('urf').setAttribute('title',"Underground Research Facility: " + (ifFound('item60',1) + ifFound('item62',1) + ifFound('item67',1)) + ' out of 3 items found')
 				}
 				if (parseInt(localStorage.guard2c) > 0 && parseInt(localStorage.headcrabc) > 0 && parseInt(localStorage.portalrobotc) > 0 && parseInt(localStorage.freemanc) > 0 && parseInt(localStorage.sci1c) > 0 && parseInt(localStorage.sci2c) > 0 && parseInt(localStorage.sci3c) > 0 && parseInt(localStorage.killerrobotc) > 0){
 					document.getElementById('urf').classList.replace('btny','btng')
+				}
+				if (coderslab.classList.contains('btng') && (parseInt(localStorage.guard2c) > 0 || parseInt(localStorage.headcrabc) > 0 || parseInt(localStorage.portalrobotc) > 0 || parseInt(localStorage.freemanc) > 0 || parseInt(localStorage.sci1c) > 0 || parseInt(localStorage.sci2c) > 0 || parseInt(localStorage.sci3c) > 0 || parseInt(localStorage.killerrobotc) > 0)){ //change when fully finshed
+					document.getElementById('orf').classList.replace('btnr','btny')
+					document.getElementById('orf').setAttribute('title',"Overground Research Facility: " + (ifFound('item78',1) + ifFound('item75',1) + ifFound('item76',1) + ifFound('item77',1)) + ' out of 4 items found')
+				}
+				if (parseInt(localStorage.scientistc) > 0 && parseInt(localStorage.higgsBosonc) > 0 && parseInt(localStorage.coronavirusc) > 0 && parseInt(localStorage.calculator2c) > 0 && parseInt(localStorage.plutoniumc) > 0 && parseInt(localStorage.einsteinc) > 0 && parseInt(localStorage.guard3c) > 0 && parseInt(localStorage.sigmac) > 0){
+					document.getElementById('orf').classList.replace('btny','btng')
 				}
 			} else if (parseInt(localStorage.gasbyc) > 0 && (localStorage.gasbyL1 === 1) === false){
 				localStorage.gasbyL1 = 1
@@ -5203,6 +5234,11 @@ Restrictions: killed all enemies at caves at least once
 				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.3
 				document.getElementById('we').setAttribute('title','')
 				idrop('musket',"Washington's musket - I own a musket for home defense copypasta - +60% attack multiplier -30% attack speed cooldowns", 10000, 1)
+			} else if (we.classList.contains('vlasergun')){
+				document.getElementById('we').classList.replace('vlasergun','weapon')
+				localStorage.att = parseInt(localStorage.att) - 180
+				document.getElementById('we').setAttribute('title','')
+				idrop('vlasergun',"Violet lasergun - Turns out blue light has a too small frequency to do much damage - +180 A", 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -6068,6 +6104,28 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('he').classList.replace('body','davePot')
 					iv2.setAttribute('title','')
 					document.getElementById('he').setAttribute('title',"Crazy Dave's pot - BECAUSE I'M CRAZY, AND NOW YOU ARE TOO! - +1 insanity +10% health multiplier - uses a special player image when equipped")
+				} else if (iv2.classList.contains('demonCore') && emptyAccess()){
+					iv2.classList.replace('demonCore', 'empty')
+					iv2.setAttribute('title','')
+					localStorage.att = parseFloat(localStorage.att) + 500
+					localStorage.reg = parseFloat(localStorage.reg) - 500
+					equipAccess('demonCore','Demon core - Somebody, hand me a screwdriver - +500 A -500 R')
+				} else if (iv2.classList.contains('vlasergun') && we.classList.contains('weapon')){
+					iv2.classList.replace('vlasergun','empty')
+					document.getElementById('we').classList.replace('weapon','vlasergun')
+					localStorage.att = parseFloat(localStorage.att) + 180
+					iv2.setAttribute('title','')
+					document.getElementById('we').setAttribute('title','Violet lasergun - Turns out blue light has a too small frequency to do much damage - +180 A')
+				} else if (iv2.classList.contains('sigmai') && emptyAccess()){
+					iv2.classList.replace('sigmai', 'empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 2000
+					equipAccess('sigmai','Sigma - erm what the *REDACTED* - +2000 Hp')
+				} else if (iv2.classList.contains('NaOH') && emptyAccess()){
+					iv2.classList.replace('NaOH', 'empty')
+					iv2.setAttribute('title','')
+					localStorage.att = parseFloat(localStorage.att) + 100
+					equipAccess('NaOH','1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A')
 				} else {
 					if (iv2.classList.item(1) !== 'empty'){
 						idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
@@ -6221,6 +6279,22 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.def = parseFloat(localStorage.def) - 40
 				slotId.setAttribute('title','')
 				idrop('mouse',"A mouse - Something the mobile gamers wished they could use - +40 D", 10000, 1)
+			} else if (slotId.classList.contains('demonCore')){
+				slotId.classList.replace('demonCore','access')
+				localStorage.att = parseFloat(localStorage.att) - 500
+				localStorage.reg = parseFloat(localStorage.reg) + 500
+				slotId.setAttribute('title','')
+				idrop('demonCore',"Demon core - Somebody, hand me a screwdriver - +500 A -500 R", 10000, 1)
+			} else if (slotId.classList.contains('sigmai')){
+				slotId.classList.replace('sigmai','access')
+				localStorage.mhp = parseFloat(localStorage.mhp) - 2000
+				slotId.setAttribute('title','')
+				idrop('sigmai',"Sigma - erm what the *REDACTED* - +2000 Hp", 10000, 1)
+			} else if (slotId.classList.contains('NaOH')){
+				slotId.classList.replace('NaOH','access')
+				localStorage.att = parseFloat(localStorage.att) - 100
+				slotId.setAttribute('title','')
+				idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 10000, 1)
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -6749,7 +6823,7 @@ Restrictions: killed all enemies at caves at least once
 						} else {
 						var qe = setTimeout(gratt,50)
 						ae = ae + 1
-						if(ae === 24){
+						if (ae === 24){
 							if(parseFloat(hp.textContent) > 0){					
 								ae = 0
 								pdamaged(0)
@@ -9590,7 +9664,9 @@ Restrictions: killed all enemies at caves at least once
 						if (deep2.classList.contains('hide') && deep3.classList.contains('hide')){
 							idrop('thebox','The box - Good on defence and stuff - +8 Hp +3 A +6 D', 500)
 						} else if (deep1.classList.contains('hide') && deep3.classList.contains('hide')){
-							idrop('thestone','The stone - Good at stuff and attack - +5 Hp +5 A +1 D', 500)
+							if (idrop('thestone','The stone - Good at stuff and attack - +5 Hp +5 A +1 D', 500) && (a1.classList.contains('astone') && a2.classList.contains('astone') || a3.classList.contains('astone') && a2.classList.contains('astone') ||a1.classList.contains('astone') && a3.classList.contains('astone'))){
+								localStorage.ach52 = 1
+							}
 						} else if (deep1.classList.contains('hide') && deep2.classList.contains('hide')){
 							idrop('thestrat','The strat - Good - +6 A', 500)
 						}
@@ -13217,11 +13293,334 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 		}
+		orf.onclick = orfbat;
 		function orfbat(enemyN, thingTr){
-			if (mines.classList.contains('btng') && coderslab.classList.contains('btng') && parseInt(kilLvl.textContent) >= 5 && parseInt(localStorage.ch37Tr) >= 1 && (thingTr === 1 && document.getElementById('z11').classList.contains('hide') === false || thingTr != 1) || enemyN >= 0 && enemyN <= 8){
+			if (coderslab.classList.contains('btng') && (thingTr === 1 && document.getElementById('z12').classList.contains('hide') === false || thingTr != 1) || enemyN >= 0 && enemyN <= 8){
 				sadvmus(1)
 				setStats()
 				startBat()
+				show('z12')
+				hide('scientist')
+				hide('higgsBoson')
+				hide('coronavirus')
+				hide('calculator2')
+				hide('plutonium')
+				hide('einstein')
+				hide('guard3')
+				hide('sigma')
+				hide('calculatorB1')
+				x = enemyFightNum(12)
+				if (enemyN < 9 && enemyN > 0){
+					x = enemyN
+				}
+				if (x === 1){
+					show('scientist')
+					setEStats(25000, 1000, 800, 200)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(12)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('scientist')
+							newSave('scientistc',0)
+							localStorage.scientistc = parseInt(localStorage.scientistc) + 1
+							KBify(localStorage.scientistc)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(12)){
+								setTimeout(orfbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(11)
+							idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 100)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 2){
+					show('higgsBoson')
+					setEStats(20000, 2000, 2000, -2000)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(12)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('higgsBoson')
+							newSave('higgsBosonc',0)
+							localStorage.higgsBosonc = parseInt(localStorage.higgsBosonc) + 1
+							KBify(localStorage.higgsBosonc)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(12)){
+								setTimeout(orfbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(11)
+							idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 100)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 3){
+					show('coronavirus')
+					setEStats(10000, 1000, 0, 0)
+					battle(0, 12)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+							ehp2.textContent = Math.round(parseFloat(ehp.textContent) * 10) / 10
+							ae = ae + 1
+							if (ae === sp){
+								healthTest = parseInt(eattack(1))
+								if (parseInt(ehp.textContent) + healthTest >= parseInt(emhp.textContent) && healthTest > 0){
+									ehp.textContent = emhp.textContent
+								} else {
+									if (healthTest > 0){
+										ehp.textContent = parseInt(ehp.textContent) + healthTest
+									}
+								}
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(12)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('coronavirus')
+							newSave('coronavirusc',0)
+							localStorage.coronavirusc = parseInt(localStorage.coronavirusc) + 1
+							KBify(localStorage.coronavirusc)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(12)){
+								setTimeout(orfbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(11)
+							idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 100)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 4){
+					show('calculator2')
+					document.getElementById('calculator2').setAttribute('src','calculator2.png')
+					setEStats(20000, 1, 1600, 0)
+					battle(0, 18)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+								eatt.textContent = Math.floor(parseInt(eatt.textContent) * 2)
+								show('calculatorB1')
+								document.getElementById('calculatorB1').style.left = 200 + Math.floor(Math.random() * 600)
+								document.getElementById('calculatorB1').style.top = 200 + Math.floor(Math.random() * 300)
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(12)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('calculator2')
+							newSave('calculator2c',0)
+							localStorage.calculator2c = parseInt(localStorage.calculator2c) + 1
+							KBify(localStorage.calculator2c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(12)){
+								setTimeout(orfbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(11)
+							idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 100)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 5){
+					show('plutonium')
+					setEStats(20000, 0, 1880, -940)
+					reg.textContent = parseInt(reg.textContent) - 940
+					battle()
+					function battle(){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							setTimeout(battle, 50)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(12)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('plutonium')
+							newSave('plutoniumc',0)
+							localStorage.plutoniumc = parseInt(localStorage.plutoniumc) + 1
+							KBify(localStorage.plutoniumc)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(12)){
+								setTimeout(orfbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(11)
+							idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 100)
+							idrop('demonCore',"Demon core - Somebody, hand me a screwdriver - +500 A -500 R", 200)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 6){
+					show('einstein')
+					setEStats(20000, "5%", 0, 200)
+					battle(0, 20)
+					show("noMove3")
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen(1)
+							ae = ae + 1
+							if (ae === sp){					
+								ae = 0
+								pdamaged(0)
+								hp.textContent = parseFloat(hp.textContent) - parseFloat(mhp.textContent) * 0.101
+								if (parseFloat(hp.textContent) > 0){
+									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+								}
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(12)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('einstein')
+							newSave('einsteinc',0)
+							localStorage.einsteinc = parseInt(localStorage.einsteinc) + 1
+							KBify(localStorage.einsteinc)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(12)){
+								setTimeout(orfbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(11)
+							idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 100)
+							hide("noMove3")
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							hide('noMove3')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 7){
+					show('guard3')
+					setEStats(20000, 1400, 0, 200)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(12)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('guard3')
+							newSave('guard3c',0)
+							localStorage.guard3c = parseInt(localStorage.guard3c) + 1
+							KBify(localStorage.guard3c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(12)){
+								setTimeout(orfbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(11)
+							idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 100)
+							idrop('vlasergun',"Violet lasergun - Turns out blue light has a too small frequency to do much damage - +180 A", 400)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 8){
+					show('sigma')
+					setEStats(40000, Math.floor(parseInt(def.textContent) / 2), 0, 0)
+					battle(0, 50)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eatt.textContent = Math.ceil(parseInt(eatt.textContent) + eattack(1))
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(12)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('sigma')
+							newSave('sigmac',0)
+							localStorage.sigmac = parseInt(localStorage.sigmac) + 1
+							KBify(localStorage.sigmac)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(12)){
+								setTimeout(orfbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(11)
+							idrop('NaOH',"1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A", 100)
+							idrop('sigmai',"Sigma - erm what the *REDACTED* - +2000 Hp", 100)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
 			} else {
 				newSave('ach12p', 0)
 				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
@@ -13556,22 +13955,26 @@ Restrictions: killed all enemies at caves at least once
 				sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 3000)
 			}
 		}
-		function regen(){
-			var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
-			if (retest < parseFloat(emhp.textContent)){
-				ehp.textContent = retest
-				document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
-			} else {
-				ehp.textContent = emhp.textContent
-				document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
+		function regen(type){ //type none = default, type = 2 no regen, type = 1 only enemy regen
+			if (type !== 2){
+				var retest = parseFloat(ehp.textContent) + parseFloat(ereg.textContent) / 20
+				if (retest < parseFloat(emhp.textContent)){
+					ehp.textContent = retest
+					document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
+				} else {
+					ehp.textContent = emhp.textContent
+					document.getElementById("eHealth").style.width = ehp.textContent * 250 / emhp.textContent + 'px'
+				}
 			}
-			var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
-			if (retest < parseFloat(mhp.textContent)){
-				hp.textContent = retest
-				document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
-			} else {
-				hp.textContent = mhp.textContent
-				document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+			if (type !== 1 && type !== 2){
+				var retest = parseFloat(hp.textContent) + parseFloat(reg.textContent) / 20
+				if (retest < parseFloat(mhp.textContent)){
+					hp.textContent = retest
+					document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+				} else {
+					hp.textContent = mhp.textContent
+					document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+				}
 			}
 			hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 			ehp2.textContent = Math.round(parseFloat(ehp.textContent) * 10) / 10
@@ -13588,7 +13991,7 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if (parseFloat(hp.textContent) > 0){
 				if (parseInt(dodgeOn.textContent) === 0 && dodB === 0){
-					var dam = (parseFloat(eatt.textContent) - parseFloat(def.textContent)/2) * (Math.floor(Math.random() * 101)/250 + 0.8)
+					var dam = parseFloat(eatt.textContent) * (Math.floor(Math.random() * 101)/250 + 0.8) - parseFloat(def.textContent) / 2
 					dam = Math.round(dam * 10) / 10	
 					if (dam > 0){
 						pdamaged(0)
@@ -13598,6 +14001,8 @@ Restrictions: killed all enemies at caves at least once
 						} else {
 							dam = shieldBlock(parseFloat(hp.textContent))
 						}
+					} else {
+						dam = 0
 					}
 					if (parseFloat(hp.textContent) > 0){
 						document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
@@ -16602,15 +17007,17 @@ Restrictions: killed all enemies at caves at least once
 					redFuelPro.style.width = localStorage.redFuelP
 					redFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.redFuelP)) / (parseInt(localStorage.redDsl) / 5 + 1)) + ' seconds left for fuelling')
 					pitem5.textContent = localStorage.pitem5
+					setTimeout(redFuelling, 1000)
 				} else if (parseInt(localStorage.redFuelP) < 120 && parseInt(localStorage.redFuelP) > 0){//120 is width
 					localStorage.redFuelP = parseInt(localStorage.redFuelP) + parseInt(localStorage.redDsl) / 5 + 1
 					redFuelPro.style.width = localStorage.redFuelP
 					redFuelTitle.setAttribute('title', Math.ceil((120 - parseInt(localStorage.redFuelP)) / (parseInt(localStorage.redDsl) / 5 + 1)) + ' seconds left for fuelling')
+					setTimeout(redFuelling, 1000)
 				} else {
 					redGo(redCTr)
 					redCTr === 1
+					redFTr = 0
 				}
-				setTimeout(redFuelling, 1000)
 			} else {
 				redFTr = 0
 			}
@@ -16622,7 +17029,7 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.redFuelP = 0
 					localStorage.redCollectP = 0
 					for (i = 0; i < parseInt(localStorage.redDsl) + 2; i++){
-						if (Math.floor() <= 0.5){
+						if (Math.random() <= 0.5){
 							localStorage.pitem1 = parseInt(localStorage.pitem1) + 1
 						} else {
 							localStorage.pitem3 = parseInt(localStorage.pitem3) + 1
@@ -16665,16 +17072,17 @@ Restrictions: killed all enemies at caves at least once
 					greFuelPro.style.width = localStorage.greFuelP
 					pitem5.textContent = localStorage.pitem5
 					greFuelTitle.setAttribute('title', Math.ceil((120 - parseFloat(localStorage.greFuelP)) / (parseInt(localStorage.greDsl) / 5 + 1)) + ' seconds left for fuelling')
+					setTimeout(greFuelling, 1000)
 				} else if (parseFloat(localStorage.greFuelP) < 120 && parseInt(localStorage.greFuelP) > 0){//120 is width
 					localStorage.greFuelP = parseFloat(localStorage.greFuelP) + parseInt(localStorage.greDsl) / 5 + 1
 					greFuelPro.style.width = localStorage.greFuelP
 					greFuelTitle.setAttribute('title', Math.ceil((120 - parseFloat(localStorage.greFuelP)) / (parseInt(localStorage.greDsl) / 5 + 1)) + ' seconds left for fuelling')
-					
+					setTimeout(greFuelling, 1000)
 				} else {
 					greGo(greCTr)
 					greCTr = 1
+					redCTr = 0
 				}
-				setTimeout(greFuelling, 1000)
 			} else {
 				greFTr = 0
 			}
@@ -16686,7 +17094,7 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.greFuelP = 0
 					localStorage.greCollectP = 0
 					for (i = 0; i < parseInt(localStorage.greDsl) + 2; i++){
-						if (Math.floor() <= 0.5){
+						if (Math.random() <= 0.5){
 							localStorage.pitem2 = parseInt(localStorage.pitem2) + 1
 						} else {
 							localStorage.pitem4 = parseInt(localStorage.pitem4) + 1
@@ -18112,11 +18520,13 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('ach47').classList.replace('achF','achRT')
 				AP = AP + 2
 				currentAch = currentAch + 1
-			}if (parseInt(localStorage.ach48) >= 1){
+			}
+			if (parseInt(localStorage.ach48) >= 1){
 				document.getElementById('ach48').classList.replace('achF','achCT')
 				AP = AP + 1
 				currentAch = currentAch + 1
-			}if (parseInt(localStorage.ach49) >= 1){
+			}
+			if (parseInt(localStorage.ach49) >= 1){
 				document.getElementById('ach49').classList.replace('achF','achCT')
 				document.getElementById('ach49').setAttribute('title', "Geckoking, stop hiding important features - pause in WFU")
 				AP = AP + 1
@@ -18127,6 +18537,33 @@ Restrictions: killed all enemies at caves at least once
 				AP = AP + 1
 				currentAch = currentAch + 1
 				newSave('ach50',1)
+			}
+			if (parseInt(localStorage.ach51) >= 50){
+				document.getElementById('ach51').classList.replace('achF','achRT')
+				AP = AP + 1
+				currentAch = currentAch + 2
+			}
+			if (parseInt(localStorage.ach52) >= 1){
+				document.getElementById('ach52').classList.replace('achF','achCT')
+				AP = AP + 1
+				currentAch = currentAch + 1
+			}
+			if ((existTr(localStorage.item3,1) + existTr(localStorage.item4,1) + existTr(localStorage.item5,1) + existTr(localStorage.item6,1) + existTr(localStorage.item7,1) + existTr(localStorage.item8,1) + existTr(localStorage.item9,1) + existTr(localStorage.item10,1)) >= 30000){
+				document.getElementById('ach53').classList.replace('achF','achET')
+				AP = AP + 1
+				currentAch = currentAch + 3
+			}
+			if (parseInt(localStorage.SZ1E1c) >= 1 || parseInt(localStorage.SZ1E2c) >= 1 || parseInt(localStorage.SZ1E3c) >= 1 || parseInt(localStorage.SZ1E4c) >= 1 || parseInt(localStorage.SZ1E5c) >= 1 || parseInt(localStorage.SZ1E6c) >= 1 || parseInt(localStorage.SZ1E7c) >= 1 || parseInt(localStorage.SZ1E8c) >= 1){
+				document.getElementById('ach54').classList.replace('achF','achRT')
+				document.getElementById('ach54').setAttribute('title', "Hidden effort - Beat an enemy in a secret zone")
+				AP = AP + 1
+				currentAch = currentAch + 2
+			}
+			if (parseInt(localStorage.ach55) >= 1){
+				document.getElementById('ach55').classList.replace('achF','achCT')
+				document.getElementById('ach55').setAttribute('title', "Math nerd confirmed???????? - Possible fren?")
+				AP = AP + 1
+				currentAch = currentAch + 1
 			}
 			newSave('AdvP1', 0)
 			newSave('InvP1', 0)
@@ -18836,6 +19273,18 @@ Restrictions: killed all enemies at caves at least once
 			if (ifFound('item74')){
 				document.getElementById('item74').setAttribute('title', "Crazy Dave's pot - BECAUSE I'M CRAZY, AND NOW YOU ARE TOO! - +1 insanity +10% health multiplier - uses a special player image when equipped\nDropped from Crazy Dave (15%)\n" + document.getElementById('item74').getAttribute('title'))
 			}
+			if (ifFound('item75')){
+				document.getElementById('item75').setAttribute('title', "Demon core - Somebody, hand me a screwdriver - +500 A -500 R\nDropped from plutonium (2%)\n" + document.getElementById('item75').getAttribute('title'))
+			}
+			if (ifFound('item76')){
+				document.getElementById('item76').setAttribute('title', "Violet lasergun - Turns out blue light has a too small frequency to do much damage - +180 A\nDropped from guard 3 (4%)\n" + document.getElementById('item76').getAttribute('title'))
+			}
+			if (ifFound('item77')){
+				document.getElementById('item77').setAttribute('title', "Sigma - erm what the *REDACTED* - +2000 Hp\nDropped from sigma (1%)\n" + document.getElementById('item77').getAttribute('title'))
+			}
+			if (ifFound('item78')){
+				document.getElementById('item78').setAttribute('title', "1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A\nDropped from the overground research facility (1%)\n" + document.getElementById('item78').getAttribute('title'))
+			}
 		}//itemsHere
 		function anomOn(){
 			gameOn(1)//remove when update maybe?
@@ -18967,8 +19416,6 @@ Restrictions: killed all enemies at caves at least once
 						rarity = 'R'
 					} else {
 						rarity = 'C'
-						newSave('ach44',0)
-						localStorage.ach44 = parseInt(localStorage.ach44) + 1
 					}
 				}
 				if (bonus){
@@ -19076,6 +19523,13 @@ Restrictions: killed all enemies at caves at least once
 							document.getElementById('anoma' + N).setAttribute('title', makeAnomTitle(localStorage.getItem('anom' + N)))
 							save()
 							console.log('Collected a ' + rarity + ' ' + item + ' with bonus ' + bonus)
+							if (rarity === 'C'){
+								newSave('ach44',0)
+								localStorage.ach44 = parseInt(localStorage.ach44) + 1
+							} else if (rarity === 'R'){
+								newSave('ach51',0)
+								localStorage.ach51 = parseInt(localStorage.ach51) + 1
+							}
 							return true	
 						}
 					}		

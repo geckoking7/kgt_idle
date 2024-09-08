@@ -2076,6 +2076,13 @@
 				} else {
 					localStorage.setItem('anom' + N, item + rarity + bonus)
 					console.log('Collected a ' + rarity + ' ' + item + ' with bonus ' + bonus + ' in slot ' + N)
+					if (rarity === 'C'){
+						newSave('ach44',0)
+						localStorage.ach44 = parseInt(localStorage.ach44) + 1
+					} else if (rarity === 'R'){
+						newSave('ach51',0)
+						localStorage.ach51 = parseInt(localStorage.ach51) + 1
+					}
 					return 1
 				}
 			}	
