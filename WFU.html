@@ -2070,7 +2070,12 @@
 			}
 		}
 		if (dropR <= chance){
-			for (let N = 10; N <= maxAnomSlots; N++){
+			if (localStorage.greenU1){
+				x = parseInt(localStorage.greenU1)
+			} else {
+				x = 0
+			}
+			for (let N = 10; N <= 23 + localStorage.greenU1; N++){
 				if (localStorage.getItem('anom' + N)){
 					
 				} else {

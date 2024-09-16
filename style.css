@@ -897,6 +897,30 @@ img{
 .NaOH{
 	background-image: url('NaOH.png');
 }
+.webItem{
+	background-image: url('webItem.png');
+}
+.glasses2{
+	background-image: url('glasses2.png');
+}
+.topQuark{
+	background-image: url('topQuark.png');
+}
+.bottomQuark{
+	background-image: url('bottomQuark.png');
+}
+.toiletpaper{
+	background-image: url('toiletpaper.png');
+}
+.labcoat{
+	background-image: url('labcoat.png');
+}
+.labpants{
+	background-image: url('labpants.png');
+}
+.labboot{
+	background-image: url('labboot.png');
+}
 .useall{
 	background-image: url('useall.png');
 }
@@ -1048,6 +1072,33 @@ img{
 }
 .xpusg:hover{
 	background-image: url('xpgushover.png');
+}
+.xpL{
+	background-image: url('xpL.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpU1r{
+	background-image: url('xpU1r.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpusr:hover{
+	background-image: url('xpU1rh.png');
+}
+.xpU1g{
+	background-image: url('xpU1g.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpU1g:hover{
+	background-image: url('xpU1gh.png');
 }
 #attMP{
     position: absolute;
@@ -1953,4 +2004,21 @@ select{
 }
 .premUbut:hover{
 	filter: brightness(1.5)
+}
+.greenU{
+	width: 30px;
+	height: 30px;
+	margin: 0;
+	position: absolute;
+	filter: brightness(0.9)
+}
+.greenU:hover{
+	filter: brightness(1)
+}
+.greenUB{
+	width: 30px;
+	height: 30px;
+	margin: 0;
+	position: absolute;
+	filter: brightness(0.7)
 }
