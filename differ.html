@@ -1,0 +1,2245 @@
+<html>
+	<head>
+		<title>Differ</title>
+	</head>
+	<style>
+	*{
+		margin: 0;
+		position: absolute;
+		font-family: comic sans MS;
+	}
+	.hide{
+		display: none;
+	}
+	.a{
+		background: url('resources/tile_a.png')
+	}
+	.b{
+		background: url('resources/tile_b.png')
+	}
+	.c{
+		background: url('resources/tile_c.png')
+	}
+	.d{
+		background: url('resources/tile_d.png')
+	}
+	.e{
+		background: url('resources/tile_e.png')
+	}
+	.f{
+		background: url('resources/tile_f.png')
+	}
+	.g{
+		background: url('resources/tile_g.png')
+	}
+	.h{
+		background: url('resources/tile_h.png')
+	}
+	.i{
+		background: url('resources/tile_i.png')
+	}
+	.j{
+		background: url('resources/tile_j.png')
+	}
+	.k{
+		background: url('resources/tile_k.png')
+	}
+	.m{
+		background: url('resources/tile_m.png')
+	}
+	.n{
+		background: url('resources/tile_n.png')
+	}
+	.o{
+		background: url('resources/tile_o.png')
+	}
+	.tile{
+		height: 50px;
+		width: 50px;
+	}
+	.itemBack{
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		padding: 0px;
+		margin: 0;
+		border-width: 5px;
+		background: #bbb;
+	}
+	.itemC{
+		border: 5px rgb(127,255,127) solid;
+	}
+	.itemR{
+		border: 5px rgb(63,127,255) solid;
+	}
+	.itemE{
+		border: 5px rgb(191,63,255) solid;
+	}
+	.itemL{
+		border: 5px rgb(255,191,63) solid;
+	}
+	.itemRe{
+		border: 5px rgb(255,0,0) solid;
+	}
+	.itemCo{
+		border: 5px rgb(0,0,0) solid;
+	}
+	.itemT1{
+		background: url('attackBack.png');
+	}
+	.itemT2{
+		background: url('defenceBack.png');
+	}
+	.itemT3{
+		background: url('dropBack.png');
+	}
+	.itemT4{
+		background: url('stoneBack.png');
+	}
+	.itemT5{
+		background: url('buildBack.png');
+	}
+	.itemT6{
+		background: url('upgradeBack.png');
+	}
+	.itemT7{
+		background: url('experienceBack.png');
+	}
+	.itemAnim{
+		width: 50px;
+		height: 50px;
+		background: transparent;
+		margin: 0;
+	}
+	.itemR2{
+		background-image: url('rareAnim.gif');
+		opacity: 0.1;
+	}
+	.itemE2{
+		background-image: url('epicAnim.gif');
+		opacity: 0.2;
+	}
+	.itemL2{
+		background-image: url('legendAnim.gif');
+		opacity: 0.3;
+	}
+	.itemRe2{
+		background-image: url('relicAnim.gif');
+		opacity: 0.4;
+	}
+	.itemCo2{
+		background-image: url('contraAnim.gif');
+		opacity: 0.5;
+	}
+	.itemItem{
+		width: 50px;
+		height: 50px;
+		margin: 0px;
+		left: 0px;
+		top: 0px;
+	}
+	.pistolV2{
+		background: url('resources/weapon11.png');
+	}
+	.smgV2{
+		background: url('resources/weapon21.png');
+	}
+	.shotgunV2{
+		background: url('resources/weapon31.png');
+	}
+	.crossbowV2{
+		background: url('resources/weapon41.png');
+	}
+	</style>
+	<script>
+		// data for room generation 
+		room0 = "1b18c1d 1e4a1j13a1e 1e4a1j13a1e 1f4a10j4a1f 20a 20a 20a 20a 1g4a10j4a1g 1e4a1j13a1e 1e4a1j13a1e 1h18c1i"; // shielded room
+		room1 = "1b18c1d 1e18a1e 1e18a1e 1f18a1f 4a4j4a4j4a 4a4j4a4j4a 4a4j4a4j4a 4a4j4a4j4a 1g18a1g 1e18a1e 1e18a1e 1h18c1i" // 2 square room
+		room2 = "1b18c1d 1e18a1e 1e18a1e 1f18a1f 7a6j7a 6a8j6a 6a8j6a 7a6j7a 1g18a1g 1e18a1e 1e18a1e 1h18c1i" // circle room
+		room3 = "1b18c1d 1e17a1j1e 1e16a1j1a1e 1f15a1j2a1f 7a1j7a1j4a 6a1j7a1j5a 5a1j7a1j6a 4a1j7a1j7a 1g2a1j15a1g 1e1a1j16a1e 1e1j17a1e 1h18c1i" // "staircase" room
+		room4 = "1b18c1d 1e5a1j12a1e 1e5a1j12a1e 1f5a1j12a1f 6a1j6a1j6a 6a1j6a1j6a 6a1j6a1j6a 6a1j6a1j6a 1g12a1j5a1g 1e12a1j5a1e 1e12a1j5a1e 1h18c1i"; // 3part room
+		room5 = "1b18c1d 1e18a1e 1e18a1e 1h7c1k2a1m7c1i 20a 20a 20a 20a 1b7c1k2a1m7c1d 1e18a1e 1e18a1e 1h18c1i" //"treasure" room     //make it so 2 enemies gaurd 2 loot things
+		room6 = "1b18c1d 1e1j17a1e 1e18a1e 1f5a8j4a1j1f 5a1j11a1j2a 4a1j11a1j3a 3a1j11a1j4a 2a1j11a1j5a 1g1j4a8j5a1g 1e18a1e 1e17a1j1e 1h18c1i"; // "long" room
+		room7 = "1b11c1n6c1d 1e11a1e6a1e 1e11a1e6a1e 1h3c1d7a1e6a1f 4a1e2a1g4a1e2a1g4a 4a1e2a1e4a1e2a1e4a 4a1e2a1e4a1e2a1e4a 4a1f2a1e4a1f2a1e4a 1g6a1e7a1h3c1d 1e6a1e11a1e 1e6a1e11a1e 1h6c1o11c1i"; //"maze" room
+		room8 = "1b18c1d 1e3a1j14a1e 1e3a1j14a1e 1f14a1j3a1f 15a1j4a 4a12j4a 4a12j4a 15a1j4a 1g14a1j3a1g 1e3a1j14a1e 1e3a1j14a1e 1h18c1i"; // T room
+		room9 = "1b18c1d 1e18a1e 1e18a1e 1f2a2j2a2j2a2j2a2j2a1f 3a2j2a2j2a2j2a2j3a 20a 20a 3a2j2a2j2a2j2a2j3a 1g2a2j2a2j2a2j2a2j2a1g 1e18a1e 1e18a1e 1h18c1i"; // pillar room
+		room10 = "1b18c1d 1e18a1e 1e18a1e 1e18a1f 1e19a 1e19a 1e19a 1e19a 1e18a1g 1e18a1e 1e18a1e 1h18c1i" // spawn room
+		// side rooms
+		room11 = "1b18c1d 1e7j4a7j1e 1e6j6a6j1e 1e5j8a5j1e 1e4j10a4j1e 1e4j10a4j1e 1e4j10a4j1e 1e4j10a4j1e 1e5j8a5j1e 1e6j6a6j1e 1e7j4a7j1e 1h18c1i"; // inverse circle room
+		room12 = "1b18c1d 1e7j4a7j1e 1e7j4a7j1e 1e7j4a7j1e 1e7j4a7j1e 1e7j4a7j1e 1e7j4a7j1e 1e7j4a7j1e 1e7j4a7j1e 1e7j4a7j1e 1e7j4a7j1e 1h18c1i"; //"path" room
+		room13 = "1b18c1d 1e18a1e 1e18a1e 1e18a1e 1e18a1e 1e18a1e 1e18a1e 1e18a1e 1e18a1e 1e18a1e 1e18a1e 1h18c1i" // empty room
+		room14 = "1b18c1d 1e18a1e 1e18a1e 1e18a1e 1e2a16j1e 1e18a1e  1e18a1e 1e16j2a1e 1e18a1e 1e18a1e 1e18a1e 1h18c1i"; // 2nd "long" room
+	</script>
+	<body style='background: #ccc;' id='body' onMouseDown='mouseDownTr = 1' onMouseUp='mouseDownTr = 0' oncontextmenu='return false'>
+		<h5 style='width: 1200px; height: 600px; background: url("resources/homeBackground.png"); z-index: 399;' id='homeSc'></h5>
+		<h5 style='width: 1200px; height: 600px; background: #7f7fff; z-index: 399; opacity: 0;' id='colourSc' class='hide'></h5>
+		<div id='endThing' class='hide'>
+			<h5 style='width: 1200px; height: 600px; background: url("resources/winBackground.png"); z-index: 399;' id='endSc'></h5>
+			<h5 id='rewardScoreText1' style='width: 300px; color: #7f7fff; font-size: 24; left: 500px; top: 200px; z-index: 399; font-family: arial;'>Score = Me</h5>
+			<h5 id='rewardScoreText2' style='width: 300px; color: #ff7f7f; font-size: 24; left: 680px; top: 200px; z-index: 399; font-family: arial;'>x Big number</h5>
+			<h5 id='rewardScoreText3' style='width: 300px; color: #ff7fff; font-size: 24; left: 536px; top: 230px; z-index: 399; font-family: arial;'>Xp = 0</h5>
+			<h5 class='hide' id='rewardScoreText4' style='width: 600px; color: #7f7f7f; font-size: 24; left: 141px; top: 260px; z-index: 399; font-family: arial;'>Items you probabaly don't care about = 0</h5>
+			<h5 id='lootBoxSlot1' class='hide' onclick='openBox(1)' style='background: url("resources/lootBox.gif"); width: 50px; height: 50px; z-index: 399; left: 260; top: 405;'></h5>
+		</div>
+		<button style='width:300px; height: 100px; left: 200px; top: 300px; background: transparent; z-index: 400; border: none;' onclick='startGame()' id='startBut'></button>
+		<button style='width:300px; height: 100px; left: 700px; top: 300px; background: transparent; z-index: 400; border: none;' onclick='showHelp()' id='helpBut'></button>
+		<h5 style='width: 1200px; height: 600px; background: url("resources/helpBackground.png"); z-index: 399;' id='helpSc' class='hide'></h5>
+		<button style='width:300px; height: 100px; left: 448px; top: 450px; background: transparent; z-index: 400; border: none;' onclick='startGame()' id='startBut2' class='hide'></button>
+		<h5 id='tile1' class='tile a'></h5>
+		<h5 id='sidePanel' style='width: 200px; height: 600px; left: 1000px; position: absolute; background: url("resources/sidePanel.png");'></h5>
+		<h5 id='player' style='width: 50px; height: 50px; background: url("resources/player.png"); z-index: 5; top: 275; left: 275' class='hide'></h5>
+		<h5 id='itemSlot1' style='width: 75px; height: 75px; left: 1075px; top: 150px; background: url("resources/weapon11S.png")'></h5>
+		<h5 id='itemSlot2' style='width: 75px; height: 75px; left: 1075px; top: 275px; background: url("resources/weaponSlotEmpty.png")'></h5>
+		<h5 id='itemNode' style='width: 50; height: 50; z-index: 4;' class='hide'></h5>
+		<h5 id='enemyNode' style='width: 50; height: 50; z-index: 5; opacity: 1;' class='hide' value='4'></h5>
+		<div id='enemySNode' class='hide' value='10' style='width: 50px; height: 50px; opacity: 1;'>
+			<h5 style='width: 50px; height: 50px; background: url("resources/enemyS.png");  z-index: 5;'></h5>
+			<h5 style='width: 30px; height: 30px; background: url("resources/enemyS3.png");  z-index: 5; left: 10px; top: 10px;'></h5>
+			<h5 style='width: 50px; height: 50px; background: url("resources/enemyS2.png");  z-index: 5;'></h5>
+		</div>
+		<h5 id='healthBar' style='width: 150px; height: 25px; background: #ff0000; top: 50px; left: 1025;'></h5>
+		<h5 id='slotInUseThing' style='width: 25px; height: 75px; background: url("resources/slotInUseThing.png"); top: 150px; left: 1050px;'></h5>
+		<h5 id='lootBoxNum' style='color: black; left: 1102; top: 86; font-size: 16; width: 150px; font-weight: lighter;'>0</h5>
+		<h5 id='scoreText' style='color: #7f7fFF; left: 1040; top: 394; font-size: 20; width: 150px;'>Score: 0</h5>
+		<h5 id='ammoText' style='color: #806040; left: 1085; top: 457; font-size: 24;'>100</h5>
+		<h5 id='roomText' style='color: #7f7f5f; left: 1040; top: 532; font-size: 24; width: 200px;'>Room 1.0</h5>
+		<h5 id='bulletNode1' style='background: url("resources/bulletPlayer.png"); width: 10px; height: 5px; z-index: 4;' class='hide'></h5>
+		<h5 id='bulletNode2' style='background: url("resources/bulletEnemy.png"); width: 10px; height: 5px; z-index: 4;' class='hide'></h5>
+		<h5 id='bulletNode3' style='background: url("resources/arrowPlayer.png"); width: 20px; height: 5px; z-index: 4;' class='hide'></h5>
+		<h5 id='bulletNode4' style='background: url("resources/arrowEnemy.png"); width: 20px; height: 5px; z-index: 4;' class='hide'></h5>
+		<h5 id='scoreNode' style='width: 25px; height: 5px; z-index: 4; font-size: 12; opacity: 1; z-index: 6; color: #806040;' class='hide'></h5>
+		<h5 id='scoreRewardNode' style='font-family: arial; z-index: 399; top: 420; width: 100px; z-index: 399; font-size: 18; opacity: 1; color: #7f7fff; text-align: center;' class='hide'></h5>
+		<div id='anomRewardNode' class='hide' style='top: 405; z-index: 399;'>
+			<h5 class="itemBack hide"></h5>
+			<h5 class='itemItem' style="left: 5px; top: 5px;"></h5>
+			<h5 class='itemAnim hide' style="left: 5px; top: 5px;"></h5>
+		</div>
+	</body>
+	<script>
+	roomPlayerIn = 0
+	gameLoopTr = 1
+	keysPressed = []
+	playerSpeed = 5
+	level = 1
+	levelData = '#'
+	lastRoom = 0
+	player = document.getElementById('player')
+	mouseX = 0
+	mouseY = 0
+	itemInSlot1 = 11
+	itemInSlot2 = 0
+	ammoTotal = 100
+	maxHealth = 10
+	health = 10
+	itemLevelMax = 1
+	slotInUse = 1
+	eCool = 0
+	mouseDownTr = 0
+	slot1Cooldown = 0
+	slot2Cooldown = 0
+	score = 0
+	lootBoxesCollected = 0
+	canOpen = 0
+	totalAnom = 0
+	usbRewards = 0
+	const pi = Math.PI
+	onmousemove = function(e){
+		mouseX = e.clientX
+		mouseY = e.clientY
+	}
+	function hide(id){
+		document.getElementById(id).classList.add('hide')
+	}
+	function show(id){
+		document.getElementById(id).classList.remove('hide')
+	}
+	function startGame(){
+		if (parseInt(localStorage.Difcool) <= 0 ||  localStorage.Diflvl === '69' ){
+			hide('homeSc')
+			hide('helpSc')
+			hide('startBut')
+			hide('startBut2')
+			hide('helpBut')
+			show('player')
+			newSave('Diflvl', 1)
+			newSave('GamP1', 0)
+			newSave('CDLVL', 0)
+			localStorage.Difcool = Math.floor(600 * (100 - parseInt(localStorage.CDLVL)) / 100)
+			for (i = 2; i <= 240; i++){
+				newTile = document.getElementById('body').appendChild(document.getElementById('tile1').cloneNode(true))
+				newTile.setAttribute('id','tile' + i)
+				newTile.style.left = 50 * (i - 1) - Math.floor((i - 1) / 20) * 1000
+				newTile.style.top = 50 * Math.floor((i - 1) / 20)
+				//newTile.textContent = i
+			}
+			generateLevel()
+			generateRoom(10)
+			gameLoop()
+		} else {
+			location.reload()
+		}
+	}
+	function generateLevel(){
+		levelData = '#'
+		curRoom = 0
+		roomPlayerIn = 0
+		deleteAll('item')
+		deleteAll('enemy')
+		for (i = 0; i < 5; i++){
+			levelData = levelData + Math.floor(Math.random() * 10)
+			curRoom = curRoom + 1
+			if (i === 4){
+				lastRoom = curRoom
+			}
+			if (levelData[curRoom] === '1'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('D', 475, 275, curRoom)
+				} else if (x === 1){
+					createItem(2, 475, 275, 20, curRoom)
+				} else if (x === 2){
+					createEnemy('V', 475, 275, curRoom)
+				} else if (x === 3){
+					createEnemy('V', 425, 275, curRoom)
+					createEnemy('V', 525, 275, curRoom)
+				} else if (x === 4){
+					createItem(3, 475, 275, 20, curRoom)
+				} else if (x === 5){
+					createEnemy('D', 400, 250, curRoom)
+					createEnemy('D', 450, 250, curRoom)
+					createEnemy('D', 500, 250, curRoom)
+					createEnemy('D', 550, 250, curRoom)
+					createEnemy('D', 400, 300, curRoom)
+					createEnemy('D', 450, 300, curRoom)
+					createEnemy('D', 500, 300, curRoom)
+					createEnemy('D', 550, 300, curRoom)
+				} else if (x === 6){
+					createEnemy('D', 475, 275, curRoom)
+					createEnemy('V', 850, 275, curRoom)
+				} else if (x === 7){
+					createEnemy('M', 475, 275, curRoom)
+				} else if (x === 8){
+					createEnemy('H', 475, 275, curRoom)
+				} else if (x === 9){
+					createEnemy('C', 875, 75, curRoom)
+					createEnemy('C', 875, 475, curRoom)
+				}
+			} else if (levelData[curRoom] === '2'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('M', 475, 100, curRoom)
+					createEnemy('M', 475, 500, curRoom)
+				} else if (x === 1){
+					createEnemy('M', 825, 75, curRoom)
+					createEnemy('M', 825, 125, curRoom)
+					createEnemy('M', 875, 75, curRoom)
+					createEnemy('M', 875, 125, curRoom)
+				} else if (x === 2){
+					createEnemy('V', 800, 275, curRoom)
+				} else if (x === 3){
+					createEnemy('H', 850, 100, curRoom)
+					createEnemy('H', 850, 450, curRoom)
+				} else if (x === 4){
+					createEnemy('S', 825, 250, curRoom, 315)
+					createEnemy('S', 825, 300, curRoom, 225)
+				} else if (x === 5){
+					createItem(2, 150, 275, 20, curRoom)
+				} else if (x === 6){
+					createEnemy('M', 800, 275, curRoom)
+				} else if (x === 7){
+					createEnemy('S', 775, 275, curRoom, 270)
+					createItem(1, 825, 275, 0, curRoom)
+				} else if (x === 8){
+					createEnemy('S', 300, 100, curRoom, 0)
+					createEnemy('S', 350, 100, curRoom, 0)
+					createEnemy('S', 400, 100, curRoom, 0)
+					createEnemy('S', 450, 100, curRoom, 0)
+					createEnemy('S', 500, 100, curRoom, 0)
+					createEnemy('S', 550, 100, curRoom, 0)
+					createEnemy('S', 600, 100, curRoom, 0)
+					createEnemy('S', 650, 100, curRoom, 0)
+				} else if (x === 9){
+					createEnemy('D', 775, 225, curRoom)
+					createEnemy('D', 775, 275, curRoom)
+					createEnemy('D', 775, 325, curRoom)
+				}
+			} else if (levelData[curRoom] === '3'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('C', 175, 475, curRoom)
+				} else if (x === 1){
+					createEnemy('S', 175, 475, curRoom, 45)
+				} else if (x === 2){
+					createEnemy('M', 175, 475, curRoom)
+					createEnemy('M', 225, 475, curRoom)
+					createEnemy('M', 225, 425, curRoom)
+					createEnemy('M', 275, 475, curRoom)
+					createEnemy('M', 275, 425, curRoom)
+					createEnemy('M', 275, 375, curRoom)
+				} else if (x === 3){
+					createEnemy('D', 175, 475, curRoom)
+					createEnemy('D', 225, 475, curRoom)
+					createEnemy('D', 225, 425, curRoom)
+					createEnemy('D', 775, 75, curRoom)
+					createEnemy('D', 725, 75, curRoom)
+					createEnemy('D', 725, 125, curRoom)
+				} else if (x === 4){
+					createItem(2, 475, 275, 20, curRoom)
+				} else if (x === 5){
+					createEnemy('H', 175, 475, curRoom)
+				} else if (x === 6){
+					createEnemy('D', 175, 475, curRoom)
+					createEnemy('D', 775, 75, curRoom)
+				} else if (x === 7){
+					createEnemy('D', 175, 475, curRoom)
+					createEnemy('M', 275, 475, curRoom)
+				} else if (x === 8){
+					createEnemy('S', 175, 475, curRoom, 225)
+				} else if (x === 9){
+					createEnemy('C', 175, 475, curRoom)
+					createEnemy('M', 275, 475, curRoom)
+				}
+			} else if (levelData[curRoom] === '4'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('V', 475, 275, curRoom)
+				} else if (x === 1){
+					createEnemy('V', 475, 275, curRoom)
+					createEnemy('V', 800, 275, curRoom)
+				} else if (x === 2){
+					createEnemy('C', 600, 100, curRoom)
+				} else if (x === 3){
+					createEnemy('H', 475, 100, curRoom)
+				} else if (x === 4){
+					createItem(3, 800, 450, 20, curRoom)
+					createEnemy('D', 800, 400, curRoom)
+					createEnemy('M', 750, 400, curRoom)
+					createEnemy('M', 850, 400, curRoom)
+					createEnemy('M', 750, 350, curRoom)
+					createEnemy('M', 800, 350, curRoom)
+					createEnemy('M', 850, 350, curRoom)
+				} else if (x === 5){
+					createEnemy('V', 475, 150, curRoom)
+					createEnemy('H', 475, 100, curRoom)
+				} else if (x === 6){
+					createEnemy('C', 600, 100, curRoom)
+					createEnemy('C', 850, 400, curRoom)
+				} else if (x === 7){
+					createEnemy('M', 150, 100, curRoom)
+				} else if (x === 8){
+					createEnemy('S', 475, 275, curRoom, 270)
+				} else if (x === 9){
+					createEnemy('M', 100, 100, curRoom)
+					createEnemy('M', 150, 100, curRoom)
+					createEnemy('M', 200, 100, curRoom)
+					createEnemy('M', 100, 150, curRoom)
+					createEnemy('M', 150, 150, curRoom)
+					createEnemy('M', 200, 150, curRoom)
+					createEnemy('M', 100, 200, curRoom)
+					createEnemy('M', 150, 200, curRoom)
+					createEnemy('M', 200, 200, curRoom)
+				}
+			} else if (levelData[curRoom] === '5'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('D', 75, 75, curRoom)
+					createEnemy('D', 75, 475, curRoom)
+					createEnemy('D', 875, 75, curRoom)
+					createEnemy('D', 875, 475, curRoom)
+				} else if (x === 1){
+					createEnemy('D', 125, 75, curRoom)
+					createEnemy('D', 125, 475, curRoom)
+					createEnemy('D', 825, 75, curRoom)
+					createEnemy('D', 825, 475, curRoom)
+					createItem(2, 75, 75, 20, curRoom)
+					createItem(2, 75, 475, 20, curRoom)
+					createItem(2, 875, 75, 20, curRoom)
+					createItem(2, 875, 475, 20, curRoom)
+				} else if (x === 2){
+					createEnemy('H', 475, 75, curRoom)
+					createEnemy('H', 475, 475, curRoom)
+				} else if (x === 3){
+					createItem(3, 75, 75, 20, curRoom)
+					createItem(3, 75, 475, 20, curRoom)
+					createItem(3, 875, 75, 20, curRoom)
+					createItem(3, 875, 475, 20, curRoom)
+				} else if (x === 4){
+					createEnemy('M', 75, 75, curRoom)
+					createEnemy('M', 125, 75, curRoom)
+					createEnemy('M', 175, 75, curRoom)
+					createEnemy('M', 225, 75, curRoom)
+					createEnemy('M', 275, 75, curRoom)
+					createEnemy('M', 75, 475, curRoom)
+					createEnemy('M', 125, 475, curRoom)
+					createEnemy('M', 175, 475, curRoom)
+					createEnemy('M', 225, 475, curRoom)
+					createEnemy('M', 275, 475, curRoom)
+					createEnemy('M', 325, 475, curRoom)
+					createItem(1, 875, 75, 0, curRoom)
+					createItem(1, 875, 475, 0, curRoom)
+				} else if (x === 5){
+					createEnemy('D', 75, 75, curRoom)
+					createEnemy('D', 75, 475, curRoom)
+					createItem(1, 875, 75, 0, curRoom)
+					createItem(1, 875, 475, 0, curRoom)
+				} else if (x === 6){
+					createItem(2, 75, 75, 1 + Math.floor((Math.random() * 100) / 99) * 999, curRoom)
+					createItem(2, 75, 475, 1 + Math.floor((Math.random() * 100) / 99) * 999, curRoom)
+					createItem(2, 875, 75, 1 + Math.floor((Math.random() * 100) / 99) * 999, curRoom)
+					createItem(2, 875, 475, 1 + Math.floor((Math.random() * 100) / 99) * 999, curRoom)
+				} else if (x === 7){
+					createEnemy('M', 75, 75, curRoom)
+					createEnemy('M', 125, 75, curRoom)
+					createEnemy('M', 175, 75, curRoom)
+					createEnemy('M', 225, 75, curRoom)
+					createEnemy('M', 275, 75, curRoom)
+					createEnemy('M', 75, 475, curRoom)
+					createEnemy('M', 125, 475, curRoom)
+					createEnemy('M', 175, 475, curRoom)
+					createEnemy('M', 225, 475, curRoom)
+					createEnemy('M', 275, 475, curRoom)
+					createEnemy('M', 325, 475, curRoom)
+					createEnemy('M', 875, 75, curRoom)
+					createEnemy('M', 825, 75, curRoom)
+					createEnemy('M', 775, 75, curRoom)
+					createEnemy('M', 725, 75, curRoom)
+					createEnemy('M', 675, 75, curRoom)
+					createEnemy('M', 875, 475, curRoom)
+					createEnemy('M', 825, 475, curRoom)
+					createEnemy('M', 775, 475, curRoom)
+					createEnemy('M', 725, 475, curRoom)
+					createEnemy('M', 675, 475, curRoom)
+					createEnemy('M', 625, 475, curRoom)
+					createItem(1, 475, 275, 0, curRoom)
+				} else if (x === 8){
+					createEnemy('D', 75, 75, curRoom)
+					createEnemy('D', 75, 475, curRoom)
+					createItem(4, 875, 75, 0, curRoom)
+					createItem(4, 875, 475, 0, curRoom)
+				} else if (x === 9){
+					createEnemy('S', 75, 75, curRoom, 90)
+					createEnemy('S', 75, 475, curRoom, 90)
+					createItem(1, 875, 75, 0, curRoom)
+					createItem(1, 875, 475, 0, curRoom)
+				}
+			} else if (levelData[curRoom] === '6'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('D', 475, 75, curRoom)
+					createEnemy('D', 475, 275, curRoom)
+					createEnemy('D', 475, 475, curRoom)
+				} else if (x === 1){
+					createEnemy('H', 475, 75, curRoom)
+					createEnemy('H', 475, 275, curRoom)
+					createEnemy('H', 475, 475, curRoom)
+				} else if (x === 2){
+					createEnemy('D', 475, 275, curRoom)
+				} else if (x === 3){
+					createItem(2, 475, 275, 50, curRoom)
+				} else if (x === 4){
+					createEnemy('M', 475, 75, curRoom)
+					createEnemy('M', 475, 275, curRoom)
+					createEnemy('M', 475, 475, curRoom)
+				} else if (x === 5){
+					createEnemy('S', 500, 275, curRoom, 90)
+					createItem(1, 450, 275, 0, curRoom)
+				} else if (x === 6){
+					createEnemy('H', 475, 75, curRoom)
+					createEnemy('H', 475, 275, curRoom)
+					createEnemy('H', 475, 475, curRoom)
+					createEnemy('V', 875, 75, curRoom)
+					createEnemy('V', 75, 475, curRoom)
+				} else if (x === 7){
+					createEnemy('V', 375, 275, curRoom)
+					createEnemy('V', 425, 275, curRoom)
+					createEnemy('V', 475, 275, curRoom)
+					createEnemy('V', 525, 275, curRoom)
+					createEnemy('V', 575, 275, curRoom)
+				} else if (x === 8){
+					createEnemy('C', 875, 75, curRoom)
+					createEnemy('C', 75, 475, curRoom)
+				} else if (x === 9){
+					createEnemy('D', 475, 75, curRoom)
+					createEnemy('D', 475, 275, curRoom)
+					createEnemy('D', 475, 475, curRoom)
+					createEnemy('M', 425, 275, curRoom)
+					createEnemy('M', 525, 275, curRoom)
+				}
+			} else if (levelData[curRoom] === '7'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('D', 75, 75, curRoom)
+					createEnemy('D', 875, 475, curRoom)
+				} else if (x === 1){
+					createEnemy('M', 75, 75, curRoom)
+					createEnemy('M', 875, 475, curRoom)
+				} else if (x === 2){
+					createEnemy('C', 75, 75, curRoom)
+					createEnemy('C', 875, 475, curRoom)
+				} else if (x === 3){
+					createEnemy('V', 275, 275, curRoom)
+					createEnemy('V', 475, 275, curRoom)
+					createEnemy('V', 675, 275, curRoom)
+				} else if (x === 4){
+					createEnemy('H', 75, 75, curRoom)
+					createEnemy('H', 875, 475, curRoom)
+				} else if (x === 5){
+					createEnemy('S', 125, 75, curRoom, 90)
+					createEnemy('S', 825, 475, curRoom, 270)
+					createItem(3, 75, 75, 0, curRoom)
+					createItem(4, 875, 475, 0, curRoom)
+				} else if (x === 6){
+					createEnemy('V', 475, 225, curRoom)
+					createEnemy('V', 425, 275, curRoom)
+					createEnemy('V', 475, 275, curRoom)
+					createEnemy('V', 525, 275, curRoom)
+					createEnemy('V', 475, 325, curRoom)
+				} else if (x === 7){
+					createEnemy('S', 400, 275, curRoom, 90)
+					createEnemy('S', 550, 275, curRoom, 270)
+				} else if (x === 8){
+					createItem(2, 475, 275, 50, curRoom)
+				} else if (x === 9){
+					createItem(3, 475, 275, 50, curRoom)
+				}
+			} else if (levelData[curRoom] === '8'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('C', 875, 75, curRoom)
+					createEnemy('C', 875, 475, curRoom)
+				} else if (x === 1){
+					createEnemy('M', 275, 75, curRoom)
+					createEnemy('M', 275, 475, curRoom)
+				} else if (x === 2){
+					createEnemy('S', 275, 75, curRoom, 180)
+					createEnemy('S', 275, 475, curRoom, 0)
+				} else if (x === 3){
+					createEnemy('M', 425, 175, curRoom)
+					createEnemy('M', 475, 175, curRoom)
+					createEnemy('M', 525, 175, curRoom)
+					createEnemy('M', 575, 175, curRoom)
+					createEnemy('M', 625, 175, curRoom)
+					createEnemy('M', 675, 175, curRoom)
+				} else if (x === 4){
+					createEnemy('M', 425, 375, curRoom)
+					createEnemy('M', 475, 375, curRoom)
+					createEnemy('M', 525, 375, curRoom)
+					createEnemy('M', 575, 375, curRoom)
+					createEnemy('M', 625, 375, curRoom)
+					createEnemy('M', 675, 375, curRoom)
+				} else if (x === 5){
+					createEnemy('H', 675, 175, curRoom)
+					createEnemy('H', 675, 375, curRoom)
+				} else if (x === 6){
+					createEnemy('V', 825, 275, curRoom)
+					createEnemy('V', 875, 275, curRoom)
+				} else if (x === 7){
+					createEnemy('S', 800, 250, curRoom, 45)
+					createEnemy('S', 800, 300, curRoom, 135)
+				} else if (x === 8){
+					createEnemy('C', 875, 75, curRoom)
+					createEnemy('C', 825, 75, curRoom)
+					createEnemy('C', 875, 475, curRoom)
+					createEnemy('C', 825, 475, curRoom)
+				} else if (x === 9){
+					createItem(2, 900, 275, 50, curRoom)
+				}
+			} else if (levelData[curRoom] === '9'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('M', 275, 175, curRoom)
+					createEnemy('M', 475, 175, curRoom)
+					createEnemy('M', 675, 175, curRoom)
+					createEnemy('M', 275, 375, curRoom)
+					createEnemy('M', 475, 375, curRoom)
+					createEnemy('M', 675, 375, curRoom)
+				} else if (x === 1){
+					createEnemy('D', 275, 175, curRoom)
+					createEnemy('D', 475, 175, curRoom)
+					createEnemy('D', 675, 175, curRoom)
+					createEnemy('D', 275, 375, curRoom)
+					createEnemy('D', 475, 375, curRoom)
+					createEnemy('D', 675, 375, curRoom)
+				} else if (x === 2){
+					createEnemy('H', 475, 75, curRoom)
+					createEnemy('H', 475, 475, curRoom)
+				} else if (x === 3){
+					createEnemy('V', 275, 175, curRoom)
+					createEnemy('V', 475, 175, curRoom)
+					createEnemy('V', 675, 175, curRoom)
+				} else if (x === 4){
+					createItem(2, 275, 175, 20, curRoom)
+					createItem(2, 475, 175, 20, curRoom)
+					createItem(2, 675, 175, 20, curRoom)
+					createItem(2, 275, 375, 20, curRoom)
+					createItem(2, 475, 375, 20, curRoom)
+					createItem(2, 675, 375, 20, curRoom)
+				} else if (x === 5){
+					createEnemy('S', 475, 175, curRoom, 180)
+					createEnemy('S', 475, 375, curRoom, 0)
+				} else if (x === 6){
+					createEnemy('C', 875, 75, curRoom)
+					createEnemy('C', 875, 475, curRoom)
+				} else if (x === 7){
+					createItem(3, 275, 175, 50, curRoom)
+					createItem(3, 475, 175, 50, curRoom)
+					createItem(3, 675, 175, 50, curRoom)
+					createItem(3, 275, 375, 50, curRoom)
+					createItem(3, 475, 375, 50, curRoom)
+					createItem(3, 675, 375, 50, curRoom)
+				} else if (x === 8){
+					createItem(1, 475, 275, 0, curRoom)
+				} else if (x === 9){
+					createEnemy('S', 275, 175, curRoom, 0)
+					createEnemy('S', 475, 175, curRoom, 0)
+					createEnemy('S', 675, 175, curRoom, 0)
+					createEnemy('S', 275, 375, curRoom, 180)
+					createEnemy('S', 475, 375, curRoom, 180)
+					createEnemy('S', 675, 375, curRoom, 180)
+				}
+			} else if (levelData[curRoom] === '0'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('C', 325, 75, curRoom)
+					createEnemy('C', 325, 475, curRoom)
+				} else if (x === 1){
+					createEnemy('S', 325, 75, curRoom, 90)
+					createEnemy('S', 325, 475, curRoom, 90)
+				} else if (x === 2){
+					createEnemy('D', 375, 75, curRoom)
+					createEnemy('D', 375, 475, curRoom)
+					createItem(2, 325, 75, 20, curRoom)
+					createItem(2, 325, 475, 20, curRoom)
+				} else if (x === 3){
+					createEnemy('H', 325, 475, curRoom)
+					createEnemy('H', 325, 75, curRoom)
+				} else if (x === 4){
+					createEnemy('M', 375, 75, curRoom)
+					createEnemy('M', 425, 75, curRoom)
+					createEnemy('M', 475, 75, curRoom)
+					createEnemy('M', 525, 75, curRoom)
+					createEnemy('M', 575, 75, curRoom)
+					createEnemy('M', 375, 475, curRoom)
+					createEnemy('M', 425, 475, curRoom)
+					createEnemy('M', 475, 475, curRoom)
+					createEnemy('M', 525, 475, curRoom)
+					createEnemy('M', 575, 475, curRoom)
+					createItem(1, 325, 75, 0, curRoom)
+					createItem(1, 325, 475, 0, curRoom)
+				} else if (x === 5){
+					createEnemy('V', 875, 75, curRoom)
+					createEnemy('V', 875, 475, curRoom)
+				} else if (x === 6){
+					createEnemy('M', 300, 50, curRoom)
+					createEnemy('M', 350, 50, curRoom)
+					createEnemy('M', 400, 50, curRoom)
+					createEnemy('M', 450, 50, curRoom)
+					createEnemy('M', 500, 50, curRoom)
+					createEnemy('M', 550, 50, curRoom)
+					createEnemy('M', 300, 100, curRoom)
+					createEnemy('M', 350, 100, curRoom)
+					createEnemy('M', 400, 100, curRoom)
+					createEnemy('M', 450, 100, curRoom)
+					createEnemy('M', 500, 100, curRoom)
+					createEnemy('M', 550, 100, curRoom)
+				} else if (x === 7){
+					//My fathers love for me :(
+				} else if (x === 8){
+					createEnemy('D', 375, 75, curRoom)
+				} else if (x === 9){
+					createEnemy('D', 375, 475, curRoom)
+				}
+			}
+			if (Math.random() < 0.25){
+				levelData = levelData + String.fromCharCode(65 + Math.floor(Math.random() * 4))
+				curRoom = curRoom + 1
+			}
+			if (levelData[curRoom] === 'A'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createItem(3, 475, 275, 0, curRoom)
+				} else if (x === 1){
+					createItem(1, 475, 275, 0, curRoom)
+				} else if (x === 2){
+					createItem(2, 475, 275, 50, curRoom)
+				} else if (x === 3){
+					createItem(2, 475, 275, 100, curRoom)
+				} else if (x === 4){
+					createItem(4, 475, 275, 0, curRoom)
+				} else if (x === 5){
+					createItem(2, 475, 275, 1, curRoom)
+				} else if (x === 6){
+					createItem(1, 425, 275, 0, curRoom)
+					createItem(1, 525, 275, 0, curRoom)
+				} else if (x === 7){
+					createItem(5, 475, 275, 0, curRoom)
+				} else if (x === 8){
+					createItem(3, 425, 275, 0, curRoom)
+					createItem(4, 525, 275, 0, curRoom)
+				} else if (x === 9){
+					// :(
+				}
+			} else if (levelData[curRoom] === 'B'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createItem(3, 475, 75, 0, curRoom)
+				} else if (x === 1){
+					createItem(1, 475, 75, 0, curRoom)
+				} else if (x === 2){
+					createItem(4, 475, 75, 0, curRoom)
+				} else if (x === 3){
+					createItem(1, 425, 75, 0, curRoom)
+					createItem(1, 525, 75, 0, curRoom)
+				} else if (x === 4){
+					createItem(1, 425, 75, 0, curRoom)
+					createItem(1, 525, 75, 0, curRoom)
+					createItem(1, 425, 175, 0, curRoom)
+					createItem(1, 525, 175, 0, curRoom)
+					createItem(1, 425, 275, 0, curRoom)
+					createItem(1, 525, 275, 0, curRoom)
+					createItem(1, 425, 375, 0, curRoom)
+					createItem(1, 525, 375, 0, curRoom)
+					createItem(1, 425, 475, 0, curRoom)
+					createItem(1, 525, 475, 0, curRoom)
+				} else if (x === 5){
+					createItem(3, 425, 75, 0, curRoom)
+					createItem(3, 525, 75, 0, curRoom)
+				} else if (x === 6){
+					createItem(4, 425, 75, 0, curRoom)
+					createItem(4, 525, 75, 0, curRoom)
+				} else if (x === 7){
+					createItem(5, 475, 75, 0, curRoom)
+				} else if (x === 8){
+					createItem(3, 425, 75, 0, curRoom)
+					createItem(4, 525, 75, 0, curRoom)
+				} else if (x === 9){
+					// ax^2+bx+c
+				}
+			} else if (levelData[curRoom] === 'C'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('S', 375, 75, curRoom, 180)
+					createEnemy('S', 425, 75, curRoom, 180)
+					createEnemy('S', 475, 75, curRoom, 180)
+					createEnemy('S', 525, 75, curRoom, 180)
+					createEnemy('S', 575, 75, curRoom, 180)
+					createEnemy('S', 375, 125, curRoom, 180)
+					createEnemy('S', 425, 125, curRoom, 180)
+					createEnemy('S', 475, 125, curRoom, 180)
+					createEnemy('S', 525, 125, curRoom, 180)
+					createEnemy('S', 575, 125, curRoom, 180)
+				} else if (x === 1){
+					createEnemy('C', 375, 75, curRoom)
+					createEnemy('C', 425, 75, curRoom)
+					createEnemy('C', 475, 75, curRoom)
+					createEnemy('C', 525, 75, curRoom)
+					createEnemy('C', 575, 75, curRoom)
+					createEnemy('C', 375, 125, curRoom)
+					createEnemy('C', 425, 125, curRoom)
+					createEnemy('C', 475, 125, curRoom)
+					createEnemy('C', 525, 125, curRoom)
+					createEnemy('C', 575, 125, curRoom)
+				} else if (x === 2){
+					createEnemy('M', 375, 75, curRoom)
+					createEnemy('M', 425, 75, curRoom)
+					createEnemy('M', 475, 75, curRoom)
+					createEnemy('M', 525, 75, curRoom)
+					createEnemy('M', 575, 75, curRoom)
+					createEnemy('M', 375, 125, curRoom)
+					createEnemy('M', 425, 125, curRoom)
+					createEnemy('M', 475, 125, curRoom)
+					createEnemy('M', 525, 125, curRoom)
+					createEnemy('M', 575, 125, curRoom)
+				} else if (x === 3){
+					createEnemy('D', 375, 75, curRoom)
+					createEnemy('D', 425, 75, curRoom)
+					createEnemy('D', 475, 75, curRoom)
+					createEnemy('D', 525, 75, curRoom)
+					createEnemy('D', 575, 75, curRoom)
+					createEnemy('D', 375, 125, curRoom)
+					createEnemy('D', 425, 125, curRoom)
+					createEnemy('D', 475, 125, curRoom)
+					createEnemy('D', 525, 125, curRoom)
+					createEnemy('D', 575, 125, curRoom)
+				} else if (x === 4){
+					createItem(3, 425, 75, 0, curRoom)
+					createItem(3, 525, 75, 0, curRoom)
+				} else if (x === 5){
+					createItem(4, 425, 75, 0, curRoom)
+					createItem(4, 525, 75, 0, curRoom)
+				} else if (x === 6){
+					createItem(1, 425, 75, 0, curRoom)
+					createItem(1, 525, 75, 0, curRoom)
+				} else if (x === 7){
+					createItem(5, 475, 75, 0, curRoom)
+				} else if (x === 8){
+					//HEHEHEHA
+				} else if (x === 9){
+					//The big sad
+				}
+			} else if (levelData[curRoom] === 'D'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createItem(2, 875, 75, 1, curRoom)
+				} else if (x === 1){
+					createItem(2, 875, 75, 2, curRoom)
+				} else if (x === 2){
+					createItem(2, 875, 75, 4, curRoom)
+				} else if (x === 3){
+					createItem(2, 875, 75, 8, curRoom)
+				} else if (x === 4){
+					createItem(2, 875, 75, 16, curRoom)
+				} else if (x === 5){
+					createItem(2, 875, 75, 32, curRoom)
+				} else if (x === 6){
+					createItem(2, 875, 75, 64, curRoom)
+				} else if (x === 7){
+					createItem(2, 875, 75, 128, curRoom)
+				} else if (x === 8){
+					createItem(2, 875, 75, 256, curRoom)
+				} else if (x === 9){
+					createItem(1, 875, 75, 0, curRoom)
+				}
+			}
+			if (Math.random() < 0.25){
+				levelData = levelData + String.fromCharCode(97 + Math.floor(Math.random() * 4))
+				curRoom = curRoom + 1
+			}
+			if (levelData[curRoom] === 'a'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createItem(3, 475, 275, 0, curRoom)
+				} else if (x === 1){
+					createItem(1, 475, 275, 0, curRoom)
+				} else if (x === 2){
+					createItem(2, 475, 275, 50, curRoom)
+				} else if (x === 3){
+					createItem(2, 475, 275, 100, curRoom)
+				} else if (x === 4){
+					createItem(4, 475, 275, 0, curRoom)
+				} else if (x === 5){
+					createItem(2, 475, 275, 1, curRoom)
+				} else if (x === 6){
+					createItem(1, 425, 275, 0, curRoom)
+					createItem(1, 525, 275, 0, curRoom)
+				} else if (x === 7){
+					createItem(5, 475, 275, 0, curRoom)
+				} else if (x === 8){
+					createItem(3, 425, 275, 0, curRoom)
+					createItem(4, 525, 275, 0, curRoom)
+				} else if (x === 9){
+					// :(
+				}
+			} else if (levelData[curRoom] === 'b'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createItem(3, 475, 475, 0, curRoom)
+				} else if (x === 1){
+					createItem(1, 475, 475, 0, curRoom)
+				} else if (x === 2){
+					createItem(4, 475, 475, 0, curRoom)
+				} else if (x === 3){
+					createItem(1, 425, 475, 0, curRoom)
+					createItem(1, 525, 475, 0, curRoom)
+				} else if (x === 4){
+					createItem(1, 425, 75, 0, curRoom)
+					createItem(1, 525, 75, 0, curRoom)
+					createItem(1, 425, 175, 0, curRoom)
+					createItem(1, 525, 175, 0, curRoom)
+					createItem(1, 425, 275, 0, curRoom)
+					createItem(1, 525, 275, 0, curRoom)
+					createItem(1, 425, 375, 0, curRoom)
+					createItem(1, 525, 375, 0, curRoom)
+					createItem(1, 425, 475, 0, curRoom)
+					createItem(1, 525, 475, 0, curRoom)
+				} else if (x === 5){
+					createItem(3, 425, 475, 0, curRoom)
+					createItem(3, 525, 475, 0, curRoom)
+				} else if (x === 6){
+					createItem(4, 425, 475, 0, curRoom)
+					createItem(4, 525, 475, 0, curRoom)
+				} else if (x === 7){
+					createItem(5, 475, 475, 0, curRoom)
+				} else if (x === 8){
+					createItem(3, 425, 475, 0, curRoom)
+					createItem(4, 525, 475, 0, curRoom)
+				} else if (x === 9){
+					// ax^2+bx+c
+				}
+			} else if (levelData[curRoom] === 'c'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createEnemy('S', 375, 475, curRoom, 180)
+					createEnemy('S', 425, 475, curRoom, 180)
+					createEnemy('S', 475, 475, curRoom, 180)
+					createEnemy('S', 525, 475, curRoom, 180)
+					createEnemy('S', 575, 475, curRoom, 180)
+					createEnemy('S', 375, 425, curRoom, 180)
+					createEnemy('S', 425, 425, curRoom, 180)
+					createEnemy('S', 475, 425, curRoom, 180)
+					createEnemy('S', 525, 425, curRoom, 180)
+					createEnemy('S', 575, 425, curRoom, 180)
+				} else if (x === 1){
+					createEnemy('C', 375, 475, curRoom)
+					createEnemy('C', 425, 475, curRoom)
+					createEnemy('C', 475, 475, curRoom)
+					createEnemy('C', 525, 475, curRoom)
+					createEnemy('C', 575, 475, curRoom)
+					createEnemy('C', 375, 425, curRoom)
+					createEnemy('C', 425, 425, curRoom)
+					createEnemy('C', 475, 425, curRoom)
+					createEnemy('C', 525, 425, curRoom)
+					createEnemy('C', 575, 425, curRoom)
+				} else if (x === 2){
+					createEnemy('M', 375, 475, curRoom)
+					createEnemy('M', 425, 475, curRoom)
+					createEnemy('M', 475, 475, curRoom)
+					createEnemy('M', 525, 475, curRoom)
+					createEnemy('M', 575, 475, curRoom)
+					createEnemy('M', 375, 425, curRoom)
+					createEnemy('M', 425, 425, curRoom)
+					createEnemy('M', 475, 425, curRoom)
+					createEnemy('M', 525, 425, curRoom)
+					createEnemy('M', 575, 425, curRoom)
+				} else if (x === 3){
+					createEnemy('D', 375, 475, curRoom)
+					createEnemy('D', 425, 475, curRoom)
+					createEnemy('D', 475, 475, curRoom)
+					createEnemy('D', 525, 475, curRoom)
+					createEnemy('D', 575, 475, curRoom)
+					createEnemy('D', 375, 425, curRoom)
+					createEnemy('D', 425, 425, curRoom)
+					createEnemy('D', 475, 425, curRoom)
+					createEnemy('D', 525, 425, curRoom)
+					createEnemy('D', 575, 425, curRoom)
+				} else if (x === 4){
+					createItem(3, 425, 475, 0, curRoom)
+					createItem(3, 525, 475, 0, curRoom)
+				} else if (x === 5){
+					createItem(4, 425, 475, 0, curRoom)
+					createItem(4, 525, 475, 0, curRoom)
+				} else if (x === 6){
+					createItem(1, 425, 475, 0, curRoom)
+					createItem(1, 525, 475, 0, curRoom)
+				} else if (x === 7){
+					createItem(5, 475, 475, 0, curRoom)
+				} else if (x === 8){
+					//HEHEHEHA
+				} else if (x === 9){
+					//The big sad
+				}
+			} else if (levelData[curRoom] === 'd'){
+				x = Math.floor(Math.random() * 10)
+				if (x === 0){
+					createItem(2, 75, 475, 1, curRoom)
+				} else if (x === 1){
+					createItem(2, 75, 475, 2, curRoom)
+				} else if (x === 2){
+					createItem(2, 75, 475, 4, curRoom)
+				} else if (x === 3){
+					createItem(2, 75, 475, 8, curRoom)
+				} else if (x === 4){
+					createItem(2, 75, 475, 16, curRoom)
+				} else if (x === 5){
+					createItem(2, 75, 475, 32, curRoom)
+				} else if (x === 6){
+					createItem(2, 75, 475, 64, curRoom)
+				} else if (x === 7){
+					createItem(2, 75, 475, 128, curRoom)
+				} else if (x === 8){
+					createItem(2, 75, 475, 256, curRoom)
+				} else if (x === 9){
+					createItem(1, 75, 475, 0, curRoom)
+				}
+			}
+		}
+		console.log(levelData)
+	}
+	function generateRoom(roomChar){
+		room = roomChar + ''
+		if (roomChar === '#'){
+			room = 10
+		} else if (room.charCodeAt(0) > 96){
+			room = room.charCodeAt(0) - 86
+		} else if (room.charCodeAt(0) > 64){
+			room = room.charCodeAt(0) - 54
+		}
+		//console.log(roomChar + ' ' + room)
+		amount = 0
+		type = ''
+		current = 1
+		roomData = window["room" + room]
+		for (i = 0; i < roomData.length; i++){
+			thing = roomData[i]
+			if (thing === ' '){
+				
+			} else if (thing > -1){
+				amount = parseInt(amount + thing)
+			} else {
+				type = thing
+				for (j = current; j < current + amount; j++){
+					document.getElementById("tile" + j).classList = ''
+					document.getElementById("tile" + j).classList.add(type)
+					document.getElementById("tile" + j).classList.add('tile')
+				}
+				current = current + amount
+				amount = 0
+			}
+		}
+		if (levelData[roomPlayerIn + 1] && levelData[roomPlayerIn + 1].charCodeAt(0) > 64 && levelData[roomPlayerIn + 1].charCodeAt(0) < 69 || levelData[roomPlayerIn].charCodeAt(0) > 69){
+			for (j = 9; j < 13; j++){
+				document.getElementById("tile" + j).classList = ''
+				document.getElementById("tile" + j).classList.add('tile')
+				document.getElementById("tile" + j).classList.add('a')
+			}
+			document.getElementById("tile8").classList = ''
+			document.getElementById("tile8").classList.add('tile')
+			document.getElementById("tile8").classList.add('k')
+			document.getElementById("tile13").classList = ''
+			document.getElementById("tile13").classList.add('tile')
+			document.getElementById("tile13").classList.add('m')
+		}
+		if (levelData[roomPlayerIn + 1] && levelData[roomPlayerIn + 1].charCodeAt(0) > 96 || levelData[roomPlayerIn + 1] && levelData[roomPlayerIn + 1].charCodeAt(0) > 64 && levelData[roomPlayerIn + 1].charCodeAt(0) < 69 && levelData[roomPlayerIn + 2] && levelData[roomPlayerIn + 2].charCodeAt(0) > 96 || levelData[roomPlayerIn].charCodeAt(0) > 64 && levelData[roomPlayerIn].charCodeAt(0) < 69){
+			for (j = 229; j < 233; j++){
+				document.getElementById("tile" + j).classList = ''
+				document.getElementById("tile" + j).classList.add('tile')
+				document.getElementById("tile" + j).classList.add('a')
+			}
+			document.getElementById("tile228").classList = ''
+			document.getElementById("tile228").classList.add('tile')
+			document.getElementById("tile228").classList.add('k')
+			document.getElementById("tile233").classList = ''
+			document.getElementById("tile233").classList.add('tile')
+			document.getElementById("tile233").classList.add('m')
+		}
+		for (const item of document.getElementsByClassName('item')){
+			if (item.classList.contains('room' + roomPlayerIn)){
+				item.classList.remove('hide')
+			} else {
+				item.classList.add('hide')
+			}
+		}
+		for (const enemy of document.getElementsByClassName('enemy')){
+			if (enemy.classList.contains('room' + roomPlayerIn)){
+				enemy.classList.remove('hide')
+			} else {
+				enemy.classList.add('hide')
+			}
+		}
+		deleteAll('bullet')
+		deleteAll('score')
+	}
+	function gameLoop(){
+		if (gameLoopTr === 1 && health > 0){
+			if (slot1Cooldown > 0){
+				slot1Cooldown = slot1Cooldown - 1
+			}
+			if (slot2Cooldown > 0){
+				slot2Cooldown = slot2Cooldown - 1
+			}
+			if ((KP('a') || KP('A')) && KnP('d') && KnP('D')){
+				if (checkMove('player', -playerSpeed, 0, 1)){
+					shift('player', - playerSpeed, 0, 1)
+				} else if (parseInt(left(document.getElementById('player'))) - playerSpeed <= 0){
+					for (i = 1; i <= 2; i++){
+						if (levelData[roomPlayerIn - i] && (levelData[roomPlayerIn - i].charCodeAt(0) < 65 || levelData[roomPlayerIn - i] === '#')){
+							roomDis = i
+							i = 4
+						} else {
+							roomDis = 3
+						}
+					}
+					roomPlayerIn = roomPlayerIn - roomDis
+					generateRoom(levelData[roomPlayerIn])
+					player.style.left = 950
+					changeRoom()
+				} else {
+					player.style.left = Math.ceil((left(player) - playerSpeed) / 50) * 50
+				}
+			}
+			if ((KP('d') || KP('D')) && KnP('a') && KnP('A')){
+				if (checkMove('player', playerSpeed, 0, 1)){
+					shift('player', playerSpeed, 0, 1)
+				} else if (parseInt(left(document.getElementById('player'))) + playerSpeed >= 950){
+					if (roomPlayerIn != lastRoom){
+						for (i = 1; i <= 2; i++){
+							if (levelData[roomPlayerIn + i] && levelData[roomPlayerIn + i].charCodeAt(0) < 65){
+								roomDis = i
+								i = 4
+							} else {
+								roomDis = 3
+							}
+						}
+						roomPlayerIn = roomPlayerIn + roomDis
+						generateRoom(levelData[roomPlayerIn])
+						player.style.left = 0
+						changeRoom()
+					} else {
+						if (parseInt(localStorage.Diflvl) > level || parseInt(localStorage.Diflvl) === 69){
+							generateLevel()
+							generateRoom(10)
+							player.style.left = 275
+							player.style.top = 275
+							level = level + 1
+							itemLevelMax = level
+							changeScore(750)
+							if (itemLevelMax > 5){
+								itemLevelMax = 5
+							}
+							changeRoom()
+						} else {
+							gameLoopTr = 0
+							changeScore(750)
+							end(1, 0)
+						}
+					}
+				} else {
+					player.style.left = Math.floor((left(player) + playerSpeed) / 50) * 50
+				}
+			}
+			if ((KP('s') || KP('S')) && KnP('w') && KnP('W')){
+				if (checkMove('player', 0, playerSpeed, 1)){
+					shift('player', 0, playerSpeed, 1)
+				} else if (parseInt(up(document.getElementById('player'))) + playerSpeed >= 550){
+					if (levelData[roomPlayerIn].charCodeAt(0) < 65){
+						if (levelData[roomPlayerIn + 1].charCodeAt(0) < 69){
+							roomPlayerIn = roomPlayerIn + 2
+						} else {
+							roomPlayerIn = roomPlayerIn + 1
+						}
+					} else {
+						roomPlayerIn = roomPlayerIn - 1
+					}
+					generateRoom(levelData[roomPlayerIn])
+					player.style.top = 0
+					changeRoom()
+				} else {
+					player.style.top = Math.floor((up(player) + playerSpeed) / 50) * 50
+				}
+			}
+			if ((KP('w') || KP('W')) && KnP('s') && KnP('S')){
+				if (checkMove('player', 0, -playerSpeed, 1)){
+					shift('player', 0, - playerSpeed, 1)
+				} else if (parseInt(up(document.getElementById('player'))) - playerSpeed <= 0){
+					if (levelData[roomPlayerIn].charCodeAt(0) < 65){
+						roomPlayerIn = roomPlayerIn + 1
+					} else {
+						if (levelData[roomPlayerIn - 1].charCodeAt(0) > 64){
+							roomPlayerIn = roomPlayerIn - 2
+						} else {
+							roomPlayerIn = roomPlayerIn - 1
+						}
+					}
+					generateRoom(levelData[roomPlayerIn])
+					player.style.top = 550
+					changeRoom()
+				} else {
+					player.style.top = Math.ceil((up(player) - playerSpeed) / 50) * 50
+				}
+			}
+			if (KP('1')){
+				slotInUse = 1
+				document.getElementById('slotInUseThing').style.top = 150
+			} else if (KP('2') && itemInSlot2 > 0){
+				slotInUse = 2
+				document.getElementById('slotInUseThing').style.top = 275
+			}
+			if ((KP('e') || KP('E')) && eCool == 0){
+				for (const weapon of document.getElementsByClassName('weapon')){
+					if (weapon.classList.contains('room' + roomPlayerIn)){
+						if (left(weapon) - 50 <= left(player) && left(weapon) >= left(player) - 50 && up(weapon) - 50 <= up(player) && up(weapon) >= up(player) - 50){
+							if (itemInSlot2 === 0){
+								itemInSlot2 = parseInt(weapon.style.opacity)
+								document.getElementById('itemSlot2').style.background = 'url("resources/weapon' + itemInSlot2 +'S.png")'
+								weapon.remove()
+							} else {
+								createItem(1, left(weapon), up(weapon), window["itemInSlot" + slotInUse], roomPlayerIn)
+								if (slotInUse === 1){
+									itemInSlot1 = parseInt(weapon.style.opacity)
+								} else {
+									itemInSlot2 = parseInt(weapon.style.opacity)
+								}
+								document.getElementById('itemSlot' + slotInUse).style.background = 'url("resources/weapon' + weapon.style.opacity +'S.png")'
+								weapon.remove()
+								//console.log(window["itemInSlot" + slotInUse])
+							}
+							eCool = 1
+						}
+					}
+				}
+			}
+			if (mouseDownTr === 1 && (slotInUse === 1 && ammoTotal >= getWeaponStats(itemInSlot1, 3) && slot1Cooldown <= 0 || slotInUse === 2 && itemInSlot2 > 0 && ammoTotal >= getWeaponStats(itemInSlot2, 3) && slot2Cooldown <= 0)){
+				if (slotInUse === 1){
+					weapon = itemInSlot1
+					slot1Cooldown = getWeaponStats(weapon, 1)
+					changeAmmo(-getWeaponStats(itemInSlot1, 3))
+				} else {
+					weapon = itemInSlot2
+					slot2Cooldown = getWeaponStats(weapon, 1)
+					changeAmmo(-getWeaponStats(itemInSlot2, 3))
+				}
+				if (mouseX - left(player) - 25 === 0 && mouseY >= up(player) + 25){
+					angle = -90 - (getWeaponStats(weapon, 2) / 2) + Math.round(Math.random() * getWeaponStats(weapon, 2))
+				} else if (mouseX - left(player) - 25 === 0 && mouseY < up(player) + 25){
+					angle = 90 - (getWeaponStats(weapon, 2) / 2) + Math.round(Math.random() * getWeaponStats(weapon, 2))
+				} else {
+					if (mouseX - left(player) - 25 > 0){
+						angle = - (Math.atan((mouseY - up(player) - 25) / (mouseX - left(player) - 25)) * 180 / Math.PI) - (getWeaponStats(weapon, 2) / 2) + Math.round(Math.random() * getWeaponStats(weapon, 2))
+					} else {
+						angle = 180 - (Math.atan((mouseY - up(player) - 25) / (mouseX - left(player) - 25)) * 180 / Math.PI) - (getWeaponStats(weapon, 2) / 2) + Math.round(Math.random() * getWeaponStats(weapon, 2)) - Math.PI / 2
+					}
+				}
+				if (weapon < 30){
+					createProjectile(left(player) + 25, up(player) + 25, 1, angle)
+				} else if (weapon < 40){
+					for (i = 0; i < weapon - 26; i++){
+						createProjectile(left(player) + 25, up(player) + 25, 1, angle)
+						if (mouseX - left(player) - 25 === 0 && mouseY >= up(player) + 25){
+							angle = -90 - (getWeaponStats(weapon, 2) / 2) + Math.round(Math.random() * getWeaponStats(weapon, 2))
+						} else if (mouseX - left(player) - 25 === 0 && mouseY < up(player) + 25){
+							angle = 90 - (getWeaponStats(weapon, 2) / 2) + Math.round(Math.random() * getWeaponStats(weapon, 2))
+						} else {
+							if (mouseX - left(player) - 25 > 0){
+								angle = - (Math.atan((mouseY - up(player) - 25) / (mouseX - left(player) - 25)) * 180 / Math.PI) - (getWeaponStats(weapon, 2) / 2) + Math.round(Math.random() * getWeaponStats(weapon, 2))
+							} else {
+								angle = 180 - (Math.atan((mouseY - up(player) - 25) / (mouseX - left(player) - 25)) * 180 / Math.PI) - (getWeaponStats(weapon, 2) / 2) + Math.round(Math.random() * getWeaponStats(weapon, 2)) - Math.PI / 2
+							}
+						}
+					}
+				} else if (weapon < 50){
+					createProjectile(left(player) + 25, up(player) + 25, 3, angle)
+				}
+			}
+			for (const bullet of document.getElementsByClassName('bullet')){
+				if (bullet.style.background === 'url("resources/arrowPlayer.png")' || bullet.style.background === 'url("resources/arrowEnemy.png")'){
+					bulletSpeed = 30
+				} else {
+					bulletSpeed = 15
+				}
+				bullet.style.left = left(bullet) + bulletSpeed * Math.cos(parseFloat(bullet.style.opacity) * Math.PI / 180)
+				bullet.style.top = up(bullet) - bulletSpeed * Math.sin(parseFloat(bullet.style.opacity) * Math.PI / 180)
+				if (left(bullet) > 1000 || left(bullet) < 0 || up(bullet) > 600 || up(bullet) < 0 || checkMove(bullet, bulletSpeed * Math.cos(parseFloat(bullet.style.opacity) * Math.PI / 180), - bulletSpeed * Math.sin(parseFloat(bullet.style.opacity) * Math.PI / 180)) === false){
+					bullet.remove()
+				} else if (bullet.style.background === 'url("resources/arrowPlayer.png")' || bullet.style.background === 'url("resources/bulletPlayer.png")'){
+					for (enemy of document.getElementsByClassName('enemy')){
+						if (bullet && enemy.classList.contains('room' + roomPlayerIn)){
+							if (bullet){
+								if (left(enemy) <= left(bullet) + parseInt(bullet.style.width) && left(enemy) >= left(bullet) - parseInt(enemy.style.width) && up(enemy) <= up(bullet) + parseInt(bullet.style.height) && up(enemy) >= up(bullet) - parseInt(enemy.style.height)){
+									bullet.remove()
+									if (bullet.style.background === 'url("resources/arrowPlayer.png")'){
+										enemy.setAttribute('value', parseInt(enemy.getAttribute('value')) - 5)
+										changeScore(5)
+									} else {
+										enemy.setAttribute('value', parseInt(enemy.getAttribute('value')) - 1)
+										changeScore(1)
+									}
+									if (parseInt(enemy.getAttribute('value')) <= 0){
+										dropLoot(enemy)
+										if (enemy.classList.contains('enemyS')){
+											changeScore(50)
+										} else {
+											changeScore(20)
+										}
+										enemy.remove()
+									}
+								}
+							}
+						}
+					}
+				} else {
+					if (left(player) <= left(bullet) + parseInt(bullet.style.width) && left(player) >= left(bullet) - parseInt(player.style.width) && up(player) <= up(bullet) + parseInt(bullet.style.height) && up(player) >= up(bullet) - parseInt(player.style.height)){
+						if (bullet.style.background === 'url("resources/arrowEnemy.png")'){
+							pDam(-5)
+						} else {
+							pDam(-1)
+						}
+						bullet.remove()
+					}
+				}
+			}
+			for (const ammoBox of document.getElementsByClassName('ammo')){
+				if (ammoBox.classList.contains('room' + roomPlayerIn)){
+					if (left(ammoBox) - 50 <= left(player) && left(ammoBox) >= left(player) - 50 && up(ammoBox) - 50 <= up(player) && up(ammoBox) >= up(player) - 50){
+						changeAmmo(parseInt(ammoBox.style.opacity))
+						changeScore(parseInt(ammoBox.style.opacity), 1, parseInt(ammoBox.style.left) + 15, parseInt(ammoBox.style.top) + 15)
+						ammoBox.remove()
+					}
+				}
+			}
+			for (const speedPack of document.getElementsByClassName('speedPack')){
+				if (speedPack.classList.contains('room' + roomPlayerIn)){
+					if (left(speedPack) - 50 <= left(player) && left(speedPack) >= left(player) - 50 && up(speedPack) - 50 <= up(player) && up(speedPack) >= up(player) - 50){
+						if (playerSpeed < 25){
+							playerSpeed = playerSpeed + 1
+						}
+						changeScore(10)
+						speedPack.remove()
+					}
+				}
+			}
+			for (const healthPack of document.getElementsByClassName('healthPack')){
+				if (healthPack.classList.contains('room' + roomPlayerIn)){
+					if (health < maxHealth && left(healthPack) - 50 <= left(player) && left(healthPack) >= left(player) - 50 && up(healthPack) - 50 <= up(player) && up(healthPack) >= up(player) - 50){
+						pDam(Math.ceil(maxHealth / 2))
+						healthPack.remove()
+					}
+				}
+			}
+			for (const lootBox of document.getElementsByClassName('lootBox')){
+				if (lootBox.classList.contains('room' + roomPlayerIn)){
+					if (left(lootBox) - 50 <= left(player) && left(lootBox) >= left(player) - 50 && up(lootBox) - 50 <= up(player) && up(lootBox) >= up(player) - 50){
+						changeScore(100)
+						if (lootBoxesCollected <= 9){
+							lootBoxesCollected = lootBoxesCollected + 1
+							if (lootBoxesCollected === 10){
+								lootBoxNum.style.color = "red"
+							}
+						}
+						lootBoxNum.textContent = lootBoxesCollected
+						lootBox.remove()
+					}
+				}
+			}
+			for (const scoreThing of document.getElementsByClassName('score')){
+				if (parseFloat(scoreThing.style.opacity) > 0.02){
+					scoreThing.style.opacity = scoreThing.style.opacity - 0.02
+				} else {
+					scoreThing.remove()
+				}
+			}
+			for (const enemy of document.getElementsByClassName('enemy')){
+				if (enemy.classList.contains('room' + roomPlayerIn)){
+					if (left(player) - left(enemy) === 0 && up(player) >= up(enemy)){
+						angle = -90
+					} else if (left(player) - left(enemy) === 0 && up(player) < up(enemy)){
+						angle = 90
+					} else {
+						if (left(player) - left(enemy) > 0){
+							if (Math.atan((up(player) - up(enemy)) / (left(player) - left(enemy))) * 180 / Math.PI < 0){
+								angle = - (Math.atan((up(player) - up(enemy)) / (left(player) - left(enemy))) * 180 / Math.PI)
+							} else {
+								angle = 360 - (Math.atan((up(player) - up(enemy)) / (left(player) - left(enemy))) * 180 / Math.PI)
+							}
+						} else {
+							angle = 180 - (Math.atan((up(player) - up(enemy)) / (left(player) - left(enemy))) * 180 / Math.PI)
+						}
+					}
+					if (enemy.classList.contains('enemyH')){
+						if (enemy.style.color === 'red' && checkMove(enemy, 55, 0) || enemy.style.color === 'blue' && checkMove(enemy, -55, 0) === false){
+							enemy.style.left = left(enemy) + 5
+							enemy.style.color = 'red'
+						} else {
+							enemy.style.left = left(enemy) - 5
+							enemy.style.color = 'blue'
+						}
+					} else if (enemy.classList.contains('enemyV')){
+						if (enemy.style.color === 'red' && checkMove(enemy, 0, 55) || enemy.style.color === 'blue' && checkMove(enemy, 0, -55) === false){
+							enemy.style.top = up(enemy) + 5
+							enemy.style.color = 'red'
+						} else {
+							enemy.style.top = up(enemy) - 5
+							enemy.style.color = 'blue'
+						}
+					} else if (enemy.classList.contains('enemyS') && canSeePlayer(enemy) && ((180 - angle - 360 * Math.floor((90 - angle) / 360) >= parseInt(enemy.children[1].style.opacity) - 360) || (360 - angle - 360 * Math.floor((90 - angle) / 360) <= parseInt(enemy.children[1].style.opacity) - 360 && parseInt(enemy.children[1].style.opacity) - 360 > 270)) && ((- angle - 360 * Math.floor((90 - angle) / 360) <= parseInt(enemy.children[1].style.opacity) - 360) || (- 180 - angle - 360 * Math.floor((90 - angle) / 360) >= parseInt(enemy.children[1].style.opacity) - 360 && parseInt(enemy.children[1].style.opacity) - 360 < 90))){
+						enemy.children[2].style.transform = "rotate(" + (90 - angle) + "deg)"
+					}// else if (enemy.classList.contains('enemyS') && canSeePlayer(enemy) && enemy.style.opacity === '1'){
+						//console.log(angle + '\nAngle: ' + (parseInt(enemy.children[1].style.opacity) - 360) + '\n1st test (>angle): ' + (180 - angle - 360 * Math.floor((90 - angle) / 360)) + '\n2nd test (<angle): ' + (- angle - 360 * Math.floor((90 - angle) / 360)) + '\nTested angle: ' + (90 - angle - 360 * Math.floor((90 - angle) / 360)))
+					//}
+					if (enemy.style.opacity === '1' && (enemy.classList.contains('enemyS') === false || (((180 - angle - 360 * Math.floor((90 - angle) / 360) >= parseInt(enemy.children[1].style.opacity) - 360) || (360 - angle - 360 * Math.floor((90 - angle) / 360) <= parseInt(enemy.children[1].style.opacity) - 360 && parseInt(enemy.children[1].style.opacity) - 360 > 270)) && ((- angle - 360 * Math.floor((90 - angle) / 360) <= parseInt(enemy.children[1].style.opacity) - 360) || (- 180 - angle - 360 * Math.floor((90 - angle) / 360) >= parseInt(enemy.children[1].style.opacity) - 360 && parseInt(enemy.children[1].style.opacity) - 360 < 90)))) || enemy.classList.contains('enemyM')){
+						if (canSeePlayer(enemy)){
+							if (enemy.classList.contains('enemyM')){
+								speed = 4
+		 						if (left(enemy) >= left(player) + 50 + speed || left(enemy) <= left(player) - 50 - speed || up(enemy) >= up(player) + 50 + speed || up(enemy) <= up(player) - 50 - speed){
+									if (checkMove(enemy,  speed * Math.cos(angle * pi / 180), - speed * Math.sin(angle * pi / 180))){
+										shift(enemy, speed * Math.cos(angle * pi / 180), - speed * Math.sin(angle * pi / 180))
+									} else if (checkMove(enemy,  speed * Math.cos(angle * pi / 180), 0)){
+										shift(enemy,  speed * Math.cos(angle * pi / 180), 0)
+										enemy.style.top = Math.round((up(enemy) + speed) / 50) * 50
+									} else if (checkMove(enemy,  0, - speed * Math.sin(angle * pi / 180))){
+										shift(enemy,  0, - speed * Math.sin(angle * pi / 180))
+										enemy.style.left = Math.round((left(enemy) + speed) / 50) * 50
+									}
+								} else if (parseInt(enemy.style.opacity) === 1){
+									pDam(-1)
+									enemy.style.opacity = 27
+								}
+								if (parseInt(enemy.style.opacity) > 1){
+									enemy.style.opacity = parseInt(enemy.style.opacity) - 1
+								}
+							} else {
+								spreadMulti = 1
+								weaponLevel = level
+								if (level > 5){
+									weaponLevel = 5
+								}
+								if (enemy.classList.contains('enemyD')){
+									weapon = 10 + weaponLevel
+								} else if (enemy.classList.contains('enemyH') || enemy.classList.contains('enemyV')){
+									weapon = 30 + weaponLevel
+								} else if (enemy.classList.contains('enemyS')){
+									weapon = 20 + weaponLevel
+									spreadMulti = 0
+								} else {
+									weapon = 40 + weaponLevel
+								}
+								if (left(player) - left(enemy) === 0 && up(player) >= up(enemy)){
+									angle = -90 - (((getWeaponStats(weapon, 2) / 2) - Math.round(Math.random() * getWeaponStats(weapon, 2))) * spreadMulti)
+								} else if (left(player) - left(enemy) === 0 && up(player) < up(enemy)){
+									angle = 90 - (((getWeaponStats(weapon, 2) / 2) - Math.round(Math.random() * getWeaponStats(weapon, 2))) * spreadMulti)
+								} else {
+									if (left(player) - left(enemy) > 0){
+										angle = - (Math.atan((up(player) - up(enemy)) / (left(player) - left(enemy))) * 180 / Math.PI) - (((getWeaponStats(weapon, 2) / 2) - Math.round(Math.random() * getWeaponStats(weapon, 2))) * spreadMulti)
+									} else {
+										angle = 180 - (Math.atan((up(player) - up(enemy)) / (left(player) - left(enemy))) * 180 / Math.PI) - (((getWeaponStats(weapon, 2) / 2) - Math.round(Math.random() * getWeaponStats(weapon, 2))) * spreadMulti) - Math.PI / 2
+									}
+								}
+								if (enemy.classList.contains('enemyC')){
+									createProjectile(left(enemy) + 25, up(enemy) + 25, 4, angle)
+								} else if (enemy.classList.contains('enemyD')){
+									//console.log(angle)
+									createProjectile(left(enemy) + 25, up(enemy) + 25, 2, angle)
+								} else if (enemy.classList.contains('enemyS')){
+									createProjectile(left(enemy) + 25, up(enemy) + 25, 2, angle)
+								} else {
+									for (i = 0; i < weapon - 26; i++){
+										if (left(player) - left(enemy) === 0 && up(player) >= up(enemy)){
+											angle = -90 - (((getWeaponStats(weapon, 2) / 2) - Math.round(Math.random() * getWeaponStats(weapon, 2))) * spreadMulti)
+										} else if (left(player) - left(enemy) === 0 && up(player) < up(enemy)){
+											angle = 90 - (((getWeaponStats(weapon, 2) / 2) - Math.round(Math.random() * getWeaponStats(weapon, 2))) * spreadMulti)
+										} else {
+											if (left(player) - left(enemy) > 0){
+												angle = - (Math.atan((up(player) - up(enemy)) / (left(player) - left(enemy))) * 180 / Math.PI) - (((getWeaponStats(weapon, 2) / 2) - Math.round(Math.random() * getWeaponStats(weapon, 2))) * spreadMulti)
+											} else {
+												angle = 180 - (Math.atan((up(player) - up(enemy)) / (left(player) - left(enemy))) * 180 / Math.PI) - (((getWeaponStats(weapon, 2) / 2) - Math.round(Math.random() * getWeaponStats(weapon, 2))) * spreadMulti) - Math.PI / 2
+											}
+										}
+										createProjectile(left(enemy) + 25, up(enemy) + 25, 2, angle)
+									}
+								}
+								enemy.style.opacity = 1 + getWeaponStats(weapon, 1)
+							}
+						}
+					} else {
+						if (parseInt(enemy.style.opacity) > 1){
+							enemy.style.opacity = parseInt(enemy.style.opacity) - 1
+						}
+					}
+				}
+			}
+			if (gameLoopTr === 1){
+				setTimeout(gameLoop, 20)
+			}
+		} else {
+			end(0, 0)
+		}
+	}
+	function KP(key){
+		return keysPressed[key]
+	}
+	function KnP(key){
+		if (keysPressed[key] === true){
+			return false
+		} else {
+			return true
+		}
+	}
+	function checkMove(entity, x, y, isId){ //make all objects <= 50x50
+		if (isId === 1){
+			entity = document.getElementById(entity)
+		}
+		l = left(entity)
+		t = up(entity)
+		if (x === 0){ // error may be from -ve is up
+			if (y > 0){
+				angel = Math.PI / 2
+			} else {
+				angel = - Math.PI / 2
+			}
+		} else {
+			angel = Math.atan(y / x)
+			if (x < 0 && y >= 0){
+				angel = angel + Math.PI
+			} else if (x < 0 && y <= 0){
+				angel = angel + Math.PI
+			}
+		}
+		r = (x ** 2 + y ** 2) ** 0.5
+		//console.log(angel + '  ' + r + ' ' + l + ' ' + t + ' ' + x + ' ' + y)
+		moveTr = true
+		for (i = 1; i <= Math.floor(r / 50) && moveTr; i++){
+			for (j = 0; j <= 1 && moveTr; j++){
+				for (k = 0; k <= 1 && moveTr; k++){
+					xProj = l + Math.cos(angel) * i * 50 + Math.round(j * parseInt(entity.style.width)) - j
+					yProj = t + Math.sin(angel) * i * 50 + Math.round(k * parseInt(entity.style.height)) - k
+					tile = Math.floor(xProj / 50) + 20 * Math.floor(yProj / 50) + 1
+					if (xProj >= 1000 || xProj <= 0 || yProj >= 600 || yProj <= 0){
+						moveTr = false
+					} else {
+						if (document.getElementById("tile" + tile).classList.contains('a') === false){
+							moveTr = false
+						}
+					}
+				}
+			}
+		}
+		for (j = 0; j <= 1 && moveTr; j++){
+			for (k = 0; k <= 1 && moveTr; k++){
+				xProj = l + Math.cos(angel) * r + Math.round(j * parseInt(entity.style.width)) - j
+				yProj = t + Math.sin(angel) * r + Math.round(k * parseInt(entity.style.height)) - k
+				tile = Math.floor(xProj / 50) + 20 * Math.floor(yProj / 50) + 1
+				if (xProj >= 1000 || xProj <= 0 || yProj >= 600 || yProj <= 0){
+					moveTr = false
+				} else {
+					if (document.getElementById("tile" + tile).classList.contains('a') === false){
+						moveTr = false
+					}
+				}
+			}
+		}
+		return moveTr
+	}
+	function shift(entity, x, y, isId){
+		if (isId === 1){
+			entity = document.getElementById(entity)
+		}
+		entity.style.left = left(entity) + x
+		entity.style.top = up(entity) + y
+	}
+	function createItem(itemN, x, y, amount, roomN){
+		item = document.getElementById('body').appendChild(document.getElementById('itemNode').cloneNode(true))
+		item.setAttribute('id','')
+		item.style.left = x
+		item.style.top = y
+		item.classList.add('item')
+		if (itemN === 1){
+			if (amount < 10){
+				amount = Math.floor(Math.random() * 4) * 10 + 11 + Math.floor(Math.random() * itemLevelMax)
+			}
+			//console.log(amount)
+			item.style.background = "url('resources/weapon" + amount + ".png')"
+			item.classList.add('room' + roomN, 'weapon')
+			item.style.opacity = amount
+		} else if (itemN === 2){
+			item.style.background = "url('resources/ammoPack.png')"
+			item.classList.add('room' + roomN, 'ammo')
+			item.style.opacity = amount
+		} else if (itemN === 3){
+			item.style.background = "url('resources/healthPack.png')"
+			item.classList.add('room' + roomN, 'healthPack')
+		} else if (itemN === 4){
+			item.style.background = "url('resources/speedPack.png')"
+			item.classList.add('room' + roomN, 'speedPack')
+		} else if (itemN === 5){
+			item.style.background = "url('resources/lootBox.gif')"
+			item.classList.add('room' + roomN, 'lootBox')
+		}
+		if (roomN === roomPlayerIn){
+			item.classList.remove('hide')
+		}
+	}
+	function createEnemy(enemyT, x, y, roomN, angle){
+		if (enemyT === 'S'){
+			enemy = document.getElementById('body').appendChild(document.getElementById('enemySNode').cloneNode(true))
+			if (Math.random() > 0.99){
+				angle = angle + 180 - Math.floor((angle + 180) / 360) * 360
+			}
+			enemy.children[1].style.transform = "rotate(" + angle + "deg)"
+			enemy.children[1].style.opacity = angle + 360
+			enemy.children[2].style.transform = "rotate(" + angle + "deg)"
+		} else {
+			enemy = document.getElementById('body').appendChild(document.getElementById('enemyNode').cloneNode(true))
+			enemy.style.background = 'url("resources/enemy' + enemyT +'.png")'
+		}
+		enemy.setAttribute('id','')
+		enemy.style.left = x
+		enemy.style.top = y
+		enemy.classList.add('enemy' + enemyT)
+		enemy.classList.add('room' + roomN)
+		enemy.classList.add('enemy')
+		if (enemyT === 'M'){
+			enemy.setAttribute('value', 4 + level)
+		} else if (enemyT === 'S'){
+			enemy.setAttribute('value', 6 + level * 2)
+		} else if (enemyT === 'C'){
+			enemy.setAttribute('value', 1 + level)
+		} else {
+			enemy.setAttribute('value', 2 + level)
+		}
+		if (enemyT === 'V' && Math.random() > 0.5 || enemyT === 'H'){
+			enemy.style.color = 'red'
+		} else {
+			enemy.style.color = 'blue'
+		}
+		if (roomN === roomPlayerIn){
+			enemy.classList.remove('hide')
+		}
+	}
+	function changeRoom(){
+		roomNo = 0
+		for (i = 1; i <= roomPlayerIn; i++){
+			if (parseInt(levelData[i]) > -1){
+				roomNo = roomNo + 1
+			}
+		}
+		if (parseInt(levelData[roomPlayerIn]) > -1 || roomPlayerIn === 0){
+			document.getElementById('roomText').textContent = "Room " + level + '.' + roomNo
+		} else if (levelData[roomPlayerIn].charCodeAt(0) > 96){
+			document.getElementById('roomText').textContent = "Room " + level + '.' + roomNo + 'b'
+		} else {
+			document.getElementById('roomText').textContent = "Room " + level + '.' + roomNo + 'a'
+		}
+	}
+	function changeScore(amount, createThing, x, y){
+		if (createThing === 1){
+			score = score + Math.ceil(amount / 5)
+		} else {
+			score = score + amount
+		}
+		document.getElementById('scoreText').textContent = "Score: " + score
+		if (createThing === 1){
+			scoreThing = document.getElementById('body').appendChild(document.getElementById('scoreNode').cloneNode(true))
+			scoreThing.setAttribute('id', '')
+			scoreThing.classList.replace('hide','score')
+			scoreThing.style.left = x
+			scoreThing.style.top = y
+			scoreThing.textContent = '+' + amount
+		}
+	}
+	function changeAmmo(amount){
+		ammoTotal = ammoTotal + amount
+		document.getElementById('ammoText').textContent = ammoTotal
+	}
+	function pDam(amount){
+		health = health + amount
+		if (health < 0){
+			health = 0
+		} else if (health > maxHealth){
+			health = maxHealth
+		}
+		document.getElementById('healthBar').style.width = 150 * health / maxHealth
+	}
+	function getWeaponStats(weapon, stat){
+		if (stat === 1){
+			if (weapon < 16){ // firerate
+				return 27 - weapon * 2 + 20 //- 100
+			} else if (weapon < 26){
+				return 10 - weapon + 20
+			} else if (weapon < 36){
+				return 45 - weapon * 5 + 150
+			} else if (weapon < 46){
+				return 55 - weapon * 5 + 200
+			}
+		} else if (stat === 2){ // spread
+			if (weapon < 16){
+				return 25 - weapon * 5 + 50
+			} else if (weapon < 26){
+				return 90 - weapon * 10 + 200
+			} else if (weapon < 36){
+				return 65 - weapon * 5 + 150
+			} else if (weapon < 46){
+				return 0
+			}
+		} else if (stat == 3){ // ammo consumption
+			if (weapon < 26){
+				return 1
+			} else if (weapon < 36){
+				return 8
+			} else if (weapon < 46){
+				return 12
+			}
+		}
+	}
+	function createProjectile(x, y, type, angle){
+		bullet = document.getElementById('body').appendChild(document.getElementById('bulletNode' + type).cloneNode(true))
+		bullet.setAttribute('id','')
+		bullet.classList.replace('hide', 'bullet')
+		bullet.style.left = x
+		bullet.style.top = y
+		bullet.style.transform = 'rotate(' + (- angle) + 'deg)'
+		bullet.style.opacity = angle + 360
+		//console.log('bullet  createse, angle = ' + bullet.style.opacity + ', angle given = ' + angle)
+	}
+	function dropLoot(enemy){
+		x = Math.floor(Math.random() * 100) + 1
+		if (type === 'url("resources/enemyS.png")'){
+			if (x <= 90){
+				createItem(2, enemy.style.left, enemy.style.top, 50, roomPlayerIn)
+			} else if (x <= 96){
+				createItem(3, enemy.style.left, enemy.style.top, 0, roomPlayerIn)
+			} else {
+				createItem(5, enemy.style.left, enemy.style.top, 0, roomPlayerIn)
+			}
+		} else if (type === 'url("resources/enemyM.png")'){
+			if (x <= 65){
+				createItem(2, enemy.style.left, enemy.style.top, 25, roomPlayerIn)
+			} else if (x <= 94){
+				createItem(2, enemy.style.left, enemy.style.top, 50, roomPlayerIn)
+			} else if (x <= 98){
+				createItem(4, enemy.style.left, enemy.style.top, 0, roomPlayerIn)
+			} else {
+				createItem(5, enemy.style.left, enemy.style.top, 0, roomPlayerIn)
+			}
+		} else {
+			if (x <= 50){
+				createItem(2, enemy.style.left, enemy.style.top, 25, roomPlayerIn)
+			} else if (x <= 75){
+				createItem(2, enemy.style.left, enemy.style.top, 50, roomPlayerIn)
+			} else if (x <= 84){
+				// :(
+			} else if (x <= 93){
+				createItem(1, enemy.style.left, enemy.style.top, 0, roomPlayerIn)
+			} else if (x <= 96){
+				createItem(3, enemy.style.left, enemy.style.top, 0, roomPlayerIn)
+			} else if (x <= 98){
+				createItem(4, enemy.style.left, enemy.style.top, 0, roomPlayerIn)
+			} else {
+				createItem(5, enemy.style.left, enemy.style.top, 0, roomPlayerIn)
+			}
+		}
+	}
+	function canSeePlayer(enemy){
+		l = left(enemy)
+		t = up(enemy)
+		if (left(player) - l === 0){
+			if (t - up(player) > 0){
+				angel = Math.PI / 2
+			} else {
+				angel = - Math.PI / 2
+			}
+		} else {
+			angel = Math.atan((t - up(player)) / (l - left(player)))
+			if (l - left(player) > 0){
+				angel = angel + Math.PI
+			//}// else if (l - left(player) < 0 && t - up(player) <= 0){
+			//	angel = angel + Math.PI
+			}
+		}
+		r = ((l - left(player)) ** 2 + (t - up(player)) ** 2) ** 0.5
+		//console.log(angel)
+		seeTr = true
+		for (i = 1; i <= Math.floor(r / 50) && seeTr; i++){
+			xProj = l + Math.cos(angel) * i * 50 + 25
+			yProj = t + Math.sin(angel) * i * 50 + 25
+			tile = Math.floor(xProj / 50) + 20 * Math.floor(yProj / 50) + 1
+			if (xProj >= 1000 || xProj <= 0 || yProj >= 600 || yProj <= 0){
+				seeTr = false
+			} else {
+				if (document.getElementById("tile" + tile).classList.contains('a') === false){
+					seeTr = false
+					//console.log('failed tile = ' + tile)
+				}
+			}
+		}
+		return seeTr
+	}
+	function end(type, t){
+		if (type === 1 && t === 0){
+			show('colourSc')
+			show('endThing')
+			reward()
+		} else if (type === 0 && t === 0){
+			show('colourSc')
+			show('endThing')
+			reward()
+			document.getElementById('endSc').style.background = "url('resources/loseBackground.png')"
+			document.getElementById('colourSc').style.background = "#ff7f7f"
+			if (Math.random() <= 0.01){
+				document.getElementById('endSc').style.background = "url('resources/loseBackground2.png')"
+			}
+		}
+		t = t + 1
+		document.getElementById('colourSc').style.opacity = (t - Math.abs(t - 100)) / 100
+		document.getElementById('endSc').style.opacity = (t / 100) - 1
+		document.getElementById('rewardScoreText1').style.opacity = (t / 100) - 1
+		document.getElementById('rewardScoreText2').style.opacity = (t / 100) - 1
+		document.getElementById('rewardScoreText3').style.opacity = (t / 100) - 1
+		for (i = 1; i <= lootBoxesCollected; i++){
+			document.getElementById('lootBoxSlot' + i).style.opacity = (t / 100) - 1
+		}
+		for (let i = 1; i <= lootBoxesCollected; i++){
+			document.getElementById('lootBoxSlot' + i).style.opacity = (t / 100) - 1
+		}
+		if (t >= 200){
+			canOpen = 1
+		} else {
+			setTimeout(end, 20, type, t)
+		}
+	}
+ 	function reward(){
+		if (lootBoxesCollected >= 1){
+			show('lootBoxSlot1')
+			document.getElementById('lootBoxSlot1').style.left = 610 - (lootBoxesCollected) * 35
+			for (i = 2; i <= lootBoxesCollected; i++){
+				thingy = document.getElementById('endThing').appendChild(document.getElementById('lootBoxSlot1').cloneNode(true))
+				thingy.setAttribute('id', 'lootBoxSlot' + i)
+				thingy.setAttribute('onclick', 'openBox(' + i + ')')
+				thingy.style.left = 610 - (lootBoxesCollected) * 35 + (i - 1) * 70
+			}
+		}
+		document.getElementById('rewardScoreText1').textContent = 'Score = ' + score
+		document.getElementById('rewardScoreText2').textContent = 'x' + (lootBoxesCollected + 1) * (parseInt(localStorage.GamP1) + 1) * (parseInt(localStorage.Diflvl))
+		xpReward = score * (lootBoxesCollected + 1) * (parseInt(localStorage.GamP1) + 1)
+		document.getElementById('rewardScoreText3').textContent = 'Xp = ' + xpReward
+		localStorage.xp = parseInt(localStorage.xp) + xpReward
+	}
+	function openBox(num){
+		if (canOpen === 1 && document.getElementById('lootBoxSlot' + num).getAttribute('value') !== '1'){
+			box = document.getElementById('lootBoxSlot' + num)
+			document.getElementById('lootBoxSlot' + num).setAttribute('value', 1)
+			let x = Math.floor(Math.random() * 400) + 1
+			if (x <= 180){
+				box.style.background = 'url("resources/lootBoxOpenC.png")'
+				type = 1
+				value = 1000
+			} else if (x <= 240){
+				box.style.background = 'url("resources/lootBoxOpenR.png")'
+				type = 1
+				value = 2000
+			} else if (x <= 300){
+				box.style.background = 'url("resources/lootBoxOpenR.png")'
+				type = 2
+				value = 1
+			} else if (x <= 340){
+				box.style.background = 'url("resources/lootBoxOpenE.png")'
+				type = 3
+				value = 1
+			} else if (x <= 368){
+				box.style.background = 'url("resources/lootBoxOpenE.png")'
+				type = 2
+				value = 2
+			} else if (x <= 380){
+				box.style.background = 'url("resources/lootBoxOpenL.png")'
+				type = 2
+				value = 3
+			} else if (x <= 392){
+				box.style.background = 'url("resources/lootBoxOpenL.png")'
+				type = 1
+				value = 5000
+			} else if (x <= 395){
+				box.style.background = 'url("resources/lootBoxOpenRe.png")'
+				type = 2
+				value = 5
+			} else if (x <= 399){
+				box.style.background = 'url("resources/lootBoxOpenRe.png")'
+				type = 4
+				value = 1
+			} else {
+				box.style.background = 'url("resources/lootBoxOpenCo.png")'
+				type = 2
+				value = 8
+			}
+			//console.log('type = ' + type + '  value = ' + value)
+			box.style.left = parseInt(box.style.left) - 5
+			box.style.top = parseInt(box.style.top) - 5
+			box.style.width = 60
+			box.style.height = 60
+			openningBox(0, type, value, num)
+		}
+	}
+	function openningBox(t, type, value, num){
+		if (t > 40 && document.getElementById('lootBoxSlot' + num)){
+			document.getElementById('lootBoxSlot' + num).remove()
+		} else if (t > 10 && document.getElementById('lootBoxSlot' + num)){
+			document.getElementById('lootBoxSlot' + num).style.opacity = (42 - t) / 40
+			setTimeout(openningBox, 20, t + 1, type, value, num)
+		} else {
+			if (type === 1 && t === 0){
+				thing = document.getElementById('body').appendChild(document.getElementById('scoreRewardNode').cloneNode(true))
+				thing.setAttribute('id', 'awdioagwvga')
+				thing.textContent = '+' + value
+				thing.setAttribute('value', value)
+				thing.classList.remove('hide')
+				thing.style.left = 605 - (lootBoxesCollected) * 35 + (num - 1) * 70 - 20
+				moveThingy(thing, 0, 605 - (lootBoxesCollected) * 35 + (num - 1) * 70 - 20, 420, 550, 210, 1)
+			} else if (type === 2 && t === 0){
+				createAnom(value, num)
+			} else if ((type === 3 || type === 4) && t === 0){
+				thing = document.getElementById('body').appendChild(document.getElementById('scoreRewardNode').cloneNode(true))
+				thing.setAttribute('id', 'awdioagwwvga')
+				thing.style.color = '#7f7f7f'
+				thing.textContent = '+1'
+				thing.classList.remove('hide')
+				thing.style.left = 605 - (lootBoxesCollected) * 35 + (num - 1) * 70 - 20
+				moveThingy(thing, 0, 605 - (lootBoxesCollected) * 35 + (num - 1) * 70 - 20, 420, 540, 270, type)
+			}
+			setTimeout(openningBox, 20, t + 1, type, value, num)
+		}
+	}
+	function moveThingy(thingy, t, xI, yI, xF, yF, type){
+		t = t + 1
+		//console.log(t)
+		if (t <= 40){
+			setTimeout(moveThingy, 20, thingy, t, xI, yI, xF, yF, type)
+		} else if (t <= 60){
+			thingy.style.left = xI - (xI - xF) * (t - 40) / 20
+			thingy.style.top = yI - (yI - yF) * (t - 40) / 20
+			setTimeout(moveThingy, 20, thingy, t, xI, yI, xF, yF, type)
+		} else {
+			if (type === 1){
+				score = score + parseInt(thingy.getAttribute('value'))
+				document.getElementById('rewardScoreText1').textContent = 'Score = ' + score
+				xpReward = score * (lootBoxesCollected + 1) * (parseInt(localStorage.GamP1) + 1)
+				document.getElementById('rewardScoreText3').textContent = 'Xp = ' + xpReward
+				//localStorage.xp = parseInt(localStorage.xp) + xpReward
+				thingy.remove()
+			} else if (type === 2){
+				thingy.children[0].classList.remove('hide')
+				thingy.children[2].classList.remove('hide')
+			} else if (type === 3 || type === 4){
+				document.getElementById('rewardScoreText4').classList.remove('hide')
+				usbRewards = usbRewards + 1
+				document.getElementById('rewardScoreText4').textContent = "Items you probabaly don't care about = " + usbRewards
+				thingy.remove()
+				newSave('usbDif' + (type - 2), 0)
+				localStorage.setItem('usbDif' + (type - 2), parseInt(localStorage.getItem('usbDif' + (type - 2))) + 1)
+			}
+		}
+	}
+	function createAnom(amount, num){
+		if (amount > 0){
+			let x = Math.random()
+			if (x < 0.25){
+				type = 'pistol'
+			} else if (x < 0.5){
+				type = 'smg'
+			} else if (x < 0.75){
+				type = 'shotgun'
+			} else {
+				type = 'crossbow'
+			}
+			adrop(type, num)
+			setTimeout(createAnom, 2000, amount - 1, num)
+		}
+	}
+	function adrop(item,num){ //anom = border + bonus type, anomi = item, anoma = background + title, rarity as C R E L Re Co, tier is number 1-7
+		if (localStorage.anomTr === '1'){
+			if (true){
+				let y = Math.floor(Math.random() * 1000) + 1
+				let aA = (parseInt(localStorage.recycleCo) / 16)
+				let bB = (parseInt(localStorage.recycleRe) / 8)
+				let cC = (parseInt(localStorage.recycleL) / 4)
+				let dD = (parseInt(localStorage.recycleE) / 2)
+				let eE = parseInt(localStorage.recycleR)
+				if (y <= 1 + aA){
+					rarity = 'Co'
+				} else if (y <= 10 + aA * 4 + bB){
+					rarity = 'Re'
+				} else if (y <= 50 + aA * 16 + bB * 4 + cC){
+					rarity = 'L'
+				} else if (y <= 300 + aA * 64 + bB * 16 + cC * 4 + dD){
+					rarity = 'E'
+				} else if (y <= 500 + aA * 256 + bB * 64 + cC * 16 + dD * 4 + eE){
+					rarity = 'R'
+				} else {
+					rarity = 'C'
+				}
+			}
+			if (true){
+				if (item === 'pistol'){ //newAnom chances of bonus
+					bonus = createBonus(94,1,1,1,1,1)
+				} else if (item === 'smg'){
+					bonus = createBonus(95,5,0,0,0,0)
+				} else if (item === 'shotgun'){
+					bonus = createBonus(95,0,0,0,5,0)
+				} else if (item === 'crossbow'){
+					bonus = createBonus(95,0,0,0,0,5)
+				}
+			}
+			if (true){
+				for (let N = 10; N <= 23 + ifFound('greenU1'); N++){
+					if (localStorage.getItem('anom' + N)){
+					
+					} else {
+						totalAnom = totalAnom + 1
+						localStorage.setItem('anom' + N, item + rarity + bonus)
+						let anomThingy = document.getElementById('body').appendChild(document.getElementById('anomRewardNode').cloneNode(true))
+						anomThingy.children[0].classList.add('item' + rarity)
+						anomThingy.children[0].classList.add('itemT' + bonus)
+						anomThingy.children[1].classList.add(item + 'V2')
+						anomThingy.children[2].classList.add('item' + rarity + '2')
+						anomThingy.children[2].setAttribute('title', makeAnomTitle(localStorage.getItem('anom' + N)))
+						anomThingy.classList.remove('hide')
+						console.log('Collected a ' + rarity + ' ' + item + ' with bonus ' + bonus)
+						anomThingy.style.left = 605 - lootBoxesCollected * 35 + (num - 1) * 70
+						//console.log(num)
+						moveThingy(anomThingy, 0, parseInt(anomThingy.style.left), 405, 35 + 65 * totalAnom, 350, 2)
+						if (rarity === 'C'){
+							newSave('ach44',0)
+							localStorage.ach44 = parseInt(localStorage.ach44) + 1
+						} else if (rarity === 'R'){
+							newSave('ach51',0)
+							localStorage.ach51 = parseInt(localStorage.ach51) + 1
+						}
+						return true	
+					}
+				}		
+			} else {
+				return false
+			}
+		}
+	}
+	function createBonus(a,b,c,d,e,f){
+		let x = Math.floor(Math.random() * 100) + 1
+		if (x <= a){
+			return 1
+		} else if (x <= a + b){
+			return 2
+		} else if (x <= a + b + c){
+			return 3
+		} else if (x <= a + b + c + d){
+			return 4
+		} else if (x <= a + b + c + d + e){
+			return 5
+		} else if (x <= a + b + c + d + e + f){
+			return 6
+		} else {
+			return 7
+		}
+	}
+	function findRarity(value,itemTr){
+		rare = value.slice(-3,-1)
+		if ((rare === 'Re'|| rare === 'Co') && itemTr === 1){
+			return value.slice(0,-3)
+		} else if (itemTr === 1){
+			return value.slice(0,-2)
+		}
+		if (rare === 'Co'){
+			return 'Co'
+		} else if (rare === 'Re'){
+			return 'Re'
+		} else if (rare.includes('L')){
+			return 'L'
+		} else if (rare.includes('E')){
+			return 'E'
+		} else if (rare.includes('R')){
+			return 'R'
+		} else if (rare.includes('C')){
+			return 'C'
+		}
+	}
+	function makeAnomTitle(value){
+		let rare = findRarity(value)
+		let item = findRarity(value,1)
+		let bonus = parseInt(value.slice(-1))
+		let title = ''
+		if (item === 'pistol'){ //newAnom
+			title = 'pistol - gun go pew pew'
+		} else if (item === 'smg'){
+			title = 'smg - even more pew pew'
+		} else if (item === 'shotgun'){
+			title = 'shotgun - best melee weapon in the game'
+		} else if (item === 'crossbow'){
+			title = 'crossbow - *counterplay*'
+		}
+		if (bonus === 1){
+			title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your attack' 
+		} else if (bonus === 2){
+			title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your defence' 
+		} else if (bonus === 3){
+			title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your drop chance' 
+		} else if (bonus === 4){
+			title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your stone chance' 
+		} else if (bonus === 5){
+			title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to drone build speed' 
+		} else if (bonus === 6){
+			title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to drone upgrade speed' 
+		} else if (bonus === 7){
+			title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to xp gain' 
+		}
+		if (rare === 'C'){
+			title = 'Common ' + title + '\nRecycling this item will fill up the recycle progress by 25%'
+		} else if (rare === 'R'){
+			title = 'Rare ' + title + '\nRecycling this item will fill up the recycle progress by 50%'
+		} else if (rare === 'E'){
+			title = 'Epic ' + title + '\nRecycling this item will fill up the recycle progress by 75%'
+		} else if (rare === 'L'){
+			title = 'Legendary ' + title + '\nRecycling this item will fill up the recycle progress by 50% and also give you a free enhanced item'
+		} else if (rare === 'Re'){
+			title = 'Relic ' + title + '\nRecycling this item will fill up the recycle progress by 50% and also give you two free enhanced items'
+		} else if (rare === 'Co'){
+			title = 'Contraband ' + title + '\nRecycling this item will fill up the recycle progress by 50% and also give you seven free enhanced items'
+		}
+		return title
+	}
+	function rareBonus(rare){
+		if (rare === 'C'){
+			return 2
+		} else if (rare === 'R'){
+			return 5
+		} else if (rare === 'E'){
+		return 8
+		} else if (rare === 'L'){
+			return 12
+		} else if (rare === 'Re'){
+			return 18
+		} else if (rare === 'Co'){
+			return 25
+		} else {
+			return ' ERROR: ' + rare + ' IS NOT YES'
+		}
+	}
+	function newSave(thing, value){ //thing must be string
+		if (localStorage.getItem(thing)){
+			return true
+		} else {
+			localStorage.setItem(thing, value)
+			return localStorage.getItem(thing)
+		}
+	}
+	function deleteAll(className){
+		if (document.getElementsByClassName(className)){
+			for (i = 0; i < 1; i++){
+				for (object of document.getElementsByClassName(className)){
+					object.remove()
+				}
+				if (document.getElementsByClassName(className).length > 0){
+					i = -1
+				} else {
+					i = 1
+				}
+			}
+		}
+	}
+	function left(entity){
+		return parseFloat(entity.style.left)
+	}
+	function up(entity){
+		return parseFloat(entity.style.top)
+	}
+	document.addEventListener('keydown', (event) => {
+		keysPressed[event.key] = true;
+		//console.log(event.key)
+		if (event.key === 'Enter'){
+			startGame()
+		}
+	})
+	document.addEventListener('keyup', (event) => {
+		if (event.key === 'e' || 'E'){
+			eCool = 0
+		}
+		delete keysPressed[event.key];
+	})
+	function ifFound(item,yes){
+		if (yes){
+			if (localStorage.getItem(item)){
+				return 1
+			} else {
+				return 0
+			}
+		} else {
+			if (localStorage.getItem(item)){
+				return parseInt(localStorage.getItem(item))
+			} else {
+				return false
+			}
+		}
+	}
+	function showHelp(){
+		show('helpSc')
+		hide('homeSc')
+		hide('startBut')
+		show('startBut2')
+		hide('helpBut')
+	}
+	</script>
+</html>

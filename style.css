@@ -901,7 +901,7 @@ img{
 	background-image: url('webItem.png');
 }
 .glasses2{
-	background-image: url('glasses2.png');
+	background-image: url('nerdglasses.png');
 }
 .topQuark{
 	background-image: url('topQuark.png');
@@ -1087,7 +1087,7 @@ img{
 	border: none;
 	color: transparent;
 }
-.xpusr:hover{
+.xpU1r:hover{
 	background-image: url('xpU1rh.png');
 }
 .xpU1g{
@@ -1099,6 +1099,26 @@ img{
 }
 .xpU1g:hover{
 	background-image: url('xpU1gh.png');
+}
+.xpU2r{
+	background-image: url('xpU2r.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpU2r:hover{
+	background-image: url('xpU2rh.png');
+}
+.xpU2g{
+	background-image: url('xpU2g.png');
+	height: 30px;
+	width: 30px;
+	border: none;
+	color: transparent;
+}
+.xpU2g:hover{
+	background-image: url('xpU2gh.png');
 }
 #attMP{
     position: absolute;
@@ -1581,11 +1601,17 @@ select{
 .bsusb{
 	background-image: url('dbui1.png');
 }
+.bsusb2{
+	background-image: url('dbui5.png');
+}
 .rockusb{
 	background-image: url('rockyusb.png');
 }
 .WFUusb{
 	background-image: url('WFUusb.png');
+}
+.Difusb{
+	background-image: url('difusb.png');
 }
 .ToE2usb{
 	background-image: url('theoryusb2.png');
@@ -1611,6 +1637,19 @@ select{
 }
 #WFUlvlB:hover{
 	background: url(WFUlvlBhover.png); 
+}
+#DiflvlB{
+	background: url(DiflvlB.png); 
+	width: 34; 
+	height: 34; 
+	position: absolute; 
+	top: 328; 
+	left: 328; 
+	margin: 0;
+	border: none;
+}
+#DiflvlB:hover{
+	background: url(DiflvlBhover.png); 
 }
 .on{
 	background: #dddddd;
@@ -1940,6 +1979,9 @@ select{
 .valveV2{
 	background: url('valveV2.png');
 }
+.sigmaV2{
+	background: url('sigmaV2.png');
+}
 .dronedrop1V2{
 	background: url('dronedrop1V2.png');
 }
@@ -1981,6 +2023,18 @@ select{
 }
 .eraserV2{
 	background: url('eraserV2.png');
+}
+.pistolV2{
+	background: url('resources/weapon11.png');
+}
+.smgV2{
+	background: url('resources/weapon21.png');
+}
+.shotgunV2{
+	background: url('resources/weapon31.png');
+}
+.crossbowV2{
+	background: url('resources/weapon41.png');
 }
 .info{
 	margin: 0;

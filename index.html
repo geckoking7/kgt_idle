@@ -238,7 +238,7 @@
 		<div id='ch36' class='hide'>
 			<img src="ch36back.png" alt="lore">
 			<h4 class="lore">Now after those 3 png files showcasing all of my creative talent<br>I need to remind you that there is a help button called help button used to get help after clicking the button<br>Just, I know reading is a rare skill these days but, please, there is more info there. Also I don’t know how to display this information in lore form.<br>If you want a simple version tho it's just another inventory system with bonuses</h4>
-			<button class="ch1but " style="top: 215px;" onclick='advent()'>Yes</button>
+			<button class="ch1but " style="top: 215px;" onclick='advent();'>Yes</button>
 		</div>
 		<div id='ch37' class='hide'>
 			<img src="ch37back.png" alt="lore">
@@ -341,6 +341,48 @@
 		<div id='pdu2' class='hide'>
 			<img src="pdrone2back.png" alt="lore">
 			<button class="ch1but " style="top: 250px; left: 740;" onclick='droneopen(); premDroneOn();'>Let's rock</button>
+		</div>
+		<div id='g2u' class='hide'>
+			<img id='g2uLoreImage' src="game2unlock2.png" alt="lore">
+			<h4 class="lore">You plug in the normal usb into the computer, showing all of its contents<br>(click on the folders to navigate)</h4>
+			<button style="position: absolute; width: 60px; height: 70px; background: magenta; left: 200px; top: 210px; opacity: 0;" onclick='show("g2u2"); hide("g2u");'></button>
+			<button style="position: absolute; width: 60px; height: 70px; background: magenta; left: 280px; top: 210px; opacity: 0;" onclick='show("g2u3"); hide("g2u");'></button>
+			<button style="position: absolute; width: 60px; height: 70px; background: magenta; left: 358px; top: 210px; opacity: 0;" onclick='show("g2u4"); hide("g2u");'></button>
+			<button style="position: absolute; width: 60px; height: 70px; background: magenta; left: 436px; top: 210px; opacity: 0;" onclick='show("g2u5"); hide("g2u");'></button>
+			<button style="position: absolute; width: 60px; height: 70px; background: magenta; left: 519px; top: 210px; opacity: 0;" onclick='show("g2u6"); hide("g2u");'></button>
+			<button id='g2Lbut' style="position: absolute; width: 60px; height: 70px; background: magenta; left: 358px; top: 286px; opacity: 0;" onclick='hide("g2Lbut"); document.getElementById("g2uLoreImage").setAttribute("src","game2unlock2b.png");adrop("usb",10000,"Re");'></button>
+		</div>
+		<div id='g2u2' class='hide'>
+			<img id='g2uLoreImage' src="game2unlock3.png" alt="lore">
+			<h4 id='g2uLoreText' class="lore">Nothing interesting</h4>
+			<button class="ch1but" style="top: 125px;" onclick='show("g2u"); hide("g2u2");'>Back</button>
+		</div>
+		<div id='g2u3' class='hide'>
+			<img id='g2uLoreImage' src="game2unlock4.png" alt="lore">
+			<h4 id='g2uLoreText' class="lore">:(</h4>
+			<a target=”_blank” href="resources/How%20to%20get%20a%20girlfriend.html" style='background: magenta; width: 60; height: 70; position: absolute; top: 210; left: 200; opacity: 0;'></a>
+			<button class="ch1but" style="top: 125px;" onclick='show("g2u"); hide("g2u3");'>Back</button>
+		</div>
+		<div id='g2u4' class='hide'>
+			<img id='g2uLoreImage' src="game2unlock5.png" alt="lore">
+			<h4 id='g2uLoreText' class="lore">That file appears to be too large to view</h4>
+			<button class="ch1but" style="top: 125px;" onclick='show("g2u"); hide("g2u4");'>Back</button>
+		</div>
+		<div id='g2u5' class='hide'>
+			<img id='g2uLoreImage' src="game2unlock6.png" alt="lore">
+			<h4 id='g2uLoreText' class="lore">Empty</h4>
+			<button class="ch1but" style="top: 125px;" onclick='show("g2u"); hide("g2u5");'>Back</button>
+		</div>
+		<div id='g2u6' class='hide'>
+			<img id='g2uLoreImage' src="game2unlock7.png" alt="lore">
+			<h4 id='g2uLoreText' class="lore">Thats new, maybe if you click on it you might unlock something cool</h4>
+			<button style="position: absolute; width: 60px; height: 70px; background: magenta; left: 200px; top: 210px; opacity: 0;" onclick='show("g2u7"); hide("g2u6");'></button>
+			<button class="ch1but" style="top: 125px;" onclick='show("g2u"); hide("g2u6");'>Back</button>
+		</div>
+		<div id='g2u7' class='hide'>
+			<img id='g2uLoreImage' src="game2unlock8.png" alt="lore">
+			<h4 id='g2uLoreText' class="lore">Instead of opening it, it just automatically downloads onto your computer.<br>You have unlocked the 2nd game for the gaming feature :)<br>Enjoy I guess</h4>
+			<button class="ch1but" style="top: 165px;" onclick='hide("g2u7"); gameOn();'>Yay</button>
 		</div>
 		<!-- 
 		<div id='ch##' class='hide'>
@@ -527,7 +569,7 @@
 		<img src="radioactive.png" alt="Something u dont touchy" class="hide enemy" id="radioactive">
 		<img src="miss.png" alt="Something that means you failed to touchy" class="hide" id="miss" style='width: 100px; height: 40px; position: absolute; top: 375px; left: 675px; z-index: 988765;'>
 		<img src="miss.png" alt="Something that means you failed to get touched (why i made that sus?)" class="hide" id="missP" style='width: 100px; height: 40px; position: absolute; top: 375px; left: 275px; z-index: 988765;'>
-		<h5 id='xpReward' class='hide' style="width: 200px; height: 100px; background: transparent; position: absolute; top: 225px; left: 650px; font-size: 48;"></h5>
+		<h5 id='xpReward' class='hide' style="width: 200px; height: 100px; background: transparent; position: absolute; top: 250px; left: 660px; font-size: 48;"></h5>
 		<img src="10KB.png" alt="touching you must of ensued" class="hide" id="KB10" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
 		<img src="50KB.png" alt="Alot of touching you must of ensued" class="hide" id="KB50" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
 		<img src="200KB.png" alt="Very alot of touching you must of ensued" class="hide" id="KB200" style='width: 200px; height: 100px; position: absolute; top: 300px; left: 625px;'>
@@ -1307,12 +1349,19 @@ Restrictions: killed all enemies at caves at least once
 			<h5 id='anomBut' onclick='anomOn()' class='hide' title='Enhanced loot inventory [Q]'></h5> <!-- add hide once done -->
 			<div id='gaming'>
 				<img src="gameb.png" alt="stuff">
-				<a onclick='advent()' target=”_blank” href="WFU.html" style='background: url(WFUbutton.gif); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0;' id='WFUon' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding'></a>
-				<h5 style='background: url(WFUbuttonoff.png); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0; text-align: center; font-size: 80;' id='WFUoff' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding'></h5>
-				<h5 style='background: url(WFUlvlbutton.png); width: 50; height: 100; position: absolute; top: 120; left: 320; margin: 0;'></h5>
 				<!-- <h5 style='background: url(glasbygaming.png); background-size: cover; width: 512; height: 408; position: absolute; top: 150; left: 390; margin: 0; opacity: 8%;'></h5> -->
+				<a onclick='advent()' target=”_blank” href="WFU.html" style='background: url("WFUbutton.gif"); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0;' id='WFUon' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding' onclick="document.getElementById('games').style.background = 'grey'"></a>
+  				<h5 style='background: url(WFUbuttonoff.png); width: 150; height: 100; position: absolute; top: 120; left: 170; margin: 0; text-align: center; font-size: 80;' id='WFUoff' title='You open the famous rng of WFU, but something is wrong. In this game, you play as if you are in the original version of my first attempt of coding'></h5>
+				<h5 style='background: url(WFUlvlbutton.png); width: 50; height: 100; position: absolute; top: 120; left: 320; margin: 0;'></h5>
 				<button id='WFUlvlB' title='Upgrade the game to unlock more content? 20000 Xp' ></button>
 				<h5 id='WFUlvl' style='position: absolute; top: 157; left: 329; margin: 0; text-align: center; font-size: 12; width: 32; height: 16; color: rgb(0,255,255)'></h5>
+				<div id='DifStuff' class='hide'>
+					<a onclick='advent()' target=”_blank” href="differ.html" style='background: url("Difbutton.gif"); width: 150; height: 100; position: absolute; top: 270; left: 170; margin: 0;' id='Difon' title='Some generic dungeon crawler thing I made. Enjoy :)'  onclick="document.getElementById('games').style.background = 'grey'"></a>
+					<h5 style='background: url(Difbuttonoff.png); width: 150; height: 100; position: absolute; top: 270; left: 170; margin: 0; text-align: center; font-size: 80; color: white;' id='Difoff' title='Some generic dungeon crawler thing I made. Enjoy :)'></h5>
+					<h5 style='background: url(Diflvlbutton.png); width: 50; height: 100; position: absolute; top: 270; left: 320; margin: 0;'></h5>
+					<button id='DiflvlB' title='Upgrade the game to unlock more content? 40000 Xp' onclick='DiflvlUp()'></button>
+					<h5 id='Diflvl' style='position: absolute; top: 307; left: 329; margin: 0; text-align: center; font-size: 12; width: 32; height: 16; color: rgb(127,127,255)'></h5>
+				</div>
 				<h5 id='RAMlvl' style='position: absolute; color: black; top: 440; left: 265; margin: 0; border: solid black; border-width: 3; background: #bbddff; padding: 0 4'>0</h5>
 				<h5 id='c1B' class='cbthings' style='position: absolute; color: black; top: 500; left: 205; margin: 0; border: solid black; border-width: 3; padding: 0 4; text-align: center; width: 128; font-size: 10;'>Need more RAM</h5>
 				<h5 id='c2B' class='cbthings' style='position: absolute; color: black; top: 538; left: 205; margin: 0; border: solid black; border-width: 3; padding: 0 4; text-align: center; width: 128; font-size: 10;'>Need more RAM</h5>
@@ -1417,7 +1466,7 @@ Restrictions: killed all enemies at caves at least once
 				<button style='position: absolute; top: 255; left: 145; font-size: 16; background: red;' title='Click this and theres no turning back...' onclick='deleteSave()'>Delete Save</button>
 				<h1 style='position: absolute; top: 275; left: 145; font-size: 16;'>Volume: </h1>
 				<input style='position: absolute; top: 287; left: 200;' type="range" min="0" max="100" value="100" class="slider" id="volume" oninput=changeVolume()>
-				<h1 style='position: absolute; top: 307px; left: 145px; font-size: 16;' class='hide' id='FPID'><button id='FPon' class='off' title='Whenever fighting in the selected zone, fight the specific enemy (numbered from enemy library)' onclick='FPF("yes")'>Yes</button><button id='FPoff' class='on' title='Whenever fighting in the selected zone, fight any enemy there' onclick='FPF("no")'>No</button>
+				<h1 style='position: absolute; top: 307px; left: 145px; font-size: 16;' class='hide' id='FPID'><button id='FPon' class='off' title='Whenever fighting in the selected zone, fight the specific enemy (numbered from enemy library as left-right then top-down)' onclick='FPF("yes")'>Yes</button><button id='FPoff' class='on' title='Whenever fighting in the selected zone, fight any enemy there' onclick='FPF("no")'>No</button>
 					Fight picker: Zone = 
 					<select id='FPZ' style='left: 205px' onclick=setOn()>
 						<option value='1' >Tutorial</option>
@@ -1493,13 +1542,13 @@ Restrictions: killed all enemies at caves at least once
 				<div id='invH1' class='helpInfo hide'>
 					<h1 class='helpText'>Inventory is an inventory<br>
 						Equip/unequip item from left clicking it<br>
-						Destroy an item by right clicking<br>
+						Destroy an item by right clicking (use mobile mofe on mobile)<br>
 						<br>
 						Anyways lets discuss item stuff and drop chances:<br>
 						&emsp;Items with light blue background are accessories, meaning they are accessories<br>
 						&emsp;Items with grey background are all consumables, click to consume<br>
-						&emsp;DC = Drop chance<br>
-						&emsp;SC = Stone drop chance<br>
+						&emsp;Drop chance for regular items is often reffered to as 'DC'<br>
+						&emsp;Drop chance for stones is often reffered to as 'SC'<br>
 					</h1>
 				</div>
 				<div id='droH1' class='helpInfo hide'>
@@ -1534,7 +1583,7 @@ Restrictions: killed all enemies at caves at least once
 					This can be decreased by upgrading their respective system<br>
 					They also can be upgraded to improve the rewards and how far you can progress on them<br>
 					<br>
-					Since they take alot of effort to create there is currently only 1 game(s)<br> 
+					Since they take alot of effort to create there is currently only 2 games (PLURARL?!??!?!?)<br> 
 					</h1>
 				</div>
 				<div id='tecH1' class='helpInfo hide'>
@@ -1542,12 +1591,23 @@ Restrictions: killed all enemies at caves at least once
 						&emsp;Save:<br>
 						&emsp;&emsp;The game saves whenever you open inventory, so just do that<br>
 						&emsp;&emsp;The game is also saved only to your browser, so it won't persist on other browsers or computers<br>
+						&emsp;&emsp;If you are a really really really scared person possibly export your save somewhere safe<br>
 						&emsp;I don't know what else to put here<br>
 					</h1>
 				</div>
 				<div id='traH1' class='helpInfo hide'>
 					<h1 class='helpText'>Idk lvl up your moves and they stronger<br>
-						Why did I think this was worthy of its own page?
+						Why did I think this was worthy of its own page?<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						No I will not show you the cancerous math equations<br>
 					</h1>
 				</div>
 				<div id='preH1' class='helpInfo hide'>
@@ -1681,7 +1741,7 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='ach28' class='achF' style='background: url("Ach28.png"); position: absolute; left: 255; top: 172;' title='Green stick - ???'></h5>
 					<h5 id='ach29' class='achF' style='background: url("Ach29.png"); position: absolute; left: 285; top: 172;' title='Healer - Collect all the heal moves'></h5>
 					<h5 id='ach30' class='achF' style='background: url("Ach30.png"); position: absolute; left: 315; top: 172;' title='eUgene the Upgrader - 100 total levels in drones'></h5>
-					<h5 id='ach31' class='achF' style='background: url("Ach31.png"); position: absolute; left: 345; top: 172;' title='Very scary easter egg that requires the ability to use math and read (Difficulty - IMPOSSIBLE) - ???'></h5>
+					<h5 id='ach31' class='achF' style='background: url("Ach31.png"); position: absolute; left: 345; top: 172;' title='Very scary easter egg that requires the ability to use math and read (WFUficulty - IMPOSSIBLE) - ???'></h5>
 					<h5 id='ach32' class='achF' style='background: url("Ach32.png"); position: absolute; left: 375; top: 172;' title='Door buster - Successfully enter zone 11'></h5>
 					<h5 id='ach33' class='achF' style='background: url("Ach33.png"); position: absolute; left: 405; top: 172;' title='Contraband? - Recycle a contraband rarity enhanced item'></h5>
 					<h5 id='ach34' class='achF' style='background: url("Ach34.png"); position: absolute; left: 435; top: 172;' title='Credo in amogum et impostores suspectos - Become imposter'></h5>
@@ -1732,7 +1792,7 @@ Restrictions: killed all enemies at caves at least once
 					<h5 id='AdvP3' class='perk' onclick='AdvP3()' style='background: url("AdvP3.png"); left: 347; top: 122;' title='Increases the chance of doubling stone drops (3 Ap)'></h5>
 					<h5 id='AdvP3B' class='perkB' style='background: rgb(0,0,0); left: 345; top: 120;'></h5>
 					<h5 id='AdvP3C' class='perkB' style='background: rgb(0,0,0); left: 345; top: 150; height: 0px;'></h5>
-					<h5 id='GamP2' class='perk' onclick='GamP2()' style='background: url("GamP2.png"); left: 377; top: 122;' title='+1 Game drop slot (4 Ap)'></h5>
+					<h5 id='GamP2' class='perk' onclick='GamP2()' style='background: url("GamP2.png"); left: 377; top: 122;' title='+1 WFU drop slot (4 Ap)'></h5>
 					<h5 id='GamP2B' class='perkB' style='background: rgb(0,0,0); left: 375; top: 120;'></h5>
 					<h5 id='GamP2C' class='perkB' style='background: rgb(0,0,0); left: 375; top: 150; height: 0px;'></h5>
 					<h5 id='AdvP4' class='perk' onclick='AdvP4()' style='background: url("AdvP4.png"); left: 407; top: 122;' title='Increase the drop chance of enhanced loot in adventure by 25% (2 Ap)'></h5>
@@ -1936,6 +1996,7 @@ Restrictions: killed all enemies at caves at least once
 		var domination = new Audio('tf_domination.mp3');
 		var gunshot = new Audio('gunshot.mp3');
 		localStorage.WFUmlvl = 3;
+		var Difmlvl = 2;
 		var lore = 52;
 		var wikiTr = 0;
 		var wikiCh = 4;
@@ -1962,6 +2023,7 @@ Restrictions: killed all enemies at caves at least once
 		var mmif = 1;
 		var mmef = 1;
 		var SZ1check = 0;
+		var noReward = 0;
 		function newSave(thing, value){ //thing must be string
 			if (localStorage.getItem(thing)){
 				return true
@@ -3022,7 +3084,15 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('games').classList.replace('locked', 'open')
 				games.textContent = 'Gaming'
 				setTimeout(WFUCool, 1000)
+				if (localStorage.g2Tr === '2'){
+					setTimeout(DifCool, 1000)
+				}
 				if (localStorage.WFUcool === '0'){
+					if (localStorage.gf === '2'){
+						document.getElementById('games').style.background = '#7FFF7F'
+					}
+				}
+				if (localStorage.Difcool === '0'){
 					if (localStorage.gf === '2'){
 						document.getElementById('games').style.background = '#7FFF7F'
 					}
@@ -3036,8 +3106,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('start')
 			hide('changelog')
 			hide('startB')
-			var hideStart = document.getElementById('start1')
-			hideStart.classList.add('hide')
+			hide('start1')
 			var hideStart = document.getElementById('start2')
 			hideStart.classList.add('hide')
 			var hideStart = document.getElementById('welcome')
@@ -3493,6 +3562,13 @@ Restrictions: killed all enemies at caves at least once
 			hide('pdu2')
 			hide('SZ1')
 			hide('z12')
+			hide('g2u')
+			hide('g2u2')
+			hide('g2u3')
+			hide('g2u4')
+			hide('g2u5')
+			hide('g2u6')
+			hide('g2u7')
 			save()
 		}
 		window.addEventListener('keydown', function (e) {
@@ -3621,7 +3697,7 @@ Restrictions: killed all enemies at caves at least once
 						var a = document.getElementById('ameair')
 						a.classList.add('btny')
 						a.classList.remove('btnr')
-						document.getElementById('ameair').setAttribute('title','American Airspace: ' + (ifFound('item28',1) + ifFound('item29',1) + ifFound('item30',1)) + ' out of 3 items found\nNote that you must be able to fly to enter this zone!')
+						document.getElementById('ameair').setAttribute('title','American Airspace: ' + (ifFound('item28',1) + ifFound('item29',1) + ifFound('item30',1) + ifFound('item57',1)) + ' out of 4 items found\nNote that you must be able to fly to enter this zone!')
 					}
 				}
 				if (parseInt(helicopter2c.textContent) > 0 && parseInt(deserteaglec.textContent) > 0 && parseInt(a10c.textContent) > 0 && parseInt(drone1c.textContent) > 0 && parseInt(drone2c.textContent) > 0 && parseInt(drone3c.textContent) > 0 && parseInt(jetpackguyc.textContent) > 0 && parseInt(ufoc.textContent) > 0){
@@ -3709,6 +3785,7 @@ Restrictions: killed all enemies at caves at least once
 				show('ch5a')
 				show('ch5b')
 				show('ch5but')
+				hide('xpReward')
 				hide('ch2b')
 				hide('tutli')
 				hide('elibr')
@@ -3749,8 +3826,7 @@ Restrictions: killed all enemies at caves at least once
 				hide('ch4')
 				hide('ch4b')
 				hide('grass2')
-				var a = document.getElementById('estat')
-				a.classList.add('hide')
+				hide('estat')
 				var a = document.getElementById('pstat')
 				a.classList.add('hide')
 				var a = document.getElementById('mhp')
@@ -5431,7 +5507,7 @@ Restrictions: killed all enemies at caves at least once
 				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.1
 				blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.3
 				document.getElementById('sh').setAttribute('title','')
-				idrop('wheels','Wheels - with this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns', 10000, 1)
+				idrop('wheels','Wheels - with this you acquire speed, however gain the ,      of them as well - -10% Attack Cooldowns +30% Block Cooldowns', 10000, 1)
 			} else if (sh.classList.contains('mantreads')){
 				var b = document.getElementById('sh')
 				b.classList.remove('mantreads')
@@ -5923,7 +5999,7 @@ Restrictions: killed all enemies at caves at least once
 					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.1
 					blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) + 0.3
 					iv2.setAttribute('title','')
-					document.getElementById('sh').setAttribute('title','Wheels - with this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns')
+					document.getElementById('sh').setAttribute('title','Wheels - with this you acquire speed, however gain the intelligence of them as well - -10% Attack Cooldowns +30% Block Cooldowns')
 				} else if (iv2.classList.contains('minercap') && he.classList.contains('head')){
 					iv2.classList.remove('minercap')
 					iv2.classList.add('empty')
@@ -6183,7 +6259,7 @@ Restrictions: killed all enemies at caves at least once
 					equipAccess('webItem','Crappy html website - Why does it look oddly familiar? - +50 D +50 A')
 				} else if (iv2.classList.contains('glasses2') && he.classList.contains('head')){
 					iv2.classList.replace('glasses2','empty')
-					document.getElementById('he').classList.replace('body','glasses2')
+					document.getElementById('he').classList.replace('head','glasses2')
 					localStorage.mhp = parseFloat(localStorage.mhp) + 150
 					localStorage.def = parseFloat(localStorage.def) + 40
 					localStorage.reg = parseFloat(localStorage.reg) + 10
@@ -6509,6 +6585,8 @@ Restrictions: killed all enemies at caves at least once
 				}
 			} else if (z === 11){
 				adrop('valve',50)
+			} else if (z === 12){
+				adrop('sigma',50)
 			}
 			return 0
 		}
@@ -11181,7 +11259,7 @@ Restrictions: killed all enemies at caves at least once
 						sdrop('damagestone', 'Damagestone - Now you can end innocent souls more easily :) - +1 A', 700)
 						sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 700)
 						sdrop('regenerationstone', 'Regenerationstone - Now you gain more health from EXISTING :) - +1 R', 175)
-						idrop('wheels','Wheels - with this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns', 300)
+						idrop('wheels','Wheels - with this you acquire speed, however gain the intelligence of them as well - -10% Attack Cooldowns +30% Block Cooldowns', 300)
 						udrop('ToE2usb', 'toes', parseInt(ekills.textContent) / 2)
 						advc.textContent = parseInt(advC.textContent)
 						if (localStorage.FSZf === '2' && FPzone(8)){
@@ -13423,7 +13501,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		orf.onclick = orfbat;
 		function orfbat(enemyN, thingTr){
-			if (coderslab.classList.contains('btng') && (thingTr === 1 && document.getElementById('z12').classList.contains('hide') === false || thingTr != 1) || enemyN >= 0 && enemyN <= 8){
+			if (coderslab.classList.contains('btng') && (parseInt(localStorage.guard2c) > 0 || parseInt(localStorage.headcrabc) > 0 || parseInt(localStorage.portalrobotc) > 0 || parseInt(localStorage.freemanc) > 0 || parseInt(localStorage.sci1c) > 0 || parseInt(localStorage.sci2c) > 0 || parseInt(localStorage.sci3c) > 0 || parseInt(localStorage.killerrobotc) > 0) && (thingTr === 1 && document.getElementById('z12').classList.contains('hide') === false || thingTr != 1) || enemyN >= 0 && enemyN <= 8){
 				sadvmus(1)
 				setStats()
 				startBat()
@@ -13474,6 +13552,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop('labpants',"Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D", 100)
 							idrop('labboot',"Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D", 100)
 							idrop('glasses2',"Nerdy glasses - ‘Um actually, these are regular glasses,’ says Geckoking - +150 Hp +40 D +10 R", 400)
+							udrop('Difusb','Might have some good stuff on it', 1000)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -13515,6 +13594,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop('labboot',"Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D", 100)
 							idrop('topQuark',"Top quark - The heaviest known elementary particle. It decays so quickly that the strong interaction from gluons cannot react fast enough to cause the top quark to form hadrons. This allows it to be used to study how quarks behave outside of hadrons - +200 D +50 A", 10)
 							idrop('bottomQuark',"Bottom quark - I doubt you know what this is - +100 D +25 A", 90)
+							udrop('Difusb','Might have some good stuff on it', 1000)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -13563,6 +13643,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop('labpants',"Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D", 100)
 							idrop('labboot',"Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D", 100)
 							idrop('toiletpaper',"Roll of toilet paper - Ah, the memories - +50 R", 200)
+							udrop('Difusb','Might have some good stuff on it', 1000)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -13574,7 +13655,7 @@ Restrictions: killed all enemies at caves at least once
 					show('calculator2')
 					document.getElementById('calculator2').setAttribute('src','calculator2.png')
 					setEStats(20000, 1, 1600, 0)
-					battle(0, 18)
+					battle(0, 16)
 					function battle(ae, sp){
 						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
 							regen()
@@ -13607,6 +13688,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop('labcoat',"Lab coat - Surprisingly doesn’t have any stains after you ‘permanently borrowed’ it - +400 Hp +200 D", 100)
 							idrop('labpants',"Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D", 100)
 							idrop('labboot',"Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D", 100)
+							udrop('Difusb','Might have some good stuff on it', 1000)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -13643,6 +13725,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop('labpants',"Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D", 100)
 							idrop('labboot',"Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D", 100)
 							idrop('demonCore',"Demon core - Somebody, hand me a screwdriver - +500 A -500 R", 200)
+							udrop('Difusb','Might have some good stuff on it', 1000)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -13688,6 +13771,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop('labpants',"Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D", 100)
 							idrop('labboot',"Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D", 100)
 							hide("noMove3")
+							udrop('Difusb','Might have some good stuff on it', 1000)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -13729,6 +13813,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop('labpants',"Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D", 100)
 							idrop('labboot',"Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D", 100)
 							idrop('vlasergun',"Violet lasergun - Turns out blue light has a too small frequency to do much damage - +180 A", 400)
+							udrop('Difusb','Might have some good stuff on it', 1000)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -13769,6 +13854,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop('labpants',"Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D", 100)
 							idrop('labboot',"Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D", 100)
 							idrop('sigmai',"Sigma - erm what the *REDACTED* - +2000 Hp", 100)
+							udrop('Difusb','Might have some good stuff on it', 1000)
 						} else if (parseFloat(hp.textContent) <= 0){
 							playerdead()
 							hide('player')
@@ -15767,6 +15853,22 @@ Restrictions: killed all enemies at caves at least once
 			if (parseInt(torchc.textContent) >= 200){
 				document.getElementById('stiz7').classList.remove('hide')
 			}
+			if (parseInt(localStorage.usbDif1) > 0){
+				var yes = localStorage.usbDif1
+				for (var i = 0; i < yes; i++){
+					if (udrop('ususb2','Increase upgrade speed by 5%', 10000)){
+						localStorage.usbDif1 = parseInt(localStorage.usbDif1) - 1
+					}
+				}
+			}
+			if (parseInt(localStorage.usbDif2) > 0){
+				var yes = localStorage.usbDif2
+				for (var i = 0; i < yes; i++){
+					if (udrop('bsusb2','Increase build speed by 5%', 10000)){
+						localStorage.usbDif2 = parseInt(localStorage.usbDif2) - 1
+					}
+				}
+			}
 			stiS.textContent = Math.round(parseFloat(stiS.textContent) * 10) / 10
 			kilS.textContent = Math.round(parseFloat(kilS.textContent) * 10) / 10
 			fedS.textContent = Math.round(parseFloat(fedS.textContent) * 10) / 10
@@ -16727,7 +16829,7 @@ Restrictions: killed all enemies at caves at least once
 			udrop('ToEusb', 'ToE?', 10000)
 		}
 		function udrop(item,title,chance){
-			if (parseInt(localStorage.rusbTr) === 1 && item === 'rockusb' || item === 'ToE2usb' && (parseInt(localStorage.f4Tr) != 2 || localStorage.ToE2Tr) || parseInt(localStorage.d5Tr) > 0 && item === 'd5usb'){
+			if (parseInt(localStorage.rusbTr) === 1 && item === 'rockusb' || item === 'ToE2usb' && (parseInt(localStorage.f4Tr) != 2 || localStorage.ToE2Tr) || parseInt(localStorage.d5Tr) > 0 && item === 'd5usb' || parseInt(localStorage.g2Tr) > 0 && item === 'Difusb'){
 				return false
 			} else {
 				a = 0
@@ -16777,8 +16879,16 @@ Restrictions: killed all enemies at caves at least once
 					if (item === 'd5usb' && a === 1){
 						localStorage.d5usb = 1
 					}
+					if (item === 'Difusb' && a === 1){
+						localStorage.g2Tr = 1
+					}
 				}
 				save()
+				if (a === 1){
+					return true
+				} else {
+					return false
+				}
 			}
 		}
 		function usbuse(us, us2){
@@ -16816,6 +16926,10 @@ Restrictions: killed all enemies at caves at least once
 				us2.classList.add('umpty')
 				us2.classList.remove('bsusb')
 				us.setAttribute('title','')
+			} else if (us.classList.contains('bsusb2')){
+				DroneBspeed.textContent = parseFloat(DroneBspeed.textContent) * 1.05
+				us2.classList.replace('bsusb2','umpty')
+				us.setAttribute('title','')
 			} else if (us.classList.contains('WFUusb')){
 				us2.classList.add('umpty')
 				us2.classList.remove('WFUusb')
@@ -16846,6 +16960,12 @@ Restrictions: killed all enemies at caves at least once
 				us.setAttribute('title','')
 				localStorage.d5Tr = 2
 				d5ust()
+			} else if (us.classList.contains('Difusb')){
+				us2.classList.replace('Difusb','umpty')
+				us.setAttribute('title','')
+				localStorage.g2Tr = 2
+				localStorage.Difcool = 0
+				g2st()
 			}
 		}
 		u1.onclick = u1U;
@@ -18111,9 +18231,7 @@ Restrictions: killed all enemies at caves at least once
 			var a = document.getElementById('ch18b')
 			a.classList.add('show')
 			a.classList.remove('hide')
-			var a = document.getElementById('ch18but')
-			a.classList.add('show')
-			a.classList.remove('hide')
+			show('ch18but')
 		}
 		ch18but.onclick = ch19st;
 		function ch19st(){
@@ -18238,19 +18356,27 @@ Restrictions: killed all enemies at caves at least once
 			if (games.textContent === 'unlocked' || games.textContent === 'Gaming' || a === 1){
 				if (games.textContent === 'unlocked'){
 					setTimeout(WFUCool, 1000)
+					if (localStorage.g2Tr === '2'){
+						setTimeout(DifCool, 1000)
+					}
 				}
 				if (localStorage.anomTr === '1'){
 					show('anomBut')
 				}
-				WFUlvl.textContent = localStorage.WFUlvl
 				vent()
 				hideLore()
 				hideAllMenu()
 				show('gaming')
 				hide('anom')
 				newSave('WFUlvl',1)
+				newSave('Diflvl',1)
+				WFUlvl.textContent = localStorage.WFUlvl
+				Diflvl.textContent = localStorage.Diflvl
 				if (localStorage.WFUlvl === '0' || (parseInt(localStorage.WFUlvl) >= 1) === false){
 					localStorage.WFUlvl = 1
+				}
+				if (localStorage.g2Tr === '2'){
+					show('DifStuff')
 				}
 				document.getElementById('gamefeature').classList.remove('hide')
 				document.getElementById('WFUon').classList.add('hide')
@@ -18264,9 +18390,18 @@ Restrictions: killed all enemies at caves at least once
 				} else {
 					document.getElementById('WFUoff').classList.remove('hide')
 				}
+				if (parseFloat(localStorage.Difcool) <= 0){
+					document.getElementById('Difon').classList.remove('hide')
+				} else {
+					document.getElementById('Difoff').classList.remove('hide')
+				}
 				if (localStorage.WFUlvl === localStorage.WFUmlvl){
 					document.getElementById('WFUlvlB').style.background = 'url(WFUlvlBmax.png)'
 					document.getElementById('WFUlvlB').setAttribute('title', 'WFU lvl is at max, wait forever for me to code more')
+				}
+				if (parseInt(localStorage.Diflvl) === Difmlvl){
+					document.getElementById('DiflvlB').style.background = 'url(DiflvlBmax.png)'
+					document.getElementById('DiflvlB').setAttribute('title', 'Differ lvl is at max, wait forever for me to code more')
 				}
 				if (localStorage.ramCLVL){
 					RAMlvl.textContent = parseInt(localStorage.ramCLVL)
@@ -18324,7 +18459,6 @@ Restrictions: killed all enemies at caves at least once
 			if (parseFloat(localStorage.WFUcool) - 1 >= 0){
 				localStorage.WFUcool = parseFloat(localStorage.WFUcool) - 1
 				WFUoff.textContent = localStorage.WFUcool
-				document.getElementById('games').style.background = 'grey'
 			} else {
 				localStorage.WFUcool = 0
 				document.getElementById('WFUon').classList.remove('hide')
@@ -18335,6 +18469,20 @@ Restrictions: killed all enemies at caves at least once
 			}
 			setTimeout(WFUCool, 1000 * 0.9 ** (parseInt(localStorage.CDLVL)))
 		}
+		function DifCool(){
+			if (parseFloat(localStorage.Difcool) - 1 >= 0){
+				localStorage.Difcool = parseFloat(localStorage.Difcool) - 1
+				Difoff.textContent = localStorage.Difcool
+			} else {
+				localStorage.Difcool = 0
+				document.getElementById('Difon').classList.remove('hide')
+				document.getElementById('Difoff').classList.add('hide')
+				if (localStorage.gf === '2'){
+					document.getElementById('games').style.background = '#7FFF7F'
+				}
+			}
+			setTimeout(DifCool, 1000 * 0.9 ** (parseInt(localStorage.CDLVL)))
+		}
 		WFUlvlB.onclick = WFUlvlUp;
 		function WFUlvlUp(){
 			if (parseInt(localStorage.xp) >= (10000 * (2 ** parseInt(localStorage.WFUlvl))) && parseInt(localStorage.WFUlvl) < parseInt(localStorage.WFUmlvl)){
@@ -18343,6 +18491,18 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.WFUlvlBt = 'Upgrade the game to unlock more content? '+ (10000 * (2 ** parseInt(localStorage.WFUlvl))) +' Xp'
 				document.getElementById('WFUlvlB').setAttribute('title',  'Upgrade the game to unlock more content? '+ (10000 * (2 ** parseInt(localStorage.WFUlvl))) +' Xp')
 				WFUlvl.textContent = parseInt(localStorage.WFUlvl)
+			}
+		}
+		function DiflvlUp(){
+			if (parseInt(localStorage.xp) >= (20000 * (2 ** parseInt(localStorage.Diflvl))) && parseInt(localStorage.Diflvl) < Difmlvl){
+				localStorage.xp = parseInt(localStorage.xp) - (10000 * (2 ** parseInt(localStorage.Diflvl)))
+				localStorage.Diflvl = parseInt(localStorage.Diflvl) + 1
+				document.getElementById('DiflvlB').setAttribute('title',  'Upgrade the game to unlock more content? '+ (20000 * (2 ** parseInt(localStorage.Diflvl))) +' Xp')
+				Diflvl.textContent = parseInt(localStorage.Diflvl)
+				if (parseInt(localStorage.Diflvl) >= Difmlvl){
+					document.getElementById('DiflvlB').setAttribute('title',  'nope')
+					document.getElementById('DiflvlB').style.background = 'url(DiflvlBmax.png)'
+				}
 			}
 		}
 		window.addEventListener('keydown', function (e) {
@@ -18374,6 +18534,8 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('Smain').classList.remove('hide')
 			document.getElementById('WFUon').classList.add('hide')
 			document.getElementById('WFUoff').classList.add('hide')
+			document.getElementById('Difon').classList.add('hide')
+			document.getElementById('Difoff').classList.add('hide')
 			document.getElementById('dronebuild').classList.add('hide')
 			document.getElementById('droneupgrade').classList.add('hide')
 			document.getElementById('setBack').classList.remove('hide')
@@ -18483,9 +18645,9 @@ Restrictions: killed all enemies at caves at least once
 				hpMulti = 1 + parseInt(localStorage.redCur) / 100
 			}
 			if (localStorage.IFTr === '1' && localStorage.hpM){
-				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * hpMulti * (1000 + parseInt(localStorage.itemHpBonus)) / 10) / 100
+				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * hpMulti * (1000 + parseInt(localStorage.itemHpBonus)) / 10) * (1 + parseInt(localStorage.AdvP1) * 0.05) / 100
 			} else if (localStorage.hpM){
-				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * hpMulti * 100) / 100
+				hpMT.textContent = 'Health multiplier - ' + Math.floor(parseFloat(localStorage.hpM) * hpMulti * 100 * (1 + parseInt(localStorage.AdvP1) * 0.05)) / 100
 			} else {
 				hpMT.textContent = 'Health multiplier - 1'
 			}
@@ -18791,8 +18953,8 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if (parseInt(localStorage.ach51) >= 50){
 				document.getElementById('ach51').classList.replace('achF','achRT')
-				AP = AP + 1
-				currentAch = currentAch + 2
+				AP = AP + 2
+				currentAch = currentAch + 1
 			}
 			if (parseInt(localStorage.ach52) >= 1){
 				document.getElementById('ach52').classList.replace('achF','achCT')
@@ -18801,14 +18963,14 @@ Restrictions: killed all enemies at caves at least once
 			}
 			if ((existTr(localStorage.item3,1) + existTr(localStorage.item4,1) + existTr(localStorage.item5,1) + existTr(localStorage.item6,1) + existTr(localStorage.item7,1) + existTr(localStorage.item8,1) + existTr(localStorage.item9,1) + existTr(localStorage.item10,1)) >= 30000){
 				document.getElementById('ach53').classList.replace('achF','achET')
-				AP = AP + 1
-				currentAch = currentAch + 3
+				AP = AP + 3
+				currentAch = currentAch + 1
 			}
 			if (parseInt(localStorage.SZ1E1c) >= 1 || parseInt(localStorage.SZ1E2c) >= 1 || parseInt(localStorage.SZ1E3c) >= 1 || parseInt(localStorage.SZ1E4c) >= 1 || parseInt(localStorage.SZ1E5c) >= 1 || parseInt(localStorage.SZ1E6c) >= 1 || parseInt(localStorage.SZ1E7c) >= 1 || parseInt(localStorage.SZ1E8c) >= 1){
 				document.getElementById('ach54').classList.replace('achF','achRT')
 				document.getElementById('ach54').setAttribute('title', "Hidden effort - Beat an enemy in a secret zone")
-				AP = AP + 1
-				currentAch = currentAch + 2
+				AP = AP + 2
+				currentAch = currentAch + 1
 			}
 			if (parseInt(localStorage.ach55) >= 1){
 				document.getElementById('ach55').classList.replace('achF','achCT')
@@ -19432,7 +19594,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item43').setAttribute('title', "Pickaxe - Now this is a weapon - +50 A\nDrops from the pickaxe (6%)\n" + document.getElementById('item43').getAttribute('title'))
 			}
 			if (ifFound('item44')){
-				document.getElementById('item44').setAttribute('title', "Wheels - With this you acquire speed, however gain the intelligence of him as well - -10% Attack Cooldowns +30% Block Cooldowns\nDrops from the minecart (3%)\n" + document.getElementById('item44').getAttribute('title'))
+				document.getElementById('item44').setAttribute('title', "Wheels - With this you acquire speed, however gain the intelligence of them as well - -10% Attack Cooldowns +30% Block Cooldowns\nDrops from the minecart (3%)\n" + document.getElementById('item44').getAttribute('title'))
 			}
 			if (ifFound('item45')){
 				document.getElementById('item45').setAttribute('title', "Minercap - ?em htiw gnorw si tahw - +50 Hp +30 D\nDrops from the miner (6%)\n" + document.getElementById('item45').getAttribute('title'))
@@ -19516,7 +19678,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item71').setAttribute('title', "Dio - You thought you got an item, but it was me, Dio!\nDropped from All enemies in the wacky cool extraordinarily unbalanced joke zone (1%)\n" + document.getElementById('item71').getAttribute('title'))
 			}
 			if (ifFound('item72')){
-				document.getElementById('item72').setAttribute('title', "1s and 0s - What on Earth could this mean?\nDropped from the tutorial zone (1%)\n" + document.getElementById('item72').getAttribute('title'))
+				document.getElementById('item72').setAttribute('title', "1s and 0s - What on Earth could this mean?\nDropped from the tutorial zone (0.01%)\n" + document.getElementById('item72').getAttribute('title'))
 			}
 			if (ifFound('item73')){
 				document.getElementById('item73').setAttribute('title', "Cake - Was it a lie? - +69 to all 4 stats\nDropped from the sentry turrent (1st kill)\n" + document.getElementById('item73').getAttribute('title'))
@@ -19746,6 +19908,9 @@ Restrictions: killed all enemies at caves at least once
 					} else if (item === 'valve'){
 						bonus = createBonus(25,25,8,8,8,1)
 						chance = chance * adropMulti(1)
+					} else if (item === 'sigma'){
+						bonus = createBonus(15,15,5,5,5,5)
+						chance = chance * adropMulti(1)
 					} else if (item === 'droneDrop1'){
 						bonus = createBonus(35,35,4,4,9,9)
 						chance = chance * adropMulti(2)
@@ -19791,7 +19956,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 				}
 				if (dropR <= chance){
-					for (let N = 10; N <= 23 + ifFound(parseInt('greenU1')); N++){
+					for (let N = 10; N <= 23 + ifFound('greenU1'); N++){
 						if (localStorage.getItem('anom' + N)){
 						
 						} else {
@@ -19897,6 +20062,10 @@ Restrictions: killed all enemies at caves at least once
 				title = "ram - dropped from the coder's lab"			
 			} else if (item === 'e'){
 				title = 'e - dropped from the alternating reality of yes'
+			} else if (item === 'valve'){
+				title = 'valve - dropped from the underground research facility'
+			} else if (item === 'e'){
+				title = 'sigma - dropped from the overground research facility'
 			} else if (item === 'droneDrop1'){
 				title = 'ParryDroneSystem - dropped from a drone that lived a long and full life'
 			} else if (item === 'droneDrop2'){
@@ -19917,6 +20086,14 @@ Restrictions: killed all enemies at caves at least once
 				title = 'empty usb - gained from recycling'
 			} else if (item === 'air'){
 				title = 'heterogenous mixture composing of high amounts of nitrogen and oxygen, with minor amounts of argon and carbon dioxide\n - gained from recycling'
+			} else if (item === 'pistol'){
+				title = 'pistol - gun go pew pew'
+			} else if (item === 'smg'){
+				title = 'smg - even more pew pew'
+			} else if (item === 'shotgun'){
+				title = 'shotgun - best melee weapon in the game'
+			} else if (item === 'crossbow'){
+				title = 'crossbow - *counterplay*'
 			}
 			if (bonus === 1){
 				title = title + '\nEquiping this will give a +' + rareBonus(rare) + '% bonus to your attack' 
@@ -20133,10 +20310,6 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('anomi' + slot).classList.replace(item + 'V2', 'anomEmpty')
 				document.getElementById('anoma' + slot).classList.remove('item' + rarity + '2')
 				document.getElementById('anoma' + slot).setAttribute('title','')
-				localStorage.setItem('recycle' + rarity, parseInt(localStorage.getItem('recycle' + rarity)) + 1)
-				if (rarity === 'Co'){
-					newSave('ach33',1)
-				}
 				localStorage.removeItem('anom' + slot)
 				for (let N = slot + 1; N <= maxAnomSlots; N++){
 					if (localStorage.getItem('anom' + N)){
@@ -20156,36 +20329,44 @@ Restrictions: killed all enemies at caves at least once
 						localStorage.removeItem('anom' + N)
 					}
 				}
-				if (rarity === 'C'){
-					recyclePro = recyclePro + 25
-				} else if (rarity === 'R'){
-					recyclePro = recyclePro + 50
-				} else if (rarity === 'E'){
-					recyclePro = recyclePro + 75
-				} else if (rarity === 'L'){
-					recyclePro = recyclePro + 50
-					recycleReward(1)
-				} else if (rarity === 'Re'){
-					recyclePro = recyclePro + 50
-					recycleReward(2)
-				} else if (rarity === 'Co'){
-					recyclePro = recyclePro + 50
-					recycleReward(7)
+				if (noReward === 0){
+					localStorage.setItem('recycle' + rarity, parseInt(localStorage.getItem('recycle' + rarity)) + 1)
+					if (rarity === 'Co'){
+						newSave('ach33',1)
+					}
+					if (rarity === 'C'){
+						recyclePro = recyclePro + 25
+					} else if (rarity === 'R'){
+						recyclePro = recyclePro + 50
+					} else if (rarity === 'E'){
+						recyclePro = recyclePro + 75
+					} else if (rarity === 'L'){
+						recyclePro = recyclePro + 50
+						recycleReward(1)
+					} else if (rarity === 'Re'){
+						recyclePro = recyclePro + 50
+						recycleReward(2)
+					} else if (rarity === 'Co'){
+						recyclePro = recyclePro + 50
+						recycleReward(7)
+					}
+					if (recyclePro >= 100){
+						recycleReward(1)
+						recyclePro = recyclePro - 100
+						anomAnim(0,anomBarValue + 1)
+					}
+					localStorage.recyclePro = recyclePro
+					document.getElementById('anomBar').style.width = recyclePro + 'px'
 				}
-				if (recyclePro >= 100){
-					recycleReward(1)
-					recyclePro = recyclePro - 100
-					anomAnim(0,anomBarValue + 1)
-				}
-				localStorage.recyclePro = recyclePro
-				document.getElementById('anomBar').style.width = recyclePro + 'px'
 				anomOn()
 			}
 		}
 		function recycleReward(times,yes){
 			for (let N = 1; N <= times; N++){
 				newSave('recycle',0)
-				localStorage.recycle = parseInt(localStorage.recycle) + 1
+				if (yes === 1){
+					localStorage.recycle = parseInt(localStorage.recycle) + 1
+				}
 				let x = Math.floor(Math.random() * 100) + 1
 				if (x <= 40){
 					adrop('trash')
@@ -20446,6 +20627,10 @@ Restrictions: killed all enemies at caves at least once
 		function pdroneUnlock3(){
 			hide('pdu1')
 			show('pdu2')
+		}
+		function g2st(){
+			hideAllMenu()
+			show('g2u')
 		}
 	</script>
 </html>

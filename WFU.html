@@ -1631,12 +1631,7 @@
 			if (parseInt(localStorage.lavac) >= 200){
 				xpMulti = 2
 			}
-			if (gaming === 1){ //complete day
-				blackscreen()
-				show('gwSc')
-				show('dayE')
-				day = day + 1
-				dayE.textContent = 'Day ' + (day)
+			if (gaming < 3){
 				if (ob1 === 1){
 					ob1 = 2
 				} else if (ob2 === 1){
@@ -1651,6 +1646,13 @@
 				} else if (mo3 === 1){
 					mo3 = 2
 				}
+			}
+			if (gaming === 1){ //complete day
+				blackscreen()
+				show('gwSc')
+				show('dayE')
+				day = day + 1
+				dayE.textContent = 'Day ' + (day)
 				setTimeout(game,2000)
 			} if (gaming === 2){ //complete final day
 				blackscreen()
@@ -1782,7 +1784,7 @@
 				}
 				if (localStorage.anomTr === '1'){
 					let a = 0
-					if (ob1 === 2){
+					if (ob1 == 2){
 						a = adrop('deagle',2000)
 					}
 					if (ob2 === 2){
@@ -2075,7 +2077,7 @@
 			} else {
 				x = 0
 			}
-			for (let N = 10; N <= 23 + localStorage.greenU1; N++){
+			for (let N = 10; N <= 23 + x; N++){
 				if (localStorage.getItem('anom' + N)){
 					
 				} else {
@@ -2090,7 +2092,7 @@
 					}
 					return 1
 				}
-			}	
+			}
 			return 0
 		} else {
 			return 0
