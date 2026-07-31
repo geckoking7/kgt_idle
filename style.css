@@ -374,41 +374,48 @@ img{
 	position: absolute;
 	margin: 0;
 	height: 225px;
-	width: 210;
+	width: 210px;
 	top: 244px;
 	left: 225px;
 	margin: 0;
 	z-index: 2;
 }
-.enemy{
+.enemy{ /* regular */
 	position: absolute;
 	margin: 0;
 	height: 225px;
 	top: 275px;
 	left: 625px;
 }
-.benemy{
+.benemy{ /* bottom */
 	position: absolute;
 	margin: 0;
 	height: 329px;
 	top: 275px;
 	left: 625px;
 }
-.cenemy{
+.cenemy{ /* top */
 	position: absolute;
 	margin: 0;
 	height: 396px;
 	top: 104px;
 	left: 625px;
 }
-.denemy{
+.denemy{ /* computer */
 	position: absolute;
 	margin: 0;
 	height: 157px;
 	top: 236px;
 	left: 549px;
 }
-.penemy{
+.eenemy{ /* all Y axis */
+	position: absolute;
+	margin: 0;
+	height: 496px;
+	top: 104px;
+	left: 625px;
+}
+.penemy{ /* plant from dave */
 	position: absolute;
 	margin: 0;
 	height: 150px;
@@ -503,6 +510,22 @@ img{
 	top: 214px;
 	left: 329px;
 }
+.oceZB{
+	top: 116px;
+	left: 404px;
+}
+.forZB{
+	top: 155px;
+	left: 422px;
+}
+.desZB{
+	top: 206px;
+	left: 415px;
+}
+.capZB{
+	top: 148px;
+	left: 463px;
+}
 .tconb{
 	top: 256px;
 	left: 163px;
@@ -510,6 +533,13 @@ img{
 #SZ1B{
 	top: 14px;
 	left: 1219px;
+}
+.keyPiece{
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	opacity: 0.25;
+	z-index: 3;
 }
 #maxHealth{
 	position: absolute;
@@ -920,6 +950,90 @@ img{
 }
 .labboot{
 	background-image: url('labboot.png');
+}
+.scrollItem{
+	background-image: url('scroll.png');
+}
+.keyP1{
+	background-image: url('keyP1.png');
+}
+.keyP2{
+	background-image: url('keyP2.png');
+}
+.keyP3{
+	background-image: url('keyP3.png');
+}
+.scale1{
+	background-image: url('fishscale.png');
+}
+.sharkNecklace{
+	background-image: url('sharknecklace.png');
+}
+.oxygenBottle{
+	background-image: url('oxygenbottle.png');
+}
+.cannon{
+	background-image: url('cannoni.png');
+}
+.pegLeg{
+	background-image: url('pegleg.png');
+}
+.scale2{
+	background-image: url('fishscale2.png');
+}
+.noteBottle{
+	background-image: url('noteBottle.png');
+}
+.banana{
+	background-image: url('banana.png');
+}
+.venom{
+	background-image: url('venom.png');
+}
+.mane{
+	background-image: url('mane.png');
+}
+.seed{
+	background-image: url('seed.png');
+}
+.stick2{
+	background-image: url('stickweapon2.png');
+}
+.tooth{
+	background-image: url('fishtooth.png');
+}
+.paperChest{
+	background-image: url('paperChest.png');
+}
+.brick{
+	background-image: url('brickshoe.png');
+}
+.coconut{
+	background-image: url('coconut.png');
+}
+.fishhide{
+	background-image: url('fishhide.png');
+}
+.rocketLauncher{
+	background-image: url('rocketlauncher.png');
+}
+.tyre{
+	background-image: url('tyre.png');
+}
+.bottle{
+	background-image: url('emptybottle.png');
+}
+.pillow{
+	background-image: url('pillow.png');
+}
+.cape{
+	background-image: url('cape.png');
+}
+.tie{
+	background-image: url('tie.png');
+}
+.gloves{
+	background-image: url('boxinggloves.png');
 }
 .useall{
 	background-image: url('useall.png');

@@ -62,6 +62,9 @@
 		<button title='What does it say?' class="locked hide" id="g" style='left: 880px; position: absolute; top: 5px; margin: 0;'>No touchy</button>
 		<button class="locked hide" style='left: 1027px; position: absolute; top: 5px; margin: 0;' id="h">don't</button>
 		<button class="openS hide" title='Settings and stuff' id="setB"></button>
+		<div id="console" class="hide" style="position: absolute; width: 236px; height: 600px; background: url('consoleBack.png'); font-family: arial; font-size: 6px; margin: 0; left: 973px; top: 52px;">
+			<h1 id="consoleTextNode" class="hide" style="background: white; margin: 0; position: absolute; color: black; left: 35px; top: 35px; width: 166px; height: 15px; text-align: center;"></h1>
+		</div>
 		<img src='red.png' id="red" style='width: 100%; height: 100%; opacity: 0; z-index: 69; pointer-events: none; position: absolute; left: 0; top: 0;'>
 		<h5 id='ligmaBalls' style='margin: 0;top: 400px; font-family: Comic Sans MS; position: absolute; font-size: 72px; width: 100%; text-align: center; z-index: 69; color: white; vertical-align: center;' class='hide'></h5>
 		<button class="btny" id="SZ1B" onclick='SZ1bat();' style='opacity: 0; background: url("trollface.png"); background-size: cover; border: none; border-radius: 0; height: 30px; width: 36px;'></button>
@@ -72,6 +75,7 @@
 			<img src="SZ1E2.png" alt="its him omg" class="enemy" id="SZ1E2">
 			<img src="SZ1E3.png" alt="its him omg" class="enemy" id="SZ1E3">
 			<img src="SZ1E4.png" alt="snas" class="enemy" id="SZ1E4">
+			<img src="SZ1E5.png" alt="miku" class="enemy" id="SZ1E5">
 			<div class='hide'>
 				<img src="plant1.png" alt='peepooper' id="plant1Node" class='penemy'>
 				<img src="plant2.png" alt='peepooper' id="plant2Node" class='penemy'>
@@ -492,7 +496,7 @@
 			<img src="sci3arrow.gif" alt="yesssssss" class="hide" id="sci3back" style='width: 100px; height: 280px; position: absolute; left: 400px; top: 180px; z-index: 2; opacity: 0.5;'>
 		</div>
 		<div id='z12' class='hide'>
-			<img src="z12back.png" alt="Git gud bro" class="zone" id='z12'>
+			<img src="z12back.png" alt="Git gud bro" class="zone" id='z12b'>
 			<img src="scientist.png" alt="an object" class="hide enemy" id="scientist">
 			<img src="higgsBoson.png" alt="an object" class="hide enemy" id="higgsBoson">
 			<img src="coronavirus.png" alt="an object" class="hide enemy" id="coronavirus">
@@ -504,6 +508,59 @@
 			<button id='calculatorB1' style='z-index: 68; position: absolute; background: url("calculatorB1.png"); width: 30; height: 30; border: none;' class='hide' onclick="hide('calculatorB1'); eatt.textContent = Math.ceil(parseInt(eatt.textContent) / 2);"></button>
 			<h5 id='calculatorB2' style='background: transparent; width: 19; height: 8; position: absolute; left: 717; top: 401;' onclick="localStorage.ach55 = 1; document.getElementById('calculator2').setAttribute('src','calculator2v2.png')"></h5>
 		</div>
+		<div id="z13" class="hide">
+			<img src="z13back.png" alt="Plenty of dihydrogen monoxide here :)" class="zone" id='z13b'>
+			<img src="oceanFight.png" alt="Plenty of dihydrogen monoxide here :)" class="hide" id="z13e7">
+			<img src="keyP1a.png" style="left: 850px; top: 550px;" class="keyPiece" id='keyP1thing' onclick="getKeyItem(1);">
+			<img src="fish.png" alt="an object" class="hide enemy" id="z13e1">
+			<img src="shark.png" alt="an object" class="hide enemy" id="z13e2">
+			<img src="dolphin.png" alt="an object" class="hide enemy" id="z13e3">
+			<img src="diver.png" alt="an object" class="hide enemy" id="z13e4">
+			<img src="tubeworm.png" alt="an object" class="hide benemy" id="z13e5">
+			<img src="octopus.png" alt="an octject" class="hide enemy" id="z13e6">
+			<img src="piratediver.png" alt="arrrrr" class="hide enemy" id="z13e8">
+			<img src="harpoon.png" alt="p" class="hide" id="harpoonNode" style="width: 50px; height: 10px; position: absolute; left: 575px; top: 375px;">
+			<img src="cannonball.png" alt="p" class="hide" id="cballNode" style="width: 20px; height: 20px; position: absolute; left: 575px; top: 375px;">
+			<img src="diverBack.gif" alt="no" class="hide" value="0" id="diverBack" style='width: 300px; height: 300px; position: absolute; opacity: 0.4; left: 175px; top: 150px;'>
+			<div id="diverProj">
+			</div>
+		</div>
+		<div id="z14" class="hide">
+			<img src="z14back.png" alt="waters" class="zone" id='z14'>
+			<img src="keyP2a.png" style="left: 603px; top: 273px;" class="keyPiece" id='keyP2thing' onclick="getKeyItem(2);">
+			<img src="spider2.png" alt="an object" class="hide enemy" id="z14e1">
+			<img src="monkey.png" alt="an object" class="hide enemy" id="z14e2">
+			<img src="tarzan.png" alt="an object" class="hide cenemy" id="z14e3">
+			<img src="snake.png" alt="an object" class="hide enemy" id="z14e4">
+			<img src="lion.png" alt="an object" class="hide enemy" id="z14e5">
+			<img src="mango.png" alt="an object" class="hide enemy" id="z14e6">
+			<img src="mosquito.png" alt="an object" class="hide enemy" id="z14e7">
+			<img src="tree3.png" alt="a tree" class="hide cenemy" id="z14e8"> <!-- make new enemy class type -->
+		</div>
+		<div id="z15" class="hide">
+			<img src="z15back.png" alt="" class="zone" id='z15b'>
+			<img src="oasis.png" alt="an object" class="hide" id="z15e8">
+			<img src="keyP3a.png" style="left: 400px; top: 300px;" class="keyPiece" id='keyP3thing' onclick="getKeyItem(3);">
+			<img src="cactus.png" alt="an object" class="hide enemy" id="z15e1">
+			<img src="SiO2.png" alt="an object" class="hide enemy" id="z15e2">
+			<img src="snake2.png" alt="an object" class="hide enemy" id="z15e3">
+			<img src="mummy.png" alt="an object" class="hide enemy" id="z15e4">
+			<img src="pyramid.png" alt="an object" class="hide enemy" id="z15e5">
+			<img src="kangaroo.png" alt="an object" class="hide enemy" id="z15e6">
+			<img src="vulture.png" alt="an object" class="hide enemy" id="z15e7">
+		</div>
+		<div id="z16" class="hide">
+			<img src="z16back.png" alt="" class="zone" id='z16b'>
+			<img src="wall.png" alt="an object" class="hide" id="z16e0">
+			<img src="highbuild.png" alt="an object" class="hide eenemy" id="z16e1">
+			<img src="police.png" alt="an object" class="hide enemy" id="z16e2">
+			<img src="car.png" alt="an object" class="hide enemy" id="z16e3">
+			<img src="trashbin.png" alt="an object" class="hide enemy" id="z16e4">
+			<img src="trafficlight.png" alt="an object" class="hide cenemy" id="z16e5">
+			<img src="bridge.png" alt="an object" class="hide" id="z16e6">
+			<img src="president.png" alt="an object" class="hide enemy" id="z16e7">
+			<img src="doejane.png" alt="an object" class="hide enemy" id="z16e8">
+		</div>
 		<div id='players' style='position: absolute;'>
 			<img src="player.gif" alt="an idiot" class="player hide" id="player">
 			<img src="skyplayer.png" alt="an idiot again" class="player hide" id="skyplayer">
@@ -513,6 +570,7 @@
 			<img src="minerplayer.png" alt="an idiot" class="player hide" id="minerplayer">
 			<img src="playerCry.gif" alt=":c" class="player hide" id="cryingPlayer">
 			<img src="playerFall1.gif" alt="yay" class="player hide" id="fallingPlayer" style="top: 44px; left:225">
+			<img src="shieldPlayer.png" alt="yay" class="player hide" id="shieldPlayer" style="top: q44px; left: 365; width: 20px; height: 20px;">
 			<img src="playerHide.png" alt="uasebvjklf" class="player hide" id="hidingPlayer">
 		</div>
 		<img src="fightstats.png" alt="numbre" class="hide" style="position: absolute; left: 225px; top: 540px; height: 50px; width: 200px; z-index: 2;" id="pstat">
@@ -529,8 +587,8 @@
 		<img src="rabbit.png" alt="Something u dont touchy" class="hide enemy" id="rabbit">
 		<img src="antcolony.png" alt="Something u dont touchy" class="hide enemy" id="antcolony">
 		<img src="tree.png" alt="Something u dont touchy" class="hide enemy" id="tree">
-		<img src="spider.png" alt="Something u dont touchy" class="hide enemy" id="spider">
 		<img src="apple.png" alt="Something u dont touchy" class="hide enemy" id="apple">
+		<img src="spider.png" alt="Something u dont touchy" class="hide enemy" id="spider">
 		<img src="puddle.png" alt="Something u dont touchy" class="hide enemy" id="puddle">
 		<img src="fire.gif" alt="Something u dont touchy" class="hide enemy" id="fire">
 		<img src="bird.png" alt="Something u dont touchy" class="hide enemy" id="bird">
@@ -608,6 +666,19 @@ Restrictions: killed all enemies in the mines at least once
 		<button title="Overground Research Facility
 Restrictions: killed all enemies in the Coder's lab at least once
                     killed a single enemy in the underground research facility" class="btnr orf" id="orf"></button>
+		<button title="Ocean
+Restrictions: killed all enemies in taroy at least once
+                    heal unlocked " class="btnr oceZB" id="oceZB"></button>
+		<button title="Forest
+Restrictions: killed all enemies in taroy at least once
+                    hyper regen unlocked " class="btnr forZB" id="forZB"></button>
+		<button title="Desert
+Restrictions: killed all enemies in taroy at least once
+                    sandwhich unlocked " class="btnr desZB" id="desZB"></button>
+		<button title="Capital
+Restrictions: killed all enemies in ocean at least once
+                    killed all enemies in forest at least once
+                    killed all enemies in desert at least once" class="btnr capZB" id="capZB"></button>
 		<button title="No grass touch
 Restrictions: killed all enemies at caves at least once
                     Some other stuff" class="btnr tconb" id="Tconb"></button>
@@ -961,6 +1032,8 @@ Restrictions: killed all enemies at caves at least once
 			<img src="setBack.png" alt="Background of thing">
 			<h1 style='position: absolute; top: 105; left: 525; font-size: 16;' id='itemsFound'></h1>
 			<h1 style='position: absolute; top: 105; left: 725; font-size: 16;' id='itemHpBonusText'></h1>
+			<h1 style="position: absolute; top: 105px; left: 160px; font-size: 16; width: 100px; height: 20px; border: 2px solid black; background: white; text-align: center;" id="beforeItemPage" onclick="curItemPage = curItemPage - 1; itemBookOn();">&larr; Page 1</h1>
+			<h1 style="position: absolute; top: 105px; left: 260px; font-size: 16; width: 100px; height: 20px; border: 2px solid black; background: white; text-align: center;" id="nextItemPage" onclick="curItemPage = curItemPage + 1; itemBookOn();">Page 2 &rarr;</h1>
 			<button class="itemBVent starterCap" style="left: 160px; top: 150px;" id="item1"></button>
 			<button class="itemBVent stick notFound" style="left: 215px; top: 150px;" id="item2" onclick=itemFilter(2)></button>
 			<button class="itemBVent healthstone notFound" style="left: 270px; top: 150px;" id="item3"></button>
@@ -1047,6 +1120,35 @@ Restrictions: killed all enemies at caves at least once
 			<button class="itemBVent labcoat notFound" style="left: 435px; top: 480px;" id="item84" onclick=itemFilter(84)></button>
 			<button class="itemBVent labpants notFound" style="left: 490px; top: 480px;" id="item85" onclick=itemFilter(85)></button>
 			<button class="itemBVent labboot notFound" style="left: 545px; top: 480px;" id="item86" onclick=itemFilter(86)></button>
+			<button class="itemBVent scrollItem notFound" style="left: 600px; top: 480px;" id="item87" onclick=itemFilter(87)></button>
+			<button class="itemBVent keyP1 notFound" style="left: 655px; top: 480px;" id="item88" onclick=itemFilter(88)></button>
+			<button class="itemBVent keyP2 notFound" style="left: 710px; top: 480px;" id="item89" onclick=itemFilter(89)></button>
+			<button class="itemBVent keyP3 notFound" style="left: 765px; top: 480px;" id="item90" onclick=itemFilter(90)></button>
+			<button class="itemBVent scale1 notFound" style="left: 820px; top: 480px;" id="item91" onclick=itemFilter(91)></button>
+			<button class="itemBVent sharkNecklace notFound" style="left: 160px; top: 535px;" id="item92" onclick=itemFilter(92)></button>
+			<button class="itemBVent oxygenBottle notFound" style="left: 215px; top: 535px;" id="item93" onclick=itemFilter(93)></button>
+			<button class="itemBVent cannon notFound" style="left: 270px; top: 535px;" id="item94" onclick=itemFilter(94)></button>
+			<button class="itemBVent pegLeg notFound" style="left: 325px; top: 535px;" id="item95" onclick=itemFilter(95)></button>
+			<button class="itemBVent scale2 notFound" style="left: 380px; top: 535px;" id="item96" onclick=itemFilter(96)></button>
+			<button class="itemBVent noteBottle notFound" style="left: 435px; top: 535px;" id="item97" onclick=itemFilter(97)></button>
+			<button class="itemBVent banana notFound" style="left: 490px; top: 535px;" id="item98" onclick=itemFilter(98)></button>
+			<button class="itemBVent venom notFound" style="left: 545px; top: 535px;" id="item99" onclick=itemFilter(99)></button>
+			<button class="itemBVent mane notFound" style="left: 600px; top: 535px;" id="item100" onclick=itemFilter(100)></button>
+			<button class="itemBVent seed notFound" style="left: 655px; top: 535px;" id="item101" onclick=itemFilter(101)></button>
+			<button class="itemBVent stick2 notFound" style="left: 710px; top: 535px;" id="item102" onclick=itemFilter(102)></button>
+			<button class="itemBVent tooth notFound" style="left: 765px; top: 535px;" id="item103" onclick=itemFilter(103)></button>
+			<button class="itemBVent paperChest notFound" style="left: 820px; top: 535px;" id="item104" onclick=itemFilter(104)></button>
+			<button class="itemBVent brick notFound" style="left: 160px; top: 150px;" id="item105" onclick=itemFilter(105)></button>
+			<button class="itemBVent coconut notFound" style="left: 215px; top: 150px;" id="item106" onclick=itemFilter(106)></button>
+			<button class="itemBVent fishhide notFound" style="left: 270px; top: 150px;" id="item107" onclick=itemFilter(107)></button>
+			<button class="itemBVent rocketLauncher notFound" style="left: 325px; top: 150px;" id="item108" onclick=itemFilter(108)></button>
+			<button class="itemBVent tyre notFound" style="left: 380px; top: 150px;" id="item109" onclick=itemFilter(109)></button>
+			<button class="itemBVent bottle notFound" style="left: 435px; top: 150px;" id="item110" onclick=itemFilter(110)></button>
+			<button class="itemBVent pillow notFound" style="left: 490px; top: 150px;" id="item111" onclick=itemFilter(111)></button>
+			<button class="itemBVent cape notFound" style="left: 545px; top: 150px;" id="item112" onclick=itemFilter(112)></button>
+			<button class="itemBVent tie notFound" style="left: 600px; top: 150px;" id="item113" onclick=itemFilter(113)></button>
+			<button class="itemBVent gloves notFound" style="left: 655px; top: 150px;" id="item114" onclick=itemFilter(114)></button>
+			<!--<button class="itemBVent  notFound" style="left: px; top: px;" id="item" onclick=itemFilter()></button>-->
 		</div><!-- //itemsHere -->
 		<!-- Drones -->
 		<h5 title="Premium drones [R]" class='hide' id="premDroneBut" onclick='premDroneOn()'></h5>
@@ -1480,6 +1582,11 @@ Restrictions: killed all enemies at caves at least once
 						<option value='9' id='FPZ9' class='hide'>Coder's Lab</option>
 						<option value='10' id='FPZ10' class='hide'>Taroy</option>
 						<option value='11' id='FPZ11' class='hide'>Underground Research Facility</option>
+						<option value='12' id='FPZ12' class='hide'>Overground Research Facility</option>
+						<option value='13' id='FPZ13' class='hide'>Ocean</option>
+						<option value='14' id='FPZ14' class='hide'>Forest</option>
+						<option value='15' id='FPZ15' class='hide'>Desert</option>
+						<option value='16' id='FPZ16' class='hide'>Capital</option>
 					</select>
 					&emsp;&emsp;&emsp;&emsp;Enemy = 
 					<select id='FPE' style='left: 330px;'>
@@ -2006,8 +2113,8 @@ Restrictions: killed all enemies at caves at least once
 		var Qn = 0;
 		var backValue = 0;
 		const totalAch = 55;
-		const totalItems = 78;
-		const totalZones = 11;
+		const totalItems = 114;
+		const totalZones = 16;
 		var maxAnomSlots = 30;
 		var currentAch = 0;
 		var b1 = 0;
@@ -2024,6 +2131,9 @@ Restrictions: killed all enemies at caves at least once
 		var mmef = 1;
 		var SZ1check = 0;
 		var noReward = 0;
+		var consoleText = 0;
+		var playerShieldTr = 0;
+		var curItemPage = 1;
 		function newSave(thing, value){ //thing must be string
 			if (localStorage.getItem(thing)){
 				return true
@@ -2050,6 +2160,58 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function show(id){
 			document.getElementById(id).classList.remove('hide')
+		}
+		function deleteAll(className){
+			if (document.getElementsByClassName(className)){
+				for (i = 0; i < 1; i++){
+					for (object of document.getElementsByClassName(className)){
+						object.remove()
+					}
+					if (document.getElementsByClassName(className).length > 0){
+						i = -1
+					} else {
+						i = 1
+					}
+				}
+			}
+		}
+		function consoleMes(text, type){ // type: 1 = stuff, 2 = normal item, 3 = drone, 4 = game, 
+			if (consoleText > 34){
+				document.getElementById('consoleText1').remove()
+				for (let i = 2; i < 36; i++){
+					document.getElementById('consoleText' + i).style.top = 20 + (i - 1) * 15
+					document.getElementById('consoleText' + i).setAttribute("id", "consoleText" + (i - 1))
+				}
+			} else {
+				consoleText = consoleText + 1
+			}
+			newText = document.getElementById('console').appendChild(document.getElementById('consoleTextNode').cloneNode(true))
+			newText.classList.remove("hide")
+			newText.textContent = text
+			newText.setAttribute("id", "consoleText" + consoleText)
+			newText.style.top = 20 + consoleText * 15
+			if (type === 1){
+				newText.style.background = "#FA0"
+			} else if (type === 2){
+				newText.style.background = "#AAA"
+				console.log(text)
+				if (text.includes("ealthstone")){
+					newText.style.background = "#F60"
+				} else if (text.includes("amagestone")){
+					newText.style.background = "#E22"
+				} else if (text.includes("efencestone")){
+					newText.style.background = "#68B"
+				} else if (text.includes("egenerationstone") || text.includes("egenstone")){
+					newText.style.background = "#F69"
+				} else if (text.includes("S____")){
+					newText.style.background = "#F0F"
+				}
+			} else if (type === 3){
+				newText.style.background = "#79C"
+				//newText.style.fontSize = "5px"
+			} else if (type === 4){
+				newText.style.background = "#7F7"
+			}
 		}
 		function save(){
 			localStorage.ekills = ekills.textContent
@@ -3115,6 +3277,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('mainBack').classList.add('hide')
 			if (parseInt(ekills.textContent) != 0){
 				welcome.textContent = 'Welcome Back :D'
+				consoleMes("Welcome back :)", 1)
 			}
 			var hideStart = document.getElementById('welcome1')
 			hideStart.classList.add('show')
@@ -3192,7 +3355,7 @@ Restrictions: killed all enemies at caves at least once
 				}
 			} else {
 				var e = window.event
-				if ((e.which && e.which == 3 || e.button && e.button == 2 || mmif === 2) && (id.classList.contains('sachet') === false) && (id.classList.contains('workFolder') === false) && (id.classList.contains('lava') === false) && (id.classList.contains('fightPicker69') === false) && (id.classList.contains('ram') === false) && (id.classList.contains('LotG') === false)){
+				if ((e.which && e.which == 3 || e.button && e.button == 2 || mmif === 2) && (id.classList.contains('sachet') === false) && (id.classList.contains('workFolder') === false) && (id.classList.contains('lava') === false) && (id.classList.contains('fightPicker69') === false) && (id.classList.contains('ram') === false) && (id.classList.contains('LotG') === false) && (id.classList.contains('keyP1') === false) && (id.classList.contains('keyP2') === false) && (id.classList.contains('keyP3') === false)){
 					if (id.classList.contains('empty')){
 						
 					} else {
@@ -3244,6 +3407,7 @@ Restrictions: killed all enemies at caves at least once
 				show('g')
 				show('h')
 				document.getElementById('setB').classList.remove('hide')
+				show("console")
 				advent()
 			}
 		}
@@ -3315,6 +3479,8 @@ Restrictions: killed all enemies at caves at least once
 			hide('ame2player')
 			hide('skyplayer')
 			hide('hidingPlayer')
+			hide('shieldPlayer')
+			hide("fallingPlayer")
 			hide('mine')
 			hide('tutli')
 			hide('tutb')
@@ -3380,6 +3546,10 @@ Restrictions: killed all enemies at caves at least once
 			hide('taroy')
 			hide('advZB')
 			hide('z11')
+			hide("z13")
+			hide("z14")
+			hide("z15")
+			hide("z16")
 			for (let i = 23; i < (lore + 1); i++) {
 				document.getElementById('ch'+ i).classList.add('hide')
 			}
@@ -3396,7 +3566,6 @@ Restrictions: killed all enemies at caves at least once
 			hide('eMaxHealth')
 			hide('player')
 			hide('cryingPlayer')
-			hide('fallingPlayer')
 			hide('grass')
 			hide('paper')
 			hide('stick')
@@ -3435,7 +3604,6 @@ Restrictions: killed all enemies at caves at least once
 			hide('mineb')
 			hide('mineb2')
 			hide('mineb3')
-			hide('z11')
 			hide('ch3')
 			hide('ch3b')
 			hide('ch3but')
@@ -3569,6 +3737,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('g2u5')
 			hide('g2u6')
 			hide('g2u7')
+			deleteAll("harpoon")
 			save()
 		}
 		window.addEventListener('keydown', function (e) {
@@ -3769,6 +3938,34 @@ Restrictions: killed all enemies at caves at least once
 				}
 				if (parseInt(localStorage.scientistc) > 0 && parseInt(localStorage.higgsBosonc) > 0 && parseInt(localStorage.coronavirusc) > 0 && parseInt(localStorage.calculator2c) > 0 && parseInt(localStorage.plutoniumc) > 0 && parseInt(localStorage.einsteinc) > 0 && parseInt(localStorage.guard3c) > 0 && parseInt(localStorage.sigmac) > 0){
 					document.getElementById('orf').classList.replace('btny','btng')
+				}
+				if (taroy.classList.contains('btng') && parseInt(localStorage.ufo2c) >= 50){
+					document.getElementById('oceZB').classList.replace('btnr','btny')
+					document.getElementById('oceZB').setAttribute('title',"Ocean: " + (ifFound('item91',1) + ifFound('item92',1) + ifFound('item93',1) + ifFound('item94',1) + ifFound('item95',1) + ifFound('item96',1) + ifFound('item97',1)) + ' out of 7 items found')
+				}
+				if (parseInt(localStorage.z13e1c) > 0 && parseInt(localStorage.z13e2c) > 0 && parseInt(localStorage.z13e3c) > 0 && parseInt(localStorage.z13e4c) > 0 && parseInt(localStorage.z13e5c) > 0 && parseInt(localStorage.z13e6c) > 0 && parseInt(localStorage.z13e7c) > 0 && parseInt(localStorage.z13e8c) > 0){
+					document.getElementById('oceZB').classList.replace('btny','btng')
+				}
+				if (taroy.classList.contains('btng') && localStorage.h2Tr === "1"){
+					document.getElementById('forZB').classList.replace('btnr','btny')
+					document.getElementById('forZB').setAttribute('title',"Forest: " + (ifFound('item98',1) + ifFound('item99',1) + ifFound('item100',1) + ifFound('item101',1) + ifFound('item102',1) + ifFound('item103',1)) + ' out of 6 items found')
+				}
+				if (parseInt(localStorage.z14e1c) > 0 && parseInt(localStorage.z14e2c) > 0 && parseInt(localStorage.z14e3c) > 0 && parseInt(localStorage.z14e4c) > 0 && parseInt(localStorage.z14e5c) > 0 && parseInt(localStorage.z14e6c) > 0 && parseInt(localStorage.z14e7c) > 0 && parseInt(localStorage.z14e8c) > 0){
+					document.getElementById('forZB').classList.replace('btny','btng')
+				}
+				if (taroy.classList.contains('btng') && localStorage.h3Tr === "1"){
+					document.getElementById('desZB').classList.replace('btnr','btny')
+					document.getElementById('desZB').setAttribute('title',"Desert: " + (ifFound('item99',1) + ifFound('item104',1) + ifFound('item105',1) + ifFound('item106',1) + ifFound('item107',1) + ifFound('item114',1)) + ' out of 6 items found')
+				}
+				if (parseInt(localStorage.z13e1c) > 0 && parseInt(localStorage.z15e2c) > 0 && parseInt(localStorage.z15e3c) > 0 && parseInt(localStorage.z15e4c) > 0 && parseInt(localStorage.z15e5c) > 0 && parseInt(localStorage.z15e6c) > 0 && parseInt(localStorage.z15e7c) > 0 && parseInt(localStorage.z15e8c) > 0){
+					document.getElementById('desZB').classList.replace('btny','btng')
+				}
+				if (oceZB.classList.contains('btng') && forZB.classList.contains('btng') && desZB.classList.contains('btng')){
+					document.getElementById('capZB').classList.replace('btnr','btny')
+					document.getElementById('capZB').setAttribute('title',"Capital: " + (ifFound('item108',1) + ifFound('item109',1) + ifFound('item110',1) + ifFound('item111',1) + ifFound('item112',1) + ifFound('item113',1)) + ' out of 6 items found')
+				}
+				if (parseInt(localStorage.z16e1c) > 0 && parseInt(localStorage.z16e2c) > 0 && parseInt(localStorage.z16e3c) > 0 && parseInt(localStorage.z16e4c) > 0 && parseInt(localStorage.z16e5c) > 0 && parseInt(localStorage.z16e6c) > 0 && parseInt(localStorage.z16e7c) > 0 && parseInt(localStorage.z16e8c) > 0){
+					document.getElementById('capZB').classList.replace('btny','btng')
 				}
 			} else if (parseInt(localStorage.gasbyc) > 0 && (localStorage.gasbyL1 === 1) === false){
 				localStorage.gasbyL1 = 1
@@ -4184,15 +4381,15 @@ Restrictions: killed all enemies at caves at least once
 			gravityc.textContent = localStorage.gravityc
 			ant3c.textContent = localStorage.ant3c
 			ec.textContent = localStorage.ec
-			guard2c.textcontent = localStorage.guard2c
-			headcrabc.textcontent = localStorage.headcrabc
-			portalrobotc.textcontent = localStorage.portalrobotc
-			freemanc.textcontent = localStorage.freemanc
-			sci1c.textcontent = localStorage.sci1c
-			sci2c.textcontent = localStorage.sci2c
-			sci3c.textcontent = localStorage.sci3c
-			killerrobotc.textcontent = localStorage.killerrobotc
-			//yc.textcontent = localStorage.yc
+			guard2c.textContent = localStorage.guard2c
+			headcrabc.textContent = localStorage.headcrabc
+			portalrobotc.textContent = localStorage.portalrobotc
+			freemanc.textContent = localStorage.freemanc
+			sci1c.textContent = localStorage.sci1c
+			sci2c.textContent = localStorage.sci2c
+			sci3c.textContent = localStorage.sci3c
+			killerrobotc.textContent = localStorage.killerrobotc
+			//yc.textContent = localStorage.yc
 		}
 		tutzobook.onclick = tutlibr;
 		function tutlibr(){
@@ -5172,10 +5369,12 @@ Restrictions: killed all enemies at caves at least once
 											flashT = 1
 										} else {
 											console.log('Player has now collected ' + localStorage.getItem('item' + itemN) + ' of item ' + itemN)
+											consoleMes("Got " + getItemData(itemN, 0), 2)
 										}
 									} else {
 										localStorage.setItem('item' + itemN, 1)
 										console.log('Player has got their first thing of item ' + itemN)
+										consoleMes("Got " + getItemData(itemN, 0) + " :)", 2)
 									}
 								}
 								itemN = itemN + 1
@@ -5222,6 +5421,7 @@ Restrictions: killed all enemies at caves at least once
 			if (item === 'healthstone2' || item === 'damagestone2' || item === 'defencestone2' || item === 'regenerationstone2'){
 				if (1 === Math.floor(Math.random() * 100000) + 1){
 					item = item + 'a'
+					title = getItemData(item, 1)
 				}
 			}
 			if (dropR <= dropC){
@@ -5239,9 +5439,11 @@ Restrictions: killed all enemies at caves at least once
 								if (localStorage.getItem('item' + itemN)){
 									localStorage.setItem('item' + itemN, parseInt(localStorage.getItem('item' + itemN)) + 1)
 									console.log('Player has now collected ' + localStorage.getItem('item' + itemN) + ' of item ' + itemN)
+									consoleMes("Got " + getItemData(itemN, 0), 2)
 								} else {
 									localStorage.setItem('item' + itemN, 1)
 									console.log('Player has got their first thing of item ' + itemN)
+									consoleMes("Got " + getItemData(itemN, 0) + ":)", 2)
 								}
 							}
 							itemN = itemN + 1
@@ -5345,6 +5547,23 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.att = parseInt(localStorage.att) - 180
 				document.getElementById('we').setAttribute('title','')
 				idrop('vlasergun',"Violet lasergun - Turns out blue light has a too small frequency to do much damage - +180 A", 10000, 1)
+			} else if (we.classList.contains('cannon')){
+				emptySlot("cannon", document.getElementById("we"), "weapon")
+				localStorage.att = parseFloat(localStorage.att) - 150
+				localStorage.def = parseFloat(localStorage.def) - 100
+			} else if (we.classList.contains('stick2')){
+				emptySlot("stick2", document.getElementById("we"), "weapon")
+				localStorage.att = parseFloat(localStorage.att) - 200
+				localStorage.mhp = parseFloat(localStorage.mhp) - 1
+			} else if (we.classList.contains('rocketLauncher')){
+				emptySlot("rocketLauncher", document.getElementById("we"), "weapon")
+				localStorage.att = parseFloat(localStorage.att) - 500
+				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.15
+			} else if (we.classList.contains('gloves')){
+				emptySlot("gloves", document.getElementById("we"), "weapon")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 250
+				localStorage.att = parseFloat(localStorage.att) - 100
+				localStorage.def = parseFloat(localStorage.def) - 100
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5399,6 +5618,10 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.def = parseFloat(localStorage.def) - 40
 				localStorage.reg = parseFloat(localStorage.reg) - 10
 				idrop('glasses2',"Nerdy glasses - ‘Um actually, these are regular glasses,’ says Geckoking - +150 Hp +40 D +10 R", 10000, 1)
+			} else if (he.classList.contains('mane')){
+				emptySlot("mane", document.getElementById("he"), "head")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 200
+				localStorage.att = parseFloat(localStorage.att) - 50
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5440,6 +5663,18 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.def = parseFloat(localStorage.def) - 200
 				document.getElementById('bo').setAttribute('title','Lab coat - Surprisingly doesn’t have any stains after you ‘permanently borrowed’ it - +400 Hp +200 D')
 				idrop('labcoat','', 10000, 1)
+			} else if (bo.classList.contains('paperChest')){
+				emptySlot("paperChest", document.getElementById("bo"), "body")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 2000
+			} else if (bo.classList.contains('fishhide')){
+				emptySlot("fishhide", document.getElementById("bo"), "body")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 1
+				localStorage.att = parseFloat(localStorage.att) - 200
+				localStorage.def = parseFloat(localStorage.def) - 200
+			} else if (bo.classList.contains('cape')){
+				emptySlot("cape", document.getElementById("bo"), "body")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 6900
+				localStorage.def = parseFloat(localStorage.def) - 69
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5457,7 +5692,7 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.def = parseFloat(localStorage.def) - 3
 				cooldownspeed.textContent = parseFloat(cooldownspeed.textContent) - 0.15
 				document.getElementById('le').setAttribute('title','')	
-				idrop('stilts','Stilts - It may look impractical but it, it is - +5 M +2 D +15% Move Cooldowns', 10000, 1)
+				idrop('stilts','Stilts - It may look impractical but it, it is - +5 H +2 D +15% Move Cooldowns', 10000, 1)
 			} else if (le.classList.contains('pants')){
 				document.getElementById('le').classList.replace('pants','legs')
 				localStorage.mhp = parseFloat(localStorage.mhp) - 10
@@ -5477,6 +5712,11 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.att = parseFloat(localStorage.att) - 50
 				document.getElementById('le').setAttribute('title','')	
 				idrop('labpants','Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D', 10000, 1)
+			} else if (le.classList.contains('pegLeg')){
+				emptySlot("pegLeg", document.getElementById("le"), "legs")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 200
+				localStorage.att = parseFloat(localStorage.att) - 50
+				localStorage.def = parseFloat(localStorage.def) - 100
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
@@ -5525,7 +5765,16 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.def = parseFloat(localStorage.def) - 40
 				document.getElementById('sh').setAttribute('title','')
 				idrop('labboot','Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D', 10000, 1)
-			}
+			} else if (sh.classList.contains('brick')){
+				localStorage.def = parseFloat(localStorage.def) - 250
+				localStorage.att = parseFloat(localStorage.att) - 250
+				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.10
+				emptySlot("brick", document.getElementById("sh"), "shoe")
+			} else if (sh.classList.contains('tyre')){
+				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.10
+				blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) - 0.20
+				emptySlot("tyre", document.getElementById("sh"), "shoe")
+			}			
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
 			def.textContent = localStorage.def
@@ -5708,7 +5957,7 @@ Restrictions: killed all enemies at caves at least once
 					b.classList.remove('access')
 					localStorage.reg = parseFloat(localStorage.reg) + 1
 					iv2.setAttribute('title','')
-					document.getElementById('a1').setAttribute('title','Right Wing - You still can’t fly without the other half :c - +1 D')
+					document.getElementById('a1').setAttribute('title','Air - *effort* - +1 R')
 				} else if (iv2.classList.contains('air') && a2.classList.contains('access')){
 					iv2.classList.remove('air')
 					iv2.classList.add('empty')
@@ -6306,6 +6555,147 @@ Restrictions: killed all enemies at caves at least once
 					localStorage.def = parseFloat(localStorage.def) + 40
 					iv2.setAttribute('title','')
 					document.getElementById('sh').setAttribute('title','Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D')
+				} else if ((iv2.classList.contains('keyP1') || iv2.classList.contains('keyP2') || iv2.classList.contains('keyP3')) && ifFound('item88') && ifFound('item89') && ifFound('item90')){
+					iv2.classList.remove('keyP1', 'keyP2', 'keyP3')
+					iv2.classList.add('empty')
+					localStorage.keyDone = 1
+					iv2.setAttribute('title','')
+					for (const vent of document.getElementsByClassName("vent")){
+						if (vent.classList.contains("keyP1") || vent.classList.contains("keyP2") || vent.classList.contains("keyP3")){
+							vent.classList.remove('keyP1', 'keyP2', 'keyP3')
+							vent.classList.add('empty')
+							vent.setAttribute('title','')
+						}
+					}
+				} else if (iv2.classList.contains('scale1') && emptyAccess()){
+					iv2.classList.replace('scale1','empty')
+					iv2.setAttribute('title','')
+					localStorage.def = parseFloat(localStorage.def) + 100
+					localStorage.att = parseFloat(localStorage.att) + 50
+					equipAccess('scale1',getItemData("scale1",1))
+				} else if (iv2.classList.contains('sharkNecklace') && emptyAccess()){
+					iv2.classList.replace('sharkNecklace','empty')
+					iv2.setAttribute('title','')
+					localStorage.def = parseFloat(localStorage.def) - 150
+					localStorage.att = parseFloat(localStorage.att) + 150
+					equipAccess('sharkNecklace',getItemData("sharkNecklace",1))
+				} else if (iv2.classList.contains('oxygenBottle') && emptyAccess()){
+					iv2.classList.replace('oxygenBottle','empty')
+					iv2.setAttribute('title','')
+					localStorage.reg = parseFloat(localStorage.reg) + 150
+					equipAccess('oxygenBottle',getItemData("oxygenBottle",1))
+				} else if (iv2.classList.contains('cannon') && we.classList.contains('weapon')){
+					equipItem(iv2, "cannon", "we", "weapon")
+					localStorage.att = parseFloat(localStorage.att) + 150
+					localStorage.def = parseFloat(localStorage.def) + 100
+				} else if (iv2.classList.contains('pegLeg') && le.classList.contains('legs')){
+					equipItem(iv2, "pegLeg", "le", "legs")
+					localStorage.mhp = parseFloat(localStorage.mhp) + 200
+					localStorage.att = parseFloat(localStorage.att) + 50
+					localStorage.def = parseFloat(localStorage.def) + 100
+				} else if (iv2.classList.contains('scale2') && emptyAccess()){
+					iv2.classList.replace('scale2','empty')
+					iv2.setAttribute('title','')
+					localStorage.def = parseFloat(localStorage.def) + 300
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.01
+					equipAccess('scale2',getItemData("scale2",1))
+				} else if (iv2.classList.contains('banana') && emptyAccess()){
+					iv2.classList.replace('banana','empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 250
+					localStorage.reg = parseFloat(localStorage.reg) + 100
+					equipAccess('banana',getItemData("banana",1))
+				} else if (iv2.classList.contains('venom') && emptyAccess()){
+					iv2.classList.replace('venom','empty')
+					iv2.setAttribute('title','')
+					localStorage.att = parseFloat(localStorage.att) + 150
+					localStorage.reg = parseFloat(localStorage.reg) - 100
+					equipAccess('venom',getItemData("venom",1))
+				} else if (iv2.classList.contains('mane') && he.classList.contains('head')){
+					equipItem(iv2, "mane", "he", "head")
+					localStorage.mhp = parseFloat(localStorage.mhp) + 200
+					localStorage.att = parseFloat(localStorage.att) + 50
+				} else if (iv2.classList.contains('seed') && emptyAccess()){
+					iv2.classList.replace('seed','empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) - 3000
+					localStorage.reg = parseFloat(localStorage.reg) + 500
+					equipAccess('seed',getItemData("seed",1))
+				} else if (iv2.classList.contains('stick2') && we.classList.contains('weapon')){
+					equipItem(iv2, "stick2", "we", "weapon")
+					localStorage.att = parseFloat(localStorage.att) + 200
+					localStorage.mhp = parseFloat(localStorage.mhp) + 1
+				} else if (iv2.classList.contains('tooth') && emptyAccess()){
+					iv2.classList.replace('tooth','empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 1000
+					localStorage.att = parseFloat(localStorage.att) + 1
+					equipAccess('tooth',getItemData("tooth",1))
+				} else if (iv2.classList.contains('paperChest') && bo.classList.contains('body')){
+					equipItem(iv2, "paperChest", "bo", "body")
+					localStorage.mhp = parseFloat(localStorage.mhp) + 2000
+				} else if (iv2.classList.contains('brick') && sh.classList.contains('shoe')){
+					equipItem(iv2, "brick", "sh", "shoe")
+					localStorage.def = parseFloat(localStorage.def) + 250
+					localStorage.att = parseFloat(localStorage.att) + 250
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.10
+				} else if (iv2.classList.contains('coconut') && emptyAccess()){
+					iv2.classList.replace('coconut','empty')
+					iv2.setAttribute('title','')
+					localStorage.reg = parseFloat(localStorage.reg) + 100
+					localStorage.att = parseFloat(localStorage.att) + 100
+					equipAccess('coconut',getItemData("coconut",1))
+				} else if (iv2.classList.contains('fishhide') && bo.classList.contains('body')){
+					equipItem(iv2, "fishhide", "bo", "body")
+					localStorage.mhp = parseFloat(localStorage.mhp) + 1
+					localStorage.att = parseFloat(localStorage.att) + 200
+					localStorage.def = parseFloat(localStorage.def) + 200
+				} else if (iv2.classList.contains('rocketLauncher') && we.classList.contains('weapon')){
+					equipItem(iv2, "rocketLauncher", "we", "weapon")
+					localStorage.att = parseFloat(localStorage.att) + 500
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.15
+				} else if (iv2.classList.contains('tyre') && sh.classList.contains('shoe')){
+					equipItem(iv2, "tyre", "sh", "shoe")
+					attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) - 0.10
+					blockcoolspeed.textContent = parseFloat(blockcoolspeed.textContent) + 0.20
+				} else if (iv2.classList.contains('bottle') && emptyAccess()){
+					iv2.classList.replace('bottle','empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 250
+					localStorage.reg = parseFloat(localStorage.reg) + 50
+					localStorage.def = parseFloat(localStorage.def) + 50
+					localStorage.att = parseFloat(localStorage.att) + 50
+					equipAccess('bottle',getItemData("bottle",1))
+				} else if (iv2.classList.contains('pillow') && emptyAccess()){
+					iv2.classList.replace('pillow','empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 350
+					localStorage.reg = parseFloat(localStorage.reg) + 100
+					equipAccess('pillow',getItemData("pillow",1))
+				} else if (iv2.classList.contains('cape') && bo.classList.contains('body')){
+					equipItem(iv2, "cape", "bo", "body")
+					localStorage.mhp = parseFloat(localStorage.mhp) + 6900
+					localStorage.def = parseFloat(localStorage.def) + 69
+				} else if (iv2.classList.contains('tie') && emptyAccess()){
+					iv2.classList.replace('tie','empty')
+					iv2.setAttribute('title','')
+					localStorage.mhp = parseFloat(localStorage.mhp) + 500
+					localStorage.def = parseFloat(localStorage.def) + 250
+					equipAccess('tie',getItemData("tie",1))
+				} else if (iv2.classList.contains('gloves') && we.classList.contains('weapon')){
+					equipItem(iv2, "gloves", "we", "weapon")
+					localStorage.mhp = parseFloat(localStorage.mhp) + 250
+					localStorage.att = parseFloat(localStorage.att) + 100
+					localStorage.def = parseFloat(localStorage.def) + 100
+				// else if (iv2.classList.contains('AA') && BB.classList.contains('CC')){
+				//	equipItem(iv2, "AA", "BB", "CC")
+				//	localStorage. = parseFloat(localStorage.)
+				//} else if (iv2.classList.contains('AA') && emptyAccess()){
+				//	iv2.classList.replace('AA','empty')
+				//	iv2.setAttribute('title','')
+				//	localStorage. = parseFloat(localStorage.)
+				//	equipAccess('AA',getItemData("AA",1))
+				//}
 				} else {
 					if (iv2.classList.item(1) !== 'empty'){
 						idrop(iv2.classList.item(1),iv2.getAttribute('title'),10000,1)
@@ -6320,6 +6710,13 @@ Restrictions: killed all enemies at caves at least once
 				save()
 				//itemsHere
 			}
+		}
+		function equipItem(iv2, item, spot, spotClass){
+			spot = document.getElementById(spot)
+			iv2.classList.replace(item,'empty')
+			spot.classList.replace(spotClass,item)
+			iv2.setAttribute('title','')
+			spot.setAttribute('title',getItemData(item,1))
 		}
 		function emptyAccess(){
 			var yes = 0
@@ -6498,12 +6895,66 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.reg = parseFloat(localStorage.reg) - 50
 				slotId.setAttribute('title','')
 				idrop('toiletpaper',"Roll of toilet paper - Ah, the memories - +50 R", 10000, 1)
+			} else if (slotId.classList.contains('scale1')){
+				emptySlot("scale1", slotId, "access")
+				localStorage.def = parseFloat(localStorage.def) - 100
+				localStorage.att = parseFloat(localStorage.att) - 50
+			} else if (slotId.classList.contains('sharkNecklace')){
+				emptySlot("sharkNecklace", slotId, "access")
+				localStorage.def = parseFloat(localStorage.def) + 150
+				localStorage.att = parseFloat(localStorage.att) - 150
+			} else if (slotId.classList.contains('oxygenBottle')){
+				emptySlot("oxygenBottle", slotId, "access")
+				localStorage.reg = parseFloat(localStorage.reg) - 150
+			} else if (slotId.classList.contains('scale2')){
+				emptySlot("scale2", slotId, "access")
+				localStorage.def = parseFloat(localStorage.def) - 300
+				attackcoolspeed.textContent = parseFloat(attackcoolspeed.textContent) + 0.01
+			} else if (slotId.classList.contains('banana')){
+				emptySlot("banana", slotId, "access")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 250
+				localStorage.reg = parseFloat(localStorage.reg) - 100
+			} else if (slotId.classList.contains('venom')){
+				emptySlot("venom", slotId, "access")
+				localStorage.att = parseFloat(localStorage.att) - 150
+				localStorage.reg = parseFloat(localStorage.reg) + 100
+			} else if (slotId.classList.contains('seed')){
+				emptySlot("seed", slotId, "access")
+				localStorage.mhp = parseFloat(localStorage.mhp) + 3000
+				localStorage.reg = parseFloat(localStorage.reg) - 500
+			} else if (slotId.classList.contains('tooth')){
+				emptySlot("tooth", slotId, "access")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 1000
+				localStorage.att = parseFloat(localStorage.att) - 1
+			} else if (slotId.classList.contains('coconut')){
+				emptySlot("coconut", slotId, "access")
+				localStorage.reg = parseFloat(localStorage.reg) - 100
+				localStorage.att = parseFloat(localStorage.att) - 100
+			} else if (slotId.classList.contains('bottle')){
+				emptySlot("bottle", slotId, "access")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 250
+				localStorage.reg = parseFloat(localStorage.reg) - 50
+				localStorage.def = parseFloat(localStorage.def) - 50
+				localStorage.att = parseFloat(localStorage.att) - 50
+			} else if (slotId.classList.contains('pillow')){
+				emptySlot("pillow", slotId, "access")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 350
+				localStorage.reg = parseFloat(localStorage.reg) - 100
+			} else if (slotId.classList.contains('tie')){
+				emptySlot("tie", slotId, "access")
+				localStorage.mhp = parseFloat(localStorage.mhp) - 500
+				localStorage.def = parseFloat(localStorage.def) - 250
 			}
 			mhp.textContent = localStorage.mhp
 			att.textContent = localStorage.att
 			def.textContent = localStorage.def
 			reg.textContent = localStorage.reg
 			save()
+		}
+		function emptySlot(item, slot, end){
+			slot.classList.replace(item,end)
+			slot.setAttribute('title','')
+			idrop(item,getItemData(item,1), 10000, 1)
 		}
 		function enemykill(z){
 			playSound("enemydeathS.mp3")
@@ -6593,6 +7044,34 @@ Restrictions: killed all enemies at caves at least once
 		function playerdead(){
 			if (document.getElementById('adv').classList.contains('hide') && document.getElementById('invent').classList.contains('hide') && document.getElementById('dronebuild').classList.contains('hide') && document.getElementById('gamefeature').classList.contains('hide') && document.getElementById('s&s').classList.contains('hide')){
 				playSound('edeathsound.mp4')
+				let x = Math.floor(Math.random() * 1000)
+				if (x === 1){
+					consoleMes("RARE_DEATH_MESSAGE",1)
+				} else if (x < 99){
+					consoleMes("You dieded :(",1)
+				} else if (x < 199){
+					consoleMes("You got owned",1)
+				} else if (x < 299){
+					consoleMes("You fainted",1)
+				} else if (x < 349){
+					consoleMes("Grind more to win",1)
+				} else if (x < 399){
+					consoleMes("You have skill issue",1)
+				} else if (x < 449){
+					consoleMes("You nonwin",1)
+				} else if (x < 499){
+					consoleMes("You failed",1)
+				} else if (x < 524){
+					consoleMes("You ****",1)
+				} else if (x < 549){
+					consoleMes("I won :)",1)
+				} else if (x < 574){
+					consoleMes("yourSkill = 0;",1)
+				} else if (x < 599){
+					consoleMes("Mission: Failed",1)
+				} else {
+					consoleMes("You lost :(",1)
+				}
 			} else {
 				
 			}
@@ -7026,21 +7505,21 @@ Restrictions: killed all enemies at caves at least once
 							advc.textContent = parseInt(advC.textContent)
 							var qe = setTimeout(enki,500,advc.textContent)
 						} else {
-						var qe = setTimeout(gratt,50)
-						ae = ae + 1
-						if (ae === 24){
-							if(parseFloat(hp.textContent) > 0){					
-								ae = 0
-								pdamaged(0)
-								hp.textContent = parseFloat(hp.textContent) - parseFloat(mhp.textContent) * 0.101
-								if (parseFloat(hp.textContent) > 0){
-									document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+							var qe = setTimeout(gratt,50)
+							ae = ae + 1
+							if (ae === 24){
+								if(parseFloat(hp.textContent) > 0){					
+									ae = 0
+									pdamaged(0)
+									hp.textContent = parseFloat(hp.textContent) - parseFloat(mhp.textContent) * 0.101
+									if (parseFloat(hp.textContent) > 0){
+										document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+									}
 								}
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 							}
-							hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
 						}
 					}
-				}
 				} else if (x === 6){
 					var a = document.getElementById('eraser')
 					a.classList.add('show')
@@ -7654,6 +8133,9 @@ Restrictions: killed all enemies at caves at least once
 				ereg.textContent = 0.5
 				document.getElementById("eHealth").style.width = "250px";
 				document.getElementById("health").style.width = "250px";
+				document.getElementById("apple").style.height = "225px"
+				document.getElementById("apple").style.left = "625px"
+				document.getElementById("apple").style.top = "275px"
 				var re = setTimeout(gratt,50)
 				var ae = 0
 				function gratt() {
@@ -12665,6 +13147,7 @@ Restrictions: killed all enemies at caves at least once
 					}
 					document.getElementById('jetpackguy').style = 'height: 110px; width: 90px'
 					document.getElementById('fallingPlayer').style.left = '225px'
+					document.getElementById('fallingPlayer').style.top = '44px'
 					playerPos = 1
 					gravityAttack = 0
 					var pos = Math.floor(Math.random() * 3)
@@ -13868,6 +14351,1560 @@ Restrictions: killed all enemies at caves at least once
 				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
 			}
 		}
+		function getKeyItem(num){
+			if (idrop("keyP" + num, getItemData("keyP" + num, 1), 10000)){
+				hide("keyP" + num + "thing")
+			}
+		}
+		oceZB.onclick = ocebat;
+		function ocebat(enemyN, thingTr){
+			if (thingTr || taroy.classList.contains('btng') && parseInt(localStorage.ufo2c) >= 50){
+				let x = enemyFightNum(13)
+				if (enemyN < 9 && enemyN > 0){
+					x = enemyN
+				}
+				show("z13")
+				show("z13b")
+				hide("diverBack")
+				document.getElementById("z13e7").style.background = "oceanFight"
+				for (let i = 1; i < 9; i++){
+					hide("z13e" + i)
+				}
+				if (ifFound("item88")){
+					hide("keyP1thing")
+				}
+				sadvmus(1)
+				setStats()
+				startBat()
+				if (x === 1){
+					show('z13e1')
+					setEStats(30000, 1300, 1200, 350)
+					battle(0, 16)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(13)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('z13e1')
+							newSave('z13e1c',0)
+							idrop("scale1",getItemData("scale1", 1), 200)
+							idrop("scale2",getItemData("scale2", 1), 100)
+							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							localStorage.z13e1c = parseInt(localStorage.z13e1c) + 1
+							KBify(localStorage.z13e1c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(13)){
+								setTimeout(ocebat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+				if (x === 2){
+					show('z13e2')
+					setEStats(30000, 1100, 400, 100)
+					battle(0, 10, 0)
+					function battle(ae, sp, be){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							be = be + 1
+							if (be === 40 && sp >= 5){
+								be = 0
+								sp = sp - 1
+							}
+							setTimeout(battle, 50, ae, sp, be)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(13)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('z13e2')
+							newSave('z13e2c',0)
+							idrop("sharkNecklace",getItemData("sharkNecklace", 1), 200)
+							idrop("scale2",getItemData("scale2", 1), 100)
+							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							localStorage.z13e2c = parseInt(localStorage.z13e2c) + 1
+							KBify(localStorage.z13e2c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(13)){
+								setTimeout(ocebat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+				if (x === 3){
+					show('z13e3')
+					setEStats(35000, 1300, 500, 200)
+					battle(0, 10)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(13)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('z13e3')
+							newSave('z13e3c',0)
+							localStorage.z13e3c = parseInt(localStorage.z13e3c) + 1
+							idrop("scale2",getItemData("scale2", 1), 100)
+							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							KBify(localStorage.z13e3c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(13)){
+								setTimeout(ocebat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+				if (x === 4){
+					show('z13e4')
+					show('diverBack')
+					show("fallingPlayer")
+					document.getElementById('fallingPlayer').style.left = '200px'
+					document.getElementById('fallingPlayer').style.top = '144px'
+					playerPos = 2 //(l=0) d=1 r=2 u=3
+					playerShieldTr = 0
+					hide("player")
+					setEStats(30000, 2600, 900, 300)
+					battle(-10,0)
+					function battle(ch, ae){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ch = ch + 1
+							if (((ch + (ae / 5)) / 20) >= Math.random()){
+								let harpoon = document.getElementById('diverProj').appendChild(document.getElementById('harpoonNode').cloneNode(true))
+								harpoon.setAttribute("id",'Haproropn')
+								harpoon.classList.replace("hide","harpoon")
+								harpoon.setAttribute("value", ((Math.floor(Math.random() * 3) + 1) * 10))
+								harpoon.style.transform = "rotate(" + Math.atan((125 - (100 * parseInt(harpoon.getAttribute("value")[0]))) / -270) + "rad)"
+								ch = -5
+								if (ae + 1 <= 15){
+									ae = ae + 1
+								}
+							}
+							for (harpoon of document.getElementsByClassName("harpoon")){
+								let dir = parseInt(harpoon.getAttribute("value")[0])
+								let t = parseInt(harpoon.getAttribute("value").slice(1))
+								if ((t >= 13 || t >= 12 && playerShieldTr === 1) && t <= 17 && dir === playerPos){
+									if (playerShieldTr === 0){
+										eattack()
+									} else {
+										playerShieldTr = 0
+										hide("shieldPlayer")
+									}
+									harpoon.classList.add("harpoonDead")
+								} else if (t >= 24){
+									harpoon.classList.add("harpoonDead")
+								} else {
+									t = t + 1
+									harpoon.style.left = (575 - t * 18) + "px"
+									harpoon.style.top = (375 + ((125 - dir * 100) / (15)) * t) + "px"
+									harpoon.setAttribute("value", dir + "" + t)
+								}
+							}
+							deleteAll("harpoonDead")
+							setTimeout(battle, 50, ch, ae)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(13)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('z13e4')
+							newSave('z13e4c',0)
+							deleteAll("harpoon")
+							localStorage.z13e4c = parseInt(localStorage.z13e4c) + 1
+							KBify(localStorage.z13e4c)
+							idrop("oxygenBottle",getItemData("oxygenBottle", 1), 200)
+							idrop("scale2",getItemData("scale2", 1), 100)
+							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(13)){
+								setTimeout(ocebat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('fallingPlayer')
+							deleteAll("harpoon")
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+				if (x === 5){
+					show('z13e5')
+					setEStats(10000, 1700, 500, 1000)
+					battle(0, 14)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(13)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('z13e5')
+							newSave('z13e5c',0)
+							localStorage.z13e5c = parseInt(localStorage.z13e5c) + 1
+							idrop("scale2",getItemData("scale2", 1), 100)
+							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							KBify(localStorage.z13e5)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(13)){
+								setTimeout(ocebat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+				if (x === 6){
+					show('z13e6')
+					setEStats(30000, 1200, 900, 500)
+					battle(0, 80)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === 7 || ae === 14 || ae === 21 || ae === 28 || ae === 35 || ae === 42 || ae === 49 || ae === 56){
+								eattack()
+							}
+							if (ae === sp){
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(13)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							hide('z13e6')
+							newSave('z13e6c',0)
+							localStorage.z13e6c = parseInt(localStorage.z13e6c) + 1
+							idrop("scale2",getItemData("scale2", 1), 100)
+							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							KBify(localStorage.z13e6c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(13)){
+								setTimeout(ocebat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+				if (x === 7){
+					show('z13e7')
+					hide("z13b")
+					document.getElementById('z13e7').setAttribute("src", "oceanFight.png")
+					setEStats(30000, "10%", 1500, 1)
+					battle(0, 48)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							ae = ae + 1
+							if (ae === sp){
+								pdamaged(0)
+								hp.textContent = parseFloat(hp.textContent) - parseFloat(mhp.textContent) * 0.101
+								document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+								hp2.textContent = Math.round(parseFloat(hp.textContent) * 10) / 10
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(13)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(400)
+							document.getElementById('z13e7').setAttribute("src", "oceanLose.png")
+							newSave('z13e7c',0)
+							localStorage.z13e7c = parseInt(localStorage.z13e7c) + 1
+							idrop("scale2",getItemData("scale2", 1), 100)
+							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							KBify(localStorage.z13e7c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(13)){
+								setTimeout(ocebat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+				if (x === 8){
+					show('z13e8')
+					show('diverBack')
+					show("fallingPlayer")
+					document.getElementById('fallingPlayer').style.left = '200px'
+					document.getElementById('fallingPlayer').style.top = '144px'
+					playerPos = 2 //(l=0) d=1 r=2 u=3
+					playerShieldTr = 0
+					hide("player")
+					setEStats(40000, 2300, 900, 0)
+					battle(0)
+					function battle(ae){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae >= 35 && ae < 40){
+								let harpoon = document.getElementById('diverProj').appendChild(document.getElementById('cballNode').cloneNode(true))
+								harpoon.setAttribute("id",'Haproropn')
+								harpoon.classList.replace("hide","harpoon")
+								harpoon.setAttribute("value", ((Math.floor(Math.random() * 3) + 1) * 10))
+								if (Math.random() < 0.001){
+									harpoon.setAttribute("src","cannonball2.png")
+								}
+							} else if (ae === 40){
+								ae = 0
+							}
+							for (harpoon of document.getElementsByClassName("harpoon")){
+								let dir = parseInt(harpoon.getAttribute("value")[0])
+								let t = parseInt(harpoon.getAttribute("value").slice(1))
+								if ((t >= 13 || t >= 12 && playerShieldTr === 1) && t <= 17 && dir === playerPos){
+									if (playerShieldTr === 0){
+										eattack()
+									} else {
+										playerShieldTr = 0
+										hide("shieldPlayer")
+									}
+									harpoon.classList.add("harpoonDead")
+								} else if (t >= 24){
+									harpoon.classList.add("harpoonDead")
+								} else {
+									t = t + 1
+									harpoon.style.left = (575 - t * 18) + "px"
+									harpoon.style.top = (375 + ((125 - dir * 100) / (15)) * t) + "px"
+									harpoon.setAttribute("value", dir + "" + t)
+								}
+							}
+							deleteAll("harpoonDead")
+							setTimeout(battle, 50, ae)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(13)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							hide('z13e8')
+							newSave('z13e8c',0)
+							localStorage.z13e8c = parseInt(localStorage.z13e8c) + 1
+							deleteAll("harpoon")
+							idrop("cannon",getItemData("cannon", 1), 400)
+							idrop("pegLeg",getItemData("pegLeg", 1), 400)
+							idrop("scale2",getItemData("scale2", 1), 100)
+							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							KBify(localStorage.z13e8c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(13)){
+								setTimeout(ocebat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('fallingPlayer')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+			} else {
+				newSave('ach12p', 0)
+				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
+			}
+		}
+		var tarDis = 0;
+		forZB.onclick = forbat;
+		function forbat(enemyN, thingTr){
+			if (thingTr || taroy.classList.contains('btng') && localStorage.h2Tr === "1"){
+				x = enemyFightNum(14)
+				if (enemyN < 9 && enemyN > 0){
+					x = enemyN
+				}
+				for (let i = 1; i < 9; i++){
+					hide("z14e" + i)
+				}
+				if (ifFound("item89")){
+					hide("keyP2thing")
+				}
+				show("z14")
+				sadvmus(1)
+				setStats()
+				startBat()
+				if (x === 1){
+					show('z14e1')
+					setEStats(30000, 2400, 500, 0)
+					battle(0, 16)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(14)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(450)
+							hide('z14e1')
+							newSave('z14e1c',0)
+							localStorage.z14e1c = parseInt(localStorage.z14e1c) + 1
+							idrop("tooth",getItemData("tooth", 1), 100)
+							KBify(localStorage.z14e1c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(14)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 2){
+					show('z14e2')
+					setEStats(30000, 1600, 1000, 400)
+					battle(0, 14)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(14)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(450)
+							hide('z14e2')
+							newSave('z14e2c',0)
+							localStorage.z14e2c = parseInt(localStorage.z14e2c) + 1
+							idrop("tooth",getItemData("tooth", 1), 100)
+							KBify(localStorage.z14e2c)
+							idrop("banana",getItemData("banana", 1), 200)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(14)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 3){
+					show('z14e3')
+					document.getElementById("z14e3").style.left = "625px"
+					tarDis = 0
+					setEStats(40000, 2500, 1500, 300)
+					battle()
+					function battle(){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							tarDis = tarDis + 1
+							document.getElementById("z14e3").style.left = (625 - 350 * Math.abs(Math.sin(tarDis * Math.PI / 22))) + "px"
+							if (tarDis === 11){
+								eattack()
+								tarDis = -11
+							}
+							setTimeout(battle, 50)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(14)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(450)
+							hide('z14e3')
+							newSave('z14e3c',0)
+							localStorage.z14e3c = parseInt(localStorage.z14e3c) + 1
+							idrop("tooth",getItemData("tooth", 1), 100)
+							KBify(localStorage.z14e3c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(14)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 4){
+					show('z14e4')
+					setEStats(30000, 1400, 700, 200)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								if (eattack(2) === false){
+									if (Math.random() < 0.333){
+										reg.textContent = parseInt(reg.textContent) - 100
+									} else if (Math.random() < 0.5){
+										att.textContent = parseInt(att.textContent) - 100
+									} else {
+										def.textContent = parseInt(def.textContent) - 100
+									}
+								}
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(14)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(450)
+							hide('z14e4')
+							newSave('z14e4c',0)
+							localStorage.z14e4c = parseInt(localStorage.z14e4c) + 1
+							idrop("tooth",getItemData("tooth", 1), 100)
+							idrop("venom",getItemData("venom", 1), 200)
+							KBify(localStorage.z14e4c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(14)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 5){
+					show('z14e5')
+					setEStats(30000, 2800, 2300, 0)
+					battle(0, 30)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(14)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(450)
+							hide('z14e5')
+							newSave('z14e5c',0)
+							localStorage.z14e5c = parseInt(localStorage.z14e5c) + 1
+							idrop("tooth",getItemData("tooth", 1), 100)
+							idrop("mane",getItemData("mane", 1), 200)
+							KBify(localStorage.z14e5c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(14)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 6){
+					show('z14e6')
+					setEStats(20000, 2200, 1000, 5000)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(14)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(450)
+							hide('z14e6')
+							newSave('z14e6c',0)
+							localStorage.z14e6c = parseInt(localStorage.z14e6c) + 1
+							idrop("tooth",getItemData("tooth", 1), 100)
+							idrop("seed",getItemData("seed", 1), 200)
+							KBify(localStorage.z14e6c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(14)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 7){
+					show('z14e7')
+					setEStats(25000, 1600, 600, 100)
+					battle(0, 80)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							ae = ae + 1
+							if (ae > 60 && ae <= 80){
+								let dam = Math.floor(parseFloat(hp.textContent) * 0.0125)
+								hp.textContent = parseFloat(hp.textContent) - dam
+								ehp.textContent = parseFloat(ehp.textContent) + dam
+							}
+							regen()
+							if (ae === 20 || ae === 40 || ae === 60 || ae === 80){
+								eattack()
+								if (ae === 80){
+									ae = 0
+								}
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(14)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(450)
+							hide('z14e7')
+							newSave('z14e7c',0)
+							localStorage.z14e7c = parseInt(localStorage.z14e7c) + 1
+							idrop("tooth",getItemData("tooth", 1), 100)
+							KBify(localStorage.z14e7c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(14)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 8){
+					show('z14e8')
+					setEStats(45000, 6000, 2000, 0)
+					battle(0, 100)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(14)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(700)
+							hide('z14e8')
+							newSave('z14e8c',0)
+							localStorage.z14e8c = parseInt(localStorage.z14e8c) + 1
+							idrop("stick2",getItemData("stick2", 1), 200)
+							idrop("tooth",getItemData("tooth", 1), 100)
+							KBify(localStorage.z14e8c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(14)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+			} else {
+				newSave('ach12p', 0)
+				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
+			}
+		}
+		desZB.onclick = desbat;
+		function desbat(enemyN, thingTr){
+			if (thingTr || taroy.classList.contains('btng') && localStorage.h3Tr === "1"){
+				x = enemyFightNum(15)
+				if (enemyN < 9 && enemyN > 0){
+					x = enemyN
+				}
+				for (let i = 1; i < 9; i++){
+					hide("z15e" + i)
+				}
+				if (ifFound("item90")){
+					hide("keyP3thing")
+				}
+				show("z15")
+				sadvmus(1)
+				setStats()
+				startBat()
+				if (x === 1){
+					show('z15e1')
+					setEStats(25000, 1700, -1000, 1000)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(15)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+							hide('z15e1')
+							newSave('z15e1c',0)
+							localStorage.z15e1c = parseInt(localStorage.z15e1c) + 1
+							idrop("fishhide",getItemData("fishhide", 1), 100)
+							KBify(localStorage.z15e1c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(15)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 2){
+					show('z15e2')
+					setEStats(60000, 1800, 0, 0)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(15)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+							hide('z15e2')
+							newSave('z15e2c',0)
+							localStorage.z15e2c = parseInt(localStorage.z15e2c) + 1
+							idrop("fishhide",getItemData("fishhide", 1), 100)
+							KBify(localStorage.z15e2c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(15)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 3){
+					show('z15e3')
+					setEStats(30000, 1400, 700, 200)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								if (eattack(2) === false){
+									reg.textContent = parseInt(reg.textContent) - 35
+									def.textContent = parseInt(def.textContent) - 35
+									att.textContent = parseInt(att.textContent) - 35
+								}
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(15)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+							hide('z15e3')
+							newSave('z15e3c',0)
+							localStorage.z15e3c = parseInt(localStorage.z15e3c) + 1
+							idrop("venom",getItemData("venom", 1), 200)
+							idrop("fishhide",getItemData("fishhide", 1), 100)
+							KBify(localStorage.z15e3c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(15)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 4){
+					show('z15e4')
+					setEStats(40000, 2000, 1600, 0)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(15)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+							hide('z15e4')
+							newSave('z15e4c',0)
+							localStorage.z15e4c = parseInt(localStorage.z15e4c) + 1
+							idrop("paperChest",getItemData("paperChest", 1), 200)
+							idrop("fishhide",getItemData("fishhide", 1), 100)
+							KBify(localStorage.z15e4c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(15)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 5){
+					show('z15e5')
+					setEStats(60000, 2400, 2000, 0)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(15)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+							hide('z15e5')
+							newSave('z15e5c',0)
+							localStorage.z15e5c = parseInt(localStorage.z15e5c) + 1
+							idrop("brick",getItemData("brick", 1), 200)
+							idrop("fishhide",getItemData("fishhide", 1), 100)
+							KBify(localStorage.z15e5c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(15)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 6){
+					show('z15e6')
+					setEStats(35000, 1300, 1700, 100)
+					battle(0, 8)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(15)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+							hide('z15e6')
+							newSave('z15e6c',0)
+							localStorage.z15e6c = parseInt(localStorage.z15e6c) + 1
+							idrop("gloves",getItemData("gloves", 1), 200)
+							idrop("fishhide",getItemData("fishhide", 1), 100)
+							KBify(localStorage.z15e6c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(15)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 7){
+					show('z15e7')
+					setEStats(35000, 2400, 700, 100)
+					battle(0, 30)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							ae = ae + 1
+							regen()
+							if (ae === sp){
+								let heal = eattack(1)
+								ehp.textContent = parseFloat(ehp.textContent) + heal * 0.5
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(15)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+							hide('z15e7')
+							newSave('z15e7c',0)
+							localStorage.z15e7c = parseInt(localStorage.z15e7c) + 1
+							idrop("fishhide",getItemData("fishhide", 1), 100)
+							KBify(localStorage.z15e7c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(15)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 8){
+					show('z15e8')
+					setEStats(50000, "10% + 2700", 1600, 200)
+					battle(0, 72)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							ae = ae + 1
+							if (ae === sp){					
+								ae = 0
+								pdamaged(0)
+								hp.textContent = parseFloat(hp.textContent) - parseFloat(mhp.textContent) * 0.101
+								eatt.textContent = 2700
+								regen()
+								eattack()
+								eatt.textContent = "10% + 2700"
+							} else {
+								regen()
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(15)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(800)
+							hide('z15e8')
+							newSave('z15e8c',0)
+							localStorage.z15e8c = parseInt(localStorage.z15e8c) + 1
+							idrop("coconut",getItemData("coconut", 1), 400)
+							idrop("fishhide",getItemData("fishhide", 1), 100)
+							KBify(localStorage.z15e8c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(15)){
+								setTimeout(forbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(12)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+			} else {
+				newSave('ach12p', 0)
+				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
+			}
+		}
+		var trafficRedTr = 0;
+		capZB.onclick = capbat;
+		function capbat(enemyN, thingTr){
+			if (thingTr || oceZB.classList.contains('btng') && forZB.classList.contains('btng') && desZB.classList.contains('btng')){
+				x = enemyFightNum(16)
+				if (enemyN < 9 && enemyN >= 0){
+					x = enemyN
+				}
+				for (let i = 1; i < 9; i++){
+					hide("z16e" + i)
+				}
+				show("z16")
+				show("z16b")
+				hide("z16e0")
+				newSave('z16e0c',0)
+				sadvmus(1)
+				setStats()
+				startBat()
+				if (x === 0 || localStorage.z16e0c === "0"){
+					show('z16e0')
+					if (localStorage.keyDone === "1"){
+						setEStats(30000, Math.ceil(parseInt(mhp.textContent) * 0.1) + 500, 5000, 0)
+						document.getElementById("z16e0").setAttribute("src", "wall2.png")
+					} else {
+						setEStats(30000, Math.ceil(parseInt(mhp.textContent) * 0.8) + 500, 5000, 0)
+					}
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(20000)
+							document.getElementById("z16e0").setAttribute("src", "wallLose.png")
+							if (ifFound("item87") === false){
+								idrop("scrollItem",getItemData("scrollItem", 1), 10000)
+							}
+							localStorage.z16e0c = 1
+							advc.textContent = parseInt(advC.textContent)
+							setTimeout(enki,500,advc.textContent)
+							document.getElementById("eHealth").style.width = '0px'
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							if (ifFound("item87") === false){
+								idrop("scrollItem",getItemData("scrollItem", 1), 10000)
+							}
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 1){
+					show('z16e1')
+					setEStats(100000, 2600, 5000, 0)
+					battle(0, 30)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							hide('z16e1')
+							newSave('z16e1c',0)
+							localStorage.z16e1c = parseInt(localStorage.z16e1c) + 1
+							idrop("tie",getItemData("tie", 1), 100)
+							KBify(localStorage.z16e1c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(16)){
+								setTimeout(capbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(13)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 2){
+					show('z16e2')
+					setEStats(40000, 3500, 1400, 400)
+					battle(0, 24)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							hide('z16e2')
+							newSave('z16e2c',0)
+							localStorage.z16e2c = parseInt(localStorage.z16e2c) + 1
+							idrop("rocketLauncher",getItemData("rocketLauncher", 1), 200)
+							idrop("tie",getItemData("tie", 1), 100)
+							KBify(localStorage.z16e2c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(16)){
+								setTimeout(capbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(13)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 3){
+					show('z16e3')
+					if (Math.random() < 0.5){
+						document.getElementById("z16e3").setAttribute("src", "car.png")
+					} else {
+						document.getElementById("z16e3").setAttribute("src", "car2.png")
+					}
+					document.getElementById("z16e3").style.left = "625px"
+					setEStats(50000, 99999, 800, 0)
+					battle(0, 400)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae <= 20){//425
+								// hi
+							} else if (ae <= 40 && parseInt(document.getElementById("z16e3").style.left) != 625){
+								document.getElementById("z16e3").style.left = (425 + 10 * (ae - 20)) + "px"
+							} else if (ae <= 290 && ae > 40){
+								document.getElementById("z16e3").style.left = (625 - 1 * (ae - 40)) + "px"
+							} else if (ae <= 340){
+								// hi again
+							} else if (ae <= 380){
+								document.getElementById("z16e3").style.left = (375 + 6.25 * (ae - 340)) + "px"
+							} else if (ae <= 396){
+								
+							} else if (ae <= 399){
+								document.getElementById("z16e3").style.left = (625 - 70 * (ae - 396)) + "px"
+							} else if (ae === sp){
+								eattack()
+								document.getElementById("z16e3").style.left = "345px"
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							hide('z16e3')
+							newSave('z16e3c',0)
+							localStorage.z16e3c = parseInt(localStorage.z16e3c) + 1
+							idrop("tyre",getItemData("tyre", 1), 200)
+							idrop("bottle",getItemData("bottle", 1), 200)
+							idrop("tie",getItemData("tie", 1), 100)
+							KBify(localStorage.z16e3c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(16)){
+								setTimeout(capbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(13)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 4){
+					show('z16e4')
+					document.getElementById("z16e4").style.zIndex = ""
+					setEStats(40000, 2500, 1000, 0)
+					battle(0, 20, 0)
+					function battle(ae, sp, be){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							ae = ae + 1
+							be = be + 1
+							if (be >= 120 && be < 160){
+								show("apple")
+								document.getElementById("z16e4").style.zIndex = "2"
+								document.getElementById("apple").style.height = "45px"
+								document.getElementById("apple").style.top = (100 + 6 * (be - 120)) + "px"
+								document.getElementById("apple").style.left = "705px"
+							} else if (be === 160){
+								hide("apple")
+								be = 0
+								document.getElementById("z16e4").style.zIndex = ""
+								ehp.textContent = parseFloat(ehp.textContent) + 10000
+							}
+							regen()
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp, be)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							hide('z16e4')
+							newSave('z16e4c',0)
+							localStorage.z16e4c = parseInt(localStorage.z16e4c) + 1
+							idrop("pillow",getItemData("pillow", 1), 200)
+							idrop("tie",getItemData("tie", 1), 100)
+							KBify(localStorage.z16e4c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(16)){
+								setTimeout(capbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(13)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 5){
+					show('z16e5')
+					document.getElementById("z16e5").setAttribute("src", "trafficlight.png")
+					setEStats(45000, 2800, 1100, 0)
+					battle(0, 20, 0, 0)
+					trafficRedTr = 0
+					function battle(ae, sp, be, ce){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							be = be + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							if (be === 80 + ce && be < 100){
+								document.getElementById("z16e5").setAttribute("src", "trafficlight2.png")
+								console.log(be)
+							} else if (be === 100){
+								document.getElementById("z16e5").setAttribute("src", "trafficlight3.png")
+								trafficRedTr = 1
+							} else if (be === 120 + ce * 10){
+								ce = ce + 1
+								be = 0
+								trafficRedTr = 0
+								document.getElementById("z16e5").setAttribute("src", "trafficlight.png")
+							}
+							setTimeout(battle, 50, ae, sp, be, ce)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							hide('z16e5')
+							newSave('z16e5c',0)
+							localStorage.z16e5c = parseInt(localStorage.z16e5c) + 1
+							idrop("tie",getItemData("tie", 1), 100)
+							KBify(localStorage.z16e5c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(16)){
+								setTimeout(capbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(13)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 6){
+					show('z16e6')
+					document.getElementById('z16e6').setAttribute("src","bridge.png")
+					setEStats(50000, 2500, 2000, 0)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							document.getElementById('z16e6').setAttribute("src","bridgeLose.png")
+							newSave('z16e6c',0)
+							localStorage.z16e6c = parseInt(localStorage.z16e6c) + 1
+							idrop("tie",getItemData("tie", 1), 100)
+							KBify(localStorage.z16e6c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(16)){
+								setTimeout(capbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(13)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 7){
+					show('z16e7')
+					setEStats(40000, 2500, 1500, 200 + Math.ceil(parseInt(reg.textContent) / 2))
+					reg.textContent = Math.floor(parseInt(reg.textContent) * 0.5)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							ae = ae + 1
+							let healT = Math.ceil(parseFloat(hp.textContent) * 0.0005)
+							hp.textContent = parseFloat(hp.textContent) - healT
+							ehp.textContent = parseFloat(ehp.textContent) + healT
+							regen()
+							if (ae === sp){
+								eattack()
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							hide('z16e7')
+							newSave('z16e7c',0)
+							localStorage.z16e7c = parseInt(localStorage.z16e7c) + 1
+							idrop("tie",getItemData("tie", 1), 100)
+							KBify(localStorage.z16e7c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(16)){
+								setTimeout(capbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(13)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				} else if (x === 8){
+					show('z16e8')
+					show("noMove1")
+					setEStats(1, 1, 1, 1)
+					battle(0, 20)
+					function battle(ae, sp){
+						if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+							regen()
+							ae = ae + 1
+							if (ae === sp){
+								if (eattack(2)){
+									ehp.textContent = 0
+								}
+								ae = 0
+							}
+							setTimeout(battle, 50, ae, sp)
+						} else if (parseFloat(ehp.textContent) <= 0){
+							enemykill(16)
+							localStorage.xp = parseFloat(localStorage.xp) + xpMulti(600)
+							hide('z16e8')
+							newSave('z16e8c',0)
+							localStorage.z16e8c = parseInt(localStorage.z16e8c) + 1
+							idrop("cape",getItemData("cape", 1), 100)
+							idrop("tie",getItemData("tie", 1), 100)
+							KBify(localStorage.z16e8c)
+							advc.textContent = parseInt(advC.textContent)
+							if (localStorage.FSZf === '2' && FPzone(16)){
+								setTimeout(capbat, 200, -1, 1)
+							} else {
+								var qe = setTimeout(enki,500,advc.textContent)
+							}
+							document.getElementById("eHealth").style.width = '0px'
+							stoneDrops(13)
+						} else if (parseFloat(hp.textContent) <= 0){
+							playerdead()
+							hide('player')
+							advc.textContent = parseInt(advC.textContent)
+							var qe = setTimeout(enki,500,advc.textContent)
+						}
+					}
+				}
+			} else {
+				newSave('ach12p', 0)
+				localStorage.ach12p = parseInt(localStorage.ach12p) + 1
+			}
+		}
+		//ZB.onclick = bat;
+		//function bat(enemyN, thingTr){
+		//	if (thingTr || true){
+		//		x = enemyFightNum(13)
+		//		if (enemyN < 9 && enemyN > 0){
+		//			x = enemyN
+		//		}
+		//		for (let i = 1; i < 9; i++){
+		//			hide("z13e" + i)
+		//		}
+		//		show("z13")
+		//		sadvmus(1)
+		//		setStats()
+		//		startBat()
+		//		if (x === 1){
+		//			show('z14e1')
+		//			setEStats(000, 00, 00, 0)
+		//			battle(0, 20)
+		//			function battle(ae, sp){
+		//				if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0){
+		//					regen()
+		//					ae = ae + 1
+		//					if (ae === sp){
+		//						eattack()
+		//						ae = 0
+		//					}
+		//					setTimeout(battle, 50, ae, sp)
+		//				} else if (parseFloat(ehp.textContent) <= 0){
+		//					enemykill(14)
+		//					localStorage.xp = parseFloat(localStorage.xp) + xpMulti(500)
+		//					hide('z14e1')
+		//					newSave('z14e1c',0)
+		//					localStorage.z14e1c = parseInt(localStorage.z14e1c) + 1
+		//					KBify(localStorage.z14e1c)
+		//					advc.textContent = parseInt(advC.textContent)
+		//					if (localStorage.FSZf === '2' && FPzone(14)){
+		//						setTimeout(forbat, 200, -1, 1)
+		//					} else {
+		//						var qe = setTimeout(enki,500,advc.textContent)
+		//					}
+		//					document.getElementById("eHealth").style.width = '0px'
+		//					stoneDrops(12)
+		//				} else if (parseFloat(hp.textContent) <= 0){
+		//					playerdead()
+		//					hide('player')
+		//					advc.textContent = parseInt(advC.textContent)
+		//					var qe = setTimeout(enki,500,advc.textContent)
+		//				}
+		//			}
+		//		}
+		//	} else {
+		//		newSave('ach12p', 0)
+		//		localStorage.ach12p = parseInt(localStorage.ach12p) + 1
+		//	}
+		//}
 		var rightValid = 0;
 		var timeYes = 0;
 		function sci3Right(){
@@ -13894,6 +15931,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('SZ1E2')
 			hide('SZ1E3')
 			hide('SZ1E4')
+			hide('SZ1E5')
 			sadvmus(1)
 			setStats()
 			startBat()
@@ -14130,6 +16168,40 @@ Restrictions: killed all enemies at caves at least once
 						}
 					}
 				}
+			} else if (x === 5){
+				show('SZ1E5')
+				setEStats(parseInt(att.textContent) * 40, Math.ceil(parseInt(mhp.textContent) * 0.15 + parseInt(def.textContent) / 2), 1, 0)
+				battle(0, 20)
+				function battle(ae, sp){
+					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0 && thingy === SZ1check){
+						regen()
+						ae = ae + 1
+						if (ae === sp){
+							ae = 0
+							eattack()
+						}
+						setTimeout(battle, 50, ae, sp)
+					} else if (parseFloat(ehp.textContent) <= 0){
+						localStorage.xp = parseFloat(localStorage.xp) + 1
+						hide('SZ1E5')
+						newSave('SZ1E5c',0)
+						idrop('Dio','Dio - You thought you got an item, but it was me, Dio!',100)
+						localStorage.SZ1E5c = parseInt(localStorage.SZ1E5c) + 1
+						KBify(localStorage.SZ1E5c)
+						advc.textContent = parseInt(advC.textContent)
+						var qe = setTimeout(enki,500,advc.textContent)
+						document.getElementById("eHealth").style.width = '0px'
+					} else {
+						playerdead()
+						hide('player')
+						advc.textContent = parseInt(advC.textContent)
+						if (thingy === SZ1check){
+							var qe = setTimeout(enki,500,advc.textContent)
+						} else {
+							advent()
+						}
+					}
+				}
 			}
 		}
 		function createPlant(num){
@@ -14165,6 +16237,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('coderslab')
 			hide('taroy')
 			hide('advZB')
+			hide('xpReward')
 			show('estat')
 			show('pstat')
 			show('health')
@@ -14366,7 +16439,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('FEimg').style.top = (y1 * (4 - t) + y2 * t) / 4
 				console.log(t)
 				setTimeout(animateFEdodg, 50, t, x1, x2, y1, y2)
-			} else if (parseInt(hp.textcontent) <= 0 || parseInt(ehp.textcontent) <= 0){
+			} else if (parseInt(hp.textContent) <= 0 || parseInt(ehp.textContent) <= 0){
 				
 			}
 		}
@@ -14924,6 +16997,36 @@ Restrictions: killed all enemies at caves at least once
 						show('fire')
 						console.log('Burning grass2 with ' + grassNeg)
 					}
+					if (dam > 0 && document.getElementById('z14e6').classList.contains("hide") === false && document.getElementById('z14').classList.contains("hide") === false){
+						ereg.textContent = parseInt(ereg.textContent) - Math.floor(dam * 0.25)
+					}
+					if (dam > 0 && document.getElementById('z15e1').classList.contains("hide") === false && document.getElementById('z15').classList.contains("hide") === false){
+						hp.textContent = parseFloat(hp.textContent) - Math.floor(dam * 0.5)
+						if (parseFloat(hp.textContent) <= 0){
+							hp.textContent = 1
+						}
+					}
+					if (document.getElementById('z15e2').classList.contains("hide") === false && document.getElementById('z15').classList.contains("hide") === false){
+						eatt.textContent = parseInt(eatt.textContent) + 60
+						edef.textContent = parseInt(edef.textContent) - 60
+					}
+					if (document.getElementById('z15e5').classList.contains("hide") === false && document.getElementById('z15').classList.contains("hide") === false){
+						ehp.textContent = parseInt(ehp.textContent) + Math.ceil(parseInt(emhp.textContent) * 0.01)
+						edef.textContent = parseInt(edef.textContent) - 100
+						if (parseFloat(ehp.textContent) > parseInt(emhp.textContent)){
+							ehp.textContent = emhp.textContent
+						}
+					}
+					if (dam > 0 && document.getElementById('z14e3').classList.contains("hide") === false && document.getElementById('z14').classList.contains("hide") === false){
+						tarDis = -tarDis
+					}
+					if (dam > 0 && trafficRedTr === 1 && document.getElementById('z16e5').classList.contains("hide") === false && document.getElementById('z16').classList.contains("hide") === false){
+						hp.textContent = parseFloat(hp.textContent) - dam * 5
+						if (parseFloat(hp.textContent) < 0){
+							hp.textContent = "0"
+							document.getElementById("health").style.width = hp.textContent * 250 / mhp.textContent + 'px'
+						}
+					}
 				}
 			}
 			ehp2.textContent = Math.round(parseFloat(ehp.textContent) * 10) / 10
@@ -15079,6 +17182,10 @@ Restrictions: killed all enemies at caves at least once
 					setTimeout(bready,acd)
 					blockShadow(0,acd,1)
 					blok(0)
+					if (document.getElementById('z13').classList.contains('hide') === false && (document.getElementById('z13e4').classList.contains('hide') === false || document.getElementById('z13e8').classList.contains('hide') === false)){
+						show("shieldPlayer")
+						playerShieldTr = 1
+					}
 					function bready() {
 						bcooldown = 0
 						document.getElementById('blockshadow').style.width = 0
@@ -15133,6 +17240,10 @@ Restrictions: killed all enemies at caves at least once
 					setTimeout(sready2,5000)
 					setTimeout(sready,acd)
 					blockShadow(0,acd,2)
+					if (document.getElementById('z13').classList.contains('hide') === false && (document.getElementById('z13e4').classList.contains('hide') === false || document.getElementById('z13e8').classList.contains('hide') === false)){
+						show("shieldPlayer")
+						playerShieldTr = 1
+					}
 					function sready(){
 						scooldown = 0
 						document.getElementById('blockshadow').style.width = 0
@@ -15238,10 +17349,17 @@ Restrictions: killed all enemies at caves at least once
 				}
 				if (parseFloat(hp.textContent) > 0){
 					if (e.key === 'ArrowLeft'){
-						document.getElementById('fallingPlayer').style.left = '125px'
-						playerPos = 0
+						if (document.getElementById('TARoY').classList.contains('hide') === false && document.getElementById('gravity').classList.contains('hide') === false){
+							document.getElementById('fallingPlayer').style.left = '125px'
+							playerPos = 0
+						}
 					} else if (e.key === 'ArrowDown'){
-						document.getElementById('fallingPlayer').style.left = '225px'
+						if (document.getElementById('TARoY').classList.contains('hide') === false && document.getElementById('gravity').classList.contains('hide') === false){
+							document.getElementById('fallingPlayer').style.left = '225px'
+						} else if (document.getElementById('z13').classList.contains('hide') === false && (document.getElementById('z13e4').classList.contains('hide') === false || document.getElementById('z13e8').classList.contains('hide') === false)){
+							document.getElementById('fallingPlayer').style.top = '244px'
+							document.getElementById('shieldPlayer').style.top = '344px'
+						}
 						playerPos = 1
 						if (document.getElementById('z11').classList.contains('hide') === false && document.getElementById('portalrobot').classList.contains('hide') === false){
 							upTr = 0
@@ -15253,12 +17371,22 @@ Restrictions: killed all enemies at caves at least once
 							show('noMove2')
 						}
 					} else if (e.key === 'ArrowRight'){
-						document.getElementById('fallingPlayer').style.left = '325px'
+						if (document.getElementById('TARoY').classList.contains('hide') === false && document.getElementById('gravity').classList.contains('hide') === false){
+							document.getElementById('fallingPlayer').style.left = '325px'
+						} else if (document.getElementById('z13').classList.contains('hide') === false && (document.getElementById('z13e4').classList.contains('hide') === false || document.getElementById('z13e8').classList.contains('hide') === false)){
+							document.getElementById('fallingPlayer').style.top = '144px'
+							document.getElementById('shieldPlayer').style.top = '244px'
+						}
 						playerPos = 2
 						if (document.getElementById('z11').classList.contains('hide') === false && document.getElementById('sci3').classList.contains('hide') === false){
 							sci3Right()
 						}
 					} else if (e.key === 'ArrowUp'){
+						if (document.getElementById('z13').classList.contains('hide') === false && (document.getElementById('z13e4').classList.contains('hide') === false || document.getElementById('z13e8').classList.contains('hide') === false)){
+							playerPos = 3
+							document.getElementById('fallingPlayer').style.top = '44px'
+							document.getElementById('shieldPlayer').style.top = '144px'
+						}
 						if (document.getElementById('z11').classList.contains('hide') === false && document.getElementById('portalrobot').classList.contains('hide') === false){
 							upTr = 1
 							hide('hidingPlayer')
@@ -15338,9 +17466,9 @@ Restrictions: killed all enemies at caves at least once
 					h3cooldown = 1
 					document.getElementById('sandwich').classList.replace('sandwich','sandwichon')
 					if (parseInt(localStorage.heaL) <= 100){
-						var healCooldown = 60000 * parseFloat(localStorage.healcoolspeed) * parseFloat(cooldownspeed.textContent) * (0.95 ** antAlive) * (1 - (0.0025 * parseInt(localStorage.heaL)))
+						var healCooldown = 120000 * parseFloat(localStorage.healcoolspeed) * parseFloat(cooldownspeed.textContent) * (0.95 ** antAlive) * (1 - (0.0025 * parseInt(localStorage.heaL)))
 					} else {
-						var healCooldown = 60000 * parseFloat(localStorage.healcoolspeed) * parseFloat(cooldownspeed.textContent) * (0.95 ** antAlive) * (((0.75 ** (parseInt(localStorage.heaL) / 100)) / 3) + 5)
+						var healCooldown = 120000 * parseFloat(localStorage.healcoolspeed) * parseFloat(cooldownspeed.textContent) * (0.95 ** antAlive) * (((0.75 ** (parseInt(localStorage.heaL) / 100)) / 3) + 5)
 					}
 					setTimeout(sandwichReady, healCooldown)
 					eating = 1
@@ -15955,6 +18083,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('stiBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
 			ach38()
 			console.log('Stickman created')
+			consoleMes("A stickman was created", 3)
 			var destroyedTr = 0
 			stiGo(health)
 			setTimeout(stiD, parseInt(stiL.textContent) * 1000, 1)
@@ -15988,13 +18117,16 @@ Restrictions: killed all enemies at caves at least once
 							adrop('droneDrop2',5)
 							if (hp <= 0){
 								console.log('Stickman was destroyed')
+								consoleMes("A stickman died", 3)
 								stiD()
 							} else {
 								console.log('Stickman has only ' + hp + ' hp')
+								consoleMes("A stickman has " + hp + " hp", 3)
 							}
 							pitemDc()
 						} else {
 							hp = 0
+							consoleMes("A stickman failed", 3)
 							console.log('Stickman failed')
 							stiD()
 						}
@@ -16007,6 +18139,7 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('stiBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
 					if (a === 1){
 						console.log('Stickman Expired')
+						consoleMes("A stickman drone expired", 3)
 						adrop('droneDrop1',500)
 					}
 				}
@@ -16049,6 +18182,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('kilBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
 			ach38()
 			console.log('Killer robot created')
+			consoleMes("A killer robot was created", 3)
 			var destroyedTr = 0
 			kilGo(health)
 			setTimeout(kilD, parseInt(kilL.textContent) * 1000, 1)
@@ -16098,13 +18232,16 @@ Restrictions: killed all enemies at caves at least once
 							pitemDc()
 							if (hp <= 0){
 								console.log('Killer robot was destroyed')
+								consoleMes("A killer robot died", 3)
 								kilD()
 							} else {
 								console.log('Killer robot has only ' + hp + ' hp')
+								consoleMes("A killer robot has " + hp + " hp", 3)
 							}
 						} else {
 							hp = 0
 							console.log('Killer robot failed')
+							consoleMes("A killer robot failed", 3)
 							kilD()
 						}
 					}
@@ -16116,6 +18253,7 @@ Restrictions: killed all enemies at caves at least once
 					document.getElementById('kilBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) - 1)
 					if (a === 1){
 						console.log('Killer robot Expired')
+						consoleMes("A killer robot expired", 3)
 						adrop('droneDrop1',500)
 					}
 				}
@@ -16158,6 +18296,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('fedBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('fedBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
 			ach38()
 			console.log('Feddy created')
+			consoleMes("A Feddy was created", 3)
 			var destroyedTr = 0
 			fedGo(health)
 			setTimeout(fedD, parseInt(fedL.textContent) * 1000, 1)
@@ -16186,13 +18325,16 @@ Restrictions: killed all enemies at caves at least once
 							pitemDc()
 							if (hp <= 0){
 								console.log('Feddy was destroyed')
+								consoleMes("A feddy died", 3)
 								fedD()
 							} else {
 								console.log('Feddy has only ' + hp + ' hp')
+								consoleMes("A feddy has " + hp + " hp", 3)
 							}
 						} else {
 							hp = 0
 							console.log('Feddy failed')
+							consoleMes("A feddy Failed", 3)
 							fedD()
 						}
 					}
@@ -16206,6 +18348,7 @@ Restrictions: killed all enemies at caves at least once
 					sdrop('defencestone', 'Defencestone - Now you tough :) - +1 D', 10000)
 					if (a === 1){
 						console.log('Feddy Expired')
+						consoleMes("A feddy expired", 3)
 						adrop('droneDrop1',500)
 					}
 				}
@@ -16248,6 +18391,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('sniBP').textContent = 'DRONES_ACTIVE=' + (parseInt(((document.getElementById('sniBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")) + 1)
 			ach38()
 			console.log('Sniper created')
+			consoleMes("A sniper was created", 3)
 			var destroyedTr = 0
 			sniGo(health)
 			function sniGo(hp){
@@ -16276,9 +18420,11 @@ Restrictions: killed all enemies at caves at least once
 						pitemDc()
 						if (hp <= 0){
 							console.log('Sniper was destroyed')
+							consoleMes("A sniper died", 3)
 							sniD()
 						} else {
 							console.log('Sniper has only ' + hp + ' hp')
+							consoleMes("A sniper has " + hp + " hp", 3)
 						}
 					}
 				}
@@ -16329,6 +18475,7 @@ Restrictions: killed all enemies at caves at least once
 			antAlive = antAlive + 1
 			ach38()
 			console.log('Ant created')
+			consoleMes("An ant was created", 3)
 			var destroyedTr = 0
 			var fail = parseInt((antF.textContent).slice(0,-1))
 			antGo(health)
@@ -16360,13 +18507,16 @@ Restrictions: killed all enemies at caves at least once
 							pitemDc()
 							if (hp <= 0){
 								console.log('Ant was destroyed')
+								consoleMes("An ant died", 3)
 								antD()
 							} else {
 								console.log('Ant has only ' + hp + ' hp')
+								consoleMes("An ant has " + hp + " hp", 3)
 							}
 						} else {
 							hp = 0
 							console.log('Ant failed')
+							consoleMes("An ant failed", 3)
 							antD()
 						}
 					}
@@ -16882,6 +19032,7 @@ Restrictions: killed all enemies at caves at least once
 					if (item === 'Difusb' && a === 1){
 						localStorage.g2Tr = 1
 					}
+					consoleMes("You got a USB :)", 3)
 				}
 				save()
 				if (a === 1){
@@ -18459,6 +20610,9 @@ Restrictions: killed all enemies at caves at least once
 			if (parseFloat(localStorage.WFUcool) - 1 >= 0){
 				localStorage.WFUcool = parseFloat(localStorage.WFUcool) - 1
 				WFUoff.textContent = localStorage.WFUcool
+				if (localStorage.gf === '2'){
+					document.getElementById('games').style.background = 'grey'
+				}
 			} else {
 				localStorage.WFUcool = 0
 				document.getElementById('WFUon').classList.remove('hide')
@@ -19397,7 +21551,7 @@ Restrictions: killed all enemies at caves at least once
 			for (const id of allEpages) {
 				id.classList.add('hide');
 			}
-			const itemSearch = document.getElementsByClassName('itemBVent');  // <------- EVERY NEW ITEM NEEDS TO HAVE A SPOT IN THE ITEM BOOK SO YES WORKS
+			const itemSearch = document.getElementsByClassName('itemBVent');  // <------- EVERY NEW ITEM NEEDS TO HAVE A SPOT IN THE ITEM BOOK SO YES WORKS also update totalItems
 			var itemN = 1
 			localStorage.item1 = 1
 			localStorage.item18 = 1
@@ -19409,8 +21563,22 @@ Restrictions: killed all enemies at caves at least once
 			if (localStorage.ramLVL){
 				localStorage.item49 = localStorage.ramLVL
 			}
+			show("beforeItemPage")
+			show("nextItemPage")
+			document.getElementById("beforeItemPage").textContent = "← Page " + (curItemPage - 1)
+			document.getElementById("nextItemPage").textContent = "Page " + (curItemPage + 1) + " →"
+			if (curItemPage === 1){
+				hide("beforeItemPage")
+			} else if (curItemPage === Math.ceil(totalItems / 104)){
+				hide("nextItemPage")
+			}
 			for (const id of itemSearch){
 				document.getElementById('item' + itemN).setAttribute('title','')
+				if (curItemPage === Math.ceil(itemN / 104)){
+					show("item" + itemN)
+				} else {
+					hide("item" + itemN)
+				}
 				if (localStorage.getItem('item' + itemN)){
 					id.classList.remove('notFound')
 					itemsFound = itemsFound + 1
@@ -19465,6 +21633,359 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 		}
+		function getItemData(item, data){ // 0 = Name, 1 = titles
+			let x = [];
+			switch(item){
+				case 1: case "starterCap":
+					x = ["Starter cap","Starter cap - Your very first item :D - +1 Hp"]
+					break
+				case 2: case "stick":
+					x = ["Stick","Stick - *waves it around menacingly* - +1 A"]
+					break
+				case 3: case "healthstone":
+					x = ["Healthstone","Healthstone - Now you die less :) - +1 Hp"]
+					break
+				case 4: case "damagestone":
+					x = ["Damagestone","Damagestone - Now you can end innocent souls more easily :) - +1 A"]
+					break
+				case 5: case "defencestone":
+					x = ["Defencestone","Defencestone - Now you tough :) - +1 D"]
+					break
+				case 6: case "regenerationstone":
+					x = ["Regenstone","Regenerationstone - Now you gain more health from EXISTING :) - +1 R"]
+					break
+				case 7: case "healthstone2":
+					x = ["Healthstone2","Healthstone - Now you die less :) - +10 Hp"]
+					break
+				case 8: case "damagestone2":
+					x = ["Damagestone2","Damagestone - Now you can end innocent souls more easily :) - +10 A"]
+					break
+				case 9: case "defencestone2":
+					x = ["Defencestone2","Defencestone - Now you tough :) - +10 D"]
+					break
+				case 10: case "regenerationstone2":
+					x = ["Regenstone2","Regenerationstone - Now you gain more health from EXISTING :) - +10 R"]
+					break
+				case 11: case "healthstone2a":
+					x = ["H_____S____","10 Hp"]
+					break
+				case 12: case "damagestone2a":
+					x = ["D_____S____","10 A"]
+					break
+				case 13: case "defencestone2a":
+					x = ["D______S_____","10 D"]
+					break
+				case 14: case "regenerationstone2a":
+					x = ["R____*S____","1 R"]
+					break
+				case 15: case "sneaker":
+					x = ["Sneakers","Sneakers - Kill enemies in 95% of the time just by wearing regular shoes :D - -5% Attack Cooldowns"]
+					break
+				case 16: case "fang":
+					x = ["Fang","Fang - How can this be a 2 handed weapon? Because its was austrailian - +2 A"]
+					break
+				case 17: case "rabbithide":
+					x = ["Rabbithide","Rabbithide - Armour made from Bunny :D - +1 D +1 Hp"]
+					break
+				case 18: case "sachet":
+					x = ["KGT sachet","KGT idle game sachet - well gasby definitely a bad taste in games :c"]
+					break
+				case 19: case "air":
+					x = ["Air","Air - *effort* - +1 R"]
+					break
+				case 20: case "lwing":
+					x = ["Left Wing","Left Wing - You still can’t fly without the other half :c - +1 A"]
+					break
+				case 21: case "rwing":
+					x = ["Right Wing","Right Wing - You still can’t fly without the other half :c - +1 D"]
+					break
+				case 22: case "paper":
+					x = ["Paper","Paper - A flat piece of white - +2 M +1 R"]
+					break
+				case 23: case "stilts":
+					x = ["Stilts","Stilts - It may look impractical but it, it is - +5 M +2 D +15% Move Cooldowns"]
+					break
+				case 24: case "scissor":
+					x = ["Scissor","Scissor - The most dangerous piece of stationary known to man - +4 A"]
+					break
+				case 25: case "waterbottle":
+					x = ["Bottle o water","Bottle o water - Filled of water hopefully - +0.001 Drop Chance"]
+					break
+				case 26: case "vodkabottle":
+					x = ["Bottle o vodka","Bottle o vodka - Why are the drones giving you alcohol? - +0.001 Stone Drops"]
+					break
+				case 27: case "pencil":
+					x = ["Pencil","Pencil - Used for stab-I mean writing - +2 A +2 D"]
+					break
+				case 28: case "deagle":
+					x = ["Deagle","Deagle - Do not bring this to the school zone - +3 A -5% Attack Cooldowns"]
+					break
+				case 29: case "jetpack":
+					x = ["Jetpack","Jetpack - Fly with manmade wings, without wings - +5 Hp -5% Move Cooldown"]
+					break
+				case 30: case "glasses":
+					x = ["Pilot glasses","Pilot glasses - yea nah - +1 Hp + 1 A +1 D +1 R"]
+					break
+				case 31: case "lasergun":
+					x = ["Lasergun","Lasergun - Only does nine damage? - +9 A"]
+					break
+				case 32: case "thebox":
+					x = ["The box","The box - Good on defence and stuff - +8 Hp +3 A +6 D"]
+					break
+				case 33: case "thestone":
+					x = ["The stone","The stone - Good at stuff and attack - +5 Hp +5 A +1 D"]
+					break
+				case 34: case "thestrat":
+					x = ["The strat","The strat - Good - +6 A"]
+					break
+				case 35: case "uranium":
+					x = ["Uranium","Uranium - oK, hoW - +6 R"]
+					break
+				case 36: case "windows9":
+					x = ["Windows 9","Windows 9 - The predecessor of windows 10 - +12 Hp +4 R"]
+					break
+				case 37: case "lava":
+					x = ["Lava","Lava - what can I destroy with this"]
+					break
+				case 38: case "torch":
+					x = ["Torch","Torch - *continues to wave it around menacingly* - +4 A"]
+					break
+				case 39: case "jeans":
+					x = ["Jeans","Jeans - i love this game - +10 D +20 Hp"]
+					break
+				case 40: case "boot":
+					x = ["Boot","Boot - y - -5% Attack Cooldowns +8 D +6 A"]
+					break
+				case 41: case "parrystone":
+					x = ["Parrystone","Parrystone - Now you counter - +1 A +1 D"]
+					break
+				case 42: case "astone":
+					x = ["A stone","A stone - Generic and not special - +11 D +11 A"]
+					break
+				case 43: case "pickaxe":
+					x = ["Pickaxe","Pickaxe - Now this is a weapon - +50 A"]
+					break
+				case 44: case "wheels":
+					x = ["Wheels","Wheels - With this you acquire speed, however gain the intelligence of them as well - -10% Attack Cooldowns +30% Block Cooldowns"]
+					break
+				case 45: case "minercap":
+					x = ["Minercap","Minercap - ?em htiw gnorw si tahw - +50 Hp +30 D"]
+					break
+				case 46: case "gears":
+					x = ["Gears","Gears - how do you equip these? - -5% Block Cooldowns"]
+					break
+				case 47: case "gold":
+					x = ["Gold","Gold - Can be molten into xp"]
+					break
+				case 48: case "hoe":
+					x = ["Hoe","Hoe - UR MOM HEHEHEHA - -5% Move Cooldowns"]
+					break
+				case 49: case "ram":
+					x = ["RAM","RAM card - Allows computer gaming to be better"]
+					break
+				case 50: case "workFolder":
+					x = ["Work Folder","Work Folder - I wonder what's in here…"]
+					break
+				case 51: case "calculator":
+					x = ["Calculator","Calculator - 6 + 9 + 6 x 9 - +3 Hp +3 D"]
+					break
+				case 52: case "mantreads":
+					x = ["Mantreads","Mantreads - Since these shoes are weighted down with 50kg of lead, you say a yo mama joke every time you put them on - +150 A + 40 D + 30% Attack Cooldowns"]
+					break
+				case 53: case "e":
+					x = ["e","e - I'm a math nerd, alright, let me have some fun - +272 Hp +68 A +68 D +17 R"]
+					break
+				case 54: case "greenstick":
+					x = ["Green Stick","Green Stick - Fortunately it still classifies as a stick, so your agrostophobia is not triggered - +100 Hp +45 A +15 R"]
+					break
+				case 55: case "crown":
+					x = ["Crown","Crown of king Antony the III - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D"]
+					break
+				case 56: case "fightPicker69":
+					x = ["FightPicker69","FightPicker69 - Unlocks a random enemy for you to bully. More info in settings"]
+					break
+				case 57: case "pants":
+					x = ["Leather pants","Leather pants - He’s got the drip - +10 Hp +4 D"]
+					break
+				case 58: case "LotG":
+					x = ["LotG III","Luck of the Game III - A gift from the gasby gaming"]
+					break
+				case 59: case "susSuit":
+					x = ["Crewmate Suit","Crewmate Suit - Whilst you wear this item, avoid any 10 year olds you find - +300 Hp +150 D"]
+					break
+				case 60: case "bat":
+					x = ["Aluminium bat","Aluminium bat - BONK - -500 Hp +150 A"]
+					break
+				case 61: case "cbt":
+					x = ["CBT","Cognitive Behaviour Therapy - Could possibly cure your depression - Unlocks lore library in the settings"]
+					break
+				case 62: case "valve":
+					x = ["A valve","A valve - Corroded by steam - +1000 Hp +100 R"]
+					break
+				case 63: case "icecream":
+					x = ["Ice cream","Ice cream - How does a search engine have anything to do with ice cream? - -5% Heal cooldowns"]
+					break
+				case 64: case "yellow":
+					x = ["Yellow","Yellow - FFFF00 - -5% Attack cooldowns +5% Block cooldowns +50 A"]
+					break
+				case 65: case "cyan":
+					x = ["Cyan","Cyan - 00FFFF - -8% Block cooldowns +5% Attack cooldowns +50 D"]
+					break
+				case 66: case "mouse":
+					x = ["A mouse","A mouse - Something the mobile gamers wished they could use - +40 D"]
+					break
+				case 67: case "syringegun":
+					x = ["Syringe gun","Syringe gun - Ze healing is not as rewarding as ze hurting - +200 Hp +100 A"]
+					break
+				case 68: case "purchasedsub":
+					x = ["Subscription","A purchased subscription - It says, “Ever thought that your drones are not the best drones around? And that they don’t have little drawings of them? Or if they are not idle or incremental enough? Well say no more. With your purchase you unlock the PREMIUM DRONES. They are better, cooler and more incremental-ly. To redeem your purchase, go to the buff drone page, press on the kills and enter ‘True idler’”. It can’t be equipped or consumed so destroy it I guess?"]
+					break
+				case 69: case "Ksuit":
+					x = ["Kiryu's suit","Kiryu's iconic suit - oh god, does he ever take this thing off? It smells horrible! - +20% defence multiplier -10% health multiplier"]
+					break
+				case 70: case "musket":
+					x = ["Musket","Washington's musket - I own a musket for home defense copypasta - +60% attack multiplier -30% attack speed cooldowns"]
+					break
+				case 71: case "dio":
+					x = ["Dio","Dio - You thought you got an item, but it was me, Dio!"]
+					break
+				case 72: case "capMessage":
+					x = ["1s and 0s","1s and 0s - What on Earth could this mean?"]
+					break
+				case 73: case "cake":
+					x = ["Cake","Cake - Was it a lie? - +69 to all 4 stats"]
+					break
+				case 74: case "davePot":
+					x = ["Dave's pot","Crazy Dave's pot - BECAUSE I'M CRAZY, AND NOW YOU ARE TOO! - +1 insanity +10% health multiplier - uses a special player image when equipped"]
+					break
+				case 75: case "demonCore":
+					x = ["Demon core","Demon core - Somebody, hand me a screwdriver - +500 A -500 R"]
+					break
+				case 76: case "vlasergun":
+					x = ["Lasergun 2","Violet lasergun - Turns out blue light has a too small frequency to do much damage - +180 A"]
+					break
+				case 77: case "sigmai":
+					x = ["Sigma","Sigma - erm what the *REDACTED* - +2000 Hp"]
+					break
+				case 78: case "NaOH":
+					x = ["NaOH","1 mole of sodium hydroxide - Throughout literature, acids have always been used as a dangerous substance. But not today. Today, you will be fighting with THE BASE. It is just as dangerous as hydrochloric acid, but will finally get the recognition it deserves - +100 A"]
+					break
+				case 79: case "webItem":
+					x = ["Html website","Crappy html website - Why does it look oddly familiar? - +50 D +50 A"]
+					break
+				case 80: case "glasses2":
+					x = ["Nerdy glasses","Nerdy glasses - ‘Um actually, these are regular glasses,’ says Geckoking - +150 Hp +40 D +10 R"]
+					break
+				case 81: case "topQuark":
+					x = ["Top quark","Top quark - The heaviest known elementary particle. It decays so quickly that the strong interaction from gluons cannot react fast enough to cause the top quark to form hadrons. This allows it to be used to study how quarks behave outside of hadrons - +200 D +50 A"]
+					break
+				case 82: case "bottomQuark":
+					x = ["","Bottom quark - I doubt you know what this is 🤓 - +100 D +25 A"]
+					break
+				case 83: case "toiletpaper":
+					x = ["Toilet paper","Roll of toilet paper - Ah, the memories - +50 R"]
+					break
+				case 84: case "labcoat":
+					x = ["Lab coat","Lab coat - Surprisingly doesn’t have any stains after you ‘permanently borrowed’ it - +400 Hp +200 D"]
+					break
+				case 85: case "labpants":
+					x = ["Lab pants","Lab pants - I really don’t know what to write here :( - +300 Hp +50 A +50 D"]
+					break
+				case 86: case "labboot":
+					x = ["Lab boot","Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D"]
+					break
+				case 87: case "scrollItem":
+					x = ["A scroll","A scroll - It reads - “To enter our dear capital thee must prove thyself worthy through their strength and of their wisdom. They must test themselves by venturing the deep wet, the tall green and the big dry, finding pieces of a key, 3 in total. To find such pieces is both a test of endurance and observation. Once the key has been completed may they disable most of our solidified defence, then lastly completing their test of strength. Only then is thee able to join us. - D.Jane“ The paper looks as if it was printed recently."]
+					break
+				case 88: case "keyP1":
+					x = ["Key piece 1","Broken key piece 1 - The piece is made of pure gold, letting it not oxidise in the ocean"]
+					break
+				case 89: case "keyP2":
+					x = ["Key piece 2","Broken key piece 2 - How did it get in there?"]
+					break
+				case 90: case "keyP3":
+					x = ["Key piece 3","Broken key piece 3 - Imagine if the key piece was a similar colour to the background… - Once collected all keys, click to consume"]
+					break
+				case 91: case "scale1":
+					x = ["Fish scale","Fish scale - Somewhat shiny, could possibly blind someone - +100 D +50 A"]
+					break
+				case 92: case "sharkNecklace":
+					x = ["Tooth necklace","Shark tooth necklace - Unfortunately the tooth seems to have cracked a little - +150 A -150 D"]
+					break
+				case 93: case "oxygenBottle":
+					x = ["Bottle o O2","Bottle o O2 - Very nutritious - +150 R"]
+					break
+				case 94: case "cannon":
+					x = ["Cannon","Cannon - Yarrr, show me yer booty - +150 A + 100 D"]
+					break
+				case 95: case "pegLeg":
+					x = ["Peg leg","Peg leg - Turns out it’s hollow inside so you don’t need to saw your leg off :) - + 50 A +100 D +200 Hp"]
+					break
+				case 96: case "scale2":
+					x = ["Beast’s Scale","Beast’s Scale - The identity of who possessed this hide has been lost to time. It is known however that it can move faster than a tree"]
+					break
+				case 97: case "noteBottle":
+					x = ["Bottle message","Message in a bottle - It has what looks like a treasure map. It also has an image of someone with a treasure chest, as well as the words, “Too slow, Nerd”"]
+					break
+				case 98: case "banana":
+					x = ["Banana","Banana - Pottasium - +100 R + 250 Hp"]
+					break
+				case 99: case "venom":
+					x = ["Venom","Venom - If I called it a mysterious liquid would you drink it? - +150 A -100 R"]
+					break
+				case 100: case "mane":
+					x = ["Mane","Mane - You like kinda homeless - +200 Hp +50 A"]
+					break
+				case 101: case "seed":
+					x = ["Seed","Seed - dees - -3000 Hp + 500 R"]
+					break
+				case 102: case "stick2":
+					x = ["Stick 2","Stick 2 - Much more powerful than the original stick, yet lightweight so you can still wave it around menacingly - +200 A +1 Hp"]
+					break
+				case 103: case "tooth":
+					x = ["Beast’s tooth","Beast’s tooth - The identity of who possessed this hide has been lost to time. It is known however that it consumed a terrifying green substance - +1000 hp + 1 A"]
+					break
+				case 104: case "paperChest":
+					x = ["Wrapped armour","Wrapped armour - Don’t know how this is stronger than anything, but, videogame logic - +2000 Hp"]
+					break
+				case 105: case "brick":
+					x = ["Brick shoes","Brick shoes - Very practical - +10% attack cooldowns +250 A +250 D"]
+					break
+				case 106: case "coconut":
+					x = ["Coconut","Coconut - Very fitting for a desert biome - +100 R +100 A"]
+					break
+				case 107: case "fishhide":
+					x = ["Beast’s hide","Beast’s hide - The identity of who possessed this hide has been lost to time. It is known however that it is larger than an ant - +1 Hp +200 D +200 A"]
+					break
+				case 108: case "rocketLauncher":
+					x = ["Rocket launcher","Rocket launcher - Wouldn’t this increase civilian casualties? - +15% Attack cooldowns +500 A"]
+					break
+				case 109: case "tyre":
+					x = ["Tyre","Tyre - Has little tread left - -10% Attack Cooldowns +20% Block cooldowns"]
+					break
+				case 110: case "bottle":
+					x = ["Glass bottle","Empty glass bottle - Driving in my car… -  +250 Hp +50 A +50 D +50 R"]
+					break
+				case 111: case "pillow":
+					x = ["Pillow","Pillow - Someone must sleep in there… - +350Hp +100 R"]
+					break
+				case 112: case "cape":
+					x = ["D.J.'s cape","Doe Jane’s cape - It is just a regular bath towel. Kinda expected - + 6900 Hp +690 D"]
+					break
+				case 113: case "tie":
+					x = ["Tie","Tie - Now you can look like a professional when you fight :) - +500 Hp +250 D"]
+					break
+				case 114: case "gloves":
+					x = ["Boxing gloves","Boxing gloves - Round 1: Fight - +250 Hp +100 A +100 D"]
+					break
+				//case: case "":
+				//	x = ["",""]
+				//	break
+				default:
+					x = ["Not an item, maybe?","Error - You got an error casue dumb dev"]
+			}
+			return x[data]
+		}
 		function setItemTitles(){
 			document.getElementById('item1').setAttribute('title', "Starter cap - Your very first item :D - +1 Hp\nDrops from your first enemy killed\n" + document.getElementById('item1').getAttribute('title'))
 			if (ifFound('item2')){
@@ -19474,7 +21995,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item3').setAttribute('title', "Healthstone - Now you die less :) - +1 Hp\nDrops from all enemies in the light blue zones, drop chance based on zone (base 4%)\n" + document.getElementById('item3').getAttribute('title'))
 			}
 			if (ifFound('item4')){
-				document.getElementById('item4').setAttribute('title', "Damagestone - Now you can end innocent souls more easily :) - +10 A\nDrops from all enemies in the light blue zones, drop chance based on zone (base 1%)\n" + document.getElementById('item4').getAttribute('title'))
+				document.getElementById('item4').setAttribute('title', "Damagestone - Now you can end innocent souls more easily :) - +1 A\nDrops from all enemies in the light blue zones, drop chance based on zone (base 1%)\n" + document.getElementById('item4').getAttribute('title'))
 			}
 			if (ifFound('item5')){
 				document.getElementById('item5').setAttribute('title', "Defencestone - Now you tough :) - +1 D\nDrops from all enemies in the light blue zones, drop chance based on zone (base 1%)\n" + document.getElementById('item5').getAttribute('title'))
@@ -19495,16 +22016,16 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item10').setAttribute('title', "Regenerationstone - Now you gain more health from EXISTING :) - +10 R\nDrops from all enemies in the blue zones, drop chance based on zone (base 0.25%)\n" + document.getElementById('item10').getAttribute('title'))
 			}
 			if (ifFound('item11')){
-				document.getElementById('item11').setAttribute('title', "Healthstone - Now you die less :) - +10 Hp\This game ...\n" + document.getElementById('item11').getAttribute('title'))
+				document.getElementById('item11').setAttribute('title', getItemData(11, 0) + "\This game ...\n" + document.getElementById('item11').getAttribute('title'))
 			}
 			if (ifFound('item12')){
-				document.getElementById('item12').setAttribute('title', "Damagestone - Now you can end innocent souls more easily :) - +10 A\n... isn't ...\n" + document.getElementById('item12').getAttribute('title'))
+				document.getElementById('item12').setAttribute('title', getItemData(12, 0) + "\n... isn't ...\n" + document.getElementById('item12').getAttribute('title'))
 			}
 			if (ifFound('item13')){
-				document.getElementById('item13').setAttribute('title', "Defencestone - Now you tough :) - +10 D\n... a very good ...\n" + document.getElementById('item13').getAttribute('title'))
+				document.getElementById('item13').setAttribute('title', getItemData(13, 0) + "\n... a very good ...\n" + document.getElementById('item13').getAttribute('title'))
 			}
 			if (ifFound('item14')){
-				document.getElementById('item14').setAttribute('title', "Regenerationstone - Now you gain more health from EXISTING :) - +1 R\n... game *this was previously very depressing and now has been changed*\nYay, idk why would would waste your life playing this stupid thing so I'm sorry\nWell I guess since you unlocked this Item, you must be really dedicated, so thanks." + document.getElementById('item14').getAttribute('title'))
+				document.getElementById('item14').setAttribute('title', getItemData(14, 0) + "\n... game *this was previously very depressing and now has been changed*\nYay, idk why would would waste your life playing this stupid thing so I'm sorry\nWell I guess since you unlocked this Item, you must be really dedicated, so thanks." + document.getElementById('item14').getAttribute('title'))
 			}
 			if (ifFound('item15')){
 				document.getElementById('item15').setAttribute('title', "Sneakers - Kill enemies in 95% of the time just by wearing regular shoes :D - -5% Attack Cooldowns\nDrops from all enemies in the fields (15%)\n" + document.getElementById('item15').getAttribute('title'))
@@ -19722,7 +22243,94 @@ Restrictions: killed all enemies at caves at least once
 			if (ifFound('item86')){
 				document.getElementById('item86').setAttribute('title', "Lab boot - Lightweight. Comfortable. Steel cap. The ultimate shoe - -5% Attack Cooldowns +300 Hp +50 A +40 D\nDropped from the overground research facility (1%)\n" + document.getElementById('item86').getAttribute('title'))
 			}
-		}//itemsHere
+			if (ifFound('item87')){
+				document.getElementById('item87').setAttribute('title', getItemData(87, 1) + "\nDropped from fighting the capital wall (once)\n" + document.getElementById('item87').getAttribute('title'))
+			}
+			if (ifFound('item88')){
+				document.getElementById('item88').setAttribute('title', getItemData(88, 1) + "\nFound in the ocean\n" + document.getElementById('item88').getAttribute('title'))
+			}
+			if (ifFound('item89')){
+				document.getElementById('item89').setAttribute('title', getItemData(89, 1) + "\nFound in the forest\n" + document.getElementById('item89').getAttribute('title'))
+			}
+			if (ifFound('item90')){
+				document.getElementById('item90').setAttribute('title', getItemData(90, 1) + "\nFound in the desert\n" + document.getElementById('item90').getAttribute('title'))
+			}
+			if (ifFound('item91')){
+				document.getElementById('item91').setAttribute('title', getItemData(91, 1) + "\nDropped from fish\n" + document.getElementById('item91').getAttribute('title'))
+			}
+			if (ifFound('item92')){
+				document.getElementById('item92').setAttribute('title', getItemData(92, 1) + "\nDropped from shark\n" + document.getElementById('item92').getAttribute('title'))
+			}
+			if (ifFound('item93')){
+				document.getElementById('item93').setAttribute('title', getItemData(93, 1) + "\nDropped from diver\n" + document.getElementById('item93').getAttribute('title'))
+			}
+			if (ifFound('item94')){
+				document.getElementById('item94').setAttribute('title', getItemData(94, 1) + "\nDropped from pirate diver\n" + document.getElementById('item94').getAttribute('title'))
+			}
+			if (ifFound('item95')){
+				document.getElementById('item95').setAttribute('title', getItemData(95, 1) + "\nDropped from pirate diver\n" + document.getElementById('item95').getAttribute('title'))
+			}
+			if (ifFound('item96')){
+				document.getElementById('item96').setAttribute('title', getItemData(96, 1) + "\nDropped from the ocean\n" + document.getElementById('item96').getAttribute('title'))
+			}
+			if (ifFound('item97')){
+				document.getElementById('item97').setAttribute('title', getItemData(97, 1) + "\nDropped from the ocean\n" + document.getElementById('item97').getAttribute('title'))
+			}
+			if (ifFound('item98')){
+				document.getElementById('item98').setAttribute('title', getItemData(98, 1) + "\nDropped from monkey\n" + document.getElementById('item98').getAttribute('title'))
+			}
+			if (ifFound('item99')){
+				document.getElementById('item99').setAttribute('title', getItemData(99, 1) + "\nDropped from snake\n" + document.getElementById('item99').getAttribute('title'))
+			}
+			if (ifFound('item100')){
+				document.getElementById('item100').setAttribute('title', getItemData(100, 1) + "\nDropped from lion\n" + document.getElementById('item100').getAttribute('title'))
+			}
+			if (ifFound('item101')){
+				document.getElementById('item101').setAttribute('title', getItemData(101, 1) + "\nDropped from mango\n" + document.getElementById('item101').getAttribute('title'))
+			}
+			if (ifFound('item102')){
+				document.getElementById('item102').setAttribute('title', getItemData(102, 1) + "\nDropped from big tree\n" + document.getElementById('item102').getAttribute('title'))
+			}
+			if (ifFound('item103')){
+				document.getElementById('item103').setAttribute('title', getItemData(103, 1) + "\nDropped from the forest\n" + document.getElementById('item103').getAttribute('title'))
+			}
+			if (ifFound('item104')){
+				document.getElementById('item104').setAttribute('title', getItemData(104, 1) + "\nDropped from mummy\n" + document.getElementById('item104').getAttribute('title'))
+			}
+			if (ifFound('item105')){
+				document.getElementById('item105').setAttribute('title', getItemData(105, 1) + "\nDropped from pyramid\n" + document.getElementById('item105').getAttribute('title'))
+			}
+			if (ifFound('item106')){
+				document.getElementById('item106').setAttribute('title', getItemData(106, 1) + "\nDropped from oasis\n" + document.getElementById('item106').getAttribute('title'))
+			}
+			if (ifFound('item107')){
+				document.getElementById('item107').setAttribute('title', getItemData(107, 1) + "\nDropped from the desert\n" + document.getElementById('item107').getAttribute('title'))
+			}
+			if (ifFound('item108')){
+				document.getElementById('item108').setAttribute('title', getItemData(108, 1) + "\nDropped from policeman\n" + document.getElementById('item108').getAttribute('title'))
+			}
+			if (ifFound('item109')){
+				document.getElementById('item109').setAttribute('title', getItemData(109, 1) + "\nDropped from car\n" + document.getElementById('item109').getAttribute('title'))
+			}
+			if (ifFound('item110')){
+				document.getElementById('item110').setAttribute('title', getItemData(110, 1) + "\nDropped from car\n" + document.getElementById('item110').getAttribute('title'))
+			}
+			if (ifFound('item111')){
+				document.getElementById('item111').setAttribute('title', getItemData(111, 1) + "\nDropped from trash bin\n" + document.getElementById('item111').getAttribute('title'))
+			}
+			if (ifFound('item112')){
+				document.getElementById('item112').setAttribute('title', getItemData(112, 1) + "\nDropped from Doe Jane\n" + document.getElementById('item112').getAttribute('title'))
+			}
+			if (ifFound('item113')){
+				document.getElementById('item113').setAttribute('title', getItemData(113, 1) + "\nDropped from the capital\n" + document.getElementById('item113').getAttribute('title'))
+			}
+			if (ifFound('item114')){
+				document.getElementById('item114').setAttribute('title', getItemData(114, 1) + "\nDropped from kangaroo\n" + document.getElementById('item114').getAttribute('title'))
+			}
+			//if (ifFound('itemAA')){
+			//	document.getElementById('itemAA').setAttribute('title', getItemData(AA, 1) "\nDropped from \n" + document.getElementById('itemAA').getAttribute('title'))
+			//}
+		}//itemsHere replace AA with number
 		function anomOn(){
 			gameOn(1)//remove when update maybe?
 			for (let N = 1; N <= maxAnomSlots; N++){
@@ -19968,6 +22576,7 @@ Restrictions: killed all enemies at caves at least once
 							document.getElementById('anoma' + N).setAttribute('title', makeAnomTitle(localStorage.getItem('anom' + N)))
 							save()
 							console.log('Collected a ' + rarity + ' ' + item + ' with bonus ' + bonus)
+							consoleMes("You got an enhanced item", 4)
 							if (rarity === 'C'){
 								newSave('ach44',0)
 								localStorage.ach44 = parseInt(localStorage.ach44) + 1
@@ -20342,16 +22951,16 @@ Restrictions: killed all enemies at caves at least once
 						recyclePro = recyclePro + 75
 					} else if (rarity === 'L'){
 						recyclePro = recyclePro + 50
-						recycleReward(1)
+						recycleReward(1,1)
 					} else if (rarity === 'Re'){
 						recyclePro = recyclePro + 50
-						recycleReward(2)
+						recycleReward(2,1)
 					} else if (rarity === 'Co'){
 						recyclePro = recyclePro + 50
-						recycleReward(7)
+						recycleReward(7,1)
 					}
 					if (recyclePro >= 100){
-						recycleReward(1)
+						recycleReward(1,1)
 						recyclePro = recyclePro - 100
 						anomAnim(0,anomBarValue + 1)
 					}
