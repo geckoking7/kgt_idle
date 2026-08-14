@@ -9,7 +9,7 @@
 	<body oncontextmenu='return false' id='body'>
 		<img id='mainBack' src='tutZoMegaBack.png' class='' style='left: 0; top: 0; margin: 0; width: 100%; height: 100%; z-index: -1;'>
 		<h2 class="start" id="start">Hi</h2>
-		<h3 class="start" id="start1">This is very bad game but don't copyright or I sue you</h3>
+		<h3 class="start" id="start1">This is very bad game but don't copyright or I sad</h3>
 		<h3 class="start" id="start2">Any suggestions/bugs click <a target=”_blank” href='https://github.com/geckoking7/kgt_idle/discussions'>here</a>     <span style='font-weight: 100; font-size: 10px;'>Please game very bad</span></h3>
 		<a href="changelog.html" id='changelog' style='margin-left: 20px;' class='bloc'>Changelog</a>
 		<button class="startB" id="startB">Play</button>
@@ -1172,7 +1172,7 @@ Restrictions: killed all enemies at caves at least once
 				<option value='4'>School</option>
 				<option id='stiz5' class='hide' value='5'>American Airspace</option>
 				<option id='stiz6' class='hide' value='6'>Area 51</option>
-				<option id='stiz7' class='hide' value='7'>Area 51</option>
+				<option id='stiz7' class='hide' value='7'>Caves</option>
 			</select>
 			<div class='hide' id='kilBS'>
 				<input id='kilB' type="radio" name='DBui' style='position: absolute; top: 197; left: 171;' onclick=kilB()>
@@ -1310,6 +1310,11 @@ Restrictions: killed all enemies at caves at least once
 				<button title="Coders Lab" class="btnr coderslab" id="codpb"></button>
 				<button title="The Alternating Reality Of Yes" class="btnr taroy" id="tarpb"></button>
 				<button title="Underground research facility" class="btnr urf" id="urfpb"></button>
+				<button title="Overground research facility" class="btnr orf" id="orfpb"></button>
+				<button title="Ocean" class="btnr oceZB" id="ocepb"></button>
+				<button title="Forest" class="btnr forZB" id="forpb"></button>
+				<button title="Desert" class="btnr desZB" id="despb"></button>
+				<button title="Capital" class="btnr capZB" id="cappb"></button>
 			</div>
 			<div id='tutpa'>
 				<img src="tutorialpage.png" alt="stuff">
@@ -1373,6 +1378,36 @@ Restrictions: killed all enemies at caves at least once
 			</div>
 			<div id='urfpa'>
 				<img src="urfpage.png" alt="stuff">
+				<h5 title="Build [Q]" class="build" onmousedown=droneopen()></h5>
+				<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
+				<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
+			</div>
+			<div id='orfpa'>
+				<img src="z12page.png" alt="stuff">
+				<h5 title="Build [Q]" class="build" onmousedown=droneopen()></h5>
+				<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
+				<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
+			</div>
+			<div id='ocepa'>
+				<img src="z13page.png" alt="stuff">
+				<h5 title="Build [Q]" class="build" onmousedown=droneopen()></h5>
+				<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
+				<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
+			</div>
+			<div id='forpa'>
+				<img src="z14page.png" alt="stuff">
+				<h5 title="Build [Q]" class="build" onmousedown=droneopen()></h5>
+				<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
+				<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
+			</div>
+			<div id='despa'>
+				<img src="z15page.png" alt="stuff">
+				<h5 title="Build [Q]" class="build" onmousedown=droneopen()></h5>
+				<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
+				<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
+			</div>
+			<div id='cappa'>
+				<img src="z16page.png" alt="stuff">
 				<h5 title="Build [Q]" class="build" onmousedown=droneopen()></h5>
 				<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
 				<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
@@ -1443,7 +1478,7 @@ Restrictions: killed all enemies at caves at least once
 			<h5 title="USB inventory [W]" class="USBinvent" onmousedown=usbinventory()></h5>
 			<h5 title="Zone library [E]" class="zl" onmousedown=zL()></h5>
 			<h5 style='font-size: 40; position: absolute; left: 476; top: 130; font-family: Arial; margin: 0; color: rgb(0,255,0); text-align: center; width: 100px;' id='Gvalue2'>0</h5>
-			<h5 id='greenU1' style='width: 30; height: 30; top: 311; left: 259; background: url("greenU1.png")' class='greenU' title='Unlock the anom slot xp upgrade' onclick='buyGreenU(1, 20)'></h5>
+			<h5 id='greenU1' style='width: 30; height: 30; top: 311; left: 259; background: url("greenU1.png")' class='greenU' title='Unlock the enhanced item slot xp upgrade' onclick='buyGreenU(1, 20)'></h5>
 			<h5 id='greenU2' style='width: 30; height: 30; top: 311; left: 299; background: url("greenU2.png")' class='greenU' title='Unlock the stone multiplier xp upgrade' onclick='buyGreenU(2, 20)'></h5>
 		</div>
 		<!-- GAMING FEATURE :O -->
@@ -2190,8 +2225,10 @@ Restrictions: killed all enemies at caves at least once
 			newText.textContent = text
 			newText.setAttribute("id", "consoleText" + consoleText)
 			newText.style.top = 20 + consoleText * 15
-			if (type === 1){
-				newText.style.background = "#FA0"
+			if (type === 0){
+				newText.style.background = "#FFF"
+			} else if (type === 1){
+				newText.style.background = "#F00"
 			} else if (type === 2){
 				newText.style.background = "#AAA"
 				console.log(text)
@@ -2205,12 +2242,22 @@ Restrictions: killed all enemies at caves at least once
 					newText.style.background = "#F69"
 				} else if (text.includes("S____")){
 					newText.style.background = "#F0F"
+				} else if (text.includes("ightPicker")){
+					newText.style.background = "#0AF"
 				}
 			} else if (type === 3){
 				newText.style.background = "#79C"
 				//newText.style.fontSize = "5px"
 			} else if (type === 4){
 				newText.style.background = "#7F7"
+			} else if (type === 5){
+				if (text.includes("200")){
+					newText.style.background = "#EA1"
+				} else if (text.includes("50")){
+					newText.style.background = "#777"
+				} else {
+					newText.style.background = "#C73"
+				}
 			}
 		}
 		function save(){
@@ -3277,7 +3324,7 @@ Restrictions: killed all enemies at caves at least once
 			document.getElementById('mainBack').classList.add('hide')
 			if (parseInt(ekills.textContent) != 0){
 				welcome.textContent = 'Welcome Back :D'
-				consoleMes("Welcome back :)", 1)
+				consoleMes("Welcome back :)", 0)
 			}
 			var hideStart = document.getElementById('welcome1')
 			hideStart.classList.add('show')
@@ -3787,6 +3834,7 @@ Restrictions: killed all enemies at caves at least once
 				advC.textContent = parseInt(advC.textContent) + 1
 				hideAllMenu()
 				hide('fire')
+				hide("xpReward")
 				document.getElementById('ameair').classList.replace('btny','btnr')
 				show('attackshadow')
 				show('blockshadow')
@@ -5325,7 +5373,7 @@ Restrictions: killed all enemies at caves at least once
 			sdrop('vodkabottle', 'Bottle o vodka - Why are the drones giving you alcohol? - +0.001 Stone Drops', 10000)
 		}
 		function full(N){
-			if (parseInt(localStorage.iF) === 2 && N === parseInt(localStorage.iN)){
+			if (parseInt(localStorage.iF) === 2 && N === parseInt(localStorage.iN) && document.getElementById("invent").classList.contains("hide")){
 				document.getElementById('inventory').textContent = 'Inventory full'
 				document.getElementById('inventory').classList.add('full')
 			}
@@ -5380,7 +5428,7 @@ Restrictions: killed all enemies at caves at least once
 								itemN = itemN + 1
 							}
 						}
-						N = 10248921
+						N = 80085
 						if (localStorage.itemF === '2' && flashT !== 1){
 							flash(document.getElementById('inventory'))
 						}
@@ -5431,7 +5479,7 @@ Restrictions: killed all enemies at caves at least once
 						document.getElementById('i' + N).classList.remove('empty')
 						document.getElementById('i' + N).setAttribute('title',title)
 						full(N)
-						N = 10248921
+						N = 11037
 						const itemSearch = document.getElementsByClassName('itemBVent');  // <------- EVERY NEW ITEM NEEDS TO HAVE A SPOT IN THE ITEM BOOK SO YES WORKS
 						var itemN = 1
 						for (const id of itemSearch) {
@@ -7038,6 +7086,14 @@ Restrictions: killed all enemies at caves at least once
 				adrop('valve',50)
 			} else if (z === 12){
 				adrop('sigma',50)
+			} else if (z === 13){
+				adrop('cannon',50)
+			} else if (z === 14){
+				adrop('stick2',50)
+			} else if (z === 15){
+				adrop('coconut',50)
+			} else if (z === 16){
+				adrop('tie',50)
 			}
 			return 0
 		}
@@ -7126,6 +7182,7 @@ Restrictions: killed all enemies at caves at least once
 				a.classList.remove('hide')
 				a.classList.remove('defi')
 				show('reg')
+				hide('xpReward')
 				document.getElementById('reg').classList.remove('regi')
 				show('emhp')
 				show('eatt')
@@ -14325,6 +14382,7 @@ Restrictions: killed all enemies at caves at least once
 							localStorage.sigmac = parseInt(localStorage.sigmac) + 1
 							KBify(localStorage.sigmac)
 							advc.textContent = parseInt(advC.textContent)
+							FPdrop(48,24)
 							if (localStorage.FSZf === '2' && FPzone(12)){
 								setTimeout(orfbat, 200, -1, 1)
 							} else {
@@ -14752,6 +14810,7 @@ Restrictions: killed all enemies at caves at least once
 							idrop("pegLeg",getItemData("pegLeg", 1), 400)
 							idrop("scale2",getItemData("scale2", 1), 100)
 							idrop("noteBottle",getItemData("noteBottle", 1), 20)
+							FPdrop(64,31)
 							KBify(localStorage.z13e8c)
 							advc.textContent = parseInt(advC.textContent)
 							if (localStorage.FSZf === '2' && FPzone(13)){
@@ -15087,6 +15146,7 @@ Restrictions: killed all enemies at caves at least once
 							localStorage.z14e8c = parseInt(localStorage.z14e8c) + 1
 							idrop("stick2",getItemData("stick2", 1), 200)
 							idrop("tooth",getItemData("tooth", 1), 100)
+							FPdrop(64,32)
 							KBify(localStorage.z14e8c)
 							advc.textContent = parseInt(advC.textContent)
 							if (localStorage.FSZf === '2' && FPzone(14)){
@@ -15414,6 +15474,7 @@ Restrictions: killed all enemies at caves at least once
 							localStorage.z15e8c = parseInt(localStorage.z15e8c) + 1
 							idrop("coconut",getItemData("coconut", 1), 400)
 							idrop("fishhide",getItemData("fishhide", 1), 100)
+							FPdrop(64,33)
 							KBify(localStorage.z15e8c)
 							advc.textContent = parseInt(advC.textContent)
 							if (localStorage.FSZf === '2' && FPzone(15)){
@@ -15828,6 +15889,7 @@ Restrictions: killed all enemies at caves at least once
 							localStorage.z16e8c = parseInt(localStorage.z16e8c) + 1
 							idrop("cape",getItemData("cape", 1), 100)
 							idrop("tie",getItemData("tie", 1), 100)
+							FPdrop(80,40)
 							KBify(localStorage.z16e8c)
 							advc.textContent = parseInt(advC.textContent)
 							if (localStorage.FSZf === '2' && FPzone(16)){
@@ -15922,6 +15984,7 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 		}
+		var sansHp = 0;
 		function SZ1bat(){
 			hideAllMenu()
 			advent()
@@ -16136,18 +16199,19 @@ Restrictions: killed all enemies at caves at least once
 				}
 			} else if (x === 4){
 				show('SZ1E4')
-				setEStats(1, 1, 1, 1)
-				battle(0, 5)
+				setEStats(1, 1, 1, 0)
+				sansHp = 30;
+				battle(0, 1)
 				function battle(ae, sp){
-					if (parseFloat(ehp.textContent) > 0 && parseFloat(hp.textContent) > 0 && thingy === SZ1check){
+					if (sansHp > 0 && parseFloat(hp.textContent) > 0 && thingy === SZ1check){
 						regen()
 						ae = ae + 1
 						if (ae === sp){
 							ae = 0
-							hp.textContent = parseInt(hp.textContent) -  parseInt(mhp.textContent) * 0.01
+							hp.textContent = parseInt(hp.textContent) -  parseInt(mhp.textContent) * 0.005
 						}
 						setTimeout(battle, 50, ae, sp)
-					} else if (parseFloat(ehp.textContent) <= 0){
+					} else if (sansHp <= 0){
 						localStorage.xp = parseFloat(localStorage.xp) + 1
 						hide('SZ1E4')
 						newSave('SZ1E4c',0)
@@ -16157,6 +16221,7 @@ Restrictions: killed all enemies at caves at least once
 						advc.textContent = parseInt(advC.textContent)
 						var qe = setTimeout(enki,500,advc.textContent)
 						document.getElementById("eHealth").style.width = '0px'
+						ehp.textContent = 0
 					} else {
 						playerdead()
 						hide('player')
@@ -16899,6 +16964,19 @@ Restrictions: killed all enemies at caves at least once
 						console.log('Hit ubercharged enemy')
 						setTimeout(ready,acd)
 						attackShadow(0,acd)
+					} else if (document.getElementById("SZ1").classList.contains("hide") === false && document.getElementById("SZ1E4").classList.contains("hide") === false){
+						sansHp = sansHp - 1
+						miss(0,missN + 1)
+						document.getElementById('attack').classList.replace('attack','attackcool')
+						document.getElementById('Pattack').classList.replace('pattack','pattackcool')
+						document.getElementById('Fattack').classList.replace('fattack','fattackcool')
+						if (parseFloat(attN.textContent) === 3){
+							var acd = parseFloat(localStorage.fattC) * parseFloat(attackcoolspeed.textContent) * parseFloat(cooldownspeed.textContent) * (0.95 ** antAlive) + parseFloat(attDelay.textContent)
+						} else {
+							var acd = 1000 * parseFloat(attackcoolspeed.textContent) * parseFloat(cooldownspeed.textContent) * (0.95 ** antAlive) + parseFloat(attDelay.textContent)
+						}
+						setTimeout(ready,acd)
+						attackShadow(0,acd)
 					} else {	
 						if (parseFloat(attN.textContent) === 1){
 							var dam = (LvlAttack() * (parseFloat(attM.textContent) * (Math.floor(Math.random() * 101)/250 + 0.8) * parseFloat(att.textContent))) - parseFloat(edef.textContent)/2
@@ -17111,12 +17189,15 @@ Restrictions: killed all enemies at caves at least once
 			if (kills === '10'){
 				KBthing(0,10)
 				console.log('10 Kill bonus')
+				consoleMes('10 Kill bonus',5)
 			} else if (kills === '50'){
 				KBthing(0,50)
 				console.log('50 Kill bonus')
+				consoleMes('50 Kill bonus',5)
 			} else if (kills === '200'){
 				KBthing(0,200)
 				console.log('200 Kill bonus')
+				consoleMes('200 Kill bonus',5)
 			}
 		}
 		function KBthing(t,b){ // t = frame (0 should be on all calls), bonus number
@@ -18780,6 +18861,62 @@ Restrictions: killed all enemies at caves at least once
 				}
 			}
 		}
+		function Dorf(hp, dN){
+			if (orf.classList.contains('btng')){
+				var dp = Math.floor(Math.random() * 100) + 1
+				if (dp <= 23){
+					idrop("healthstone2", getItemData("healthstone2",1),10000)
+				} else if (dp <= 25){
+					udrop('d5usb', 'What could ant possibly mean?', 10000)
+				}
+				if (Math.random() <= 0.2 && parseInt(glowwormc.textContent) >= 50){
+					return hp
+				}
+				return hp - Math.floor(Math.random() * 49) + 12
+			}
+		}
+		function Doce(hp, dN){
+			if (oceZB.classList.contains('btng')){
+				var dp = Math.floor(Math.random() * 100) + 1
+				if (dp <= 25){
+					idrop("healthstone2", getItemData("healthstone2",1),10000)
+				} else if (dp <= 30){
+					idrop("damagestone2", getItemData("damagestone2",1),10000)
+				}
+				if (Math.random() <= 0.2 && parseInt(glowwormc.textContent) >= 50){
+					return hp
+				}
+				return hp - Math.floor(Math.random() * 29) + 28
+			}
+		}
+		function Dorf(hp, dN){
+			if (orf.classList.contains('btng')){
+				var dp = Math.floor(Math.random() * 100) + 1
+				if (dp <= 20){
+					idrop("healthstone2", getItemData("healthstone2",1),10000)
+				} else if (dp <= 30){
+					idrop("defencestone2", getItemData("defencestone2",1),10000)
+				}
+				if (Math.random() <= 0.2 && parseInt(glowwormc.textContent) >= 50){
+					return hp
+				}
+				return hp - Math.floor(Math.random() * 29) + 28
+			}
+		}
+		function Dorf(hp, dN){
+			if (orf.classList.contains('btng')){
+				var dp = Math.floor(Math.random() * 100) + 1
+				if (dp <= 26){
+					idrop("healthstone2", getItemData("healthstone2",1),10000)
+				} else if (dp <= 30){
+					idrop("regenerationstone2", getItemData("regenerationstone2",1),10000)
+				}
+				if (Math.random() <= 0.2 && parseInt(glowwormc.textContent) >= 50){
+					return hp
+				}
+				return hp - Math.floor(Math.random() * 29) + 28
+			}
+		}
 		function ach38(){
 			var a = (parseInt(((document.getElementById('stiBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")))
 			var b = (parseInt(((document.getElementById('kilBP').textContent).split("").reverse().join("")).slice(0,-14).split("").reverse().join("")))
@@ -19181,6 +19318,7 @@ Restrictions: killed all enemies at caves at least once
 			hide('droneupgrade')
 			hide('usbVent')
 			hide('premDrone')
+			hide('greenSpending')
 			show('zonelib')
 			show('zoneLib')
 			hide('tutpa')
@@ -19194,6 +19332,11 @@ Restrictions: killed all enemies at caves at least once
 			hide('codpa')
 			hide('tarpa')
 			hide('urfpa')
+			hide('orfpa')
+			hide('ocepa')
+			hide('forpa')
+			hide('despa')
+			hide('cappa')
 			if (sky.classList.contains('btng')){
 				var a = document.getElementById('skypb')
 				a.classList.add('btnb')
@@ -19255,6 +19398,31 @@ Restrictions: killed all enemies at caves at least once
 			} else if (urf.classList.contains('btny')){
 				document.getElementById('urfpb').classList.add('btny')
 			}
+			if (orf.classList.contains('btng')){
+				document.getElementById('orfpb').classList.replace('btnr','btnb')
+			} else if (orf.classList.contains('btny')){
+				document.getElementById('orfpb').classList.add('btny')
+			}
+			if (oceZB.classList.contains('btng')){
+				document.getElementById('ocepb').classList.replace('btnr','btnb')
+			} else if (oceZB.classList.contains('btny')){
+				document.getElementById('ocepb').classList.add('btny')
+			}
+			if (forZB.classList.contains('btng')){
+				document.getElementById('forpb').classList.replace('btnr','btnb')
+			} else if (forZB.classList.contains('btny')){
+				document.getElementById('forpb').classList.add('btny')
+			}
+			if (desZB.classList.contains('btng')){
+				document.getElementById('despb').classList.replace('btnr','btnb')
+			} else if (desZB.classList.contains('btny')){
+				document.getElementById('despb').classList.add('btny')
+			}
+			if (capZB.classList.contains('btng')){
+				document.getElementById('cappb').classList.replace('btnr','btnb')
+			} else if (capZB.classList.contains('btny')){
+				document.getElementById('cappb').classList.add('btny')
+			}
 		}
 		tutpb.onclick = tutps;
 		function tutps(){
@@ -19263,70 +19431,49 @@ Restrictions: killed all enemies at caves at least once
 		}
 		fiepb.onclick = fieps;
 		function fieps(){
-			var a = document.getElementById('fiepa')
-			a.classList.add('show')
-			a.classList.remove('hide')
-			var a = document.getElementById('zoneLib')
-			a.classList.add('hide')
+			show('fiepa')
+			hide('zoneLib')
 		}
 		skypb.onclick = skyps;
 		function skyps(){
 			if (skypb.classList.contains('btnb') || skypb.classList.contains('btny')){
-				var a = document.getElementById('skypa')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('zoneLib')
-				a.classList.add('hide')
+				show('skypa')
+				hide('zoneLib')
 			}
 		}
 		schpb.onclick = schps;
 		function schps(){
 			if (schpb.classList.contains('btnb') || schpb.classList.contains('btny')){
-				var a = document.getElementById('schpa')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('zoneLib')
-				a.classList.add('hide')
+				show('schpa')
+				hide('zoneLib')
 			}
 		}
 		amepb.onclick = ameps;
 		function ameps(){
 			if (amepb.classList.contains('btnb') || amepb.classList.contains('btny')){
-				var a = document.getElementById('amepa')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('zoneLib')
-				a.classList.add('hide')
+				show('amepa')
+				hide('zoneLib')
 			}
 		}
 		arepb.onclick = areps;
 		function areps(){
 			if (arepb.classList.contains('btnb') || arepb.classList.contains('btny')){
-				var a = document.getElementById('arepa')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('zoneLib')
-				a.classList.add('hide')
+				show('arepa')
+				hide('zoneLib')
 			}
 		}
 		cavpb.onclick = cavps;
 		function cavps(){
 			if (cavpb.classList.contains('btnb') || cavpb.classList.contains('btny')){
-				var a = document.getElementById('cavpa')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('zoneLib')
-				a.classList.add('hide')
+				show('cavpa')
+				hide('zoneLib')
 			}
 		}
 		minpb.onclick = minps;
 		function minps(){
 			if (minpb.classList.contains('btnb') || minpb.classList.contains('btny')){
-				var a = document.getElementById('minpa')
-				a.classList.add('show')
-				a.classList.remove('hide')
-				var a = document.getElementById('zoneLib')
-				a.classList.add('hide')
+				show('minpa')
+				hide('zoneLib')
 			}
 		}
 		codpb.onclick = codps;
@@ -19347,6 +19494,41 @@ Restrictions: killed all enemies at caves at least once
 		function urfps(){
 			if (urfpb.classList.contains('btnb') || urfpb.classList.contains('btny')){
 				show('urfpa')
+				hide('zoneLib')
+			}
+		}
+		orfpb.onclick = orfps;
+		function orfps(){
+			if (orfpb.classList.contains('btnb') || orfpb.classList.contains('btny')){
+				show('orfpa')
+				hide('zoneLib')
+			}
+		}
+		ocepb.onclick = oceps;
+		function oceps(){
+			if (ocepb.classList.contains('btnb') || ocepb.classList.contains('btny')){
+				show('ocepa')
+				hide('zoneLib')
+			}
+		}
+		forpb.onclick = forps;
+		function forps(){
+			if (forpb.classList.contains('btnb') || forpb.classList.contains('btny')){
+				show('forpa')
+				hide('zoneLib')
+			}
+		}
+		despb.onclick = desps;
+		function desps(){
+			if (despb.classList.contains('btnb') || despb.classList.contains('btny')){
+				show('despa')
+				hide('zoneLib')
+			}
+		}
+		cappb.onclick = capps;
+		function capps(){
+			if (cappb.classList.contains('btnb') || cappb.classList.contains('btny')){
+				show('cappa')
 				hide('zoneLib')
 			}
 		}
@@ -19478,7 +19660,7 @@ Restrictions: killed all enemies at caves at least once
 					setTimeout(redFuelling, 1000)
 				} else {
 					redGo(redCTr)
-					redCTr === 1
+					redCTr = 1
 					redFTr = 0
 				}
 			} else {
@@ -19544,7 +19726,7 @@ Restrictions: killed all enemies at caves at least once
 				} else {
 					greGo(greCTr)
 					greCTr = 1
-					redCTr = 0
+					greFTr = 0
 				}
 			} else {
 				greFTr = 0
@@ -21655,16 +21837,16 @@ Restrictions: killed all enemies at caves at least once
 					x = ["Regenstone","Regenerationstone - Now you gain more health from EXISTING :) - +1 R"]
 					break
 				case 7: case "healthstone2":
-					x = ["Healthstone2","Healthstone - Now you die less :) - +10 Hp"]
+					x = ["Healthstone 2","Healthstone - Now you die less :) - +10 Hp"]
 					break
 				case 8: case "damagestone2":
-					x = ["Damagestone2","Damagestone - Now you can end innocent souls more easily :) - +10 A"]
+					x = ["Damagestone 2","Damagestone - Now you can end innocent souls more easily :) - +10 A"]
 					break
 				case 9: case "defencestone2":
-					x = ["Defencestone2","Defencestone - Now you tough :) - +10 D"]
+					x = ["Defencestone 2","Defencestone - Now you tough :) - +10 D"]
 					break
 				case 10: case "regenerationstone2":
-					x = ["Regenstone2","Regenerationstone - Now you gain more health from EXISTING :) - +10 R"]
+					x = ["Regenstone 2","Regenerationstone - Now you gain more health from EXISTING :) - +10 R"]
 					break
 				case 11: case "healthstone2a":
 					x = ["H_____S____","10 Hp"]
@@ -22151,7 +22333,7 @@ Restrictions: killed all enemies at caves at least once
 				document.getElementById('item55').setAttribute('title', "Crown of king Antony the lll - Why musteth thee have destrodeth thou master? - +500 Hp +50 A -50 D\nDrops from the ant king (5%)\n" + document.getElementById('item55').getAttribute('title'))
 			}
 			if (ifFound('item56')){
-				document.getElementById('item56').setAttribute('title', "FightPicker69 - Unlocks a random enemy for you to bully. More info in settings\nDrops from the guard, skeleton, hoe, Cool math games, e, killer robot and WFU through negative expodential arithmetic\nI advise grinding of the hardest one to access for greater chance and it also has a higher cap\n" + document.getElementById('item56').getAttribute('title'))
+				document.getElementById('item56').setAttribute('title', "FightPicker69 - Unlocks a random enemy for you to bully. More info in settings\nDrops from the guard, skeleton, hoe, Cool math games, minibosses in zones after z9 and WFU through negative expodential arithmetic\nI advise grinding of the hardest zone you can access for a greater drop chance and cap\n" + document.getElementById('item56').getAttribute('title'))
 			}
 			if (ifFound('item57')){
 				document.getElementById('item57').setAttribute('title', "Leather pants - He’s got the drip - +10 Hp +4 D\nDrops from the A10 plane thing (8%)\n" + document.getElementById('item57').getAttribute('title'))
@@ -22519,6 +22701,18 @@ Restrictions: killed all enemies at caves at least once
 					} else if (item === 'sigma'){
 						bonus = createBonus(15,15,5,5,5,5)
 						chance = chance * adropMulti(1)
+					} else if (item === 'cannon'){
+						bonus = createBonus(20,20,12,12,12,12)
+						chance = chance * adropMulti(1)
+					} else if (item === 'stick2'){
+						bonus = createBonus(50,15,10,10,3,3)
+						chance = chance * adropMulti(1)
+					} else if (item === 'coconut'){
+						bonus = createBonus(15,50,10,10,3,3)
+						chance = chance * adropMulti(1)
+					} else if (item === 'tie'){
+						bonus = createBonus(5,5,15,15,20,20)
+						chance = chance * adropMulti(1)
 					} else if (item === 'droneDrop1'){
 						bonus = createBonus(35,35,4,4,9,9)
 						chance = chance * adropMulti(2)
@@ -22673,8 +22867,16 @@ Restrictions: killed all enemies at caves at least once
 				title = 'e - dropped from the alternating reality of yes'
 			} else if (item === 'valve'){
 				title = 'valve - dropped from the underground research facility'
-			} else if (item === 'e'){
+			} else if (item === 'sigma'){
 				title = 'sigma - dropped from the overground research facility'
+			} else if (item === 'cannon'){
+				title = 'cannon - dropped from the ocean'
+			} else if (item === 'stick2'){
+				title = 'stick 2 - dropped from the forest'
+			} else if (item === 'coconut'){
+				title = 'coconut - dropped from the desert'
+			} else if (item === 'tie'){
+				title = 'tie - dropped from the capital'
 			} else if (item === 'droneDrop1'){
 				title = 'ParryDroneSystem - dropped from a drone that lived a long and full life'
 			} else if (item === 'droneDrop2'){
@@ -22911,6 +23113,7 @@ Restrictions: killed all enemies at caves at least once
 		}
 		function recycle(slot, mm){
 			var e = window.event
+			console.log("recycling")
 			if ((e.which && e.which == 3 || e.button && e.button == 2) && document.getElementById('anomi' + slot).classList.contains('anomEmpty') === false || mm === 2){
 				let rarity = findRarity(localStorage.getItem('anom' + slot))
 				let item = findRarity(localStorage.getItem('anom' + slot), 1)

@@ -1878,7 +1878,7 @@
 		}
 		document.getElementById('rewardScoreText1').textContent = 'Score = ' + score
 		document.getElementById('rewardScoreText2').textContent = 'x' + (lootBoxesCollected + 1) * (parseInt(localStorage.GamP1) + 1) * (parseInt(localStorage.Diflvl))
-		xpReward = score * (lootBoxesCollected + 1) * (parseInt(localStorage.GamP1) + 1)
+		xpReward = score * ((lootBoxesCollected + 1) * (parseInt(localStorage.GamP1) + 1) * (parseInt(localStorage.Diflvl)))
 		document.getElementById('rewardScoreText3').textContent = 'Xp = ' + xpReward
 		localStorage.xp = parseInt(localStorage.xp) + xpReward
 	}
@@ -1980,7 +1980,7 @@
 				document.getElementById('rewardScoreText1').textContent = 'Score = ' + score
 				xpReward = score * (lootBoxesCollected + 1) * (parseInt(localStorage.GamP1) + 1)
 				document.getElementById('rewardScoreText3').textContent = 'Xp = ' + xpReward
-				//localStorage.xp = parseInt(localStorage.xp) + xpReward
+				localStorage.xp = parseInt(localStorage.xp) + (parseInt(thingy.getAttribute('value')) * ((lootBoxesCollected + 1) * (parseInt(localStorage.GamP1) + 1) * (parseInt(localStorage.Diflvl))))
 				thingy.remove()
 			} else if (type === 2){
 				thingy.children[0].classList.remove('hide')
