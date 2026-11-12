@@ -12,6 +12,12 @@ h2{
 h3{
 	
 }
+.handHover{
+	cursor: pointer;
+}
+.bannedHover{
+	cursor: not-allowed;
+}
 .start{
 	font-family: arial;
 	margin: 20px;
@@ -982,7 +988,7 @@ img{
 	background-image: url('fishscale2.png');
 }
 .noteBottle{
-	background-image: url('noteBottle.png');
+	background-image: url('notebottle.png');
 }
 .banana{
 	background-image: url('banana.png');
@@ -1003,7 +1009,7 @@ img{
 	background-image: url('fishtooth.png');
 }
 .paperChest{
-	background-image: url('paperChest.png');
+	background-image: url('paperchest.png');
 }
 .brick{
 	background-image: url('brickshoe.png');
@@ -1034,6 +1040,42 @@ img{
 }
 .gloves{
 	background-image: url('boxinggloves.png');
+}
+.seed2{
+	background-image: url('seed2.png');
+}
+.parachute{
+	background-image: url('parachute.png');
+}
+.gum{
+	background-image: url('gumi.png');
+}
+.dogtag{
+	background-image: url('dogtag.png');
+}
+.ring{
+	background-image: url('ring.png');
+}
+.bulb{
+	background-image: url('bulb.png');
+}
+.graphite{
+	background-image: url('graphite.png');
+}
+.googol{
+	background-image: url('googoli.png');
+}
+.wrench{
+	background-image: url('wrench.png');
+}
+.portalgun{
+	background-image: url('portalgun.png');
+}
+.equation{
+	background-image: url('equation.png');
+}
+.spagetti{
+	background-image: url('spagetti.png');
 }
 .useall{
 	background-image: url('useall.png');
